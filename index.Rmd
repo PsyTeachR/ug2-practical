@@ -1,0 +1,25 @@
+--- 
+title: "ug2-practical"
+author: "psyTeachR"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+description: ug2-practical-materials
+---
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+# add any packages you want to cite here
+knitr::write_bib(c(
+  .packages(), 'bookdown'
+), 'packages.bib')
+# make docs directory and include .nojekyll file for github
+if (!dir.exists('docs')) dir.create('docs')
+file.create('docs/.nojekyll')
+```
+
+# Introduction {-}
+
+Materials for the University of Glasgow School of Psychology Year 2 Research Methods and Statistics Practical Course
