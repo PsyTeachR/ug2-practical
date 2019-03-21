@@ -1,3 +1,4 @@
+
 ## PreClass Activiy
 
 
@@ -59,13 +60,7 @@ If at any point you are unsure about how to do something remember to think about
 ##### <span style="color:DARKGREEN"> Quickfire Question</span>
 We have put questions throughout to help you test your knowledge. When you type in or choose the correct answer, the dashed box will change color and become solid.
 
-- From the following options, why are we creating an RMarkdown document instead of simply using an R script? <select class='solveme' data-answer='["RMarkdown can combine report writing and analysis","Reproducible Science!"]'>
-    <option></option>
-    <option>RMarkdown can combine report writing and analysis</option>
-    <option>R Scripts can't run code</option>
-    <option>Reproducible Science!</option>
-</select>
-  
+- From the following options, why are we creating an RMarkdown document instead of simply using an R script? <select class='solveme' data-answer='["RMarkdown can combine report writing and analysis","Reproducible Science!"]'> <option></option> <option>RMarkdown can combine report writing and analysis</option> <option>R Scripts can't run code</option> <option>Reproducible Science!</option></select>  
 
 
 <div class='solution'><button>Explain This Answer!</button>
@@ -144,14 +139,7 @@ The third line (line 20) closes off the code chunk, again with the three backwar
 
 ##### <span style="color:DARKGREEN"> Quickfire Question</span>
 
-- From the following options what was the name or label of the **standard default code chunk** (i.e. the first code chunk on RMarkdown)? <select class='solveme' data-answer='["setup"]'>
-    <option></option>
-    <option>include</option>
-    <option>r</option>
-    <option>setup</option>
-    <option>FALSE</option>
-</select>
- 
+- From the following options what was the name or label of the **standard default code chunk** (i.e. the first code chunk on RMarkdown)? <select class='solveme' data-answer='["setup"]'> <option></option> <option>include</option> <option>r</option> <option>setup</option> <option>FALSE</option></select> 
 
 
 <div class='solution'><button>Explain This Answer</button>
@@ -235,14 +223,7 @@ You've got a large dataset of thousands of participant's personality and happine
 
 * You want to show the code you are running in your analysis but not show the output as this would be too much to display. Note that you want the code to run. Type in the box (e.g. `rule = set`) how you would set the `results` rule to do this? <input class='solveme nospaces' size='20' data-answer='["results = \"hide\""]'/>
 
-* You create a plot of happiness versus neuroticism scores but you want to hide the code and only show the output. How can you do this? <select class='solveme' data-answer='["echo = FALSE"]'>
-    <option></option>
-    <option>echo = TRUE</option>
-    <option>include = FALSE</option>
-    <option>code = HIDE</option>
-    <option>echo = FALSE</option>
-</select>
-
+* You create a plot of happiness versus neuroticism scores but you want to hide the code and only show the output. How can you do this? <select class='solveme' data-answer='["echo = FALSE"]'> <option></option> <option>echo = TRUE</option> <option>include = FALSE</option> <option>code = HIDE</option> <option>echo = FALSE</option></select>
 
 
 <div class='solution'><button>Explain This - I don't understand these answers</button>
@@ -255,12 +236,7 @@ In the second question, "include = FALSE" technically would hide the code, but t
   
 <br>  
 
-* True or False, writing `echo = TRUE` has the same effect on the output of a code as if you had no echo rule at all: <select class='solveme' data-answer='["TRUE"]'>
-    <option></option>
-    <option>TRUE</option>
-    <option>FALSE</option>
-</select>
-
+* True or False, writing `echo = TRUE` has the same effect on the output of a code as if you had no echo rule at all: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select>
 
 
 <div class='solution'><button>Explain This - Echo True or Not at all</button>
@@ -271,12 +247,7 @@ All of the rules have a default mode. For example, `echo`, `include`, and `eval`
   
 <br>  
 
-* True or False, there is no difference between the rules `results = "hide"` and `eval = FALSE` as they both hide the output: <select class='solveme' data-answer='["FALSE"]'>
-    <option></option>
-    <option>TRUE</option>
-    <option>FALSE</option>
-</select>
-
+* True or False, there is no difference between the rules `results = "hide"` and `eval = FALSE` as they both hide the output: <select class='solveme' data-answer='["FALSE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select>
 
 
 <div class='solution'><button>Explain This - What's the difference?</button>
@@ -304,21 +275,9 @@ So inline coding is really useful if you want to do calculations **within your t
 
 ##### <span style="color:DARKGREEN"> Quickfire Questions</span>
 
-- You need <select class='solveme' data-answer='["Three"]'>
-    <option></option>
-    <option>Two</option>
-    <option>One</option>
-    <option>Three</option>
-</select>
- back tick(s) to insert **code chunks**
+- You need <select class='solveme' data-answer='["Three"]'> <option></option> <option>Two</option> <option>One</option> <option>Three</option></select> back tick(s) to insert **code chunks**
 
-- Why is this inline code, `{r} 6*8` , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='solveme' data-answer='["Curly brackets are only needed for code chunks"]'>
-    <option></option>
-    <option>You need a space between each back tick and the code</option>
-    <option>Inline code cannot complete calcuations</option>
-    <option>Curly brackets are only needed for code chunks</option>
-</select>
-
+- Why is this inline code, `{r} 6*8` , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='solveme' data-answer='["Curly brackets are only needed for code chunks"]'> <option></option> <option>You need a space between each back tick and the code</option> <option>Inline code cannot complete calcuations</option> <option>Curly brackets are only needed for code chunks</option></select>
 
 
 <div class='solution'><button>Explain This - Why are these answers correct?</button>
@@ -357,22 +316,10 @@ Finally, you might want to add headings and sub-headings to your file. For examp
 
 * If \* puts words into italics, and \*\* puts words into bold, type in the box what might you put before (and technically after) a word to put it into italics with bold? <input class='solveme nospaces' size='3' data-answer='["***"]'/>
 
-* True or False: The **more** '#'s you include, the **smaller** the header is: <select class='solveme' data-answer='["TRUE"]'>
-    <option></option>
-    <option>TRUE</option>
-    <option>FALSE</option>
-</select>
-  
+* True or False: The **more** '#'s you include, the **smaller** the header is: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select>  
 
 
-* From the options, the most common order of headings found in a Psychology Journal are: <select class='solveme' data-answer='["Introduction, Methods, Results, Discussion"]'>
-    <option></option>
-    <option>Discussion, Introduction, Methods, Results</option>
-    <option>Discussion, Results, Methods, Introduction</option>
-    <option>Introduction, Methods, Results, Discussion</option>
-    <option>Introduction, Results, Methods, Discussion</option>
-</select>
-
+* From the options, the most common order of headings found in a Psychology Journal are: <select class='solveme' data-answer='["Introduction, Methods, Results, Discussion"]'> <option></option> <option>Discussion, Introduction, Methods, Results</option> <option>Discussion, Results, Methods, Introduction</option> <option>Introduction, Methods, Results, Discussion</option> <option>Introduction, Results, Methods, Discussion</option></select>
 
 
 <div class='solution'><button>Explain This - I don't get these answers</button>

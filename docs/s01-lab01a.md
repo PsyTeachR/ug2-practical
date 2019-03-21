@@ -1,5 +1,6 @@
+
 # Lab 1
 
 ## overview
 
-There is no aim....
+The aim of this lab is to......
