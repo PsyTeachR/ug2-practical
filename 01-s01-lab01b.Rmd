@@ -47,7 +47,7 @@ The long way would be to close the file and start again. The shorter way would b
 
 Immediately below the header information you will see the default setup **code chunk** as shown in Figure \@ref(fig:img-setup-chunk). Most of the time you will not edit the information in this chunk and you will add information, text, and code, below it.  
 
-```{r img-setup-chunk, echo = FALSE, out.width='75%', fig.cap = "The defualt setup code chunk"}
+```{r img-setup-chunk, echo = FALSE, out.width='100%', fig.cap = "The defualt setup code chunk"}
 
 knitr::include_graphics("images/s01-lab01/preclass/rmd_defaultchunk.png")
 ```
@@ -98,7 +98,7 @@ If you look at the default setup code chunk you can see the code chunk has the n
 
 Now would be a good time to try knitting your file to see what the code chunks do. You can do this using the **Knit button** at the top of the RStudio screen:
 
-```{r img-the-knit-button, echo = FALSE, out.width='50%', fig.cap = "The knit button. Clicking this will knit your file."}
+```{r img-the-knit-button, echo = FALSE, out.width='75%', fig.cap = "The knit button. Clicking this will knit your file."}
 
 knitr::include_graphics("images/s01-lab01/preclass/rmd_knit.png")
 
@@ -115,16 +115,9 @@ A good way to think about this is if you have an exam, it isn't helpful to be to
 `r unhide()`  
 
 <br>
-After saving the file a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the \`\`\`{r} and the closing \`\`\` in your code chunk have gone.
+After saving the file a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the \`\`\`{r} and the closing \`\`\` in your code chunk have gone. Whenever you knit an RMarkdown file these lines will disappear leaving only the code within. You'll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the data or not through adding rules.
 
-```{r img-rmd-summary1, echo = FALSE, out.width='50%', fig.cap = "The Rmd Summary 1"}
-
-knitr::include_graphics("images/s01-lab01/preclass/rmd_summary.png")
-```
-
-Whenever you knit an RMarkdown file these lines will disappear leaving only the code within. You'll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the data or not through adding rules.
-
-```{r img-rmd-summary2, echo = FALSE, out.width='50%', fig.cap = "The Rmd Summary 2"}
+```{r img-rmd-summary2, echo = FALSE, out.width='100%', fig.cap = "The knitted summary output"}
 
 knitr::include_graphics("images/s01-lab01/preclass/rmd_summary2.png")
 ```
@@ -135,7 +128,7 @@ It can often be a good idea or even necessary to show the data or the outcome of
 
 **To hide the output but show the code** we use the `results = "hide"` rule:
 
-```{r img-results-hide, echo = FALSE, out.width='50%', fig.cap = "The Results Hide Rule"}
+```{r img-results-hide, echo = FALSE, out.width='100%', fig.cap = "The results Rule"}
 
 knitr::include_graphics("images/s01-lab01/preclass/rmd_hide.png")
 ```
@@ -144,8 +137,13 @@ knitr::include_graphics("images/s01-lab01/preclass/rmd_hide.png")
 **Add this rule into your example code chunk, as shown above, and knit the file again. What happens?** Note that there is a comma separating the name of the chunk and the rule. You should now see the code only and not the data.
 <br>
 Alternatively, we can **Hide the code, but show the ouput** by using the `echo = FALSE` rule:   
-![](images/s01-lab01/preclass/rmd_echo.png)  
 
+```{r img-echo-hide, echo = FALSE, out.width='100%', fig.cap = "The echo Rule"}
+
+knitr::include_graphics("images/s01-lab01/preclass/rmd_echo.png")
+```
+
+<br>
 In your template Rmd file the rule echo is set to `FALSE` meaning to show the figure and not the code. **Change the rule in your code to `echo` and set it as `TRUE`, then knit the file again**. What happens?  
 
 `r hide("Explain This - Why would I hide my code?")`  
@@ -157,14 +155,20 @@ Remember from Level 1 where we called in libraries to our environment. The "echo
 <br>
 You might want to **hide both the code AND the output** by using the `include` rule:
 
-![](images/s01-lab01/preclass/rmd_hide_both.png)
+```{r img-include-hide, echo = FALSE, out.width='100%', fig.cap = "The include Rule"}
+
+knitr::include_graphics("images/s01-lab01/preclass/rmd_hide_both.png")
+```
 
 <br>
 **Change the rule to your example code chunk, as shown above, to `include = FALSE` and then knit the file again**. What happens? Note that here the code still runs. It just does not show you anything. 
 
 Finally, you can use the `eval` rule which specifies whether or not you want the code chunk you have written to be evaluated when you knit the RMarkdown file. Evaluated means to run or carry out the code. Here, the `eval = FALSE` rule will stop the code from being evaluated. The code will be shown because there is no rule stopping it but there will be no output because it won't get evaluated because of the `eval` rule being `FALSE`. 
 
-![](images/s01-lab01/preclass/rmd_eval.png)
+```{r img-eval-hide, echo = FALSE, out.width='100%', fig.cap = "The eval Rule"}
+
+knitr::include_graphics("images/s01-lab01/preclass/rmd_eval.png")
+```
 
 <br>
 This might be useful in cases where you want to show the code relating to how you programmed your stimuli for an experiment, but you don't necessarily want it to run as part of the RMarkdown file. 
@@ -179,9 +183,9 @@ You've got a large dataset of thousands of participant's personality and happine
 
 `r hide("Explain This - I don't understand these answers")`
 ```{block, type = "info"}
-The first answer should be results = "hide" as you want to show the code and run the code but not necessarily show the output of the code.
+The first answer should be `results = "hide"` as you want to show the code and run the code but not necessarily show the output of the code.
     
-In the second question, "include = FALSE" technically would hide the code, but this also hides the output! "echo = FALSE" allows you to still see your plot while hiding the code you want hidden. "code = HIDE" - if only it were that simple! The aim of these questions aren't to help you memorise these codes (no one can do that!), they're to help you gain a better understanding of how to apply these codes when you come across them in the future.
+In the second question, `include = FALSE` technically would hide the code, but this also hides the output! `echo = FALSE` allows you to still see your plot while hiding the code you want hidden. `code = HIDE` - if only it were that simple! The aim of these questions aren't to help you memorise these codes (no one can do that!), they're to help you gain a better understanding of how to apply these codes when you come across them in the future.
 ```
 `r unhide()`  
 <br>  
@@ -199,16 +203,14 @@ All of the rules have a default mode. For example, `echo`, `include`, and `eval`
 
 `r hide("Explain This - What's the difference?")`
 ```{block, type = "info"}
-In the first rule, `results = "hide", the code is evaluated and results are produced but the output is hidden. In the second rule, `eval = FALSE`, the code is not evaluated and therfore no results or output has been produced. If you need your output for a later part of the code then you would use the `results` rule. If you don't need the output and just want to show the code as an example then you would use the `eval` rule.
+In the first rule, `results = "hide"`, the code is evaluated and results are produced but the output is hidden. In the second rule, `eval = FALSE`, the code is not evaluated and therefor no results or output has been produced. If you need your output for a later part of the code then you would use the `results` rule. If you don't need the output and just want to show the code as an example then you would use the `eval` rule.
 ```
 `r unhide()`  
 
 ### Adding Inline Code
 
-An alternative way to add code to a report is through what is called **inline coding**. Inline coding is slightly different to code chunks' you don't use a code chunk in fact. Inline coding can be inserted using a back-tick, then the letter `r`, followed by a space, the code you want to include, then another back-tick. For example, writing <code>&#096;r 2+2&#096;</code> would return the answer **4** when you knit the file instead of showing the code. Note that you do not do this inside a code chunk, you do this in line with your text, e.g.:
+An alternative way to add code to a report is through what is called **inline coding**. Inline coding is slightly different to code chunks' you don't use a code chunk in fact. Inline coding can be inserted using a back-tick, then the letter `r`, followed by a space, the code you want to include, then another back-tick. For example, writing `r backtick("r 2 + 2")` would return the answer **4** when you knit the file instead of showing the code. Note that you do not do this inside a code chunk, you do this in line with your text, e.g.:
 <br><br>
-**"We ran <code>&#096;r 2+2&#096;</code> people".** 
-
 **"We ran `r backtick("r 2+2")` people".** 
 <br><br>
 Which when knitted becomes: 
@@ -221,7 +223,7 @@ So inline coding is really useful if you want to do calculations **within your t
 
 - You need `r mcq(c("Two", "One", answer = "Three"))` back tick(s) to insert **code chunks**
 
-- Why is this inline code, `{r} 6*8` , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. `r mcq(c("You need a space between each back tick and the code", "Inline code cannot complete calcuations", answer = "Curly brackets are only needed for code chunks"))`
+- Why is this inline code, `r backtick("r 6 * 8")` , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. `r mcq(c("You need a space between each back tick and the code", "Inline code cannot complete calcuations", answer = "Curly brackets are only needed for code chunks"))`
 
 `r hide("Explain This - Why are these answers correct?")`
 ```{block, type = "info"}
@@ -235,21 +237,21 @@ Inline coding does not use the curly brackets around the `r`. All you need is a 
 
 The last thing we want to show you in this preclass activity is how to format your text. When you're not writing in code chunks you can format your document in lots of different ways just like you would in a Word document. The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf", target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out. 
 
-For example, we can make some text **bold** by including two \*\* (two asterisks) at the start and end of the text we want to present in bold font. 
-
-```{r img-bold-example, echo = FALSE, out.width='50%', fig.cap = "Bold Example"}
-
-knitr::include_graphics("images/s01-lab01/preclass/inlinecoding2.PNG")
-```
-  
-<br>
+We can make some text **bold** by including two \*\* (two asterisks) at the start and end of the text we want to present in bold font. For example:
+<br><br>
+"We ran \*\*4 people\*\*. 
+<br><br>
+Which when knitted becomes: 
+<br><br>
+"We ran **4 people**".
+<br><br>
 **Now write some text in your Rmd file and put it in bold.** Knit the file to check it worked.   
 
 You could also try use italics by putting a single \* (asterisk) at the start and end of the word or sentence. **Try this now**
 
-Finally, you might want to add headings and sub-headings to your file. For example, maybe you are writing a Psychology journal article and want to put in a header for the Introduction, Methods, Results, or Discussion sections. We do this using the # (hashtag) symbol.
+Finally, you might want to add headings and sub-headings to your file. For example, maybe you are writing a Psychology journal article and want to put in a header for the Introduction, Methods, Results, or Discussion sections. We do this using the # (hashtag) symbol as shown in Figure \@ref(fig:img-header-levels).
 
-```{r img-header-levels, echo = FALSE, out.width='50%', fig.cap = "Inputting different Header levels using #s"}
+```{r img-header-levels, echo = FALSE, out.width='100%', fig.cap = "Inputting different Header levels using #s"}
 
 knitr::include_graphics("images/s01-lab01/preclass/rmd_hashtag.png")
 ```
@@ -269,7 +271,7 @@ knitr::include_graphics("images/s01-lab01/preclass/rmd_hashtag.png")
 
 `r hide("Explain This - I don't get these answers")`
 ```{block, type = "info"}
-If * at the start and end of the word puts it in italics (e.g. *italics*) and ** puts it in bold (e.g. **bold**), then putting three *** at the start and end will put it in italics with bold (e.g. ***italics-bold***).
+If \* at the start and end of the word puts it in italics (e.g. *italics*) and \*\* puts it in bold (e.g. **bold**), then putting three \*\*\* at the start and end will put it in italics with bold (e.g. ***italics-bold***).
     
 It is true that the more #'s you use, the smaller the heading is. Word and other document writers use different headings as well. Here, # gives the biggest heading, and it gets smaller and smaller with every extra #.
 
@@ -277,6 +279,7 @@ Finally, in Psychology, the vast majority of journal articles are written in the
 ```
 `r unhide()`  
 
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Preclass Activity Complete!</span>
 
 Well done on working your way through this activity. Be sure to make notes for yourself, and to post any questions on the forums that you may have. See you in the lab!  

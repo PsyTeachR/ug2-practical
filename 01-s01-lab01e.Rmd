@@ -1,4 +1,122 @@
-## Solutions
+## Solutions to Questions
 
+Below you will find the solutions to the questions from the preclass and inclass activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### InClass Activities
+
+#### Task 2: Give your Report a Heading
+
+`r hide("Solution Task 2")`
+```{r, echo=FALSE, results='asis'}
+cat("You should have used only one hashtag to give the biggest heading size.
+
+`# Lab 1 - The magnitude of the Ponzo Illusion varies as a function of Age`
+
+")
+```
+`r unhide()`
+**click the tab to see the solution**
+<br>
+
+#### Task 3: Creating a Code Chunk
+
+`r hide("Solution Task 3")`
+```{r, echo=FALSE, results='asis'}
+
+cat("The `echo` rule should be set to `false`, as should the `warning` rule and `message` rule.
+
+The code chunk line should look like: {r load_data, echo = FALSE, warning = FALSE, message = FALSE}.
+
+Note we are not showing the back-ticks here but you will need to include them.")
+```
+`r unhide()`
+**Click the tab to see the solution**
+<br>
+
+#### Task 4: Writing your Report
+
+`r hide("Solution Task 4")`
+```{r, echo = FALSE, results='asis'}
+
+cat("Task 4 is about setting a title to `Header 2` style. This is done via two `##` at the start of the line - before the word Introduction in this case but dont forget the space. Worth noting that in normal scripts of R a `#` would result in turning the line into a comment. Here it sets it as `Header 2` much like a Word document header
+
+Set an ordered list by putting `1` followed by a `.` then a space. And so on. It will only work if there is a empty line above the list as such:
+
+1. The Perspective Hypothesis
+2. The Framing Hypothesis
+")
+```
+`r unhide()`
+**Click the tab to see the solution**
+<br>
+
+#### Task 5: Making Text Bold or Italicized
+
+`r hide("Solution Task 5")`
+```{r, echo = FALSE, results='asis'}
+cat("
+To turn text to bold you need to put two `**` at the start and end of the word or sentence you want as bold. 
+")
+```
+`r unhide()`
+**Click the tab to see the solution**
+<br>
+
+#### Task 6: Adding Links to the Data in your Methods
+
+`r hide("Solution Task 6")`
+```{r, echo = FALSE, results='asis'}
+cat("
+To set a header as `Header 2` style use `##` at the start of the line.
+To set a header as `Header 3` style use `###` at the start of the line.
+
+A link is created by putting the words you want to act as the link between `[]` and then the link immediately after in `()` e.g. 
+`[Lebowitz and Judisch (2016)]( https://www.jstor.org/stable/1420548?seq=1#page_scan_tab_contents)`
+")
+```
+`r unhide()`
+**Click the tab to see the solution**
+<br>
+
+#### Task 7: Adding an Image to your Methods
+
+`r hide("Solution Task 7")`
+```{r, echo = FALSE, results='asis'}
+cat("
+To set a header as `Header 3` style use `###` at the start of the line.
+
+An image is created by putting the words you want to act as the name of the image `[]` and then the link to the image immediately after in `()`. The key thing is to start with an exclamation mark `!` e.g. 
+`![name](link)`
+")
+```
+`r unhide()`
+**Click the tab to see the solution**
+<br>
+
+#### Task 8: Adding a Table to your Results
+
+`r hide("Solution Task 8")`
+```{r, echo = FALSE, results='asis'}
+cat("
+To set a header as `Header 2` style use `##` at the start of the line.
+
+code chunk heading should read as {r table, echo = FALSE}
+")
+```
+`r unhide()`
+**Click the tab to see the solution**
+<br>
+
+#### Task 9: Adding a Figure to your Results
+
+`r hide("Solution Task 9")`
+```{r, echo = FALSE, results='asis'}
+cat("
+code chunk heading should read as {r plot, include = TRUE}
+")
+```
+`r unhide()`
+**Click the tab to see the solution**
+<br>
 
 
