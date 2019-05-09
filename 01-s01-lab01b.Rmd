@@ -45,7 +45,7 @@ The long way would be to close the file and start again. The shorter way would b
 
 ### Code Chunks
 
-Immediately below the header information you will see the default setup **code chunk** as shown in Figure \@ref(fig:img-setup-chunk). Most of the time you will not edit the information in this chunk and you will add information, text, and code, below it.  
+Immediately below the header information you will see the default setup **code chunk** as shown in Figure \@ref(fig:img-setup-chunk). Most of the time you will not edit the information in this `r glossary("chunk")` and you will add information, text, and code, below it.  
 
 ```{r img-setup-chunk, echo = FALSE, out.width='100%', fig.cap = "The defualt setup code chunk"}
 

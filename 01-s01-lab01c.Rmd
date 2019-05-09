@@ -1,6 +1,11 @@
 ## InClass Activiy
 
-<span style="font-size: 22px; font-weight: bold; color: var(--green);">In order to complete this activity you should have worked through the Lab PreClass Activity. You may also need <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf", target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents.</span> 
+```{r inclass-setup1, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+ponzo_data <- read_csv("data/01-s01/inclass/PonzoAgeData.csv")
+```
+
+<span style="font-size: 16px; font-weight: bold; color: var(--green);">In order to complete this activity you should have worked through the Lab PreClass Activity. You may also need <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf", target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents.</span> 
 
 ### R Markdown and The Experimental Design Portfolio
 
@@ -74,155 +79,151 @@ After the lab it might be handy to write a reminder somewhere in your portfolio 
 ```
 `r unhide()`  
 
-**START HERE FUTURE PHIL**
-
 ### Task 2: Give your Report a Heading
 
 We are going to start off your portfolio with creating a brief report on the Leibowitz and Judisch paper, so we should give it a heading.
 
-1. After the `setup` code chunk, give your report a heading, e.g. `Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age`.
-2. Using hashtags, give this heading a `Header 1` size.
+1. After the `setup` code chunk, give your report a heading, e.g. **Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age**.
+2. Using hashtags, give this heading a **Header 1** size.
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("Remember that the fewer the number of hashtags the larger the heading size.
-")
+```{block, type = "info"}
+Remember that the fewer the number of hashtags the larger the heading size.
 ```
 `r unhide()`  
 
 ### Task 3: Creating a Code Chunk
 
-1. Set your working directory: `Session >> Set Working Directory >> Choose Directory`
-2. Download the data for this lab in a zip file by clicking [this link](http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_01/inclass/PonzoAgeData.zip). Unzip it and save it to the folder you are working in. 
+We are going to need the data soon so best to bring it in at the start.
+
+1. Set your working directory: **`Session >> Set Working Directory >> Choose Directory`**
+2. Download the data for this lab in a zip file by clicking [this link](./data/01-s01/inclass/PonzoAgeData.zip). Unzip it and save it to the folder you are working in. 
 3. Create a new code chunk in your R Markdown script, give this code chunk the name `load_data`.
 4. Copy and paste the code below into your code chunk.  Spend a couple of minutes with a partner reminding yourself what the code does. The answer is in the hint below.
 5. Now, add or change the `echo` rule in your code chunk so that when you knit the file, the code **will not be included** in the final document.
 
-```{r, echo = TRUE, warning = TRUE, message = FALSE}
+```{r, echo = TRUE, warning = TRUE, message = FALSE, eval = FALSE}
 library("tidyverse")
-ponzo_data <- read_csv("data/01-s01/inclass/PonzoAgeData.csv")
+ponzo_data <- read_csv("PonzoAgeData.csv")
 ```
 
-**Knit the document now and see what the output looks like. It will ask you to save the file somewhere. Remember that on the Lab PCs this is best done on your M: drive, given space.**  
+**Knit the document now and see what the output looks like. It will ask you to save the file somewhere. Remember that on the Boyd Orr Lab PCs this is best done on your M: drive, given available space.**  
 
-**Important**: There is a good chance that on the webpage that you have knitted, that you will see either some warnings or messages. You can suppress these using the `message` and `warning` rules within the code chunks as well. Try this now - the R-Markdown cheatsheet will help.
+**Important**: There is a good chance that on the webpage that you have knitted, that you will see either some warnings or messages. You can suppress these using the `message` and `warning` rules within the code chunks as well. Try this now - the PreClass Activities and the R-Markdown cheatsheet will help.
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type = "info"}
+
+**Hints:**
 
 * echo can equal TRUE or FALSE.
-
 * Remember to separate rules in the code chunk with commas. E.g. {r, rule1 = FALSE, rule2 = TRUE}
 
 **What does the code do?**
 
-**1.** Loads the `tidyverse` packages and all associated packages e.g. `dplyr`, `readr` and `ggplot2` (**You learned these last year!**).  
+1. Loads the `tidyverse` packages and all associated packages e.g. `dplyr`, `readr` and `ggplot2`. Remember, you used these in Level 1.  
+2. Loads in the data using the `read_csv()` function and stores it in `ponzo_data`.
 
-**2.** Loads in the data using the `read_csv()` function and stores it in `ponzo_data`.
-
-Important points to note:
+**Important points to note:**
 
 * `ponzo_data` could have been called anything but best to call it something that makes it clear what it is.
-
-* `read_csv()` is actually in the `readr` package and comes in with `tidyverse`. Always use this to read in data from a csv file.
-
-* remember `<-` essentially means `assign this to that`. Assigning the ponzo data to the table `ponzo_data` can actually can be written the other way around -  `read_csv(\"PonzoAgeData.csv\") -> ponzo_data` - but convention usually puts it the way we have in the code.
-")
+* `read_csv()` is actually in the `readr` package and is available to you only after you have loaded in the `tidyverse` through `library(tidyverse)`. We will always tell you to use `read_csv()` to read in data from a csv file.
+* remember `<-` essentially means `assign this to that`. Assigning the ponzo data to the table `ponzo_data` can actually can be written the other way around -  `read_csv("PonzoAgeData.csv") -> ponzo_data` - but convention usually puts it the way we have in the code.
 ```
 `r unhide()`  
 
 `r hide("Portfolio Point - Set Working Directory")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-One of the most common issues we see with people using Rstudio is that they forget to set their working directory to the folder containing the data file they are working on. This means that when you try to knit or run a code line it won't work because Rstudio doesn't know where the data is. Remember to set your working directory at the start of each session, using `Session >> Set Working Directory >> Choose Directory`. Do not put the a code to set your working directory in your scripts!
+```{block, type = "info"}
+One of the most common issues we see with people using RStudio is that they forget to set their working directory to the folder containing the data file they are working on. This means that when you try to knit or run a code line it won't work because RStudio doesn't know where the data is. Remember to set your working directory at the start of each session, using **`Session >> Set Working Directory >> Choose Directory`**. Avoid using code to set your working directory as this will only work on your machine and not others and is therefor not fully reproducible without editing the script.
     ")
 ```
 `r unhide()`  
 
 ### Task 4: Writing your Report
 
-1. Underneath the code chunk you entered, put a new heading called `Introduction` and set it as heading style 2
-2. Do a little research with your group on the **Ponzo Illusion** and write a sentence or two describing its function; include a citation to support your research. There is a link to the wikipedia page at the top of this lab which might help. Just a sentence or two.
-3. Finally, copy the following text into your report and below it put the names of two hypotheses behind the illusion in an **ordered list** style; i.e. 1... 2..., etc. The two hypotheses are **The Framing hypothesis** and **The Perspective hypothesis**. 
+Let's start giving this brief report some information and structure as we would a full report.
 
-> **"There are two underlying hypotheses that may explain the Ponzo Illusion. These are: ..."**
+1. Underneath the code chunk you entered, put a new heading called **Introduction** and give it a **Header 2** size.
+2. Next, do a little research with your group on the **Ponzo Illusion** and write a sentence or two describing its function; include a citation to support your research. There is a link to the wikipedia page on the illusion at the top of this lab which might help.
+3. Finally, copy the text in the box below into your report and finish the text by putting the names of two hypotheses behind the illusion below the sentence in an **ordered list** style; i.e. 1... 2..., etc. The two hypotheses are **The Framing hypothesis** and **The Perspective hypothesis**. 
 
-In your group, try out the following questions to remind you about using citations:
+```
+"There are two underlying hypotheses that may explain the Ponzo Illusion. These are: ..."
+```
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Question</span>
+
+Here are a couple of questions to try out in your group to remind you about using citations:
 
 When writing a report, how would you cite:
 
 - Papers with **five** authors for the **first** time? `r mcq(c("Author 1, Author 2, Author 3, Author 4, & Author 5", answer = "Author 1, Author 2, Author 3, Author 4, & Author 5, Year", "Author 1 et al., Year"))`
-
 - Papers with **five** authors for the **second** time? `r mcq(c("Author 1, Author 2, Author 3, Author 4, & Author 5", "Author 1, Author 2, Author 3, Author 4, & Author 5, Year", answer = "Author 1 et al., Year"))`
-
 - Papers with **seven** authors for the **first** time? `r mcq(c("Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, & Author 7", "Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, & Author 7, Year", answer = "Author 1 et al., Year"))`
-
 - **Two** papers in **one** paretheses? `r mcq(c("Order chronologically according to year, separated by a semi-colon", answer = "Order alphabetically according to first author surname, separated by a semi-colon"))`
-
 - **Two** papers of the **same** author? `r mcq(c("Order chronologically according to year, separated by a semi-colon", answer = "Order chronologically according to year, separated by a comma", "Order alphabetically by adding a letter to each year"))`
 
-For more information on how to format citations, you can look at this helpful [APA formatting and style guide](https://owl.english.purdue.edu/owl/resource/560/03/).  
+For more information on how to format citations, you can look at this helpful <a href = "https://owl.english.purdue.edu/owl/resource/560/03/", target = "_blank">APA formatting and style guide</a>.
 
 ### Task 5: Making Text Bold or Italicized
 
-1. In your report, format the line `There are two underlying hypotheses...` in bold. **It's a good idea to `knit` the file at this point to make sure it is working correctly.**  
+Sometimes we want to add some emphasis to text. 
+
+1. In your report, format the line `There are two underlying hypotheses...` in bold. Answering the below question might help you remember how. 
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Question</span>
 
 - Bold text and italicized text are created similarly, how do you create italicized text? `r mcq(c("* (before text)", "** (before and after text)", answer = "* (before and after text)", "** (before text)"))`  
 
+**It's a good idea to `knit` the file at this point to make sure the bold font is working correctly.**  
+
 ### Task 6: Adding Links to the Data in your Methods
 
 Good practice in a Report is to include information about where we got the data from. 
+1. Create a new heading below your list of the two hypotheses and call it **Methods**. Set it as **Header 2** size. 
+2. Below **Methods** write a new heading called **Data** and set it as **Header 3** size.
+3. Underneath the Methods heading, copy and paste the sentence in below and turn the citation into an internet link to the paper. 
 
-1. Create a new heading below your list of the two hypotheses and call it `Methods`. Set it as Header style 2. 
-2. Now below `Methods` write a new heading called `Data` and set it as Header style 3.
-3. Underneath this heading, copy the following sentence and turn the citation into a link to the paper. 
-
-> **"The data in this report was obtained from within the original paper, (Lebowitz and Judisch, 2016). "**
+> "The data in this report was obtained from within the original paper, (Lebowitz and Judisch, 2016). "
 
 **Now knit your document again to make sure your formatting is working. Titles should be bigger than normal text and the list should be indented and have numbers at the start of each line.**  
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type = "info"}
 You can get the web address by following the link to the paper shown towards the beginning of this lab activity. Include the https part.
 
-Use the R Markdown cheatsheet to see how to insert links. It has something to do with square brackets and circular brackets next to each other.
+Use the R Markdown cheatsheet to see how to insert links. It has something to do with square brackets and circular brackets next to each other - e.g. []().
 ")
 ```
 `r unhide()`
 
 ### Task 7: Adding an Image to your Methods
 
-For certain studies you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you'll see that adding an image is very similar to adding a link, the only difference is the `!`. For now, we will just add an image of the illusion taken from the internet to illustrate how to do this.
+For certain studies you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you'll see that adding an image is very similar to adding a link, the only difference is the `!` beforehand. For now we will just add an image of the illusion taken from the internet to illustrate how to do this.
 
-1. Below the sentence you added for Task 6, add a new heading called `Stimuli` and set it as Header style 3.
-2. Below the `Stimuli` heading, insert the image at the following web address:
+1. Below the sentence you added for Task 6, add a new heading called **Stimuli** and set it as **Header 3** size.
+2. Below the **Stimuli** heading, insert the image at the following web address:
 
-```{r, echo = FALSE, results = 'asis'}
-cat("https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg")
 ```
-<br>
+https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg
+```
+
 `r hide("Portfolio Point - A good methods section")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type = "info"}
 Remember that a good methods section will contain all the necessary information that would be required for another researcher to replicate your experiment exactly! It would normally be split into three or four sections including Ethics, Participants, Stimuli, and Procedure.
-    ")
 ```
 `r unhide()`  
 
 ### Task 8: Adding a Table to your Results
 
-Another benefit of R Markdown is that you can insert tables of results directly into your report without having to format them - though for aesthetical purposes you will want to eventually learn how to do this as well though.
+Another benefit of R Markdown is that you can insert tables of results directly into your report without having to format them - though for aesthetics you will want to learn how to format tables eventually. But for now...
 
-1. Create a new heading below your methods sentence, called `Results` and format it as Header style 2.
-2. Add a new code chunk, give it the name `table` and include the code below. 
-3. Add an `echo` rule so that the code **IS NOT** included in the final document but the ouput table **IS** included. 
+1. Create a new heading below your methods sentence, called **Results** and format it as **Header 2** size.
+2. Add a new code chunk and give it the name `table`, and include the code shown below. 
+3. Add an `echo` rule so that the code **IS NOT** included in the final document but the ouput table **is** included. 
 
 ```{r, results='hide'}
-group_by(ponzo_data, Sex) %>% summarise(NofGroups=n(), mean_length = mean(ComparisonLength))
+group_by(ponzo_data, Sex) %>% 
+  summarise(NofGroups=n(), mean_length = mean(ComparisonLength))
 ```
 
 **Now, knit your document to see what you have produced. You should not see the above code, just the output table.**  
@@ -234,27 +235,26 @@ Nearly all research reports have a figure so we will want to add one as well.
 1. Underneath your `table` code chunk, add a new code chunk and give it the name `plot`.
 2. Add the below code to the chunk and set the `include` rule so that both the code and the plot are included in the final report.
 
-`r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-Use RStudio's autocomplete (the tab button) to see the different options for include. Do this by typing `include =` and then hitting the tab button. You should see the options of `TRUE` or `FALSE`. This works for a lot of codes as well and functions you can't quite remember how to spell.
-    ")
+```{r, eval = FALSE}
+ggplot(ponzo_data, aes(x = Mean_Age, y = ComparisonLength, color = Sex)) +
+  geom_point()
+```
+
+`r hide("Portfolio Point - autocompletes")`
+```{block, type = "info"}
+You can use RStudio's autocomplete (the tab button) to see the different options for the different rules. For example, type `include =` and then hit the tab button on your keyboard. You should see the options of `TRUE` or `FALSE`. This works for a lot of functions you can't quite remember how to spell as well.
 ```
 `r unhide()`
 
-```{r, eval = FALSE}
-ggplot(ponzo_data, aes(x = Mean_Age, y = ComparisonLength, color = Sex)) + geom_point()
-```
+**Again, knit your document to make sure it is working correctly. Below your table you should now have the ggplot code followed by the nice scatterplot.** 
 
-**Again, knit your document to make sure it is working correctly. In the Plot section, you should have the code followed by the nice scatterplot. We will learn how to improve the visualisations as we progress. Your document is now the final report!. You can compare it to the one we have created to see if they match. Fix anything that is not formatted as in our template.**  
+We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report!. You can compare it to the one we have created to see if they match by clicking <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.html", target = "_blank">here for the html output</a> or <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.Rmd", target = "_blank">here for the R Markdown code</a>. Fix anything that is not formatted as in our template.**  
 
-`r hide("Portfolio Point - the ggplot package")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-Here is a real-world scenario of why plotting in R Markdown can save a lot of effort. Say you carried out an experiment, made a figure of the results using an **R script**, and wrote up the report using Microsoft Word. Then you realised you forgot to include 2 participants. To fix this, you would have to re-run the R script, make a new plot, save the plot, and **then** transfer that to your Word document. However, had you used **R Markdown** to begin with and both analysis and report were in the same place, then you can simply update the code within the document and a new figure will be created in the exact same place as the old one. **Magic!**  
+`r hide("Portfolio Point - The Power of R Markdown and the ggplot Package")`
+```{block, type = "info"}
+Here is a real-world scenario of why plotting in R Markdown can save a lot of effort. Say you carried out an experiment, made a figure of the results using an R Script, and wrote up the report using Microsoft Word. Then you realised you forgot to include 2 participants. To fix this, you would have to re-run the R script, make a new plot, save the plot, and **then** transfer that to your Word document. However, had you used **R Markdown** to begin with and both analysis and report were in the same place, then you can simply update the code within the document and a new figure will be created in the exact same place as the old one. **Magic!**  
 
-The code above uses the `ggplot2` package you used last year. This is the main package we use for plots, figures, visualisations, or however you like to call them. It can be called into the library by itself, or is automatically called in when you call in the `tidyverse` package. Later this semester we will revist `ggplot2` in more detail. For now, we are using it to make a scatterplot (`geom_point`) of Age (`Mean_Age`) and Comparison Length (`ComparisonLength`), and splitting the data for males and females.
-    ")
+The code above uses the `ggplot2` package you used in Level 1. This is the main package we use for plots, figures, visualisations, or however you like to call them. It can be called into the library by itself, or is automatically called in when you call in the `tidyverse` package. Later this semester we will revist `ggplot2` in more detail. For now, we are using it to make a scatterplot (`geom_point`) of Age (`Mean_Age`) and Comparison Length (`ComparisonLength`), and splitting the data for males and females.
 ```
 `r unhide()`  
 
@@ -265,13 +265,13 @@ In your group, have a brief discussion about the figure to answer the following 
 "Based on the distibrution of the data, shown in the above Figure, ..." `r mcq(c(answer = "as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line", "as age increases, people perceive a longer vertical line to be of same length as the standard vertical linge", "There is no relationship between Age and the Ponzo illusion", "This figure tells me nothing about the relationship between Age and the Ponzo illusion"))`
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type = "info"}
 What does each dot represent in the Figure, and what is the pattern of the dots?
-")
 ```
 `r unhide()`  
 
-We have now created a rough layout of a report. The only section we are missing is the Discussion where you relate the information from previous research to what your study showed. Feel free to add one in your own time; read the short summary at the end of the actual paper to help get your thoughts together. We will talk more about the structuring of reports all throughout the year so you will have a great idea of how to write one by the end of Level 2. Well done on succesfully creating your own R Markdown file! 
+### Job Done!
 
-**You should now be ready to complete the Homework Assignment for this lab. The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab. If you have any questions, please post them on the slack forum under the channel #level2_labs. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.**
+**Great work!** We have now created a rough layout of a report. The only section we are missing is the Discussion where you relate the information from previous research to what your study showed. Feel free to add one in your own time; read the short summary at the end of the actual paper to help get your thoughts together. We will talk more about the structuring of reports all throughout the year so you will have a great idea of how to write one by the end of Level 2. Well done on succesfully creating your own R Markdown file! 
+
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is SUMMATIVE and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab**. If you have any questions, please post them on the slack forum under the channel #level2_labs. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.**
