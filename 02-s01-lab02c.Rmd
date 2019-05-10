@@ -1,0 +1,325 @@
+## InClass Activity
+
+```{r lab2-inclass-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+responses <- read_csv("./data/02-s01/inclass/responses.csv")
+qformats <- read_csv("./data/02-s01/inclass/qformats.csv")
+scoring <- read_csv("./data/02-s01/inclass/scoring.csv")
+pinfo <- read_csv("./data/02-s01/inclass/pinfo.csv")
+``` 
+
+
+**Data Wrangling**
+
+In the PreClass activity we looked at using one-table Wickham verbs to `filter`, `arrange`, `group_by`, `select`, `mutate` and `summarise`. Now we will focus on working with data across two or more tables using verbs you will have come across in Level 1. The two main verbs we will add to the Wickham six today are `gather()` and `inner_join()`.
+
+* `gather()` allows us to **transform** a table from wide format to long format (more on this below).
+* `inner_join()` allows us to **combine** two tables together based on common columns.
+
+`r hide("Portfolio Point - Still not sure what a function is and how to remember them?")`
+```{r, echo = FALSE, results='asis'}
+cat("A function is a tool that takes an input, performs some action, and gives an output. They are nothing more than that. If you think about it your toaster is a function: it takes bread as an input; it perfoms the action of heating it up (nicely sometimes; on both sides would be a luxury); and it gives an output, the toast.  A good thing about the Wickham six functions is that they are nicely named as verbs to describe what they do - `mutate()` mutates (adds on a column); `arrange()` arranges columns, `summarise()` summarises, etc.
+    
+In terms of remembering all the functions, the truth is you don't have to know them all. However, through practice and repetition, you will quickly learn to remember which ones are which and what package they come from. Sort of like where to find your spoons in your kitchen - you don't look in the fridge, and then the washing machine, and then the drawer. Nope, you learnt, by repetition, to look in the drawer first time. It's the same with functions.  Keep in mind that research methods is like a language in that the more you use it and work with it the more it makes sense.
+    ")
+```
+`r unhide()`
+
+### A Note on Tidy Data 
+
+In the style of programming we teach the most efficient format/layout of data is what is known as `Tidy Data`, and any data in this format is easily processed through the `tidyverse` package. However, the data you work with will not always be formatted in the most efficient way possible. If that happens then our first step is to put it into `Tidy Data` format. There are three fundamental rules defining `Tidy Data`:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell (i.e. no grouping two variables together, e.g. time/date in one cell). 
+    i) A cell is where any specific row and column meet; a single data point in a tibble is a cell. 
+
+`r hide("Explain this - If it isnt Tidy then what is it?")`
+```{r, echo = FALSE, results='asis'}
+cat("We use `Tidy Data` because it is really efficient and works well with the `tidyverse`. However, people used to use data structured in `long` format or `wide` format. 
+    
+Long format is where each **row** is a participant from any given condition of your experiment and you would have a column saying what condition that participant was in and another column showing that participants score. 
+
+Wide format on the other hand, again each row was a participant, but each column was a condition, so each participant would be spread across multiple columns.  
+
+`Tidy` is a mix of both of these approachs and works best for data-wrangling.")
+```
+`r unhide()`
+
+### Today's Lab - Analysing the Autism Specturm Quotient (AQ)
+
+To continue building your data wrangling skills we will recap the L11 lab on tidying up data from the Autism Spectrum Quotient (AQ) questionnaire. In that lab we used the AQ10; a non-diagnostic short form of the AQ with only 10 questions per participant. It is a discrete scale and the higher a participant scores on the AQ10 the more autistic-like traits they are said to display. Anyone scoring 7 or above is recommended for further diagnosis. You can see an example of the AQ10 through this link: <a href="http://docs.autismresearchcentre.com/tests/AQ10.pdf">AQ10 Example</a>. Remember you can revisit your Level 1 notes at any time but we will recap here for you. 
+
+We have 66 participants and your goal in this lab is to find an AQ score for each of them through your data-wrangling skills. 
+
+We have four data files to work with: 
+
+* `responses.csv` containing the AQ survey responses to each of the 10 questions for our 66 participants
+* `qformats.csv` containing information on how a question should be coded - i.e. forward or reverse coding
+* `scoring.csv` containing information on how many points a specific response should get; depending on whether it is forward or reverse coded 
+* `pinfo.csv` containing participant information such as Age, Sex and importantly `ID` number.  
+<br>
+**[Click here to download](https://www.psy.gla.ac.uk/~phil/L2labs/Lab2Semester1/AQ_Analysis_Files.zip)** the files as a zip file. Alternatively download them from the Lab2 Moodle tab. Now unzip the files into a folder on your `M:` drive. We will use zip folders a lot so if this is something you struggle with please ask.
+
+`r hide("Portfolio Point - Open Data is best in csv format")`
+```{r, echo = FALSE, results='asis'}
+cat("`csv` stands for 'comma separated variable', and is a very basic way of transferring data. It really just stores numbers and text and nothing else. The great thing about being this basic is that it can be read by many different machines and does not need expensive licenses to open it.")
+```
+`r unhide()`
+
+Now **set your working directory** to the folder where you saved the `.csv` files. Do this through the dropdown menus at the top toolbar: `Session >> Set Working Directory >> Choose Directory` and then find your folder with your `.csv` files. This should be somewhere on your M: drive, but never in a folder titled `R`. 
+
+Today we will work in a Rscript instead of .Rmd but if you want to turn the lab into a RMarkdown report or to add elements to your Portfolio then please feel free.
+
+#### <span style="color:DARKBLUE"> **Group Discussion Point** </span>
+
+Now would be a good time to make sure that you are all using RStudio effectively and know what each window does. 
+
+* TRUE or FALSE, the Console is best for practice and the Script Window is for saving: `r torf(TRUE)`
+* TRUE or FALSE, the Environment holds all the data you have loaded in and created: `r torf(TRUE)`
+* TRUE or FALSE, clicking the name of a variable or data in the Environment window will open it in the Script window: `r torf(TRUE)`
+
+`r hide("Explain this - I don't get these answers")`
+```{r, echo = FALSE, results='asis'}
+cat("The answer to all of these are True. 
+
+1. The Script window is where you should write code and comments that you are going to save and send to people. The Console is where you should practice stuff - nothing is saved here; it is like a sandbox that just gets wiped away.
+
+2. Any data you load in or create is held in the Environment (or Global Environment) window with the variable name that you gave it.
+
+3. By clicking the name of the variable in the Environment window it will open up in the Script window and you can look at it to make sure it is what you expect.
+")
+```
+`r unhide()`
+
+### Task 1: Open a Script
+
+1. Start a new Rscript and save it to your `M: drive` in the same folder as your .csv files, calling the Rscript something informative like `Lab2_AQ_DataWrangling.R`.
+2. Make sure your environment is completely empty so we dont mix up one analysis with the other. You can run the following code line in the console to clear the environment or by clicking the little brush on your environment window.
+
+```{r , eval = FALSE}
+rm(list = ls()) 
+```
+ 
+`r hide("Portfolio point - comments on scripts and running lines")`
+```{r, echo = FALSE, results='asis'}
+cat("Remember that when using a script you can write notes to yourself to remind you what a line of code does. Just put a hashtag at the start of the line and R will ignore this line. This is where you have to be clear on using a Script versus a RMarkdown file. In a Script, # means the line is ignored, in Markdown # sets the line as a header!.
+    
+To run any line on a script, the simplest way is to click anywhere on that line and either press Run on the top of the script window or press CTRL+Enter on the keyboard (or mac equivalent).")
+```
+`r unhide()`
+
+### Task 2: Bring in Your Library
+
+1. Add a line to your code that brings the `tidyverse` package into your working environment and run it.
+
+`r hide("Helpful Hint - on Library vs Install")`
+```{r, echo = FALSE, results='asis'}
+cat("combine the function `library()` and the package `tidyverse` and remember that the solutions are at the bottom of the page.
+
+On our lab machines in Psychology all the necessary packages will already be on the machines, they just need called into the library. If however you are using your own machine you will have to install the packages first.
+
+Do not install packages on the Psychology machines! Why? 
+
+1. They are already installed and can cause the package to stop working if a student tries to install the same package on our machines.
+2. They are already installed and it is a bit like using apps on your phone. Install is putting the app onto your phone, library is just opening the app. If you've already downloaded the app (package) then you just need to open it (`library()`) to use it!
+")
+```
+`r unhide()`
+
+### Task 3: Load in the Data
+
+Now we have to load in the `.csv` datafiles using the `read_csv()` function and save them as variables in our environment. For example, to load in the `responses` we would type:
+
+``` {r loaddata1, eval = FALSE}
+responses <- read_csv("responses.csv") 
+```
+
+1. Add the following lines of code to your script and complete them to load in all four `.csv` datafiles. Use the above code as an example and name each variable the same as its original filename (minus the .csv part), again as above, e.g. `responses.csv` gets saved as `responses`. Remember to run the lines so that the data loaded in and is stored in your environment. 
+
+``` {r loaddata2, eval = FALSE}
+responses <-  read_csv()    # survey responses
+qformats <-                 # question formats
+scoring <-                  # scoring info
+pinfo <-                    # participant information
+```
+
+`r hide("Portfolio Point - Haven't I read_csv before")`
+```{r, echo = FALSE, results='asis'}
+cat("As you work with data and functions you will find there are functions with similar names but that give different results. One of these is the `read` function for `csv`. Make sure to always use `read_csv()` as your function to load in `csv` files. Nothing else. It is part of the `readr` package automatically brought in with `tidyverse`.")
+```
+`r unhide()`
+
+### Task 4: Review Your Data.
+
+#### <span style="color:DARKBLUE"> **Group Discussion Point** </span>
+
+Now that we have the data loaded in it is always best to have a look at the data to get an idea of its layout. We showed you one way before, by clicking on the name in the environment, but you can also use the `glimpse()` or `View()` functions in your Console window and putting the name of the data between the brackets to see how it is arranged. Don't add these to your script though they are just one-offs for testing.
+
+As a small group, have a look at the data in `responses` to see if you think it is Tidy or not and answer the following question: The data in `responses` is in `r mcq(c("Tidy", "Long", answer = "Wide"))` format
+
+`r hide("Explain This - I don't get why?")`
+```{r, echo = FALSE, results='asis'}
+cat("The `reponses` tibble is far from being tidy; each row represents multiple observations from the same participant, i.e. each row shows responses to multiple questions - `wide format`. Remember we want the data in tidy format as described above.
+    
+Eh, what's a tibble?
+
+A tibble is simply a dataframe - or a table of data with columns and rows - that is really handy for working with when using the `tidyverse` packages. When we say tibble, you can think of a dataframe with rows and columns of information and numbers stored in them - like `responses`, it is a tibble. For more info, see here: <a href=\"https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html\", target = \"_blank\">Tibbles</a>
+")
+```
+`r unhide()`  
+
+### Task 5: Gathering Data.
+
+We now have all the data we need loaded in, but in order to make it easier for us to get the AQ score for each participant, we need to change the layout of the `responses` tibble using the `gather()` function. 
+
+1. Copy the below code line to your script and run it.
+
+``` {r gatherdata, eval = FALSE}
+rlong <- gather(responses, Question, Response, Q1:Q10)
+```
+
+* The first argument given to the `gather()` function is the dataset which holds the data we want to wrangle, `responses`. 
+* The second and third arguments are the names we want to give the columns we are creating; 
+    - the first will store the question numbers, `Question` 
+    - the second will store the responses, `Response`. 
+    - **Note that these names could have been anything but by using these names the code make more sense**. 
+* Finally, the fourth argument is the names of specific columns in the original tibble that we want to gather together. 
+
+In case you are wondering if we wanted to go back the way, and ungather the data we just gathered, we would use the `spread()` function: e.g. `rwide <- spread(rlong, Questions, Response)`. But we do not want to do that here so let's not add this to the code. 
+
+#### <span style="color:DARKGREEN"> Quickfire Question </span>
+
+Let's see if you understand `gather()`. Say I wanted to gather the first three columns of `responses` (Q1, Q2, Q3), put the question numbers in a column called `Jam`, the responses in a column called `Strawberry`, and store everything in a tibble called `sandwich`. Fill in the box with what you would write: `r fitb("sandwich <- gather(responses, Jam, Strawberry, Q1:Q3)", width = 60, ignore_ws = TRUE)`
+
+`r hide("Explain this - I dont get the right answer!")`
+```{r, echo = FALSE, results='asis'}
+cat("sandwich <- gather(responses, Jam, Strawberry, Q1:Q3)
+    
+`gather` wants the data first, then the name of the new column to store the gathered column names, then the name of the new column to store the data, and then finally which columns to gather.
+")
+```
+`r unhide()`
+
+### Task 6: Combining Data.
+
+So now our `responses` data is in tidy format, we are closer to getting an AQ score for each person. However, we still need to add some information together to:
+
+* Show if the question is reverse or forward scored - found in `qformats`
+* Show the number of points to give a specific response - found in `scoring`. 
+
+This is a typical analysis situation where different information is in different tables and you need to join them altogether. Both these pieces of information are contained in `qformats` and `scoring` respectively, but we want to join it to `responses` to create one informative tidy table with all the info. We can do this through the function `inner_join()`; a function to combine information in two tibbles using a column common to both tibbles.
+
+1. Copy the below line into your code and run it.
+
+``` {r joindata1, eval = FALSE}
+# combine rows in the tibble rlong with rows in the tibble `qformats`, based on the common column "Question"
+rlong2 <- inner_join(rlong, qformats, "Question")
+```  
+
+2. Now have a look in `rlong2`. We have matched each question with its scoring format, `forward` or `reverse`.
+
+`r hide("Portfolio Point - Reverse and Forward")`
+```{r, echo = FALSE, results='asis'}
+cat("A lot of questionnaires have some questions that are Forward scored and some questions that are Reverse scored. What does this mean? Imagine a situation where your options in replying to a question are: 1 - extremely agree, 2 - agree, 3 - neutral, 4 - disagree, 5 - extremely disagree. In a forward-scoring question you would get 1 point for extremely agree, 2 for agree, 3 for neutral, etc. In a reverse scoring question you would get 5 for extremely agree, 4 for agree, 3 for neutral, etc. 
+
+The reasoning behind this shift is that sometimes agreeing or disagreeing might be more favourable depending on how the question is worded. Secondly, sometimes these questions are used just to catch people out - imagine if you had two similar questions where one has the reverse meaning of the other. In this scenario, people should respond opposites. If they respond the same then they might not be paying attention.
+    ")
+```
+`r unhide()`  
+
+  3. Now we need to combine the information in our table, `rlong2`, with the `scoring` table so we know how many points to attribute each question based on the answer the participant gave, and whether the question was forward or reverse coded. Again, we use the `inner_join()` function, but this time the common columns found in `rlong2` and `scoring` are `QFormat` and `Response`. To combine by two columns you just write them in sequence as shown below. **Note: when there is more than one common column between two tibbles you are joining, it is best to combine by all the columns to avoid repeat columns names in the new tibble.** Copy the below line into your code and run it. 
+
+``` {r joindata2, eval = FALSE}
+# combine rows in rlong2 and scoring based on QFormat and Response
+rscores <- inner_join(rlong2, scoring, c("QFormat", "Response"))
+```
+
+### Task 7: Calculating the AQ Scores.
+
+We have now created `rscores` which has information on how each participant responded to each question and how each question should be coded and scored, all within the one tibble. All we need now is to sum the scores for each participant to get their AQ score. 
+
+1. Based on your Preclass knowledge, copy the below line into your code and complete it to obtain individual `aq_scores` for each participant.  
+2. Save your script and run it all again from the start to make sure it works!
+
+``` {r summaryAQ, eval = FALSE}
+aq_scores <- rscores %>% 
+             group_by() %>% # how will you group individual participants?
+             summarise(AQ = sum()) # which column will you sum to obtain AQ scores?
+```
+
+`r hide("Helpful Hint")`
+```{r, echo = FALSE, results='asis'}
+cat("Each participant could be grouped by their Id.
+
+If we summed up the value for each Score we might get a full AQ Score for each particpipant.
+    ")
+```
+`r unhide()`  
+
+`r hide("Portfolio Points - Hang on isn't that a Pipe?")`
+```{r, echo = FALSE, results='asis'}
+cat("We saw Pipes in Level 1 and then again in the Preclass for this lab. Pipes are your friend. Think of them as saying 'and then' or 'goes into'. So in the example above we take `rscores` and then group it by something and then summarise it into AQ scores based on... 
+
+In most cases, the pipe serves the purpose of putting the input into the function or taking the output of one function and treating it as the input of another function. 
+
+In the example above the first pipe takes `rscores` as the input for `group_by`, and the second pipe takes the output of `group_by` and puts it as the input to `summarise`. See how you can almost read it as a chain of actions or steps.
+    ")
+```
+`r unhide()`  
+
+#### <span style="color:DARKBLUE"> **Group Discussion Point** </span>
+
+The whole purpose of this lab was to calculate AQ scores for individual participants. As a small group, try to answer the following questions. Try to do it using code where possible to help you based on your knowledge from the preclass and inclass activity. Remember the cheatsheets as well. Look for the `dplyr` one! 
+
+1. From the options, choose the correct citation for the AQ 10 question questionnaire: `r mcq(c("Allison, Auyeung, and Baron-Cohen, (2011)",answer = "Allison, Auyeung, and Baron-Cohen, (2012)","Allison and Baron-Cohen, (2012)","Auyeung, Allison, and Baron-Cohen, (2012)"))`  
+
+2. Complete the sentence, the higher the AQ score...`r mcq(c("the less autistic-like traits displayed","has no relation to autistic-like traits",answer = "the more autistic-like traits displayed"))`  
+
+3. Type in the AQ score (just the number) of Participant ID No. 87: `r fitb(2, width = 10, ignore_ws = TRUE)`  
+
+4. Type how many participants had an AQ score of 3 (again just the number): `r fitb(13, width = 10, ignore_ws = TRUE)`  
+5. The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred to for diagnostic assessment. Type in how many participants should we refer from our sample: `r fitb(6, width = 10, ignore_ws = TRUE)`  
+
+`r hide("Explain This - I dont get these answers")`
+```{r, echo = FALSE, results='asis'}
+cat("1. From the link above you can see that an appropriate citation for the AQ10 would be (Allison, Auyeung, and Baron-Cohen, (2012))
+
+2. As mentioned, the higher the score on the AQ10 the more autistic-like traits a participant is said to show.
+
+3. You could do this by code with `filter(aq_scores, Id == 87)`, which would give you a tibble of 1x2 showing the ID number and score. If you just wanted the score you could use `pull()` which we havent shown you that yet: `filter(aq_scores, Id == 87) %>% pull(AQ)`. The answer is an AQ score of 2.
+
+4. Same as above but changing the arguement of the filter. `filter(aq_scores, AQ == 3) %>% count()`. The answer is 13. Remember you can do this by counting but the code makes it reproducible and accurate every time. You might make mistakes.
+
+5. `filter(aq_scores, AQ > 6) %>% count()` or `filter(aq_scores, AQ >= 7) %>% count()`. The answer is 6.
+        ")
+```
+`r unhide()`  
+
+### Task 8: One Last Thing on Pipes
+
+You now have a complete code to load in your data, convert it to Tidy, combine the tables and calculate an AQ score for each participant. But, if you look at it, some of your code could be more efficient by using pipes. 
+
+Go back through your code and rewrite it using pipes `%>%` so that it is as efficient as possible. 
+
+`r hide("Helpful Hint")`
+```{r, echo = FALSE, results='asis'}
+cat("At any point where the first argument of your function is the name of a variable created before that line, there is a good chance you could have used a pipe! Here are all the bits of this code that could be piped together into one chain:
+    
+`rlong <- gather(responses, Question, Response, Q1:Q10)`
+
+`rlong2 <- inner_join(rlong, qformats, \"Question\")`
+
+`rscores <- inner_join(rlong2, scoring, c(\"QFormat\", \"Response\"))`
+
+`aq_scores <- rscores %>% group_by(Id) %>% summarise(AQ = sum(Score))`
+    ")
+```
+`r unhide()`
+
+### Job Done!
+
+You have now recapped one-table and two-table verbs. These are great to know as for example, in the above, it actually only took a handful of reproducible steps to get from messy data to tidy data; could you imagine doing this by hand in Excel through cutting and pasting? Not to mention the mistakes you could make!
+
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module**. However you are strongly encouraged to do the assignment as it will continue to boost your data-wrangling skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.**
+
+Happy wrangling! Excellent work! You are a DataWrangling expert! Now go try the assignment!  

@@ -1,0 +1,376 @@
+## PreClass Activity 1
+
+### General Probability Calculations
+
+Today we will being by recapping the concepts of probability calculations from Level 1, looking at discrete distributions. If you are unsure about discrete vs continuous you should try the other quick tutorial on it, to be found on Moodle. At the end of this section there are three Quickfire Questions to test your understanding. Any that you aren't clear on bring them to class next week for discussion.
+
+Probability is the extent to which an event is likely to occur and is represented by a number between 0 and 1, and the letter **p**. For example, the probability of flipping a coin and it landing on 'tails', most people would say, is estimated at **p = .5**, i.e. the likelihood of getting tails is $p = \frac {1}{2}\ $ as there is one desired outcome (tails) and two possibilities (heads or tails).  
+<br>
+Calculating the probability  of any discrete event occuring can be formulated as:
+
+$$p = \frac{number \  of  \ ways \ the \ event \ could \  arise}{number \ of \ possible \ outcomes}$$
+
+**For example:**
+
+**1.** The probability of drawing the ten of clubs from a standard pack of cards would be 1 in 52:  $p = \frac {1}{52} \ = .019$. One outcome (ten of clubs) with 52 possible outcomes (all the cards)
+
+**2.** Likewise, the probability of drawing **either** a ten of clubs or a seven of diamonds as the the first card that you draw would be 2 in 52: $p = \frac {2}{52} \ = .038$. In this case you are adding to the chance of an event occurring by giving two possible outcomes, so it becomes **more likely** to happen than when you only had one outcome.  
+
+**3.** Now say you have two standard packs of cards **mixed** together. The probability of drawing the 10 of clubs from this mixed pack would be 2 in 104: $p = \frac{2}{104}= .019$. Two possible outcomes **but more alternatives** than above, 104 this time, meaning it is **less likely**.
+
+**4.** Let's instead say you have two **separate** packs of cards. The probability of drawing the 10 of clubs from **both** packs would be: $p = \frac{1}{52} \times \frac{1}{52}= .0004$. The probability has gone down again because you have created an event that is **even more unlikely** to happen - this is called the `cumulative probability` - multiplying the two individual probabilities of **separate events** to find the combined or cumulative probability. 
+
+**5.** What about the probability of drawing the 10 of clubs from a pack of 52, putting it back (i.e. **replacement**), and subsequently drawing the 7 of diamonds? Again, this would be represented by multiplying together the probability of each of these events happening to obtain the `cumulative probability`: $p = \frac{1}{52} \times \frac{1}{52}= .0004$.
+
+**6.** Finally, say you draw the 10 of clubs from a pack of 52 but this time **don't replace it**. What is the probability that you will draw the 7 of diamonds in your next draw (again without replacing it) and the 3 of hearts in a third draw? This time the number of cards in the pack is **fewer** for the second (51 cards) and third draws (50 cards) so you take that into account in your multiplication:  $p = \frac{1}{52} \times \frac{1}{51}\times \frac{1}{50}= .000008$.
+
+`r hide("Portfolio Point - Presenting probabilities")`
+```{r, echo=FALSE, results='asis'}
+cat("So the probability of an event is the number of all the possible ways an event could happen, divided by all the possible outcomes. When you combine probabilities of two separate events you multiple them together to obtain the cumulative probability.
+
+But you may have noticed that sometimes we write p = .008, for example, and sometimes p = 0.008.  What is the difference? Well nothing really. However, there is a convention that as probability can never go above 1, then the 0 before the decimal place is pointless. Meaning that most people will write p = .008 instead of p = 0.008. We have allowed either version in the answers to this point, but try to get in the habit of writing it without the 0 before the decimal place.
+")
+```
+`r unhide()`
+
+#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+
+* What is the probability of randomly drawing your name out of a hat of 12 names where one name is definitely your name? Enter your answer to 3 decimal places: `r fitb(c("0.083", ".083"), width = 5, ignore_ws = TRUE)`
+
+* What is the probability of randomly drawing your name out of a hat of 12 names, putting it back, and drawing your name again? Enter your answer to 3 decimal places: `r fitb(c("0.007", ".007"), width = 5, ignore_ws = TRUE)`
+
+* **Tricky**: In a stimuli set of 120 faces, where 10 are inverted and 110 are the right way up, what is the probability of randomly removing one inverted face on your first trial, not replacing it, and then removing another inverted face on the second trial? Enter your answer to three decimal places:`r fitb(c("0.006", ".006"), width = 5, ignore_ws = TRUE)`
+
+`r hide("Helpful Hint")`
+```{r, echo=FALSE, results='asis'}
+cat("
+1. Out of 12 possible outcomes you are looking for one possible event.
+
+2. There are two separate scenarios here: in both scenarios there are 12 possible outcomes in which you are looking for one possible event. Since there are two separate scenarios, does this make it more or less likely that you will draw your name twice?
+
+3. Think about the first trial: there are 120 possible outcomes (faces) in which you are looking for 10 possible events (inverted faces). In the second trial you have removed the first inverted face from the stimuli set so there are now only 119 trials in total and 9 inverted faces. Remember you need to combine the probabilities of the first trial and second trial results together!
+")
+```
+`r unhide()`  
+
+`r hide("Explain This - I don't get these answers")`
+```{r echo = FALSE, results = 'asis'}
+cat("
+1. p = 0.083 or p = .083. One outcome (your name) out of 12 possibilities, i.e. 1/12
+
+2. p = 0.007 or p = .007. Because you replace the name on both draws it is 1/12. So 1/12*1/12 and then rounded to three decimal places
+
+3. p = 0.006 or p = .006. It starts off as 10 out of 120, but as you remove one inverted face the second round is 9 out of 119. So the formula is (10/120)*(9/119)
+")
+```
+`r unhide()`
+
+### Creating a Simple Probability Distribution 
+
+We will now recap plotting probability distributions by looking at the probability distributions of a simulated coin toss. Work through this example and then apply the logic to the quickfire questions at the end of the section.
+
+Imagine we want to know the probability of getting X number of heads in 10 coin flips. To simulate 10 coin flips we used the `sample()` function where we randomly sample (with replacement) from all possible events: i.e. either **heads** or **tails**. 
+
+* Open a new script and copy in the code lines below:
+
+``` {r libraries, eval = TRUE, message = FALSE}
+library("tidyverse")
+
+# Notice that because our event labels are strings (text), 
+# we need to enter them into the function as a vector; i.e. in "quotes" 
+sample(c("HEADS", "TAILS"), 10, TRUE) 
+```
+
+The last argument in the code above provides the instruction to sample with or without replacement by setting it to `TRUE` or `FALSE` respectively. Don't worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.
+
+`r hide("Portfolio Point - Sampling and Replacement")`
+```{r, echo = FALSE, results = 'asis'}
+cat("
+Sampling is simply choosing or selecting something - here we are randomly choosing one of the possible options. Other psychology experiment 'sampling' could include randomly selecting participants, randomly choosing which stimuli to present on a given trial, or randomly assigning participants to a condition e.g.drug or placebo...etc.
+
+Replacement is putting the sampled option back into the 'pot' of possible options. For example, on the first turn you randomly sample HEADS from the options of HEADS and TAILS with replacement, meaning that on the next you have the same two options again; HEADS or TAILS. Sampling without replacement means that you remove the option from subsequent turns. So say on the first turn you randomly sample HEADS from the options HEADS and TAILS but without replacement. Now on the second turn you only have the option of TAILS to 'randomly' sample from. On the third turn without replacement you would have no options. So replacement means putting the option back for the next turn.
+")
+```
+`r unhide()`
+
+Why would you or why wouldn't you want to use sampling with replacement in our coin toss scenario? If you aren't sure then set replacement as `FALSE` and run the code again. The code will stop working after 2 coin flips. We want to sample with replacement here because we want both options available at each sampling - and if we didn't then we would run out of options very quickly since we're doing 10 flips.
+
+So far our code returns the outcomes from the 10 flips; either heads or tails. If we want to count how many 'heads' we have we can simply sum up the heads. However, heads isn't a number, so to make life easier we can re-label our events as **0 for tails** and **1 for heads**. Now if we run the code again we can pipe the sample into a `sum()` function to total up all the 1s (heads) from the 10 flips. 
+
+* Run this line of code a number of times, what do you notice about the output?
+
+``` {r coin_sum}
+# Now that our event labels are numeric, we don't need the vector.
+# 0:1 means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.
+sample(0:1, 10, TRUE) %>% sum() 
+```
+
+The ouptut of this line changes every time we run the code as we are randomly sampling 10 coin flips each time. And to be clear, if you get an answer of 6 for example, this means 6 heads, and in turn, 4 tails. By running this code over and over again we are basically demonstrating how a **sampling distribution** is created. 
+
+`r hide("Portfolio Point - What's a sampling distribution?")`
+```{r, echo = FALSE, results='asis'}
+cat("
+A sampling distribution shows you the probability of each possible outcome; e.g. the probability of 5 heads in 10 flips, or the probability of 4 heads in 10 flips, or the probability of X heads in 10 flips of the coin.  
+")
+```
+`r unhide()`  
+
+But in order to create a full and accurate sampling distribution we need to replicate these 10 flips a number of times. The more replications we do the more reliable the estimates. Let's do 10000 replications of our 10 coin flips. This means we flip the coin 10 times, count how many heads, save that number, and then repeat it 10000 times. We could do it the slow way we demonstrated above, just running the same line over and over and over again and noting the outcome each time. Or we could use the `replicate` function. 
+
+* Copy this line of code into your script and run it.
+* Here we are doing exactly as we said and saving the 10000 outputs (counts of heads) in the variable called `heads10k` (k is shorthand for thousand).
+
+``` {r coin_replication}
+heads10k <- replicate(10000, sample(0:1, 10, TRUE) %>% sum())   
+```
+
+``` {r coin_replication_output, echo = FALSE}
+glimpse(heads10k)
+```
+
+The results of these 10000 replications are now stored in a vector called `heads10k`. If you have a look at `heads10k`, as shown in the bottom box, it is a series of 10000 numbers between 0 and 10 each indicating the number of heads, or more specifically 1s, that you got in a set of 10 flips.  
+
+Now in order to complete our distribution we need to:
+
+1. convert the vector (list of numbers for the heads counts) into a data frame (a table) so we can work on it. 
+2. Then group the results by the number of possible `heads`; i.e. group all the times we got 5 heads together, all the times we got 4 heads together, etc. 
+3. Finally, we work out the probability of a `heads` result, (e.g. probability of 5 heads), by totaling the number of observations for each possible result (e.g. 5 heads) and submitting it to our probability formula above (number of outcomes of event divided by all possible outcomes) 
+    - so the number of times we got a specific number of heads (e.g. 5 heads) divided by the total number of outcomes (i.e. the number of replications - 10000). 
+
+Like so:
+
+* Copy the below code into your script and run it.
+
+``` {r coin_distribution}
+data10k <- data_frame(heads = heads10k) %>%   # convert to a data frame 
+                group_by(heads) %>%           # group by number of possibilities
+                summarise(n = n(), p=n/10000) # count occurances of possibility,
+                                              # & calculate probability (p) of
+                                              # each
+```
+
+We now have a discrete probability distribution of the number of heads in 10 coin flips. Use the `View()` function  to have  look at your `data10k` variable. You should now see for each heads outcome, the total number of occurrences in 10000 replications (`n`) plus the probability of that outcome (`p`). 
+
+It might be useful to visualize the distribution as a histogram:
+
+```{r 10khist}
+ggplot(data10k, aes(heads,p)) + 
+  geom_col(fill = "skyblue") + 
+  labs(x = "Number of Heads", y = "Probability of Heads in 10 flips (p)") +
+  theme_bw() +
+  scale_x_discrete(limits=0:10)
+```
+
+So in our analysis, the probability of getting 5 heads in 10 flips is **`r data10k$p[6]`**. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. `100K`.
+
+Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips?  Well, if the probability of no heads in this distribution is **`r format(data10k$p[1], scientific = FALSE)`**, and the probability of 1 heads is **`r data10k$p[2]`**, and the probability of 2 heads is **`r data10k$p[3]`**, then the probability of 2 or less Heads in this distribution is simply the sum of these values: **`r data10k$p[1] + data10k$p[2] + data10k$p[3]`**
+
+#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+
+Look at the probability values corresponding to the number of coin flips you created in the `data10k` sample distribution (use `View()` to see this):
+
+* Choose from the following options, if you wanted to calculate the probability of getting 4, 5 or 6 heads in 10 coin flips you would: `r mcq(c("multiply individual probabilities together", answer = "sum individual probabilities together"))`
+
+* Choose from the following options, if you wanted to calculate the probability of getting 6 or more heads in 10 coin flips you would: `r mcq(c("multiply individual probabilities together", answer = "sum individual probabilities together"))`
+
+* Choose from the following options, the distribution we have created is: `r mcq(c("continuous", answer = "discrete"))`
+
+`r hide("Explain This - I don't understand the answers!")`
+```{r, echo = FALSE, results = 'asis'}
+cat("
+If you think about it, we can't get 5.5 heads or 2.3 heads, we can only get whole numbers, 2 heads or 5 heads. This means that the data and the distribution is discrete. (Don't be confused by one of the functions saying continuous)
+
+To find the probability of getting say 4, 5, or 6 heads in 10 coin flips, you are combining related scenarios together, therefore you need to find the individual probabilities of getting 4, 5 or 6 heads in 10 coin flips, then sum the probabilities together to get the appropriate probability of obtaining 4, 5 or 6 heads. It is the same with 6 or more heads, just sum the probabilities of 6, 7, 8, 9 and 10 heads to get the probability of 6 or more heads.
+
+Not sure if you should be summing or multiplying probabilities? A good way to remember, from both the coin flip examples and from the pack of cards examples earlier, is that if the scenarios are **related** you are summing probabilities, if scenarios are **separate** you are multiplying probabilities. **Related** scenarios are usually asking you about the probability of **'either / or'** scenarios occuring, whereas **separate** scenarios usually ask about the probability of one scenario **'and'** another scenario both occuring.
+
+Your sample distribution `data10k` has already completed the first part of this calculation for you (finding individual probabilities of n heads in 10 coing flips), so all you need to to is sum the required probailities together!
+")
+```
+`r unhide()`
+
+### The Binomial Distribution - Creating a Discrete Distribution
+
+Great, so we are now learning how probabilities and distributions work. However, if we had wanted to calculate the probability of 8 heads from 10 coin flips we don't have to go through this entire procedure each time. Instead, because we have a dichotomous outcome, "heads or tails", we can calculate probabilities using the **binomial distribution** - effectively what you just created. You can look up the R help page on the binomial distribution (type `?dbinom` directly into the console) to understand how to use it but we will walk through some essentials here.
+
+We'll use 3 functions to work with the binomial distribution: 
+
+* `dbinom` - the density function: gives you the probability of `x` successes (heads) given the `size` (trials) and probability of success `prob` on a single trial (here it's 0.5, because we assume we're flipping a fair coin)
+
+* `pbinom` - the distribution function: gives you the probability of getting a number of successes below a certain cut-off point (e.g. probability of getting 0 to 5 heads out of 10 flips), given the `size` and the `prob`.
+
+* `qbinom` - the quantile function: is the inverse of`pbinom` in that it gives you the x axis value below (and including the value) which the summation of probabilities is greater than or equal to a given probability `p`, plus given the `size` and `prob`.
+
+### **`dbinom`** - The Density Function
+
+Using the `dbinom` function we can create probabilities for any possible outcomes of `heads` (e.g. 3) in 10 flips.:
+
+```{r binom_fake1, results = FALSE}
+dbinom(3, 10, 0.5)
+```
+
+or all possible outcomes of heads (0:10) in 10 flips:
+
+```{r binom_fake2, results = FALSE}
+dbinom(0:10, 10, 0.5)
+```
+
+And if we plot the probability of all possible outcomes in 10 flips it would look like this:
+
+``` {r binom_distrib1, echo = FALSE}
+barplot(dbinom(0:10, 10, 0.5), 
+        names.arg = 0:10, 
+        xlab = 'Number of Heads', 
+        ylab = 'Probability (p)', 
+        col = 'purple')  
+```
+
+The dbinom (**d**ensity **binom**) function takes the format of `dbinom(x, size, prob)`, where the arguments we give are: 
+
+* `x` the number of 'heads' we want to know the probability of. Either a single one, `3` or a series `0:10`.
+* `size` the number of trials (flips) we are doing; in this case, 10 flips. 
+* `prob` the probability of 'heads' on one trial. Here chance is 50-50 which as a probability we state as 0.5 or .5
+
+Now say if we wanted to know the probability of 6 heads out of 10 flips, we would write:
+
+``` {r binom_distrib2}
+dbinom(6, 10, 0.5)  # we only have to change the first (x) argument
+```
+
+As such the probability of 6 heads, using `dbinom` is p = `r dbinom(6, 10, 0.5)`. If you compare this value to the `data10k` value for 6 you will see they are similar but not quite the same because `dbinom` uses a lot more replications than the 10000 we used. 
+
+In terms of visualising what we have just calculated. That number represents the height of the green bar in the plot below. 
+``` {r binom_plot1, echo=FALSE, eval=TRUE}
+barplot(dbinom(0:10, 10, 0.5), names.arg = 0:10, xlab = 'Number of Heads', ylab = 'Probability (p)' , col= c('purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'green', 'purple', 'purple', 'purple', 'purple' ))
+```
+
+#### <span style="color:DARKGREEN"> Quickfire Question</span>
+
+* To three decimal places, what is the probability of 2 heads out of 10 flips? `r fitb(c("0.044", ".044"), width = 10, ignore_ws = TRUE)`
+
+`r hide("Explain This - I can't get the right answer")`
+```{r, echo = FALSE, results = 'asis'}
+cat("You want to know the probability of 2 heads in 10 flips. X is therefor 2; Size is therefore 10; and the probability stays the same at .5, meaning that the code would look like this:
+
+`dbinom(2, 10, 0.5)` = .04394531 or rounded = .044
+")
+```
+`r unhide()`  
+
+### **`pbinom`** - The Cumulative Probability Function
+
+What if we wanted to know the probability of **up to and including** 3 heads out of 10 flips? We can either use `dbinom` for each outcome up to 3 heads and sum the results:
+
+```{r binom_distrib3_1}
+dbinom(0:3, 10, 0.5) %>% sum()
+```
+
+Or we can use the `pbinom` function; known as the **cumulative probability distribution function** or the **cumulative density function**. The first argument we give is the **cut-off** value up to and including which we want to know the probability of (here it's up to 3 `heads`). Then, as before, we tell it how many flips we want to do and the probability of `heads` on a single trial. 
+
+* Copy this line into your script and run it:
+
+``` {r binom_distrib3}
+pbinom(3, 10, 0.5, lower.tail = TRUE)  
+```
+
+So the probability of **up to and including 3 heads** (as `lower.tail = TRUE`) out of 10 flips is **0.172**. For visualization, what we have done is calculated the cumulative probability of the lower tail of the distribution up to our cut-off of 3 (in green below):
+
+``` {r binom_plot2, echo =FALSE, eval = TRUE}
+barplot(dbinom(0:10, 10, 0.5), names.arg = 0:10, xlab = 'Number of Heads', ylab = 'Probability (p)' , col= c('green', 'green', 'green', 'green', 'purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'purple' ))
+```
+
+So the `pbinom` function gives us the **cumulative probability** of outcomes **up to and including the cut-off**. 
+
+But what if we wanted to know the probability of outcomes **including and above** a certain value? Say we want to know the probability of 7 heads or more out of 10 coin flips. The code would be this:
+
+``` {r binom_distrib4}
+pbinom(6, 10, 0.5, lower.tail = FALSE) 
+```
+
+We still specify our cut-off as 6 heads, even though we want 7 and above, but we switch the `lower.tail` call from `TRUE` to `FALSE` to tell `pbinom` we don't want the lower tail this time (to the left of and including the cut-off), we want the **upper tail, to the right of the cut-off**. This results in the cumulative probability for the upper tail of the distribution down to our cut-off value (shown in green below). We set the cut-off as '6' because in the discrete distribution, only the `lower.tail = TRUE` includes the cut-off (6 and below) whereas the `lower.tail = FALSE`  would be everything above the cut-off **but not including** the cut-off (7 and above).
+
+``` {r binom_plot3, echo =FALSE, eval = TRUE}
+barplot(dbinom(0:10, 10, 0.5), names.arg = 0:10, xlab = 'Number of Heads', ylab = 'Probability (p)' , col= c('purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'green', 'green', 'green', 'green' ))
+```
+
+`r hide("Portfolio Point - Am all in a Tail Spin! Lower TRUE or FALSE")`
+```{r, echo = FALSE, results='asis'}
+cat("
+The most confusing part for people we find is the concept of `lower.tail`.  If you look at a distribution, say the binomial, you find a lot of the high bars are in the middle of the distribution and the smaller bars are at the far left and right of the distribution. Well the far left and right of the distribution is called the **tail** of the distribution - they tend to be an extremity of the distribution that taper off like a.....well like a tail. A lot of the time we will talk of left and right tails but here in the `pbinom` function it only ever considers the data in relation to the left side of the data - this is what it calls the `lower.tail`.
+
+Let's consider `lower.tail = TRUE`, this is the default, so if you dont state `lower.tail` then this is what is considered to be what you want. `lower.tail = TRUE` means all the values to the left of your value including the value you state. So on the binomial distribution if you say give me the probability of 5 heads or less, then you would set `lower.tail = TRUE` and you would be counting and summing the probability of 0, 1, 2, 3, 4 and 5 heads. You can check this with `dbinom(0:5, 10, .5) %>% sum()`.
+
+However, if you say give me the probability of 7 or more heads, then you need to do `lower.tail = FALSE`, to consider the right-hand side tail, but also, you need to set the code as `pbinom(6, 10, .5, lower.tail = FALSE)`. Why 6 and not 7? Because the `pbinom` function, when `lower.tail = FALSE`, starts at the value **plus one to the value you state**; it always considers the value you state as being part of the `lower.tail` so if you say 6, it includes 6 in the `lower.tail` and then gives you 7, 8, 9 and 10 as the upper tail. If you said 7 with `lower.tail = FALSE`, then it would only give you 8, 9 and 10. This is tricky but worth keeping in mind when you are using `pbinom` function. And remember, you can always check it by using `dbinom(7:10, 10, .5) %>% sum()` and seeing whether it matches `pbinom(6, 10, 0.5, lower.tail=FALSE)` or `pbinom(7, 10, 0.5, lower.tail=FALSE)`
+    ")
+```
+`r unhide()`  
+
+#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+
+* Using the format of the above `pbinom` function, enter the code that would determine the probability of **up to and including** 5 heads out of 20 flips, assuming a probability of 0.5: `r fitb(c("pbinom(5, 20, 0.5)","pbinom(5, 20, .5)","pbinom(5, 20, 0.5, lower.tail=TRUE)", "pbinom(5, 20, .5, lower.tail=TRUE)"), width = 45, ignore_ws = TRUE)`
+
+* To two decimal places, what is the probability of obtaining **more than but not including** 50 heads in 100 flips? `r fitb(c(".46","0.46"), width = 15, ignore_ws = TRUE)`
+
+`r hide("Helpful Hint")`
+```{r, echo = FALSE, results = 'asis'}
+cat("
+1. You are looking to calcuate the probability of 5 or less heads (`x`) out of 20 flips (`size`), with the probability of 'heads' in one trial (`prob`) remaining the same. Do you need the `lower.tail` call here if you are calculating the cumulative probability of the lower tail of the distribution?
+
+2. You are looking to calculate the probability of 51 or more heads (`x`), out of 100 flips (`size`), with the probability of 'heads' in one trial (`prob`) remaining the same. Do you need the `lower.tail` call here if you are calculating the cumulative probability of the upper tail of the distribution?  Remember, because you are not looking at the `lower.tail`, the value of heads that you enter in `pbinom` will **not** be included in the final calculation, e.g. entering `pbinom(3, 100, lower.tail = FALSE)` will give you the probability for 4 and above heads. If you were instead looking at the `lower.tail`, entering `pbinom(3, 100, lower.tail = TRUE)` would give you the probability of 3 and below heads.
+")
+```
+`r unhide()`  
+
+`r hide("Explain This - I can't get these answers")`
+```{r, echo = FALSE, results = 'asis'}
+cat("
+1. The code for the first one would be: pbinom(5, 20, 0.5) or pbinom(5, 20, 0.5, lower.tail = TRUE)
+
+2. The code for the second one would be: pbinom(50, 100, 0.5, lower.tail = FALSE), giving an answer of .46. Remember you can confirm this with: dbinom(51:100, 100, 0.5) %>% sum()
+")
+```
+`r unhide()`
+<br>
+
+### **`qbinom`** - The Quartile Function
+
+Finally, the `qbinom` function is useful if you want to know the minimum number of successes ('heads') that would be needed to achieve a particular probability. This time the cut-off we specify is not the number of 'heads' we want but the **probability** we want. For example say we want to know the minimum number of 'heads' out of 10 flips that would result in a 5% heads success rate (a probability of .05), we would use the following code.  
+
+``` {r binom_distrib5}
+qbinom(.05, 10, 0.5) 
+```
+
+As you can see we would need at least 2 Heads in 10 flips to maintain a probability of .05. 
+
+`r hide("Portfolio Point - I don't understand qbinom arguments")`
+```{r, echo=FALSE, results = 'asis'}
+cat("
+We found a lot of students asking about `qbinom` and how it works when you are inputting two different probabilities as the arguments for `qbinom`. Let us try and make things clearer. 
+
+The function is set up as `qbinom(p, size, prob)`. First of all, you have used `prob` in the previous two functions, `dbinom` and `pbinom`, and it represents the probability of success on a single trial (here it is the probability of 'heads' in one coin flip, .5). Now, `prob` represents the probability of success in **one** trial, whereas `p` represents the overall probability of success **across all trials** and gives you the number of heads that would give that probability. So you ask it for the minimum number of successes (e.g. heads) to maintain an overall probability of .05, in 10 flips, when the probability of a success on any one flip is .5. And it tells you the answer is 2.
+
+`qbinom` also uses the `lower.tail` argument and it works in a similar fashion to `pbinom`.
+")
+```
+`r unhide()`  
+
+#### <span style="color:DARKGREEN"> Quickfire Question</span>
+
+* Type in the box, the number of heads required to maintain an overall probability rate of 10% (.1) in 17 flips: `r fitb("6", ignore_ws = TRUE)`
+
+`r hide("Explain This - I can't get the answer")`
+```{r, echo = FALSE, results = 'asis'}
+cat("The answer would be 6 because the code would be: 
+
+qbinom(0.1, 17, 0.5, lower.tail = TRUE)
+
+Remember that you want an overall probability of 10% (`p` = .1), you have 17 flips in each go (`size` = 17), and the probability of heads on any one flip is .5 (`prob` = .5). And you want the minimum number so the `lower.tail` is TRUE.
+")
+```
+`r unhide()`
+
+**PreClass Activity Completed!**
+
+Excellent! We have now recapped some general probability concepts as well as going over the binomial distribution again. We will focus on the normal distribution in the lab but it would help to read the brief section on it which can be found on Moodle. Keep in mind that what you are trying to get an understanding of is that every value in a distribution has a probability of existing in that distribution.  That probability may be very large, meaning that it is from the middle of the distribution, or that probability might be rather low, meaning it is from the tail, but ultimately every value of a distribution has a probability.
+
+If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!

@@ -1,0 +1,175 @@
+## Solutions to Questions
+
+```{r lab5-solutions-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+
+RNGversion("3.5")
+set.seed(1011)
+dat <- read_csv("./data/05-s01/inclass/perm_data.csv") %>% 
+  mutate(subj_id = row_number())
+``` 
+
+Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### InClass Activities
+
+#### Step 1
+
+`r hide("Solution To Step 1")`
+```{r, message = FALSE, eval=FALSE}
+library("tidyverse")
+
+RNGversion("3.5")
+set.seed(1011)
+## Note: 
+## Here's how we created the data for today's task:
+## dat <- tibble(group = rep(c("A", "B"), each = 50),
+##               Y = c(rnorm(50, 100, 15),
+##                     rnorm(50, 110, 15)))
+##
+## write_csv(dat, "perm_data.csv")
+## You could create a new dataset yourself and try it again.
+
+dat <- read_csv("perm_data.csv") %>% 
+  mutate(subj_id = row_number())
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+#### Step 2
+
+`r hide("Solution To Step 2.1.1 - dat pipeline")`
+```{r}
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y))
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+`r hide("Solution To Step 2.1.2 - using spread() to change format")`
+```{r}
+
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m)
+
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+`r hide("Solution To Step 2.1.3 - creating column of mean differences")`
+```{r}
+
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m) %>%
+  mutate(diff = A - B)
+
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+`r hide("Solution To Step 2.1.4 - completed pipeline using pull()")`
+```{r}
+
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m) %>%
+  mutate(diff = A - B) %>%
+  pull(diff)
+
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+`r hide("Solution To Step 2.2 - calc_diff")`
+```{r calc_diff_solution}
+calc_diff <- function(x) {
+  x %>%
+    group_by(group) %>%
+    summarise(m = mean(Y)) %>%
+    spread(group, m) %>%
+    mutate(diff = A - B) %>%
+    pull(diff)
+}
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+`r hide("Solution To Step 2.3 - d_orig")`
+```{r d_orig_solution}
+d_orig <- calc_diff(dat)
+is.tibble(d_orig)
+is.numeric(d_orig)
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+#### Step 3
+
+`r hide("Solution To Step 3 - Permute function")`
+```{r permute_fn}
+permute <- function(x) {
+  x %>%
+    mutate(group = sample(group))
+}
+
+permute(dat)
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+#### Step 4
+
+`r hide("Solution To Step 4.1")`
+```{r permute_once}
+dat %>% permute() %>% calc_diff()
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+`r hide("Solution To Step 4.2")`
+```{r nhd}
+nhd <- replicate(1000, dat %>% permute() %>% calc_diff())
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+`r hide("Solution To Step 4.3")`
+```{r histogram}
+ggplot(tibble(x = nhd), aes(x)) + geom_histogram(binwidth = 1)
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
+
+#### Step 5
+
+`r hide("Solution To Step 5")`
+```{r solution to 5}
+## 5.1 - create logical vector: TRUE if element of nhd is greater than/equal to d_orig
+lvec = abs(nhd) >= abs(d_orig)
+
+## 5.2
+n_exceeding_orig <- sum(lvec)
+
+## 5.3
+p <- n_exceeding_orig / length(nhd)
+print(p)
+```
+`r unhide()`
+<br>
+Click the tab to reveal the solution to the task.
