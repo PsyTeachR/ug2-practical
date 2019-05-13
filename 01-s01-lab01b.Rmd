@@ -13,7 +13,6 @@ Having read the Overview for this Lab, and the reason behind using R, we are now
 ```{r img-rmarkdown-dialog, echo = FALSE, out.width='50%', fig.cap = "Starting an R Markdown file"}
 
 knitr::include_graphics("images/s01-lab01/preclass/rmd_dialog.png")
-
 ```
 
 

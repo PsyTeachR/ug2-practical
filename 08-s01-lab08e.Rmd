@@ -1,2 +1,350 @@
 ## Solutions to Questions
 
+```{r lab8-solutions-setup, echo = FALSE, message=FALSE, warning=FALSE}
+library(broom)
+ratings <- read_csv("data/07-s01/inclass/GuiltJudgements.csv")
+```
+
+Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### InClass Activities
+
+#### Task 1
+
+`r hide("Solution Task 1")`
+```{r, results='asis'}
+
+d <- 3.24 / sqrt(25 +1)
+
+# effect is medium to large; d = .64
+
+```
+`r unhide()`
+<br>
+Click on the tab to reveal the solution
+
+#### Task 2
+
+`r hide("Solution Task 2")`
+```{r, results='asis'}
+
+d <- (2*2.9) / sqrt(30)
+
+# effect is large; d = 1.06
+
+```
+`r unhide()`
+<br>
+Click on the tab to reveal the solution
+
+#### Task 3
+
+`r hide("Solution Task 3")`
+```{r, results='asis'}
+
+N = 39 + 1
+
+d <- 2.1 / sqrt(40)
+
+# effect is small; d = 0.33
+
+```
+`r unhide()`
+<br>
+Click on the tab to reveal the solution
+
+#### Task 4
+`r hide("Solution Task 4")`
+```{r, results='asis'}
+
+t = (10 - 11)/sqrt((1.3^2/30) + (1.7^2/30))
+
+d = (2*t)/sqrt((30-1) + (30-1))
+
+# t = 2.56
+# d = .67
+
+# Remember that convention is that people report the t and d as positive.
+
+```
+`r unhide()`
+<br>
+Click on the tab to reveal the solution
+
+#### Task 5
+`r hide("Solution Task 5")`
+```{r, results='asis', message = FALSE}
+library(tidyverse)
+library(broom)
+
+sample_size <- power.t.test(delta = .23, 
+                            sd = 1, 
+                            power = .8, 
+                            sig.level = .05, 
+                            alternative = "two.sided", 
+                            type = "one.sample") %>% tidy() %>% pull(n) %>% ceiling()
+
+sample_size
+```
+`r unhide()`
+<br>
+Click on the tab to reveal the solution
+
+#### Task 6
+`r hide("Solution Task 6")`
+```{r, results='asis'}
+
+cohens <- power.t.test(n = 50,
+                            power = .9, 
+                            sig.level = .05, 
+                            alternative = "two.sided", 
+                            type = "two.sample") %>% tidy() %>% pull(delta) %>% round(2)
+
+cohens
+```
+`r unhide()`
+<br>
+Click on the tab to reveal the solution
+
+#### Task 7
+`r hide("Solution Task 7")`
+```{r, results='asis'}
+# Achievable Cohen d for Example 1
+ach_d_exp1 <- power.t.test(power = .8, 
+                    n = 32, 
+                    type = "one.sample", 
+                    alternative = "two.sided", 
+                    sig.level = .05) %>% 
+tidy() %>% pull(delta) %>% round(2) 
+
+# example one: t(31) = 2.96, p = .006
+# Cohen d for Example 1
+exp1_d <- 2.96/sqrt(31+1) 
+
+ach_d_exp1
+exp1_d
+
+# This study seems ok as the authors could achieve an effect size as low as .51 and found an effect size at .52
+
+# Achievable Cohen d for Example 2
+ach_d_exp2 <- power.t.test(power = .8, 
+                    n = 32, 
+                    type = "paired", 
+                    alternative = "two.sided", 
+                    sig.level = .05) %>% 
+tidy() %>% pull(delta) %>% round(2) 
+
+## example two: t(31) = 2.42, p = .022
+# Cohen d for Example 2
+exp2_d <- 2.42/sqrt(31+1) 
+
+ach_d_exp2
+exp2_d
+
+# this effect might not be reliable given that the effect size found was much lower than the achievable effect size. The issue here is that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then they should have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies isnt easy; hence why some people consider the Many Labs approach a good way ahead.
+
+# Below you could calculate the actual sample size required to achieve a power of .8:
+
+sample_size <- power.t.test(power = .8,
+                            delta = .4, 
+                            sd = 1, 
+                            type = "paired", 
+                            alternative = "two.sided", 
+                            sig.level = .05) %>%
+tidy() %>% pull(n) %>% ceiling()
+
+sample_size
+
+```
+`r unhide()`
+<br>
+Click on the tab to reveal the solution.
+
+### Homework Activities
+
+**Libraries**
+
+* You will need to use the `tidyverse` and `broom` libraries in this assignment, so load them in the `library` code chunk below. 
+
+You do not need the `pwr` library as all of the below questions can be completed with base functions but if you prefer to use the `pwr` library then load it below in the `libary` code chunk as well.
+
+```{r library, message=FALSE, warning=FALSE}
+# TO DO, load in the two stated libraries as you will need functions from these libraries
+
+library("pwr")
+library("broom")
+library("tidyverse")
+```
+
+#### Task 1
+
+**Basic Calculations**
+
+* You set up a study so that it has a power value of $power = .87$. To two decimal places, what is the Type II error rate of your study? 
+
+Replace the `NULL` in the `T1` code chunk below with either a single value, or with mathematical notation, so that `error_rate` returns the actual value of the Type II error rate for this study.  By mathematical notation we mean you to use the appropriate formula but insert the actual values.
+
+```{r T1}
+error_rate <- 1 - .87
+error_rate
+```
+
+#### Task 2
+
+* You run an independent t-test and discover a significant effect, t(32) = 3.26, p < .05. Using the appropriate formula, given in the inclass activity, calculate the effect size of this t-test. 
+
+Replace the `NULL` in the `T2` code chunk below with mathematical notation so that `effect1` returns the value of the effect size. Do not round the value.
+
+```{r T2}
+effect1 <- (2*3.26)/sqrt(32)
+effect1
+```
+
+#### Task 3
+
+* You run a dependent t-test and discover a significant effect, t(43) = 2.24, p < .05. Using the appropriate formula, given in the inclass activity, calculate the effect size of this t-test. 
+
+Replace the `NULL` in the `T3` code chunk below with mathematical notation so that `effect2` returns the value of the effect size. Do not round the value.
+
+```{r T3}
+effect2 <- 2.24/sqrt(43+1)
+effect2
+```
+
+#### Task 4
+
+**Using the Power function**
+
+* Replace the NULL in the `T4` code chunk below with a pipeline combining `power.t.test()`, `tidy()`, `pull()` and `ceiling()`, to determine how many participants are needed to sufficiently power a paired-samples t-test at $power = .9$ with $delta = .5$, $sd = 1$? Assume a two-sided hypothesis with $\alpha = .05$. Ceiling the answer to the nearest whole participant and store this value in `participants`.
+
+* **Note1:** If using the `pwr` package `pwr.t.test()` would be the ideal function.
+* **Note2:** If using the `pwr` package you do not declare `sd`
+* **Note3:** If using the `pwr` package `delta` is the same as `d`
+
+```{r T4}
+participants <- power.t.test(power = .9,
+                             delta = .5,
+                             sd = 1,
+                             sig.level = 0.05,
+                             type = "paired",
+                             alternative = "two.sided") %>% tidy() %>% pull(n) %>% ceiling()
+participants
+```
+
+#### Task 5 
+
+* Using a pipeline similar to Task 4, what is the minimum effect size that a one-sample t-test study (two-tailed hypothesis) could reliably detect given the following details : $\beta = .16, \alpha = 0.01, n = 30$. Round to two decimal places and replace the NULL in the `T5` code chunk below to store this value in `effect3`.
+
+```{r T5}
+effect3 <- power.t.test(power = 1-.16,
+                        n = 30,
+                        sig.level = 0.01,
+                        type = "one.sample",
+                        alternative = "two.sided") %>% tidy() %>% pull(delta) %>% round(2)
+effect3
+```
+
+#### Task 6
+
+**Study 1**
+
+* You run a between-subjects study and establish the following descriptives: Group 1 (M = 5.1, SD = 1.34, N = 32); Group 2 (M = 4.4, SD = 1.27, N = 32). Replace the `NULL` in the `T6` code chunk below with the following formula, substituting in the appropriate values, to calculate the t-value of this test. Calculate as Group1 minus Group2. Store the t-value in `tval`. Do not round `tval` and do not include the `t =` part of the formula.
+
+$$ t = \frac {{\bar{x_{1}}} - \bar{x_{2}}}{ \sqrt {\frac {{s_{1}}^2}{n_{1}} + \frac {{s_{2}}^2}{n_{2}}}}$$ 
+
+```{r T6}
+tval <- NULL
+tval <- (5.1 - 4.4) / sqrt((1.34^2/32) + (1.27^2/32))
+tval
+```
+
+#### Task 7
+
+* Using the `tval` calculated in Task 6, calculate the effect size of this study and store it as `d1` in the `T7` code chunk below, replacing the `NULL` with the appropriate formula and values. Do not round `d1`.
+
+```{r T7}
+d1 <- (2*tval)/sqrt((32-1)+(32-1))
+d1
+```
+
+#### Task 8
+
+Assuming $power = .8$, $\alpha =.05$ on a two-tailed hypothesis, based on the `d1` value in Task 7 and the smallest achievable effect size of this study, which of the below statements is correct.
+
+1. The smallest effect size that this study can determine is d = .71. The detected effect size, `d1`, is larger than this and as such this study is suitably powered
+2. The smallest effect size that this study can determine is d = .17. The detected effect size, `d1`, is larger than this and as such this study is suitably powered
+3. The smallest effect size that this study can determine is d = .17. The detected effect size, `d1`, is smaller than this and as such this study is suitably powered
+4. The smallest effect size that this study can determine is d = .71. The detected effect size, `d1`, is smaller than this and as such this study is not suitably powered
+
+Replace the NULL in the `T8` code chunk below with the number of the statement that is a true summary of this study. It may help you to calculate and store the smallest achievable effect size of this study in `poss_d`.
+
+```{r T8}
+poss_d <- power.t.test(power = .8,
+                        n = 32,
+                        sig.level = 0.05,
+                        type = "two.sample",
+                        alternative = "two.sided") %>% tidy() %>% pull(delta) %>% round(2)
+poss_d
+
+answer_T8 <- 4
+answer_T8
+```
+
+#### Task 9
+
+**Study 2**
+
+Below is a paragraph from the results of Experiment 4 from *Schroeder, J., & Epley, N. (2015). The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal.* *Psychological Science*, *26*, *877-891*. We saw this paper in Lab 5 but you can find out more details at <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities", target = "_blank">Open Stats Lab</a>.
+
+*Recruiters believed that the job candidates had greater intellect - were more competent, thoughtful, and intelligent - when they listened to pitches (M = 5.63, SD = 1.61, n = 21) than when they read pitches (M = 3.65, SD = 1.91, n = 18), t(37) = 3.53, p < .01, 95% CI of the difference = [0.85, 3.13], **d1 = 1.16**. The recruiters also formed more positive impressions of the candidates - rated them as more likeable and had a more positive and less negative impression of them - when they listened to pitches (M = 5.97, SD = 1.92) than when they read pitches (M = 4.07, SD = 2.23), t(37) = 2.85, p < .01, 95% CI of the difference = [0.55, 3.24], **d2 = 0.94**. Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = 4.71, SD = 2.26) than when they read the same pitches (M = 2.89, SD = 2.06), t(37) = 2.62, p < .01, 95% CI of the difference = [0.41, 3.24], **d3 = 0.86**.*
+
+Using the `power.t.test()` function, what is the minimum effect size that this paper could have reliably detected? Test at $power = .8$ for a two-sided hypothesis. Use the $\alpha$ stated in the paragraph and the smallest *n* stated; store the value as `effect4` in the `T9` code chunk below. Replace the `NULL` with your pipeline and round the effect size to two decimal places.
+
+```{r T9}
+effect4 <- power.t.test(power = .8,
+                        n = 18,
+                        sd = 1,
+                        sig.level = .01,
+                        alternative = "two.sided",
+                        type = "two.sample") %>% tidy() %>% pull(delta) %>% round(3)
+effect4
+```
+
+#### Task 10
+
+Given the value of `effect4` calculated in Task 9, and the stated alpha in the paragraph and the smallest n of the two groups, which of these statements is true.
+
+1. This study has enough power to detect effects at the size of d3 and larger.
+2. This study has enough power to detect effects at the size of only d1.
+3. This study has enough power to detect effects at the size of d2 and larger, but not d3.
+4. This study does not have enough power to detect effect sizes at d1 or lower.
+
+Replace the NULL in the `T10` code chunk below with the number of the statement that is TRUE, storing the single value in `answer_t10`.
+
+```{r T10}
+answer_t10 <- 4
+answer_t10
+```
+
+#### Task 11
+
+**Last but not least**
+
+Read the following statements. 
+
+a. In general, increasing sample size will increase the power of a study.
+b. In general, smaller effect sizes require fewer participants to detect at $power = .8$.
+c. In general, lowering alpha (from .05 to .01) will decrease the power of a study.
+
+Now look at the below four summary statements of the validity of the statements a, b and c.
+
+1. Statements a, b and c are all TRUE.
+2. Statements a and c are both TRUE.
+3. Statements b and c are both TRUE.
+4. None of the statements are TRUE.
+
+Replace the NULL in the `T11` code chunk below with the number of the statement that is correct, storing the single value in `answer_t11`.
+
+```{r T11}
+answer_t11 <- 2
+```

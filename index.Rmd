@@ -14,7 +14,8 @@ description: ug2-practical-materials
 # automatically create a bib database for R packages
 # add any packages you want to cite here
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'tidyverse'
+  .packages(), 'bookdown', 'tidyverse', 'broom', 'pwr', 'rtweet',
+  'meme', 'gganimate', 'webex'
 ), 'packages.bib')
 
 ```

@@ -1,2 +1,17 @@
-## PreClass Activity 1
+## PreClass Activity
 
+### Reading
+
+Read the following blog on Power. This is a bit of a lengthy blog on a fictional conversation between a professor and a student on the importance on power. Grab a coffee and have a read. Don't worry about reading all the additional papers; just the blog is fine to get an understanding.
+
+<a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/", target = "_blank">The Power Dialogues</a> by PIGEE at the University of Illinois.
+
+### Watch
+
+You should also watch this short but nonetheless informative video by Daniel Lakens on Power and Sample Size. And his shirt is amazing!
+
+<a href = "https://www.youtube.com/watch?v=Lr-i4Ugoc5M&index=3&list=PLtAL5tCifMi5zG70dslERYcGApAQcvj1s">Power Analysis and Sample Size Decisions</a> by Daniel Lakens
+
+Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you understand them better.
+
+<<FUTURE PHIL - HERE WOULD BE A GOOD PLACE TO PUT IN THE TROUT ANALOGY + MAYBE LISA GUESS THE EFFECT SIZE AND THE Rpsychologist page - https://rpsychologist.com/d3/cohend/ and could also add http://escal.site/ and https://towardsdatascience.com/why-you-shouldnt-say-this-study-is-underpowered-627f002ddf35 - though maybe some of this as additional activities>>
