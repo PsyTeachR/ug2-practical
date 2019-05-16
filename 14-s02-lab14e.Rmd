@@ -1,0 +1,8 @@
+## Solutions to Questions
+
+```{r lab14-solutions-setup, echo = FALSE, message=FALSE, warning=FALSE}
+
+
+```
+
+Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.

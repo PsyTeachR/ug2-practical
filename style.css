@@ -67,8 +67,8 @@ pre:not(.sourceCode) code {
 /* webex style */
 
 /* styles for solveme */
-.solveme { border: 2px dotted red; }
-.solveme.correct { border: 2px solid blue; }
+.solveme { border: 2px dotted orange; }
+.solveme.correct { border: 2px solid green; }
 /* styles for hidden solutions */
 .solution {
     height: 2em;
@@ -83,6 +83,13 @@ pre:not(.sourceCode) code {
 .solution button {
     height: 1.5em;
     margin-bottom: 0.5em;
+    background-color: rgba(226, 164, 88, .5);
+    border-color: rgba(226, 164, 88, 1);
+    border-radius: 5px;
+}
+.solution button:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(226, 164, 88, 1);
 }
 .solution pre.sourceCode {
     border-color: green;

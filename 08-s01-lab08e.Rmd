@@ -2,7 +2,6 @@
 
 ```{r lab8-solutions-setup, echo = FALSE, message=FALSE, warning=FALSE}
 library(broom)
-ratings <- read_csv("data/07-s01/inclass/GuiltJudgements.csv")
 ```
 
 Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.

@@ -15,3 +15,5 @@ You should also watch this short but nonetheless informative video by Daniel Lak
 Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you understand them better.
 
 <<FUTURE PHIL - HERE WOULD BE A GOOD PLACE TO PUT IN THE TROUT ANALOGY + MAYBE LISA GUESS THE EFFECT SIZE AND THE Rpsychologist page - https://rpsychologist.com/d3/cohend/ and could also add http://escal.site/ and https://towardsdatascience.com/why-you-shouldnt-say-this-study-is-underpowered-627f002ddf35 - though maybe some of this as additional activities>>
+
+<<Would be good to also include Dan Quintana video on https://www.youtube.com/watch?v=ZIjOG8LTTh8>>
