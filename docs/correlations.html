@@ -25,7 +25,7 @@
 <meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-05-17">
+<meta name="date" content="2019-06-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#the-summarise-function---to-do-some-calculations-on-the-data"><i class="fa fa-check"></i><b>2.2.8</b> The <strong><code>summarise()</code></strong> Function - to do some calculations on the data</a></li>
 <li class="chapter" data-level="2.2.9" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#two-other-useful-functions"><i class="fa fa-check"></i><b>2.2.9</b> Two Other Useful Functions</a></li>
 <li class="chapter" data-level="2.2.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#last-but-not-least---pipes-to-make-your-code-efficient"><i class="fa fa-check"></i><b>2.2.10</b> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</a></li>
-<li class="chapter" data-level="2.2.11" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity-completed"><i class="fa fa-check"></i><b>2.2.11</b> PreClass Activity Completed!</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#a-note-on-tidy-data"><i class="fa fa-check"></i><b>2.3.1</b> A Note on Tidy Data</a></li>
@@ -961,27 +960,27 @@ Miller and Haden: Figures
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Abil data appears as normal as expected for 25 participants</span>
 <span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil)) +<span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
 <img src="10-s02-lab10e_files/figure-html/unnamed-chunk-5-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 7.2: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 10.2: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># IQ data appears as normal as expected for 25 participants</span>
 <span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) +<span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
 <img src="10-s02-lab10e_files/figure-html/unnamed-chunk-5-2.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 7.2: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 10.3: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Relationship appears normal, homoscedastitic, and with no clear outliers</span>
 <span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil, <span class="dt">y =</span> IQ)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-53"></span>
 <img src="10-s02-lab10e_files/figure-html/unnamed-chunk-5-3.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 7.2: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 10.4: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 </div>
@@ -1076,27 +1075,27 @@ descriptives &lt;-<span class="st"> </span>dat %&gt;%<span class="st"> </span><s
 <span class="co"># check normality</span>
 <span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> VapingQuestionnaireScore)) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## Warning: Removed 11 rows containing non-finite values (stat_bin).</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-101"></span>
 <img src="10-s02-lab10e_files/figure-html/unnamed-chunk-10-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 3.6: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 10.5: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT)) +<span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-102"></span>
 <img src="10-s02-lab10e_files/figure-html/unnamed-chunk-10-2.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 3.6: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 10.6: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check linear, homoscedasticity, outliers</span>
 <span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT, <span class="dt">y =</span> VapingQuestionnaireScore)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">theme_bw</span>()</code></pre></div>
 <pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-103"></span>
 <img src="10-s02-lab10e_files/figure-html/unnamed-chunk-10-3.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 3.6: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 10.7: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># some people missing data - remove them</span>

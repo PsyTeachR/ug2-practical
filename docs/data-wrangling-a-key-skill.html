@@ -25,7 +25,7 @@
 <meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-05-17">
+<meta name="date" content="2019-06-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#the-summarise-function---to-do-some-calculations-on-the-data"><i class="fa fa-check"></i><b>2.2.8</b> The <strong><code>summarise()</code></strong> Function - to do some calculations on the data</a></li>
 <li class="chapter" data-level="2.2.9" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#two-other-useful-functions"><i class="fa fa-check"></i><b>2.2.9</b> Two Other Useful Functions</a></li>
 <li class="chapter" data-level="2.2.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#last-but-not-least---pipes-to-make-your-code-efficient"><i class="fa fa-check"></i><b>2.2.10</b> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</a></li>
-<li class="chapter" data-level="2.2.11" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity-completed"><i class="fa fa-check"></i><b>2.2.11</b> PreClass Activity Completed!</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#a-note-on-tidy-data"><i class="fa fa-check"></i><b>2.3.1</b> A Note on Tidy Data</a></li>
@@ -601,17 +600,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Additional useful tools such as count, gather and joins</li>
 <li>Piping and making efficient codes.</li>
 </ul>
-<p><strong>Note: this preclass is a bit of a read but it is important that you have all this information in the one place so you can quickly refer back to it. Also, you did a very similar task in Level 1 so it is about recapping more than learning afresh. But take your time to try to understand the information and be sure to bring any questions to class with you.</strong></p>
+<p><strong>Note:</strong> This preclass is a bit of a read but it is important that you have all this information in the one place so you can quickly refer back to it. Also, you did a very similar task in Level 1 so it is about recapping more than learning afresh. But take your time to try to understand the information and be sure to bring any questions to class with you.</p>
 <div class="solution">
 <button>
 Portfolio Point - Getting Help
 </button>
 <div class="info">
 <p>
-cat(&quot;Remember to open up your Portfolio that you created in Lab 1 so you can add useful information to it as you work though the tasks! Also summarising the information we give in this preclass, in your own words, is a great way to learn! You don't have to read all of these but they might help from time to time explain parts further.
+Remember to open up your Portfolio that you created in Lab 1 so you can add useful information to it as you work though the tasks! Also summarising the information we give in this preclass, in your own words, is a great way to learn! You don't have to read all of these but they might help from time to time explain parts further.
 </p>
 <p>
-For instance, do you remember how to get help in R Studio? You can call the help function (e.g. <code>?gather</code>) to view the reference page for each function. This example shows how to get help on the gather function, which we will use in later labs.&quot;)
+For instance, do you remember how to get help in R Studio? You can call the help function (e.g. <code>?gather</code>) to view the reference page for each function. This example shows how to get help on the gather function, which we will use in later labs.
 </p>
 </div>
 </div>
@@ -643,8 +642,7 @@ For instance, do you remember how to get help in R Studio? You can call the help
 </tr>
 </tbody>
 </table>
-<div id="quickfire-questions" class="section level4">
-<h4><span class="header-section-number">2.2.0.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>What type of data would these most likely be:</p>
 <ul>
 <li><p>Male = <select class='solveme' data-answer='["Character"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option> </select></p></li>
@@ -655,7 +653,10 @@ For instance, do you remember how to get help in R Studio? You can call the help
 <button>
 Portfolio Point - Data types and levels of measurement
 </button>
-<p>There is a lot of different types of data and as well as different types of levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of Characters just like you can't take the average of Categorical data. Likewise, you can do any maths on Numeric data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.</p>
+<div class="info">
+<p>
+There is a lot of different types of data and as well as different types of levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of Characters just like you can't take the average of Categorical data. Likewise, you can do any maths on Numeric data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
+</p>
 </div>
 </div>
 <div id="revisiting-the-wickham-six" class="section level3">
@@ -710,12 +711,32 @@ pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 <button>
 Help my data is not loading?
 </button>
-<p>These are the three most common mistakes.</p>
-<p>Make sure you have spelt the data file name <strong>exactly</strong> as it is shown. Spaces and everything. Do not change the name of the csv file, fix your code instead. The reason being is that if you have a different name for your file than someone else then your code is not reproducible.</p>
-<p>Secondly, remember when uploading data we use <code>read_csv</code> which has an underscore, whereas the data file itself will have a dot in its name, <code>filename.csv</code>.</p>
-<p>Finally, check that the datafile is actually in the folder you have set as your working directory.</p>
+<div class="info">
+<p>
+The three most common mistakes we see are:
+</p>
+<ol style="list-style-type: decimal">
+<li>
+Make sure you have spelt the data file name <strong>exactly</strong> as it is shown. Spaces and everything. Do not change the name of the csv file, fix your code instead. The reason being is that if you have a different name for your file than someone else then your code is not reproducible.
+</li>
+<li>
+Remember when uploading data we use <code>read_csv</code> which has an underscore, whereas the data file itself will have a dot in its name, <code>filename.csv</code>.
+</li>
+<li>
+Check that the datafile is actually in the folder you have set as your working directory.
+</li>
+</ol>
 </div>
-<p><br> <strong>Note: If you are using a computer at home and you haven't previously installed the <code>tidyverse</code> package before you will have to install it first, e.g. <code>install.packages(&quot;tidyverse&quot;)</code>. DO NOT install packages in the Boyd Orr labs; they are already there and just need called in through <code>library()</code>.</strong></p>
+</div>
+<br>
+<div class="danger">
+<p>
+<strong>DO NOT install packages in the Boyd Orr labs; they are already there and just need called in through <code>library()</code>.</strong>
+</p>
+<p>
+However, If you are using a computer at home and you haven't previously installed the <code>tidyverse</code> package on your own machine before, you will have to install it first, e.g. <code>install.packages(&quot;tidyverse&quot;)</code>.
+</p>
+</div>
 <ol start="4" style="list-style-type: decimal">
 <li>Let's have a look at the <code>pong_data</code> and see how it is organized. Type <code>View(pong_data)</code> or <code>glimpse(pong_data)</code> in your Console window.</li>
 </ol>
@@ -776,7 +797,11 @@ Help my data is not loading?
 <button>
 Portfolio Point - The Wickham Six
 </button>
-<p>You will use the Wickham Six very frequently for wrangling your data so this would definitely be something you should be making notes about - not just the names, but how they work and any particular nuances that you spot.</p>
+<div class="info">
+<p>
+You will use the Wickham Six very frequently for wrangling your data so this would definitely be something you should be making notes about - not just the names, but how they work and any particular nuances that you spot.
+</p>
+</div>
 </div>
 </div>
 <div id="the-select-function---to-keep-only-specific-columns" class="section level3">
@@ -792,17 +817,28 @@ Portfolio Point - The Wickham Six
 <div id="task-1-using-the-select-function" class="section level4">
 <h4><span class="header-section-number">2.2.3.1</span> Task 1: Using the Select Function</h4>
 <ol style="list-style-type: decimal">
-<li><p>Either by inclusion or exclusion, select only the <code>Participant</code>, <code>PaddleLength</code>, <code>TrialNumber</code>, <code>BackgroundColor</code> and <code>HitOrMiss</code> columns from <code>pong_data</code>.</p></li>
-<li><p><code>select()</code> can be used to reorder. Use <code>select()</code> to keep only the columns <code>Participant</code>, <code>JudgedSpeed</code>, <code>BallSpeed</code>, <code>TrialNumber</code>, and <code>HitOrMiss</code> but have them display in alphabetical order, left to right.</p></li>
+<li><p>Either by inclusion or exclusion, select only the columns <code>Participant</code>, <code>PaddleLength</code>, <code>TrialNumber</code>, <code>BackgroundColor</code> and <code>HitOrMiss</code> from <code>pong_data</code>.<br />
+<code>select()</code> can also be used to reorder columns.</p></li>
+<li><p>Use <code>select()</code> to keep only the columns <code>Participant</code>, <code>JudgedSpeed</code>, <code>BallSpeed</code>, <code>TrialNumber</code>, and <code>HitOrMiss</code> but have them display in alphabetical order, left to right.</p></li>
 </ol>
 <div class="solution">
 <button>
 Helpful Hint
 </button>
+<div class="info">
 <ol style="list-style-type: decimal">
-<li><p>Have you remembered to include the dataset <code>pong_data</code>? Pay attention to upper/lower case letters and spelling!</p></li>
-<li><p>Think about how you first entered the column names as they appeared. But what happens if you change the order that you enter the column names?</p></li>
+<li>
+<p>
+Have you remembered to include the dataset <code>pong_data</code>? Pay attention to upper/lower case letters and spelling!
+</p>
+</li>
+<li>
+<p>
+Think about how you first entered the column names as they appeared. But what happens if you change the order that you enter the column names?
+</p>
+</li>
 </ol>
+</div>
 </div>
 </div>
 </div>
@@ -818,8 +854,24 @@ Helpful Hint
 <button>
 Explain this - where did desc come from?
 </button>
-<p>What does <code>desc()</code> do? Compare the output of the two lines above on the <code>BallSpeed</code> column. Does <code>desc()</code> also work for <code>BackgroundColor</code>?</p>
-<p>desc is how to sort by largest to smallest - i.e. descending order.</p>
+<div class="info">
+<ul>
+<li>
+What does <code>desc()</code> do?
+<ul>
+<li>
+<code>desc()</code> is how to sort by largest to smallest - i.e. descending order.
+</li>
+<li>
+Compare the output of the two lines above on the <code>BallSpeed</code> column.
+</li>
+<li>
+Does <code>desc()</code> also work for <code>BackgroundColor</code>?
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="task-2-arranging-data" class="section level4">
 <h4><span class="header-section-number">2.2.4.1</span> Task 2: Arranging Data</h4>
@@ -860,25 +912,62 @@ Explain this - where did desc come from?
 <button>
 Helpful Hint
 </button>
-<p>There are three parts to this filter so it is best to think about them individually and then combine them.</p>
+<div class="info">
+<p>
+There are three parts to this filter so it is best to think about them individually and then combine them.
+</p>
 <ol style="list-style-type: decimal">
-<li><p>Filter all fast speed judgements (<code>JudgedSpeed</code>)</p></li>
-<li><p>Filter for the speeds 2, 4, 5 and 7 (<code>BallSpeed</code>)</p></li>
-<li><p>Filter for all Misses (<code>HitOrMiss</code>)</p></li>
+<li>
+<p>
+Filter all fast speed judgements (<code>JudgedSpeed</code>)
+</p>
+</li>
+<li>
+<p>
+Filter for the speeds 2, 4, 5 and 7 (<code>BallSpeed</code>)
+</p>
+</li>
+<li>
+<p>
+Filter for all Misses (<code>HitOrMiss</code>)
+</p>
+</li>
 </ol>
-<p>You could do this in three filters where each one uses the output of the preceeding one, or remember that filter functions can take more than one arguement - see the example above. Also, because the <code>JudgedSpeed</code> and <code>HitOrMiss</code> are Integer you will need <code>==</code> instead of just <code>=</code>.</p>
+<p>
+You could do this in three filters where each one uses the output of the preceeding one, or remember that filter functions can take more than one arguement - see the example above. Also, because the <code>JudgedSpeed</code> and <code>HitOrMiss</code> are Integer you will need <code>==</code> instead of just <code>=</code>.
+</p>
+</div>
 </div>
 <div class="solution">
 <button>
 Portfolio Point - And not Or
 </button>
-<p>The filter function is very useful but if used wrongly can give you very misleading findings. This is why it is very important to always check your data after you perform an action. Let's say you are working in comparative psychology and have run a study looking at how cats, dogs and horses perceive emotion. Let's say the data is all stored in the tibble <code>animal_data</code> and there is a column called <code>animals</code> that tells you what type of animal your participant was. Ok, so imagine you wanted all the data from just cats</p>
-<p><code>filter(animal_data, animals == &quot;cat&quot;)</code></p>
-<p>Exactly! But what if you wanted cats and dogs?</p>
-<p><code>filter(animal_data, animals == &quot;cat&quot;, animals == &quot;dog&quot;)</code></p>
-<p>Right? Wrong! This actually says &quot;give me everything that is a cat and a dog&quot;. But nothing is a cat and a dog, that would be weird - like a dat or a cog. In fact you want everything that is either a cat <strong>or</strong> a dog, which is</p>
-<p><code>filter(animal_data, animals == &quot;cat&quot; | animals == &quot;dog&quot;)</code></p>
-<p>The vertical line is the symbol for Or. So always pay attention to what you want and most importantly to what your code produces.</p>
+<div class="info">
+<p>
+The filter function is very useful but if used wrongly can give you very misleading findings. This is why it is very important to always check your data after you perform an action. Let's say you are working in comparative psychology and have run a study looking at how cats, dogs and horses perceive emotion. Let's say the data is all stored in the tibble <code>animal_data</code> and there is a column called <code>animals</code> that tells you what type of animal your participant was. Ok, so imagine you wanted all the data from just cats
+</p>
+<p>
+<code>filter(animal_data, animals == &quot;cat&quot;)</code>
+</p>
+<p>
+Exactly! But what if you wanted cats and dogs?
+</p>
+<p>
+<code>filter(animal_data, animals == &quot;cat&quot;, animals == &quot;dog&quot;)</code>
+</p>
+<p>
+Right? Wrong! This actually says &quot;give me everything that is a cat and a dog&quot;. But nothing is a cat and a dog, that would be weird - like a dat or a cog! What you actually want is is everything that is either a cat <strong>or</strong> a dog, which is stated as:
+</p>
+<p>
+<code>filter(animal_data, animals == &quot;cat&quot; | animals == &quot;dog&quot;)</code>
+</p>
+<p>
+The vertical line <code>|</code> is the symbol for Or.
+</p>
+<p>
+<strong>TOP <a href="TIP:**" class="uri">TIP:</strong></a> Always pay attention to what you want and most importantly to what your code produces.
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -911,8 +1000,24 @@ Portfolio Point - And not Or
 <button>
 Helpful Hint
 </button>
-<p>Step 1. filter(<code>TrialNumber</code> does not equal 1) - remember to store this output in a variable?</p>
-<p>Step 2. mutate(<code>TrialNumber</code> = TrialNumber minus 1)</p>
+<div class="info">
+<p>
+Step 1:
+</p>
+<ul>
+<li>
+filter(<code>TrialNumber</code> does not equal 1) - remember to store this output in a variable?
+</li>
+</ul>
+<p>
+Step 2:
+</p>
+<ul>
+<li>
+mutate(<code>TrialNumber</code> = TrialNumber minus 1)
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -934,9 +1039,17 @@ Helpful Hint
 <button>
 Helpful Hint
 </button>
-<p>It is the same procedure as this but with different column names:</p>
-<p><code>group_by(pong_data, HitOrMiss, BackgroundColor)</code></p>
-<p>The number of groups should be between the sum of the number of background colors (red and blue) and the number of blocks (12).</p>
+<div class="info">
+<p>
+It is the same procedure as this but with different column names:
+</p>
+<p>
+<code>group_by(pong_data, HitOrMiss, BackgroundColor)</code>
+</p>
+<p>
+The number of groups should be between the sum of the number of background colors (red and blue) and the number of blocks (12).
+</p>
+</div>
 </div>
 <p><code>group_by()</code> is incredibly useful as once the data is organised into groups you can then apply other functions (<code>filter</code>, <code>arrange</code>, <code>mutate</code>...etc.) to the groups within your data that you are interested in, instead of to the entire dataset. For instance, a common second step after <code>group_by</code> might be to <code>summarise</code> the data...</p>
 </div>
@@ -967,11 +1080,16 @@ pong_data_hits_red_small &lt;-<span class="st"> </span><span class="kw">filter</
 <button>
 Portfolio Point - the ungroup function
 </button>
-<p>After grouping data together using the <code>group_by()</code> function and then peforming a task on it, e.g. filter(), it can be very good practice to ungroup the data before performing another function. Forgetting to ungroup the dataset won't always affect further processing, but can really mess up other things. Again just a good reminder to always check the data you are getting out of a function a) makes sense and b) is what you expect.</p>
+<div class="info">
+<p>
+After grouping data together using the <code>group_by()</code> function and then peforming a task on it, e.g. filter(), it can be very good practice to ungroup the data before performing another function. Forgetting to ungroup the dataset won't always affect further processing, but can really mess up other things.
+</p>
+<p>
+Again just a good reminder to always check the data you are getting out of a function a) makes sense and b) is what you expect.
+</p>
 </div>
 </div>
-<div id="quickfire-questions-1" class="section level4">
-<h4><span class="header-section-number">2.2.8.2</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>Which of the Wickham Six would I use to sort columns from smallest to largest: <select class='solveme' data-answer='["arrange"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option> </select></p></li>
 <li><p>Which of the Wickham Six would I use to calculate the mean of a column: <select class='solveme' data-answer='["summarise"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option> </select></p></li>
@@ -1042,17 +1160,17 @@ data_arrange &lt;-<span class="st"> </span>pong_data %&gt;%
 <button>
 Portfolio Point - Pipes are good for the Environment
 </button>
-<p>Where piping becomes most useful is when we <strong>string a series of functions together</strong>, rather than using them as separate steps and having to save the data each time under a new variable name and getting ourselves all confused. In the non-piped version we have to create a new variable each time, for example, <code>data</code>, <code>data_filtered</code>, <code>data_arranged</code>, <code>data_grouped</code>, <code>data_summarised</code> just to get to the final one we actually want, which was <code>data_summarised</code>. This creates a lot of variables and tibbles in our environment and can make everything unclear and eventually slow down our computer. The piped version however uses one variable name, saving space in the environment, and is clear and easy to read. With pipes we skip unnecessary steps and avoid cluttering our environment.</p>
+<div class="info">
+<p>
+Where piping becomes most useful is when we <strong>string a series of functions together</strong>, rather than using them as separate steps and having to save the data each time under a new variable name and getting ourselves all confused. In the non-piped version we have to create a new variable each time, for example, <code>data</code>, <code>data_filtered</code>, <code>data_arranged</code>, <code>data_grouped</code>, <code>data_summarised</code> just to get to the final one we actually want, which was <code>data_summarised</code>. This creates a lot of variables and tibbles in our environment and can make everything unclear and eventually slow down our computer. The piped version however uses one variable name, saving space in the environment, and is clear and easy to read. With pipes we skip unnecessary steps and avoid cluttering our environment.
+</p>
 </div>
-<div id="quickfire-question" class="section level4">
-<h4><span class="header-section-number">2.2.10.1</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
+</div>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li>What does this line of code say? <code>data %&gt;% filter() %&gt;% group_by() %&gt;% summarise()</code>: <select class='solveme' data-answer='["take the data and filter it and then group it and then summarise it"]'> <option></option> <option>take the data and group it and then filter it and then summarise it</option> <option>take the data and filter it and then group it and then summarise it</option> <option>take the data and summarise it and then filter it and then group it</option> <option>take the data and group it and then summarise it and then filter it</option> </select></li>
 </ul>
-</div>
-</div>
-<div id="preclass-activity-completed" class="section level3">
-<h3><span class="header-section-number">2.2.11</span> PreClass Activity Completed!</h3>
+<p><strong>Job Done - PreClass Activity Completed!</strong></p>
 <p>We have now recapped a number of functions and verbs that you will need as the semester goes on. You will use them in the lab next week so be sure to go over these and try them out to make yourself more comfortable with them. Remember to also start looking back at your first year labs and remembering some of the work you did there. If you have any questions please post them on the Moodle forum of the slack forum <a href="https://rguppies.slack.com/">rguppies.slack.com</a> under the channel #level2_labs. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. <strong>Happy Wrangling!</strong></p>
 
 </div>
@@ -1219,7 +1337,7 @@ Explain This - I don't get why?
 <li>Finally, the fourth argument is the names of specific columns in the original tibble that we want to gather together.</li>
 </ul>
 <p>In case you are wondering if we wanted to go back the way, and ungather the data we just gathered, we would use the <code>spread()</code> function: e.g. <code>rwide &lt;- spread(rlong, Questions, Response)</code>. But we do not want to do that here so let's not add this to the code.</p>
-<div id="quickfire-question-1" class="section level4">
+<div id="quickfire-question" class="section level4">
 <h4><span class="header-section-number">2.3.7.1</span> <span style="color:DARKGREEN"> Quickfire Question </span></h4>
 <p>Let's see if you understand <code>gather()</code>. Say I wanted to gather the first three columns of <code>responses</code> (Q1, Q2, Q3), put the question numbers in a column called <code>Jam</code>, the responses in a column called <code>Strawberry</code>, and store everything in a tibble called <code>sandwich</code>. Fill in the box with what you would write: <input class='solveme nospaces' size='60' data-answer='["sandwich <- gather(responses, Jam, Strawberry, Q1:Q3)"]'/></p>
 <div class="solution">

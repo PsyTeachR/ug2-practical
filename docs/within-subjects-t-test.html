@@ -25,7 +25,7 @@
 <meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-05-17">
+<meta name="date" content="2019-06-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#the-summarise-function---to-do-some-calculations-on-the-data"><i class="fa fa-check"></i><b>2.2.8</b> The <strong><code>summarise()</code></strong> Function - to do some calculations on the data</a></li>
 <li class="chapter" data-level="2.2.9" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#two-other-useful-functions"><i class="fa fa-check"></i><b>2.2.9</b> Two Other Useful Functions</a></li>
 <li class="chapter" data-level="2.2.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#last-but-not-least---pipes-to-make-your-code-efficient"><i class="fa fa-check"></i><b>2.2.10</b> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</a></li>
-<li class="chapter" data-level="2.2.11" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity-completed"><i class="fa fa-check"></i><b>2.2.11</b> PreClass Activity Completed!</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#a-note-on-tidy-data"><i class="fa fa-check"></i><b>2.3.1</b> A Note on Tidy Data</a></li>
@@ -717,7 +716,7 @@ Helpful Hint
 <li><p>The structure shown has two new columns: <code>Timepoint</code> and <code>GuiltRating</code>, which are both created from columns Twelve to Thirteen. You should state these new column names when using <code>gather()</code>, as well as the columns you used to create them.</p></li>
 </ol>
 </div>
-<div id="quickfire-questions-22" class="section level4">
+<div id="quickfire-questions-20" class="section level4">
 <h4><span class="header-section-number">7.3.2.1</span> <span style="color:DARKGREEN"> Quickfire Questions </span></h4>
 <ul>
 <li>To check you have completed this Task correctly, enter the appropriate values into the boxes.
@@ -761,7 +760,7 @@ Helpful Hint
 <li>geom_boxplot() - see lab 3 for an example.</li>
 </ol>
 </div>
-<div id="quickfire-questions-23" class="section level4">
+<div id="quickfire-questions-21" class="section level4">
 <h4><span class="header-section-number">7.3.4.1</span> <span style="color:DARKGREEN"> Quickfire Questions </span></h4>
 <ul>
 <li>How many outliers do you see? <select class='solveme' data-answer='["1"]'> <option></option> <option>0</option> <option>1</option> <option>2</option> <option>3</option> <option>too many to count</option> </select></li>
@@ -814,7 +813,7 @@ Helpful Hint
 <li>For the 95% Confidence Interval, you need to calculate an LowerCI and a UpperCI using the appropriate formula.</li>
 </ol>
 </div>
-<div id="quickfire-questions-24" class="section level4">
+<div id="quickfire-questions-22" class="section level4">
 <h4><span class="header-section-number">7.3.6.1</span> <span style="color:DARKGREEN"> Quickfire Questions </span></h4>
 <ul>
 <li><p>From the options, which equation would use to calculate the LowerCI? <select class='solveme' data-answer='["mean - 1.96 * se"]'> <option></option> <option>mean - 1.96 * sd</option> <option>mean * 1.96 - se</option> <option>mean - 1.96 * se</option> <option>mean * 1.96 - sd</option> </select></p></li>
@@ -995,7 +994,7 @@ lates %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> .<span class="dv">2</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-61"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-6-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 7.3: <strong>CAPTION THIS FIGURE!!</strong>
@@ -1009,10 +1008,10 @@ lates %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) +
 <span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">width =</span> .<span class="dv">1</span>, <span class="dt">alpha =</span> .<span class="dv">2</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-62"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-6-2.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 7.3: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 7.4: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 </div>
@@ -1054,10 +1053,10 @@ Possible Solution Task 7
 <span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) +
 <span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) +
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-81"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 6.3: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 7.5: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An alternative way to display just the means and errorbars would be to use the pointrange approach.</span>
@@ -1071,10 +1070,10 @@ Figure 6.3: <strong>CAPTION THIS FIGURE!!</strong>
 <span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) +
 <span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-82"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-8-2.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 6.3: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 7.6: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 </div>

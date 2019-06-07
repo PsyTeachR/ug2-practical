@@ -25,7 +25,7 @@
 <meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-05-17">
+<meta name="date" content="2019-06-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#the-summarise-function---to-do-some-calculations-on-the-data"><i class="fa fa-check"></i><b>2.2.8</b> The <strong><code>summarise()</code></strong> Function - to do some calculations on the data</a></li>
 <li class="chapter" data-level="2.2.9" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#two-other-useful-functions"><i class="fa fa-check"></i><b>2.2.9</b> Two Other Useful Functions</a></li>
 <li class="chapter" data-level="2.2.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#last-but-not-least---pipes-to-make-your-code-efficient"><i class="fa fa-check"></i><b>2.2.10</b> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</a></li>
-<li class="chapter" data-level="2.2.11" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity-completed"><i class="fa fa-check"></i><b>2.2.11</b> PreClass Activity Completed!</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#a-note-on-tidy-data"><i class="fa fa-check"></i><b>2.3.1</b> A Note on Tidy Data</a></li>
@@ -611,7 +610,7 @@ Portfolio Point - Samples, Populations and Inference
 <div id="discrete-or-continuous-datasets" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Discrete or Continuous Datasets</h3>
 <p>This is a short tutorial with just a couple of quick recap questions on how the <code>level of measurement</code> can alter the way you tackle probability - i.e. whether the data is discrete or continuous.</p>
-<div id="quickfire-questions-7" class="section level4">
+<div id="quickfire-questions-5" class="section level4">
 <h4><span class="header-section-number">4.1.1.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <p><strong>Discrete</strong> data can only take integer values (whole numbers). For example, the number of participants in an experiment would be discrete - we can't have half a participant! Discrete variables can also be further broken down into <strong>nominal/categorical</strong> and <strong>ordinal</strong> variables. <br> Fill in the blanks in the below sentences using the words: ordinal, nominal, categorical.</p>
 <ul>
@@ -658,7 +657,7 @@ Portfolio Point - Presenting probabilities
 <p>So the probability of an event is the number of all the possible ways an event could happen, divided by all the possible outcomes. When you combine probabilities of two separate events you multiple them together to obtain the cumulative probability.</p>
 <p>But you may have noticed that sometimes we write p = .008, for example, and sometimes p = 0.008. What is the difference? Well nothing really. However, there is a convention that as probability can never go above 1, then the 0 before the decimal place is pointless. Meaning that most people will write p = .008 instead of p = 0.008. We have allowed either version in the answers to this point, but try to get in the habit of writing it without the 0 before the decimal place.</p>
 </div>
-<div id="quickfire-questions-8" class="section level4">
+<div id="quickfire-questions-6" class="section level4">
 <h4><span class="header-section-number">4.2.1.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>What is the probability of randomly drawing your name out of a hat of 12 names where one name is definitely your name? Enter your answer to 3 decimal places: <input class='solveme nospaces' size='5' data-answer='["0.083",".083"]'/></p></li>
@@ -699,8 +698,8 @@ Explain This - I don't get these answers
 <span class="co"># Notice that because our event labels are strings (text), </span>
 <span class="co"># we need to enter them into the function as a vector; i.e. in &quot;quotes&quot; </span>
 <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;HEADS&quot;</span>, <span class="st">&quot;TAILS&quot;</span>), <span class="dv">10</span>, <span class="ot">TRUE</span>) </code></pre></div>
-<pre><code>##  [1] &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot;
-##  [9] &quot;HEADS&quot; &quot;TAILS&quot;</code></pre>
+<pre><code>##  [1] &quot;HEADS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;TAILS&quot;
+##  [9] &quot;TAILS&quot; &quot;TAILS&quot;</code></pre>
 <p>The last argument in the code above provides the instruction to sample with or without replacement by setting it to <code>TRUE</code> or <code>FALSE</code> respectively. Don't worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.</p>
 <div class="solution">
 <button>
@@ -717,7 +716,7 @@ Portfolio Point - Sampling and Replacement
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now that our event labels are numeric, we don&#39;t need the vector.</span>
 <span class="co"># 0:1 means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.</span>
 <span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>() </code></pre></div>
-<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>The ouptut of this line changes every time we run the code as we are randomly sampling 10 coin flips each time. And to be clear, if you get an answer of 6 for example, this means 6 heads, and in turn, 4 tails. By running this code over and over again we are basically demonstrating how a <strong>sampling distribution</strong> is created.</p>
 <div class="solution">
 <button>
@@ -731,7 +730,7 @@ Portfolio Point - What's a sampling distribution?
 <li>Here we are doing exactly as we said and saving the 10000 outputs (counts of heads) in the variable called <code>heads10k</code> (k is shorthand for thousand).</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heads10k &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>())   </code></pre></div>
-<pre><code>##  int [1:10000] 6 5 5 5 6 3 7 5 2 5 ...</code></pre>
+<pre><code>##  int [1:10000] 4 4 3 7 4 4 4 7 5 6 ...</code></pre>
 <p>The results of these 10000 replications are now stored in a vector called <code>heads10k</code>. If you have a look at <code>heads10k</code>, as shown in the bottom box, it is a series of 10000 numbers between 0 and 10 each indicating the number of heads, or more specifically 1s, that you got in a set of 10 flips.</p>
 <p>Now in order to complete our distribution we need to:</p>
 <ol style="list-style-type: decimal">
@@ -766,9 +765,9 @@ Portfolio Point - What's a sampling distribution?
 Figure 4.1: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2469</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
-<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0009</strong>, and the probability of 1 heads is <strong>0.0093</strong>, and the probability of 2 heads is <strong>0.0433</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0535</strong></p>
-<div id="quickfire-questions-9" class="section level4">
+<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2473</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
+<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0013</strong>, and the probability of 1 heads is <strong>0.0102</strong>, and the probability of 2 heads is <strong>0.0438</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0553</strong></p>
+<div id="quickfire-questions-7" class="section level4">
 <h4><span class="header-section-number">4.2.2.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <p>Look at the probability values corresponding to the number of coin flips you created in the <code>data10k</code> sample distribution (use <code>View()</code> to see this):</p>
 <ul>
@@ -827,7 +826,7 @@ In terms of visualising what we have just calculated. That number represents the
 (#fig:binom_plot1)<strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<div id="quickfire-question-2" class="section level4">
+<div id="quickfire-question-1" class="section level4">
 <h4><span class="header-section-number">4.2.4.1</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
 <ul>
 <li>To three decimal places, what is the probability of 2 heads out of 10 flips? <input class='solveme nospaces' size='10' data-answer='["0.044",".044"]'/></li>
@@ -878,7 +877,7 @@ Portfolio Point - Am all in a Tail Spin! Lower TRUE or FALSE
 <p>Let's consider <code>lower.tail = TRUE</code>, this is the default, so if you dont state <code>lower.tail</code> then this is what is considered to be what you want. <code>lower.tail = TRUE</code> means all the values to the left of your value including the value you state. So on the binomial distribution if you say give me the probability of 5 heads or less, then you would set <code>lower.tail = TRUE</code> and you would be counting and summing the probability of 0, 1, 2, 3, 4 and 5 heads. You can check this with <code>dbinom(0:5, 10, .5) %&gt;% sum()</code>.</p>
 <p>However, if you say give me the probability of 7 or more heads, then you need to do <code>lower.tail = FALSE</code>, to consider the right-hand side tail, but also, you need to set the code as <code>pbinom(6, 10, .5, lower.tail = FALSE)</code>. Why 6 and not 7? Because the <code>pbinom</code> function, when <code>lower.tail = FALSE</code>, starts at the value <strong>plus one to the value you state</strong>; it always considers the value you state as being part of the <code>lower.tail</code> so if you say 6, it includes 6 in the <code>lower.tail</code> and then gives you 7, 8, 9 and 10 as the upper tail. If you said 7 with <code>lower.tail = FALSE</code>, then it would only give you 8, 9 and 10. This is tricky but worth keeping in mind when you are using <code>pbinom</code> function. And remember, you can always check it by using <code>dbinom(7:10, 10, .5) %&gt;% sum()</code> and seeing whether it matches <code>pbinom(6, 10, 0.5, lower.tail=FALSE)</code> or <code>pbinom(7, 10, 0.5, lower.tail=FALSE)</code></p>
 </div>
-<div id="quickfire-questions-10" class="section level4">
+<div id="quickfire-questions-8" class="section level4">
 <h4><span class="header-section-number">4.2.5.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>Using the format of the above <code>pbinom</code> function, enter the code that would determine the probability of <strong>up to and including</strong> 5 heads out of 20 flips, assuming a probability of 0.5: <input class='solveme nospaces' size='45' data-answer='["pbinom(5, 20, 0.5)","pbinom(5, 20, .5)","pbinom(5, 20, 0.5, lower.tail=TRUE)","pbinom(5, 20, .5, lower.tail=TRUE)"]'/></p></li>
@@ -919,7 +918,7 @@ Portfolio Point - I don't understand qbinom arguments
 <p>The function is set up as <code>qbinom(p, size, prob)</code>. First of all, you have used <code>prob</code> in the previous two functions, <code>dbinom</code> and <code>pbinom</code>, and it represents the probability of success on a single trial (here it is the probability of 'heads' in one coin flip, .5). Now, <code>prob</code> represents the probability of success in <strong>one</strong> trial, whereas <code>p</code> represents the overall probability of success <strong>across all trials</strong> and gives you the number of heads that would give that probability. So you ask it for the minimum number of successes (e.g. heads) to maintain an overall probability of .05, in 10 flips, when the probability of a success on any one flip is .5. And it tells you the answer is 2.</p>
 <p><code>qbinom</code> also uses the <code>lower.tail</code> argument and it works in a similar fashion to <code>pbinom</code>.</p>
 </div>
-<div id="quickfire-question-3" class="section level4">
+<div id="quickfire-question-2" class="section level4">
 <h4><span class="header-section-number">4.2.6.1</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
 <ul>
 <li>Type in the box, the number of heads required to maintain an overall probability rate of 10% (.1) in 17 flips: <input class='solveme nospaces' size='3' data-answer='["6"]'/></li>
@@ -1002,7 +1001,7 @@ Figure 4.2: <strong>CAPTION THIS FIGURE!!</strong>
 <li><code>qnorm()</code> - the quantile function</li>
 </ul>
 <p>They work in a similar way to their binomial counterparts. If you are unsure about how a function works you can call the help on it by typing in the console, for example, <code>?dnorm</code> or <code>?dnorm()</code>, but the brackets aren't essential for the help.</p>
-<div id="quickfire-questions-11" class="section level4">
+<div id="quickfire-questions-9" class="section level4">
 <h4><span class="header-section-number">4.4.2.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>Type in the box the binomial counterpart to <code>dnorm()</code>? <input class='solveme nospaces' size='10' data-answer='["dbinom()"]'/></p></li>
@@ -1099,7 +1098,7 @@ Explain This - I don't get Standard Deviations!
 </p>
 </div>
 </div>
-<div id="quickfire-questions-12" class="section level4">
+<div id="quickfire-questions-10" class="section level4">
 <h4><span class="header-section-number">4.4.3.4</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li>Fill in the box to show what you would type to get a range and step size of <code>-10</code> to <code>10</code> in steps of <code>.05</code>:</li>
@@ -1163,7 +1162,7 @@ Helpful Hint
 <p>You already have your mean and standard deviations to input in <code>pnorm</code>, look at the shaded area to obtain your cut-off point. What should the <code>lower.tail</code> call be set to according to the shaded area?</p>
 </div>
 </div>
-<div id="quickfire-question-4" class="section level4">
+<div id="quickfire-question-3" class="section level4">
 <h4><span class="header-section-number">4.4.4.3</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
 <p>To three decimal places, what is the cumulative probability of the shaded area in Task 4? <input class='solveme nospaces' size='3' data-answer='["0.016",".016"]'/></p>
 <div class="solution">
@@ -1200,7 +1199,7 @@ Helpful Hint
 <p>Part 2: For the second part, each function, not necessarily <code>qnorm</code>, gives one value, so you are looking to do separate calculations for each IQ. Then you have to combine these two values, but are you summing or subtracting them? Is it more or less likely for students to have an IQ that falls between this range than above or below a cut-off?</p>
 </div>
 </div>
-<div id="quickfire-questions-13" class="section level4">
+<div id="quickfire-questions-11" class="section level4">
 <h4><span class="header-section-number">4.4.5.2</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>To one decimal place, enter your answer for Task 5 part 1: What is the lowest IQ score a student must have to be in the top 5% of the distribution? <input class='solveme nospaces' size='3' data-answer='["124.7"]'/></p></li>
@@ -1239,7 +1238,7 @@ Explain This - I dont get this answer
 <ol style="list-style-type: decimal">
 <li>Copy the code to a script and replace the <code>NULLs</code> with the correct value and statement to establish how many different number of faces you might seen in 1 block of 60 trials, over 5000 replications. Answering the following questions to help you out:</li>
 </ol>
-<div id="quickfire-questions-14" class="section level4">
+<div id="quickfire-questions-12" class="section level4">
 <h4><span class="header-section-number">4.5.1.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>The <code>n</code> NULL relates to: <select class='solveme' data-answer='["Number of replications"]'> <option></option> <option>Number of replications</option> <option>Number of blocks in the experiment</option> <option>Number of trials in the experiment</option> <option>Number of faces in the experiment</option> </select></p></li>
@@ -1275,17 +1274,17 @@ Portfolio Point - Why the odd weight of probability?
 <p>If you view <code>data5k</code>, you will now see three columns:</p>
 <ol style="list-style-type: decimal">
 <li><code>faces_per_block</code> tells you all the number of face trials seen in a block of 60 trials. Note that it does not run from 0 to 60.</li>
-<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 230 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
+<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 211 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
 <li><code>p</code> tells you the probability of the corresponding number of <code>faces_per_block</code>.</li>
 </ol>
-<p>From your <code>data5k</code> tibble, what was the probability of seeing only 10 faces in a block? Ours was <strong>0.002</strong> but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use <code>View()</code> or <code>glimpse()</code> on <code>data5k</code>.</p>
+<p>From your <code>data5k</code> tibble, what was the probability of seeing only 10 faces in a block? Ours was <strong>0.003</strong> but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use <code>View()</code> or <code>glimpse()</code> on <code>data5k</code>.</p>
 </div>
 <div id="group-discussion-point-6" class="section level4">
 <h4><span class="header-section-number">4.5.1.2</span> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong></span></h4>
 <p>Discuss in your groups the following questions:</p>
 <ol style="list-style-type: decimal">
-<li><p>If the probability of seeing only 10 faces was p = 0.002, what does that say about whether our experiment is coded correctly or not?</p></li>
-<li><p>We only have data for 27 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 27?</p></li>
+<li><p>If the probability of seeing only 10 faces was p = 0.003, what does that say about whether our experiment is coded correctly or not?</p></li>
+<li><p>We only have data for 28 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 28?</p></li>
 </ol>
 <div class="solution">
 <button>
@@ -1295,7 +1294,7 @@ Portfolio Point - What does it say about your experimental design?
 <p>On the second point, you need to think about the width of the distribution. The probability of a face is 1/3 or p = .33. If there are 60 trials per block then that works out at approx on average 20 faces per block. The further you move away from that average, 20, the less probable it is to see that number of faces. E.g. 10 faces had a very low probability as will 30 faces. 40 faces will have almost no probability whatsoever. In only 5000 trials not all values will be represented.</p>
 </div>
 </div>
-<div id="quickfire-questions-15" class="section level4">
+<div id="quickfire-questions-13" class="section level4">
 <h4><span class="header-section-number">4.5.1.3</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>Using the appropriate <code>binom()</code> function, to three decimal places, type in the actual probability of 10 faces in 60 trials: <input class='solveme nospaces' size='8' data-answer='["0.002",".002"]'/></p></li>
@@ -1610,7 +1609,7 @@ t5</code></pre></div>
 <span class="co"># Your numbers will vary from ours due to random sampling</span>
 <span class="co"># What would be assessed is the actual codeline exists and is accurate.</span>
 <span class="kw">glimpse</span>(t6)</code></pre></div>
-<pre><code>##  int [1:10000] 47 47 46 45 46 45 52 42 55 55 ...</code></pre>
+<pre><code>##  int [1:10000] 48 49 53 49 46 49 47 54 55 53 ...</code></pre>
 <p><strong>Part 2: The Normal Distribution</strong></p>
 <p>Previously, in Lab 2, we looked at an ageing research project investigating differences in visual processing speed between younger (M = 22 years) and older adults (M = 71 years). One check in this experiment, prior to further analysis, is to make sure that older participants do not show signs of mild cognitive impairment (early symptoms of Alzheimer's disease). To do this we carry out a battery of cognitive tests to screen for such symptoms. One of the tests is the D2 test of attention which is a target cancellation task (i.e. participants cross out all letter d's with two dashes from a line of letters - see Lab 2 for an example). It is designed to test people's selective and sustained attention and visual scanning speed. The results of the test give a single score of <em>Concentration Performance</em> for each participant. The key piece of information for this analysis is that the distributions of D2 test scores are typically normally distributed (<code>M = 100</code>, <code>SD = 10</code>).</p>
 </div>

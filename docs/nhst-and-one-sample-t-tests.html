@@ -25,7 +25,7 @@
 <meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-05-17">
+<meta name="date" content="2019-06-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#the-summarise-function---to-do-some-calculations-on-the-data"><i class="fa fa-check"></i><b>2.2.8</b> The <strong><code>summarise()</code></strong> Function - to do some calculations on the data</a></li>
 <li class="chapter" data-level="2.2.9" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#two-other-useful-functions"><i class="fa fa-check"></i><b>2.2.9</b> Two Other Useful Functions</a></li>
 <li class="chapter" data-level="2.2.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#last-but-not-least---pipes-to-make-your-code-efficient"><i class="fa fa-check"></i><b>2.2.10</b> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</a></li>
-<li class="chapter" data-level="2.2.11" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity-completed"><i class="fa fa-check"></i><b>2.2.11</b> PreClass Activity Completed!</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#a-note-on-tidy-data"><i class="fa fa-check"></i><b>2.3.1</b> A Note on Tidy Data</a></li>
@@ -777,7 +776,7 @@ Helpful Hint
 <p>or</p>
 <p><code>dim[] %&gt;% pluck()</code></p>
 </div>
-<div id="quickfire-question-11" class="section level4">
+<div id="quickfire-question-10" class="section level4">
 <h4><span class="header-section-number">6.2.3.1</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
 <ul>
 <li>The number of participants that have a mean reaction time for valid trials greater than that of the original paper is: <select class='solveme' data-answer='["16"]'> <option></option> <option>6</option> <option>10</option> <option>16</option> <option>17</option> </select></li>
@@ -802,7 +801,7 @@ Helpful Hint
 <li>You can use a dbinom() %&gt;% sum() for this or maybe a pbinom()</li>
 </ul>
 </div>
-<div id="quickfire-question-12" class="section level4">
+<div id="quickfire-question-11" class="section level4">
 <h4><span class="header-section-number">6.2.4.1</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
 <ul>
 <li>Do you think these NS participants are responding in just the same fashion as the participants in the original paper? Select the appropriate answer: <select class='solveme' data-answer='["No"]'> <option></option> <option>No</option> <option>Yes</option> </select></li>
@@ -901,7 +900,7 @@ Helpful Hint
 <p>The function requires a vector, not a table, as the first argument. You can use the <code>pull()</code> function to pull out the <code>valid_rt</code> column from the tibble <code>ns_data</code> with <code>pull(ns_data, valid_rt)</code>.</p>
 <p>You also need to include <code>mu</code> in the <code>t.test()</code>, where <code>mu</code> is equal to the mean you are comparing to.</p>
 </div>
-<div id="quickfire-questions-19" class="section level4">
+<div id="quickfire-questions-17" class="section level4">
 <h4><span class="header-section-number">6.2.9.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <p>To make sure you are understanding the output of the t-test, try to answer the following questions.</p>
 <ol style="list-style-type: decimal">
@@ -986,7 +985,7 @@ Helpful Hint
 <li>For your own analysis and future reproducible analyses, it's a good idea to make these representations clearer to others.</li>
 </ul>
 </div>
-<div id="quickfire-questions-20" class="section level4">
+<div id="quickfire-questions-18" class="section level4">
 <h4><span class="header-section-number">6.4.1.1</span> <span style="color:DARKGREEN">Quickfire Questions</span></h4>
 <p>From your results:</p>
 <ul>
@@ -1216,7 +1215,7 @@ intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intelle
 </tr>
 </tbody>
 </table>
-<div id="quickfire-questions-21" class="section level4">
+<div id="quickfire-questions-19" class="section level4">
 <h4><span class="header-section-number">6.4.4.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>Were your results for <code>hire</code> significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):</p>
