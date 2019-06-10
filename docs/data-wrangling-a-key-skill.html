@@ -160,7 +160,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-4-review-your-data."><i class="fa fa-check"></i><b>2.3.4</b> Task 4: Review Your Data.</a></li>
 <li class="chapter" data-level="2.3.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-5-gathering-data."><i class="fa fa-check"></i><b>2.3.5</b> Task 5: Gathering Data.</a></li>
 <li class="chapter" data-level="2.3.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-6-combining-data."><i class="fa fa-check"></i><b>2.3.6</b> Task 6: Combining Data.</a></li>
-<li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-7-calculating-the-aq-scores."><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
+<li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassTask7"><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-8-one-last-thing-on-pipes"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
@@ -1437,9 +1437,8 @@ The reasoning behind this shift is that sometimes agreeing or disagreeing might 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combine rows in rlong2 and scoring based on QFormat and Response</span>
 rscores &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong2, scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>))</code></pre></div>
 </div>
-<div id="task-7-calculating-the-aq-scores." class="section level3">
+<div id="Ch2InClassTask7" class="section level3">
 <h3><span class="header-section-number">2.3.7</span> Task 7: Calculating the AQ Scores.</h3>
-<p><a href="data-wrangling-a-key-skill.html#Ch2InClassTask7">The solution</a></p>
 <p>We have now created <code>rscores</code> which has information on how each participant responded to each question and how each question should be coded and scored, all within the one tibble. All we need now is to sum the scores for each participant to get their AQ score.</p>
 <ol style="list-style-type: decimal">
 <li>Based on your Preclass knowledge, copy the below line into your code and complete it to obtain individual <code>aq_scores</code> for each participant.<br />
@@ -1768,11 +1767,12 @@ qformats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;scoring.csv&quot;</span>)                  
 pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;pinfo.csv&quot;</span>)</code></pre></div>
 </div>
-<div id="Ch2InClassTask7" class="section level4">
+<div id="inclass-task-7" class="section level4">
 <h4><span class="header-section-number">2.5.2.3</span> InClass Task 7</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aq_scores &lt;-<span class="st"> </span>rscores %&gt;%<span class="st"> </span>
 <span class="st">             </span><span class="kw">group_by</span>(Id) %&gt;%<span class="st"> </span><span class="co"># group by the ID number in column Id</span>
 <span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score)) <span class="co"># sum column Score to obtain AQ scores.</span></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2InClassTask7">Return to the Task</a></p>
 </div>
 <div id="inclass-task-8" class="section level4">
 <h4><span class="header-section-number">2.5.2.4</span> InClass Task 8</h4>

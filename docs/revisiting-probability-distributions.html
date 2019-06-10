@@ -160,7 +160,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-4-review-your-data."><i class="fa fa-check"></i><b>2.3.4</b> Task 4: Review Your Data.</a></li>
 <li class="chapter" data-level="2.3.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-5-gathering-data."><i class="fa fa-check"></i><b>2.3.5</b> Task 5: Gathering Data.</a></li>
 <li class="chapter" data-level="2.3.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-6-combining-data."><i class="fa fa-check"></i><b>2.3.6</b> Task 6: Combining Data.</a></li>
-<li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-7-calculating-the-aq-scores."><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
+<li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassTask7"><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-8-one-last-thing-on-pipes"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
@@ -689,8 +689,8 @@ Explain This - I don't get these answers
 <span class="co"># Notice that because our event labels are strings (text), </span>
 <span class="co"># we need to enter them into the function as a vector; i.e. in &quot;quotes&quot; </span>
 <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;HEADS&quot;</span>, <span class="st">&quot;TAILS&quot;</span>), <span class="dv">10</span>, <span class="ot">TRUE</span>) </code></pre></div>
-<pre><code>##  [1] &quot;TAILS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;TAILS&quot;
-##  [9] &quot;HEADS&quot; &quot;HEADS&quot;</code></pre>
+<pre><code>##  [1] &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;TAILS&quot;
+##  [9] &quot;TAILS&quot; &quot;HEADS&quot;</code></pre>
 <p>The last argument in the code above provides the instruction to sample with or without replacement by setting it to <code>TRUE</code> or <code>FALSE</code> respectively. Don't worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.</p>
 <div class="solution">
 <button>
@@ -707,7 +707,7 @@ Portfolio Point - Sampling and Replacement
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now that our event labels are numeric, we don&#39;t need the vector.</span>
 <span class="co"># 0:1 means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.</span>
 <span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>() </code></pre></div>
-<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 2</code></pre>
 <p>The ouptut of this line changes every time we run the code as we are randomly sampling 10 coin flips each time. And to be clear, if you get an answer of 6 for example, this means 6 heads, and in turn, 4 tails. By running this code over and over again we are basically demonstrating how a <strong>sampling distribution</strong> is created.</p>
 <div class="solution">
 <button>
@@ -721,7 +721,7 @@ Portfolio Point - What's a sampling distribution?
 <li>Here we are doing exactly as we said and saving the 10000 outputs (counts of heads) in the variable called <code>heads10k</code> (k is shorthand for thousand).</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heads10k &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>())   </code></pre></div>
-<pre><code>##  int [1:10000] 4 8 6 5 6 5 3 3 3 6 ...</code></pre>
+<pre><code>##  int [1:10000] 4 1 6 7 5 7 2 4 6 3 ...</code></pre>
 <p>The results of these 10000 replications are now stored in a vector called <code>heads10k</code>. If you have a look at <code>heads10k</code>, as shown in the bottom box, it is a series of 10000 numbers between 0 and 10 each indicating the number of heads, or more specifically 1s, that you got in a set of 10 flips.</p>
 <p>Now in order to complete our distribution we need to:</p>
 <ol style="list-style-type: decimal">
@@ -756,8 +756,8 @@ Portfolio Point - What's a sampling distribution?
 Figure 4.1: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2487</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
-<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0012</strong>, and the probability of 1 heads is <strong>0.0099</strong>, and the probability of 2 heads is <strong>0.0425</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0536</strong></p>
+<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2447</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
+<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0013</strong>, and the probability of 1 heads is <strong>0.0102</strong>, and the probability of 2 heads is <strong>0.0442</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0557</strong></p>
 <div id="quickfire-questions-3" class="section level4">
 <h4><span class="header-section-number">4.2.2.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <p>Look at the probability values corresponding to the number of coin flips you created in the <code>data10k</code> sample distribution (use <code>View()</code> to see this):</p>
@@ -1265,17 +1265,17 @@ Portfolio Point - Why the odd weight of probability?
 <p>If you view <code>data5k</code>, you will now see three columns:</p>
 <ol style="list-style-type: decimal">
 <li><code>faces_per_block</code> tells you all the number of face trials seen in a block of 60 trials. Note that it does not run from 0 to 60.</li>
-<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 217 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
+<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 221 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
 <li><code>p</code> tells you the probability of the corresponding number of <code>faces_per_block</code>.</li>
 </ol>
-<p>From your <code>data5k</code> tibble, what was the probability of seeing only 10 faces in a block? Ours was <strong>0.001</strong> but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use <code>View()</code> or <code>glimpse()</code> on <code>data5k</code>.</p>
+<p>From your <code>data5k</code> tibble, what was the probability of seeing only 10 faces in a block? Ours was <strong>0.002</strong> but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use <code>View()</code> or <code>glimpse()</code> on <code>data5k</code>.</p>
 </div>
 <div id="group-discussion-point-3" class="section level4">
 <h4><span class="header-section-number">4.5.1.2</span> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong></span></h4>
 <p>Discuss in your groups the following questions:</p>
 <ol style="list-style-type: decimal">
-<li><p>If the probability of seeing only 10 faces was p = 0.001, what does that say about whether our experiment is coded correctly or not?</p></li>
-<li><p>We only have data for 26 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 26?</p></li>
+<li><p>If the probability of seeing only 10 faces was p = 0.002, what does that say about whether our experiment is coded correctly or not?</p></li>
+<li><p>We only have data for 27 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 27?</p></li>
 </ol>
 <div class="solution">
 <button>
@@ -1600,7 +1600,7 @@ t5</code></pre></div>
 <span class="co"># Your numbers will vary from ours due to random sampling</span>
 <span class="co"># What would be assessed is the actual codeline exists and is accurate.</span>
 <span class="kw">glimpse</span>(t6)</code></pre></div>
-<pre><code>##  int [1:10000] 50 58 50 43 50 51 51 40 44 51 ...</code></pre>
+<pre><code>##  int [1:10000] 53 54 46 52 50 49 51 54 50 48 ...</code></pre>
 <p><strong>Part 2: The Normal Distribution</strong></p>
 <p>Previously, in Lab 2, we looked at an ageing research project investigating differences in visual processing speed between younger (M = 22 years) and older adults (M = 71 years). One check in this experiment, prior to further analysis, is to make sure that older participants do not show signs of mild cognitive impairment (early symptoms of Alzheimer's disease). To do this we carry out a battery of cognitive tests to screen for such symptoms. One of the tests is the D2 test of attention which is a target cancellation task (i.e. participants cross out all letter d's with two dashes from a line of letters - see Lab 2 for an example). It is designed to test people's selective and sustained attention and visual scanning speed. The results of the test give a single score of <em>Concentration Performance</em> for each participant. The key piece of information for this analysis is that the distributions of D2 test scores are typically normally distributed (<code>M = 100</code>, <code>SD = 10</code>).</p>
 </div>

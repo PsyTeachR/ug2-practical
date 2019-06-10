@@ -160,7 +160,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-4-review-your-data."><i class="fa fa-check"></i><b>2.3.4</b> Task 4: Review Your Data.</a></li>
 <li class="chapter" data-level="2.3.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-5-gathering-data."><i class="fa fa-check"></i><b>2.3.5</b> Task 5: Gathering Data.</a></li>
 <li class="chapter" data-level="2.3.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-6-combining-data."><i class="fa fa-check"></i><b>2.3.6</b> Task 6: Combining Data.</a></li>
-<li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-7-calculating-the-aq-scores."><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
+<li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassTask7"><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-8-one-last-thing-on-pipes"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
@@ -704,7 +704,10 @@ On point b: Layers are a common way for graphics to work. Think about it as crea
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
 <span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>)
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_time_age, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Mean_Time, <span class="dt">color =</span> Sex)) +
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_time_age, 
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age, 
+           <span class="dt">y =</span> Mean_Time, 
+           <span class="dt">color =</span> Sex)) +
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim1"></span>
 <img src="03-s01-lab03b_files/figure-html/dim1-1.png" alt="A scatterplot of Mean Time as a function of Age" width="100%" />
@@ -730,7 +733,7 @@ When comparing sex, based on the color of the dots, again there appears to be no
 </p>
 </div>
 </div>
-<p><br> <strong>Note</strong>: It will often be the case that to visualise data you first half to wrangle it into a format. When we do this we will be using the functions we saw in Lab 2, so make sure you have done that lab and have understood what the wrangle verbs are doing and how pipes work. Keep in mind that most functions use the format, <code>function(data, arguement)</code></p>
+<p><br> <strong>Note</strong>: It will often be the case that to visualise data you first half to wrangle it into a format. When we do this we will be using the functions we saw in Chapter 2, so make sure you have been through those tasks and have understood what the wrangle verbs are doing and how pipes work. Keep in mind that most functions use the format, <code>function(data, arguement)</code></p>
 </div>
 <div id="histograms---geom_histogram" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Histograms - geom_histogram()</h3>
@@ -744,7 +747,9 @@ When comparing sex, based on the color of the dots, again there appears to be no
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>)
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_hist_correct, <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Time)) +<span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_hist_correct, 
+       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Time)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim2"></span>
 <img src="03-s01-lab03b_files/figure-html/dim2-1.png" alt="A histogram of distribution of Mean Time counts" width="100%" />
 <p class="caption">
@@ -772,7 +777,6 @@ As the y axis is the count of the values on the x axis, the most common overall 
 </p>
 </div>
 </div>
-<p><br></p>
 </div>
 <div id="boxplots---geom_boxplot" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Boxplots - geom_boxplot()</h3>
@@ -816,7 +820,6 @@ The median is one of the 5 values required to make a boxplot and is shown as the
 </p>
 </div>
 </div>
-<p><br></p>
 </div>
 <div id="barplots---geom_bar-or-geom_col" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Barplots - geom_bar() or geom_col()</h3>
@@ -909,7 +912,8 @@ menrot_better_plot &lt;-<span class="st"> </span><span class="kw">count</span>(m
            <span class="dt">y =</span> Avg_Percent, 
            <span class="dt">fill =</span> CorrectResponse)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>)) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sex of Participant&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Percent Average (%)&quot;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sex of Participant&quot;</span>, 
+       <span class="dt">y =</span> <span class="st">&quot;Percent Average (%)&quot;</span>) +
 <span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) +
 <span class="st">  </span><span class="kw">facet_wrap</span>(~CorrectResponse) +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
