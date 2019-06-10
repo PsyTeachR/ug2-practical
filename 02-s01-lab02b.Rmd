@@ -439,6 +439,6 @@ Where piping becomes most useful is when we **string a series of functions toget
 
 * What does this line of code say? `data %>% filter() %>% group_by() %>% summarise()`: `r mcq(c("take the data and group it and then filter it and then summarise it", answer = "take the data and filter it and then group it and then summarise it", "take the data and summarise it and then filter it and then group it","take the data and group it and then summarise it and then filter it"))`  
 
-**Job Done - PreClass Activity Completed!**
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 We have now recapped a number of functions and verbs that you will need as the semester goes on.  You will use them in the lab next week so be sure to go over these and try them out to make yourself more comfortable with them. Remember to also start looking back at your first year labs and remembering some of the work you did there.  If you have any questions please post them on the Moodle forum of the slack forum [rguppies.slack.com](https://rguppies.slack.com/) under the channel #level2_labs. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. **Happy Wrangling!**

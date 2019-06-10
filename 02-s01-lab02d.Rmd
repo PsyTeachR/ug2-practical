@@ -4,7 +4,7 @@ This is a formative assignment but we strongly encourage you to do the assignmen
 
 **Lab 2: Formative Data Wrangling Assignment**
 
-In order to complete this assignment you will need to download the data .csv files, as well as the assignment .Rmd file, which you need to edit, titled `GUID_Level2_Lab2.Rmd`. These can be downloaded within a zip file from the below link. Once downloaded and unzipped, you should create a new folder that you will use as your working directory; put the data files and the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_02/homework/Level2_Lab2_AssignmentFiles.zip", target="_blank">**Download the Assignment .zip file from here**</a> or on Moodle.
+In order to complete this assignment you will need to download the data .csv files, as well as the assignment .Rmd file, which you need to edit, titled `GUID_Level2_Lab2.Rmd`. These can be downloaded within a zip file from the below link. Once downloaded and unzipped, you should create a new folder that you will use as your working directory; put the data files and the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. [**Download the Assignment .zip file from here**](data/02-s01/homework/Level2_Lab2_AssignmentFiles.zip) or on Moodle.
 
 Now open the assignment .Rmd file within RStudio. You will see there is a code chunk for each task. Much as you did in the first assignment, follow the instructions on what to edit in each code chunk. This will often be entering code based on the lab you have just done as opposed to always just entering a value. 
 
@@ -30,7 +30,7 @@ The data you have downloaded for this lab is example screening data taken from r
 
 * **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participant's subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf", targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing", target = "_blank">Main Test page here</a>
 
-### The data files  
+**The Data Files**  
 
 You have just downloaded the three `.csv` files containing all the data you need. Below is a list of the .csv files names and a description of the variables each contains:  
 
@@ -55,7 +55,7 @@ You have just downloaded the three `.csv` files containing all the data you need
     + `RESPONSE` the types of responses participants could give (STRONGLY DISAGREE, SLIGHTLY DISAGREE, NEUTRAL, SLIGHTLY AGREE, STRONGLY AGREE)
     +  `SCORE` the points awarded for each response type (from 0 to 4). A score for each participant can be calculated by converting their categorical responses to values and summing the values.
 
-### Before starting lets check:
+**Before starting lets check:**
 
 1. The `.csv` files are saved into a folder on your computer and you have manually set this folder as your working directory. 
 
@@ -73,11 +73,11 @@ responses <- read_csv("QHC_responses.csv")
 scoring <- read_csv("QHC_scoring.csv")
 ```
 
-### View the data
+**View the data**
 
 1. It is always a good idea to familiarise yourself with the layout of the data that you have just loaded in. You can do this through using `glimpse()` or `View()` in the Console windown, but you must never put these functions in your assignment file.
 
-### The Tasks
+**The Tasks:**
 
 Now that we have the data loaded, tidyverse attached, and have viewed our data, you should now try to complete the following 9 tasks. You may want to practice them first to get the correct code and format, and to make sure they work. You can do this in the console or a script, but remember, once you have the correct code, edit the necessary parts of the assignment `.Rmd` file to produce a reproducible Rmd file. This is what you will do from now on for all other assessment files so practicing this now will really help. In short, go through the tasks and change only the `NULL` with what the question asks for and then make sure that the file `knits` at the end so that you have a fully reproducible code.
 
@@ -162,7 +162,7 @@ responses_points <- NULL
 
 Below we have given you a code chunk with 5 lines of code. The code takes the data in its current long format and then creates a QHC score for each participant, before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don't - and stores it in a variable called `musical_means`.  
 
-```{r, eval = FALSE}
+```{r T8_pre, eval = FALSE}
 participant_groups <- group_by(responses_points, ID)
 participant_scores <- summarise(participant_groups, Total_QHC = sum(SCORE))
 participant_screening <- inner_join(participant_scores, screening, "ID")
@@ -188,6 +188,6 @@ Finally, replace the `NULL` in the `T9` code chunk with a single value, to two d
 QHC_diff <- NULL
 ```
 
-**Finished**
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2018**. 

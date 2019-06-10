@@ -102,7 +102,7 @@ We are going to need the data soon so best to bring it in at the start.
 4. Copy and paste the code below into your code chunk.  Spend a couple of minutes with a partner reminding yourself what the code does. The answer is in the hint below.
 5. Now, add or change the `echo` rule in your code chunk so that when you knit the file, the code **will not be included** in the final document.
 
-```{r, echo = TRUE, warning = TRUE, message = FALSE, eval = FALSE}
+```{r Ch1InClassT3, echo = TRUE, warning = TRUE, message = FALSE, eval = FALSE}
 library("tidyverse")
 ponzo_data <- read_csv("PonzoAgeData.csv")
 ```
@@ -221,7 +221,7 @@ Another benefit of R Markdown is that you can insert tables of results directly 
 2. Add a new code chunk and give it the name `table`, and include the code shown below. 
 3. Add an `echo` rule so that the code **IS NOT** included in the final document but the ouput table **is** included. 
 
-```{r, results='hide'}
+```{r Ch1InClassT8, results='hide'}
 group_by(ponzo_data, Sex) %>% 
   summarise(NofGroups=n(), mean_length = mean(ComparisonLength))
 ```
@@ -235,7 +235,7 @@ Nearly all research reports have a figure so we will want to add one as well.
 1. Underneath your `table` code chunk, add a new code chunk and give it the name `plot`.
 2. Add the below code to the chunk and set the `include` rule so that both the code and the plot are included in the final report.
 
-```{r, eval = FALSE}
+```{r Ch1InClassT9, eval = FALSE}
 ggplot(ponzo_data, aes(x = Mean_Age, y = ComparisonLength, color = Sex)) +
   geom_point()
 ```
@@ -255,6 +255,7 @@ We will learn more about how to improve the visualisations as we progress but fo
 Here is a real-world scenario of why plotting in R Markdown can save a lot of effort. Say you carried out an experiment, made a figure of the results using an R Script, and wrote up the report using Microsoft Word. Then you realised you forgot to include 2 participants. To fix this, you would have to re-run the R script, make a new plot, save the plot, and **then** transfer that to your Word document. However, had you used **R Markdown** to begin with and both analysis and report were in the same place, then you can simply update the code within the document and a new figure will be created in the exact same place as the old one. **Magic!**  
 
 The code above uses the `ggplot2` package you used in Level 1. This is the main package we use for plots, figures, visualisations, or however you like to call them. It can be called into the library by itself, or is automatically called in when you call in the `tidyverse` package. Later this semester we will revist `ggplot2` in more detail. For now, we are using it to make a scatterplot (`geom_point`) of Age (`Mean_Age`) and Comparison Length (`ComparisonLength`), and splitting the data for males and females.
+
 ```
 `r unhide()`  
 
@@ -269,8 +270,8 @@ In your group, have a brief discussion about the figure to answer the following 
 What does each dot represent in the Figure, and what is the pattern of the dots?
 ```
 `r unhide()`  
-
-### Job Done!
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 **Great work!** We have now created a rough layout of a report. The only section we are missing is the Discussion where you relate the information from previous research to what your study showed. Feel free to add one in your own time; read the short summary at the end of the actual paper to help get your thoughts together. We will talk more about the structuring of reports all throughout the year so you will have a great idea of how to write one by the end of Level 2. Well done on succesfully creating your own R Markdown file! 
 

@@ -59,4 +59,4 @@ So there's more than one answer to this question! R Markdown can combine report 
 
 ### One last thing before beginning!
 
-Before working through the rest of this Lab you may want to watch the 20 minute video on the Lab 1 Moodle page {{{WHAT TO DO}}} by Dale Barr reminding you about R, RStudio, and various file formats you will be working with. 
+Before working through the rest of this Lab you may want to watch the 20 minute video in the Lab 1 Moodle page {{{Create Links here and contain in this book}}} by Dale Barr reminding you about R, RStudio, and various file formats you will be working with. 

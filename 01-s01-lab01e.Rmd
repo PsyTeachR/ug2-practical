@@ -87,3 +87,5 @@ and therefore
 
 
 ```
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

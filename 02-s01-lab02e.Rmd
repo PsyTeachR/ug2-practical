@@ -18,10 +18,9 @@ Below you will find the solutions to the questions for the Activities for this c
 
 ### PreClass Activities
 
-#### Task 1
+#### PreClass Task 1
 
-`r hide("Solution Task 1")`
-```{r eval = FALSE}
+```{r Ch2PreClassTask1, eval = FALSE}
 # To include variables:
 select(pong_data, Participant, PaddleLength, TrialNumber, BackgroundColor, HitOrMiss)
 
@@ -31,128 +30,90 @@ select(pong_data, -JudgedSpeed, -BallSpeed, -BlockNumber)
 # To select in order:
 select(pong_data, BallSpeed, HitOrMiss, JudgedSpeed, Participant, TrialNumber)
 ```
-`r unhide()`  
 
-**click the tab to see the solution**
-<br>
+#### PreClass Task 2
 
-#### Task 2
-
-`r hide("Solution Task 2")`
-```{r eval = FALSE}
+```{r Ch2PreClassTask2, eval = FALSE}
 arrange(pong_data, desc(HitOrMiss), desc(JudgedSpeed))
 ```
-`r unhide()`  
 
-**click the tab to see the solution**
-<br>
+#### PreClass Task 3
 
-#### Task 3
-
-`r hide("Solution Task 3")`
-``` {r eval = FALSE}
+``` {r Ch2PreClassTask3, eval = FALSE}
 filter(pong_data, 
        JudgedSpeed == 1, 
        BallSpeed %in% c("2", "4", "5", "7"), 
        HitOrMiss == 0)
 ```
-`r unhide()`  
 
-**click the tab to see the solution**
-<br>
+#### PreClass Task 4
 
-#### Task 4
-
-`r hide("Solution Task 4")`
-``` {r eval = FALSE}
+``` {r Ch2PreClassTask4, eval = FALSE}
 pong_data_filt <- filter(pong_data, TrialNumber >= 2) 
 # remember you can call this variable anything, as long as it makes sense to yourself and others
 
 pong_data <- mutate(pong_data_filt, TrialNumber = TrialNumber - 1)
 
 ```
-`r unhide()`  
 
-**click the tab to see the solution**
-<br>
+#### PreClass Task 5
 
-
-#### Task 5
-
-`r hide("Solution Task 5")`
-``` {r eval = FALSE}
+``` {r Ch2PreClassTask5, eval = FALSE}
 group_by(pong_data, BlockNumber, BackgroundColor)
 ```
-`r unhide()` 
 
-**click the tab to see the solution**
-<br>
+#### PreClass Task 6
 
-#### Task 6
-
-`r hide("Solution Task 6")`
-``` {r eval = FALSE}
+``` {r Ch2PreClassTask6, eval = FALSE}
 pong_data <- read_csv("PongBlueRedBack 1-16 Codebook.csv")
 pong_data_group <- group_by(pong_data, BackgroundColor, PaddleLength)
 pong_data_hits <- summarise(pong_data_group, total_hits = sum(HitOrMiss))
-# the answer should give 517
 ```
+
+* You should find that the number of hits made with the small paddle (50) and the red color background is `r pong_data %>% group_by(BackgroundColor, PaddleLength) %>% summarise(total_hits = sum(HitOrMiss)) %>% filter(BackgroundColor == "red") %>% slice(1) %>% pull(total_hits)`
 
 ### InClass Actitivies
 
+#### InClass Task 2
 
-#### Solution to Task 2
-
-`r hide("Solution Task 2")`
-```{r, eval = FALSE}
+```{r Ch2InClassTask2, eval = FALSE}
 library(tidyverse)
 # or
 library("tidyverse")
 
 # both do the same thing.
 ```
-`r unhide()`
 
-**Click the tab to see the solution**
+#### InClass Task 3
 
-#### Solution to Task 3
-
-`r hide("Solution Task 3")`
-```{r, eval = FALSE}
+```{r Ch2InClassTask3, eval = FALSE}
 responses <- read_csv("responses.csv")                  
 qformats <- read_csv("qformats.csv")                 
 scoring <- read_csv("scoring.csv")                  
 pinfo <- read_csv("pinfo.csv")
 ```
-`r unhide()`
 
-**Click the tab to see the solution**
+#### InClass Task 7 
 
-#### Solution to Task 7
-
-`r hide("Solution Task 7")`
-```{r, eval = FALSE}
+```{r Ch2InClassTask7, eval = FALSE}
 aq_scores <- rscores %>% 
              group_by(Id) %>% # group by the ID number in column Id
              summarise(AQ = sum(Score)) # sum column Score to obtain AQ scores.
 ```
-`r unhide()`
 
-**Click the tab to see the solution**
+[Return to the Task](#Ch2InClassTask7)
 
-#### Solution to Task 8
 
-`r hide("Solution Task 8")`
-```{r, eval = FALSE}
+#### InClass Task 8
+
+```{r Ch2InClassTask8, eval = FALSE}
 aq_scores2 <- responses %>% gather(Question, Response, Q1:Q10) %>% 
   inner_join(qformats, "Question") %>%
   inner_join(scoring, c("QFormat", "Response")) %>%
              group_by(Id) %>% 
              summarise(AQ = sum(Score))
 ```
-`r unhide()`
 
-**Click the tab to see the solution**
 
 ### Assignment Solution
 
@@ -163,98 +124,91 @@ responses <- read_csv("./data/02-s01/homework/QHC_responses.csv")
 scoring <- read_csv("./data/02-s01/homework/QHC_scoring.csv")
 ``` 
 
-#### Task 1 - Oldest Participant
+#### Assignment Task 1 - Oldest Participant
 
-Replace the `NULL` in the `T1` code chunk with the Participant ID of the oldest participant. Store this single value in `oldest_participant` (e.g. `oldest_participant <- 999`.
+* Whether you coded this answer or just read from the data, the Participant with ID Number 3 is the oldest.
 
-```{r T1}
+```{r Ch2AssignmentTask1}
 oldest_participant <- 3
 
-# This could also be answered with code. We haven't quite shown you how yet but it would look like this
+# This could also be answered with code. We haven't quite shown you how yet but it would look like this:
 oldest_participant_code <- arrange(screening, desc(AGE)) %>% 
   slice(1) %>% 
   pull(ID)
-
-# Either way the Participant with ID = 3 is the oldest.
 ```
 
-#### Task 2 - Arranging D-SPAN
+#### Assignment Task 2 - Arranging D-SPAN
 
-Replace the `NULL` in the `T2` code chunk with code that arranges participants' D-SPAN performance from highest to lowest using the appropriate one-table dplyr (i.e., Wickham) verb. Store the output in `cogtest_sort`. (e.g. `cogtest_sort <- verb(data, argument)`)
+* `arrange()` is the main function here
+* You also needed to use `desc()` to sort from high to low
 
-```{r T2}
-# arrange was the function and you also required desc() to sort high to low
+```{r Ch2AssignmentTask2}
 cogtest_sort <- arrange(screening, desc(DSPAN))
 ```
 
-#### Task 3 - Foreign Language Speakers
+#### Assignment Task 3 - Foreign Language Speakers
 
-Replace the `NULL` in each of the two lines of code chunk `T3`, so that `descriptives` has a column called `n` that shows the number of participants that speak a foreign language and number of participants that do not speak a foreign language, and another column called `median_age` that shows the median age for those two groups. If you have done this correctly, `descriptives` should have 3 columns and 2 rows of data, not including the header row.
+1. First group the screening data by FLANG using `group_by()`
+2. Next, summarise, paying attention to use the variable names as instructed
 
-```{r T3}
-# first run the group_by based on FLANG
-screen_groups <- group_by(screening, FLANG)
-# then summarise, paying attention to use the variable names as instructed
+```{r Ch2AssignmentTask3}
+screen_groups <- group_by(screening, FLANG) 
 descriptives <- summarise(screen_groups, n = n(), median_age = median(AGE))
 ```
 
-#### Task 4 - Creating Percentage MOCA scores
+#### Assignment Task 4 - Creating Percentage MOCA scores
 
-Replace the `NULL` in the `T4` code chunk with code using one of the dplyr verbs to add a new column called `MOCA_Perc` to the dataframe `screening` In this new column should be the `MOCA` scores coverted to percentages. The maximum achievable score on MOCA is `30` and percentages are calculated as `(participant score / max score) * 100`. Store this output in `screening`.
+* `mutate()` is the function to add a new column to data
+* Here we are mutating/adding on a column called `MOCA_Perc` which shows a participant's MOCA score divided by 30 and multiplied by 100.
 
-```{r T4}
-# mutate is the necessary function to add a new column in a dataframe
+```{r Ch2AssignmentTask4}
 screening <- mutate(screening, MOCA_Perc = (MOCA / 30) * 100)
 ```
 
-#### Task 5 - Remove the MOCA column
+#### Assignment Task 5 - Remove the MOCA column
 
-Now that we have our MoCA score expressed as a percentage `MOCA_Perc` we no longer need the raw scores held in `MOCA`. Replace the `NULL` in the `T5` code chunk using a one-table dplyr verb to keep all the columns of `screening`, with the same order, but without the `MOCA` column. Store this output in `screening`.
+* `select()` is the key function to keep and remove certain columns.
+* Two options here; both would give the same dataframe.
+* The first option shows how to deselect a column and keep everything else.
+* The second option shows how to select all the columns you want.
+* Remember that order is very important and you should select the columns in the order you want.
 
-```{r T5}
-# Two options here; both would give the same dataframe
-# All but MOCA
+```{r Ch2AssignmentTask5}
+# First Option
 screening <- select(screening, -MOCA)
-# All of these
+# Second Option
 screening <- select(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)
 ```
 
-**Halfway There!**
+#### Assignment Task 6 - Gather the Responses together
 
-The remaining tasks focus on merging two tables. 
+* `gather()` is the function to use here.
+* People take a while to understand this function but spend sometime looking at the below example and it will start to make some sense.
+* The first argument is the data. In this case `responses`.
+* The second argument is the name of a new column which will hold all the question numbers (e.g. Q1, Q2, Q3, etc). This could be called anything but here we are calling it `Question`.
+* The third argument is the name of a new column which will hold the answers to the questions stored in `Question` - e.g. the actual answer for that participant to Q1 will appear in this column. Again this could be called anything but here we are calling it `RESPONSE`.
+* The last argument is the name of the columns you want to gather. Here we are gathering all columns between the Q1 column and the Q15 column.
 
-You suspect that the older adults with musical experience might report more finely-tuned hearing abilities than those without musical experience. You therefore decide to check whether this trend exists in your data. You measured participant's self reported hearing abilties using the Better Hearing Institute Quick Hearing Check Questionnaire. In this questionnaire participants rated the extent to which they agree or disagree with a list of statements (e.g. 'I have a problem hearing over the telephone') using a 5 point Likert scale (Strongly Disagree, Slightly Disagree, Neutral, Slightly Agree, Strongly Agree). 
-
-Each participant's response to each question is contained in the `responses` dataframe in your environment. Each response type is worth a certain number of points (e.g. Strongly Disagree = 0, Strongly Agree = 5), and the scoring key is contained in the `scoring` dataframe. A score for each participant is calculated by totalling up the number of points across all the questions to derive at an overall score. The lower the overall score, the better the participant's self-reported hearing ability.  
-
-In order to score the questionnaire we first need to perform a couple of steps.
-
-#### Task 6 - Gather the Responses together
-
-Replace the `NULL` in the `T6` code chunk using code to gather the responses to all the questions of the QHC from wide format to tidy/long format. Name the first column `Question` and the second column `RESPONSE`. Store this output in `responses_long`.  
-
-```{r T6}
-# gather function as clued in the question; main thing is to state the columns
-# and to name the columns accordingly
+```{r Ch2AssignmentTask6}
 responses_long <- gather(responses, Question, RESPONSE, Q1:Q15)
 ```
 
-#### Task 7 - Joining the data
+#### Assignment Task 7 - Joining the data
 
-Now we need to join the number of points for each response in `scoring` to the participants' responses in `responses_long`. 
+* `inner_join()` will combine all common information in two sets of data by a common column or columns.
+* Here we are joining the data in `responses_long` with the data in `scoring` by the common column `RESPONSE`.
+* Keep in mind that `inner_join()` keeps only the rows that have data in both datasets. It will remove rows that only has data in one dataset.
+* When joining two datasets, join by **ALL** common columns when there are more than one column in common.
 
-Replace the `NULL` in the `T7` code chunk using `inner_join()` to combine `responses_long` and `scoring` into a new variable called `responses_points`. 
-
-```{r T7}
-# inner_join uses a common column/variable; in this case RESPONSE
+```{r Ch2AssignmentTask7}
 responses_points <- inner_join(responses_long, scoring, "RESPONSE")
 ```
 
-#### Task 8 - Working the Pipes
+#### Assignment Task 8 - Working the Pipes
 
-Below we have given you a code chunk with 5 lines of code. The code takes the data in its current long format and then creates a QHC score for each participant, before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don't - and stores it in a variable called `musical_means`.  
+* This is the code we started with.  
 
-```{r, eval = FALSE}
+```{r Ch2AssignmentTask8_pre, eval = FALSE}
 participant_groups <- group_by(responses_points, ID)
 participant_scores <- summarise(participant_groups, Total_QHC = sum(SCORE))
 participant_screening <- inner_join(participant_scores, screening, "ID")
@@ -262,10 +216,10 @@ screening_groups_new <- group_by(participant_screening, MUSICAL)
 musical_means <- summarise(screening_groups_new, mean_score = mean(Total_QHC))
 ```
 
-Replace the `NULL` in the `T8` code chunk with the following code converted into a fuctioning pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people stored in `musical_means` which should be made of two rows by two columns.  
+* Below is how to transcribe the above series of functions into a pipeline.
+* Remember, when using pipes, the output of the previous function is the input of the subsequent function
 
-```{r T8}
-# in pipes, the output of the previous function is the input of the subsequent function
+```{r Ch2AssignmentTask8}
 musical_means <- group_by(responses_points, ID) %>%
                   summarise(Total_QHC = sum(SCORE)) %>%
                   inner_join(screening, "ID") %>%
@@ -273,21 +227,22 @@ musical_means <- group_by(responses_points, ID) %>%
                   summarise(mean_score = mean(Total_QHC))
 ```
 
-#### Task 9 - Difference in Musical Means
+#### Assignment Task 9 - Difference in Musical Means
 
-Finally, replace the `NULL` in the `T9` code chunk with a single value, to two decimal places, that is the value of how much higher the QHC score of people who play music is compared to people who don't play music (e.g. 2.93)
+* People who play music have a QHC score that is 1.53 units higher than people who don't play music.
+* You can do this by looking in `musical_means`, reading the values, and doing some quick maths.
+* A second option is through code. Code is always better as it can reduce error and is reproducible!
 
-```{r T9}
-
+```{r Ch2AssignmentTask9}
+# Option 1
 QHC_diff <- 1.53
 
-# Again this could more reproducibly be done by code but with functions you will soon learn. Here is how you would do it.
-
+# Option 2
+# You will soon learn the functions to do this by code but here is how you could do it.
 QHC_diff_code <- spread(musical_means, MUSICAL, mean_score) %>% 
   mutate(diff = YES - NO) %>% 
   pull(diff) %>% 
   round(2)
-
 ```
 
-**End of Lab 2**
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

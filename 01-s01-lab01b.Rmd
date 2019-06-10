@@ -279,7 +279,7 @@ Finally, in Psychology, the vast majority of journal articles are written in the
 `r unhide()`  
 
 <br>
-<span style="font-size: 22px; font-weight: bold; color: var(--green);">Preclass Activity Complete!</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 Well done on working your way through this activity. Be sure to make notes for yourself, and to post any questions on the forums that you may have. See you in the lab!  
 
