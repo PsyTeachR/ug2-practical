@@ -4,11 +4,13 @@ Below you will find the solutions to the questions for the Activities for this c
 
 ### InClass Activities
 
-#### Task 2: Give your Report a Heading
+#### Task 2: Give your Report a Heading 
 
 1. You should have used only one hashtag to give the biggest heading size.
 
 `# Lab 1 - The magnitude of the Ponzo Illusion varies as a function of Age`
+
+[Return to Task](#Ch1InClassQueT2)
 
 #### Task 3: Creating a Code Chunk
 
@@ -18,6 +20,8 @@ Below you will find the solutions to the questions for the Activities for this c
 
 
 ```
+
+[Return to Task](#Ch1InClassQueT3)
 
 #### Task 4: Writing your Report
 
@@ -34,6 +38,8 @@ Worth noting that, in basic R Scripts, `#` at the start of the line would result
 2. The Framing Hypothesis
 ```
 
+[Return to Task](#Ch1InClassQueT4)
+
 #### Task 5: Making Text Bold or Italicized
 
 1. To turn text to bold you need to put two `**` at the start and end of the word or sentence you want as bold, e.g.
@@ -41,6 +47,8 @@ Worth noting that, in basic R Scripts, `#` at the start of the line would result
 ```
 **make me bold**
 ```
+
+[Return to Task](#Ch1InClassQueT5)
 
 #### Task 6: Adding Links to the Data in your Methods
 
@@ -67,6 +75,8 @@ and therefore
 ![The Ponzo Illusion](https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg)
 ```
 
+[Return to Task](#Ch1InClassQueT7)
+
 #### Task 8: Adding a Table to your Results
 
 1. To set a header as `Header 2` style use `##` at the start of the line.
@@ -78,6 +88,7 @@ and therefore
 
 ```
 
+[Return to Task](#Ch1InClassQueT8)
 
 #### Task 9: Adding a Figure to your Results
 
@@ -87,5 +98,7 @@ and therefore
 
 
 ```
+
+[Return to Task](#Ch1InClassQueT9)
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

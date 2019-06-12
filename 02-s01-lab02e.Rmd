@@ -31,11 +31,15 @@ select(pong_data, -JudgedSpeed, -BallSpeed, -BlockNumber)
 select(pong_data, BallSpeed, HitOrMiss, JudgedSpeed, Participant, TrialNumber)
 ```
 
+[Return to Task](#Ch2PreClassQueT1)
+
 #### PreClass Task 2
 
 ```{r Ch2PreClassTask2, eval = FALSE}
 arrange(pong_data, desc(HitOrMiss), desc(JudgedSpeed))
 ```
+
+[Return to Task](#Ch2PreClassQueT2)
 
 #### PreClass Task 3
 
@@ -45,6 +49,8 @@ filter(pong_data,
        BallSpeed %in% c("2", "4", "5", "7"), 
        HitOrMiss == 0)
 ```
+
+[Return to Task](#Ch2PreClassQueT3)
 
 #### PreClass Task 4
 
@@ -56,11 +62,15 @@ pong_data <- mutate(pong_data_filt, TrialNumber = TrialNumber - 1)
 
 ```
 
+[Return to Task](#Ch2PreClassQueT4)
+
 #### PreClass Task 5
 
 ``` {r Ch2PreClassTask5, eval = FALSE}
 group_by(pong_data, BlockNumber, BackgroundColor)
 ```
+
+[Return to Task](#Ch2PreClassQueT5)
 
 #### PreClass Task 6
 
@@ -71,6 +81,8 @@ pong_data_hits <- summarise(pong_data_group, total_hits = sum(HitOrMiss))
 ```
 
 * You should find that the number of hits made with the small paddle (50) and the red color background is `r pong_data %>% group_by(BackgroundColor, PaddleLength) %>% summarise(total_hits = sum(HitOrMiss)) %>% filter(BackgroundColor == "red") %>% slice(1) %>% pull(total_hits)`
+
+[Return to Task](#Ch2PreClassQueT6)
 
 ### InClass Actitivies
 
@@ -84,6 +96,8 @@ library("tidyverse")
 # both do the same thing.
 ```
 
+[Return to Task](#Ch2InClassQueT2)
+
 #### InClass Task 3
 
 ```{r Ch2InClassTask3, eval = FALSE}
@@ -93,6 +107,8 @@ scoring <- read_csv("scoring.csv")
 pinfo <- read_csv("pinfo.csv")
 ```
 
+[Return to Task](#Ch2InClassQueT3)
+
 #### InClass Task 7 
 
 ```{r Ch2InClassTask7, eval = FALSE}
@@ -101,7 +117,7 @@ aq_scores <- rscores %>%
              summarise(AQ = sum(Score)) # sum column Score to obtain AQ scores.
 ```
 
-[Return to the Task](#Ch2InClassTask7)
+[Return to Task](#Ch2InClassQueT7)
 
 
 #### InClass Task 8
@@ -114,6 +130,7 @@ aq_scores2 <- responses %>% gather(Question, Response, Q1:Q10) %>%
              summarise(AQ = sum(Score))
 ```
 
+[Return to Task](#Ch2InClassQueT8)
 
 ### Assignment Solution
 
@@ -137,6 +154,8 @@ oldest_participant_code <- arrange(screening, desc(AGE)) %>%
   pull(ID)
 ```
 
+[Return to Task](#Ch2AssignQueT1)
+
 #### Assignment Task 2 - Arranging D-SPAN
 
 * `arrange()` is the main function here
@@ -145,6 +164,8 @@ oldest_participant_code <- arrange(screening, desc(AGE)) %>%
 ```{r Ch2AssignmentTask2}
 cogtest_sort <- arrange(screening, desc(DSPAN))
 ```
+
+[Return to Task](#Ch2AssignQueT2)
 
 #### Assignment Task 3 - Foreign Language Speakers
 
@@ -156,6 +177,8 @@ screen_groups <- group_by(screening, FLANG)
 descriptives <- summarise(screen_groups, n = n(), median_age = median(AGE))
 ```
 
+[Return to Task](#Ch2AssignQueT3)
+
 #### Assignment Task 4 - Creating Percentage MOCA scores
 
 * `mutate()` is the function to add a new column to data
@@ -164,6 +187,8 @@ descriptives <- summarise(screen_groups, n = n(), median_age = median(AGE))
 ```{r Ch2AssignmentTask4}
 screening <- mutate(screening, MOCA_Perc = (MOCA / 30) * 100)
 ```
+
+[Return to Task](#Ch2AssignQueT4)
 
 #### Assignment Task 5 - Remove the MOCA column
 
@@ -180,6 +205,8 @@ screening <- select(screening, -MOCA)
 screening <- select(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)
 ```
 
+[Return to Task](#Ch2AssignQueT5)
+
 #### Assignment Task 6 - Gather the Responses together
 
 * `gather()` is the function to use here.
@@ -193,6 +220,8 @@ screening <- select(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLA
 responses_long <- gather(responses, Question, RESPONSE, Q1:Q15)
 ```
 
+[Return to Task](#Ch2AssignQueT6)
+
 #### Assignment Task 7 - Joining the data
 
 * `inner_join()` will combine all common information in two sets of data by a common column or columns.
@@ -203,6 +232,8 @@ responses_long <- gather(responses, Question, RESPONSE, Q1:Q15)
 ```{r Ch2AssignmentTask7}
 responses_points <- inner_join(responses_long, scoring, "RESPONSE")
 ```
+
+[Return to Task](#Ch2AssignQueT7)
 
 #### Assignment Task 8 - Working the Pipes
 
@@ -227,6 +258,8 @@ musical_means <- group_by(responses_points, ID) %>%
                   summarise(mean_score = mean(Total_QHC))
 ```
 
+[Return to Task](#Ch2AssignQueT8)
+
 #### Assignment Task 9 - Difference in Musical Means
 
 * People who play music have a QHC score that is 1.53 units higher than people who don't play music.
@@ -244,5 +277,7 @@ QHC_diff_code <- spread(musical_means, MUSICAL, mean_score) %>%
   pull(diff) %>% 
   round(2)
 ```
+
+[Return to Task](#Ch2AssignQueT9)
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

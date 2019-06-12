@@ -107,7 +107,7 @@ To run any line on a script, the simplest way is to click anywhere on that line 
 ```
 `r unhide()`
 
-### Task 2: Bring in Your Library
+### Task 2: Bring in Your Library {#Ch2InClassQueT2}
 
 1. Add a line to your code that brings the `tidyverse` package into your working environment and run it.
 
@@ -124,7 +124,7 @@ Do not install packages on the Psychology machines! Why?
 ```
 `r unhide()`
 
-### Task 3: Load in the Data
+### Task 3: Load in the Data {#Ch2InClassQueT3}
 
 Now we have to load in the `.csv` datafiles using the `read_csv()` function and save them as variables in our environment. For example, to load in the `responses` we would type:
 
@@ -147,7 +147,7 @@ As you work with data and functions you will find there are functions with simil
 ```
 `r unhide()`
 
-### Task 4: Review Your Data.
+### Task 4: Review Your Data. {#Ch2InClassQueT4}
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
@@ -165,7 +165,7 @@ A tibble is simply a dataframe - or a table of data with columns and rows - that
 ```
 `r unhide()`  
 
-### Task 5: Gathering Data.
+### Task 5: Gathering Data. {#Ch2InClassQueT5}
 
 We now have all the data we need loaded in, but in order to make it easier for us to get the AQ score for each participant, we need to change the layout of the `responses` tibble using the `gather()` function. 
 
@@ -196,7 +196,7 @@ sandwich <- gather(responses, Jam, Strawberry, Q1:Q3)
 ```
 `r unhide()`
 
-### Task 6: Combining Data.
+### Task 6: Combining Data. {#Ch2InClassQueT6}
 
 So now our `responses` data is in tidy format, we are closer to getting an AQ score for each person. However, we still need to add some information together to:
 
@@ -229,7 +229,7 @@ The reasoning behind this shift is that sometimes agreeing or disagreeing might 
 rscores <- inner_join(rlong2, scoring, c("QFormat", "Response"))
 ```
 
-### Task 7: Calculating the AQ Scores. {#Ch2InClassTask7}
+### Task 7: Calculating the AQ Scores.  {#Ch2InClassQueT7}
 
 We have now created `rscores` which has information on how each participant responded to each question and how each question should be coded and scored, all within the one tibble. All we need now is to sum the scores for each participant to get their AQ score. 
 
@@ -287,7 +287,7 @@ The whole purpose of this lab was to calculate AQ scores for individual particip
 ```
 `r unhide()`  
 
-### Task 8: One Last Thing on Pipes
+### Task 8: One Last Thing on Pipes {#Ch2InClassQueT8}
 
 You now have a complete code to load in your data, convert it to Tidy, combine the tables and calculate an AQ score for each participant. But, if you look at it, some of your code could be more efficient by using pipes. 
 

@@ -52,7 +52,7 @@ The basics of the Ponzo illusion (<a href="https://en.wikipedia.org/wiki/Ponzo_i
 * The Mean Age of the Group
 * The Mean Length of the left vertical line  
 
-### Task 1: Setting up Your R Markdown Portfolio
+### Task 1: Setting up Your R Markdown Portfolio {#Ch1InClassQueT1}
 
 As above our overall goal is to make a reproducible "report" summarising the data in the Leibowitz and Judisch (1967). As we go along, remember to refer back to the PreClass activity and cheatsheets to help you. Let's begin!
 
@@ -79,7 +79,7 @@ After the lab it might be handy to write a reminder somewhere in your portfolio 
 ```
 `r unhide()`  
 
-### Task 2: Give your Report a Heading
+### Task 2: Give your Report a Heading {#Ch1InClassQueT2}
 
 We are going to start off your portfolio with creating a brief report on the Leibowitz and Judisch paper, so we should give it a heading.
 
@@ -92,7 +92,7 @@ Remember that the fewer the number of hashtags the larger the heading size.
 ```
 `r unhide()`  
 
-### Task 3: Creating a Code Chunk
+### Task 3: Creating a Code Chunk {#Ch1InClassQueT3}
 
 We are going to need the data soon so best to bring it in at the start.
 
@@ -139,7 +139,7 @@ One of the most common issues we see with people using RStudio is that they forg
 ```
 `r unhide()`  
 
-### Task 4: Writing your Report
+### Task 4: Writing your Report {#Ch1InClassQueT4}
 
 Let's start giving this brief report some information and structure as we would a full report.
 
@@ -164,7 +164,7 @@ When writing a report, how would you cite:
 
 For more information on how to format citations, you can look at this helpful <a href = "https://owl.english.purdue.edu/owl/resource/560/03/", target = "_blank">APA formatting and style guide</a>.
 
-### Task 5: Making Text Bold or Italicized
+### Task 5: Making Text Bold or Italicized {#Ch1InClassQueT5}
 
 Sometimes we want to add some emphasis to text. 
 
@@ -176,7 +176,7 @@ Sometimes we want to add some emphasis to text.
 
 **It's a good idea to `knit` the file at this point to make sure the bold font is working correctly.**  
 
-### Task 6: Adding Links to the Data in your Methods
+### Task 6: Adding Links to the Data in your Methods {#Ch1InClassQueT6}
 
 Good practice in a Report is to include information about where we got the data from. 
 1. Create a new heading below your list of the two hypotheses and call it **Methods**. Set it as **Header 2** size. 
@@ -196,7 +196,7 @@ Use the R Markdown cheatsheet to see how to insert links. It has something to do
 ```
 `r unhide()`
 
-### Task 7: Adding an Image to your Methods
+### Task 7: Adding an Image to your Methods {#Ch1InClassQueT7}
 
 For certain studies you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you'll see that adding an image is very similar to adding a link, the only difference is the `!` beforehand. For now we will just add an image of the illusion taken from the internet to illustrate how to do this.
 
@@ -213,7 +213,7 @@ Remember that a good methods section will contain all the necessary information 
 ```
 `r unhide()`  
 
-### Task 8: Adding a Table to your Results
+### Task 8: Adding a Table to your Results {#Ch1InClassQueT8}
 
 Another benefit of R Markdown is that you can insert tables of results directly into your report without having to format them - though for aesthetics you will want to learn how to format tables eventually. But for now...
 
@@ -228,7 +228,7 @@ group_by(ponzo_data, Sex) %>%
 
 **Now, knit your document to see what you have produced. You should not see the above code, just the output table.**  
 
-### Task 9: Adding a Figure to your Results
+### Task 9: Adding a Figure to your Results {#Ch1InClassQueT9}
 
 Nearly all research reports have a figure so we will want to add one as well. 
 
