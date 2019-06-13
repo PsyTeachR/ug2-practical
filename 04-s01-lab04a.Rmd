@@ -16,9 +16,8 @@ We will start by looking at some of the general ideas behind probability. We won
 There are no cheatsheets for this lab as we will not be using a specific package. However you can make full use of the R help function (e.g. `?sample`) when you are not clear on what a function does. Also, do not be shy to do what we do and run a Google Search for finding out more about some of the stats concepts covered here. There are loads of videos and help pages out there with clear examples to explain difficult concepts. 
 
 `r hide("Portfolio Point - Samples, Populations and Inference")`
-```{r, echo=FALSE, results='asis'}
-cat("The population is the whole group that you want to know something about - everyone or everything in that group. The sample is the part of the population that you are testing. The sample is always smaller than the population as it is unlikely that you would ever be able to test everyone in a population, but the sample should be representative of the population based on random sampling. This means that even though you are not using the whole population, the sample you are using represents the whole population because you randomly sampled people into it. If this is true, that the sample is representative of the population, then testing on the sample allows you to make some inference about the population; you infer a characteristic of the population from testing on the sample.
-    ")
+```{block, type ="info"}
+The population is the whole group that you want to know something about - everyone or everything in that group. The sample is the part of the population that you are testing. The sample is always smaller than the population as it is unlikely that you would ever be able to test everyone in a population, but the sample should be representative of the population based on random sampling. This means that even though you are not using the whole population, the sample you are using represents the whole population because you randomly sampled people into it. If this is true, that the sample is representative of the population, then testing on the sample allows you to make some inference about the population; you infer a characteristic of the population from testing on the sample.
 ```
 `r unhide()`
 
@@ -45,9 +44,8 @@ Fill in the blanks in the below sentences using the two remaining levels of meas
 When you read journal articles or when you are working with data in the lab, it is really good practice to take a minute or two to figure out the type of variables you are reading about and/or working with. 
 
 `r hide("Explain This - I don't get these answers")`
-```{r, echo=FALSE, results='asis'}
-cat("The four level of measurements are nominal (also called categorical), ordinal, interval and ratio. Discrete data only uses categories or whole numbers and is therefore either nominal or ordinal data. Continuous data can take any value, e.g. 9.00 or 9.999999999, and so is either interval or ratio data.
-    ")
+```{block, type ="info"}
+The four level of measurements are nominal (also called categorical), ordinal, interval and ratio. Discrete data only uses categories or whole numbers and is therefore either nominal or ordinal data. Continuous data can take any value, e.g. 9.00 or 9.999999999, and so is either interval or ratio data.
 ```
 `r unhide()`
 

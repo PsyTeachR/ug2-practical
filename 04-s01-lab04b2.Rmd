@@ -6,7 +6,7 @@ This a very short recap on the normal distribution which will help you in the la
 
 Let's say we're interested in the height of the population of level 2 psychology students, which we estimate to be between 146cm and 194cm. If we plotted this as a continuous, normal distribution, it will look like:
 
-``` {r normplot1, eval = TRUE, echo = FALSE}
+``` {r normplot1, eval = TRUE, echo = FALSE, fig.cap = 'The Normal Distribution'}
 
 x <- seq(146,194,0.01) # here we use the sequence function to generate our quantiles ranging from -4 to 4 in steps of 0.01
 mean = 170
@@ -49,6 +49,6 @@ The figure shows the hypothetical probability density of heights ranging from 14
 
 **6. The normal distribution follows the Empirical Rule:** The Empirical Rule states that 99.7% of the data within the normal distribution falls within three standard deviations ($\pm3\sigma$) from the mean, 95% fall within two standard deviations ($\pm2\sigma$), and 68% fall within one standard deviation ($\pm\sigma$).
 
-**Activity Completed!**
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 We will look at the normal distribution more in the lab. If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!

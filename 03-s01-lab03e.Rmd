@@ -136,6 +136,8 @@ ggplot(data = manrot_facet_guide, aes(x = Angle, y = mean_Resp, group = Sex)) +
   theme_bw()
 ```
 
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>
 [Return to Task](#Ch3InClassQueT8)
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>
