@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 6 NHST and One-Sample t-tests | ug2-practical</title>
-  <meta name="description" content="Lab 6 NHST and One-Sample t-tests | ug2-practical-materials">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Lab 6 NHST and One-Sample t-tests | ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 6 NHST and One-Sample t-tests | ug2-practical" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="Lab 6 NHST and One-Sample t-tests | ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
+<meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-06-13">
+<meta name="date" content="2019-06-14" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="permutation-tests-a-skill-set.html">
@@ -51,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -114,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -164,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -238,26 +263,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#probability-assignment"><i class="fa fa-check"></i><b>4.7.1</b> Probability Assignment</a></li>
-<li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#before-starting-lets-check"><i class="fa fa-check"></i><b>4.7.2</b> Before starting let's check</a></li>
-<li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#part-1-library"><i class="fa fa-check"></i><b>4.7.3</b> Part 1: Library</a></li>
-<li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#part-2-basic-probability-and-the-binomial-distribution"><i class="fa fa-check"></i><b>4.7.4</b> Part 2: Basic probability and the binomial distribution</a></li>
-<li class="chapter" data-level="4.7.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-1"><i class="fa fa-check"></i><b>4.7.5</b> Question 1</a></li>
-<li class="chapter" data-level="4.7.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-2"><i class="fa fa-check"></i><b>4.7.6</b> Question 2</a></li>
-<li class="chapter" data-level="4.7.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-3"><i class="fa fa-check"></i><b>4.7.7</b> Question 3</a></li>
-<li class="chapter" data-level="4.7.8" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-4"><i class="fa fa-check"></i><b>4.7.8</b> Question 4</a></li>
-<li class="chapter" data-level="4.7.9" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-5"><i class="fa fa-check"></i><b>4.7.9</b> Question 5</a></li>
-<li class="chapter" data-level="4.7.10" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-6"><i class="fa fa-check"></i><b>4.7.10</b> Question 6</a></li>
-<li class="chapter" data-level="4.7.11" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#part-2-the-normal-distribution"><i class="fa fa-check"></i><b>4.7.11</b> Part 2: The Normal Distribution</a></li>
-<li class="chapter" data-level="4.7.12" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-7"><i class="fa fa-check"></i><b>4.7.12</b> Question 7</a></li>
-<li class="chapter" data-level="4.7.13" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-8"><i class="fa fa-check"></i><b>4.7.13</b> Question 8</a></li>
-<li class="chapter" data-level="4.7.14" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-9"><i class="fa fa-check"></i><b>4.7.14</b> Question 9</a></li>
-<li class="chapter" data-level="4.7.15" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#question-10"><i class="fa fa-check"></i><b>4.7.15</b> Question 10</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
+<li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
+<li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
+<li class="chapter" data-level="4.7.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT3"><i class="fa fa-check"></i><b>4.7.5</b> Assignment Task 3</a></li>
+<li class="chapter" data-level="4.7.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT4"><i class="fa fa-check"></i><b>4.7.6</b> Assignment Task 4</a></li>
+<li class="chapter" data-level="4.7.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT5"><i class="fa fa-check"></i><b>4.7.7</b> Assignment Task 5</a></li>
+<li class="chapter" data-level="4.7.8" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT6"><i class="fa fa-check"></i><b>4.7.8</b> Assignment Task 6</a></li>
+<li class="chapter" data-level="4.7.9" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT7"><i class="fa fa-check"></i><b>4.7.9</b> Assignment Task 7</a></li>
+<li class="chapter" data-level="4.7.10" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT8"><i class="fa fa-check"></i><b>4.7.10</b> Assignment Task 8</a></li>
+<li class="chapter" data-level="4.7.11" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT9"><i class="fa fa-check"></i><b>4.7.11</b> Assignment Task 9</a></li>
+<li class="chapter" data-level="4.7.12" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT10"><i class="fa fa-check"></i><b>4.7.12</b> Assignment Task 10</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#solutions-to-questions-3"><i class="fa fa-check"></i><b>4.8</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="4.8.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activities-2"><i class="fa fa-check"></i><b>4.8.1</b> InClass Activities</a></li>
-<li class="chapter" data-level="4.8.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-binomial-activities"><i class="fa fa-check"></i><b>4.8.2</b> InClass Binomial Activities</a></li>
-<li class="chapter" data-level="4.8.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-solution-1"><i class="fa fa-check"></i><b>4.8.3</b> Assignment Solution</a></li>
+<li class="chapter" data-level="4.8.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-solution-1"><i class="fa fa-check"></i><b>4.8.2</b> Assignment Solution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
@@ -272,11 +293,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
-<li class="chapter" data-level="5.3.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#step-1-load-in-add-on-packages-and-data"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
-<li class="chapter" data-level="5.3.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#step-2-calculate-the-original-mean-difference---d_orig"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
-<li class="chapter" data-level="5.3.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#step-3-permute-the-group-labels"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
-<li class="chapter" data-level="5.3.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#step-4-create-the-null-hypothesis-distribution-nhd-for-the-difference"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
-<li class="chapter" data-level="5.3.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#step-5-compare-the-observed-mean-difference-to-the-nhd"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
+<li class="chapter" data-level="5.3.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT3"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
+<li class="chapter" data-level="5.3.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT4"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
+<li class="chapter" data-level="5.3.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#assignment-4"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
 <li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a><ul>
@@ -351,7 +372,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen's D</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen’s D</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-effect-size-from-a-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.2</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-effect-size-from-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.3</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-effect-size-from-matched-pairs-t-test"><i class="fa fa-check"></i><b>8.3.4</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -360,7 +381,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-sample-size-for-standard-power-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.7</b> Task 5: Sample size for standard power one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-effect-size-from-a-high-power-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.8</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-power-of-published-research"><i class="fa fa-check"></i><b>8.3.9</b> Task 7: Power of Published Research</a></li>
-<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-9"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
+<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-4"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#assignment-7"><i class="fa fa-check"></i><b>8.4</b> Assignment</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-3"><i class="fa fa-check"></i><b>8.4.1</b> Task 1</a></li>
@@ -427,14 +448,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.3.8" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#step-5-sums-of-squares"><i class="fa fa-check"></i><b>11.3.8</b> Step 5: Sums of squares</a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#assignment-10"><i class="fa fa-check"></i><b>11.4</b> Assignment</a><ul>
-<li class="chapter" data-level="11.4.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-1-1"><i class="fa fa-check"></i><b>11.4.1</b> Question 1</a></li>
-<li class="chapter" data-level="11.4.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-2-1"><i class="fa fa-check"></i><b>11.4.2</b> Question 2</a></li>
-<li class="chapter" data-level="11.4.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-3-1"><i class="fa fa-check"></i><b>11.4.3</b> Question 3</a></li>
-<li class="chapter" data-level="11.4.4" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-4-1"><i class="fa fa-check"></i><b>11.4.4</b> Question 4</a></li>
-<li class="chapter" data-level="11.4.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-5-1"><i class="fa fa-check"></i><b>11.4.5</b> Question 5</a></li>
-<li class="chapter" data-level="11.4.6" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-6-1"><i class="fa fa-check"></i><b>11.4.6</b> Question 6</a></li>
-<li class="chapter" data-level="11.4.7" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-7-1"><i class="fa fa-check"></i><b>11.4.7</b> Question 7</a></li>
-<li class="chapter" data-level="11.4.8" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-8-1"><i class="fa fa-check"></i><b>11.4.8</b> Question 8</a></li>
+<li class="chapter" data-level="11.4.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-1"><i class="fa fa-check"></i><b>11.4.1</b> Question 1</a></li>
+<li class="chapter" data-level="11.4.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-2"><i class="fa fa-check"></i><b>11.4.2</b> Question 2</a></li>
+<li class="chapter" data-level="11.4.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-3"><i class="fa fa-check"></i><b>11.4.3</b> Question 3</a></li>
+<li class="chapter" data-level="11.4.4" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-4"><i class="fa fa-check"></i><b>11.4.4</b> Question 4</a></li>
+<li class="chapter" data-level="11.4.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-5"><i class="fa fa-check"></i><b>11.4.5</b> Question 5</a></li>
+<li class="chapter" data-level="11.4.6" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-6"><i class="fa fa-check"></i><b>11.4.6</b> Question 6</a></li>
+<li class="chapter" data-level="11.4.7" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-7"><i class="fa fa-check"></i><b>11.4.7</b> Question 7</a></li>
+<li class="chapter" data-level="11.4.8" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-8"><i class="fa fa-check"></i><b>11.4.8</b> Question 8</a></li>
 <li class="chapter" data-level="11.4.9" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#question-9-create-your-own-decomposition-matrix"><i class="fa fa-check"></i><b>11.4.9</b> Question 9: Create your own decomposition matrix</a></li>
 </ul></li>
 <li class="chapter" data-level="11.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#solutions-to-questions-10"><i class="fa fa-check"></i><b>11.5</b> Solutions to Questions</a><ul>
@@ -582,7 +603,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Lab 6</span> NHST and One-Sample t-tests</h1>
 <div id="overview-5" class="section level2">
 <h2><span class="header-section-number">6.1</span> Overview</h2>
-<p>In the previous labs we have talked a lot about probability, comparing average values across groups, and the inference from a sample to a population. In effect this is the essense of a lot of quantitative research. You collect a sample, calculate a summary statistic about that sample, and use probability to establish the likelihood of that statistic occurring given certain situations. To demonstrate this further, and to start introducing commonly used statistical tests, we will look at data related to a recent Posner experiment by <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738", target = "_blank">Woods et al (2009)</a>.</p>
+<p>In the previous labs we have talked a lot about probability, comparing average values across groups, and the inference from a sample to a population. In effect this is the essense of a lot of quantitative research. You collect a sample, calculate a summary statistic about that sample, and use probability to establish the likelihood of that statistic occurring given certain situations. To demonstrate this further, and to start introducing commonly used statistical tests, we will look at data related to a recent Posner experiment by &lt;a href = “<a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" class="uri">https://www.sciencedirect.com/science/article/pii/S0005796708002738</a>”, target = &quot;_blank&quot;&gt;Woods et al (2009)</a>.</p>
 <p>We will use part of the information shown in the paper to explore hypothesis testing. Through the lab 6 activities you will learn about:</p>
 <ol style="list-style-type: decimal">
 <li>Testing a hypothesis through null hypothesis significance testing (NHST)</li>
@@ -593,17 +614,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <button>
 Portfolio Point - Additional background on The Posner Paradigm
 </button>
-<p>You don't need this for the actual lab but it might help it make more sense.</p>
-<p>The Posner paradigm (Posner, 1980), or the Posner Cueing task, is an attentional shift task, often used in a variety of fields to test spatial attention and how this is impacted by disorders or injury. It works by having participants look at a fixation cross in the center of a screen. To either side is an empty box. After a short delay, a cue (e.g. an arrow, an asterisk, or some other attention grabbing image) appears in one of the boxes (e.g. the box to the left of the fixation). This stays on screen for a few hundred milliseconds and is then replaced by a second image called the target (e.g. a different shape or image). Participants then have to respond left or right depending on which side of the fixation the target appeared. The DV is the time taken to respond to the target appearing. The key thing is that most of the time the target will appear on the same side as the cue - the cue facilitates the target - and so participants will be quicker to respond. These are called valid trials. However on some occasions the target will appear on the other side from the cue - e.g. the cue is on the left but the target appears on the right - and these are called invalid trials; participants will be slower to respond here as the cue misleads the participant. From that you should be starting to get an idea of how a Posner paradigm can help to measure attention and how it can help determine if people have issues in shifting attention (particularly from the invalid trials).</p>
-<p><a href="https://www.tandfonline.com/doi/abs/10.1080/00335558008248231", target = "_blank">Posner, M. (1980) Orienting of attention. Quarterly Journal of Experimental Psychology, 32(1), 3-25</a></p>
+<p>You don’t need this for the actual lab but it might help it make more sense.</p>
+<p>The Posner paradigm (Posner, 1980), or the Posner Cueing task, is an attentional shift task, often used in a variety of fields to test spatial attention and how this is impacted by disorders or injury. It works by having participants look at a fixation cross in the center of a screen. To either side is an empty box. After a short delay, a cue (e.g. an arrow, an asterisk, or some other attention grabbing image) appears in one of the boxes (e.g. the box to the left of the fixation). This stays on screen for a few hundred milliseconds and is then replaced by a second image called the target (e.g. a different shape or image). Participants then have to respond left or right depending on which side of the fixation the target appeared. The DV is the time taken to respond to the target appearing. The key thing is that most of the time the target will appear on the same side as the cue - the cue facilitates the target - and so participants will be quicker to respond. These are called valid trials. However on some occasions the target will appear on the other side from the cue - e.g. the cue is on the left but the target appears on the right - and these are called invalid trials; participants will be slower to respond here as the cue misleads the participant. From that you should be starting to get an idea of how a Posner paradigm can help to measure attention and how it can help determine if people have issues in shifting attention (particularly from the invalid trials).</p>
+<p>&lt;a href=“<a href="https://www.tandfonline.com/doi/abs/10.1080/00335558008248231" class="uri">https://www.tandfonline.com/doi/abs/10.1080/00335558008248231</a>”, target = &quot;_blank&quot;&gt;Posner, M. (1980) Orienting of attention. Quarterly Journal of Experimental Psychology, 32(1), 3-25</a></p>
 </div>
 
 </div>
 <div id="preclass-activity-1-2" class="section level2">
 <h2><span class="header-section-number">6.2</span> PreClass Activity 1</h2>
-<p>Woods and colleagues were interested in how the attention of people with poor sleep (Primary Insomnia - PI) was directed towards sleep related stimuli compared to people with normal sleep (NS). They hypothesised that participants with poor sleep would be more attentive to images related to a lack of sleep (i.e. an alarm clock showing 2AM) than participants with normal sleep would be. To test this they used a modified Posner paradigm, shown in Figure 1 of the paper, where images of the alarm clock acted as the cue on both valid and invalid trials, with the symbol ( .. ) being the target. As can be seen in Figure 3 of the paper, Woods and colleagues found that there was no difference between groups on valid trials. However, Primary Insomnia participants were faster in responding to the target suggesting a slight increase in attention to the sleep related cue compared to the Normal Sleepers. In contrast, for invalid trials, there was a significant difference between groups that was consistent with the original hypothesis; poor sleepers (Primary Insomnia participants) were slower to respond to the target on invalid trials, compared to Normal Sleepers, due to the attention of the Primary Insomnia participants being drawn to the misleading cue (the alarm clock) on the invalid trials. This increased attention to the sleep related cue leads to an overall slower reponse to the target.</p>
+<p>Woods and colleagues were interested in how the attention of people with poor sleep (Primary Insomnia - PI) was directed towards sleep related stimuli compared to people with normal sleep (NS). They hypothesised that participants with poor sleep would be more attentive to images related to a lack of sleep (i.e. an alarm clock showing 2AM) than participants with normal sleep would be. To test this they used a modified Posner paradigm, shown in Figure 1 of the paper, where images of the alarm clock acted as the cue on both valid and invalid trials, with the symbol ( .. ) being the target. As can be seen in Figure 3 of the paper, Woods and colleagues found that there was no difference between groups on valid trials. However, Primary Insomnia participants were faster in responding to the target suggesting a slight increase in attention to the sleep related cue compared to the Normal Sleepers. In contrast, for invalid trials, there was a significant difference between groups that was consistent with the original hypothesis; poor sleepers (Primary Insomnia participants) were slower to respond to the target on invalid trials, compared to Normal Sleepers, due to the attention of the Primary Insomnia participants being drawn to the misleading cue (the alarm clock) on the invalid trials. This increased attention to the sleep related cue leads to an overall slower reponse to the target.</p>
 <p><strong>Are These Participants Normal Sleepers (NS)?</strong></p>
-<p>Psychology results tend to be more reproducible when we increase participant numbers and in turn the power of the study. However, running several hundred participants can be a significant time and financial investment. Fortunately, the idea of a &quot;ManyLabs&quot;&quot; project can solve this problem. In this, the same experiment is run in various locations, all using the same procedure, and then the data is collapsed together and analysed as one.</p>
+<p>Psychology results tend to be more reproducible when we increase participant numbers and in turn the power of the study. However, running several hundred participants can be a significant time and financial investment. Fortunately, the idea of a “ManyLabs”&quot; project can solve this problem. In this, the same experiment is run in various locations, all using the same procedure, and then the data is collapsed together and analysed as one.</p>
 <div class="solution">
 <button>
 Portfolio Point - The power of what?
@@ -615,9 +636,9 @@ Portfolio Point - The power of what?
 <li>the sample size (n);</li>
 <li>the effect size - how big is the difference (measured in a number of ways).</li>
 </ul>
-<p>If you know any three of these four elements (power, alpha, effect size, n) you can calculate the fourth. We will save further discussion of power until Lab 8 but if you want to read ahead then this blog is highly recommended: <a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/", target = "_blank">The Power Dialogues</a>.</p>
+<p>If you know any three of these four elements (power, alpha, effect size, n) you can calculate the fourth. We will save further discussion of power until Lab 8 but if you want to read ahead then this blog is highly recommended: &lt;a href=“<a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/" class="uri">https://pigee.wordpress.com/2016/09/13/the-power-dialogues/</a>”, target = &quot;_blank&quot;&gt;The Power Dialogues</a>.</p>
 </div>
-<p>In your quest to be a collaborative researcher you have joined a ManyLabs study replicating the findings of Woods et al. (2009). Each lab is asked to gather data from 22 participants. After gathering your data, the first key question is whether or not your participants are responding in a similar fashion to the original study. As a group you have decided that you need to do this test to assess whether you have been able to draw a sample of normal sleepers similar to the sample drawn by Woods et al. We will only look at valid trials for normal sleeping participants but in effect you could perform this test on all groups and conditions.</p>
+<p>In your quest to be a collaborative researcher you have joined a ManyLabs study replicating the findings of Woods et al. (2009). Each lab is asked to gather data from 22 participants. After gathering your data, the first key question is whether or not your participants are responding in a similar fashion to the original study. As a group you have decided that you need to do this test to assess whether you have been able to draw a sample of normal sleepers similar to the sample drawn by Woods et al. We will only look at valid trials for normal sleeping participants but in effect you could perform this test on all groups and conditions.</p>
 <p>Below you see the data you have collected from 22 participants. Their mean reaction time for valid trials is shown in the right hand column.</p>
 <table>
 <thead>
@@ -717,20 +738,20 @@ Portfolio Point - The power of what?
 </tr>
 </tbody>
 </table>
-<p>In <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738", target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was 590 ms with a SD = 94 ms. As above, your overall goal is to do further analyses where the new 22 participants are compared with the original 22 participants, but in order to do this you first must show that the new participants are from the same population as the original sample.</p>
+<p>In &lt;a href=“<a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" class="uri">https://www.sciencedirect.com/science/article/pii/S0005796708002738</a>”, target = &quot;_blank&quot;&gt;Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was 590 ms with a SD = 94 ms. As above, your overall goal is to do further analyses where the new 22 participants are compared with the original 22 participants, but in order to do this you first must show that the new participants are from the same population as the original sample.</p>
 <p>To state this in terms of a hypothesis, you are testing that there is no significant difference between the new sample and the original sample based on mean reaction times to valid trials on the modified Posner experiment.</p>
 <p>We will show you how to do this through two tests. In tasks 1-3 we will use a <strong>binomial test</strong> and in tasks 4-8 we will use a <strong>one-sample t-test</strong></p>
 <div class="solution">
 <button>
 Portfolio Point - Binomial test and the one-sample t-test
 </button>
-<p>The Binomial test is a very simple test that converts all participants to either being above or below a cut-off point, e.g. the mean value, and looking at the probability of finding that number of participants above that cut-off.</p>
+<p>The Binomial test is a very simple test that converts all participants to either being above or below a cut-off point, e.g. the mean value, and looking at the probability of finding that number of participants above that cut-off.</p>
 <p>The one-sample t-test is similar in that it compares participants to a cut-off but it compares the mean and standard deviation of the collected sample to an ideal mean and standard deviation. By comparing the difference in means, divided by the variance of the difference (the standard deviation), we can determine if the sample is similar or not to the ideal mean.</p>
 </div>
 <hr />
 <div id="the-binomial-test" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> The Binomial Test</h3>
-<p>The Binomial test is one of the &quot;simplest tests&quot;&quot; in null hypothesis testing in that it uses very little information. The binomial test is used when a study has two possible outcomes (success vs failure) and you have an idea about what the probability of success is - much like in Lab 4 and the Binomial distribution. A binomial test tests if an observed result is different than from what was expected. In our case we want to test whether our normal sleepers are the same or different from those measured by Woods et al. The following tasks will take you through the process.</p>
+<p>The Binomial test is one of the “simplest tests”&quot; in null hypothesis testing in that it uses very little information. The binomial test is used when a study has two possible outcomes (success vs failure) and you have an idea about what the probability of success is - much like in Lab 4 and the Binomial distribution. A binomial test tests if an observed result is different than from what was expected. In our case we want to test whether our normal sleepers are the same or different from those measured by Woods et al. The following tasks will take you through the process.</p>
 </div>
 <div id="task-1-creating-a-dataframe" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Task 1: Creating a Dataframe</h3>
@@ -756,7 +777,7 @@ Helpful Hint
 <ul>
 <li>In the original paper the mean reaction time for valid trials was 590 ms. Store this value in <code>woods_mean</code>.<br />
 </li>
-<li>Now write code to calculate the number of participants in the new sample (<code>ns_data</code> created in Task 1) that had a mean reaction time greater than the original paper's mean. Store this <strong>single value</strong> in <code>n_participants</code>. The function <code>nrow()</code> may help here.</li>
+<li>Now write code to calculate the number of participants in the new sample (<code>ns_data</code> created in Task 1) that had a mean reaction time greater than the original paper’s mean. Store this <strong>single value</strong> in <code>n_participants</code>. The function <code>nrow()</code> may help here.</li>
 </ul>
 <div class="solution">
 <button>
@@ -767,16 +788,16 @@ Helpful Hint
 <p>or</p>
 <p><code>dim[] %&gt;% pluck()</code></p>
 </div>
-<div id="quickfire-question-7" class="section level4">
+<div id="quickfire-question" class="section level4">
 <h4><span class="header-section-number">6.2.3.1</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
 <ul>
-<li>The number of participants that have a mean reaction time for valid trials greater than that of the original paper is: <select class='solveme' data-answer='["16"]'> <option></option> <option>6</option> <option>10</option> <option>16</option> <option>17</option> </select></li>
+<li>The number of participants that have a mean reaction time for valid trials greater than that of the original paper is: <select class='solveme' data-answer='["16"]'> <option></option> <option>6</option> <option>10</option> <option>16</option> <option>17</option></select></li>
 </ul>
 </div>
 </div>
 <div id="task-3-calculating-probability" class="section level3">
 <h3><span class="header-section-number">6.2.4</span> Task 3: Calculating Probability</h3>
-<p>Our final step for the binomial test is to compare our value from Task 2, 16 participants, to our hypothetical cut-off. Let's assume that the mean reaction time from the original paper, i.e. 590 ms, is a good estimate for the population of good sleepers (NS). If that is the case then each new participant that we have tested should have a .5 chance of being above this mean reaction time. In other words, the expected number of participants above the cut-off would be <span class="math inline">\(.5N\)</span>, where <span class="math inline">\(N\)</span> is the number of participants, or <span class="math inline">\(.5 * 22\)</span> = 11 participants.</p>
+<p>Our final step for the binomial test is to compare our value from Task 2, 16 participants, to our hypothetical cut-off. Let’s assume that the mean reaction time from the original paper, i.e. 590 ms, is a good estimate for the population of good sleepers (NS). If that is the case then each new participant that we have tested should have a .5 chance of being above this mean reaction time. In other words, the expected number of participants above the cut-off would be <span class="math inline">\(.5N\)</span>, where <span class="math inline">\(N\)</span> is the number of participants, or <span class="math inline">\(.5 * 22\)</span> = 11 participants.</p>
 <ul>
 <li>Calculate what would be the probability of observing at least 16 participants out of your 22 participants that had a <code>valid_rt</code> greater than the Woods et al (2009) mean value.</li>
 </ul>
@@ -792,14 +813,14 @@ Helpful Hint
 <li>You can use a dbinom() %&gt;% sum() for this or maybe a pbinom()</li>
 </ul>
 </div>
-<div id="quickfire-question-8" class="section level4">
+<div id="quickfire-question-1" class="section level4">
 <h4><span class="header-section-number">6.2.4.1</span> <span style="color:DARKGREEN"> Quickfire Question</span></h4>
 <ul>
-<li>Do you think these NS participants are responding in just the same fashion as the participants in the original paper? Select the appropriate answer: <select class='solveme' data-answer='["No"]'> <option></option> <option>No</option> <option>Yes</option> </select></li>
+<li>Do you think these NS participants are responding in just the same fashion as the participants in the original paper? Select the appropriate answer: <select class='solveme' data-answer='["No"]'> <option></option> <option>No</option> <option>Yes</option></select></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't get this answer
+Explain This - I don’t get this answer
 </button>
 <p>The probability of obtaining 16 participants with a mean reaction time greater than the cut-off of 590 ms is p = .026. This is smaller than the field norm of p = .05. As such we can say that, using the binomial test, the new sample appears to be significantly different from the old sample as there is a significantly larger number of participants above the cut-off (M = 590ms) than would be expected if the new sample and the old sample were the same.</p>
 </div>
@@ -808,7 +829,7 @@ Explain This - I don't get this answer
 </div>
 <div id="the-one-sample-t-test" class="section level3">
 <h3><span class="header-section-number">6.2.5</span> The One-Sample t-test</h3>
-<p>In Task 3 you ran a <strong>binomial test</strong> of the null hypothesis testing that the mean reaction time for valid trials in good sleepers has remained stable across the two studies. However, this test did not use all the available information because each participant was simply classified as being above or below the mean of the original paper, i.e. yes or no. Information about the <strong>magnitude</strong> of the discrepancy from the mean was discarded. This information is really interesting and important however and if we wanted to maintain that information then we would need to use a one-sample <span class="math inline">\(t\)</span>-test.</p>
+<p>In Task 3 you ran a <strong>binomial test</strong> of the null hypothesis testing that the mean reaction time for valid trials in good sleepers has remained stable across the two studies. However, this test did not use all the available information because each participant was simply classified as being above or below the mean of the original paper, i.e. yes or no. Information about the <strong>magnitude</strong> of the discrepancy from the mean was discarded. This information is really interesting and important however and if we wanted to maintain that information then we would need to use a one-sample <span class="math inline">\(t\)</span>-test.</p>
 <p>In a one-sample <span class="math inline">\(t\)</span>-test you test the null hypothesis <span class="math inline">\(H_0: \mu = \mu_0\)</span> where:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span> is the symbol for the null hypothesis,</li>
@@ -847,21 +868,22 @@ Helpful Hint
 <ul>
 <li>Substitute the values into the one-sample t-test formula above to compute your observed test statistic. Store the answer in <code>t_obs</code> .</li>
 </ul>
-<p><strong>Answering this question will help you in this task as you'll also need these numbers to substitute into the formula:</strong></p>
+<p><strong>Answering this question will help you in this task as you’ll also need these numbers to substitute into the formula:</strong></p>
 <ul>
-<li>The mean from Woods et al (2009) was <select class='solveme' data-answer='["590"]'> <option></option> <option>595</option> <option>590</option> <option>580</option> <option>585</option> </select> , and the number of participants in our sample is: (type in numbers) <input class='solveme nospaces' size='3' data-answer='["22"]'/>.</li>
+<li>The mean from Woods et al (2009) was <select class='solveme' data-answer='["590"]'> <option></option> <option>595</option> <option>590</option> <option>580</option> <option>585</option></select>, and the number of participants in our sample is: (type in numbers) <input class='solveme nospaces' size='3' data-answer='["22"]'/>.</li>
 </ul>
 <div class="solution">
 <button>
 Helpful Hint
 </button>
-<p>Remember BODMAS and/or PEDMAS when given more than one operation to calculate. (i.e. Brackets/Parenthesis, Orders/Exponents, Division, Multiplication, Addition, Subtraction)</p>
+<p>Remember BODMAS and/or PEDMAS when given more than one operation to calculate.
+(i.e. Brackets/Parenthesis, Orders/Exponents, Division, Multiplication, Addition, Subtraction)</p>
 <p><code>t_obs &lt;- (sample mean - woods mean) / (sample standard deviation / square root of n)</code></p>
 </div>
 </div>
 <div id="task-6-comparing-the-observed-test-statistic-to-the-t-distribution-using-pt" class="section level3">
 <h3><span class="header-section-number">6.2.8</span> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></h3>
-<p>Now you need to compare <code>t_obs</code> to the t-distribution to determine how likely the observation (i.e. your test statistic) is under the null hypothesis of no difference. To do this you need to use the <code>pt()</code> function.</p>
+<p>Now you need to compare <code>t_obs</code> to the t-distribution to determine how likely the observation (i.e. your test statistic) is under the null hypothesis of no difference. To do this you need to use the <code>pt()</code> function.</p>
 <ul>
 <li>Use the <code>pt()</code> function to get the <span class="math inline">\(p\)</span>-value for a two-tailed test with <span class="math inline">\(\alpha\)</span> level set to .05. The test has <span class="math inline">\(n - 1\)</span> degrees of freedom, where <span class="math inline">\(n\)</span> is the number of observations contributing to the sample mean <span class="math inline">\(\bar{X}\)</span>. Store the <span class="math inline">\(p\)</span> value in the variable <code>pval</code>. Do you reject the null?</li>
 </ul>
@@ -873,7 +895,7 @@ Helpful Hint
 <p>The <code>pt()</code> function works similar to <code>pbinom()</code> and <code>pnorm()</code>:</p>
 <ul>
 <li><code>pval &lt;- pt(test statistic, df, lower.tail = FALSE) * 2</code></li>
-<li>Use the <strong>absolute value</strong> of the test statistic; i.e. ignore minus signs.</li>
+<li>Use the <strong>absolute value</strong> of the test statistic; i.e. ignore minus signs.</li>
 <li>Remember, <code>df</code> is equal to <code>n-1</code>.</li>
 <li>Use <code>lower.tail = FALSE</code> because we are wanting to know the probability of obtaining a value higher than the one we got.</li>
 <li>Because we want the p-value for a <strong>two-tailed</strong> test, <strong>multiply <code>pt()</code> by two</strong>.</li>
@@ -891,25 +913,25 @@ Helpful Hint
 <p>The function requires a vector, not a table, as the first argument. You can use the <code>pull()</code> function to pull out the <code>valid_rt</code> column from the tibble <code>ns_data</code> with <code>pull(ns_data, valid_rt)</code>.</p>
 <p>You also need to include <code>mu</code> in the <code>t.test()</code>, where <code>mu</code> is equal to the mean you are comparing to.</p>
 </div>
-<div id="quickfire-questions-9" class="section level4">
+<div id="quickfire-questions" class="section level4">
 <h4><span class="header-section-number">6.2.9.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <p>To make sure you are understanding the output of the t-test, try to answer the following questions.</p>
 <ol style="list-style-type: decimal">
 <li><p>To three decimal places, type in the p value for the t-test in Task 7 <input class='solveme nospaces' size='6' data-answer='["0.092",".092"]'/></p></li>
-<li><p>As such this one sample t-test is <select class='solveme' data-answer='["not significant"]'> <option></option> <option>significant</option> <option>not significant</option> </select></p></li>
-<li><p>The outcome of the binomial test and the one sample t-test produce <select class='solveme' data-answer='["a different"]'> <option></option> <option>the same</option> <option>a different</option> </select> answer</p></li>
+<li><p>As such this one sample t-test is <select class='solveme' data-answer='["not significant"]'> <option></option> <option>significant</option> <option>not significant</option></select></p></li>
+<li><p>The outcome of the binomial test and the one sample t-test produce <select class='solveme' data-answer='["a different"]'> <option></option> <option>the same</option> <option>a different</option></select> answer</p></li>
 </ol>
 </div>
 </div>
 <div id="task-8-drawing-conclusions-about-the-new-data" class="section level3">
 <h3><span class="header-section-number">6.2.10</span> Task 8: Drawing Conclusions about the new data</h3>
-<p>Given these results, what do you conclude about what how similar these 22 participants are to the original participants in <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738", target = "_blank">Woods et al (2009)</a> and whether or not you have managed to recruit sleepers similar to that study?</p>
+<p>Given these results, what do you conclude about what how similar these 22 participants are to the original participants in &lt;a href = “<a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" class="uri">https://www.sciencedirect.com/science/article/pii/S0005796708002738</a>”, target = &quot;_blank&quot;&gt;Woods et al (2009)</a> and whether or not you have managed to recruit sleepers similar to that study?</p>
 <ul>
 <li>Think about which test used more of the available information?</li>
 <li>Also, how reliable is the finding if the two tests give different answers?</li>
 </ul>
 <p>We have given some of our thoughts at the bottom of the solutions.</p>
-<p>That's all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. See you in the lab!</p>
+<p>That’s all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum &lt;a href = “<a href="https://rguppies.slack.com/" class="uri">https://rguppies.slack.com/</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. See you in the lab!</p>
 
 </div>
 </div>
@@ -917,21 +939,21 @@ Helpful Hint
 <h2><span class="header-section-number">6.3</span> PreClass Activity 2 (Additional)</h2>
 <div id="a-short-blog-on-barplots" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> A short blog on Barplots</h3>
-<p>The data used in this preclass allows us to show you something that you might find interesting. As we mentioned back in lab 3 on visualisation, the barplot is becoming less frequently used, as summarised in this blog: <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/", target = "_blank">One simple step to improve statistical inferences</a>. The data we have used today demonstrate the point that a simple bar can actually be somewhat misleading about the data. Have a look at the figure below. Both bars represent the data from our 22 NS participants. The column on the left, <code>hide_data</code>, is a standard representation (albeit without error bars) whereas the column on the right, <code>show_data</code>, demonstrates the issue. Looking at the column on the left, the assumption is that all the data is around the peak of the column. However, looking at the column on the right, we can see that this is not the case and there are participants both above and below the mean by approximately 100 ms. This misleading perception, when the data is hidden, was tested and shown to exist in participants viewing these figures by <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5", target = "_blank">Newman and Scholl (2012)</a> which you can read up on if you like. The main thing to keep in mind is that barplots can be misleading and displaying the individual data may be more informative.</p>
+<p>The data used in this preclass allows us to show you something that you might find interesting. As we mentioned back in lab 3 on visualisation, the barplot is becoming less frequently used, as summarised in this blog: &lt;a href=“<a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/" class="uri">https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/</a>”, target = &quot;_blank“&gt;One simple step to improve statistical inferences</a>. The data we have used today demonstrate the point that a simple bar can actually be somewhat misleading about the data. Have a look at the figure below. Both bars represent the data from our 22 NS participants. The column on the left, <code>hide_data</code>, is a standard representation (albeit without error bars) whereas the column on the right, <code>show_data</code>, demonstrates the issue. Looking at the column on the left, the assumption is that all the data is around the peak of the column. However, looking at the column on the right, we can see that this is not the case and there are participants both above and below the mean by approximately 100 ms. This misleading perception, when the data is hidden, was tested and shown to exist in participants viewing these figures by &lt;a href=”<a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" class="uri">https://link.springer.com/article/10.3758/s13423-012-0247-5</a>“, target =”_blank&quot;&gt;Newman and Scholl (2012)</a> which you can read up on if you like. The main thing to keep in mind is that barplots can be misleading and displaying the individual data may be more informative.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="06-s01-lab06b2_files/figure-html/unnamed-chunk-3-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 6.1: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<p>That's all there is to this short and sweet blog on showing more information than a basic barchart. The function we use to do this is called <code>geom_jitter()</code> and it gets added to a visualisation pipeline just like other <code>geom_?()</code>s that we have used. Look out for it in the coming labs.</p>
+<p>That’s all there is to this short and sweet blog on showing more information than a basic barchart. The function we use to do this is called <code>geom_jitter()</code> and it gets added to a visualisation pipeline just like other <code>geom_?()</code>s that we have used. Look out for it in the coming labs.</p>
 
 </div>
 </div>
 <div id="inclass-activity-3" class="section level2">
 <h2><span class="header-section-number">6.4</span> InClass Activity</h2>
 <p><strong>Comparing the Means of Two Samples</strong></p>
-<p>Two-sample designs are very common in Psychology as often we want to know whether there is a difference between groups on a particular variable. There are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions). In today's exercise we will focus on <strong>independent samples</strong>, which typically means that the observations in the two groups are unrelated - usually meaning different people. In the next lab you will examine cases where the observations in the two groups are from pairs (<strong>paired samples</strong>) - most often the same people but could also be a matched pairs design.</p>
+<p>Two-sample designs are very common in Psychology as often we want to know whether there is a difference between groups on a particular variable. There are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions). In today’s exercise we will focus on <strong>independent samples</strong>, which typically means that the observations in the two groups are unrelated - usually meaning different people. In the next lab you will examine cases where the observations in the two groups are from pairs (<strong>paired samples</strong>) - most often the same people but could also be a matched pairs design.</p>
 <div class="solution">
 <button>
 Portfolio Point - All the different names for one thing!
@@ -941,19 +963,19 @@ Portfolio Point - All the different names for one thing!
 <ul>
 <li>independent and between-subjects design typically mean the same thing - different participants in different conditions</li>
 <li>within-subjects, dependent, paired samples, and repeated measures tend to mean the same participants in all conditions</li>
-<li>matched pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)</li>
+<li>matched pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)</li>
 <li>mixed design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half do ratings of trustworthiness (between). The paper we are looking at today technically uses a mixed design at times but we will use the between element to show you how to run independent t-tests.</li>
 </ul>
 <p>Spend sometime when reading articles to really figure out the design they are using.</p>
 </div>
 <p><strong>Background</strong></p>
 <p>For this lab we will be revisiting the data from Schroeder and Epley (2015), which you first encountered as part of the homework for Lab 5. You can take a look at the Psychological Science article here:</p>
-<p>Schroeder, J. and Epley, N. (2015). <a href = "https://doi.org/10.1177/0956797615572906", target = "_blank">The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal.</a> <em>Psychological Science, 26, 277--891</em>.</p>
-<p>The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the <a href = "https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities", target = "_blank">Open Stats Lab</a>:</p>
-<p>&quot;<strong>A person's mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person's intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates' pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favorable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one's intellect, it is important that one's voice, quite literally, be heard.</strong>&quot;</p>
-<p>To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in <strong>wide</strong> format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00", target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in &quot;tidy&quot; format which can be <a href = "https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/inclass/Lab6_data.zip", target = "_blank">downloaded from here</a> or from Moodle. Likewise, if you are unsure about tidy format, refer back to the inclass activity of Lab 2.</p>
-<p><strong>Today's Goal!</strong></p>
-<p>Our task today is to reproduce a figure and the results from the article (p. 887). The two packages you will need are <code>tidyverse</code>, which we have used a lot, and <code>broom</code>, which is new to you but will become your friend. One of the main functions we use in broom is <code>broom::tidy()</code> - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with, into a table that you can then use much more easily. Might that be worth making a note of? We will show you how to do this today and then ask you to use it over the coming assignments.</p>
+<p>Schroeder, J. and Epley, N. (2015). &lt;a href = “<a href="https://doi.org/10.1177/0956797615572906" class="uri">https://doi.org/10.1177/0956797615572906</a>”, target = &quot;_blank&quot;&gt;The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate’s appeal.</a> <em>Psychological Science, 26, 277–891</em>.</p>
+<p>The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the &lt;a href = “<a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" class="uri">https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities</a>”, target = &quot;_blank&quot;&gt;Open Stats Lab</a>:</p>
+<p>“<strong>A person’s mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person’s intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates’ pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favorable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one’s intellect, it is important that one’s voice, quite literally, be heard.</strong>”</p>
+<p>To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887–889 of the article if you want to look at them specifically for more details. The original data, in <strong>wide</strong> format, can be found at the &lt;a href = “<a href="https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" class="uri">https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00</a>”, target = &quot;_blank“&gt;Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in”tidy&quot; format which can be &lt;a href = “<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/inclass/Lab6_data.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/inclass/Lab6_data.zip</a>”, target = &quot;_blank&quot;&gt;downloaded from here</a> or from Moodle. Likewise, if you are unsure about tidy format, refer back to the inclass activity of Lab 2.</p>
+<p><strong>Today’s Goal!</strong></p>
+<p>Our task today is to reproduce a figure and the results from the article (p. 887). The two packages you will need are <code>tidyverse</code>, which we have used a lot, and <code>broom</code>, which is new to you but will become your friend. One of the main functions we use in broom is <code>broom::tidy()</code> - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with, into a table that you can then use much more easily. Might that be worth making a note of? We will show you how to do this today and then ask you to use it over the coming assignments.</p>
 <p>If you are using the Boyd Orr labs, <code>broom</code> is already installed and just needs called to the <code>library()</code>. If you are using your own machine, you will need to install it one time to begin with if you have never installed it before.</p>
 <div id="task-1-evaluators" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Task 1: Evaluators</h3>
@@ -968,25 +990,25 @@ Helpful Hint
 </button>
 <ul>
 <li>Remember to load the libraries you need!</li>
-<li>Also make sure you've downloaded and saved the data in the folder you're working from.</li>
+<li>Also make sure you’ve downloaded and saved the data in the folder you’re working from.</li>
 <li>You can use <code>summarise()</code> and <code>count()</code> or a pipeline with <code>group_by()</code> to complete this task.</li>
-<li>When analysing the number of male and female evaluators it isn't initially clear that '1' represents males and '2' represents females.</li>
-<li>We can use <code>recode()</code> to convert the numeric names to indicate something more meaningful. Have a look at<code>?recode</code> to see if you can work out how to use it. It'll help to use <code>mutate()</code> to create a new variable to <code>recode()</code> the numeric names for evaluators.</li>
+<li>When analysing the number of male and female evaluators it isn’t initially clear that ‘1’ represents males and ‘2’ represents females.</li>
+<li>We can use <code>recode()</code> to convert the numeric names to indicate something more meaningful. Have a look at<code>?recode</code> to see if you can work out how to use it. It’ll help to use <code>mutate()</code> to create a new variable to <code>recode()</code> the numeric names for evaluators.</li>
 <li>This website is also incredibly useful and one to save for anytime you need to use recode(): <a href="https://debruine.github.io/recode.html" class="uri">https://debruine.github.io/recode.html</a>.</li>
-<li>For your own analysis and future reproducible analyses, it's a good idea to make these representations clearer to others.</li>
+<li>For your own analysis and future reproducible analyses, it’s a good idea to make these representations clearer to others.</li>
 </ul>
 </div>
-<div id="quickfire-questions-10" class="section level4">
+<div id="quickfire-questions-1" class="section level4">
 <h4><span class="header-section-number">6.4.1.1</span> <span style="color:DARKGREEN">Quickfire Questions</span></h4>
 <p>From your results:</p>
 <ul>
-<li>What was the mean age of the evaluators in the study? Type in your answer to one decimal place: <input class='solveme nospaces' size='3' data-answer='["30.9"]'/></li>
-<li>What was the standard deviation of the age of the evaluators in the study? Type in your answer to two decimal place: <input class='solveme nospaces' size='3' data-answer='["6.24"]'/></li>
-<li>How many participants were noted as being female: <input class='solveme nospaces' size='3' data-answer='["30"]'/></li>
-<li>How many participants were noted as being male: <input class='solveme nospaces' size='3' data-answer='["4"]'/></li>
+<li>What was the mean age of the evaluators in the study? Type in your answer to one decimal place: <input class='solveme nospaces' size='4' data-answer='["30.9"]'/></li>
+<li>What was the standard deviation of the age of the evaluators in the study? Type in your answer to two decimal place: <input class='solveme nospaces' size='4' data-answer='["6.24"]'/></li>
+<li>How many participants were noted as being female: <input class='solveme nospaces' size='2' data-answer='["30"]'/></li>
+<li>How many participants were noted as being male: <input class='solveme nospaces' size='1' data-answer='["4"]'/></li>
 </ul>
 </div>
-<div id="group-discussion-point-5" class="section level4">
+<div id="group-discussion-point" class="section level4">
 <h4><span class="header-section-number">6.4.1.2</span> <span style="color:DARKBLUE">Group Discussion Point</span></h4>
 <p>The paper claims that the mean age of the evaluators was 30.85 years (SD = 6.24) and that there were 9 male and 30 female evaluators. Do you agree? Why might there be differences?</p>
 <div class="solution">
@@ -994,13 +1016,13 @@ Helpful Hint
 Explain This - Why is there a discrepancy?
 </button>
 <p>This paper claimed there were 9 males, however looking at your results you can see only 4 males, with 5 NA entries making up the rest of the participant count. It looks like the NA and male entries have been combined! That information might not be clear to a person re-analysing the data.</p>
-<p>This is why it's important to have reproducible data analyses for others to examine. Having another pair of eyes examining your data can be very beneficial in spotting any discrepancies - this allows for critical evaluation of analyses and results and improves the quality of research being published. All the more reason to emphasize the importance of conducting replication studies! #ReproducibleScience</p>
+<p>This is why it’s important to have reproducible data analyses for others to examine. Having another pair of eyes examining your data can be very beneficial in spotting any discrepancies - this allows for critical evaluation of analyses and results and improves the quality of research being published. All the more reason to emphasize the importance of conducting replication studies! #ReproducibleScience</p>
 </div>
 </div>
 </div>
 <div id="task-2-ratings" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Task 2: Ratings</h3>
-<p>We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators <strong>read</strong> or <strong>listened</strong> to the candidates' resume pitches. This is calculated by averaging the ratings of <code>competent</code>, <code>thoughtful</code> and <code>intelligent</code> for each evaluator; held within <code>ratings.csv</code>. <strong>Note:</strong> we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.</p>
+<p>We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators <strong>read</strong> or <strong>listened</strong> to the candidates’ resume pitches. This is calculated by averaging the ratings of <code>competent</code>, <code>thoughtful</code> and <code>intelligent</code> for each evaluator; held within <code>ratings.csv</code>. <strong>Note:</strong> we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.</p>
 <p>We will then combine the overall intellect rating with the overall impression ratings and overall hire ratings for each evaluator, with the end goal of having a tibble called <code>ratings2</code> - which has the following structure:</p>
 <pre><code>## # A tibble: 12 x 4
 ##    eval_id Category   Rating condition
@@ -1023,16 +1045,16 @@ Explain This - Why is there a discrepancy?
 <li><p>Load the data found in <code>ratings.csv</code> into a tibble called <code>ratings</code>.</p></li>
 <li><p><code>filter()</code> only the relevant variables (<strong>thoughtful</strong>, <strong>competent</strong>, <strong>intelligent</strong>) into a new tibble (call it what you like - we use <code>iratings</code>), and calculate a mean <code>Rating</code> for each evaluator.</p></li>
 <li><p>Add on a new column called <code>Category</code> where every entry is the word <code>intellect</code>. This tells us that every number in this tibble is an intellect rating.</p></li>
-<li><p>Now create a new tibble called <code>ratings2</code> and filter into it just the &quot;impression&quot; and &quot;hire&quot; ratings from the original <code>ratings</code> tibble. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in <code>ratings2</code>.</p></li>
+<li><p>Now create a new tibble called <code>ratings2</code> and filter into it just the “impression” and “hire” ratings from the original <code>ratings</code> tibble. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in <code>ratings2</code>.</p></li>
 <li><p>Join <code>ratings2</code> with the <code>evaluator</code> tibble that we created in Task 1. Keep only the necessary columns as shown above and arrange by Evaluator and Category.</p></li>
 </ol>
-<p>Don't forget to use the hints and the solution at the bottom if you are really stuck.</p>
+<p>Don’t forget to use the hints and the solution at the bottom if you are really stuck.</p>
 <div class="solution">
 <button>
 Helpful Hint
 </button>
 <ol style="list-style-type: decimal">
-<li><p>Make sure you've downloaded and saved the data into the folder you're working from.</p></li>
+<li><p>Make sure you’ve downloaded and saved the data into the folder you’re working from.</p></li>
 <li><p><code>filter(Category %in% c())</code> might work and then use <code>group_by()</code> and <code>summarize()</code> to calculate a mean <code>Rating</code> for each evaluator.</p></li>
 <li><p>Use <code>mutate()</code> to create a new column.</p></li>
 <li><p><code>bind_rows()</code> from Lab 2 will help you to combine these variables from two separate tibbles.</p></li>
@@ -1050,32 +1072,32 @@ Figure 6.2: Figure 7
 </p>
 </div>
 <p>Replace the <code>NULL</code>s below to create a very basic version of this figure. You did something like this for Lab 5 assignment and again in the Lab 3 Visualisation tasks.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">group_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(ratings2, <span class="ot">NULL</span>, <span class="ot">NULL</span>) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">group_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(ratings2, <span class="ot">NULL</span>, <span class="ot">NULL</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))
 
-<span class="kw">ggplot</span>(group_means, <span class="kw">aes</span>(<span class="ot">NULL</span>, <span class="ot">NULL</span>, <span class="dt">fill =</span> <span class="ot">NULL</span>)) +
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre></div>
+<span class="kw">ggplot</span>(group_means, <span class="kw">aes</span>(<span class="ot">NULL</span>, <span class="ot">NULL</span>, <span class="dt">fill =</span> <span class="ot">NULL</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre>
 <div id="group-discussion-point---improve-this-figure" class="section level4">
 <h4><span class="header-section-number">6.4.3.1</span> <span style="color:DARKBLUE"> <strong>Group Discussion Point - Improve this Figure</strong> </span></h4>
 <p>Discuss with others how you could improve this plot. What other <code>geom_()</code> options could you try? Are barcharts that informative or would something else be better? How would you add or change the labels of your plot? Could you change the colours in your figure?</p>
-<p>Next, have a look at the below possible solution to see a <strong>modern</strong> way of presenting this information. There are some new functions in this solution that you should play about with to understand what they do. Remember it is a layering system, so remove lines and see what happens. Note how in the solution the Figure shows the raw data points as well as the means in each condition; this gives a better impression of the true data as just showing the means can be misleading. You can continue your further exploration of visualisations by reading this paper later when you have a chance: <a href = "https://doi.org/10.1371/journal.pbio.1002128", target = "_blank">Weissberger et al., 2015, Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</a></p>
+<p>Next, have a look at the below possible solution to see a <strong>modern</strong> way of presenting this information. There are some new functions in this solution that you should play about with to understand what they do. Remember it is a layering system, so remove lines and see what happens. Note how in the solution the Figure shows the raw data points as well as the means in each condition; this gives a better impression of the true data as just showing the means can be misleading. You can continue your further exploration of visualisations by reading this paper later when you have a chance: &lt;a href = “<a href="https://doi.org/10.1371/journal.pbio.1002128" class="uri">https://doi.org/10.1371/journal.pbio.1002128</a>”, target = &quot;_blank&quot;&gt;Weissberger et al., 2015, Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</a></p>
 <div class="solution">
 <button>
 Possible Solution
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">group_means &lt;-<span class="st"> </span>ratings2 %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(condition, Category) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))
 
-<span class="kw">ggplot</span>(ratings2, <span class="kw">aes</span>(condition, Rating, <span class="dt">color =</span> condition)) +
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> .<span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> condition), <span class="dt">alpha =</span> .<span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~Category) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> group_means, <span class="dt">size =</span> <span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Recruiters&#39; Evaluation of Candidates&quot;</span>) +
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) +
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<span class="kw">ggplot</span>(ratings2, <span class="kw">aes</span>(condition, Rating, <span class="dt">color =</span> condition)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> condition), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Category) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> group_means, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Recruiters&#39; Evaluation of Candidates&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="06-s01-lab06c_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1087,10 +1109,10 @@ Figure 6.3: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 <div id="task-4-t-tests" class="section level3">
 <h3><span class="header-section-number">6.4.4</span> Task 4: t-tests</h3>
-<p>Brilliant! So far we have checked the descriptives and the last thing now is to check the inferential tests; the t-tests. You should still have <code>ratings2</code> stored from Task 2. From this tibble let's reproduce the <strong>t-test</strong> results from the article and at the same time show you how to run a t-test. Refer back to the lectures to understand the maths behind it but essentially it is a measure between the difference in means over the variance about those means.</p>
-<p>Here is a paragraph from the paper describing the results (p. 887):</p>
-<p>&quot;<strong>The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). In particular, the recruiters believed that the job candidates had greater intellect---were more competent, thoughtful, and intelligent---when they listened to pitches (M = 5.63, SD = 1.61) than when they read pitches (M = 3.65, SD = 1.91), t(37) = 3.53, p &lt; .01, 95% CI of the difference = [0.85, 3.13], d = 1.16. The recruiters also formed more positive impressions of the candidates---rated them as more likeable and had a more positive and less negative impression of them---when they listened to pitches (M = 5.97, SD = 1.92) than when they read pitches (M = 4.07, SD = 2.23), t(37) = 2.85, p &lt; .01, 95% CI of the difference = [0.55, 3.24], d = 0.94. Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = 4.71, SD = 2.26) than when they read the same pitches (M = 2.89, SD = 2.06), t(37) = 2.62, p &lt; .01, 95% CI of the difference = [0.41, 3.24], d = 0.86.</strong>&quot;</p>
-<p>We are going to run the t-tests for Intellect, Hire and Impression; each time comparing evaluators overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who <strong>listened</strong> to pitches give a significant higher or lower rating than evaluators that <strong>read</strong> pitches.</p>
+<p>Brilliant! So far we have checked the descriptives and the last thing now is to check the inferential tests; the t-tests. You should still have <code>ratings2</code> stored from Task 2. From this tibble let’s reproduce the <strong>t-test</strong> results from the article and at the same time show you how to run a t-test. Refer back to the lectures to understand the maths behind it but essentially it is a measure between the difference in means over the variance about those means.</p>
+<p>Here is a paragraph from the paper describing the results (p. 887):</p>
+<p>“<strong>The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). In particular, the recruiters believed that the job candidates had greater intellect—were more competent, thoughtful, and intelligent—when they listened to pitches (M = 5.63, SD = 1.61) than when they read pitches (M = 3.65, SD = 1.91), t(37) = 3.53, p &lt; .01, 95% CI of the difference = [0.85, 3.13], d = 1.16. The recruiters also formed more positive impressions of the candidates—rated them as more likeable and had a more positive and less negative impression of them—when they listened to pitches (M = 5.97, SD = 1.92) than when they read pitches (M = 4.07, SD = 2.23), t(37) = 2.85, p &lt; .01, 95% CI of the difference = [0.55, 3.24], d = 0.94. Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = 4.71, SD = 2.26) than when they read the same pitches (M = 2.89, SD = 2.06), t(37) = 2.62, p &lt; .01, 95% CI of the difference = [0.41, 3.24], d = 0.86.</strong>”</p>
+<p>We are going to run the t-tests for Intellect, Hire and Impression; each time comparing evaluators overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who <strong>listened</strong> to pitches give a significant higher or lower rating than evaluators that <strong>read</strong> pitches.</p>
 <div class="solution">
 <button>
 Portfolio Point - A vs B or B vs A in a t-test?
@@ -1098,27 +1120,27 @@ Portfolio Point - A vs B or B vs A in a t-test?
 <p>Now would be a good time to add to your notes about what is the difference between a positive and negative value as the outcome to a t-test? Remember? It just tells you which group had the bigger mean - the absolute value will be the same. Most commonly, t-tests are reported as a positive value.</p>
 </div>
 <p>You will need the function <code>t.test()</code> and you will use <code>broom::tidy()</code> to pull out the results from each t-test into a table. Below we show you how to create the group means and then the t-test for intellect. Run these lines and have a look at what they do.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## First we create the group means
-group_means &lt;-<span class="st"> </span>ratings2 %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(condition, Category) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## First we create the group means</span>
+group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Rating), <span class="dt">sd =</span> <span class="kw">sd</span>(Rating))
 
-## and can check them by calling:
+<span class="co">## and can check them by calling:</span>
 group_means
 
-## Now we run the t-test
-## First we filter out just the intellect ratings into a new tibble
-intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category ==<span class="st"> &quot;intellect&quot;</span>)
+<span class="co">## Now we run the t-test</span>
+<span class="co">## First we filter out just the intellect ratings into a new tibble</span>
+intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;intellect&quot;</span>)
 
-## Second we actually perform the analysis
-## `t.test()` requires two vectors as input
-## `pull()` will pull out a single column from a tibble, e.g. Rating from intellect
-## `tidy()` takes information from a test and turns it into a table. Run the t.test with and without piping into tidy to see what it does differently.
+<span class="co">## Second we actually perform the analysis</span>
+<span class="co">## `t.test()` requires two vectors as input</span>
+<span class="co">## `pull()` will pull out a single column from a tibble, e.g. Rating from intellect</span>
+<span class="co">## `tidy()` takes information from a test and turns it into a table. Run the t.test with and without piping into tidy to see what it does differently.</span>
 
-intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;listened&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                      intellect %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;read&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) %&gt;%
-<span class="st">  </span><span class="kw">tidy</span>()</code></pre></div>
+intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                      intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">tidy</span>()</code></pre>
 <p>Now lets look at the <code>intellect_t</code>tibble we have created (assuming you piped into <code>tidy()</code>):</p>
 <table>
 <caption><span id="tab:unnamed-chunk-11">Table 6.1: </span>Table Caption</caption>
@@ -1149,7 +1171,7 @@ intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intelle
 </tr>
 </tbody>
 </table>
-<p>From the resultant tibble, <code>intellect_t</code>, you can see that you ran a Two Sample t-test (meaning between) with a two sided hypothesis test (&quot;two.sided&quot;). The mean for the listened condition, <code>estimate1</code>, was 5.635, whilst the mean for the read condition, <code>estimate2</code> was 3.648. So an overall difference of 1.987. The degrees of freedom, <code>parameter</code>, was 37. The t-value, <code>statistic</code>, was 3.526, and it was significant as the p-value, <code>p.value</code>, was 0.0011 (lower than alpha (<span class="math inline">\(a\)</span>) = .05 - the Type 1 error rate).</p>
+<p>From the resultant tibble, <code>intellect_t</code>, you can see that you ran a Two Sample t-test (meaning between) with a two sided hypothesis test (“two.sided”). The mean for the listened condition, <code>estimate1</code>, was 5.635, whilst the mean for the read condition, <code>estimate2</code> was 3.648. So an overall difference of 1.987. The degrees of freedom, <code>parameter</code>, was 37. The t-value, <code>statistic</code>, was 3.526, and it was significant as the p-value, <code>p.value</code>, was 0.0011 (lower than alpha (<span class="math inline">\(a\)</span>) = .05 - the Type 1 error rate).</p>
 <p>The t-test would be written up as: t(37) = 3.526, p = 0.001.</p>
 <p><strong>Now:</strong></p>
 <ol style="list-style-type: decimal">
@@ -1206,20 +1228,20 @@ intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intelle
 </tr>
 </tbody>
 </table>
-<div id="quickfire-questions-11" class="section level4">
+<div id="quickfire-questions-2" class="section level4">
 <h4><span class="header-section-number">6.4.4.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
 <li><p>Were your results for <code>hire</code> significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):</p>
 <ul>
-<li><p>Mean <code>estimate1</code> (listened condition) = <input class='solveme nospaces' size='3' data-answer='["4.71"]'/></p></li>
-<li><p>Mean <code>estimate2</code> (read condition) = <input class='solveme nospaces' size='3' data-answer='["2.89"]'/></p></li>
-<li><p>t(<input class='solveme nospaces' size='3' data-answer='["37"]'/>) = <input class='solveme nospaces' size='3' data-answer='["2.62"]'/>, p = <input class='solveme nospaces' size='3' data-answer='["0.013",".013"]'/></p></li>
+<li><p>Mean <code>estimate1</code> (listened condition) = <input class='solveme nospaces' size='4' data-answer='["4.71"]'/></p></li>
+<li><p>Mean <code>estimate2</code> (read condition) = <input class='solveme nospaces' size='4' data-answer='["2.89"]'/></p></li>
+<li><p>t(<input class='solveme nospaces' size='2' data-answer='["37"]'/>) = <input class='solveme nospaces' size='4' data-answer='["2.62"]'/>, p = <input class='solveme nospaces' size='5' data-answer='["0.013",".013"]'/></p></li>
 </ul></li>
 <li><p>Were your results for <code>impression</code> significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):</p>
 <ul>
-<li><p>Mean<code>estimate1</code> (listened condition) = <input class='solveme nospaces' size='3' data-answer='["5.97"]'/></p></li>
-<li><p>Mean <code>estimate2</code> (read condition) = <input class='solveme nospaces' size='3' data-answer='["4.07"]'/></p></li>
-<li><p>t(<input class='solveme nospaces' size='3' data-answer='["37"]'/>) = <input class='solveme nospaces' size='3' data-answer='["2.85"]'/>, p = <input class='solveme nospaces' size='3' data-answer='["0.007",".007"]'/></p></li>
+<li><p>Mean<code>estimate1</code> (listened condition) = <input class='solveme nospaces' size='4' data-answer='["5.97"]'/></p></li>
+<li><p>Mean <code>estimate2</code> (read condition) = <input class='solveme nospaces' size='4' data-answer='["4.07"]'/></p></li>
+<li><p>t(<input class='solveme nospaces' size='2' data-answer='["37"]'/>) = <input class='solveme nospaces' size='4' data-answer='["2.85"]'/>, p = <input class='solveme nospaces' size='5' data-answer='["0.007",".007"]'/></p></li>
 </ul></li>
 </ul>
 <div class="solution">
@@ -1237,7 +1259,7 @@ Helpful Hint
 </div>
 <p><strong>Job Done!</strong></p>
 <p>So to recap, we looked at the data from Schroeder and Epley (2015), both the descriptives and inferentials, we plotted a figure, and we confirmed that, as in the paper, there are significant differences in each of the three rating categories (hire, impression and intellect), with the listened condition receiving a higher rating than the read condition on each rating. All in, our interpretation would be that people rate you hire when they hear you speak your resume as opposed to them just reading your resume!</p>
-<p>Well done for completing this inclass activity on independent samples t-tests! Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! Also, if you have more time, you might want to visit this website that will give you better understanding of the relationship between the <span class="math inline">\(t\)</span> distribution and the normal distribution: <a href="https://gallery.shinyapps.io/tdist/", target = "_blank">gallery.shinyapps.io/tdist</a></p>
+<p>Well done for completing this inclass activity on independent samples t-tests! Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! Also, if you have more time, you might want to visit this website that will give you better understanding of the relationship between the <span class="math inline">\(t\)</span> distribution and the normal distribution: &lt;a href=“<a href="https://gallery.shinyapps.io/tdist/" class="uri">https://gallery.shinyapps.io/tdist/</a>”, target = &quot;_blank&quot;&gt;gallery.shinyapps.io/tdist</a></p>
 <p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module</strong>. However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong>.</p>
 
 </div>
@@ -1246,14 +1268,14 @@ Helpful Hint
 <div id="assignment-5" class="section level2">
 <h2><span class="header-section-number">6.5</span> Assignment</h2>
 <p><strong>Lab 6: Independent samples t-test Assignment</strong></p>
-<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Lab6.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/homework/Level2_Lab6_AssignmentFiles.zip", target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.</p>
+<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Lab6.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. &lt;a href=“<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/homework/Level2_Lab6_AssignmentFiles.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/homework/Level2_Lab6_AssignmentFiles.zip</a>”, target = &quot;_blank&quot;&gt;Download the Assignment .zip file from here</a> or on Moodle.</p>
 <p><strong>Background</strong></p>
 <p>For this assignment we will be using real data from the following paper:</p>
-<p>Nave, G., Nadler, A., Zava, D., and Camerer, C. (2017). <a href="http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592", target = "_blank">Single-dose testosterone administration impairs cognitive reflection in men.</a> <em>Psychological Science</em>, <em>28</em>, 1398--1407.</p>
-<p>The full data for these exercises can be downloaded from the <a href="https://osf.io/kzxsh/download", target = "_blank">Open Science Framework repository</a> but for this assignment we will just use the <code>.csv</code> file in the zipped folder: <strong>CRT_Data.csv</strong>. You may also want to read the paper, at least in part, to help fully understand this analysis if at times you are unsure. Here is the article's abstract:</p>
-<p><strong>In nonhumans, the sex steroid testosterone regulates reproductive behaviors such as fighting between males and mating. In humans, correlational studies have linked testosterone with aggression and disorders associated with poor impulse control, but the neuropsychological processes at work are poorly understood. Building on a dual-process framework, we propose a mechanism underlying testosterone's behavioral effects in humans: reduction in cognitive reflection. In the largest study of behavioral effects of testosterone administration to date, 243 men received either testosterone or placebo and took the Cognitive Reflection Test (CRT), which estimates the capacity to override incorrect intuitive judgments with deliberate correct responses. Testosterone administration reduced CRT scores. The effect remained after we controlled for age, mood, math skills, whether participants believed they had received the placebo or testosterone, and the effects of 14 additional hormones, and it held for each of the CRT questions in isolation. Our findings suggest a mechanism underlying testosterone's diverse effects on humans' judgments and decision making and provide novel, clear, and testable predictions.</strong></p>
-<p>The critical findings are presented on p. 1403 of the paper under the heading <strong>The influence of testosterone on CRT performance</strong>. Your task today is to attempt to try and reproduce some of the main results from the paper.</p>
-<p><strong>NOTE</strong>: Being unable to get the exact same results as the authors doesn't necessarily mean you are wrong! The authors might be wrong, or might have left out important details. Present what you find.</p>
+<p>Nave, G., Nadler, A., Zava, D., and Camerer, C. (2017). &lt;a href=“<a href="http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592" class="uri">http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592</a>”, target = &quot;_blank&quot;&gt;Single-dose testosterone administration impairs cognitive reflection in men.</a> <em>Psychological Science</em>, <em>28</em>, 1398–1407.</p>
+<p>The full data for these exercises can be downloaded from the &lt;a href=“<a href="https://osf.io/kzxsh/download" class="uri">https://osf.io/kzxsh/download</a>”, target = &quot;_blank&quot;&gt;Open Science Framework repository</a> but for this assignment we will just use the <code>.csv</code> file in the zipped folder: <strong>CRT_Data.csv</strong>. You may also want to read the paper, at least in part, to help fully understand this analysis if at times you are unsure. Here is the article’s abstract:</p>
+<p><strong>In nonhumans, the sex steroid testosterone regulates reproductive behaviors such as fighting between males and mating. In humans, correlational studies have linked testosterone with aggression and disorders associated with poor impulse control, but the neuropsychological processes at work are poorly understood. Building on a dual-process framework, we propose a mechanism underlying testosterone’s behavioral effects in humans: reduction in cognitive reflection. In the largest study of behavioral effects of testosterone administration to date, 243 men received either testosterone or placebo and took the Cognitive Reflection Test (CRT), which estimates the capacity to override incorrect intuitive judgments with deliberate correct responses. Testosterone administration reduced CRT scores. The effect remained after we controlled for age, mood, math skills, whether participants believed they had received the placebo or testosterone, and the effects of 14 additional hormones, and it held for each of the CRT questions in isolation. Our findings suggest a mechanism underlying testosterone’s diverse effects on humans’ judgments and decision making and provide novel, clear, and testable predictions.</strong></p>
+<p>The critical findings are presented on p. 1403 of the paper under the heading <strong>The influence of testosterone on CRT performance</strong>. Your task today is to attempt to try and reproduce some of the main results from the paper.</p>
+<p><strong>NOTE</strong>: Being unable to get the exact same results as the authors doesn’t necessarily mean you are wrong! The authors might be wrong, or might have left out important details. Present what you find.</p>
 <p><strong>Before starting lets check:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>The <code>.csv</code> file is saved into a folder on your computer and you have manually set this folder as your working directory.</p></li>
@@ -1262,16 +1284,16 @@ Helpful Hint
 <div id="task-1a-libraries" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Task 1A: Libraries</h3>
 <ul>
-<li>In today's assignment you will need both the <code>tidyverse</code> and <code>broom</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
+<li>In today’s assignment you will need both the <code>tidyverse</code> and <code>broom</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## load in the tidyverse and broom packages</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## load in the tidyverse and broom packages</span></code></pre>
 </div>
 <div id="task-1b-loading-in-the-data" class="section level3">
 <h3><span class="header-section-number">6.5.2</span> Task 1B: Loading in the data</h3>
 <ul>
 <li>Use <code>read_csv()</code> to replace the <code>NULL</code> in the t1B code chunk below to load in the data stored in the datafile <code>CRT_Data.csv</code>. Store the data in the variable <code>crt</code>. Do not change the filename of the datafile.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crt &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">crt &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-2-identify-relevant-columns" class="section level3">
 <h3><span class="header-section-number">6.5.3</span> Task 2: Identify relevant columns</h3>
@@ -1280,7 +1302,7 @@ Helpful Hint
 <li>Having identified the important three columns, replace the <code>NULL</code> in the t2 code chunk below to select out only those three columns from <code>crt</code> and store them in the tibble <code>crt2</code>.</li>
 </ul>
 <p><strong>Check your work:</strong> If correct, <code>crt2</code> should be a tibble with 3 columns and 243 rows.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crt2 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">crt2 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p><strong>NOTE:</strong> For the remainder of this assignment you should use <code>crt2</code> as the main source tibble and not <code>crt</code>.</p>
 </div>
 <div id="task-3-verify-the-number-of-subjects-in-each-group" class="section level3">
@@ -1293,8 +1315,8 @@ Helpful Hint
 <li><p>The total number of men in the sample. This should be a single value, not a tibble/table, and should be stored in <code>n_men</code>.</p></li>
 </ol>
 <p>You know the answer to both of these tasks already. Make sure that your code gives the correct answer!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cond_counts &lt;-<span class="st"> </span><span class="ot">NULL</span>
-n_men &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">cond_counts &lt;-<span class="st"> </span><span class="ot">NULL</span>
+n_men &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <ul>
 <li>Now replace the strings in the statements below, using inline R code, so that it reproduces the sentence from the paper exactly as it is shown above. In other words, in the statement below, anywhere it says <code>&quot;(your code here)&quot;</code>, replace that string (including the quotes), with inline R code. To clarify, when looking at the .Rmd file you should see R code; when looking at the knitted file, you should see values. See Lab 1 if you are unsure of how to use inline code.</li>
 </ul>
@@ -1313,11 +1335,11 @@ Figure 6.4: Figure 7
 <ul>
 <li>Write code in the t4 code chunk to reproduce a version of Figure 2a - shown above. Before you create the plot, replace the <code>NULL</code> to make a table called <code>crt_means</code> with the mean and standard deviation of the number of <code>CorrectAnswers</code> for each group. Use <code>crt_means</code> as the source data for the plot.</li>
 </ul>
-<p><strong>Hint:</strong> you will need to check out <code>recode()</code> to get the labels of treatments right. Again this webpage is highly recommended: <a href="https://debruine.github.io/recode.html", target = "_blank">https://debruine.github.io/recode.html</a></p>
-<p>Don't worry about including the error bars (unless you want to) or the line indicating significance in the plot. Do however make sure to pay attention to the labels of treatments and of the y-axis scale and label. Reposition the x-axis label to below the Figure. You can use colour if you like.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crt_means &lt;-<span class="st"> </span><span class="ot">NULL</span>
+<p><strong>Hint:</strong> you will need to check out <code>recode()</code> to get the labels of treatments right. Again this webpage is highly recommended: &lt;a href=“<a href="https://debruine.github.io/recode.html" class="uri">https://debruine.github.io/recode.html</a>”, target = &quot;_blank&quot;&gt;https://debruine.github.io/recode.html</a></p>
+<p>Don’t worry about including the error bars (unless you want to) or the line indicating significance in the plot. Do however make sure to pay attention to the labels of treatments and of the y-axis scale and label. Reposition the x-axis label to below the Figure. You can use colour if you like.</p>
+<pre class="sourceCode r"><code class="sourceCode r">crt_means &lt;-<span class="st"> </span><span class="ot">NULL</span>
 
-## TODO: add lines of code using ggplot</code></pre></div>
+<span class="co">## </span><span class="al">TODO</span><span class="co">: add lines of code using ggplot</span></code></pre>
 </div>
 <div id="task-5-interpreting-your-figure" class="section level3">
 <h3><span class="header-section-number">6.5.6</span> Task 5: Interpreting your Figure</h3>
@@ -1328,23 +1350,23 @@ Figure 6.4: Figure 7
 <li><p>The Testosterone group (M = 1.66, SD = 1.18) would appear to have fewer correct answers on average than the Placebo group (M = 2.10, SD = 1.02) on the Cognitive Reflection Test suggesting that testosterone does in fact inhibit the ability to override incorrect intuitive judgements with the correct response.</p></li>
 <li><p>The Testosterone group (M = 2.10, SD = 1.02) would appear to have more correct answers on average than the Placebo group (M = 1.66, SD = 1.18) on the Cognitive Reflection Test suggesting that testosterone does in fact inhibit the ability to override incorrect intuitive judgements with the correct response.</p></li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t5 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t5 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-6-t-test" class="section level3">
 <h3><span class="header-section-number">6.5.7</span> Task 6: t-test</h3>
 <p>Now that we have calculated the descriptives in our study we need to run the inferentials. In the t6 code chunk below, replace the <code>NULL</code> with a line of code to run the t-test taking care to make sure that the output table has the Placebo mean under Estimate1 (group 0) and Testosterone mean under Estimate2 (group 1). Assume variance is equal and use <code>broom::tidy()</code> to sweep and store the results into a data frame called <code>t_table</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_table &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t_table &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-7-reporting-results" class="section level3">
 <h3><span class="header-section-number">6.5.8</span> Task 7: Reporting results</h3>
 <p>In the t7A code chunk below, replace the <code>NULL</code> with a line of code to pull out the df from t_table. This must be a single value stored in <code>t_df</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_df &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t_df &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p>In the t7B code chunk below, replace the <code>NULL</code> with a line of code to pull out the t-value from t_table. Round it to three decimal places. This must be a single value stored in <code>t_value</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_value &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t_value &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p>In the t7C code chunk below, replace the <code>NULL</code> with a line of code to pull out the p-value from t_table. Round it to three decimal places. This must be a single value stored in <code>p_value</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p_value &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">p_value &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p>In the t7D code chunk below, replace the <code>NULL</code> with a line of code to calculate the absolute difference between the mean number of correct answers for the Testosterone group and the Placebo group. Round it to three decimal places. This must be a single value stored in <code>t_diff</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p>If you have completed t7A to t7D accurately, then when knitted, one of these statements below will produce an accurate and coherent summary of the results. In the t7E code chunk below, replace the <code>NULL</code> with the number of the statement below that best summarises the data in this study. Store this single value in <code>answer_t7e</code></p>
 <ol style="list-style-type: decimal">
 <li>The testosterone group performed significantly better ( fewer correct answers) than the placebo group, t() = , p = .</li>
@@ -1352,9 +1374,9 @@ Figure 6.4: Figure 7
 <li>The testosterone group performed significantly better ( more correct answers) than the placebo group, t() = , p = .</li>
 <li>The testosterone group performed significantly worse ( fewer correct answers) than the placebo group, t() = , p = .</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t7e &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t7e &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p><strong>Finished</strong></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the &lt;a href = “<a href="https://rguppies.slack.com" class="uri">https://rguppies.slack.com</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
 
 </div>
@@ -1370,15 +1392,16 @@ Figure 6.4: Figure 7
 <button>
 Solution Task 1
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># phil to remove this and replace with real solution afterwards</span>
-ns_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">participant =</span> <span class="dv">1</span>:<span class="dv">22</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># phil to remove this and replace with real solution afterwards</span>
+ns_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">participant =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">22</span>,
                   <span class="dt">valid_rt =</span> <span class="kw">c</span>(<span class="fl">631.2</span>,<span class="fl">800.8</span>,<span class="fl">595.4</span>,<span class="fl">502.6</span>,<span class="fl">604.5</span>,
                                <span class="fl">516.9</span>,<span class="fl">658.0</span>,<span class="fl">502.0</span>,<span class="fl">496.7</span>,<span class="fl">600.3</span>,
                                <span class="fl">714.6</span>,<span class="fl">623.7</span>,<span class="fl">634.5</span>,<span class="fl">724.9</span>,<span class="fl">815.7</span>,
                                <span class="fl">456.9</span>,<span class="fl">703.4</span>,<span class="fl">647.5</span>,<span class="fl">657.9</span>,<span class="fl">613.2</span>,
-                               <span class="fl">585.4</span>,<span class="fl">674.1</span>))</code></pre></div>
+                               <span class="fl">585.4</span>,<span class="fl">674.1</span>))</code></pre>
 </div>
-<p><br> Click the tab to reveal the solution to the task.</p>
+<p><br>
+Click the tab to reveal the solution to the task.</p>
 </div>
 <div id="task-2" class="section level4">
 <h4><span class="header-section-number">6.6.1.2</span> Task 2</h4>
@@ -1386,16 +1409,17 @@ ns_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class
 <button>
 Solution Task 2
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">woods_mean &lt;-<span class="st"> </span><span class="dv">590</span>
+<pre class="sourceCode r"><code class="sourceCode r">woods_mean &lt;-<span class="st"> </span><span class="dv">590</span>
 
-n_participants &lt;-<span class="st"> </span>ns_data %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(valid_rt &gt;<span class="st"> </span>woods_mean) %&gt;%
+n_participants &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(valid_rt <span class="op">&gt;</span><span class="st"> </span>woods_mean) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">nrow</span>()
       
-n_participants</code></pre></div>
+n_participants</code></pre>
 <pre><code>## [1] 16</code></pre>
 </div>
-<p><br> Click the tab to reveal the solution to the task.</p>
+<p><br>
+Click the tab to reveal the solution to the task.</p>
 </div>
 <div id="task-3" class="section level4">
 <h4><span class="header-section-number">6.6.1.3</span> Task 3</h4>
@@ -1403,28 +1427,29 @@ n_participants</code></pre></div>
 <button>
 Solution Task 3
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can use the density function:</span>
-<span class="kw">sum</span>(<span class="kw">dbinom</span>(n_participants:<span class="kw">nrow</span>(ns_data), <span class="kw">nrow</span>(ns_data), .<span class="dv">5</span>))
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can use the density function:</span>
+<span class="kw">sum</span>(<span class="kw">dbinom</span>(n_participants<span class="op">:</span><span class="kw">nrow</span>(ns_data), <span class="kw">nrow</span>(ns_data), <span class="fl">.5</span>))
 
-## OR
+<span class="co">## OR</span>
 
 <span class="co"># The cumulative probability function:</span>
-<span class="kw">pbinom</span>(n_participants -<span class="st"> </span>1L, <span class="kw">nrow</span>(ns_data), .<span class="dv">5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
+<span class="kw">pbinom</span>(n_participants <span class="op">-</span><span class="st"> </span>1L, <span class="kw">nrow</span>(ns_data), <span class="fl">.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
 
 <span class="co"># If you were to plug in the numbers directly into the code:</span>
-<span class="kw">sum</span>(<span class="kw">dbinom</span>(<span class="dv">16</span>:<span class="dv">22</span>,<span class="dv">22</span>, .<span class="dv">5</span>))
+<span class="kw">sum</span>(<span class="kw">dbinom</span>(<span class="dv">16</span><span class="op">:</span><span class="dv">22</span>,<span class="dv">22</span>, <span class="fl">.5</span>))
 
-## OR
+<span class="co">## OR</span>
 
-<span class="kw">pbinom</span>(<span class="dv">15</span>, <span class="dv">22</span>, .<span class="dv">5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="co"># Remember we need to specify a value lower than our minimum participant number as lower.tail = FALSE.</span>
+<span class="kw">pbinom</span>(<span class="dv">15</span>, <span class="dv">22</span>, <span class="fl">.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="co"># Remember we need to specify a value lower than our minimum participant number as lower.tail = FALSE.</span>
 
-## It is better practice to use the first two solutions, which pull the values straight from ns_data, as you run the risk of entering an error into your code if you plug in the values manually.</code></pre></div>
+<span class="co">## It is better practice to use the first two solutions, which pull the values straight from ns_data, as you run the risk of entering an error into your code if you plug in the values manually.</span></code></pre>
 <pre><code>## [1] 0.0262394
 ## [1] 0.0262394
 ## [1] 0.0262394
 ## [1] 0.0262394</code></pre>
 </div>
-<p><br> Click the tab to reveal the solution to the task.</p>
+<p><br>
+Click the tab to reveal the solution to the task.</p>
 </div>
 <div id="task-4" class="section level4">
 <h4><span class="header-section-number">6.6.1.4</span> Task 4</h4>
@@ -1432,25 +1457,26 @@ Solution Task 3
 <button>
 Solution Task 4
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ns_data_mean &lt;-<span class="st"> </span>ns_data %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(valid_rt)) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">ns_data_mean &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(valid_rt)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">pull</span>(m)  
-## just get the column m and throw away the rest of the table
+<span class="co">## just get the column m and throw away the rest of the table</span>
 
-ns_data_sd &lt;-<span class="st"> </span>ns_data %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd =</span> <span class="kw">sd</span>(valid_rt)) %&gt;%
+ns_data_sd &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd =</span> <span class="kw">sd</span>(valid_rt)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">pull</span>(sd)  
-## just get the column sd and throw away the rest
+<span class="co">## just get the column sd and throw away the rest</span>
 
-## NOTE: You could print them out on the the screen if you wanted to
-##      &quot;\n&quot; is the end of line symbol so that they print on
-##       different lines
+<span class="co">## </span><span class="al">NOTE</span><span class="co">: You could print them out on the the screen if you wanted to</span>
+<span class="co">##      &quot;\n&quot; is the end of line symbol so that they print on</span>
+<span class="co">##       different lines</span>
 <span class="kw">cat</span>(<span class="st">&quot;The mean number of hours was&quot;</span>, ns_data_mean, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
-<span class="kw">cat</span>(<span class="st">&quot;The standard deviation was&quot;</span>, ns_data_sd, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre></div>
+<span class="kw">cat</span>(<span class="st">&quot;The standard deviation was&quot;</span>, ns_data_sd, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre>
 <pre><code>## The mean number of hours was 625.4636 
 ## The standard deviation was 94.30693</code></pre>
 </div>
-<p><br> Click the tab to reveal the solution to the task.</p>
+<p><br>
+Click the tab to reveal the solution to the task.</p>
 </div>
 <div id="task-5" class="section level4">
 <h4><span class="header-section-number">6.6.1.5</span> Task 5</h4>
@@ -1458,12 +1484,13 @@ ns_data_sd &lt;-<span class="st"> </span>ns_data %&gt;%
 <button>
 Solution Task 5
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_obs &lt;-<span class="st"> </span>(ns_data_mean -<span class="st"> </span>woods_mean) /<span class="st"> </span>(ns_data_sd /<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">nrow</span>(ns_data)))
+<pre class="sourceCode r"><code class="sourceCode r">t_obs &lt;-<span class="st"> </span>(ns_data_mean <span class="op">-</span><span class="st"> </span>woods_mean) <span class="op">/</span><span class="st"> </span>(ns_data_sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">nrow</span>(ns_data)))
     
-t_obs</code></pre></div>
+t_obs</code></pre>
 <pre><code>## [1] 1.763807</code></pre>
 </div>
-<p><br> Click the tab to reveal the solution to the task.</p>
+<p><br>
+Click the tab to reveal the solution to the task.</p>
 </div>
 <div id="task-6" class="section level4">
 <h4><span class="header-section-number">6.6.1.6</span> Task 6</h4>
@@ -1471,18 +1498,19 @@ t_obs</code></pre></div>
 <button>
 Solution Task 6
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If using values straight from ns_data:</span>
-pval &lt;-<span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_obs), <span class="kw">nrow</span>(ns_data) -<span class="st"> </span>1L, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) *<span class="st"> </span>2L
-## we multiply by 2 for a two-tailed test
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If using values straight from ns_data:</span>
+pval &lt;-<span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_obs), <span class="kw">nrow</span>(ns_data) <span class="op">-</span><span class="st"> </span>1L, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="op">*</span><span class="st"> </span>2L
+<span class="co">## we multiply by 2 for a two-tailed test</span>
 pval
 
 <span class="co"># You can also get the same answer by plugging the values in yourself:</span>
-<span class="kw">pt</span>(t_obs, <span class="dv">21</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) *<span class="st"> </span><span class="dv">2</span>
-<span class="co"># Though this method runs the risk of error - you are better off using the first calculation as those values come straight from ns_data.</span></code></pre></div>
+<span class="kw">pt</span>(t_obs, <span class="dv">21</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>
+<span class="co"># Though this method runs the risk of error - you are better off using the first calculation as those values come straight from ns_data.</span></code></pre>
 <pre><code>## [1] 0.09230923
 ## [1] 0.09230923</code></pre>
 </div>
-<p><br> Click the tab to reveal the solution to the task.</p>
+<p><br>
+Click the tab to reveal the solution to the task.</p>
 </div>
 <div id="task-7" class="section level4">
 <h4><span class="header-section-number">6.6.1.7</span> Task 7</h4>
@@ -1490,7 +1518,7 @@ pval
 <button>
 Solution Task 7
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(<span class="kw">pull</span>(ns_data, valid_rt), <span class="dt">mu =</span> woods_mean)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(<span class="kw">pull</span>(ns_data, valid_rt), <span class="dt">mu =</span> woods_mean)</code></pre>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -1503,7 +1531,8 @@ Solution Task 7
 ## mean of x 
 ##  625.4636</code></pre>
 </div>
-<p><br> Click the tab to reveal the solution to the task.</p>
+<p><br>
+Click the tab to reveal the solution to the task.</p>
 </div>
 </div>
 <div id="inclass-activities-4" class="section level3">
@@ -1530,21 +1559,21 @@ Solution Task 7
 <button>
 Possible Solution to Task 1
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>) <span class="co"># you&#39;ll need broom::tidy() later</span>
 
 evaluators &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;evaluators.csv&quot;</span>)
 
-evaluators %&gt;%
+evaluators <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_age =</span> <span class="kw">mean</span>(age, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))
 
-evaluators %&gt;%
+evaluators <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(sex)
 
 <span class="co"># If using `recode()`:</span>
-evaluators %&gt;%
-<span class="st">  </span><span class="kw">count</span>(sex) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex_names =</span> <span class="kw">recode</span>(sex, <span class="st">&quot;1&quot;</span> =<span class="st"> &quot;male&quot;</span>, <span class="st">&quot;2&quot;</span> =<span class="st"> &quot;female&quot;</span>))</code></pre></div>
+evaluators <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">count</span>(sex) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex_names =</span> <span class="kw">recode</span>(sex, <span class="st">&quot;1&quot;</span> =<span class="st"> &quot;male&quot;</span>, <span class="st">&quot;2&quot;</span> =<span class="st"> &quot;female&quot;</span>))</code></pre>
 </div>
 <p><strong>Click the tab to reveal the solution</strong></p>
 </div>
@@ -1554,30 +1583,30 @@ evaluators %&gt;%
 <button>
 Possible Solution to Task 2
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1. load in the data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1. load in the data</span>
 ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;ratings.csv&quot;</span>)
 
 <span class="co"># 2. first step: pull out the ratings associated with intellect</span>
-iratings &lt;-<span class="st"> </span>ratings %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(Category %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;competent&quot;</span>, <span class="st">&quot;thoughtful&quot;</span>, <span class="st">&quot;intelligent&quot;</span>))
+iratings &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(Category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;competent&quot;</span>, <span class="st">&quot;thoughtful&quot;</span>, <span class="st">&quot;intelligent&quot;</span>))
 
 <span class="co"># second step: calculate means for each evaluator</span>
-imeans &lt;-<span class="st"> </span>iratings %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(eval_id) %&gt;%
+imeans &lt;-<span class="st"> </span>iratings <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(eval_id) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))
 
 <span class="co"># 3. add Category variable </span>
 <span class="co"># this way we can combine with &#39;impression&#39; and &#39;hire&#39; into a single table, very useful!</span>
-imeans2 &lt;-<span class="st"> </span>imeans %&gt;%
+imeans2 &lt;-<span class="st"> </span>imeans <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Category =</span> <span class="st">&quot;intellect&quot;</span>)
 
 <span class="co"># 4. &amp; 5. combine into a single table</span>
-ratings2 &lt;-<span class="st"> </span>ratings %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(Category %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;impression&quot;</span>, <span class="st">&quot;hire&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">bind_rows</span>(imeans2) %&gt;%
-<span class="st">  </span><span class="kw">inner_join</span>(evaluators, <span class="st">&quot;eval_id&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(-age, -sex) %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(eval_id, Category)</code></pre></div>
+ratings2 &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(Category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;impression&quot;</span>, <span class="st">&quot;hire&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">bind_rows</span>(imeans2) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">inner_join</span>(evaluators, <span class="st">&quot;eval_id&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>age, <span class="op">-</span>sex) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(eval_id, Category)</code></pre>
 </div>
 <p><strong>Click the tab to reveal the solution</strong></p>
 </div>
@@ -1587,45 +1616,45 @@ ratings2 &lt;-<span class="st"> </span>ratings %&gt;%
 <button>
 Possible Solution to Task 4
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 1. First we create the group means
-group_means &lt;-<span class="st"> </span>ratings2 %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(condition, Category) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## 1. First we create the group means</span>
+group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">round</span>(<span class="kw">mean</span>(Rating), <span class="dv">2</span>), <span class="dt">sd =</span> <span class="kw">round</span>(<span class="kw">sd</span>(Rating), <span class="dv">2</span>))
 
-## and can check them by calling it
+<span class="co">## and can check them by calling it</span>
 group_means
 
-## Now we run the t-tests
-## `t.test()` requires two vectors as input
-## `pull()` will pull out a single column from the table
-## `tidy()` takes information from a test and turns it into a table. Run the t.test with and without piping into tidy to see what it does differently.
+<span class="co">## Now we run the t-tests</span>
+<span class="co">## `t.test()` requires two vectors as input</span>
+<span class="co">## `pull()` will pull out a single column from the table</span>
+<span class="co">## `tidy()` takes information from a test and turns it into a table. Run the t.test with and without piping into tidy to see what it does differently.</span>
 
-## The INTELLECT t-test as shown previously:
-intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category ==<span class="st"> &quot;intellect&quot;</span>)
-intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;listened&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                      intellect %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;read&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="co">## The INTELLECT t-test as shown previously:</span>
+intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;intellect&quot;</span>)
+intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                      intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">tidy</span>()
 
-## Now we repeat for HIRE and IMPRESSION
-hire &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category ==<span class="st"> &quot;hire&quot;</span>)
-hire_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(hire %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;listened&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                      hire %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;read&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                 <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="co">## Now we repeat for HIRE and IMPRESSION</span>
+hire &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;hire&quot;</span>)
+hire_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(hire <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                      hire <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                 <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">tidy</span>()
 
-impress &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category ==<span class="st"> &quot;impression&quot;</span>)
-impress_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(impress %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;listened&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                    impress %&gt;%<span class="st"> </span><span class="kw">filter</span>(condition ==<span class="st"> &quot;read&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(Rating),
-                    <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) %&gt;%
+impress &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;impression&quot;</span>)
+impress_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(impress <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                    impress <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),
+                    <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">tidy</span>()
 
-## 2. Now we can create the table of all three t-tests
+<span class="co">## 2. Now we can create the table of all three t-tests</span>
 results &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(<span class="st">&quot;hire&quot;</span> =<span class="st"> </span>hire_t, 
                      <span class="st">&quot;impression&quot;</span> =<span class="st"> </span>impress_t,
                      <span class="st">&quot;intellect&quot;</span> =<span class="st"> </span>intellect_t, <span class="dt">.id =</span> <span class="st">&quot;id&quot;</span>)
 
-results</code></pre></div>
+results</code></pre>
 <pre><code>## # A tibble: 6 x 4
 ## # Groups:   condition [2]
 ##   condition Category       m    sd
@@ -1648,22 +1677,22 @@ results</code></pre></div>
 </div>
 <div id="going-further-with-your-coding" class="section level4">
 <h4><span class="header-section-number">6.6.2.4</span> Going Further with your coding</h4>
-<p>There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won't really cover in level 2. Do not worry if you can't quite follow it though; the main thing is to understand what we covered in the lab - the outcome is the same.</p>
+<p>There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won’t really cover in level 2. Do not worry if you can’t quite follow it though; the main thing is to understand what we covered in the lab - the outcome is the same.</p>
 <div class="solution">
 <button>
 Advanced t-test
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## here is a more efficient (but also more advanced!) way to do this
-## don&#39;t worry if you don&#39;t understand the code below (yet!)
-ratings2 %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(Category) %&gt;%
-<span class="st">  </span><span class="kw">nest</span>() %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ttest =</span> <span class="kw">map</span>(data, function(x) {
-    <span class="kw">t.test</span>(Rating ~<span class="st"> </span>condition, x, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## here is a more efficient (but also more advanced!) way to do this</span>
+<span class="co">## don&#39;t worry if you don&#39;t understand the code below (yet!)</span>
+ratings2 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Category) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ttest =</span> <span class="kw">map</span>(data, <span class="cf">function</span>(x) {
+    <span class="kw">t.test</span>(Rating <span class="op">~</span><span class="st"> </span>condition, x, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">      </span><span class="kw">tidy</span>()
-  })) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(Category, ttest) %&gt;%
-<span class="st">  </span><span class="kw">unnest</span>()</code></pre></div>
+  })) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(Category, ttest) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">unnest</span>()</code></pre>
 <pre><code>## # A tibble: 3 x 10
 ##   Category estimate1 estimate2 statistic p.value parameter conf.low
 ##   &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -1680,14 +1709,14 @@ ratings2 %&gt;%
 <h3><span class="header-section-number">6.6.3</span> Homework Activity</h3>
 <div id="lab-6-independent-samples-t-test-assignment" class="section level4">
 <h4><span class="header-section-number">6.6.3.1</span> Lab 6: Independent samples t-test Assignment</h4>
-<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Lab6.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/homework/Level2_Lab6_AssignmentFiles.zip", target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.</p>
+<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Lab6.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. &lt;a href=“<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/homework/Level2_Lab6_AssignmentFiles.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/homework/Level2_Lab6_AssignmentFiles.zip</a>”, target = &quot;_blank&quot;&gt;Download the Assignment .zip file from here</a> or on Moodle.</p>
 <p><strong>Background</strong></p>
 <p>For this assignment we will be using real data from the following paper:</p>
-<p>Nave, G., Nadler, A., Zava, D., and Camerer, C. (2017). <a href="http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592", target = "_blank">Single-dose testosterone administration impairs cognitive reflection in men.</a> <em>Psychological Science</em>, <em>28</em>, 1398--1407.</p>
-<p>The full data for these exercises can be downloaded from the <a href="https://osf.io/kzxsh/download", target = "_blank">Open Science Framework repository</a> but for this assignment we will just use the <code>.csv</code> file in the zipped folder: <strong>CRT_Data.csv</strong>. You may also want to read the paper, at least in part, to help fully understand this analysis if at times you are unsure. Here is the article's abstract:</p>
-<p><strong>In nonhumans, the sex steroid testosterone regulates reproductive behaviors such as fighting between males and mating. In humans, correlational studies have linked testosterone with aggression and disorders associated with poor impulse control, but the neuropsychological processes at work are poorly understood. Building on a dual-process framework, we propose a mechanism underlying testosterone's behavioral effects in humans: reduction in cognitive reflection. In the largest study of behavioral effects of testosterone administration to date, 243 men received either testosterone or placebo and took the Cognitive Reflection Test (CRT), which estimates the capacity to override incorrect intuitive judgments with deliberate correct responses. Testosterone administration reduced CRT scores. The effect remained after we controlled for age, mood, math skills, whether participants believed they had received the placebo or testosterone, and the effects of 14 additional hormones, and it held for each of the CRT questions in isolation. Our findings suggest a mechanism underlying testosterone's diverse effects on humans' judgments and decision making and provide novel, clear, and testable predictions.</strong></p>
-<p>The critical findings are presented on p. 1403 of the paper under the heading <strong>The influence of testosterone on CRT performance</strong>. Your task today is to attempt to try and reproduce some of the main results from the paper.</p>
-<p><strong>NOTE</strong>: Being unable to get the exact same results as the authors doesn't necessarily mean you are wrong! The authors might be wrong, or might have left out important details. Present what you find.</p>
+<p>Nave, G., Nadler, A., Zava, D., and Camerer, C. (2017). &lt;a href=“<a href="http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592" class="uri">http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592</a>”, target = &quot;_blank&quot;&gt;Single-dose testosterone administration impairs cognitive reflection in men.</a> <em>Psychological Science</em>, <em>28</em>, 1398–1407.</p>
+<p>The full data for these exercises can be downloaded from the &lt;a href=“<a href="https://osf.io/kzxsh/download" class="uri">https://osf.io/kzxsh/download</a>”, target = &quot;_blank&quot;&gt;Open Science Framework repository</a> but for this assignment we will just use the <code>.csv</code> file in the zipped folder: <strong>CRT_Data.csv</strong>. You may also want to read the paper, at least in part, to help fully understand this analysis if at times you are unsure. Here is the article’s abstract:</p>
+<p><strong>In nonhumans, the sex steroid testosterone regulates reproductive behaviors such as fighting between males and mating. In humans, correlational studies have linked testosterone with aggression and disorders associated with poor impulse control, but the neuropsychological processes at work are poorly understood. Building on a dual-process framework, we propose a mechanism underlying testosterone’s behavioral effects in humans: reduction in cognitive reflection. In the largest study of behavioral effects of testosterone administration to date, 243 men received either testosterone or placebo and took the Cognitive Reflection Test (CRT), which estimates the capacity to override incorrect intuitive judgments with deliberate correct responses. Testosterone administration reduced CRT scores. The effect remained after we controlled for age, mood, math skills, whether participants believed they had received the placebo or testosterone, and the effects of 14 additional hormones, and it held for each of the CRT questions in isolation. Our findings suggest a mechanism underlying testosterone’s diverse effects on humans’ judgments and decision making and provide novel, clear, and testable predictions.</strong></p>
+<p>The critical findings are presented on p. 1403 of the paper under the heading <strong>The influence of testosterone on CRT performance</strong>. Your task today is to attempt to try and reproduce some of the main results from the paper.</p>
+<p><strong>NOTE</strong>: Being unable to get the exact same results as the authors doesn’t necessarily mean you are wrong! The authors might be wrong, or might have left out important details. Present what you find.</p>
 <p><strong>Before starting lets check:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>The <code>.csv</code> file is saved into a folder on your computer and you have manually set this folder as your working directory.</p></li>
@@ -1697,18 +1726,18 @@ ratings2 %&gt;%
 <div id="task-1a-libraries-1" class="section level4">
 <h4><span class="header-section-number">6.6.3.2</span> Task 1A: Libraries</h4>
 <ul>
-<li>In today's assignment you will need both the <code>tidyverse</code> and <code>broom</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
+<li>In today’s assignment you will need both the <code>tidyverse</code> and <code>broom</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
-<span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
+<span class="kw">library</span>(tidyverse)</code></pre>
 </div>
 <div id="task-1b-loading-in-the-data-1" class="section level4">
 <h4><span class="header-section-number">6.6.3.3</span> Task 1B: Loading in the data</h4>
 <ul>
 <li>Use <code>read_csv()</code> to replace the <code>NULL</code> in the t1B code chunk below to load in the data stored in the datafile <code>CRT_Data.csv</code>. Store the data in the variable <code>crt</code>. Do not change the filename of the datafile.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/06-s01/homework/CRT_Data.csv&quot;</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;CRT_Data.csv&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/06-s01/homework/CRT_Data.csv&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;CRT_Data.csv&quot;</span>)</code></pre>
 </div>
 <div id="task-2-identify-relevant-columns-1" class="section level4">
 <h4><span class="header-section-number">6.6.3.4</span> Task 2: Identify relevant columns</h4>
@@ -1717,7 +1746,7 @@ ratings2 %&gt;%
 <li>Having identified the important three columns, replace the <code>NULL</code> in the t2 code chunk below to select out only those three columns from <code>crt</code> and store them in the tibble <code>crt2</code>.</li>
 </ul>
 <p><strong>Check your work:</strong> If correct, <code>crt2</code> should be a tibble with 3 columns and 243 rows.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crt2 &lt;-<span class="st"> </span><span class="kw">select</span>(crt, ID, Treatment, CorrectAnswers)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">crt2 &lt;-<span class="st"> </span><span class="kw">select</span>(crt, ID, Treatment, CorrectAnswers)</code></pre>
 <p><strong>NOTE:</strong> For the remainder of this assignment you should use <code>crt2</code> as the main source tibble and not <code>crt</code>.</p>
 </div>
 <div id="task-3-verify-the-number-of-subjects-in-each-group-1" class="section level4">
@@ -1730,13 +1759,13 @@ ratings2 %&gt;%
 <li><p>The total number of men in the sample. This should be a single value, not a tibble/table, and should be stored in <code>n_men</code>.</p></li>
 </ol>
 <p>You know the answer to both of these tasks already. Make sure that your code gives the correct answer!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cond_counts &lt;-<span class="st"> </span>crt2 %&gt;%<span class="st"> </span><span class="kw">group_by</span>(Treatment) %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>())
+<pre class="sourceCode r"><code class="sourceCode r">cond_counts &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Treatment) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>())
 <span class="co"># alternatively</span>
-cond_counts &lt;-<span class="st"> </span>crt2 %&gt;%<span class="st"> </span><span class="kw">count</span>(Treatment)
+cond_counts &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(Treatment)
 
-n_men &lt;-<span class="st"> </span>crt2 %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) %&gt;%<span class="st"> </span><span class="kw">pull</span>(n)
+n_men &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(n)
 <span class="co"># alternatively</span>
-n_men &lt;-<span class="st"> </span><span class="kw">nrow</span>(crt2)</code></pre></div>
+n_men &lt;-<span class="st"> </span><span class="kw">nrow</span>(crt2)</code></pre>
 <ul>
 <li>Now replace the strings in the statements below, using inline R code, so that it reproduces the sentence from the paper exactly as it is shown above. In other words, in the statement below, anywhere it says <code>&quot;(your code here)&quot;</code>, replace that string (including the quotes), with inline R code. To clarify, when looking at the .Rmd file you should see R code; when looking at the knitted file, you should see values. See Lab 1 if you are unsure of how to use inline code.</li>
 </ul>
@@ -1760,20 +1789,20 @@ Figure 6.4: Figure 7
 <ul>
 <li>Write code in the t4 code chunk to reproduce a version of Figure 2a - shown above. Before you create the plot, replace the <code>NULL</code> to make a table called <code>crt_means</code> with the mean and standard deviation of the number of <code>CorrectAnswers</code> for each group. Use <code>crt_means</code> as the source data for the plot.</li>
 </ul>
-<p><strong>Hint:</strong> you will need to check out <code>recode()</code> to get the labels of treatments right. Again this webpage is highly recommended: <a href="https://debruine.github.io/recode.html", target = "_blank">https://debruine.github.io/recode.html</a></p>
-<p>Don't worry about including the error bars (unless you want to) or the line indicating significance in the plot. Do however make sure to pay attention to the labels of treatments and of the y-axis scale and label. Reposition the x-axis label to below the Figure. You can use colour if you like.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crt_means &lt;-<span class="st"> </span>crt2 %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Treatment) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(CorrectAnswers), <span class="dt">sd =</span> <span class="kw">sd</span>(CorrectAnswers)) %&gt;%
+<p><strong>Hint:</strong> you will need to check out <code>recode()</code> to get the labels of treatments right. Again this webpage is highly recommended: &lt;a href=“<a href="https://debruine.github.io/recode.html" class="uri">https://debruine.github.io/recode.html</a>”, target = &quot;_blank&quot;&gt;https://debruine.github.io/recode.html</a></p>
+<p>Don’t worry about including the error bars (unless you want to) or the line indicating significance in the plot. Do however make sure to pay attention to the labels of treatments and of the y-axis scale and label. Reposition the x-axis label to below the Figure. You can use colour if you like.</p>
+<pre class="sourceCode r"><code class="sourceCode r">crt_means &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Treatment) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(CorrectAnswers), <span class="dt">sd =</span> <span class="kw">sd</span>(CorrectAnswers)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Treatment =</span> <span class="kw">recode</span>(Treatment, <span class="st">&quot;0&quot;</span> =<span class="st"> &quot;Placebo&quot;</span>, <span class="st">&quot;1&quot;</span> =<span class="st"> &quot;Testosterone Group&quot;</span>))
 
-<span class="kw">ggplot</span>(crt_means, <span class="kw">aes</span>(Treatment, m, <span class="dt">fill =</span> Treatment)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_classic</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;CRT&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Correct Answers&quot;</span>) +
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#EEEEEE&quot;</span>,<span class="st">&quot;#AAAAAA&quot;</span>)) +
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">1.4</span>,<span class="fl">2.4</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<span class="kw">ggplot</span>(crt_means, <span class="kw">aes</span>(Treatment, m, <span class="dt">fill =</span> Treatment)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;CRT&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Correct Answers&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#EEEEEE&quot;</span>,<span class="st">&quot;#AAAAAA&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">1.4</span>,<span class="fl">2.4</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:t4"></span>
 <img src="06-s01-lab06e_files/figure-html/t4-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1790,29 +1819,29 @@ Figure 6.5: <strong>CAPTION THIS FIGURE!!</strong>
 <li><p>The Testosterone group (M = 1.66, SD = 1.18) would appear to have fewer correct answers on average than the Placebo group (M = 2.10, SD = 1.02) on the Cognitive Reflection Test suggesting that testosterone does in fact inhibit the ability to override incorrect intuitive judgements with the correct response.</p></li>
 <li><p>The Testosterone group (M = 2.10, SD = 1.02) would appear to have more correct answers on average than the Placebo group (M = 1.66, SD = 1.18) on the Cognitive Reflection Test suggesting that testosterone does in fact inhibit the ability to override incorrect intuitive judgements with the correct response.</p></li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t5 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t5 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre>
 </div>
 <div id="task-6-t-test-1" class="section level4">
 <h4><span class="header-section-number">6.6.3.8</span> Task 6: t-test</h4>
 <p>Now that we have calculated the descriptives in our study we need to run the inferentials. In the t6 code chunk below, replace the <code>NULL</code> with a line of code to run the t-test taking care to make sure that the output table has the Placebo mean under Estimate1 (group 0) and Testosterone mean under Estimate2 (group 1). Assume variance is equal and use <code>broom::tidy()</code> to sweep and store the results into a data frame called <code>t_table</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 %&gt;%<span class="st"> </span><span class="kw">filter</span>(Treatment ==<span class="st"> </span><span class="dv">0</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),
-                  crt2 %&gt;%<span class="st"> </span><span class="kw">filter</span>(Treatment ==<span class="st"> </span><span class="dv">1</span>) %&gt;%<span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),
-                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),
+                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),
+                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">tidy</span>()
 
 <span class="co"># alternatively</span>
-t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers ~<span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">tidy</span>()</code></pre></div>
+t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</code></pre>
 </div>
 <div id="task-7-reporting-results-1" class="section level4">
 <h4><span class="header-section-number">6.6.3.9</span> Task 7: Reporting results</h4>
 <p>In the t7A code chunk below, replace the <code>NULL</code> with a line of code to pull out the df from t_table. This must be a single value stored in <code>t_df</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_df &lt;-<span class="st"> </span>t_table$parameter</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t_df &lt;-<span class="st"> </span>t_table<span class="op">$</span>parameter</code></pre>
 <p>In the t7B code chunk below, replace the <code>NULL</code> with a line of code to pull out the t-value from t_table. Round it to three decimal places. This must be a single value stored in <code>t_value</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_value &lt;-<span class="st"> </span>t_table$statistic %&gt;%<span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t_value &lt;-<span class="st"> </span>t_table<span class="op">$</span>statistic <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</code></pre>
 <p>In the t7C code chunk below, replace the <code>NULL</code> with a line of code to pull out the p-value from t_table. Round it to three decimal places. This must be a single value stored in <code>p_value</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p_value &lt;-<span class="st"> </span>t_table$p.value %&gt;%<span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">p_value &lt;-<span class="st"> </span>t_table<span class="op">$</span>p.value <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</code></pre>
 <p>In the t7D code chunk below, replace the <code>NULL</code> with a line of code to calculate the absolute difference between the mean number of correct answers for the Testosterone group and the Placebo group. Round it to three decimal places. This must be a single value stored in <code>t_diff</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t_diff &lt;-<span class="st"> </span>(t_table$estimate1 -<span class="st"> </span>t_table$estimate2) %&gt;%<span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>) %&gt;%<span class="st"> </span><span class="kw">abs</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t_diff &lt;-<span class="st"> </span>(t_table<span class="op">$</span>estimate1 <span class="op">-</span><span class="st"> </span>t_table<span class="op">$</span>estimate2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">abs</span>()</code></pre>
 <p>If you have completed t7A to t7D accurately, then when knitted, one of these statements below will produce an accurate and coherent summary of the results. In the t7E code chunk below, replace the <code>NULL</code> with the number of the statement below that best summarises the data in this study. Store this single value in <code>answer_t7e</code></p>
 <ol style="list-style-type: decimal">
 <li>The testosterone group performed significantly better (0.438 fewer correct answers) than the placebo group, t(241) = 3.074, p = 0.002.</li>
@@ -1820,9 +1849,9 @@ t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnsw
 <li>The testosterone group performed significantly better (0.438 more correct answers) than the placebo group, t(241) = 3.074, p = 0.002.</li>
 <li>The testosterone group performed significantly worse (0.438 fewer correct answers) than the placebo group, t(241) = 3.074, p = 0.002.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t7e &lt;-<span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t7e &lt;-<span class="st"> </span><span class="dv">4</span></code></pre>
 <p><strong>Finished</strong></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the &lt;a href = “<a href="https://rguppies.slack.com" class="uri">https://rguppies.slack.com</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
 
 </div>
@@ -1971,7 +2000,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
