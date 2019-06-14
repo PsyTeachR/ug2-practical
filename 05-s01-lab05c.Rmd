@@ -23,10 +23,9 @@ This logic works because if the null hypothesis is true (there is no difference 
 
 Let's get started!
 
-### Step 1: Load in Add-on Packages and Data
+### Step 1: Load in Add-on Packages and Data {#Ch5InClassQueT1}
 
 1.1.  Open a new script and call the `tidyverse` into your library.  
-** FUTURE PHIL - NEED TO ADD RNGversion("3.5")**
 
 1.2.  Now type the statement `set.seed(1011)` at the top of your script after your library call and run it.  (This 'seeds' the random number generator so that you will get the same results as everyone else. The number 1011 is a bit random but if everyone uses it then we all get the same outcome. Different seeds give different outcomes)  
 
@@ -35,8 +34,7 @@ Let's get started!
 1.4.  Let's give every participant a participant number as well by adding a new column to `dat`. Something like this would work: `mutate(subj_id = row_number())`
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type ="info"}
 
 1. Something to do with `library()`
 
@@ -45,20 +43,15 @@ cat("
 3. Something to do with `read_csv()`
 
 4. pipe `%>%` on the mutate line shown
-")
 ```
 `r unhide()`
 
 `r hide("Portfolio Point - Different uses of row_number")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-
+```{block, type ="info"}
 You will see that in the example here to put a row number for each of the participants we do not have to state the number of participants we have. In the Preclass however we did. What is the difference?  Well, in the Preclass we were making a tibble and trying to create a column in that tibble using `row_numbers`. If you want to do that you have to state the number of rows, e.g. `1:20`.  However, in this example in the lab today the tibble already exists, we are just adding to it. If that is the case then you can just mutate on a column of row numbers without stating the number of participants. In summary:
 
 * When creating the tibble, state the number of participants in `row_numbers()`.
 * If tibble already exists, just mutate on `row_numbers()`. No need for specific numbers.
-
-")
 ```
 `r unhide()`
 
@@ -68,7 +61,7 @@ Have a look at the resulting tibble, `dat`.
 * The column `group` is your independent variable (IV).
 * The columns `subj_id` is the participant number.
 
-### Step 2: Calculate the Original Mean Difference - $D_{orig}$
+### Step 2: Calculate the Original Mean Difference - $D_{orig}$ {#Ch5InClassQueT2}
 
 We now need to write a pipeline of five functions that calculates the mean difference between the groups in `dat`, Group A minus Group B. Broken down into steps this would be: 
 
@@ -81,9 +74,7 @@ We now need to write a pipeline of five functions that calculates the mean diffe
 2.1.4.  Pull out the value in `diff` (the mean of group A minus the mean of group B) to finish the pipe.  
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-
+```{block, type ="info"}
 `dat %>%`
 
   `group_by(?) %>%`
@@ -95,13 +86,10 @@ cat("
   `mutate(diff = ? - ?) %>%`
 
   `pull(?)`
-
-")
 ```
 `r unhide()`
 
-
-#### <span style="color:DARKGREEN"> Quickfire Question</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 * Check that your value for `d_orig` is correct, without using the solution, by typing your `d_orig` value to two decimal places in the box. Include the sign, e.g. -1.23. The box will go green if you are correct. `r fitb(-7.39, width = 10, ignore_ws = TRUE)`
 
@@ -116,7 +104,7 @@ calc_diff <- function(x){
 ```
 
 `r hide("Helpful Hint")`
-```{r, eval = FALSE}
+```{r calc-diff-hint, eval = FALSE}
 calc_diff <- function(x) {
   x %>%
     group_by(group) %>%
@@ -128,7 +116,7 @@ calc_diff <- function(x) {
 2.3.  Now call your new function where `x` = `dat` as the argument and store the result in a new variable called `d_orig`.  Make sure that your function returns the same value as you got above and that your function returns a single value rather than a tibble. You can test this: `is.tibble(d_orig)` should give you `FALSE` and `is.numeric(d_orig)` should give you `TRUE`.
 
 `r hide("Helpful Hint")`
-```{r, eval = FALSE}
+```{r d-orig-hint, eval = FALSE}
 d_orig <- function_name(x = data_name) 
 # or
 d_orig <- function_name(data_name)
@@ -145,7 +133,7 @@ is.numeric(d_orig)
 
 So we now have the original difference between the groups stored in `d_orig`. Next we need to create a distribution of all possible differences to see where our original difference lies in this distribution. But first we need to shuffle the `group` letters (A or B) in our dataset and find the difference...a few hundred times!
 
-### Step 3: Permute the Group Labels
+### Step 3: Permute the Group Labels {#Ch5InClassQueT3}
 
 3.1.  Create a new function called `permute()` that takes as input a dataset `x` and returns the same dataset transformed such that the group labels (the values in the column `group`) are shuffled: started below for you.  This will require using the `sample()` function within a `mutate()`. You have used `mutate()` twice already today and you saw how to `sample()` **letters** in the PreClass.
 
@@ -156,9 +144,7 @@ permute <- function(x){
 ```
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-
+```{block, type ="info"}
 Might be easier to think of these steps in reverse.  
 
 1. Start with a `mutate()` function that rewrites the column `group` every time you run it, e.g. `dat %>% mutate(variable = sample(variable))`  
@@ -170,7 +156,7 @@ Might be easier to think of these steps in reverse.
 
 3.2.  Try out your new `permute()` function by calling it on `dat` (i.e. `x = dat`) a few times.  You should see the group labels in the `group` column changing randomly. The most common mistake is that people mutate a new column by mispelling `group`. You want to overwrite/change the information in the `group` column not make a new one, so be careful with the spelling.
 
-#### <span style="color:DARKBLUE"> **Group Discussion Point** </span>
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
 Now would be an excellent time to spend five minutes as a group recapping what you are doing. 
 
@@ -180,7 +166,7 @@ Now would be an excellent time to spend five minutes as a group recapping what y
 
 Do you understand why? If not, go back to the principles of the permutation test at the start of the lab then read on...
 
-### Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference
+### Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference {#Ch5InClassQueT4}
 
 Now that we have the original difference and our two functions, one to shuffle group labels and one to calculate the difference between two groups, we need to actually create the distribution of possible differences and see where the original difference lies in it.
 
@@ -189,22 +175,20 @@ Now that we have the original difference and our two functions, one to shuffle g
 4.1.2. Run this line manually a few times and watch the resulting value change as the labels get permuted.
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type ="info"}
 Think about verbalising your pipelines. In a single pipeline:
 
 1. I want to permute the data into two new groups.
 2. Then I want to calculate the difference between these two new groups. 
 
 The functions you have created do these steps. You just have to put them in order and pipe the data through it.
-")
 ```
 `r unhide()`
 
 4.2.  Now take your pipeline of functions and repeat it 1000 times using the `replicate()` function. Store the output in a variable called `nhd`. `nhd` will contain 1000 values where each value is the mean difference of each of the 1000 random permutations of the data. (**Warning:** This will probably take a while to run, perhaps 10 seconds.)
 
 `r hide("Helpful Hint")`
-```{r, eval = FALSE}
+```{r nhd-hint, eval = FALSE}
 # replace expression with the pipeline you created in 4.1
 nhd <- replicate(times, expression)
 ```
@@ -219,20 +203,18 @@ ggplot(data = tibble(x = NULL), aes(x)) + NULL
 ```
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type ="info"}
 Remember that `ggplot` works as: `ggplot(data, aes(x)) + geom...`. Here you need to convert `nhd` into a tibble and put that in as your data. Look at the example above and keep in mind that, in this case, the first NULL could be replaced with the data in `nhd`.
-")
 ```
 `r unhide()`
 
-#### <span style="color:DARKBLUE"> **Group Discussion Point** </span>
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
 * Looking at the histogram, visually locate where your original value would sit on this distribution. Would it be extreme, in the tail, or does it look rather common, in the middle? `r mcq(c("is in the middle so looks common",answer = "is in the tail so looks extreme"))`
 
 Before moving on stop to think about what this means - that the difference between the two original groups is rather uncommon in this permuted distribution, i.e. is in the tails! Again, if unsure, go back to the principles of NHST or discuss it with your tutor!
 
-### Step 5: Compare the Observed Mean Difference to the NHD
+### Step 5: Compare the Observed Mean Difference to the NHD {#Ch5InClassQueT5}
 
 If the null hypothesis is false, and there is a real difference between the groups, then the difference in means we observed for the original data (`d_orig`) should be somewhere in either tail of the null-hypothesis distribution we just estimated; it should be an "extreme" value.  How can we test this beyond a visual inspection?
 
@@ -240,7 +222,7 @@ First we have to decide on a false positive (Type I error) rate which is the rat
 
 So the question we must ask is, if the null hypothesis was  true, what would be the probability of getting a difference in means as extreme as the one we observed in the original data? We will label this probability `p`.  
 
-#### <span style="color:DARKBLUE"> **Group Discussion Point** </span>
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
 Take a few moments as a group to see if you can figure out how you might compute `p` from the data before we show you how. We will then show you the process in the next few, final, steps.
 
@@ -251,14 +233,10 @@ lvec <- abs(NULL) >= abs(NULL)
 ```
 
 `r hide("Portfolio Point - abs and the case of one or two tails")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-
+```{block, type ="info"}
 In the code above, the function `abs()` says to ignore the sign and use the absolute value. For instance, if `d_orig = -7`, then `abs(d_orig) = 7`. Why do we do this here? Can you think why you want to know how extreme your value is in this distribution regardless of whether the value is positive or negative?
 
-The answer relates to whether you are testing in one or two tails of your distribution; the positive side, the negative side, or both. You will have heard in your lectures of one or two-tailed tests. Most people would say to run two-tailed tests. This means looking at the negative and positive tails of the distribution to see if our original value is extreme, and the simplest way to do this is to ignore the sign of the values and treat both sides equally. If you wanted to only test one-tail, say that your value is extreme to the negative side of the tail, then you would not use the `abs()` and set the expression to make sure you only find values less than your original value. To test only on the positive side of the distribution, make sure you only get values higher than the original. But for now we will mostly look at two-tailed tests. 
-
-")
+The answer relates to whether you are testing in one or two tails of your distribution; the positive side, the negative side, or both. You will have heard in your lectures of one or two-tailed tests. Most people would say to run two-tailed tests. This means looking at the negative and positive tails of the distribution to see if our original value is extreme, and the simplest way to do this is to ignore the sign of the values and treat both sides equally. If you wanted to only test one-tail, say that your value is extreme to the negative side of the tail, then you would not use the `abs()` and set the expression to make sure you only find values less than your original value. To test only on the positive side of the distribution, make sure you only get values higher than the original. But for now we will mostly look at two-tailed tests.
 ```
 `r unhide()`
 
@@ -278,7 +256,7 @@ p <- NULL
 
 **" The difference between Group A and Group B (M = `XXX`) was found to be have a probability of p = `XXX`. This means that the original mean difference was ...... and the null hypothesis is ....." **
 
-**Job Done!**
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 Well done in completing this lab. Let's recap before finishing. We had two groups, A and B, that we had tested in an experiment. We calculated the mean difference between A and B and wanted to know if this was a significant difference. To test this we created a distribution of all possible differences between A and B using the premise of permutation tests and then found the probability of our original value in that permuted distribution. The more extreme the value in a distribution the more likely that the difference is significant. And that is exactly what we found; an $\alpha < .05$. Next time we will look at using functions and inferential tests to perform this analysis but by understanding the above you now know how probability is determined.
 

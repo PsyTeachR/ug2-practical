@@ -18,8 +18,8 @@ To generate 10 or even 50 random numbers from a standard normal distribution (M 
 ```{r random10}
 rnorm(10)
 ```
-
-#### <span style="color:DARKGREEN"> Quickfire Question</span>
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
 If you enter `rnorm(50)` again you will get different numbers. Why? `r mcq(c("I have made a mistake",answer = "The numbers are random","R has made a mistake","Phil has made a mistake"))`
 
@@ -38,17 +38,15 @@ random_numbers <- c(rnorm(50, 75),
                     rnorm(50, 90))
 ```
 
-#### <span style="color:DARKGREEN"> Quickfire Question</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
 In the above example code, what is the standard deviation of the two samples you have created? `r mcq(c("50","75","90",answer = "1"))`
 
 `r hide("Explain This - I don't get this answer!")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type ="info"}
 What is the **default** sd of the function?
 
 Both populations would have an sd of 1, because that is the default, although you could easily change that.  Try it out!
-    ")
 ```
 `r unhide()` 
 <br>
@@ -57,20 +55,15 @@ It is always good to check that your new vector has the right number of data poi
 ```{r len_random_numbers}
 length(random_numbers)
 ```
-
-#### **SKILL 1 COMPLETE - Now take a look at Skill 2!**
-
 <br>
-<br>
-<br>
+<span style="font-size: 18px; font-weight: bold; color: var(--blue);">Skill 1 out of 6 Complete!</span>
 
 ### Skill 2: Permuting Values
 
 Another thing that is useful to be able to do is to generate **permutations** of values.  
 
 `r hide("Portfolio Point - What are Permutations?")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type ="info"}
 A **permutation** is just a different ordering of the same values.  For example, the numbers 1, 2, 3 can be permuted into the following 6 sequences:
 
 + 1, 2, 3
@@ -81,7 +74,6 @@ A **permutation** is just a different ordering of the same values.  For example,
 + 3, 2, 1
 
 The more values you have, the more permutations of the order you have. The number of permutations can be calculated by, for example, `3*2*1`, where 3 is the number of values you have. Or through code: `factorial(3) = 6`. This assumes that each value is used once in the sequence and that each value never changes, i.e. 1234 cannot suddenly become 1235.
-")
 ```
 `r unhide()`
 
@@ -97,32 +89,25 @@ We can combine `base::sample()` with `letters` to put the letters into a random 
 
 * Run the below line. Run it again. And again. What do you notice? And why is our output different from yours? (The answer is below)
 
-```{r}
+```{r sample-letters}
 sample(letters)
 ```
 
-#### <span style="color:DARKGREEN"> Quickfire Question</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
 If `month.name` contains the names of the twelve months of the year, how many possible permutations are there of `sample(month.name)`? `r mcq(c("1","12","144",answer = "479001600"))`
 
 `r hide("Portfolio Point - Different samples with sample()")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
+```{block, type ="info"}
 Each time you run `sample(letters)` it will give you another random permutation of the sequence. That is what `sample()` does - creates a random permutation of the values you give it. Try repeating this command many times in the console. Because there are so many possible sequences, it is very unlikely that you will ever see the same sequence twice! 
 
 An interesting thing about `sample()` is that `sample(c(1,2,3,4))` is the same as `sample(4)`. And to recap, there would be 24 different permutations based on `factorial(4)`, meaning that each time you type `sample(4)` you are getting one of those 24 different orders. So what would factorial(12) be?
 
 Top Tip: Remember that you can scroll up through your command history in the console using the up arrow on your keyboard; this way, you don't ever have to retype a command you've already entered.  
-")
 ```
 `r unhide()`
 <br>
-
-#### **SKILL 2 COMPLETE - Now take a look at Skill 3!**
-
-<br>
-<br>
-<br>
+<span style="font-size: 18px; font-weight: bold; color: var(--blue);">Skill 2 out of 6 Complete!</span>
 
 ### Skill 3: Creating Tibbles
 
@@ -132,7 +117,7 @@ Tables are important because most of the data we want to analyze comes in a tabl
 
 The `tibble()` function takes named arguments - this means that the name you give each argument within the tibble function, e.g. `Y = rnorm(10)` will be the name of the column that appears in the table, i.e. `Y`.  It's best to see how it works through an example.
 
-```{r}
+```{r tibble-base}
 tibble(Y = rnorm(10))
 ```
 
@@ -171,7 +156,7 @@ But sometimes we want a specific number of As followed by a specific number of B
 rep(c("A", "B"), c(2, 4))
 ```
 
-#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 The best way to learn about this function is to play around with it in the console and see what happens. From the dropdown menus, the correct output of the following function would be:
 
@@ -198,34 +183,27 @@ tibble(group = rep(c("A", "B"), c(5, 5)),
 Be sure to play around with the code chunk to get used to it. Try adding a third group or even a third column? Perhaps you want to give every participant a random age with a mean of 18, and a sd of 1; or even a participant number.
 
 `r hide("Helpful Hint")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-
+```{block, type ="info"}
 Try `row_number()` to create participant numbers.
-    ")
 ```
 `r unhide()` 
 <br>
 Don't forget, if you wanted to store your tibble, you would just assign it to a name, such as `my_data`:
 
-```{r tibble3_new, results = "hide"}
+```{r tibble3-new, results = "hide"}
 my_data <- tibble(ID = row_number(1:10), 
                     group = rep(c("A", "B"), c(5, 5)),
                     Y = c(rnorm(5, mean = -10), rnorm(5, mean =  20)),
                     Age = rnorm(10, 18, 1))
 ```
-
-#### **SKILL 3 COMPLETE - Now take a look at Skill 4!**
-
 <br>
-<br>
-<br>
+<span style="font-size: 18px; font-weight: bold; color: var(--blue);">Skill 3 out of 6 Complete!</span>
 
 ### Skill 4: Computing Differences in Group Means
 
 You have already learned how to calculate group means using `group_by()` and `summarise()`. For example, you might want to calculate sample means for a randomly generated dataset like so:
 
-```{r tibble_long}
+```{r tibble-long}
 my_data <- tibble(group = rep(c("A", "B"), c(20, 20)),
                   Y = c(rnorm(20,  20, 5), rnorm(20, -20, 5)))
 
@@ -249,19 +227,19 @@ vec
 
 We have now created `vec` which is a vector containing only the group means; the rest of the information in the table has been discarded.  Now that we have `vec`, we can calculate the mean difference as below, where `vec` is our vector of the two means and `[1]` and `[2]` refer to the two means:
 
-```{r}
+```{r vec-diff}
 vec[1] - vec[2]
 ```
 
 But `pluck()` is also useful, and can be written as so: 
 
-```{r}
+```{r pluck}
 pluck(vec, 1) - pluck(vec, 2)
 ```
 
 It can also be incorporated into a pipeline as below where we still `pull()` the means column, `m`, and then `pluck()` each value in turn and subtract them from each other.
 
-```{r}
+```{r pull-pluck-pipe}
 ## whole thing in a pipeline
 my_data_means %>% pull(m) %>% pluck(1) -
   my_data_means %>% pull(m) %>% pluck(2)
@@ -282,7 +260,7 @@ my_data_means %>%
   mutate(diff = A - B) 
 ```
 
-#### <span style="color:DARKGREEN"> Quickfire Question</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
 What is the name of the column containing the differences between the means of A and B? `r mcq(c("means","group","m",answer = "diff"))`
 
@@ -296,23 +274,14 @@ my_data_means %>%
 ```
 
 `r hide("Portfolio Point - Reading pipes and verbalising tasks")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-
+```{block, type ="info"}
 Keep in mind that a very useful technique for establishing what you want to do to a dataframe is to verbalise what you need, or to write it down in words, or to say it out loud. Take this last code chunk. What we wanted to do was to `spread()` the data in `m` into the groups A and B. Then we wanted to `mutate()` a new column that is the difference, `diff`, of A minus B. And finally we wanted to `pull()` out the value in `diff`. 
 
 Often step 1 of writing code or understanding code is knowing what it is you want to do in the first place. After that you just need the correct functions. Fortunately for us a lot of the `tidyverse` names its functions based on what they specifically do!
-
-")
 ```
 `r unhide()`
 <br>
-
-#### **SKILL 4 COMPLETE - Now take a look at Skill 5!**
-
-<br>
-<br>
-<br>
+<span style="font-size: 18px; font-weight: bold; color: var(--blue);">Skill 4 out of 6 Complete!</span>
 
 ### Skill 5: Creating Your Own Functions
 
@@ -331,7 +300,7 @@ First you define your own function name (e.g. `name_of_function`) and define the
 
 One of the most basic possible functions is one that takes no arguments and just prints a message. Here is an example:
 
-```{r}
+```{r hello-world}
 hello <- function() {
   print("Hello World!")
 }
@@ -339,13 +308,13 @@ hello <- function() {
 
 So this function is called `hello`. It can be run by typing `hello()` in your console and it will give the output of `Hello World!` every single time you run it; it has no other actions or information. Test this in the console now by typing:
 
-```{r}
+```{r hello-call}
 hello()
 ```
 
 Awesome right? Ok, so not very exciting.  Let's make it better by adding an argument, `name`, and have it say Hello to `name`.
 
-```{r}
+```{r hello-somebody}
 hello <- function(name = "World!") {
   paste("Hello", name)
 }
@@ -353,13 +322,13 @@ hello <- function(name = "World!") {
 
 This new function is again called `hello()` and replaces the one you previously created. This time however you are supplying what is called a default argument, `name = "World!", but it still has the same action as the previous function of putting "Hello" and "World!" together. So if you run it you get "Hello World!". Try it yourself!
 
-```{r}
+```{r hello-is-it-me-you-are-looking-for}
 hello()
 ```
 
 The difference this time however is that because you have added an argument to the input, you can change the information you give the argument and therefore change the output of the function. More flexible. More exciting.
 
-#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 Test your understanding by answering these questions:
 
@@ -371,7 +340,7 @@ Test your understanding by answering these questions:
 
 Most of the time however we want to create a function that computes a value or constructs a table.  For instance, let's create a function that returns randomly generated data from two samples, as we learned in the previous skills - see below. All we are doing is taking the tibble we created in Skill 4 and putting it in the body (between the curly brackets) of the function.
 
-```{r}
+```{r gen-dat}
 gen_data <- function() {
   tibble(group = rep(c("A", "B"), c(20, 20)),
                   Y = c(rnorm(20,  20, 5), rnorm(20, -20, 5)))
@@ -382,14 +351,14 @@ This function is called `gen_data()` and when we run it we get a randomly genera
 
 But say we want to modify the function to allow us to get a table with smaller or larger numbers of observations per group.  We can add an argument `n` and modify the code as follows. Create this function and run it a couple of times through `gen_data()`. The way to think about this is that every place that `n` appears in the body of the function (between the curly brackets) it will have the value of whatever you gave it in the arguments, i.e. in this case, 20.
 
-```{r}
+```{r gen-dat-20}
 gen_data <- function(n = 20) {
   tibble(group = rep(c("A", "B"), c(n, n)),
                   Y = c(rnorm(n,  20, 5), rnorm(n, -20, 5)))
 }
 ```
 
-#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 * How many total participants would there be if you ran `gen_data(2)`? `r mcq(c("2",answer = "4","20","40"))`
 
@@ -400,7 +369,7 @@ gen_data <- function(n = 20) {
 Keeping in mind that functions can take numerous arguments, and that each group in your function have separate means, can you modify the function `gen_data` to allow the user to change the means for the two calls to `rnorm`? Have a try before revealing the solution below.
 
 `r hide("Solution To Challenge Question")`
-```{r, results = "hide"}
+```{r gen-dat-min20, results = "hide"}
 gen_data <- function(n = 20, m1 = 20, m2 = -20) {
   tibble(group = rep(c("A", "B"), c(n, n)),
                   Y = c(rnorm(n,  m1, 5), rnorm(n, m2, 5)))
@@ -422,32 +391,22 @@ gen_data <- function(n = 20, m1 = 20, m2 = -20) {
 `r unhide()`
 
 `r hide("Portfolio Point - Two important facts about functions")`
-```{r, echo = FALSE, results = 'asis'}
-cat("
-
+```{block, type ="info"}
 Here are two important things to understand about functions.
 
 1. **Functions obey lexical scoping.**  What does this mean?  It's like what they say about Las Vegas: what happens in the function, stays in the function.  Any variables created inside of a function will be discarded after the function executes and will not be accessible to the outside calling process.  So if you have a line, say a varibale `my_var <- 17` inside of a function, and try to print `my_var` from outside of the function, you will get an error: `object 'my_var' not found`. Although the function can 'read' variables from the environment that are not passed to it through an argument, it cannot change them.  So you can only write a function to return a value, not change a value.
 
 2. **Functions return the last value that was computed.**  You can compute many things inside of a function but only the last thing that was computed will be returned as part of the calling process.  If you want to return `my_var`, which you computed earlier but not as the final computation, you can do so explicitly using `return(my_var)` at the end of the function (before the second curly bracket).
-")
 ```
 `r unhide()`
 <br>
-
-<br>
-
-#### **SKILL 5 COMPLETE - Now take a look at Skill 6!**
-
-<br>
-<br>
-<br>
+<span style="font-size: 18px; font-weight: bold; color: var(--blue);">Skill 5 out of 6 Complete!</span>
 
 ### Skill 6: Replicating Operations
 
 The last skill you will need for the upcoming lab is knowing how to repeat an action (or expression) multiple times. You saw this in Lab 4 so we will only briefly recap here. Here, we use the  base function `replicate()`.  For instance, say you wanted to calculate the mean from `rnorm(100)` ten times, you could write it like this:
 
-```{r, results = "hide"}
+```{r reps, results = "hide"}
 ## bad way
 rnorm(100) %>% mean()
 rnorm(100) %>% mean()
@@ -462,25 +421,25 @@ rnorm(100) %>% mean()
 
 But it's far easier and more readable to wrap the expression in `replicate()` function where the first argument is the number of times you want to repeat the expression stated as the second argument, i.e. `replicate(times, expression)`. Here below we replicate the mean of 100 randomly generated numbers from the normal distribution, and we do this 10 times:
 
-```{r, results = "hide"}
+```{r rep10, results = "hide"}
 replicate(10, rnorm(100) %>% mean())
 ```
 
 Also you'll probably want to store the results in a variable, for example, `ten_samples`:
 
-```{r}
+```{r 10-samples}
 ten_samples <- replicate(10, rnorm(100) %>% mean())
 ten_samples
 ```
 
 Each element (value) of the vector within `ten_samples` is the result of a single call to `rnorm(100) %>% mean()`.
 
-#### <span style="color:DARKGREEN"> Quickfire Question</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
 Assuming that your `hello()` function from Skill 5 still exists, and it takes the argument `name = Goodbye`, what would happen in the console if you wrote, `replicate(1000, hello("Goodbye"))`? `r mcq(c("Hello World would appear a thousand times","hello Goodbye would appear a thousand times",answer = "Hello Goodbye would appear a thousand times"))` - Try it and see if it works!
 
 `r hide("Solution To Quickfire Question")`
-```{r, results = "hide"}
+```{r sols-quick6, results = "hide"}
 # the function would be:
 hello <- function(name = "World!"){
   paste("Hello", name)
@@ -492,9 +451,9 @@ replicate(1000, hello("Goodbye"))
 `r unhide()`
 <br>
 
-#### **SKILL 6 COMPLETE**
+<span style="font-size: 18px; font-weight: bold; color: var(--blue);">Skill 6 out of 6 Complete!</span>
 
-**PreClass Activity Completed!**
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 To recap, we have shown you the following six skills:
 
