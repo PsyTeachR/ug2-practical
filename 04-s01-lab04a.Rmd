@@ -23,9 +23,9 @@ The population is the whole group that you want to know something about - everyo
 
 ### Discrete or Continuous Datasets
 
-This is a short tutorial with just a couple of quick recap questions on how the `level of measurement` can alter the way you tackle probability - i.e. whether the data is discrete or continuous.
+This is a short tutorial with just a couple of quick recap questions on how the **level of measurement** can alter the way you tackle probability - i.e. whether the data is discrete or continuous.
 
-#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 **Discrete** data can only take integer values (whole numbers). For example, the number of  participants in an experiment would be discrete - we can't have half a participant! Discrete variables can also be further broken down into **nominal/categorical** and **ordinal** variables. 
 <br>
@@ -48,7 +48,6 @@ When you read journal articles or when you are working with data in the lab, it 
 The four level of measurements are nominal (also called categorical), ordinal, interval and ratio. Discrete data only uses categories or whole numbers and is therefore either nominal or ordinal data. Continuous data can take any value, e.g. 9.00 or 9.999999999, and so is either interval or ratio data.
 ```
 `r unhide()`
+<br>
 
-**Activity Completed!**
-
-You should have a good understanding of discrete vs continuous data as it will help in the understanding of probability and inference. If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!
+You should have a good understanding of discrete vs continuous data. This will help you complete the activities of this chapter and in your understanding of probability and inference. 

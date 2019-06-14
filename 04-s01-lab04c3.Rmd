@@ -15,8 +15,7 @@ Show your answer either as a fraction (e.g. 1/52) or to 3 decimal places (e.g. `
 * What is the probability of rolling a 4 **and then** a 6 straight after? `r fitb(c("1/6*1/6", "(1/6)*(1/6)", "0.028", ".028"), width = 10, ignore_ws = TRUE)`
 
 `r hide("Explain this - I dont get these answers")`
-```{r, echo=FALSE, results='asis'}
-cat("
+```{block, type ="info"}
 Remember: 
 
 * probability is the number of times or ways an event can occur divided by the total number of all possible outcomes. 
@@ -27,8 +26,9 @@ Remember:
 2. .5 as you have 3 outcomes over 6 possibilities
 
 3. .028 as you have 1 out of 6 on both occasions so the cumulative is used.
-")
 ```
 `r unhide()`
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 Well done on completing this activty! Once you have completed the main body inclass assignment on the Normal Distribution, you should be ready to complete the assignment for this lab. Good luck and remember to refer back to the codes and questions in this lab and the preclass if you get stuck!.

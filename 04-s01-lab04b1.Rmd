@@ -31,7 +31,7 @@ So the probability of an event is the number of all the possible ways an event c
 But you may have noticed that sometimes we write p = .008, for example, and sometimes p = 0.008.  What is the difference? Well nothing really. However, there is a convention that as probability can never go above 1, then the 0 before the decimal place is pointless. Meaning that most people will write p = .008 instead of p = 0.008. We have allowed either version in the answers to this point, but try to get in the habit of writing it without the 0 before the decimal place.
 ```
 `r unhide()`
-
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 * What is the probability of randomly drawing your name out of a hat of 12 names where one name is definitely your name? Enter your answer to 3 decimal places: `r fitb(c("0.083", ".083"), width = 5, ignore_ws = TRUE)`
@@ -66,17 +66,14 @@ We will now recap plotting probability distributions by looking at the probabili
 
 Imagine we want to know the probability of getting X number of heads in 10 coin flips. To simulate 10 coin flips we used the `sample()` function where we randomly sample (with replacement) from all possible events: i.e. either **heads** or **tails**. 
 
-* Open a new script and copy in the code lines below:
+* Open a new script and copy in the code lines below. The last argument in the code above provides the instruction to sample with or without replacement by setting it to `TRUE` or `FALSE` respectively.
+* **Note1:** Because our event labels are strings (text), we enter them into the function as a vector; i.e. in "quotes"
+* **Note2:** Below the lines of code, you will see the output that we got when we ran our code. Don't worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.
 
 ``` {r libraries, eval = TRUE, message = FALSE}
 library("tidyverse")
-
-# Notice that because our event labels are strings (text), 
-# we need to enter them into the function as a vector; i.e. in "quotes" 
 sample(c("HEADS", "TAILS"), 10, TRUE) 
 ```
-
-The last argument in the code above provides the instruction to sample with or without replacement by setting it to `TRUE` or `FALSE` respectively. Don't worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.
 
 `r hide("Portfolio Point - Sampling and Replacement")`
 ```{block, type ="info"}
@@ -85,16 +82,16 @@ Sampling is simply choosing or selecting something - here we are randomly choosi
 Replacement is putting the sampled option back into the 'pot' of possible options. For example, on the first turn you randomly sample HEADS from the options of HEADS and TAILS with replacement, meaning that on the next you have the same two options again; HEADS or TAILS. Sampling without replacement means that you remove the option from subsequent turns. So say on the first turn you randomly sample HEADS from the options HEADS and TAILS but without replacement. Now on the second turn you only have the option of TAILS to 'randomly' sample from. On the third turn without replacement you would have no options. So replacement means putting the option back for the next turn.
 ```
 `r unhide()`
-
+<br>
 Why would you or why wouldn't you want to use sampling with replacement in our coin toss scenario? If you aren't sure then set replacement as `FALSE` and run the code again. The code will stop working after 2 coin flips. We want to sample with replacement here because we want both options available at each sampling - and if we didn't then we would run out of options very quickly since we're doing 10 flips.
 
 So far our code returns the outcomes from the 10 flips; either heads or tails. If we want to count how many 'heads' we have we can simply sum up the heads. However, heads isn't a number, so to make life easier we can re-label our events as **0 for tails** and **1 for heads**. Now if we run the code again we can pipe the sample into a `sum()` function to total up all the 1s (heads) from the 10 flips. 
 
 * Run this line of code a number of times, what do you notice about the output?
+* **Note1:** As our event labels are now numeric, we don't need the vector.
+* **Note2:** `0:1` means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.
 
 ``` {r coin_sum}
-# Now that our event labels are numeric, we don't need the vector.
-# 0:1 means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.
 sample(0:1, 10, TRUE) %>% sum() 
 ```
 
@@ -128,7 +125,7 @@ Now in order to complete our distribution we need to:
 3. Finally, we work out the probability of a `heads` result, (e.g. probability of 5 heads), by totaling the number of observations for each possible result (e.g. 5 heads) and submitting it to our probability formula above (number of outcomes of event divided by all possible outcomes) 
     - so the number of times we got a specific number of heads (e.g. 5 heads) divided by the total number of outcomes (i.e. the number of replications - 10000). 
 
-Like so:
+We can carry out these steps using the following code:
 
 * Copy the below code into your script and run it.
 
@@ -229,7 +226,7 @@ dbinom(6, 10, 0.5)  # we only have to change the first (x) argument
 As such the probability of 6 heads, using `dbinom` is p = `r dbinom(6, 10, 0.5)`. If you compare this value to the `data10k` value for 6 you will see they are similar but not quite the same because `dbinom` uses a lot more replications than the 10000 we used. 
 
 In terms of visualising what we have just calculated. That number represents the height of the green bar in the plot below. 
-``` {r binom-plot1, echo=FALSE, eval=TRUE, fig.cap = 'Probability Distribution of Number of Heads in 10 Flips'}
+``` {r binom-plot1, echo=FALSE, eval=TRUE, fig.cap = 'Probability Distribution of Number of Heads in 10 Flips with the probability of 6 out of 10 Heads highlighted in green'}
 barplot(dbinom(0:10, 10, 0.5), names.arg = 0:10, xlab = 'Number of Heads', ylab = 'Probability (p)' , col= c('purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'green', 'purple', 'purple', 'purple', 'purple' ))
 ```
 
@@ -263,7 +260,7 @@ pbinom(3, 10, 0.5, lower.tail = TRUE)
 
 So the probability of **up to and including 3 heads** (as `lower.tail = TRUE`) out of 10 flips is **0.172**. For visualization, what we have done is calculated the cumulative probability of the lower tail of the distribution up to our cut-off of 3 (in green below):
 
-``` {r binom-plot2, echo =FALSE, eval = TRUE, fig.cap = 'Probability Distribution of Number of Heads in 10 Flips'}
+``` {r binom-plot2, echo =FALSE, eval = TRUE, fig.cap = 'Probability Distribution of Number of Heads in 10 Flips with the probability of 0 to 3 Heads highlighted in green - `lower.tail = TRUE` '}
 barplot(dbinom(0:10, 10, 0.5), names.arg = 0:10, xlab = 'Number of Heads', ylab = 'Probability (p)' , col= c('green', 'green', 'green', 'green', 'purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'purple' ))
 ```
 
@@ -277,7 +274,7 @@ pbinom(6, 10, 0.5, lower.tail = FALSE)
 
 We still specify our cut-off as 6 heads, even though we want 7 and above, but we switch the `lower.tail` call from `TRUE` to `FALSE` to tell `pbinom` we don't want the lower tail this time (to the left of and including the cut-off), we want the **upper tail, to the right of the cut-off**. This results in the cumulative probability for the upper tail of the distribution down to our cut-off value (shown in green below). We set the cut-off as '6' because in the discrete distribution, only the `lower.tail = TRUE` includes the cut-off (6 and below) whereas the `lower.tail = FALSE`  would be everything above the cut-off **but not including** the cut-off (7 and above).
 
-``` {r binom-plot3, echo =FALSE, eval = TRUE, fig.cap = 'Probability Distribution of Number of Heads in 10 Flips'}
+``` {r binom-plot3, echo =FALSE, eval = TRUE, fig.cap = 'Probability Distribution of Number of Heads in 10 Flips with the probability of 7 or more Heads highlighted in green - `lower.tail = FALSE`'}
 barplot(dbinom(0:10, 10, 0.5), names.arg = 0:10, xlab = 'Number of Heads', ylab = 'Probability (p)' , col= c('purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'purple', 'green', 'green', 'green', 'green' ))
 ```
 
@@ -290,7 +287,7 @@ Let's consider `lower.tail = TRUE`, this is the default, so if you dont state `l
 However, if you say give me the probability of 7 or more heads, then you need to do `lower.tail = FALSE`, to consider the right-hand side tail, but also, you need to set the code as `pbinom(6, 10, .5, lower.tail = FALSE)`. Why 6 and not 7? Because the `pbinom` function, when `lower.tail = FALSE`, starts at the value **plus one to the value you state**; it always considers the value you state as being part of the `lower.tail` so if you say 6, it includes 6 in the `lower.tail` and then gives you 7, 8, 9 and 10 as the upper tail. If you said 7 with `lower.tail = FALSE`, then it would only give you 8, 9 and 10. This is tricky but worth keeping in mind when you are using `pbinom` function. And remember, you can always check it by using `dbinom(7:10, 10, .5) %>% sum()` and seeing whether it matches `pbinom(6, 10, 0.5, lower.tail=FALSE)` or `pbinom(7, 10, 0.5, lower.tail=FALSE)`
 ```
 `r unhide()`  
-
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 * Using the format of the above `pbinom` function, enter the code that would determine the probability of **up to and including** 5 heads out of 20 flips, assuming a probability of 0.5: `r fitb(c("pbinom(5, 20, 0.5)","pbinom(5, 20, .5)","pbinom(5, 20, 0.5, lower.tail=TRUE)", "pbinom(5, 20, .5, lower.tail=TRUE)"), width = 45, ignore_ws = TRUE)`
@@ -333,7 +330,7 @@ The function is set up as `qbinom(p, size, prob)`. First of all, you have used `
 `qbinom` also uses the `lower.tail` argument and it works in a similar fashion to `pbinom`.
 ```
 `r unhide()`  
-
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 * Type in the box, the number of heads required to maintain an overall probability rate of 10% (.1) in 17 flips: `r fitb("6", ignore_ws = TRUE)`
@@ -347,7 +344,7 @@ The answer would be 6 because the code would be:
 Remember that you want an overall probability of 10% (`p` = .1), you have 17 flips in each go (`size` = 17), and the probability of heads on any one flip is .5 (`prob` = .5). And you want the minimum number so the `lower.tail` is TRUE.
 ```
 `r unhide()`
-
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 Excellent! We have now recapped some general probability concepts as well as going over the binomial distribution again. We will focus on the normal distribution in the lab but it would help to read the brief section on it which can be found on Moodle. Keep in mind that what you are trying to get an understanding of is that every value in a distribution has a probability of existing in that distribution.  That probability may be very large, meaning that it is from the middle of the distribution, or that probability might be rather low, meaning it is from the tail, but ultimately every value of a distribution has a probability.
