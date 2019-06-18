@@ -37,7 +37,7 @@ Our task today is to reproduce a figure and the results from the article (p. 887
 
 If you are using the Boyd Orr labs, `broom` is already installed and just needs called to the `library()`. If you are using your own machine, you will need to install it one time to begin with if you have never installed it before.
 
-### InClass Task 1: Evaluators
+### InClass Task 1: Evaluators {#Ch6InClassQueT1}
 
 1. Open a new script and call `broom` and the `tidyverse` into your library. **Note:** Order is important when calling multiple libraries - if two libraries have a function named the same thing, R will use the function from the library loaded in last.
 
@@ -56,7 +56,7 @@ If you are using the Boyd Orr labs, `broom` is already installed and just needs 
 * For your own analysis and future reproducible analyses, it's a good idea to make these representations clearer to others. 
 ```
 `r unhide()`  
-
+<br>
 ```{r ch6-task1-dataload, include = FALSE}
 library("tidyverse")
 library("broom") # you'll need broom::tidy() later
@@ -96,8 +96,8 @@ This paper claimed there were 9 males, however looking at your results you can s
 This is why it's important to have reproducible data analyses for others to examine. Having another pair of eyes examining your data can be very beneficial in spotting any discrepancies - this allows for critical evaluation of analyses and results and improves the quality of research being published. All the more reason to emphasize the importance of conducting replication studies! #ReproducibleScience
 ```
 `r unhide()` 
-    
-### InClass Task 2: Ratings
+<br>    
+### InClass Task 2: Ratings {#Ch6InClassQueT2}
 
 We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
 
@@ -153,7 +153,7 @@ Don't forget to use the hints and the solution at the bottom if you are really s
 5. Use `inner_join()` with the column common in both tibbles. `select()` and `arrange()` will help you here too.
 ```
 `r unhide()`
-
+<br>
 
 ```{r ch6-task2-hidden, include = FALSE}
 # 1. load in the data
@@ -182,7 +182,7 @@ ratings2 <- ratings %>%
   arrange(eval_id, Category)
 ```
 
-### InClass Task 3: Creating a Figure
+### InClass Task 3: Creating a Figure {#Ch6InClassQueT3}
 
 To recap, we now have `ratings2` which contains an overall `Rating` score for each evaluator on the three `Category` (within: hire, impression, intellect) depending on which `condition` that evaluator was in (between: listened or read). Great! Now we have all the information we need to replicate Figure 7 in the article (page 888), shown here:
 
@@ -226,8 +226,8 @@ ggplot(ratings2, aes(condition, Rating, color = condition)) +
   theme_bw()
 ```
 `r unhide()`
-
-### InClass Task 4: t-tests
+<br>
+### InClass Task 4: t-tests {#Ch6InClassQueT4}
 
 Brilliant! So far we have checked the descriptives and the last thing now is to check the inferential tests; the t-tests. You should still have `ratings2` stored from Task 2. From this tibble let's reproduce the **t-test** results from the article and at the same time show you how to run a t-test. Refer back to the lectures to understand the maths behind it but essentially it is a measure between the difference in means over the variance about those means. 
 
@@ -244,26 +244,32 @@ Now would be a good time to add to your notes about what is the difference betwe
 ```
 `r unhide()`
 <br>
-You will need the function `t.test()` and you will use `broom::tidy()` to pull out the results from each t-test into a table. Below we show you how to create the group means and then the t-test for intellect. Run these lines and have a look at what they do.
+You will need the function `t.test()` and you will use `broom::tidy()` to pull out the results from each t-test into a table. Below we show you how to create the group means and then run the t-test for intellect. Run these lines and have a look at what they do.
 
-```{r ch6-task4-steps, echo = TRUE, eval = TRUE, results="hide"}
-## First we create the group means
+1. First we calculate the group means:
+
+```{r ch6-task4-steps1, echo = TRUE, eval = TRUE, results="hide"}
 group_means <- ratings2 %>%
   group_by(condition, Category) %>%
   summarise(m = mean(Rating), sd = sd(Rating))
+```
 
-## and can check them by calling:
+2. And we can call them and look at them by typing:
+```{r ch6-task4-steps2, echo = TRUE, eval = TRUE, results="hide"}
 group_means
+```
 
-## Now we run the t-test
-## First we filter out just the intellect ratings into a new tibble
+3. Now to just look at intellect ratings we need to filter them into a new tibble:
+```{r ch6-task4-steps3, echo = TRUE, eval = TRUE, results="hide"}
 intellect <- filter(ratings2, Category == "intellect")
+```
 
-## Second we actually perform the analysis
-## `t.test()` requires two vectors as input
-## `pull()` will pull out a single column from a tibble, e.g. Rating from intellect
-## `tidy()` takes information from a test and turns it into a table. 
-## Run the t.test with and without piping into tidy to see what it does differently.
+4. And then we run the actual t-test and tidy it into a table.
+    * `t.test()` requires two vectors as input
+    * `pull()` will pull out a single column from a tibble, e.g. Rating from intellect
+    * `tidy()` takes information from a test and turns it into a table. Try running the t.test with and without piping into `tidy()` to see what it does differently.
+ 
+```{r ch6-task4-steps4, echo = TRUE, eval = TRUE, results="hide"}
 
 intellect_t <- t.test(intellect %>% filter(condition == "listened") %>% pull(Rating),
                       intellect %>% filter(condition == "read") %>% pull(Rating),
@@ -274,7 +280,7 @@ intellect_t <- t.test(intellect %>% filter(condition == "listened") %>% pull(Rat
 Now lets look at the `intellect_t`tibble we have created (assuming you piped into `tidy()`): 
 
 ```{r ch6-task4-table, echo = FALSE, results = 'asis'}
-knitr::kable(intellect_t, digits = 3, caption = "Table Caption")
+knitr::kable(intellect_t, digits = 3, caption = "The t-test output of those in the intellect condition.")
 ```
 
 From the resultant tibble, `intellect_t`, you can see that you ran a Two Sample t-test (meaning between) with a two sided hypothesis test ("two.sided"). The mean for the listened condition, `estimate1`, was `r intellect_t$estimate1 %>% round(3)`, whilst the mean for the read condition, `estimate2` was `r intellect_t$estimate2 %>% round(3)`. So an overall difference of `r (intellect_t$estimate1 - intellect_t$estimate2) %>% round(3)`. The degrees of freedom, `parameter`, was `r intellect_t$parameter %>% round(3)`. The t-value, `statistic`, was `r intellect_t$statistic %>% round(3)`, and it was significant as the p-value, `p.value`, was `r intellect_t$p.value %>% round(4)` (lower than alpha ($a$) = .05 - the Type 1 error rate).  
@@ -307,8 +313,11 @@ results <- bind_rows(intellect_t, hire_t, impression_t)
 knitr::kable(results, caption = "Table Caption")
 ```
 
-```{r lab6-task4-table2-nocapt, echo = FALSE, results = 'asis'}
-knitr::kable(results)
+```{r table-test, echo = FALSE, results = 'asis'}
+iris %>%
+  group_by(Species) %>%
+  summarise_all(mean) %>%
+  knitr::kable(digits = 3, caption = "Example table with kable.")
 ```
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span> 

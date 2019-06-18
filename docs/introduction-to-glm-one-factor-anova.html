@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 11 Introduction to GLM: One-factor ANOVA | ug2-practical</title>
-  <meta name="description" content="Lab 11 Introduction to GLM: One-factor ANOVA | ug2-practical-materials">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Lab 11 Introduction to GLM: One-factor ANOVA | ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 11 Introduction to GLM: One-factor ANOVA | ug2-practical" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="Lab 11 Introduction to GLM: One-factor ANOVA | ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
+<meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-06-18">
+<meta name="date" content="2019-06-18" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="correlations.html">
@@ -51,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -114,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -164,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -238,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -284,33 +309,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
-<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT2"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
-<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT3"><i class="fa fa-check"></i><b>6.2.4</b> Task 3: Calculating Probability</a></li>
-<li class="chapter" data-level="6.2.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>6.2.5</b> The One-Sample t-test</a></li>
-<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT4"><i class="fa fa-check"></i><b>6.2.6</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
-<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT5"><i class="fa fa-check"></i><b>6.2.7</b> Task 5: Calculating the Observed Test Statistic</a></li>
-<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT6"><i class="fa fa-check"></i><b>6.2.8</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
-<li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT7"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
-<li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT8"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
+<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT3"><i class="fa fa-check"></i><b>6.2.3</b> Task 3: Calculating Probability</a></li>
+<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>6.2.4</b> The One-Sample t-test</a></li>
+<li class="chapter" data-level="6.2.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT4"><i class="fa fa-check"></i><b>6.2.5</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
+<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT5"><i class="fa fa-check"></i><b>6.2.6</b> Task 5: Calculating the Observed Test Statistic</a></li>
+<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT6"><i class="fa fa-check"></i><b>6.2.7</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
+<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT8"><i class="fa fa-check"></i><b>6.2.8</b> Task 8: Drawing Conclusions about the new data</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-2-additional"><i class="fa fa-check"></i><b>6.3</b> PreClass Activity 2 (Additional)</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#a-short-blog-on-barplots"><i class="fa fa-check"></i><b>6.3.1</b> A short blog on Barplots</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.4</b> InClass Activity</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-1-evaluators"><i class="fa fa-check"></i><b>6.4.1</b> InClass Task 1: Evaluators</a></li>
-<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-2-ratings"><i class="fa fa-check"></i><b>6.4.2</b> InClass Task 2: Ratings</a></li>
-<li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-3-creating-a-figure"><i class="fa fa-check"></i><b>6.4.3</b> InClass Task 3: Creating a Figure</a></li>
-<li class="chapter" data-level="6.4.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-4-t-tests"><i class="fa fa-check"></i><b>6.4.4</b> InClass Task 4: t-tests</a></li>
+<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT1"><i class="fa fa-check"></i><b>6.4.1</b> InClass Task 1: Evaluators</a></li>
+<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT3"><i class="fa fa-check"></i><b>6.4.2</b> InClass Task 3: Creating a Figure</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#assignment-5"><i class="fa fa-check"></i><b>6.5</b> Assignment</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1a-libraries"><i class="fa fa-check"></i><b>6.5.1</b> Task 1A: Libraries</a></li>
-<li class="chapter" data-level="6.5.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1b-loading-in-the-data"><i class="fa fa-check"></i><b>6.5.2</b> Task 1B: Loading in the data</a></li>
-<li class="chapter" data-level="6.5.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-2-identify-relevant-columns"><i class="fa fa-check"></i><b>6.5.3</b> Task 2: Identify relevant columns</a></li>
-<li class="chapter" data-level="6.5.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-3-verify-the-number-of-subjects-in-each-group"><i class="fa fa-check"></i><b>6.5.4</b> Task 3: Verify the number of subjects in each group</a></li>
-<li class="chapter" data-level="6.5.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-4-reproduce-figure-2a"><i class="fa fa-check"></i><b>6.5.5</b> Task 4: Reproduce Figure 2a</a></li>
-<li class="chapter" data-level="6.5.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-5-interpreting-your-figure"><i class="fa fa-check"></i><b>6.5.6</b> Task 5: Interpreting your Figure</a></li>
-<li class="chapter" data-level="6.5.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-6-t-test"><i class="fa fa-check"></i><b>6.5.7</b> Task 6: t-test</a></li>
-<li class="chapter" data-level="6.5.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-7-reporting-results"><i class="fa fa-check"></i><b>6.5.8</b> Task 7: Reporting results</a></li>
+<li class="chapter" data-level="6.5.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT1A"><i class="fa fa-check"></i><b>6.5.1</b> Task 1A: Libraries</a></li>
+<li class="chapter" data-level="6.5.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT1B"><i class="fa fa-check"></i><b>6.5.2</b> Task 1B: Loading in the data</a></li>
+<li class="chapter" data-level="6.5.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT2"><i class="fa fa-check"></i><b>6.5.3</b> Task 2: Selecting only relevant columns</a></li>
+<li class="chapter" data-level="6.5.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT3"><i class="fa fa-check"></i><b>6.5.4</b> Task 3: Verify the number of subjects in each group</a></li>
+<li class="chapter" data-level="6.5.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT4"><i class="fa fa-check"></i><b>6.5.5</b> Task 4: Reproduce Figure 2a</a></li>
+<li class="chapter" data-level="6.5.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT5"><i class="fa fa-check"></i><b>6.5.6</b> Task 5: Interpreting your Figure</a></li>
+<li class="chapter" data-level="6.5.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT6"><i class="fa fa-check"></i><b>6.5.7</b> Task 6: t-test</a></li>
+<li class="chapter" data-level="6.5.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT7"><i class="fa fa-check"></i><b>6.5.8</b> Task 7: Reporting results</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#solutions-to-questions-5"><i class="fa fa-check"></i><b>6.6</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activities-1"><i class="fa fa-check"></i><b>6.6.1</b> PreClass Activities</a></li>
@@ -347,7 +368,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen's D</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen’s D</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-effect-size-from-a-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.2</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-effect-size-from-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.3</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-effect-size-from-matched-pairs-t-test"><i class="fa fa-check"></i><b>8.3.4</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -472,8 +493,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.3.8" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.8</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#assignment-12"><i class="fa fa-check"></i><b>13.4</b> Assignment</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries-1"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
-<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data-1"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
+<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
+<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="13.4.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-2-calculate-cell-means"><i class="fa fa-check"></i><b>13.4.3</b> Task 2: Calculate cell means</a></li>
 <li class="chapter" data-level="13.4.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-3-marginal-means-for-sex"><i class="fa fa-check"></i><b>13.4.4</b> Task 3: Marginal means for sex</a></li>
 <li class="chapter" data-level="13.4.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-4-marginal-means-for-condition"><i class="fa fa-check"></i><b>13.4.5</b> Task 4: Marginal means for condition</a></li>
@@ -579,10 +600,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="overview-10" class="section level2">
 <h2><span class="header-section-number">11.1</span> Overview</h2>
 <p>You will notice a slight change in the assignments this semester in that you are required to do a little more computation than before but all the skills you need will of course be shown to you or you already know them. The reason for this is that last sememster we developed your general practical data skills and now this semester we want to up your understanding of the analysis and data you are working with by working the models through by hand before running the functions. We did a little of this with the t-test but this time we will focus on one model approach that covers a number of analyses: the General Linear Model (GLM). As always ask as many questions as you like!</p>
-<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. You have been reading about the General Linear Model (GLM) approach in the Miller and Haden (2013) textbook (Chs. 1-3). This is a common approach in statistics in Psychology as it encapsulates a range of common analytical techniques that you are familiar with and will become familiar with, and we will spend some of the next few lessons looking at it and reading about it. And one of the best ways to learn about linear models is to do things &quot;by hand&quot; on a &quot;toy&quot; dataset.</p>
+<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. You have been reading about the General Linear Model (GLM) approach in the Miller and Haden (2013) textbook (Chs. 1-3). This is a common approach in statistics in Psychology as it encapsulates a range of common analytical techniques that you are familiar with and will become familiar with, and we will spend some of the next few lessons looking at it and reading about it. And one of the best ways to learn about linear models is to do things “by hand” on a “toy” dataset.</p>
 <p>As such, the goals of this inclass assignment are:</p>
 <ul>
-<li>to recap and practice entering data into a &quot;tibble&quot; (tidyverse data frame - as in Semester 1 Lab 5);</li>
+<li>to recap and practice entering data into a “tibble” (tidyverse data frame - as in Semester 1 Lab 5);</li>
 <li>to learn how to estimate model parameters from a dataset;</li>
 <li>to learn how to derive a <strong>decomposition matrix</strong> that expresses each observation as a linear sum of model components and error.</li>
 </ul>
@@ -593,8 +614,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">11.2</span> PreClass Activity</h2>
 <div id="read-1" class="section level3">
 <h3><span class="header-section-number">11.2.1</span> Read</h3>
-<p>As preparation, please read chapters 1 to 3 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view", target = "_blank">Miller and Haden (2013)</a>.</p>
-<p>This is quite a lot of reading, and don't worry if you don't understand it all first time. The best way to look at it will be to read through as prep, get the gist, then use it to support the class activity and re-read to consolidate knowledge for the assessment. In this week's inclass lab activity we will be working up to Sums of Squares - around section 3.4</p>
+<p>As preparation, please read chapters 1 to 3 of &lt;a href=“<a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" class="uri">https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view</a>”, target = &quot;_blank&quot;&gt;Miller and Haden (2013)</a>.</p>
+<p>This is quite a lot of reading, and don’t worry if you don’t understand it all first time. The best way to look at it will be to read through as prep, get the gist, then use it to support the class activity and re-read to consolidate knowledge for the assessment. In this week’s inclass lab activity we will be working up to Sums of Squares - around section 3.4</p>
 
 </div>
 </div>
@@ -604,10 +625,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>One-factor ANOVA: Worked example</strong></p>
 <p>Today we are going to start with a step by step example of building a model for an ANOVA (Analysis of Variance). After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.</p>
 <p>An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally only have two conditions (levels) right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs hooligans (t-test), you can compare IQ scores for professors vs hooligans vs politicians (ANOVA); though one might argue that the latter two conditions (levels) are one in the same.</p>
-<p>Let's assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let's pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you'd need <strong>far more</strong> than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).</p>
-<p>This is called a <strong>one-factor design</strong> because there is a single factor, which we might call &quot;pre-exam consumption&quot;, that has three different levels: water, buffet, and salad. It is a between-subjects design because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.</p>
-<p>For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won't complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference in groups.</p>
-<p>Here's how the exam performance looks for each of the three groups:</p>
+<p>Let’s assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let’s pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you’d need <strong>far more</strong> than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).</p>
+<p>This is called a <strong>one-factor design</strong> because there is a single factor, which we might call “pre-exam consumption”, that has three different levels: water, buffet, and salad. It is a between-subjects design because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.</p>
+<p>For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won’t complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference in groups.</p>
+<p>Here’s how the exam performance looks for each of the three groups:</p>
 <ul>
 <li><strong>Control</strong>: 37, 80, 64, 51</li>
 <li><strong>Buffet</strong>: 33, 47, 55, 41</li>
@@ -617,11 +638,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">11.3.1</span> Test your understanding</h3>
 <p>To make sure you understand, answer the following questions about the above experiment:</p>
 <ol style="list-style-type: decimal">
-<li>Factor is another name for a <select class='solveme' data-answer='["variable"]'> <option></option> <option>level</option> <option>condition</option> <option>control</option> <option>variable</option> </select> of the experiment</li>
-<li>Level is another name for a <select class='solveme' data-answer='["condition"]'> <option></option> <option>factor</option> <option>condition</option> <option>control</option> <option>variable</option> </select> of the experiment</li>
-<li><p>In this experiment we have <select class='solveme' data-answer='["1 factor with 3 levels"]'> <option></option> <option>1 factor with 3 levels</option> <option>1 level with 3 factors</option> <option>3 variables with 1 condition</option> </select></p></li>
-<li><p>Because each group contains different participants then this is a <select class='solveme' data-answer='["between-subjects design"]'> <option></option> <option>within-subjects design</option> <option>between-subjects design</option> <option>mixed design</option> </select></p></li>
-<li><p>The fourth participant in the Control condition scored <select class='solveme' data-answer='["51"]'> <option></option> <option>60</option> <option>41</option> <option>51</option> <option>64</option> </select> on the exam</p></li>
+<li>Factor is another name for a <select class='solveme' data-answer='["variable"]'> <option></option> <option>level</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
+<li>Level is another name for a <select class='solveme' data-answer='["condition"]'> <option></option> <option>factor</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
+<li>In this experiment we have <select class='solveme' data-answer='["1 factor with 3 levels"]'> <option></option> <option>1 factor with 3 levels</option> <option>1 level with 3 factors</option> <option>3 variables with 1 condition</option></select></li>
+<li>Because each group contains different participants then this is a <select class='solveme' data-answer='["between-subjects design"]'> <option></option> <option>within-subjects design</option> <option>between-subjects design</option> <option>mixed design</option></select></li>
+<li>The fourth participant in the Control condition scored <select class='solveme' data-answer='["51"]'> <option></option> <option>60</option> <option>41</option> <option>51</option> <option>64</option></select> on the exam</li>
 </ol>
 </div>
 <div id="estimating-model-components" class="section level3">
@@ -630,13 +651,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(Y_{ij} = \mu + A_i + S(A)_{ij}\)</span></p>
 <p>Where:</p>
 <ul>
-<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant's score in a given group;</li>
-<li><span class="math inline">\(\mu\)</span> (pronounced &quot;mu&quot;) is the population grand mean (estimated by the sample grand mean);</li>
+<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant’s score in a given group;</li>
+<li><span class="math inline">\(\mu\)</span> (pronounced “mu”) is the population grand mean (estimated by the sample grand mean);</li>
 <li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean;</li>
-<li><span class="math inline">\(S(A)_{ij}\)</span> is the error or &quot;residual&quot;, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value.</li>
+<li><span class="math inline">\(S(A)_{ij}\)</span> is the error or “residual”, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value.</li>
 <li><span class="math inline">\(\hat{Y}_{ij}\)</span> is also known as the fitted value or the typical value or the predicted value of a participant in a group, and is calculated as: <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span>.</li>
 </ul>
-<p>We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span>. The &quot;party hat&quot; that <span class="math inline">\(\mu\)</span> is wearing (<span class="math inline">\(\hat{\mu}\)</span>) is just there to remind us that it is not the actual population mean, but an <strong>estimate</strong> of that value derived from our sample. So if we are working in predicted values, values we haven't actually collected, just predicted, then we stick the &quot;party hat&quot; on the symbol. If we are working in real values that we have collected, no party hat!</p>
+<p>We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span>. The “party hat” that <span class="math inline">\(\mu\)</span> is wearing (<span class="math inline">\(\hat{\mu}\)</span>) is just there to remind us that it is not the actual population mean, but an <strong>estimate</strong> of that value derived from our sample. So if we are working in predicted values, values we haven’t actually collected, just predicted, then we stick the “party hat” on the symbol. If we are working in real values that we have collected, no party hat!</p>
 <p>The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:</p>
 <ul>
 <li><p><span class="math inline">\(\hat{\mu} = Y_{..}\)</span></p></li>
@@ -683,54 +704,55 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">11.3.3</span> Test your understanding</h3>
 <p>To make sure you understand the above equations before going on to calculate your own, answer the following questions about the above table which expresses the GLM decomposition matrix, and then check your answers.</p>
 <ol style="list-style-type: decimal">
-<li><p>In which column of the table are the 12 observed values - i.e. the 12 original scores from the participants?</p>
+<li><p>In which column of the table are the 12 observed values - i.e. the 12 original scores from the participants?</p>
 <div class="solution">
 <button>
 Answer
 </button>
-<p>The column named <code>Yij</code></p>
+The column named <code>Yij</code>
 </div></li>
 <li><p>What is the estimated grand mean of this sample? (hint: <span class="math inline">\(\hat{\mu}\)</span>)</p>
 <div class="solution">
 <button>
 Answer
 </button>
-<p>50</p>
+50
 </div></li>
 <li><p>Which rows of the table contain the data and model estimates for the <strong>Buffet</strong> group if they are group 2?</p>
 <div class="solution">
 <button>
 Answer
 </button>
-<p>The rows where <code>i</code> is equal to 2; in other words, rows 5-8</p>
+The rows where <code>i</code> is equal to 2; in other words, rows 5-8
 </div></li>
 <li><p>What is the value of <span class="math inline">\(\hat{A}_1\)</span> and in what rows does it appear?</p>
 <div class="solution">
 <button>
 Answer
 </button>
-<p>8; it appears in column <code>Ai</code>, rows 1-4, where <code>i</code> equals 1. This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the <strong>typical</strong> participant in that group - as opposed to an individual participant in that group.</p>
+8; it appears in column <code>Ai</code>, rows 1-4, where <code>i</code> equals 1. This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the <strong>typical</strong> participant in that group - as opposed to an individual participant in that group.
 </div></li>
 <li><p>What is the value of <span class="math inline">\(\widehat{S(A)}_{32}\)</span>? (hint: this can be read as where i = 3 and j = 2)</p>
 <div class="solution">
 <button>
 Answer
 </button>
-<p>-25; it appears in column <code>err</code>, where <code>i</code> equals 3 and <code>j</code> equals 2. This can be thought of the unique difference for that participant from the sample mean and group mean.</p>
+-25; it appears in column <code>err</code>, where <code>i</code> equals 3 and <code>j</code> equals 2. This can be thought of the unique difference for that participant from the sample mean and group mean.
 </div></li>
-<li><p>What is the model's prediction for a 'typical' participant in the &quot;Salad&quot; group? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)</p>
+<li><p>What is the model’s prediction for a ‘typical’ participant in the “Salad” group? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)</p>
 <div class="solution">
 <button>
 Answer
 </button>
-<p>A 'typical' participant is one where the residual is 0; Thus, the prediction <span class="math inline">\(\hat{Y}_{ij} = \hat{\mu} + \hat{A}_3\)</span> = 50 + -2 = 48. The model prediction is also known as the &quot;fitted value&quot; for this group.</p>
+A ‘typical’ participant is one where the residual is 0; Thus, the prediction <span class="math inline">\(\hat{Y}_{ij} = \hat{\mu} + \hat{A}_3\)</span> = 50 + -2 = 48. The model prediction is also known as the “fitted value” for this group.<br />
+
 </div></li>
-<li><p>Where in the table are the differences found between this 'typical' participant prediction and the observed values in the salad group?</p>
+<li><p>Where in the table are the differences found between this ‘typical’ participant prediction and the observed values in the salad group?</p>
 <div class="solution">
 <button>
 Answer
 </button>
-<p>These are the called the &quot;residuals&quot; (<span class="math inline">\(\widehat{S(A)}_{ij}\)</span>s) and are found in the <code>err</code> column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.</p>
+These are the called the “residuals” (<span class="math inline">\(\widehat{S(A)}_{ij}\)</span>s) and are found in the <code>err</code> column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.
 </div></li>
 </ol>
 </div>
@@ -758,7 +780,7 @@ Answer
 <h3><span class="header-section-number">11.3.5</span> Step 1: Create the basic tibble</h3>
 <ul>
 <li><p>Create a tibble named <code>dmx</code> (short for decomposition matrix). It will eventually contain all of the columns in the one above, but for now, just create the columns <code>i</code>, <code>j</code>, and <code>Yij</code> as they appear above.</p></li>
-<li><strong>hint 1</strong>: You already know how to create a tibble (don't forget to load the tidyverse package first). In case you need to refresh your memory, see <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf", target = "_blank">page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Lab 5 Semester 1.</li>
+<li><strong>hint 1</strong>: You already know how to create a tibble (don’t forget to load the tidyverse package first). In case you need to refresh your memory, see &lt;a href=“<a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf</a>”, target = &quot;_blank&quot;&gt;page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Lab 5 Semester 1.</li>
 <li><p><strong>hint 2</strong>: You should just type in the values for <code>Yij</code> but try to use the rep() function for columns <code>i</code> (the group) and <code>j</code> (the participant).</p></li>
 </ul>
 <div id="section" class="section level4 tabset tabset-fade tabset-pills">
@@ -768,7 +790,7 @@ Answer
 </div>
 <div id="create-the-tibble" class="section level5">
 <h5><span class="header-section-number">11.3.5.1.2</span> Create the tibble</h5>
-<p>Don't forget to load the tidyverse</p>
+<p>Don’t forget to load the tidyverse</p>
 <p><code>dmx &lt;- tibble(i = NA, j = NA, Yij = NA)</code></p>
 </div>
 <div id="the-rep-function" class="section level5">
@@ -808,7 +830,7 @@ Answer
 <ul>
 <li>Add a column to the table <code>dmx2</code> called <code>Ai</code>, with the three estimates for <span class="math inline">\(\hat{A}_i\)</span>. Store the resulting tibble in <code>dmx3</code>.</li>
 <li><span class="math inline">\(\hat{A}_i\)</span> is the difference between the grand mean <span class="math inline">\(\hat{\mu}\)</span> and the mean of individual groups. This means that you will need to group people by the group they belong to.</li>
-<li>Add the <code>ungroup()</code> function to the end of your pipeline as you won't need this grouping after.</li>
+<li>Add the <code>ungroup()</code> function to the end of your pipeline as you won’t need this grouping after.</li>
 </ul>
 <div id="section-2" class="section level4 tabset tabset-fade tabset-pills">
 <h4><span class="header-section-number">11.3.6.1</span> </h4>
@@ -826,7 +848,7 @@ Answer
 </div>
 <div id="step-4-calculate-widehatsa_ijs" class="section level3">
 <h3><span class="header-section-number">11.3.7</span> Step 4: Calculate <span class="math inline">\(\widehat{S(A)}_{ij}\)</span>s</h3>
-<p>Well done, you're almost there! We just need to add on the final column, <code>err</code>, which is called the <strong>residuals</strong> or in other words, the difference between the score of a typical participant for that group (<code>mu</code> + <code>Ai</code>) and a given individual participant' score (<code>Yij</code>).</p>
+<p>Well done, you’re almost there! We just need to add on the final column, <code>err</code>, which is called the <strong>residuals</strong> or in other words, the difference between the score of a typical participant for that group (<code>mu</code> + <code>Ai</code>) and a given individual participant’ score (<code>Yij</code>).</p>
 <ul>
 <li>Add a column called <code>err</code> to <code>dmx3</code> and store the result in <code>dmx4</code>. The column <code>err</code> should contain the residuals - the difference between the observed (Yij) and fitted (typical) values.</li>
 </ul>
@@ -851,7 +873,7 @@ Answer
 </li>
 <li>Save these in a variable called <code>sstbl</code>.</li>
 </ul>
-<p>Here is an example of how you would square a value <code>x</code>: <code>x^2</code>. The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you're unsure). It also works for columns!</p>
+<p>Here is an example of how you would square a value <code>x</code>: <code>x^2</code>. The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you’re unsure). It also works for columns!</p>
 <ul>
 <li>the Sums of Squares of <code>Yij</code> is called the Sums of Squares total or <span class="math inline">\(SS_{total}\)</span>.</li>
 <li>the Sums of Squares of <code>mu</code> is called the Sums of Squares of the grand mean or <span class="math inline">\(SS_{\mu}\)</span> and sometimes called the intercept.</li>
@@ -881,19 +903,19 @@ Answer
 <div id="assignment-10" class="section level2">
 <h2><span class="header-section-number">11.4</span> Assignment</h2>
 <p><strong>Lab 11: Introduction to GLM: One-factor ANOVA</strong></p>
-<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester2_Lab2.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_02/homework/Level2_Semester2_Lab2_AssignmentFiles.zip", target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.</p>
+<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester2_Lab2.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. &lt;a href=“<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_02/homework/Level2_Semester2_Lab2_AssignmentFiles.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_02/homework/Level2_Semester2_Lab2_AssignmentFiles.zip</a>”, target = &quot;_blank&quot;&gt;Download the Assignment .zip file from here</a> or on Moodle.</p>
 <p><strong>Single Answer and Multiple Choice Questions</strong></p>
 <p>For this assignment you will answer a series of short single and Mulitple Choice Questions, followed by a calculation of a decomposition matrix in the final task. In order to complete this formative assignment you will need to have completed the inclass activity and have read Miller and Haden Chapter 3.</p>
 <p><strong>Before starting lets check:</strong></p>
 <ol style="list-style-type: decimal">
 <li>The <code>.Rmd</code> file is saved in a folder and that you have set your working directory to that folder. For assessments we ask that you save it with the format <code>GUID_Level2_Semester2_Lab2.Rmd</code> where <code>GUID</code> is replaced with your <code>GUID</code>. Though this is a formative assessment, it may be good practice to do the same here.</li>
 </ol>
-<p><strong>Let's Begin!</strong></p>
+<p><strong>Let’s Begin!</strong></p>
 <div id="question-1" class="section level3">
 <h3><span class="header-section-number">11.4.1</span> Question 1</h3>
 <p>Consider the following description of a study.</p>
 <blockquote>
-<p>You are investigating whether there is seasonal variation in students' bodyweight. In other words, is there any evidence that bodyweight differs across the four seasons (Winter, Spring, Summer, and Fall - #AllYouGotToDoIsCall)?</p>
+<p>You are investigating whether there is seasonal variation in students’ bodyweight. In other words, is there any evidence that bodyweight differs across the four seasons (Winter, Spring, Summer, and Fall - #AllYouGotToDoIsCall)?</p>
 </blockquote>
 <p>Which of the models shown below would be the the general linear model corresponding to this study?</p>
 <ol style="list-style-type: decimal">
@@ -902,8 +924,8 @@ Answer
 <li><span class="math inline">\(Y_{ij} = \beta_0 + \beta_1 X_1 + e_{ij}\)</span></li>
 <li><span class="math inline">\(Y_{ijkm} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + e_{ijkm}\)</span></li>
 </ol>
-<p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mcq1 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">mcq1 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <hr />
 <p>For the next few questions consider the decomposition matrix for a one-factor design with three groups, shown below .</p>
 <table>
@@ -976,10 +998,10 @@ Answer
 <li>0</li>
 <li>6</li>
 <li>36</li>
-<li>can't answer; not observed</li>
+<li>can’t answer; not observed</li>
 </ol>
-<p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mcq2 &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre></div>
+<p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">mcq2 &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre>
 </div>
 <div id="question-3" class="section level3">
 <h3><span class="header-section-number">11.4.3</span> Question 3</h3>
@@ -988,17 +1010,17 @@ Answer
 <li>6</li>
 <li>0</li>
 <li>1</li>
-<li>can't answer; not observed</li>
+<li>can’t answer; not observed</li>
 </ol>
-<p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mcq3 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">mcq3 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="question-4" class="section level3">
 <h3><span class="header-section-number">11.4.4</span> Question 4</h3>
 <p>According to the above decomposition matrix, the predicted value for a participant in group 1 is what?</p>
-<p><strong>Hint</strong>: this is the &quot;fitted&quot; or &quot;typical&quot; for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
+<p><strong>Hint</strong>: this is the “fitted” or “typical” for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
 <p>Replace the NULL in the Q4 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q4 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Q4 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre>
 </div>
 <div id="question-5" class="section level3">
 <h3><span class="header-section-number">11.4.5</span> Question 5</h3>
@@ -1009,20 +1031,20 @@ Answer
 <li><span class="math inline">\(Y_{31}\)</span></li>
 <li><span class="math inline">\(Y_{31}\)</span> and <span class="math inline">\(Y_{32}\)</span></li>
 </ol>
-<p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q5 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">Q5 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="question-6" class="section level3">
 <h3><span class="header-section-number">11.4.6</span> Question 6</h3>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{total}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q6 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q6 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Q6 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre>
 </div>
 <div id="question-7" class="section level3">
 <h3><span class="header-section-number">11.4.7</span> Question 7</h3>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{error}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q7 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q7 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Q7 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre>
 </div>
 <div id="question-8" class="section level3">
 <h3><span class="header-section-number">11.4.8</span> Question 8</h3>
@@ -1035,22 +1057,22 @@ Answer
 <p>Given those values, what is the value of <span class="math inline">\(SS_{A}\)</span>?</p>
 <p><strong>hint:</strong> <span class="math inline">\(SS_{total}\)</span> = <span class="math inline">\(SS_{\mu}\)</span> + <span class="math inline">\(SS_{A}\)</span> + <span class="math inline">\(SS_{error}\)</span></p>
 <p>Replace the NULL in the Q8 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q8 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># replace NULL with your answer (a number)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Q8 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># replace NULL with your answer (a number)</span></code></pre>
 </div>
 <div id="question-9-create-your-own-decomposition-matrix" class="section level3">
 <h3><span class="header-section-number">11.4.9</span> Question 9: Create your own decomposition matrix</h3>
 <p>Finally, this last task tests your ability to set up a decomposition matrix as shown inclass. The code chunk below creates the basic table structure you will need to complete this task. Run the code and have a look at the table, but DO NOT CHANGE IT!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## run this block, have a look at the structure of dsetup,
-## but don&#39;t change anything
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## run this block, have a look at the structure of dsetup,</span>
+<span class="co">## but don&#39;t change anything</span>
 
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
-dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),
-                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),
+dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),
+                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),
                  <span class="dt">Yij =</span> <span class="ot">NA</span>,
                  <span class="dt">mu =</span> <span class="ot">NA</span>,
                  <span class="dt">Ai =</span> <span class="ot">NA</span>,
-                 <span class="dt">err =</span> <span class="ot">NA</span>)</code></pre></div>
+                 <span class="dt">err =</span> <span class="ot">NA</span>)</code></pre>
 <p>In the code chunk below, flesh out the values in <code>dsetup</code> to create a decomposition matrix for the data shown below (a one-factor design with four levels), but with the actual numeric values replacing the NA values.</p>
 <ul>
 <li>Group 1: 84, 86, 61</li>
@@ -1065,16 +1087,16 @@ dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class=
 <li><strong>DO NOT</strong> change the column names, the column ordering, and make sure it has the right number of rows and columns. You should have 12 rows by 6 columns.</li>
 <li>Make sure your code runs without error in a fresh R session, and make sure no warnings are generated by the code chunk named <code>dmx_warning</code>, which validates your response.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># TODO: DO STUFF WITH dsetup</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># </span><span class="al">TODO</span><span class="co">: DO STUFF WITH dsetup</span>
 
 <span class="co"># you can change or remove the line below,</span>
 <span class="co"># but make sure your final table is called dmx</span>
-dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre></div>
+dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre>
 <pre><code>## Warning: If this warning appears in the output, you have not yet defined
 ## &#39;dmx&#39; properly, and will lose points on the assessment. Check column names
 ## (including capitalization), column data types, and table structure.</code></pre>
 <p><strong>Finished</strong></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the &lt;a href = “<a href="https://rguppies.slack.com" class="uri">https://rguppies.slack.com</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
 
 </div>
@@ -1090,13 +1112,13 @@ dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre></di
 <button>
 Solution Step 1
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
-dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">4</span>), 
-              <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">4</span>, <span class="dt">times =</span> <span class="dv">3</span>),
+dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">4</span>), 
+              <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times =</span> <span class="dv">3</span>),
               <span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">37</span>, <span class="dv">80</span>, <span class="dv">64</span>, <span class="dv">51</span>,
                     <span class="dv">33</span>, <span class="dv">47</span>, <span class="dv">55</span>, <span class="dv">41</span>,
-                    <span class="dv">59</span>, <span class="dv">23</span>, <span class="dv">50</span>, <span class="dv">60</span>)) <span class="co"># TYPE THE VALUES</span></code></pre></div>
+                    <span class="dv">59</span>, <span class="dv">23</span>, <span class="dv">50</span>, <span class="dv">60</span>)) <span class="co"># TYPE THE VALUES</span></code></pre>
 </div>
 <p>** Click tab to see solution **</p>
 </div>
@@ -1106,10 +1128,10 @@ dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt
 <button>
 Solution Step 2
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dmx2 &lt;-<span class="st"> </span>dmx %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">dmx2 &lt;-<span class="st"> </span>dmx <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mu =</span> <span class="kw">mean</span>(Yij))
 
-dmx2</code></pre></div>
+dmx2</code></pre>
 <pre><code>## # A tibble: 12 x 4
 ##        i     j   Yij    mu
 ##    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1134,10 +1156,10 @@ dmx2</code></pre></div>
 <button>
 Solution Step 3
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dmx3 &lt;-<span class="st"> </span>dmx2 %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(i) %&gt;%<span class="st"> </span><span class="co"># calculate different values for each i</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) -<span class="st"> </span>mu) %&gt;%
-<span class="st">  </span><span class="kw">ungroup</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dmx3 &lt;-<span class="st"> </span>dmx2 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># calculate different values for each i</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>()</code></pre>
 </div>
 <p>** Click tab to see solution **</p>
 </div>
@@ -1147,10 +1169,10 @@ Solution Step 3
 <button>
 Solution Step 4
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dmx4 &lt;-<span class="st"> </span>dmx3 %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij -<span class="st"> </span>(mu +<span class="st"> </span>Ai))
+<pre class="sourceCode r"><code class="sourceCode r">dmx4 &lt;-<span class="st"> </span>dmx3 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))
 
-dmx4</code></pre></div>
+dmx4</code></pre>
 <pre><code>## # A tibble: 12 x 6
 ##        i     j   Yij    mu    Ai   err
 ##    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1175,16 +1197,16 @@ dmx4</code></pre></div>
 <button>
 Solution Step 5 (version 1)
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sstbl &lt;-<span class="st"> </span>dmx4 %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij^<span class="dv">2</span>,
-         <span class="dt">mu2 =</span> mu^<span class="dv">2</span>,
-         <span class="dt">Ai2 =</span> Ai^<span class="dv">2</span>,
-         <span class="dt">err2 =</span> err^<span class="dv">2</span>) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij<span class="op">^</span><span class="dv">2</span>,
+         <span class="dt">mu2 =</span> mu<span class="op">^</span><span class="dv">2</span>,
+         <span class="dt">Ai2 =</span> Ai<span class="op">^</span><span class="dv">2</span>,
+         <span class="dt">err2 =</span> err<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ss_Y =</span> <span class="kw">sum</span>(Yij2),
             <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu2),
             <span class="dt">ss_Ai =</span> <span class="kw">sum</span>(Ai2),
-            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2))</code></pre></div>
+            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2))</code></pre>
 </div>
 <p>** Click tab to see solution **</p>
 </div>
@@ -1194,12 +1216,12 @@ Solution Step 5 (version 1)
 <button>
 Solution Step 5 (version 2)
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## here is a super cool way to do the same thing,
-## using dplyr&#39;s &quot;scoping&quot; technique 
-## (see ?dplyr::scoped and ?dplyr::summarise_all)
-sstbl &lt;-<span class="st"> </span>dmx4 %&gt;%
-<span class="st">  </span><span class="kw">select</span>(Yij:err) %&gt;%
-<span class="st">  </span><span class="kw">summarise_all</span>(<span class="kw">funs</span>(<span class="kw">sum</span>(.^<span class="dv">2</span>)))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## here is a super cool way to do the same thing,</span>
+<span class="co">## using dplyr&#39;s &quot;scoping&quot; technique </span>
+<span class="co">## (see ?dplyr::scoped and ?dplyr::summarise_all)</span>
+sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(Yij<span class="op">:</span>err) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise_all</span>(<span class="kw">funs</span>(<span class="kw">sum</span>(.<span class="op">^</span><span class="dv">2</span>)))</code></pre>
 <pre><code>## Warning: funs() is soft deprecated as of dplyr 0.8.0
 ## please use list() instead
 ## 
@@ -1219,7 +1241,7 @@ sstbl &lt;-<span class="st"> </span>dmx4 %&gt;%
 <h4><span class="header-section-number">11.5.2.1</span> Question 1</h4>
 <p>Consider the following description of a study.</p>
 <blockquote>
-<p>You are investigating whether there is seasonal variation in students' bodyweight. In other words, is there any evidence that bodyweight differs across the four seasons (Winter, Spring, Summer, and Fall - #AllYouGotToDoIsCall)?</p>
+<p>You are investigating whether there is seasonal variation in students’ bodyweight. In other words, is there any evidence that bodyweight differs across the four seasons (Winter, Spring, Summer, and Fall - #AllYouGotToDoIsCall)?</p>
 </blockquote>
 <p>Which of the models shown below would be the the general linear model corresponding to this study?</p>
 <ol style="list-style-type: decimal">
@@ -1228,8 +1250,8 @@ sstbl &lt;-<span class="st"> </span>dmx4 %&gt;%
 <li><span class="math inline">\(Y_{ij} = \beta_0 + \beta_1 X_1 + e_{ij}\)</span></li>
 <li><span class="math inline">\(Y_{ijkm} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + e_{ijkm}\)</span></li>
 </ol>
-<p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mcq1 &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">mcq1 &lt;-<span class="st"> </span><span class="dv">1</span></code></pre>
 <hr />
 <p>For the next few questions consider the decomposition matrix for a one-factor design with three groups, shown below .</p>
 <table>
@@ -1302,10 +1324,10 @@ sstbl &lt;-<span class="st"> </span>dmx4 %&gt;%
 <li>0</li>
 <li>6</li>
 <li>36</li>
-<li>can't answer; not observed</li>
+<li>can’t answer; not observed</li>
 </ol>
-<p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mcq2 &lt;-<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">mcq2 &lt;-<span class="st"> </span><span class="dv">2</span></code></pre>
 </div>
 <div id="question-3-1" class="section level4">
 <h4><span class="header-section-number">11.5.2.3</span> Question 3</h4>
@@ -1314,17 +1336,17 @@ sstbl &lt;-<span class="st"> </span>dmx4 %&gt;%
 <li>6</li>
 <li>0</li>
 <li>1</li>
-<li>can't answer; not observed</li>
+<li>can’t answer; not observed</li>
 </ol>
-<p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mcq3 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">mcq3 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre>
 </div>
 <div id="question-4-1" class="section level4">
 <h4><span class="header-section-number">11.5.2.4</span> Question 4</h4>
 <p>According to the above decomposition matrix, the predicted value for a participant in group 1 is what?</p>
-<p><strong>Hint</strong>: this is the &quot;fitted&quot; or &quot;typical&quot; for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
+<p><strong>Hint</strong>: this is the “fitted” or “typical” for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
 <p>Replace the NULL in the Q4 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q4 &lt;-<span class="st"> </span><span class="dv">5</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Q4 &lt;-<span class="st"> </span><span class="dv">5</span>  <span class="co"># replace NULL with your answer (a number)</span></code></pre>
 </div>
 <div id="question-5-1" class="section level4">
 <h4><span class="header-section-number">11.5.2.5</span> Question 5</h4>
@@ -1335,27 +1357,27 @@ sstbl &lt;-<span class="st"> </span>dmx4 %&gt;%
 <li><span class="math inline">\(Y_{31}\)</span></li>
 <li><span class="math inline">\(Y_{31}\)</span> and <span class="math inline">\(Y_{32}\)</span></li>
 </ol>
-<p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q5 &lt;-<span class="st"> </span><span class="dv">4</span></code></pre></div>
+<p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<pre class="sourceCode r"><code class="sourceCode r">Q5 &lt;-<span class="st"> </span><span class="dv">4</span></code></pre>
 </div>
 <div id="question-6-1" class="section level4">
 <h4><span class="header-section-number">11.5.2.6</span> Question 6</h4>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{total}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q6 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q6 &lt;-<span class="st"> </span><span class="dv">4</span>^<span class="dv">2</span> +<span class="st"> </span><span class="dv">6</span>^<span class="dv">2</span> +<span class="st"> </span><span class="dv">4</span>^<span class="dv">2</span> +<span class="st"> </span><span class="dv">8</span>^<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>^<span class="dv">2</span> +<span class="st"> </span><span class="dv">12</span>^<span class="dv">2</span>  <span class="co"># replace NULL with your answer (a number)</span>
+<pre class="sourceCode r"><code class="sourceCode r">Q6 &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">6</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">8</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">12</span><span class="op">^</span><span class="dv">2</span>  <span class="co"># replace NULL with your answer (a number)</span>
 Q6 &lt;-<span class="st"> </span><span class="dv">280</span>
 
-Q6</code></pre></div>
+Q6</code></pre>
 <pre><code>## [1] 280</code></pre>
 </div>
 <div id="question-7-1" class="section level4">
 <h4><span class="header-section-number">11.5.2.7</span> Question 7</h4>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{error}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q7 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q7 &lt;-<span class="st"> </span>(-<span class="dv">1</span>)^<span class="dv">2</span> +<span class="st"> </span><span class="dv">1</span>^<span class="dv">2</span> +<span class="st"> </span>(-<span class="dv">2</span>)^<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>^<span class="dv">2</span> +<span class="st"> </span>(-<span class="dv">5</span>)^<span class="dv">2</span> +<span class="st"> </span><span class="dv">5</span>^<span class="dv">2</span>  <span class="co"># replace NULL with your answer (a number)</span>
+<pre class="sourceCode r"><code class="sourceCode r">Q7 &lt;-<span class="st"> </span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span><span class="op">^</span><span class="dv">2</span>  <span class="co"># replace NULL with your answer (a number)</span>
 Q7 &lt;-<span class="st"> </span><span class="dv">60</span>
 
-Q7</code></pre></div>
+Q7</code></pre>
 <pre><code>## [1] 60</code></pre>
 </div>
 <div id="question-8-1" class="section level4">
@@ -1369,25 +1391,25 @@ Q7</code></pre></div>
 <p>Given those values, what is the value of <span class="math inline">\(SS_{A}\)</span>?</p>
 <p><strong>hint:</strong> <span class="math inline">\(SS_{total}\)</span> = <span class="math inline">\(SS_{\mu}\)</span> + <span class="math inline">\(SS_{A}\)</span> + <span class="math inline">\(SS_{error}\)</span></p>
 <p>Replace the NULL in the Q8 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q8 &lt;-<span class="st"> </span><span class="dv">180</span> <span class="co"># replace NULL with your answer (a number)</span>
+<pre class="sourceCode r"><code class="sourceCode r">Q8 &lt;-<span class="st"> </span><span class="dv">180</span> <span class="co"># replace NULL with your answer (a number)</span>
 
-Q8</code></pre></div>
+Q8</code></pre>
 <pre><code>## [1] 180</code></pre>
 </div>
 <div id="question-9-create-your-own-decomposition-matrix-1" class="section level4">
 <h4><span class="header-section-number">11.5.2.9</span> Question 9: Create your own decomposition matrix</h4>
 <p>Finally, this last task tests your ability to set up a decomposition matrix as shown inclass. The code chunk below creates the basic table structure you will need to complete this task. Run the code and have a look at the table, but DO NOT CHANGE IT!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## run this block, have a look at the structure of dsetup,
-## but don&#39;t change anything
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## run this block, have a look at the structure of dsetup,</span>
+<span class="co">## but don&#39;t change anything</span>
 
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
-dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),
-                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),
+dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),
+                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),
                  <span class="dt">Yij =</span> <span class="ot">NA</span>,
                  <span class="dt">mu =</span> <span class="ot">NA</span>,
                  <span class="dt">Ai =</span> <span class="ot">NA</span>,
-                 <span class="dt">err =</span> <span class="ot">NA</span>)</code></pre></div>
+                 <span class="dt">err =</span> <span class="ot">NA</span>)</code></pre>
 <p>In the code chunk below, flesh out the values in <code>dsetup</code> to create a decomposition matrix for the data shown below (a one-factor design with four levels), but with the actual numeric values replacing the NA values.</p>
 <ul>
 <li>Group 1: 84, 86, 61</li>
@@ -1402,22 +1424,22 @@ dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class=
 <li><strong>DO NOT</strong> change the column names, the column ordering, and make sure it has the right number of rows and columns. You should have 12 rows by 6 columns.</li>
 <li>Make sure your code runs without error in a fresh R session, and make sure no warnings are generated by the code chunk named <code>dmx_warning</code>, which validates your response.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># TODO: DO STUFF WITH dsetup</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># </span><span class="al">TODO</span><span class="co">: DO STUFF WITH dsetup</span>
 
 <span class="co"># you can change or remove the line below,</span>
 <span class="co"># but make sure your final table is called dmx</span>
-dmx &lt;-<span class="st"> </span>dsetup %&gt;%
+dmx &lt;-<span class="st"> </span>dsetup <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">86</span>, <span class="dv">61</span>,
                  <span class="dv">83</span>, <span class="dv">71</span>, <span class="dv">95</span>,
                  <span class="dv">56</span>, <span class="dv">95</span>, <span class="dv">92</span>,
                  <span class="dv">68</span>, <span class="dv">76</span>, <span class="dv">93</span>),
-         <span class="dt">mu =</span> <span class="kw">mean</span>(Yij)) %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(i) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) -<span class="st"> </span>mu) %&gt;%
-<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij -<span class="st"> </span>(mu +<span class="st"> </span>Ai))
+         <span class="dt">mu =</span> <span class="kw">mean</span>(Yij)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))
 
-dmx</code></pre></div>
+dmx</code></pre>
 <pre><code>## # A tibble: 12 x 6
 ##        i     j   Yij    mu    Ai   err
 ##    &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1434,7 +1456,7 @@ dmx</code></pre></div>
 ## 11     4     2    76    80    -1    -3
 ## 12     4     3    93    80    -1    14</code></pre>
 <p><strong>Finished</strong></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the &lt;a href = “<a href="https://rguppies.slack.com" class="uri">https://rguppies.slack.com</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
 
 </div>
@@ -1583,7 +1605,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
