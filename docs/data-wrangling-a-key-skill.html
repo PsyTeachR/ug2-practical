@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lab 2 Data-Wrangling: A Key Skill | ug2-practical</title>
-  <meta name="description" content="Lab 2 Data-Wrangling: A Key Skill | ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="Lab 2 Data-Wrangling: A Key Skill | ug2-practical-materials">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Lab 2 Data-Wrangling: A Key Skill | ug2-practical" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="Lab 2 Data-Wrangling: A Key Skill | ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR" />
+<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-14" />
+<meta name="date" content="2019-06-18">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="starting-with-r-markdown.html">
@@ -50,67 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -139,7 +114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -189,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -263,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -308,24 +283,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
-<li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1-creating-a-dataframe"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
-<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-2-comparing-original-and-new-sample-reaction-times"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
-<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-3-calculating-probability"><i class="fa fa-check"></i><b>6.2.4</b> Task 3: Calculating Probability</a></li>
+<li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
+<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT2"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
+<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT3"><i class="fa fa-check"></i><b>6.2.4</b> Task 3: Calculating Probability</a></li>
 <li class="chapter" data-level="6.2.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>6.2.5</b> The One-Sample t-test</a></li>
-<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-4-calculating-the-mean-and-standard-deviation"><i class="fa fa-check"></i><b>6.2.6</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
-<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-5-calculating-the-observed-test-statistic"><i class="fa fa-check"></i><b>6.2.7</b> Task 5: Calculating the Observed Test Statistic</a></li>
-<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-6-comparing-the-observed-test-statistic-to-the-t-distribution-using-pt"><i class="fa fa-check"></i><b>6.2.8</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
-<li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-7-comparing-the-observed-test-statistic-to-the-t-distribution-using-t.test"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
-<li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-8-drawing-conclusions-about-the-new-data"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT4"><i class="fa fa-check"></i><b>6.2.6</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
+<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT5"><i class="fa fa-check"></i><b>6.2.7</b> Task 5: Calculating the Observed Test Statistic</a></li>
+<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT6"><i class="fa fa-check"></i><b>6.2.8</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
+<li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT7"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
+<li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT8"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-2-additional"><i class="fa fa-check"></i><b>6.3</b> PreClass Activity 2 (Additional)</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#a-short-blog-on-barplots"><i class="fa fa-check"></i><b>6.3.1</b> A short blog on Barplots</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.4</b> InClass Activity</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1-evaluators"><i class="fa fa-check"></i><b>6.4.1</b> Task 1: Evaluators</a></li>
-<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-2-ratings"><i class="fa fa-check"></i><b>6.4.2</b> Task 2: Ratings</a></li>
-<li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-3-creating-a-figure"><i class="fa fa-check"></i><b>6.4.3</b> Task 3: Creating a Figure</a></li>
-<li class="chapter" data-level="6.4.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-4-t-tests"><i class="fa fa-check"></i><b>6.4.4</b> Task 4: t-tests</a></li>
+<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-1-evaluators"><i class="fa fa-check"></i><b>6.4.1</b> InClass Task 1: Evaluators</a></li>
+<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-2-ratings"><i class="fa fa-check"></i><b>6.4.2</b> InClass Task 2: Ratings</a></li>
+<li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-3-creating-a-figure"><i class="fa fa-check"></i><b>6.4.3</b> InClass Task 3: Creating a Figure</a></li>
+<li class="chapter" data-level="6.4.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-4-t-tests"><i class="fa fa-check"></i><b>6.4.4</b> InClass Task 4: t-tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#assignment-5"><i class="fa fa-check"></i><b>6.5</b> Assignment</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1a-libraries"><i class="fa fa-check"></i><b>6.5.1</b> Task 1A: Libraries</a></li>
@@ -372,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen’s D</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen's D</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-effect-size-from-a-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.2</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-effect-size-from-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.3</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-effect-size-from-matched-pairs-t-test"><i class="fa fa-check"></i><b>8.3.4</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -381,16 +356,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-sample-size-for-standard-power-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.7</b> Task 5: Sample size for standard power one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-effect-size-from-a-high-power-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.8</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-power-of-published-research"><i class="fa fa-check"></i><b>8.3.9</b> Task 7: Power of Published Research</a></li>
-<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-4"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
+<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-3"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#assignment-7"><i class="fa fa-check"></i><b>8.4</b> Assignment</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-3"><i class="fa fa-check"></i><b>8.4.1</b> Task 1</a></li>
-<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-3"><i class="fa fa-check"></i><b>8.4.2</b> Task 2</a></li>
-<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-2"><i class="fa fa-check"></i><b>8.4.3</b> Task 3</a></li>
-<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-4-3"><i class="fa fa-check"></i><b>8.4.4</b> Task 4</a></li>
-<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-2"><i class="fa fa-check"></i><b>8.4.5</b> Task 5</a></li>
-<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-2"><i class="fa fa-check"></i><b>8.4.6</b> Task 6</a></li>
-<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-2"><i class="fa fa-check"></i><b>8.4.7</b> Task 7</a></li>
+<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-1"><i class="fa fa-check"></i><b>8.4.1</b> Task 1</a></li>
+<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-1"><i class="fa fa-check"></i><b>8.4.2</b> Task 2</a></li>
+<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-1"><i class="fa fa-check"></i><b>8.4.3</b> Task 3</a></li>
+<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-4-1"><i class="fa fa-check"></i><b>8.4.4</b> Task 4</a></li>
+<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-1"><i class="fa fa-check"></i><b>8.4.5</b> Task 5</a></li>
+<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-1"><i class="fa fa-check"></i><b>8.4.6</b> Task 6</a></li>
+<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-1"><i class="fa fa-check"></i><b>8.4.7</b> Task 7</a></li>
 <li class="chapter" data-level="8.4.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-8-1"><i class="fa fa-check"></i><b>8.4.8</b> Task 8</a></li>
 <li class="chapter" data-level="8.4.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-9-1"><i class="fa fa-check"></i><b>8.4.9</b> Task 9</a></li>
 <li class="chapter" data-level="8.4.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-10"><i class="fa fa-check"></i><b>8.4.10</b> Task 10</a></li>
@@ -470,7 +445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activity-10"><i class="fa fa-check"></i><b>12.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-1-7"><i class="fa fa-check"></i><b>12.3.1</b> Task 1</a></li>
+<li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-1-5"><i class="fa fa-check"></i><b>12.3.1</b> Task 1</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-2-mean-squares-and-degrees-of-freedom"><i class="fa fa-check"></i><b>12.3.2</b> Task 2: Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-3-f-ratios"><i class="fa fa-check"></i><b>12.3.3</b> Task 3: F-ratios</a></li>
 <li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#using-ezezanova"><i class="fa fa-check"></i><b>12.3.4</b> Using ez::ezANOVA()</a></li>
@@ -497,8 +472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3.8" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.8</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#assignment-12"><i class="fa fa-check"></i><b>13.4</b> Assignment</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries-2"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
-<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data-2"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
+<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries-1"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
+<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data-1"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="13.4.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-2-calculate-cell-means"><i class="fa fa-check"></i><b>13.4.3</b> Task 2: Calculate cell means</a></li>
 <li class="chapter" data-level="13.4.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-3-marginal-means-for-sex"><i class="fa fa-check"></i><b>13.4.4</b> Task 3: Marginal means for sex</a></li>
 <li class="chapter" data-level="13.4.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-4-marginal-means-for-condition"><i class="fa fa-check"></i><b>13.4.5</b> Task 4: Marginal means for condition</a></li>
@@ -536,11 +511,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.4" data-path="regression.html"><a href="regression.html#assignment-13"><i class="fa fa-check"></i><b>14.4</b> Assignment</a></li>
 <li class="chapter" data-level="14.5" data-path="regression.html"><a href="regression.html#solutions-to-questions-13"><i class="fa fa-check"></i><b>14.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="14.5.1" data-path="regression.html"><a href="regression.html#inclass-ativities"><i class="fa fa-check"></i><b>14.5.1</b> InClass Ativities</a></li>
-<li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-3-6"><i class="fa fa-check"></i><b>14.5.2</b> Task 3</a></li>
-<li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-4-7"><i class="fa fa-check"></i><b>14.5.3</b> Task 4</a></li>
-<li class="chapter" data-level="14.5.4" data-path="regression.html"><a href="regression.html#task-5-6"><i class="fa fa-check"></i><b>14.5.4</b> Task 5</a></li>
-<li class="chapter" data-level="14.5.5" data-path="regression.html"><a href="regression.html#task-6-6"><i class="fa fa-check"></i><b>14.5.5</b> Task 6</a></li>
-<li class="chapter" data-level="14.5.6" data-path="regression.html"><a href="regression.html#task-7-6"><i class="fa fa-check"></i><b>14.5.6</b> Task 7</a></li>
+<li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-3-5"><i class="fa fa-check"></i><b>14.5.2</b> Task 3</a></li>
+<li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-4-5"><i class="fa fa-check"></i><b>14.5.3</b> Task 4</a></li>
+<li class="chapter" data-level="14.5.4" data-path="regression.html"><a href="regression.html#task-5-5"><i class="fa fa-check"></i><b>14.5.4</b> Task 5</a></li>
+<li class="chapter" data-level="14.5.5" data-path="regression.html"><a href="regression.html#task-6-5"><i class="fa fa-check"></i><b>14.5.5</b> Task 6</a></li>
+<li class="chapter" data-level="14.5.6" data-path="regression.html"><a href="regression.html#task-7-5"><i class="fa fa-check"></i><b>14.5.6</b> Task 7</a></li>
 <li class="chapter" data-level="14.5.7" data-path="regression.html"><a href="regression.html#task-8-4"><i class="fa fa-check"></i><b>14.5.7</b> Task 8</a></li>
 </ul></li>
 </ul></li>
@@ -603,8 +578,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 2</span> Data-Wrangling: A Key Skill</h1>
 <div id="overview-1" class="section level2">
 <h2><span class="header-section-number">2.1</span> Overview</h2>
-<p>One of the key skills in an researcher’s toolbox is the ability to work with data. When you run an experiment you get lots of data in various files. For instance, it is not uncommon for an experimental software to create a new file for every participant you run and for each participant’s file to contain numerous columns and rows of data, only some of which are important. Being able to wrangle that data, manipulate it into different layouts, extract the parts you need, and summarise it, is one of the most important skills we will help you learn in the coming weeks.</p>
-<p>The next few labs are aimed at refreshing and consolidating your skills in working with data. This lab focuses on organizing data using the <code>tidyverse</code> package. Over the course of the activities, you will recap the main functions and how to use them, and we will use a number of different datasets to give you a wide range of exposure to what Psychology is about, and to reiterate that the same skills apply across different datasets. <strong>The skills don’t change, just the data!</strong></p>
+<p>One of the key skills in an researcher's toolbox is the ability to work with data. When you run an experiment you get lots of data in various files. For instance, it is not uncommon for an experimental software to create a new file for every participant you run and for each participant's file to contain numerous columns and rows of data, only some of which are important. Being able to wrangle that data, manipulate it into different layouts, extract the parts you need, and summarise it, is one of the most important skills we will help you learn in the coming weeks.</p>
+<p>The next few labs are aimed at refreshing and consolidating your skills in working with data. This lab focuses on organizing data using the <code>tidyverse</code> package. Over the course of the activities, you will recap the main functions and how to use them, and we will use a number of different datasets to give you a wide range of exposure to what Psychology is about, and to reiterate that the same skills apply across different datasets. <strong>The skills don't change, just the data!</strong></p>
 <p>There are some questions to answer as you go along to test your skills: use the example code as a guide and the solutions are at the bottom. Finally, remember to be pro-active in your learning, work together as a community, and if you get stuck use the <strong><a href="https://www.rstudio.com/resources/cheatsheets/">cheatsheets</a></strong>. The key cheatsheet for this activity is the Data Transformation with dplyr.</p>
 <p>In this lab you will recap from Level 1 on:</p>
 <ul>
@@ -619,7 +594,7 @@ Portfolio Point - Getting Help
 </button>
 <div class="info">
 <p>
-Remember to open up your Portfolio that you created in Lab 1 so you can add useful information to it as you work though the tasks! Also summarising the information we give in this preclass, in your own words, is a great way to learn! You don’t have to read all of these but they might help from time to time explain parts further.
+Remember to open up your Portfolio that you created in Lab 1 so you can add useful information to it as you work though the tasks! Also summarising the information we give in this preclass, in your own words, is a great way to learn! You don't have to read all of these but they might help from time to time explain parts further.
 </p>
 <p>
 For instance, do you remember how to get help in R Studio? You can call the help function (e.g. <code>?gather</code>) to view the reference page for each function. This example shows how to get help on the gather function, which we will use in later labs.
@@ -631,7 +606,7 @@ For instance, do you remember how to get help in R Studio? You can call the help
 <div id="preclass-activity" class="section level2">
 <h2><span class="header-section-number">2.2</span> PreClass Activity</h2>
 <p><strong>Revisiting Tabular Data</strong></p>
-<p>Remember from your previous experience that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type <code>vignette(&quot;tibble&quot;)</code> in the console). A tibble is really just a table of data with columns and rows of information. But within that table you can get different types of data, i.e. numeric, integer, and character.</p>
+<p>Remember from your previous experience that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type <code>vignette(&quot;tibble&quot;)</code> in the console). A tibble is really just a table of data with columns and rows of information. But within that table you can get different types of data, i.e. numeric, integer, and character.</p>
 <table>
 <thead>
 <tr class="header">
@@ -657,9 +632,9 @@ For instance, do you remember how to get help in R Studio? You can call the help
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>What type of data would these most likely be:</p>
 <ul>
-<li><p>Male = <select class='solveme' data-answer='["Character"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option></select></p></li>
-<li><p>7.15 = <select class='solveme' data-answer='["Numeric"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option></select></p></li>
-<li><p>137 = <select class='solveme' data-answer='["Integer"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option></select></p></li>
+<li><p>Male = <select class='solveme' data-answer='["Character"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option> </select></p></li>
+<li><p>7.15 = <select class='solveme' data-answer='["Numeric"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option> </select></p></li>
+<li><p>137 = <select class='solveme' data-answer='["Integer"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
@@ -667,13 +642,13 @@ Portfolio Point - Data types and levels of measurement
 </button>
 <div class="info">
 <p>
-There is a lot of different types of data and as well as different types of levels of measurements and it can get very confusing. It’s important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can’t take the average of Characters just like you can’t take the average of Categorical data. Likewise, you can do any maths on Numeric data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
+There is a lot of different types of data and as well as different types of levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of Characters just like you can't take the average of Categorical data. Likewise, you can do any maths on Numeric data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
 </p>
 </div>
 </div>
 <div id="revisiting-the-wickham-six" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Revisiting the Wickham Six</h3>
-<p>The main way we teach data-wrangling skills is by using the Wickham Six verbs. These are part of the <code>tidyverse</code> package which we introduced to you in Level 1. We will look at some of the basics again here but keep in mind that to look back at last years’ exercises to see how used these verbs. The Wickham Six are:</p>
+<p>The main way we teach data-wrangling skills is by using the Wickham Six verbs. These are part of the <code>tidyverse</code> package which we introduced to you in Level 1. We will look at some of the basics again here but keep in mind that to look back at last years' exercises to see how used these verbs. The Wickham Six are:</p>
 <table>
 <thead>
 <tr class="header">
@@ -711,14 +686,14 @@ There is a lot of different types of data and as well as different types of leve
 </div>
 <div id="learning-to-wrangle-is-there-a-chastity-belt-on-perception" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Learning to Wrangle: Is there a Chastity Belt on Perception</h3>
-<p>Today we are going to be using data from this recent paper: <a href="http://journals.sagepub.com/doi/abs/10.1177/0956797617730892">Is there a Chastity Belt on Perception</a>. You can read the full paper if you like, particularly if you are thinking about doing the action-perception registered report option, but we will summarise the paper for you. The paper asks, <strong>does your ability to perform an action influence your perception?</strong> For instance, does your ability to hit a tennis ball influence how fast you perceive the ball to be moving? Or to phrase another way, do expert tennis players perceive the ball moving slower than novice tennis players? This experiment does not use tennis players however, they used the Pong task: “a computerised game in which participants aim to block moving balls with various sizes of paddles”. A bit like a very classic retro arcade game. Participants tend to estimate the balls as moving faster when they have to block it with a smaller paddle as opposed to when they have a bigger paddle. You can read the paper to get more details if you wish but hopefully that gives enough of an idea to help you understand the wrangling we will do on the data. We have cleaned up the data a little to start with. Let’s begin!</p>
+<p>Today we are going to be using data from this recent paper: <a href="http://journals.sagepub.com/doi/abs/10.1177/0956797617730892">Is there a Chastity Belt on Perception</a>. You can read the full paper if you like, particularly if you are thinking about doing the action-perception registered report option, but we will summarise the paper for you. The paper asks, <strong>does your ability to perform an action influence your perception?</strong> For instance, does your ability to hit a tennis ball influence how fast you perceive the ball to be moving? Or to phrase another way, do expert tennis players perceive the ball moving slower than novice tennis players? This experiment does not use tennis players however, they used the Pong task: &quot;a computerised game in which participants aim to block moving balls with various sizes of paddles&quot;. A bit like a very classic retro arcade game. Participants tend to estimate the balls as moving faster when they have to block it with a smaller paddle as opposed to when they have a bigger paddle. You can read the paper to get more details if you wish but hopefully that gives enough of an idea to help you understand the wrangling we will do on the data. We have cleaned up the data a little to start with. Let's begin!</p>
 <ol style="list-style-type: decimal">
 <li><p>Download the data as a zip file from <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_02/prep/Level2_Lab2_PreclassData_Pong.zip">this link</a> and save it to somewhere you have access. In the lab, use your <code>M:</code> drive.</p></li>
 <li><p>Set your working directory to the same folder as the data. <code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></p></li>
 <li><p>Open a new script and copy and paste the two lines below. Here we are a) bringing the <code>tidyverse</code> into our library and then b) loading in the data through the <code>read_csv()</code> function and storing it in the tibble called <code>pong_data</code>.</p></li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)</code></pre></div>
 <div class="solution">
 <button>
 Help my data is not loading?
@@ -746,11 +721,11 @@ Check that the datafile is actually in the folder you have set as your working d
 <strong>DO NOT install packages in the Boyd Orr labs; they are already there and just need called in through <code>library()</code>.</strong>
 </p>
 <p>
-However, If you are using a computer at home and you haven’t previously installed the <code>tidyverse</code> package on your own machine before, you will have to install it first, e.g. <code>install.packages(“tidyverse”)</code>.
+However, If you are using a computer at home and you haven't previously installed the <code>tidyverse</code> package on your own machine before, you will have to install it first, e.g. <code>install.packages(&quot;tidyverse&quot;)</code>.
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>Let’s have a look at the <code>pong_data</code> and see how it is organized. Type <code>View(pong_data)</code> or <code>glimpse(pong_data)</code> in your Console window.</li>
+<li>Let's have a look at the <code>pong_data</code> and see how it is organized. Type <code>View(pong_data)</code> or <code>glimpse(pong_data)</code> in your Console window.</li>
 </ol>
 <p>In the dataset you will see that each row (observation) represents one trial per participant and that there were 288 trials for each of the 16 participants. The columns (variables) we have in the dataset are as follows:</p>
 <table>
@@ -804,7 +779,7 @@ However, If you are using a computer at home and you haven’t previously instal
 </tr>
 </tbody>
 </table>
-<p>We will use this data to master our skills of the Wickham Six verbs, taking each verb in turn and looking at it briefly. You should develop your skills by setting yourself new challenges based on the ones we set. There are <strong>6 verbs to work through</strong> and then after that we will briefly recap on two other functions before finishing with a quick look at pipes. Try everything out and let us know anything you can’t quite get.</p>
+<p>We will use this data to master our skills of the Wickham Six verbs, taking each verb in turn and looking at it briefly. You should develop your skills by setting yourself new challenges based on the ones we set. There are <strong>6 verbs to work through</strong> and then after that we will briefly recap on two other functions before finishing with a quick look at pipes. Try everything out and let us know anything you can't quite get.</p>
 <div class="solution">
 <button>
 Portfolio Point - The Wickham Six
@@ -818,14 +793,14 @@ You will use the Wickham Six very frequently for wrangling your data so this wou
 </div>
 <div id="Ch2PreClassQueT1" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> The <strong><code>select()</code></strong> Function - to keep only specific columns</h3>
-<p>The <code>select()</code> function lets us pick out the variables within a dataset that we want to work with. For example, say in <code>pong_data</code> we wanted to only keep the columns <code>Participant</code>, <code>JudgedSpeed</code>, <code>PaddleLength</code>, <code>BallSpeed</code>, <code>TrialNumber</code>, and <code>HitOrMiss</code> but we don’t need <code>BackgroundColor</code> or <code>BlockNumber</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We can tell the function what variables we want to include</span>
+<p>The <code>select()</code> function lets us pick out the variables within a dataset that we want to work with. For example, say in <code>pong_data</code> we wanted to only keep the columns <code>Participant</code>, <code>JudgedSpeed</code>, <code>PaddleLength</code>, <code>BallSpeed</code>, <code>TrialNumber</code>, and <code>HitOrMiss</code> but we don't need <code>BackgroundColor</code> or <code>BlockNumber</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We can tell the function what variables we want to include</span>
 <span class="kw">select</span>(pong_data, Participant, JudgedSpeed, PaddleLength, BallSpeed, TrialNumber, HitOrMiss)
 
 <span class="co"># or do it the opposite way by exclude through `-ColumnName`</span>
-<span class="kw">select</span>(pong_data, <span class="op">-</span>BackgroundColor, <span class="op">-</span>BlockNumber)
+<span class="kw">select</span>(pong_data, -BackgroundColor, -BlockNumber)
 
-<span class="co"># `-BackgroundColor` means &#39;not BackgroundColor&#39;, so here you are saying all columns except `BackgroundColor` and `BlockNumber`. The minus sign is the key part!</span></code></pre>
+<span class="co"># `-BackgroundColor` means &#39;not BackgroundColor&#39;, so here you are saying all columns except `BackgroundColor` and `BlockNumber`. The minus sign is the key part!</span></code></pre></div>
 <p><strong>Task 1: Using the Select Function</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Either by inclusion or exclusion, select only the columns <code>Participant</code>, <code>PaddleLength</code>, <code>TrialNumber</code>, <code>BackgroundColor</code> and <code>HitOrMiss</code> from <code>pong_data</code>.<br />
@@ -855,11 +830,11 @@ Think about how you first entered the column names as they appeared. But what ha
 <div id="Ch2PreClassQueT2" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> The <strong><code>arrange()</code></strong> Function - to sort and arrange columns</h3>
 <p>The <code>arrange()</code> function sorts the rows in the tibble according to what column you tell it to sort by.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can arrange by one column e.g. by `BallSpeed`</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can arrange by one column e.g. by `BallSpeed`</span>
 <span class="kw">arrange</span>(pong_data, BallSpeed)
 
 <span class="co"># Or by multiple columns e.g. by `BallSpeed` (fastest first) and `BackgroundColor`</span>
-<span class="kw">arrange</span>(pong_data, <span class="kw">desc</span>(BallSpeed), BackgroundColor) </code></pre>
+<span class="kw">arrange</span>(pong_data, <span class="kw">desc</span>(BallSpeed), BackgroundColor) </code></pre></div>
 <div class="solution">
 <button>
 Explain this - where did desc come from?
@@ -870,7 +845,7 @@ Explain this - where did desc come from?
 What does <code>desc()</code> do?
 <ul>
 <li>
-<code>desc()</code> is how to sort by largest to smallest - i.e. descending order.
+<code>desc()</code> is how to sort by largest to smallest - i.e. descending order.
 </li>
 <li>
 Compare the output of the two lines above on the <code>BallSpeed</code> column.
@@ -891,26 +866,26 @@ Does <code>desc()</code> also work for <code>BackgroundColor</code>?
 <div id="Ch2PreClassQueT3" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> The <strong><code>filter()</code></strong> Function - to keep only parts of the data</h3>
 <p>The <code>filter()</code> function lets us parse out a subset of the data, meaning we keep only parts of the data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we might want only the red `BackgroundColor` </span>
-<span class="kw">filter</span>(pong_data, BackgroundColor <span class="op">==</span><span class="st"> &quot;red&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we might want only the red `BackgroundColor` </span>
+<span class="kw">filter</span>(pong_data, BackgroundColor ==<span class="st"> &quot;red&quot;</span>)
 
 <span class="co"># or higher speeds above 4 pixels</span>
-<span class="kw">filter</span>(pong_data, BallSpeed <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)
+<span class="kw">filter</span>(pong_data, BallSpeed &gt;<span class="st"> </span><span class="dv">4</span>)
 
 <span class="co"># or both!</span>
-<span class="kw">filter</span>(pong_data, BackgroundColor <span class="op">==</span><span class="st"> &quot;red&quot;</span>, BallSpeed <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)
+<span class="kw">filter</span>(pong_data, BackgroundColor ==<span class="st"> &quot;red&quot;</span>, BallSpeed &gt;<span class="st"> </span><span class="dv">4</span>)
 
 <span class="co"># this can also be written as: </span>
-<span class="kw">filter</span>(pong_data, BackgroundColor <span class="op">==</span><span class="st"> &quot;red&quot;</span> <span class="op">&amp;</span><span class="st"> </span>BallSpeed <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)
+<span class="kw">filter</span>(pong_data, BackgroundColor ==<span class="st"> &quot;red&quot;</span> &amp;<span class="st"> </span>BallSpeed &gt;<span class="st"> </span><span class="dv">4</span>)
 
 <span class="co"># or we might want to see specific Participants:</span>
-<span class="kw">filter</span>(pong_data, Participant <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;10&quot;</span>, <span class="st">&quot;14&quot;</span>, <span class="st">&quot;16&quot;</span>)) 
+<span class="kw">filter</span>(pong_data, Participant %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;10&quot;</span>, <span class="st">&quot;14&quot;</span>, <span class="st">&quot;16&quot;</span>)) 
 <span class="co"># The c() creates a little container of items called a vector. </span>
 <span class="co"># the `%in%` is called `group membership` and means keep each of these Participants</span>
 
 <span class="co"># or excluding a specific Participant</span>
-<span class="kw">filter</span>(pong_data, Participant <span class="op">!=</span><span class="st"> &quot;7&quot;</span>)
-<span class="co"># you can read != as &#39;does not equal&#39;. So keep all Participants except 7.</span></code></pre>
+<span class="kw">filter</span>(pong_data, Participant !=<span class="st"> &quot;7&quot;</span>)
+<span class="co"># you can read != as &#39;does not equal&#39;. So keep all Participants except 7.</span></code></pre></div>
 <p><strong>Task 3: Using the Filter Function</strong></p>
 <ol style="list-style-type: decimal">
 <li>Use <code>filter()</code> to extract all Participants that had a fast speed judgement, for speeds 2, 4, 5, and 7, but missed the ball. Store this remaining data in a variable called <code>pong_fast_miss</code></li>
@@ -951,47 +926,47 @@ Portfolio Point - And not Or
 </button>
 <div class="info">
 <p>
-The filter function is very useful but if used wrongly can give you very misleading findings. This is why it is very important to always check your data after you perform an action. Let’s say you are working in comparative psychology and have run a study looking at how cats, dogs and horses perceive emotion. Let’s say the data is all stored in the tibble <code>animal_data</code> and there is a column called <code>animals</code> that tells you what type of animal your participant was. Ok, so imagine you wanted all the data from just cats
+The filter function is very useful but if used wrongly can give you very misleading findings. This is why it is very important to always check your data after you perform an action. Let's say you are working in comparative psychology and have run a study looking at how cats, dogs and horses perceive emotion. Let's say the data is all stored in the tibble <code>animal_data</code> and there is a column called <code>animals</code> that tells you what type of animal your participant was. Ok, so imagine you wanted all the data from just cats
 </p>
 <p>
-<code>filter(animal_data, animals == “cat”)</code>
+<code>filter(animal_data, animals == &quot;cat&quot;)</code>
 </p>
 <p>
 Exactly! But what if you wanted cats and dogs?
 </p>
 <p>
-<code>filter(animal_data, animals == “cat”, animals == “dog”)</code>
+<code>filter(animal_data, animals == &quot;cat&quot;, animals == &quot;dog&quot;)</code>
 </p>
 <p>
-Right? Wrong! This actually says “give me everything that is a cat and a dog”. But nothing is a cat and a dog, that would be weird - like a dat or a cog! What you actually want is is everything that is either a cat <strong>or</strong> a dog, which is stated as:
+Right? Wrong! This actually says &quot;give me everything that is a cat and a dog&quot;. But nothing is a cat and a dog, that would be weird - like a dat or a cog! What you actually want is is everything that is either a cat <strong>or</strong> a dog, which is stated as:
 </p>
 <p>
-<code>filter(animal_data, animals == “cat” | animals == “dog”)</code>
+<code>filter(animal_data, animals == &quot;cat&quot; | animals == &quot;dog&quot;)</code>
 </p>
 <p>
 The vertical line <code>|</code> is the symbol for Or.
 </p>
 <p>
-<strong>TOP TIP:</strong> Always pay attention to what you want and most importantly to what your code produces.
+<strong>TOP <a href="TIP:**" class="uri">TIP:</strong></a> Always pay attention to what you want and most importantly to what your code produces.
 </p>
 </div>
 </div>
 </div>
 <div id="Ch2PreClassQueT4" class="section level3">
 <h3><span class="header-section-number">2.2.6</span> The <strong><code>mutate()</code></strong> Function - for adding new columns</h3>
-<p>The <code>mutate()</code> function lets us create a new variable in our dataset. For example, let’s add a new column to <code>pong_data</code> in which the background color is converted into numeric form where <code>red</code> will become 1, and <code>blue</code> will become 2.</p>
-<pre class="sourceCode r"><code class="sourceCode r">pong_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data, 
+<p>The <code>mutate()</code> function lets us create a new variable in our dataset. For example, let's add a new column to <code>pong_data</code> in which the background color is converted into numeric form where <code>red</code> will become 1, and <code>blue</code> will become 2.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pong_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data, 
                     <span class="dt">BackgroundColorNumeric =</span> <span class="kw">recode</span>(BackgroundColor, 
                                                     <span class="st">&quot;red&quot;</span> =<span class="st"> </span><span class="dv">1</span>, 
-                                                    <span class="st">&quot;blue&quot;</span> =<span class="st"> </span><span class="dv">2</span>))</code></pre>
+                                                    <span class="st">&quot;blue&quot;</span> =<span class="st"> </span><span class="dv">2</span>))</code></pre></div>
 <p>The code here is is a bit complicated but:</p>
 <ul>
 <li><code>BackgroundColorNumeric</code> is the name of your new column,</li>
 <li><code>BackgroundColor</code> is the name of the old column and the one to take information from,</li>
 <li>and 1 and 2 are the new codings of red and blue respectively.</li>
 </ul>
-<p>The <code>mutate()</code> function is also handy for making some calculations on or across columns in your data. For example, say you realise you made a mistake in your experiment where your participant numbers should be 1 higher for every participant, i.e. Participant 1 should actually be numbered as Participant 2, etc. You would do something like:</p>
-<pre class="sourceCode r"><code class="sourceCode r">pong_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data, <span class="dt">Participant =</span> Participant <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</code></pre>
+<p>The <code>mutate()</code> function is also handy for making some calculations on or across columns in your data. For example, say you realise you made a mistake in your experiment where your participant numbers should be 1 higher for every participant, i.e. Participant 1 should actually be numbered as Participant 2, etc. You would do something like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pong_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data, <span class="dt">Participant =</span> Participant +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <p>Note here that you are giving the new column the same name as the old column <code>Participant</code>. What happens here is that you are <strong>overwriting the old data with the new data</strong>! So watch out, mutate can create a new column or overwrite an existing column, depending on what you tell it to do!</p>
 <p><strong>Task 4: Mutating Variables</strong></p>
 <ul>
@@ -1027,16 +1002,16 @@ mutate(<code>TrialNumber</code> = TrialNumber minus 1)
 </div>
 <div id="Ch2PreClassQueT5" class="section level3">
 <h3><span class="header-section-number">2.2.7</span> The <strong><code>group_by()</code></strong> Function - to group parts of data altogether</h3>
-<p>The <code>group_by()</code> function groups the rows in a dataset according to a category you specify, e.g. grouping all Male data together and all Female data together.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># In this data we could group trials by `BackgroundColor`</span>
+<p>The <code>group_by()</code> function groups the rows in a dataset according to a category you specify, e.g. grouping all Male data together and all Female data together.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># In this data we could group trials by `BackgroundColor`</span>
 <span class="kw">group_by</span>(pong_data, BackgroundColor)
 
 <span class="co"># or by multiple criteria e.g. `HitOrMiss` and `BackgroundColor` </span>
-<span class="kw">group_by</span>(pong_data, HitOrMiss, BackgroundColor)</code></pre>
+<span class="kw">group_by</span>(pong_data, HitOrMiss, BackgroundColor)</code></pre></div>
 <p>Note that nothing actually appears to change in the data, unlike with the other functions, but a big operation has taken place. Look at the output in your console when you run <code>group_by(pong_data, BackgroundColor)</code>. At the top of the output notice that the 2nd line of the output tells us the grouping criteria and how many groups now exist: see the line <code>Groups: BackgroundColor [2]</code>: we grouped by <code>BackgroundColor</code> and there are <code>[2]</code> groups - one for red and one for blue.</p>
 <p><strong>Task 5: Grouping Data</strong></p>
 <ul>
-<li>Group the data by <code>BlockNumber</code> and by <code>BackgroundColor</code>, in that order, and then enter the number of groups (i.e. a number) you get as a result: <input class='solveme nospaces' size='2' data-answer='["24"]'/></li>
+<li>Group the data by <code>BlockNumber</code> and by <code>BackgroundColor</code>, in that order, and then enter the number of groups (i.e. a number) you get as a result: <input class='solveme nospaces' size='3' data-answer='["24"]'/></li>
 </ul>
 <div class="solution">
 <button>
@@ -1054,19 +1029,19 @@ The number of groups should be between the sum of the number of background color
 </p>
 </div>
 </div>
-<p><code>group_by()</code> is incredibly useful as once the data is organised into groups you can then apply other functions (<code>filter</code>, <code>arrange</code>, <code>mutate</code>…etc.) to the groups within your data that you are interested in, instead of to the entire dataset. For instance, a common second step after <code>group_by</code> might be to <code>summarise</code> the data…</p>
+<p><code>group_by()</code> is incredibly useful as once the data is organised into groups you can then apply other functions (<code>filter</code>, <code>arrange</code>, <code>mutate</code>...etc.) to the groups within your data that you are interested in, instead of to the entire dataset. For instance, a common second step after <code>group_by</code> might be to <code>summarise</code> the data...</p>
 </div>
 <div id="Ch2PreClassQueT6" class="section level3">
 <h3><span class="header-section-number">2.2.8</span> The <strong><code>summarise()</code></strong> Function - to do some calculations on the data</h3>
 <p>The <code>summarise()</code> function lets you calculate some descriptive statistics on your data. For example, say you want to know the number of hits there were for different paddle lengths, or number of hits there were when the background color was red or blue.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First we group the data accordingly, storing it in `pong_data_group`</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First we group the data accordingly, storing it in `pong_data_group`</span>
 pong_data_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(pong_data, BackgroundColor, PaddleLength)
 
 <span class="co"># And then we summarise it, storing the answer in `total_hits`</span>
 pong_data_hits &lt;-<span class="st"> </span><span class="kw">summarise</span>(pong_data_group, <span class="dt">total_hits =</span> <span class="kw">sum</span>(HitOrMiss))
 
 <span class="co"># And then for fun we can filter just the red, small paddle hits</span>
-pong_data_hits_red_small &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data_hits, BackgroundColor <span class="op">==</span><span class="st"> &quot;red&quot;</span>, PaddleLength <span class="op">==</span><span class="st"> </span><span class="dv">50</span>)</code></pre>
+pong_data_hits_red_small &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data_hits, BackgroundColor ==<span class="st"> &quot;red&quot;</span>, PaddleLength ==<span class="st"> </span><span class="dv">50</span>)</code></pre></div>
 <p><code>summarise()</code> has a range of internal functions that make life really easy, e.g. <code>mean</code>, <code>sum</code>, <code>max</code>, <code>min</code>, etc. See the dplyr cheatsheets for more examples.</p>
 <p><strong>Task 6: Summarising Data</strong></p>
 <ul>
@@ -1075,7 +1050,7 @@ pong_data_hits_red_small &lt;-<span class="st"> </span><span class="kw">filter</
 <p><strong>Note:</strong></p>
 <ul>
 <li><p>The name of the column within <code>pong_data_hits</code> is <code>total_hits</code>; this is what you called it in the above code. You could have called it anything you wanted but always try to use something sensible.</p></li>
-<li><p>Make sure to call your variables something you (and anyone looking at your code) will understand and recognize later (i.e. not variable1, variable2, variable3. etc.), and avoid spaces (use_underscores_never_spaces).</p></li>
+<li><p>Make sure to call your variables something you (and anyone looking at your code) will understand and recognize later (i.e. not variable1, variable2, variable3. etc.), and avoid spaces (use_underscores_never_spaces).</p></li>
 </ul>
 <div class="solution">
 <button>
@@ -1083,7 +1058,7 @@ Portfolio Point - the ungroup function
 </button>
 <div class="info">
 <p>
-After grouping data together using the <code>group_by()</code> function and then peforming a task on it, e.g. filter(), it can be very good practice to ungroup the data before performing another function. Forgetting to ungroup the dataset won’t always affect further processing, but can really mess up other things.
+After grouping data together using the <code>group_by()</code> function and then peforming a task on it, e.g. filter(), it can be very good practice to ungroup the data before performing another function. Forgetting to ungroup the dataset won't always affect further processing, but can really mess up other things.
 </p>
 <p>
 Again just a good reminder to always check the data you are getting out of a function a) makes sense and b) is what you expect.
@@ -1092,49 +1067,49 @@ Again just a good reminder to always check the data you are getting out of a fun
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li><p>Which of the Wickham Six would I use to sort columns from smallest to largest: <select class='solveme' data-answer='["arrange"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option></select></p></li>
-<li><p>Which of the Wickham Six would I use to calculate the mean of a column: <select class='solveme' data-answer='["summarise"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option></select></p></li>
-<li><p>Which of the Wickham Six would I use to remove certain observations - e.g. remove all males: <select class='solveme' data-answer='["filter"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option></select></p></li>
+<li><p>Which of the Wickham Six would I use to sort columns from smallest to largest: <select class='solveme' data-answer='["arrange"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option> </select></p></li>
+<li><p>Which of the Wickham Six would I use to calculate the mean of a column: <select class='solveme' data-answer='["summarise"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option> </select></p></li>
+<li><p>Which of the Wickham Six would I use to remove certain observations - e.g. remove all males: <select class='solveme' data-answer='["filter"]'> <option></option> <option>select</option> <option>filter</option> <option>mutate</option> <option>arrange</option> <option>group_by</option> <option>summarise</option> </select></p></li>
 </ul>
 </div>
 <div id="two-other-useful-functions" class="section level3">
 <h3><span class="header-section-number">2.2.9</span> Two Other Useful Functions</h3>
 <p>The Wickham Six verbs let you to do a lot of things with data, however there are thousands of other functions at your disposal. If you want to do something with your data that you are not sure how to do using these functions, do a Google search for an alternative function - chances are someone else has had the same problem and has a help guide. For example, two other functions to note are the <code>bind_rows()</code> function and the <code>count()</code> functions.</p>
 <p>The <code>bind_rows()</code> function is useful if you want to combine two tibbles together into one larger tibble that have the same column structure. For example:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a tibble of ball speeds 1 and 2</span>
-slow_ball&lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, BallSpeed <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a tibble of ball speeds 1 and 2</span>
+slow_ball&lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, BallSpeed &lt;<span class="st"> </span><span class="dv">3</span>) 
 
 <span class="co"># a tibble of ball speeds 6 and 7</span>
-fast_ball &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, BallSpeed <span class="op">&gt;=</span><span class="st"> </span><span class="dv">6</span>) 
+fast_ball &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, BallSpeed &gt;=<span class="st"> </span><span class="dv">6</span>) 
 
 <span class="co"># a combined tibble of extreme ball speeds</span>
-extreme_balls &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(slow_ball, fast_ball) </code></pre>
+extreme_balls &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(slow_ball, fast_ball) </code></pre></div>
 <p>Finally, the <code>count()</code> function is a shortcut that can sometimes be used to count up the number of rows you have for groups in your data, without having to use the <code>group_by()</code> and <code>summarise()</code> functions. For example, in Task 6 we combined <code>group_by()</code> and <code>summarise()</code> to calculate how many hits there were based on background color and paddle length. Alternatively we could have done:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">count</span>(pong_data, BackgroundColor, PaddleLength, HitOrMiss)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">count</span>(pong_data, BackgroundColor, PaddleLength, HitOrMiss)</code></pre></div>
 <p>The results are the same, just that in the <code>count()</code> version we get all the information, including misses, because we are just counting rows. In the <code>summarise()</code> method we only got hits because that was the effect of what we summed. So two different methods give similar answers - coding can be individualised and get the same result!</p>
 </div>
 <div id="last-but-not-least---pipes-to-make-your-code-efficient" class="section level3">
 <h3><span class="header-section-number">2.2.10</span> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</h3>
-<p>By now you’ll have noticed that<code>tidyverse</code> functions generally take the following grammatical structure (called <strong>syntax</strong>): <code>function_name(dataset, arg1, arg2,..., argN)</code> where the dataset is the entire tibble of data you ar eusing, and each argument (<code>arg</code>) is some operation on a particular column or variable, or the column name you want to work with. For example:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># function_name(dataset, arg1, arg2, ....)</span>
-<span class="kw">filter</span>(pong_data, PaddleLength <span class="op">==</span><span class="st"> &quot;50&quot;</span>, BallSpeed <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)
+<p>By now you'll have noticed that<code>tidyverse</code> functions generally take the following grammatical structure (called <strong>syntax</strong>): <code>function_name(dataset, arg1, arg2,..., argN)</code> where the dataset is the entire tibble of data you ar eusing, and each argument (<code>arg</code>) is some operation on a particular column or variable, or the column name you want to work with. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># function_name(dataset, arg1, arg2, ....)</span>
+<span class="kw">filter</span>(pong_data, PaddleLength ==<span class="st"> &quot;50&quot;</span>, BallSpeed &gt;<span class="st"> </span><span class="dv">4</span>)
 
-<span class="kw">group_by</span>(pong_data, BallSpeed, Participant)</code></pre>
+<span class="kw">group_by</span>(pong_data, BallSpeed, Participant)</code></pre></div>
 <p>In the first example, we are filtering the whole <code>pong_data</code> dataset by a particular paddle length, then by particular speeds. In the second, we are grouping by <code>BallSpeed</code> and then by <code>Participant</code>. Note that the order of arguments is specific as it performs argument1 then argument2, etc. Changing the order of arguments may give a different output. So the order you work in is important, and this is called your <strong>pipeline</strong>. For example, here is one we used above to find how many hits there with the small paddle length and the red background.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First we group the data accordingly, storing it in `pong_data_group`</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First we group the data accordingly, storing it in `pong_data_group`</span>
 pong_data_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(pong_data, BackgroundColor, PaddleLength)
 
 <span class="co"># And then we summarise it, storing the answer in `total_hits`</span>
 pong_data_hits &lt;-<span class="st"> </span><span class="kw">summarise</span>(pong_data_group, <span class="dt">total_hits =</span> <span class="kw">sum</span>(HitOrMiss))
 
 <span class="co"># And filter just the red, small paddle hits</span>
-pong_data_hits_red_small &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data_hits, BackgroundColor <span class="op">==</span><span class="st"> &quot;red&quot;</span>, PaddleLength <span class="op">==</span><span class="st"> </span><span class="dv">50</span>)</code></pre>
-<p>Pipelines allow us to quickly, accurately, and reproducibly, perform an action that would take much longer manually. However we can make our code even more efficient, using less code, by stringing our sequence of functions together using ‘<strong>pipes</strong>’, written as <code>%&gt;%</code>. This would look like:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same pipeline using pipes</span>
-pong_data_hits_red_small &lt;-<span class="st"> </span>pong_data <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(BackgroundColor, PaddleLength) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">total_hits =</span> <span class="kw">sum</span>(HitOrMiss)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(BackgroundColor <span class="op">==</span><span class="st"> &quot;red&quot;</span>, PaddleLength <span class="op">==</span><span class="st"> </span><span class="dv">50</span>)</code></pre>
+pong_data_hits_red_small &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data_hits, BackgroundColor ==<span class="st"> &quot;red&quot;</span>, PaddleLength ==<span class="st"> </span><span class="dv">50</span>)</code></pre></div>
+<p>Pipelines allow us to quickly, accurately, and reproducibly, perform an action that would take much longer manually. However we can make our code even more efficient, using less code, by stringing our sequence of functions together using '<strong>pipes</strong>', written as <code>%&gt;%</code>. This would look like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same pipeline using pipes</span>
+pong_data_hits_red_small &lt;-<span class="st"> </span>pong_data %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(BackgroundColor, PaddleLength) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">total_hits =</span> <span class="kw">sum</span>(HitOrMiss)) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(BackgroundColor ==<span class="st"> &quot;red&quot;</span>, PaddleLength ==<span class="st"> </span><span class="dv">50</span>)</code></pre></div>
 <p>Both these chunks show exactly the same procedure, but adding pipes can make code easier to read and follow once you understand piping.</p>
 <p>Code without a pipe would look like</p>
 <ul>
@@ -1145,17 +1120,17 @@ pong_data_hits_red_small &lt;-<span class="st"> </span>pong_data <span class="op
 <li><code>dataset %&gt;% function_name(arg1, arg2,...,argN)</code></li>
 </ul>
 <p>The premise is that you can pipe (<code>%&gt;%</code>) between functions when the <strong>input</strong> of a function is the <strong>output of the previous function</strong>. Alternatively, you can use a pipe to put the data into the first function, as shown directly above.</p>
-<p>You can think of the pipe (<code>%&gt;%</code>) as saying ‘<strong>and then</strong>’ or ‘<strong>goes in to</strong>’. E.g. the data goes into this function and then this function and then this function. We will expand on this in the lab where you can ask more questions, but try comparing the two chunks of code above and see if you can match them up.</p>
-<p>One last point on pipes is that they can be written in a single line of code but it’s much easier to see what the pipe is doing if each function takes its own line. Every time you add a function to the pipeline, remember to add a <code>%&gt;%</code> first and <strong>Note that when using separate lines for each function, the <code>%&gt;%</code> must appear at the end of the line and not the start of the next line</strong>. Compare the two examples below. The first won’t work but the second will because the second puts the pipes at the end of the line where they need to be!</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Piped version that wont work </span>
+<p>You can think of the pipe (<code>%&gt;%</code>) as saying '<strong>and then</strong>' or '<strong>goes in to</strong>'. E.g. the data goes into this function and then this function and then this function. We will expand on this in the lab where you can ask more questions, but try comparing the two chunks of code above and see if you can match them up.</p>
+<p>One last point on pipes is that they can be written in a single line of code but it's much easier to see what the pipe is doing if each function takes its own line. Every time you add a function to the pipeline, remember to add a <code>%&gt;%</code> first and <strong>Note that when using separate lines for each function, the <code>%&gt;%</code> must appear at the end of the line and not the start of the next line</strong>. Compare the two examples below. The first won't work but the second will because the second puts the pipes at the end of the line where they need to be!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Piped version that wont work </span>
 data_arrange &lt;-<span class="st"> </span>pong_data 
-                <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PaddleLength <span class="op">==</span><span class="st"> &quot;50&quot;</span>)
-                <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(BallSpeed) 
+                %&gt;%<span class="st"> </span><span class="kw">filter</span>(PaddleLength ==<span class="st"> &quot;50&quot;</span>)
+                %&gt;%<span class="st"> </span><span class="kw">arrange</span>(BallSpeed) 
 
 <span class="co"># Piped version that will work </span>
-data_arrange &lt;-<span class="st"> </span>pong_data <span class="op">%&gt;%</span>
-<span class="st">                </span><span class="kw">filter</span>(PaddleLength <span class="op">==</span><span class="st"> &quot;50&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">                </span><span class="kw">arrange</span>(BallSpeed) </code></pre>
+data_arrange &lt;-<span class="st"> </span>pong_data %&gt;%
+<span class="st">                </span><span class="kw">filter</span>(PaddleLength ==<span class="st"> &quot;50&quot;</span>) %&gt;%
+<span class="st">                </span><span class="kw">arrange</span>(BallSpeed) </code></pre></div>
 <div class="solution">
 <button>
 Portfolio Point - Pipes are good for the Environment
@@ -1168,10 +1143,10 @@ Where piping becomes most useful is when we <strong>string a series of functions
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li>What does this line of code say? <code>data %&gt;% filter() %&gt;% group_by() %&gt;% summarise()</code>: <select class='solveme' data-answer='["take the data and filter it and then group it and then summarise it"]'> <option></option> <option>take the data and group it and then filter it and then summarise it</option> <option>take the data and filter it and then group it and then summarise it</option> <option>take the data and summarise it and then filter it and then group it</option> <option>take the data and group it and then summarise it and then filter it</option></select></li>
+<li>What does this line of code say? <code>data %&gt;% filter() %&gt;% group_by() %&gt;% summarise()</code>: <select class='solveme' data-answer='["take the data and filter it and then group it and then summarise it"]'> <option></option> <option>take the data and group it and then filter it and then summarise it</option> <option>take the data and filter it and then group it and then summarise it</option> <option>take the data and summarise it and then filter it and then group it</option> <option>take the data and group it and then summarise it and then filter it</option> </select></li>
 </ul>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>We have now recapped a number of functions and verbs that you will need as the semester goes on. You will use them in the lab next week so be sure to go over these and try them out to make yourself more comfortable with them. Remember to also start looking back at your first year labs and remembering some of the work you did there. If you have any questions please post them on the Moodle forum of the slack forum <a href="https://rguppies.slack.com/">rguppies.slack.com</a> under the channel #level2_labs. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. <strong>Happy Wrangling!</strong></p>
+<p>We have now recapped a number of functions and verbs that you will need as the semester goes on. You will use them in the lab next week so be sure to go over these and try them out to make yourself more comfortable with them. Remember to also start looking back at your first year labs and remembering some of the work you did there. If you have any questions please post them on the Moodle forum of the slack forum <a href="https://rguppies.slack.com/">rguppies.slack.com</a> under the channel #level2_labs. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. <strong>Happy Wrangling!</strong></p>
 
 </div>
 </div>
@@ -1192,7 +1167,7 @@ Portfolio Point - Still not sure what a function is and how to remember them?
 A function is a tool that takes an input, performs some action, and gives an output. They are nothing more than that. If you think about it your toaster is a function: it takes bread as an input; it perfoms the action of heating it up (nicely sometimes; on both sides would be a luxury); and it gives an output, the toast. A good thing about the Wickham six functions is that they are nicely named as verbs to describe what they do - <code>mutate()</code> mutates (adds on a column); <code>arrange()</code> arranges columns, <code>summarise()</code> summarises, etc.
 </p>
 <p>
-In terms of remembering all the functions, the truth is you don’t have to know them all. However, through practice and repetition, you will quickly learn to remember which ones are which and what package they come from. Sort of like where to find your spoons in your kitchen - you don’t look in the fridge, and then the washing machine, and then the drawer. Nope, you learnt, by repetition, to look in the drawer first time. It’s the same with functions. Keep in mind that research methods is like a language in that the more you use it and work with it the more it makes sense.
+In terms of remembering all the functions, the truth is you don't have to know them all. However, through practice and repetition, you will quickly learn to remember which ones are which and what package they come from. Sort of like where to find your spoons in your kitchen - you don't look in the fridge, and then the washing machine, and then the drawer. Nope, you learnt, by repetition, to look in the drawer first time. It's the same with functions. Keep in mind that research methods is like a language in that the more you use it and work with it the more it makes sense.
 </p>
 </div>
 </div>
@@ -1201,7 +1176,7 @@ In terms of remembering all the functions, the truth is you don’t have to know
 <ol style="list-style-type: decimal">
 <li>Each variable must have its own column.</li>
 <li>Each observation must have its own row.</li>
-<li>Each value must have its own cell (i.e. no grouping two variables together, e.g. time/date in one cell).
+<li>Each value must have its own cell (i.e. no grouping two variables together, e.g. time/date in one cell).
 <ol style="list-style-type: lower-roman">
 <li>A cell is where any specific row and column meet; a single data point in a tibble is a cell.</li>
 </ol></li>
@@ -1225,13 +1200,13 @@ Wide format on the other hand, again each row was a participant, but each column
 </p>
 </div>
 </div>
-<p><strong>Today’s Lab - Analysing the Autism Specturm Quotient (AQ)</strong></p>
+<p><strong>Today's Lab - Analysing the Autism Specturm Quotient (AQ)</strong></p>
 <p>To continue building your data wrangling skills we will recap the L11 lab on tidying up data from the Autism Spectrum Quotient (AQ) questionnaire. In that lab we used the AQ10; a non-diagnostic short form of the AQ with only 10 questions per participant. It is a discrete scale and the higher a participant scores on the AQ10 the more autistic-like traits they are said to display. Anyone scoring 7 or above is recommended for further diagnosis. You can see an example of the AQ10 through this link: <a href="http://docs.autismresearchcentre.com/tests/AQ10.pdf">AQ10 Example</a>. Remember you can revisit your Level 1 notes at any time but we will recap here for you.</p>
 <p>We have 66 participants and your goal in this lab is to find an AQ score for each of them through your data-wrangling skills.</p>
 <p>We have four data files to work with:</p>
 <ul>
 <li><code>responses.csv</code> containing the AQ survey responses to each of the 10 questions for our 66 participants</li>
-<li><code>qformats.csv</code> containing information on how a question should be coded - i.e. forward or reverse coding</li>
+<li><code>qformats.csv</code> containing information on how a question should be coded - i.e. forward or reverse coding</li>
 <li><code>scoring.csv</code> containing information on how many points a specific response should get; depending on whether it is forward or reverse coded</li>
 <li><code>pinfo.csv</code> containing participant information such as Age, Sex and importantly <code>ID</code> number.</li>
 </ul>
@@ -1242,7 +1217,7 @@ Portfolio Point - Open Data is best in csv format
 </button>
 <div class="info">
 <p>
-<code>csv</code> stands for ‘comma separated variable’, and is a very basic way of transferring data. It really just stores numbers and text and nothing else. The great thing about being this basic is that it can be read by many different machines and does not need expensive licenses to open it.
+<code>csv</code> stands for 'comma separated variable', and is a very basic way of transferring data. It really just stores numbers and text and nothing else. The great thing about being this basic is that it can be read by many different machines and does not need expensive licenses to open it.
 </p>
 </div>
 </div>
@@ -1251,13 +1226,13 @@ Portfolio Point - Open Data is best in csv format
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
 <p>Now would be a good time to make sure that you are all using RStudio effectively and know what each window does.</p>
 <ul>
-<li>TRUE or FALSE, the Console is best for practice and the Script Window is for saving: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
-<li>TRUE or FALSE, the Environment holds all the data you have loaded in and created: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
-<li>TRUE or FALSE, clicking the name of a variable or data in the Environment window will open it in the Script window: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
+<li><p>TRUE or FALSE, the Console is best for practice and the Script Window is for saving: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option> </select></p></li>
+<li><p>TRUE or FALSE, the Environment holds all the data you have loaded in and created: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option> </select></p></li>
+<li><p>TRUE or FALSE, clicking the name of a variable or data in the Environment window will open it in the Script window: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain this - I don’t get these answers
+Explain this - I don't get these answers
 </button>
 <div class="info">
 <p>
@@ -1288,7 +1263,7 @@ By clicking the name of the variable in the Environment window it will open up i
 <li>Start a new Rscript and save it to your <code>M: drive</code> in the same folder as your .csv files, calling the Rscript something informative like <code>Lab2_AQ_DataWrangling.R</code>.</li>
 <li>Make sure your environment is completely empty so we dont mix up one analysis with the other. You can run the following code line in the console to clear the environment or by clicking the little brush on your environment window.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) </code></pre></div>
 <div class="solution">
 <button>
 Portfolio point - comments on scripts and running lines
@@ -1327,7 +1302,7 @@ Do not install packages on the Psychology machines! Why?
 They are already installed and can cause the package to stop working if a student tries to install the same package on our machines.
 </li>
 <li>
-They are already installed and it is a bit like using apps on your phone. Install is putting the app onto your phone, library is just opening the app. If you’ve already downloaded the app (package) then you just need to open it (<code>library()</code>) to use it!
+They are already installed and it is a bit like using apps on your phone. Install is putting the app onto your phone, library is just opening the app. If you've already downloaded the app (package) then you just need to open it (<code>library()</code>) to use it!
 </li>
 </ol>
 </div>
@@ -1336,17 +1311,17 @@ They are already installed and it is a bit like using apps on your phone. Instal
 <div id="Ch2InClassQueT3" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Task 3: Load in the Data</h3>
 <p>Now we have to load in the <code>.csv</code> datafiles using the <code>read_csv()</code> function and save them as variables in our environment. For example, to load in the <code>responses</code> we would type:</p>
-<pre class="sourceCode r"><code class="sourceCode r">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;responses.csv&quot;</span>) </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;responses.csv&quot;</span>) </code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Add the following lines of code to your script and complete them to load in all four <code>.csv</code> datafiles. Use the above code as an example and name each variable the same as its original filename (minus the .csv part), again as above, e.g. <code>responses.csv</code> gets saved as <code>responses</code>. Remember to run the lines so that the data loaded in and is stored in your environment.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">responses &lt;-<span class="st">  </span><span class="kw">read_csv</span>()    <span class="co"># survey responses</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">responses &lt;-<span class="st">  </span><span class="kw">read_csv</span>()    <span class="co"># survey responses</span>
 qformats &lt;-<span class="st">                 </span><span class="co"># question formats</span>
 scoring &lt;-<span class="st">                  </span><span class="co"># scoring info</span>
-pinfo &lt;-<span class="st">                    </span><span class="co"># participant information</span></code></pre>
+pinfo &lt;-<span class="st">                    </span><span class="co"># participant information</span></code></pre></div>
 <div class="solution">
 <button>
-Portfolio Point - Haven’t I read_csv before
+Portfolio Point - Haven't I read_csv before
 </button>
 <div class="info">
 <p>
@@ -1358,21 +1333,21 @@ As you work with data and functions you will find there are functions with simil
 <div id="Ch2InClassQueT4" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> Task 4: Review Your Data.</h3>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
-<p>Now that we have the data loaded in it is always best to have a look at the data to get an idea of its layout. We showed you one way before, by clicking on the name in the environment, but you can also use the <code>glimpse()</code> or <code>View()</code> functions in your Console window and putting the name of the data between the brackets to see how it is arranged. Don’t add these to your script though they are just one-offs for testing.</p>
-<p>As a small group, have a look at the data in <code>responses</code> to see if you think it is Tidy or not and answer the following question: The data in <code>responses</code> is in <select class='solveme' data-answer='["Wide"]'> <option></option> <option>Tidy</option> <option>Long</option> <option>Wide</option></select> format</p>
+<p>Now that we have the data loaded in it is always best to have a look at the data to get an idea of its layout. We showed you one way before, by clicking on the name in the environment, but you can also use the <code>glimpse()</code> or <code>View()</code> functions in your Console window and putting the name of the data between the brackets to see how it is arranged. Don't add these to your script though they are just one-offs for testing.</p>
+<p>As a small group, have a look at the data in <code>responses</code> to see if you think it is Tidy or not and answer the following question: The data in <code>responses</code> is in <select class='solveme' data-answer='["Wide"]'> <option></option> <option>Tidy</option> <option>Long</option> <option>Wide</option> </select> format</p>
 <div class="solution">
 <button>
-Explain This - I don’t get why?
+Explain This - I don't get why?
 </button>
 <div class="info">
 <p>
-The <code>reponses</code> tibble is far from being tidy; each row represents multiple observations from the same participant, i.e. each row shows responses to multiple questions - <code>wide format</code>. Remember we want the data in tidy format as described above.
+The <code>reponses</code> tibble is far from being tidy; each row represents multiple observations from the same participant, i.e. each row shows responses to multiple questions - <code>wide format</code>. Remember we want the data in tidy format as described above.
 </p>
 <p>
-Eh, what’s a tibble?
+Eh, what's a tibble?
 </p>
 <p>
-A tibble is simply a dataframe - or a table of data with columns and rows - that is really handy for working with when using the <code>tidyverse</code> packages. When we say tibble, you can think of a dataframe with rows and columns of information and numbers stored in them - like <code>responses</code>, it is a tibble. For more info, see here: &lt;a href=“<a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html" class="uri">https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html</a>”, target = &quot;_blank&quot;&gt;Tibbles</a>
+A tibble is simply a dataframe - or a table of data with columns and rows - that is really handy for working with when using the <code>tidyverse</code> packages. When we say tibble, you can think of a dataframe with rows and columns of information and numbers stored in them - like <code>responses</code>, it is a tibble. For more info, see here: <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html", target = "_blank">Tibbles</a>
 </p>
 </div>
 </div>
@@ -1383,7 +1358,7 @@ A tibble is simply a dataframe - or a table of data with columns and rows - that
 <ol style="list-style-type: decimal">
 <li>Copy the below code line to your script and run it.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, Response, Q1<span class="op">:</span>Q10)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, Response, Q1:Q10)</code></pre></div>
 <ul>
 <li>The first argument given to the <code>gather()</code> function is the dataset which holds the data we want to wrangle, <code>responses</code>.</li>
 <li>The second and third arguments are the names we want to give the columns we are creating;
@@ -1394,9 +1369,9 @@ A tibble is simply a dataframe - or a table of data with columns and rows - that
 </ul></li>
 <li>Finally, the fourth argument is the names of specific columns in the original tibble that we want to gather together.</li>
 </ul>
-<p>In case you are wondering if we wanted to go back the way, and ungather the data we just gathered, we would use the <code>spread()</code> function: e.g. <code>rwide &lt;- spread(rlong, Questions, Response)</code>. But we do not want to do that here so let’s not add this to the code.</p>
+<p>In case you are wondering if we wanted to go back the way, and ungather the data we just gathered, we would use the <code>spread()</code> function: e.g. <code>rwide &lt;- spread(rlong, Questions, Response)</code>. But we do not want to do that here so let's not add this to the code.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Let’s see if you understand <code>gather()</code>. Say I wanted to gather the first three columns of <code>responses</code> (Q1, Q2, Q3), put the question numbers in a column called <code>Jam</code>, the responses in a column called <code>Strawberry</code>, and store everything in a tibble called <code>sandwich</code>. Fill in the box with what you would write: <input class='solveme nospaces' size='60' data-answer='["sandwich <- gather(responses, Jam, Strawberry, Q1:Q3)"]'/></p>
+<p>Let's see if you understand <code>gather()</code>. Say I wanted to gather the first three columns of <code>responses</code> (Q1, Q2, Q3), put the question numbers in a column called <code>Jam</code>, the responses in a column called <code>Strawberry</code>, and store everything in a tibble called <code>sandwich</code>. Fill in the box with what you would write: <input class='solveme nospaces' size='60' data-answer='["sandwich <- gather(responses, Jam, Strawberry, Q1:Q3)"]'/></p>
 <div class="solution">
 <button>
 Explain this - I dont get the right answer!
@@ -1422,8 +1397,8 @@ sandwich &lt;- gather(responses, Jam, Strawberry, Q1:Q3)
 <ol style="list-style-type: decimal">
 <li>Copy the below line into your code and run it.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combine rows in the tibble rlong with rows in the tibble `qformats`, based on the common column &quot;Question&quot;</span>
-rlong2 &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong, qformats, <span class="st">&quot;Question&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combine rows in the tibble rlong with rows in the tibble `qformats`, based on the common column &quot;Question&quot;</span>
+rlong2 &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong, qformats, <span class="st">&quot;Question&quot;</span>)</code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Now have a look in <code>rlong2</code>. We have matched each question with its scoring format, <code>forward</code> or <code>reverse</code>.</li>
 </ol>
@@ -1443,8 +1418,8 @@ The reasoning behind this shift is that sometimes agreeing or disagreeing might 
 <ol start="3" style="list-style-type: decimal">
 <li>Now we need to combine the information in our table, <code>rlong2</code>, with the <code>scoring</code> table so we know how many points to attribute each question based on the answer the participant gave, and whether the question was forward or reverse coded. Again, we use the <code>inner_join()</code> function, but this time the common columns found in <code>rlong2</code> and <code>scoring</code> are <code>QFormat</code> and <code>Response</code>. To combine by two columns you just write them in sequence as shown below. <strong>Note: when there is more than one common column between two tibbles you are joining, it is best to combine by all the columns to avoid repeat columns names in the new tibble.</strong> Copy the below line into your code and run it.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combine rows in rlong2 and scoring based on QFormat and Response</span>
-rscores &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong2, scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combine rows in rlong2 and scoring based on QFormat and Response</span>
+rscores &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong2, scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>))</code></pre></div>
 </div>
 <div id="Ch2InClassQueT7" class="section level3">
 <h3><span class="header-section-number">2.3.7</span> Task 7: Calculating the AQ Scores.</h3>
@@ -1454,9 +1429,9 @@ rscores &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong2,
 </li>
 <li>Save your script and run it all again from the start to make sure it works!</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">aq_scores &lt;-<span class="st"> </span>rscores <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">             </span><span class="kw">group_by</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># how will you group individual participants?</span>
-<span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>()) <span class="co"># which column will you sum to obtain AQ scores?</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aq_scores &lt;-<span class="st"> </span>rscores %&gt;%<span class="st"> </span>
+<span class="st">             </span><span class="kw">group_by</span>() %&gt;%<span class="st"> </span><span class="co"># how will you group individual participants?</span>
+<span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>()) <span class="co"># which column will you sum to obtain AQ scores?</span></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1472,11 +1447,11 @@ If we summed up the value for each Score we might get a full AQ Score for each p
 </div>
 <div class="solution">
 <button>
-Portfolio Points - Hang on isn’t that a Pipe?
+Portfolio Points - Hang on isn't that a Pipe?
 </button>
 <div class="info">
 <p>
-We saw Pipes in Level 1 and then again in the Preclass for this lab. Pipes are your friend. Think of them as saying ‘and then’ or ‘goes into’. So in the example above we take <code>rscores</code> and then group it by something and then summarise it into AQ scores based on…
+We saw Pipes in Level 1 and then again in the Preclass for this lab. Pipes are your friend. Think of them as saying 'and then' or 'goes into'. So in the example above we take <code>rscores</code> and then group it by something and then summarise it into AQ scores based on...
 </p>
 <p>
 In most cases, the pipe serves the purpose of putting the input into the function or taking the output of one function and treating it as the input of another function.
@@ -1489,9 +1464,9 @@ In the example above the first pipe takes <code>rscores</code> as the input for 
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>The whole purpose of this lab was to calculate AQ scores for individual participants. As a small group, try to answer the following questions. Try to do it using code where possible to help you based on your knowledge from the preclass and inclass activity. Remember the cheatsheets as well. Look for the <code>dplyr</code> one!</p>
 <ol style="list-style-type: decimal">
-<li><p>From the options, choose the correct citation for the AQ 10 question questionnaire: <select class='solveme' data-answer='["Allison, Auyeung, and Baron-Cohen, (2012)"]'> <option></option> <option>Allison, Auyeung, and Baron-Cohen, (2011)</option> <option>Allison, Auyeung, and Baron-Cohen, (2012)</option> <option>Allison and Baron-Cohen, (2012)</option> <option>Auyeung, Allison, and Baron-Cohen, (2012)</option></select></p></li>
-<li><p>Complete the sentence, the higher the AQ score…<select class='solveme' data-answer='["the more autistic-like traits displayed"]'> <option></option> <option>the less autistic-like traits displayed</option> <option>has no relation to autistic-like traits</option> <option>the more autistic-like traits displayed</option></select></p></li>
-<li><p>Type in the AQ score (just the number) of Participant ID No. 87: <input class='solveme nospaces' size='10' data-answer='["2"]'/></p></li>
+<li><p>From the options, choose the correct citation for the AQ 10 question questionnaire: <select class='solveme' data-answer='["Allison, Auyeung, and Baron-Cohen, (2012)"]'> <option></option> <option>Allison, Auyeung, and Baron-Cohen, (2011)</option> <option>Allison, Auyeung, and Baron-Cohen, (2012)</option> <option>Allison and Baron-Cohen, (2012)</option> <option>Auyeung, Allison, and Baron-Cohen, (2012)</option> </select></p></li>
+<li><p>Complete the sentence, the higher the AQ score...<select class='solveme' data-answer='["the more autistic-like traits displayed"]'> <option></option> <option>the less autistic-like traits displayed</option> <option>has no relation to autistic-like traits</option> <option>the more autistic-like traits displayed</option> </select></p></li>
+<li><p>Type in the AQ score (just the number) of Participant ID No. 87: <input class='solveme nospaces' size='10' data-answer='["2"]'/></p></li>
 <li>Type how many participants had an AQ score of 3 (again just the number): <input class='solveme nospaces' size='10' data-answer='["13"]'/><br />
 </li>
 <li><p>The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred to for diagnostic assessment. Type in how many participants should we refer from our sample: <input class='solveme nospaces' size='10' data-answer='["6"]'/></p></li>
@@ -1547,10 +1522,10 @@ At any point where the first argument of your function is the name of a variable
 <code>rlong &lt;- gather(responses, Question, Response, Q1:Q10)</code>
 </p>
 <p>
-<code>rlong2 &lt;- inner_join(rlong, qformats, “Question”)</code>
+<code>rlong2 &lt;- inner_join(rlong, qformats, &quot;Question&quot;)</code>
 </p>
 <p>
-<code>rscores &lt;- inner_join(rlong2, scoring, c(“QFormat”, “Response”))</code>
+<code>rscores &lt;- inner_join(rlong2, scoring, c(&quot;QFormat&quot;, &quot;Response&quot;))</code>
 </p>
 <p>
 <code>aq_scores &lt;- rscores %&gt;% group_by(Id) %&gt;% summarise(AQ = sum(Score))</code>
@@ -1559,7 +1534,7 @@ At any point where the first argument of your function is the name of a variable
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>You have now recapped one-table and two-table verbs. These are great to know as for example, in the above, it actually only took a handful of reproducible steps to get from messy data to tidy data; could you imagine doing this by hand in Excel through cutting and pasting? Not to mention the mistakes you could make!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module</strong>. However you are strongly encouraged to do the assignment as it will continue to boost your data-wrangling skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.**</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module</strong>. However you are strongly encouraged to do the assignment as it will continue to boost your data-wrangling skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.**</p>
 <p>Happy wrangling! Excellent work! You are a DataWrangling expert! Now go try the assignment!</p>
 
 </div>
@@ -1570,22 +1545,21 @@ At any point where the first argument of your function is the name of a variable
 <p><strong>Lab 2: Formative Data Wrangling Assignment</strong></p>
 <p>In order to complete this assignment you will need to download the data .csv files, as well as the assignment .Rmd file, which you need to edit, titled <code>GUID_Level2_Lab2.Rmd</code>. These can be downloaded within a zip file from the below link. Once downloaded and unzipped, you should create a new folder that you will use as your working directory; put the data files and the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/02-s01/homework/Level2_Lab2_AssignmentFiles.zip"><strong>Download the Assignment .zip file from here</strong></a> or on Moodle.</p>
 <p>Now open the assignment .Rmd file within RStudio. You will see there is a code chunk for each task. Much as you did in the first assignment, follow the instructions on what to edit in each code chunk. This will often be entering code based on the lab you have just done as opposed to always just entering a value.</p>
-<p>In the lab we recapped on data-wrangling using the Wickham 6 verbs, looked at additional functions such as <code>gather()</code> and <code>inner_join()</code>, and at piping chains of code for efficiency using <code>%&gt;%</code>. You will need these skills to complete the following assignment so please make sure you have carried out the PreClass and InClass activities before attempting this formative assignment.
-Remember to follow the instructions and if you get stuck at any point to post questions on rguppies.slack.com channel <strong>#level2_2018</strong>. Also, two useful online resources are:</p>
+<p>In the lab we recapped on data-wrangling using the Wickham 6 verbs, looked at additional functions such as <code>gather()</code> and <code>inner_join()</code>, and at piping chains of code for efficiency using <code>%&gt;%</code>. You will need these skills to complete the following assignment so please make sure you have carried out the PreClass and InClass activities before attempting this formative assignment. Remember to follow the instructions and if you get stuck at any point to post questions on rguppies.slack.com channel <strong>#level2_2018</strong>. Also, two useful online resources are:</p>
 <ul>
-<li>&lt;a href=“<a href="http://r4ds.had.co.nz" class="uri">http://r4ds.had.co.nz</a>”, target = &quot;_blank&quot;&gt;Hadley Wickham’s R for Data Science book @ http://r4ds.had.co.nz</a></li>
-<li>&lt;a href=“<a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</a>”, target = &quot;_blank&quot;&gt; RStudio’s dplyr cheatsheet @ Rstudio.com</a></li>
+<li><a href="http://r4ds.had.co.nz", target = "_blank">Hadley Wickham's R for Data Science book @ http://r4ds.had.co.nz</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf", target = "_blank"> RStudio's dplyr cheatsheet @ Rstudio.com</a></li>
 </ul>
 <div id="todays-topic---the-ageing-brain" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Today’s Topic - The Ageing Brain</h3>
-<p>A key topic in current psychologial research, and one which forms a main focus for some of the research in our School, is that of human ageing. In this research we use brain imaging techniques to understand how changes in brain function and structure relate to changes in perception and behaviour. A typical ‘ageing’ experiment will compare a measure (or a number of measures) such as performance on a cognitive or perceptual task between younger and older adults (i.e. a between-subjects design experiment).</p>
-<p>However in order to make sure we are studying ‘healhty’ ageing, we first have to ‘screen’ our older participants for symptoms of age-related dementia (Alzheimer’s Disease), where cognitive function can be significantly impaired. We do this using a range of cognitive tests. Some studies will also test participants’ <em>sensory acuity</em> (ability to perceive something), as a function of age (particularly eyesight and hearing).</p>
+<h3><span class="header-section-number">2.4.1</span> Today's Topic - The Ageing Brain</h3>
+<p>A key topic in current psychologial research, and one which forms a main focus for some of the research in our School, is that of human ageing. In this research we use brain imaging techniques to understand how changes in brain function and structure relate to changes in perception and behaviour. A typical 'ageing' experiment will compare a measure (or a number of measures) such as performance on a cognitive or perceptual task between younger and older adults (i.e. a between-subjects design experiment).</p>
+<p>However in order to make sure we are studying 'healhty' ageing, we first have to 'screen' our older participants for symptoms of age-related dementia (Alzheimer's Disease), where cognitive function can be significantly impaired. We do this using a range of cognitive tests. Some studies will also test participants' <em>sensory acuity</em> (ability to perceive something), as a function of age (particularly eyesight and hearing).</p>
 <p>The data you have downloaded for this lab is example screening data taken from research investigating how the ageig brain processes different types of sounds. The tests used in this study are detailed below. Please note that the links are there to provide you with further information and examples of the tests once you have completed the assignment if you so wish; you do not have to read them to complete the assignment.</p>
 <ul>
-<li><p><a href="https://www.mocatest.org">Montreal Cognitive Assessment (MoCA)</a> : a test specifically devised as a stand-alone screening tool for mild cognitive impairment. Assesses visuospatial skills, memory, language, attention, orientation, and abstraction skills. &lt;a href=“<a href="http://www.mocatest.org/pdf_files/test/MoCA-Test-English_7_1.pdf" class="uri">http://www.mocatest.org/pdf_files/test/MoCA-Test-English_7_1.pdf</a>”, target=&quot;_blank&quot;&gt;Example here</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/Memory_span#Digit-span">Working Memory Digit Span Test (D-SPAN)</a>: measures the capacity of participants’ short-term (working) memory. &lt;a href=“<a href="http://www.dyslexia-international.org/content/Informal%20tests/Digitspan.pdf">http://www.dyslexia-international.org/content/Informal%20tests/Digitspan.pdf</a>”, target=&quot;_blank&quot;&gt;Example here</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3">D2 Test of Attention</a>: measures participant’s selective and sustained concentration and visual scanning speed. &lt;a href=“<a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg" class="uri">http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg</a>”, target = &quot;_blank&quot;&gt;Example here</a></p></li>
-<li><p><strong>Better Hearing Institute Quick Hearing Check</strong>: a self-report questionnaire which measures participant’s subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. &lt;a href=“<a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf">http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf</a>”, targer = &quot;_blank“&gt;Example here</a> and &lt;a href=”<a href="http://www.betterhearing.org/check-your-hearing" class="uri">http://www.betterhearing.org/check-your-hearing</a>“, target =”_blank&quot;&gt;Main Test page here</a></p></li>
+<li><p><a href="https://www.mocatest.org">Montreal Cognitive Assessment (MoCA)</a> : a test specifically devised as a stand-alone screening tool for mild cognitive impairment. Assesses visuospatial skills, memory, language, attention, orientation, and abstraction skills. <a href="http://www.mocatest.org/pdf_files/test/MoCA-Test-English_7_1.pdf", target="_blank">Example here</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Memory_span#Digit-span">Working Memory Digit Span Test (D-SPAN)</a>: measures the capacity of participants' short-term (working) memory. <a href="http://www.dyslexia-international.org/content/Informal%20tests/Digitspan.pdf", target="_blank">Example here</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3">D2 Test of Attention</a>: measures participant's selective and sustained concentration and visual scanning speed. <a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg", target = "_blank">Example here</a></p></li>
+<li><p><strong>Better Hearing Institute Quick Hearing Check</strong>: a self-report questionnaire which measures participant's subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf", targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing", target = "_blank">Main Test page here</a></p></li>
 </ul>
 <p><strong>The Data Files</strong></p>
 <p>You have just downloaded the three <code>.csv</code> files containing all the data you need. Below is a list of the .csv files names and a description of the variables each contains:</p>
@@ -1603,9 +1577,9 @@ Remember to follow the instructions and if you get stuck at any point to post qu
 <li><code>D-SPAN</code> Working Memory Digit Span test score</li>
 <li><code>D2</code> D2 Test of Attention score</li>
 </ul></li>
-<li><code>QHC_responses.csv</code> contains participants’ responses to each question on the <strong><em>Better Hearing Institute Quick Hearing Check (QHC)</em></strong> questionnaire.
+<li><code>QHC_responses.csv</code> contains participants' responses to each question on the <strong><em>Better Hearing Institute Quick Hearing Check (QHC)</em></strong> questionnaire.
 <ul>
-<li>Column 1 represents participants’ <code>ID</code> (matching up to that in <code>p_screen.csv</code>).</li>
+<li>Column 1 represents participants' <code>ID</code> (matching up to that in <code>p_screen.csv</code>).</li>
 <li>Each column thereafter represents the 15 questions from the questionnaire.</li>
 <li>Each row represents a participant and their response to each question.</li>
 </ul></li>
@@ -1626,11 +1600,11 @@ Remember to follow the instructions and if you get stuck at any point to post qu
 <ol style="list-style-type: decimal">
 <li>You will see a code chunk called <code>libraries</code>, similar to the one below, at the top of your .Rmd assignment file. It is all set-up to load in the data for you and to call <code>tidyverse</code> to the <code>library()</code>. Run this code chunk now to bring in the data and tidyverse. You can do this in the console, in a script, or even through the code chunk by clicking the small green play symbol in the top right of the code chunk.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
 screening &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;p_screen.csv&quot;</span>)
 responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;QHC_responses.csv&quot;</span>)
-scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;QHC_scoring.csv&quot;</span>)</code></pre>
+scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;QHC_scoring.csv&quot;</span>)</code></pre></div>
 <p><strong>View the data</strong></p>
 <ol style="list-style-type: decimal">
 <li>It is always a good idea to familiarise yourself with the layout of the data that you have just loaded in. You can do this through using <code>glimpse()</code> or <code>View()</code> in the Console windown, but you must never put these functions in your assignment file.</li>
@@ -1641,74 +1615,74 @@ scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cla
 <div id="Ch2AssignQueT1" class="section level3">
 <h3><span class="header-section-number">2.4.3</span> Task 1 - Oldest Participant</h3>
 <p>Replace the <code>NULL</code> in the <code>T1</code> code chunk with the Participant ID of the oldest participant. Store this single value in <code>oldest_participant</code> (e.g. <code>oldest_participant &lt;- 999</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: look at your data, who is oldest?</span>
-oldest_participant &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: look at your data, who is oldest?</span>
+oldest_participant &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 </div>
 <div id="Ch2AssignQueT2" class="section level3">
 <h3><span class="header-section-number">2.4.4</span> Task 2 - Arranging D-SPAN</h3>
-<p>Replace the <code>NULL</code> in the <code>T2</code> code chunk with code that arranges participants’ D-SPAN performance from highest to lowest using the appropriate one-table dplyr (i.e., Wickham) verb. Store the output in <code>cogtest_sort</code>. (e.g. <code>cogtest_sort &lt;- verb(data, argument)</code>)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: arrange your screening data</span>
-cogtest_sort &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<p>Replace the <code>NULL</code> in the <code>T2</code> code chunk with code that arranges participants' D-SPAN performance from highest to lowest using the appropriate one-table dplyr (i.e., Wickham) verb. Store the output in <code>cogtest_sort</code>. (e.g. <code>cogtest_sort &lt;- verb(data, argument)</code>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: arrange your screening data</span>
+cogtest_sort &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 </div>
 <div id="Ch2AssignQueT3" class="section level3">
 <h3><span class="header-section-number">2.4.5</span> Task 3 - Foreign Language Speakers</h3>
 <p>Replace the <code>NULL</code> in each of the two lines of code chunk <code>T3</code>, so that <code>descriptives</code> has a column called <code>n</code> that shows the number of participants that speak a foreign language and number of participants that do not speak a foreign language, and another column called <code>median_age</code> that shows the median age for those two groups. If you have done this correctly, <code>descriptives</code> should have 3 columns and 2 rows of data, not including the header row.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: First need to group_by() foreign language</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: First need to group_by() foreign language</span>
 screen_groups &lt;-<span class="st"> </span><span class="ot">NULL</span>
 <span class="co"># hint: second need to summarise(). Pay attention to specific column names given.</span>
-descriptives &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+descriptives &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 </div>
 <div id="Ch2AssignQueT4" class="section level3">
 <h3><span class="header-section-number">2.4.6</span> Task 4 - Creating Percentage MOCA scores</h3>
 <p>Replace the <code>NULL</code> in the <code>T4</code> code chunk with code using one of the dplyr verbs to add a new column called <code>MOCA_Perc</code> to the dataframe <code>screening</code> In this new column should be the <code>MOCA</code> scores coverted to percentages. The maximum achievable score on MOCA is <code>30</code> and percentages are calculated as <code>(participant score / max score) * 100</code>. Store this output in <code>screening</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: mutate() something using MOCA and the percentage formula</span>
-screening &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: mutate() something using MOCA and the percentage formula</span>
+screening &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 </div>
 <div id="Ch2AssignQueT5" class="section level3">
 <h3><span class="header-section-number">2.4.7</span> Task 5 - Remove the MOCA column</h3>
 <p>Now that we have our MoCA score expressed as a percentage <code>MOCA_Perc</code> we no longer need the raw scores held in <code>MOCA</code>. Replace the <code>NULL</code> in the <code>T5</code> code chunk using a one-table dplyr verb to keep all the columns of <code>screening</code>, with the same order, but without the <code>MOCA</code> column. Store this output in <code>screening</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: select your columns</span>
-screening &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: select your columns</span>
+screening &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 <p><strong>Halfway There!</strong></p>
 <p>The remaining tasks focus on merging two tables.</p>
-<p>You suspect that the older adults with musical experience might report more finely-tuned hearing abilities than those without musical experience. You therefore decide to check whether this trend exists in your data. You measured participant’s self reported hearing abilties using the Better Hearing Institute Quick Hearing Check Questionnaire. In this questionnaire participants rated the extent to which they agree or disagree with a list of statements (e.g. ‘I have a problem hearing over the telephone’) using a 5 point Likert scale (Strongly Disagree, Slightly Disagree, Neutral, Slightly Agree, Strongly Agree).</p>
-<p>Each participant’s response to each question is contained in the <code>responses</code> dataframe in your environment. Each response type is worth a certain number of points (e.g. Strongly Disagree = 0, Strongly Agree = 5), and the scoring key is contained in the <code>scoring</code> dataframe. A score for each participant is calculated by totalling up the number of points across all the questions to derive at an overall score. The lower the overall score, the better the participant’s self-reported hearing ability.</p>
+<p>You suspect that the older adults with musical experience might report more finely-tuned hearing abilities than those without musical experience. You therefore decide to check whether this trend exists in your data. You measured participant's self reported hearing abilties using the Better Hearing Institute Quick Hearing Check Questionnaire. In this questionnaire participants rated the extent to which they agree or disagree with a list of statements (e.g. 'I have a problem hearing over the telephone') using a 5 point Likert scale (Strongly Disagree, Slightly Disagree, Neutral, Slightly Agree, Strongly Agree).</p>
+<p>Each participant's response to each question is contained in the <code>responses</code> dataframe in your environment. Each response type is worth a certain number of points (e.g. Strongly Disagree = 0, Strongly Agree = 5), and the scoring key is contained in the <code>scoring</code> dataframe. A score for each participant is calculated by totalling up the number of points across all the questions to derive at an overall score. The lower the overall score, the better the participant's self-reported hearing ability.</p>
 <p>In order to score the questionnaire we first need to perform a couple of steps.</p>
 </div>
 <div id="Ch2AssignQueT6" class="section level3">
 <h3><span class="header-section-number">2.4.8</span> Task 6 - Gather the Responses together</h3>
 <p>Replace the <code>NULL</code> in the <code>T6</code> code chunk using code to gather the responses to all the questions of the QHC from wide format to tidy/long format. Name the first column <code>Question</code> and the second column <code>RESPONSE</code>. Store this output in <code>responses_long</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: gather the question columns (Q1:Q15) in responses</span>
-responses_long &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: gather the question columns (Q1:Q15) in responses</span>
+responses_long &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre></div>
 </div>
 <div id="Ch2AssignQueT7" class="section level3">
 <h3><span class="header-section-number">2.4.9</span> Task 7 - Joining the data</h3>
-<p>Now we need to join the number of points for each response in <code>scoring</code> to the participants’ responses in <code>responses_long</code>.</p>
+<p>Now we need to join the number of points for each response in <code>scoring</code> to the participants' responses in <code>responses_long</code>.</p>
 <p>Replace the <code>NULL</code> in the <code>T7</code> code chunk using <code>inner_join()</code> to combine <code>responses_long</code> and <code>scoring</code> into a new variable called <code>responses_points</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: join them by the column common to both scoring and responses_long</span>
-responses_points &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: join them by the column common to both scoring and responses_long</span>
+responses_points &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 </div>
 <div id="Ch2AssignQueT8" class="section level3">
 <h3><span class="header-section-number">2.4.10</span> Task 8 - Working the Pipes</h3>
-<p>Below we have given you a code chunk with 5 lines of code. The code takes the data in its current long format and then creates a QHC score for each participant, before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don’t - and stores it in a variable called <code>musical_means</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)
+<p>Below we have given you a code chunk with 5 lines of code. The code takes the data in its current long format and then creates a QHC score for each participant, before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don't - and stores it in a variable called <code>musical_means</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)
 participant_scores &lt;-<span class="st"> </span><span class="kw">summarise</span>(participant_groups, <span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE))
 participant_screening &lt;-<span class="st"> </span><span class="kw">inner_join</span>(participant_scores, screening, <span class="st">&quot;ID&quot;</span>)
 screening_groups_new &lt;-<span class="st"> </span><span class="kw">group_by</span>(participant_screening, MUSICAL)
-musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</code></pre>
+musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</code></pre></div>
 <p>Replace the <code>NULL</code> in the <code>T8</code> code chunk with the following code converted into a fuctioning pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people stored in <code>musical_means</code> which should be made of two rows by two columns.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: in pipes, the output of the previous function is the input of the subsequent function.</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: in pipes, the output of the previous function is the input of the subsequent function.</span>
 <span class="co"># hint: function1 %&gt;% function2</span>
 
-musical_means &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+musical_means &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 </div>
 <div id="Ch2AssignQueT9" class="section level3">
 <h3><span class="header-section-number">2.4.11</span> Task 9 - Difference in Musical Means</h3>
-<p>Finally, replace the <code>NULL</code> in the <code>T9</code> code chunk with a single value, to two decimal places, that is the value of how much higher the QHC score of people who play music is compared to people who don’t play music (e.g. 2.93)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: look in musical means and enter the difference between the two means.</span>
-QHC_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<p>Finally, replace the <code>NULL</code> in the <code>T9</code> code chunk with a single value, to two decimal places, that is the value of how much higher the QHC score of people who play music is compared to people who don't play music (e.g. 2.93)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: look in musical means and enter the difference between the two means.</span>
+QHC_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that <code>Mycolumn</code> is different to <code>mycolumn</code> and only one is correct. If you have any questions, please post them on the moodle forum or on the &lt;a href=“rguppies.slack.com”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that <code>Mycolumn</code> is different to <code>mycolumn</code> and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 
 </div>
 </div>
@@ -1719,47 +1693,47 @@ QHC_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <h3><span class="header-section-number">2.5.1</span> PreClass Activities</h3>
 <div id="preclass-task-1" class="section level4">
 <h4><span class="header-section-number">2.5.1.1</span> PreClass Task 1</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To include variables:</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To include variables:</span>
 <span class="kw">select</span>(pong_data, Participant, PaddleLength, TrialNumber, BackgroundColor, HitOrMiss)
 
 <span class="co"># To exclude variables:</span>
-<span class="kw">select</span>(pong_data, <span class="op">-</span>JudgedSpeed, <span class="op">-</span>BallSpeed, <span class="op">-</span>BlockNumber)
+<span class="kw">select</span>(pong_data, -JudgedSpeed, -BallSpeed, -BlockNumber)
 
 <span class="co"># To select in order:</span>
-<span class="kw">select</span>(pong_data, BallSpeed, HitOrMiss, JudgedSpeed, Participant, TrialNumber)</code></pre>
+<span class="kw">select</span>(pong_data, BallSpeed, HitOrMiss, JudgedSpeed, Participant, TrialNumber)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT1">Return to Task</a></p>
 </div>
 <div id="preclass-task-2" class="section level4">
 <h4><span class="header-section-number">2.5.1.2</span> PreClass Task 2</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">arrange</span>(pong_data, <span class="kw">desc</span>(HitOrMiss), <span class="kw">desc</span>(JudgedSpeed))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">arrange</span>(pong_data, <span class="kw">desc</span>(HitOrMiss), <span class="kw">desc</span>(JudgedSpeed))</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT2">Return to Task</a></p>
 </div>
 <div id="preclass-task-3" class="section level4">
 <h4><span class="header-section-number">2.5.1.3</span> PreClass Task 3</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(pong_data, 
-       JudgedSpeed <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, 
-       BallSpeed <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;7&quot;</span>), 
-       HitOrMiss <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(pong_data, 
+       JudgedSpeed ==<span class="st"> </span><span class="dv">1</span>, 
+       BallSpeed %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;7&quot;</span>), 
+       HitOrMiss ==<span class="st"> </span><span class="dv">0</span>)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT3">Return to Task</a></p>
 </div>
 <div id="preclass-task-4" class="section level4">
 <h4><span class="header-section-number">2.5.1.4</span> PreClass Task 4</h4>
-<pre class="sourceCode r"><code class="sourceCode r">pong_data_filt &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, TrialNumber <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2</span>) 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pong_data_filt &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, TrialNumber &gt;=<span class="st"> </span><span class="dv">2</span>) 
 <span class="co"># remember you can call this variable anything, as long as it makes sense to yourself and others</span>
 
-pong_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data_filt, <span class="dt">TrialNumber =</span> TrialNumber <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</code></pre>
+pong_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data_filt, <span class="dt">TrialNumber =</span> TrialNumber -<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT4">Return to Task</a></p>
 </div>
 <div id="preclass-task-5" class="section level4">
 <h4><span class="header-section-number">2.5.1.5</span> PreClass Task 5</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(pong_data, BlockNumber, BackgroundColor)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(pong_data, BlockNumber, BackgroundColor)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT5">Return to Task</a></p>
 </div>
 <div id="preclass-task-6" class="section level4">
 <h4><span class="header-section-number">2.5.1.6</span> PreClass Task 6</h4>
-<pre class="sourceCode r"><code class="sourceCode r">pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)
 pong_data_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(pong_data, BackgroundColor, PaddleLength)
-pong_data_hits &lt;-<span class="st"> </span><span class="kw">summarise</span>(pong_data_group, <span class="dt">total_hits =</span> <span class="kw">sum</span>(HitOrMiss))</code></pre>
+pong_data_hits &lt;-<span class="st"> </span><span class="kw">summarise</span>(pong_data_group, <span class="dt">total_hits =</span> <span class="kw">sum</span>(HitOrMiss))</code></pre></div>
 <ul>
 <li>You should find that the number of hits made with the small paddle (50) and the red color background is 517</li>
 </ul>
@@ -1770,35 +1744,35 @@ pong_data_hits &lt;-<span class="st"> </span><span class="kw">summarise</span>(p
 <h3><span class="header-section-number">2.5.2</span> InClass Actitivies</h3>
 <div id="inclass-task-2" class="section level4">
 <h4><span class="header-section-number">2.5.2.1</span> InClass Task 2</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="co"># or</span>
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
-<span class="co"># both do the same thing.</span></code></pre>
+<span class="co"># both do the same thing.</span></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3" class="section level4">
 <h4><span class="header-section-number">2.5.2.2</span> InClass Task 3</h4>
-<pre class="sourceCode r"><code class="sourceCode r">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;responses.csv&quot;</span>)                  
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;responses.csv&quot;</span>)                  
 qformats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;qformats.csv&quot;</span>)                 
 scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;scoring.csv&quot;</span>)                  
-pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;pinfo.csv&quot;</span>)</code></pre>
+pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;pinfo.csv&quot;</span>)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-7" class="section level4">
 <h4><span class="header-section-number">2.5.2.3</span> InClass Task 7</h4>
-<pre class="sourceCode r"><code class="sourceCode r">aq_scores &lt;-<span class="st"> </span>rscores <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">             </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># group by the ID number in column Id</span>
-<span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score)) <span class="co"># sum column Score to obtain AQ scores.</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aq_scores &lt;-<span class="st"> </span>rscores %&gt;%<span class="st"> </span>
+<span class="st">             </span><span class="kw">group_by</span>(Id) %&gt;%<span class="st"> </span><span class="co"># group by the ID number in column Id</span>
+<span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score)) <span class="co"># sum column Score to obtain AQ scores.</span></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT7">Return to Task</a></p>
 </div>
 <div id="inclass-task-8" class="section level4">
 <h4><span class="header-section-number">2.5.2.4</span> InClass Task 8</h4>
-<pre class="sourceCode r"><code class="sourceCode r">aq_scores2 &lt;-<span class="st"> </span>responses <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Question, Response, Q1<span class="op">:</span>Q10) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">inner_join</span>(qformats, <span class="st">&quot;Question&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>)) <span class="op">%&gt;%</span>
-<span class="st">             </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aq_scores2 &lt;-<span class="st"> </span>responses %&gt;%<span class="st"> </span><span class="kw">gather</span>(Question, Response, Q1:Q10) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">inner_join</span>(qformats, <span class="st">&quot;Question&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>)) %&gt;%
+<span class="st">             </span><span class="kw">group_by</span>(Id) %&gt;%<span class="st"> </span>
+<span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8">Return to Task</a></p>
 </div>
 </div>
@@ -1809,12 +1783,12 @@ pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <ul>
 <li>Whether you coded this answer or just read from the data, the Participant with ID Number 3 is the oldest.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">oldest_participant &lt;-<span class="st"> </span><span class="dv">3</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">oldest_participant &lt;-<span class="st"> </span><span class="dv">3</span>
 
 <span class="co"># This could also be answered with code. We haven&#39;t quite shown you how yet but it would look like this:</span>
-oldest_participant_code &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(AGE)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(ID)</code></pre>
+oldest_participant_code &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(AGE)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">pull</span>(ID)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1">Return to Task</a></p>
 </div>
 <div id="assignment-task-2---arranging-d-span" class="section level4">
@@ -1823,7 +1797,7 @@ oldest_participant_code &lt;-<span class="st"> </span><span class="kw">arrange</
 <li><code>arrange()</code> is the main function here</li>
 <li>You also needed to use <code>desc()</code> to sort from high to low</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">cogtest_sort &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(DSPAN))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cogtest_sort &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(DSPAN))</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2">Return to Task</a></p>
 </div>
 <div id="assignment-task-3---foreign-language-speakers" class="section level4">
@@ -1832,17 +1806,17 @@ oldest_participant_code &lt;-<span class="st"> </span><span class="kw">arrange</
 <li>First group the screening data by FLANG using <code>group_by()</code></li>
 <li>Next, summarise, paying attention to use the variable names as instructed</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">screen_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(screening, FLANG) 
-descriptives &lt;-<span class="st"> </span><span class="kw">summarise</span>(screen_groups, <span class="dt">n =</span> <span class="kw">n</span>(), <span class="dt">median_age =</span> <span class="kw">median</span>(AGE))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">screen_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(screening, FLANG) 
+descriptives &lt;-<span class="st"> </span><span class="kw">summarise</span>(screen_groups, <span class="dt">n =</span> <span class="kw">n</span>(), <span class="dt">median_age =</span> <span class="kw">median</span>(AGE))</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT3">Return to Task</a></p>
 </div>
 <div id="assignment-task-4---creating-percentage-moca-scores" class="section level4">
 <h4><span class="header-section-number">2.5.3.4</span> Assignment Task 4 - Creating Percentage MOCA scores</h4>
 <ul>
 <li><code>mutate()</code> is the function to add a new column to data</li>
-<li>Here we are mutating/adding on a column called <code>MOCA_Perc</code> which shows a participant’s MOCA score divided by 30 and multiplied by 100.</li>
+<li>Here we are mutating/adding on a column called <code>MOCA_Perc</code> which shows a participant's MOCA score divided by 30 and multiplied by 100.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">screening &lt;-<span class="st"> </span><span class="kw">mutate</span>(screening, <span class="dt">MOCA_Perc =</span> (MOCA <span class="op">/</span><span class="st"> </span><span class="dv">30</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">screening &lt;-<span class="st"> </span><span class="kw">mutate</span>(screening, <span class="dt">MOCA_Perc =</span> (MOCA /<span class="st"> </span><span class="dv">30</span>) *<span class="st"> </span><span class="dv">100</span>)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT4">Return to Task</a></p>
 </div>
 <div id="assignment-task-5---remove-the-moca-column" class="section level4">
@@ -1854,10 +1828,10 @@ descriptives &lt;-<span class="st"> </span><span class="kw">summarise</span>(scr
 <li>The second option shows how to select all the columns you want.</li>
 <li>Remember that order is very important and you should select the columns in the order you want.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First Option</span>
-screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, <span class="op">-</span>MOCA)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First Option</span>
+screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, -MOCA)
 <span class="co"># Second Option</span>
-screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)</code></pre>
+screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT5">Return to Task</a></p>
 </div>
 <div id="assignment-task-6---gather-the-responses-together" class="section level4">
@@ -1866,11 +1840,11 @@ screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening
 <li><code>gather()</code> is the function to use here.</li>
 <li>People take a while to understand this function but spend sometime looking at the below example and it will start to make some sense.</li>
 <li>The first argument is the data. In this case <code>responses</code>.</li>
-<li>The second argument is the name of a new column which will hold all the question numbers (e.g. Q1, Q2, Q3, etc). This could be called anything but here we are calling it <code>Question</code>.</li>
-<li>The third argument is the name of a new column which will hold the answers to the questions stored in <code>Question</code> - e.g. the actual answer for that participant to Q1 will appear in this column. Again this could be called anything but here we are calling it <code>RESPONSE</code>.</li>
+<li>The second argument is the name of a new column which will hold all the question numbers (e.g. Q1, Q2, Q3, etc). This could be called anything but here we are calling it <code>Question</code>.</li>
+<li>The third argument is the name of a new column which will hold the answers to the questions stored in <code>Question</code> - e.g. the actual answer for that participant to Q1 will appear in this column. Again this could be called anything but here we are calling it <code>RESPONSE</code>.</li>
 <li>The last argument is the name of the columns you want to gather. Here we are gathering all columns between the Q1 column and the Q15 column.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">responses_long &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, RESPONSE, Q1<span class="op">:</span>Q15)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">responses_long &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, RESPONSE, Q1:Q15)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT6">Return to Task</a></p>
 </div>
 <div id="assignment-task-7---joining-the-data" class="section level4">
@@ -1881,7 +1855,7 @@ screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening
 <li>Keep in mind that <code>inner_join()</code> keeps only the rows that have data in both datasets. It will remove rows that only has data in one dataset.</li>
 <li>When joining two datasets, join by <strong>ALL</strong> common columns when there are more than one column in common.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">responses_points &lt;-<span class="st"> </span><span class="kw">inner_join</span>(responses_long, scoring, <span class="st">&quot;RESPONSE&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">responses_points &lt;-<span class="st"> </span><span class="kw">inner_join</span>(responses_long, scoring, <span class="st">&quot;RESPONSE&quot;</span>)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT7">Return to Task</a></p>
 </div>
 <div id="assignment-task-8---working-the-pipes" class="section level4">
@@ -1889,38 +1863,38 @@ screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening
 <ul>
 <li>This is the code we started with.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)
 participant_scores &lt;-<span class="st"> </span><span class="kw">summarise</span>(participant_groups, <span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE))
 participant_screening &lt;-<span class="st"> </span><span class="kw">inner_join</span>(participant_scores, screening, <span class="st">&quot;ID&quot;</span>)
 screening_groups_new &lt;-<span class="st"> </span><span class="kw">group_by</span>(participant_screening, MUSICAL)
-musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</code></pre>
+musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</code></pre></div>
 <ul>
 <li>Below is how to transcribe the above series of functions into a pipeline.</li>
 <li>Remember, when using pipes, the output of the previous function is the input of the subsequent function</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span>
-<span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span>
-<span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span>
-<span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) %&gt;%
+<span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) %&gt;%
+<span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) %&gt;%
+<span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) %&gt;%
+<span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT8">Return to Task</a></p>
 </div>
 <div id="assignment-task-9---difference-in-musical-means" class="section level4">
 <h4><span class="header-section-number">2.5.3.9</span> Assignment Task 9 - Difference in Musical Means</h4>
 <ul>
-<li>People who play music have a QHC score that is 1.53 units higher than people who don’t play music.</li>
+<li>People who play music have a QHC score that is 1.53 units higher than people who don't play music.</li>
 <li>You can do this by looking in <code>musical_means</code>, reading the values, and doing some quick maths.</li>
 <li>A second option is through code. Code is always better as it can reduce error and is reproducible!</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Option 1</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Option 1</span>
 QHC_diff &lt;-<span class="st"> </span><span class="fl">1.53</span>
 
 <span class="co"># Option 2</span>
 <span class="co"># You will soon learn the functions to do this by code but here is how you could do it.</span>
-QHC_diff_code &lt;-<span class="st"> </span><span class="kw">spread</span>(musical_means, MUSICAL, mean_score) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> YES <span class="op">-</span><span class="st"> </span>NO) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(diff) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</code></pre>
+QHC_diff_code &lt;-<span class="st"> </span><span class="kw">spread</span>(musical_means, MUSICAL, mean_score) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> YES -<span class="st"> </span>NO) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">pull</span>(diff) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
@@ -2070,7 +2044,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

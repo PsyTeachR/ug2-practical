@@ -8,8 +8,7 @@ Below you will find the solutions to the questions for the Activities for this c
 
 ### PreClass Activities
 
-#### Task 1
-`r hide("Solution Task 1")`
+#### PreClass Task 1
 ```{r ns_data_temp, eval  = TRUE}
 # phil to remove this and replace with real solution afterwards
 ns_data <- tibble(participant = 1:22,
@@ -19,12 +18,10 @@ ns_data <- tibble(participant = 1:22,
                                456.9,703.4,647.5,657.9,613.2,
                                585.4,674.1))
 ```
-`r unhide()`
-<br>
-Click the tab to reveal the solution to the task.
 
-#### Task 2
-`r hide("Solution Task 2")`
+[Return to Task](#Ch6PreClassQueT1)
+
+#### PreClass Task 2
 ```{r count_years, eval  = TRUE}
 woods_mean <- 590
 
@@ -34,13 +31,11 @@ n_participants <- ns_data %>%
       
 n_participants
 ```
-`r unhide()`
-<br>
-Click the tab to reveal the solution to the task.
 
-#### Task 3
+[Return to Task](#Ch6PreClassQueT2)
 
-`r hide("Solution Task 3")`
+#### PreClass Task 3
+
 ```{r probability, eval  = TRUE}
 
 # You can use the density function:
@@ -60,12 +55,10 @@ pbinom(15, 22, .5, lower.tail = FALSE) # Remember we need to specify a value low
 
 ## It is better practice to use the first two solutions, which pull the values straight from ns_data, as you run the risk of entering an error into your code if you plug in the values manually.
 ```
-`r unhide()`
-<br>
-Click the tab to reveal the solution to the task.
 
-#### Task 4
-`r hide("Solution Task 4")`
+[Return to Task](#Ch6PreClassQueT3)
+
+#### PreClass Task 4
 ```{r mean_sd, eval  = TRUE}
 ns_data_mean <- ns_data %>%
   summarise(m = mean(valid_rt)) %>%
@@ -83,25 +76,19 @@ ns_data_sd <- ns_data %>%
 cat("The mean number of hours was", ns_data_mean, "\n")
 cat("The standard deviation was", ns_data_sd, "\n")
 ```
-`r unhide()`
-<br>
-Click the tab to reveal the solution to the task.
 
-#### Task 5
+[Return to Task](#Ch6PreClassQueT4)
 
-`r hide("Solution Task 5")`
+#### PreClass Task 5
 ```{r t_obs, eval  = TRUE}
 t_obs <- (ns_data_mean - woods_mean) / (ns_data_sd / sqrt(nrow(ns_data)))
     
 t_obs
 ```
-`r unhide()`
-<br>
-Click the tab to reveal the solution to the task.
 
-#### Task 6
+[Return to Task](#Ch6PreClassQueT5)
 
-`r hide("Solution Task 6")`
+#### PreClass Task 6
 ```{r p_value, eval  = TRUE}
 
 # If using values straight from ns_data:
@@ -113,22 +100,20 @@ pval
 pt(t_obs, 21, lower.tail = FALSE) * 2
 # Though this method runs the risk of error - you are better off using the first calculation as those values come straight from ns_data.
 ```
-`r unhide()`
-<br>
-Click the tab to reveal the solution to the task.
 
-#### Task 7
-`r hide("Solution Task 7")`
+[Return to Task](#Ch6PreClassQueT6)
+
+#### PreClass Task 7
 ```{r t-test, eval  = TRUE}
 t.test(pull(ns_data, valid_rt), mu = woods_mean)
 ```
-`r unhide()`
-<br>
-Click the tab to reveal the solution to the task.
+
+[Return to Task](#Ch6PreClassQueT7)
+
 
 ### InClass Activities
 
-#### Task 1
+#### InClass Task 1
 ```{r inclass-hidden solution, warning = FALSE, echo = FALSE, message = FALSE}
 
 ## TASK 1
@@ -172,7 +157,7 @@ ratings2 <- ratings %>%
   arrange(eval_id, Category)
 ```
 
-`r hide("Possible Solution to Task 1")`
+
 ```{r, message = FALSE, eval = FALSE}
 library("tidyverse")
 library("broom") # you'll need broom::tidy() later
@@ -191,11 +176,8 @@ evaluators %>%
   mutate(sex_names = recode(sex, "1" = "male", "2" = "female"))
 
 ```
-`r unhide()`
 
-**Click the tab to reveal the solution**
-
-#### Task 2
+#### InClass Task 2
 
 `r hide("Possible Solution to Task 2")`
 ```{r, eval = FALSE, message = FALSE}
@@ -225,13 +207,8 @@ ratings2 <- ratings %>%
   arrange(eval_id, Category)
 
 ```
-`r unhide()`
 
-**Click the tab to reveal the solution**
-
-#### Task 4
-
-`r hide("Possible Solution to Task 4")`
+#### InClass Task 4
 ```{r}
 
 ## 1. First we create the group means
@@ -274,9 +251,6 @@ results <- bind_rows("hire" = hire_t,
 
 results
 ```
-`r unhide()`
-
-**Click the tab to reveal the solution**
 
 #### Going Further with your coding
 
@@ -297,37 +271,10 @@ ratings2 %>%
   unnest()
 
 ```
-`r unhide()`  
-
-**Click the tab to reveal the alternative approach**
 
 ### Homework Activity
 
-#### Lab 6: Independent samples t-test Assignment
-
-In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Lab6.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/homework/Level2_Lab6_AssignmentFiles.zip", target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.
-
-**Background**
-
-For this assignment we will be using real data from the following paper:
-
-Nave, G., Nadler, A., Zava, D., and Camerer, C. (2017). <a href="http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592", target = "_blank">Single-dose testosterone administration impairs cognitive reflection in men.</a> *Psychological Science*, *28*, 1398--1407.
-
-The full data for these exercises can be downloaded from the <a href="https://osf.io/kzxsh/download", target = "_blank">Open Science Framework repository</a> but for this assignment we will just use the `.csv` file in the zipped folder: **CRT_Data.csv**. You may also want to read the paper, at least in part, to help fully understand this analysis if at times you are unsure. Here is the article's abstract:
-
-**In nonhumans, the sex steroid testosterone regulates reproductive behaviors such as fighting between males and mating. In humans, correlational studies have linked testosterone with aggression and disorders associated with poor impulse control, but the neuropsychological processes at work are poorly understood. Building on a dual-process framework, we propose a mechanism underlying testosterone's behavioral effects in humans: reduction in cognitive reflection. In the largest study of behavioral effects of testosterone administration to date, 243 men received either testosterone or placebo and took the Cognitive Reflection Test (CRT), which estimates the capacity to override incorrect intuitive judgments with deliberate correct responses. Testosterone administration reduced CRT scores. The effect remained after we controlled for age, mood, math skills, whether participants believed they had received the placebo or testosterone, and the effects of 14 additional hormones, and it held for each of the CRT questions in isolation. Our findings suggest a mechanism underlying testosterone's diverse effects on humans' judgments and decision making and provide novel, clear, and testable predictions.**
-
-The critical findings are presented on p. 1403 of the paper under the heading **The influence of testosterone on CRT performance**.  Your task today is to attempt to try and reproduce some of the main results from the paper.  
-
-**NOTE**: Being unable to get the exact same results as the authors doesn't necessarily mean you are wrong!  The authors might be wrong, or might have left out important details. Present what you find.
-
-**Before starting lets check:**
-
-1. The `.csv` file is saved into a folder on your computer and you have manually set this folder as your working directory. 
-
-2. The `.Rmd` file is saved in the same folder as the `.csv` files. For assessments we ask that you save it with the format `GUID_Level2_Lab6.Rmd` where `GUID` is replaced with your `GUID`. Though this is a formative assessment, it may be good practice to do the same here.
-
-#### Task 1A: Libraries
+#### Assignment Task 1A: Libraries
 
 * In today's assignment you will need both the `tidyverse` and `broom` packages. Enter code into the t1A code chunk below to load in both of these libraries.
 
@@ -336,7 +283,7 @@ library(broom)
 library(tidyverse)
 ```
 
-#### Task 1B: Loading in the data
+#### Assignment Task 1B: Loading in the data
 
 * Use `read_csv()` to replace the `NULL` in the t1B code chunk below to load in the data stored in the datafile `CRT_Data.csv`. Store the data in the variable `crt`. Do not change the filename of the datafile. 
 
@@ -348,7 +295,7 @@ crt <- read_csv("data/06-s01/homework/CRT_Data.csv")
 crt <- read_csv("CRT_Data.csv")
 ```
 
-#### Task 2: Identify relevant columns
+#### Assignment Task 2: Identify relevant columns
 
 Have a look at `crt`.  There are three variables in `crt` that you will need to find and extract in order to perform the t-test: the subject ID number (**hint**: each participant has a unique number); the independent variable (**hint**: each participant has the possibility of being in one of two treatments coded as 1 or 0); and the dependent variable (**hint**: the test specifically looks at which *answers people get correct*).  Identify those three variables. It might help to look at the first few sentences under the heading **The influence of testosterone on CRT performance** and Figure 2a in the paper for further guidance on the correct variables.
 
@@ -362,7 +309,7 @@ crt2 <- select(crt, ID, Treatment, CorrectAnswers)
 
 **NOTE:** For the remainder of this assignment you should use `crt2` as the main source tibble and not `crt`.
 
-#### Task 3: Verify the number of subjects in each group
+#### Assignment Task 3: Verify the number of subjects in each group
 
 The Participants section of the article contains the following statement:
 
@@ -402,7 +349,7 @@ should give:
 
 **`r n_men` men (mostly college students; for demographic details, see Table S1 in the Supplemental Material available online) were randomly administered a topical gel containing either testosterone (n = `r cond_counts %>% filter(Treatment == 1) %>% pull(n)`) or placebo (n = `r cond_counts %>% filter(Treatment == 0) %>% pull(n)`).**
 
-#### Task 4: Reproduce Figure 2a
+#### Assignment Task 4: Reproduce Figure 2a
 
 Here is Figure 2A from the original paper:
 
@@ -435,7 +382,7 @@ ggplot(crt_means, aes(Treatment, m, fill = Treatment)) +
 
 ```
 
-#### Task 5: Interpreting your Figure
+#### Assignment Task 5: Interpreting your Figure
 
 Always good to do a slight recap at this point to make sure you are following the analysis.  Replace the `NULL` in the t5 code chunk below with the number of the statement that best describes the data you have calculated and plotted thus far. Store this single value in `answer_t5`:
 
@@ -451,7 +398,7 @@ Always good to do a slight recap at this point to make sure you are following th
 answer_t5 <- 3
 ```
 
-#### Task 6: t-test
+#### Assignment Task 6: t-test
 
 Now that we have calculated the descriptives in our study we need to run the inferentials. In the t6  code chunk below, replace the `NULL` with a line of code to run the t-test taking care to make sure that the output table has the Placebo mean under Estimate1 (group 0) and Testosterone mean under Estimate2 (group 1). Assume variance is equal and use `broom::tidy()` to sweep and store the results into a data frame called `t_table`.
 
@@ -465,7 +412,7 @@ t_table <- t.test(crt2 %>% filter(Treatment == 0) %>% pull(CorrectAnswers),
 t_table <- t.test(CorrectAnswers ~ Treatment, data = crt2, var.equal = TRUE) %>% tidy()
 ```
 
-#### Task 7: Reporting results
+#### Assignment Task 7: Reporting results
 
 In the t7A code chunk below, replace the `NULL` with a line of code to pull out the df from t_table. This must be a single value stored in `t_df`. 
 
@@ -502,8 +449,4 @@ If you have completed t7A to t7D accurately, then when knitted, one of these sta
 answer_t7e <- 4
 ```
 
-**Finished**
-
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
-
-See you in the next lab!
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lab 15 Combining ANOVA And Regression | ug2-practical</title>
-  <meta name="description" content="Lab 15 Combining ANOVA And Regression | ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="Lab 15 Combining ANOVA And Regression | ug2-practical-materials">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Lab 15 Combining ANOVA And Regression | ug2-practical" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="Lab 15 Combining ANOVA And Regression | ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR" />
+<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-14" />
+<meta name="date" content="2019-06-18">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="regression.html">
@@ -50,67 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -139,7 +114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -189,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -263,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -308,24 +283,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
-<li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1-creating-a-dataframe"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
-<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-2-comparing-original-and-new-sample-reaction-times"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
-<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-3-calculating-probability"><i class="fa fa-check"></i><b>6.2.4</b> Task 3: Calculating Probability</a></li>
+<li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
+<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT2"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
+<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT3"><i class="fa fa-check"></i><b>6.2.4</b> Task 3: Calculating Probability</a></li>
 <li class="chapter" data-level="6.2.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>6.2.5</b> The One-Sample t-test</a></li>
-<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-4-calculating-the-mean-and-standard-deviation"><i class="fa fa-check"></i><b>6.2.6</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
-<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-5-calculating-the-observed-test-statistic"><i class="fa fa-check"></i><b>6.2.7</b> Task 5: Calculating the Observed Test Statistic</a></li>
-<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-6-comparing-the-observed-test-statistic-to-the-t-distribution-using-pt"><i class="fa fa-check"></i><b>6.2.8</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
-<li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-7-comparing-the-observed-test-statistic-to-the-t-distribution-using-t.test"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
-<li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-8-drawing-conclusions-about-the-new-data"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT4"><i class="fa fa-check"></i><b>6.2.6</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
+<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT5"><i class="fa fa-check"></i><b>6.2.7</b> Task 5: Calculating the Observed Test Statistic</a></li>
+<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT6"><i class="fa fa-check"></i><b>6.2.8</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
+<li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT7"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
+<li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT8"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-2-additional"><i class="fa fa-check"></i><b>6.3</b> PreClass Activity 2 (Additional)</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#a-short-blog-on-barplots"><i class="fa fa-check"></i><b>6.3.1</b> A short blog on Barplots</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.4</b> InClass Activity</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1-evaluators"><i class="fa fa-check"></i><b>6.4.1</b> Task 1: Evaluators</a></li>
-<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-2-ratings"><i class="fa fa-check"></i><b>6.4.2</b> Task 2: Ratings</a></li>
-<li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-3-creating-a-figure"><i class="fa fa-check"></i><b>6.4.3</b> Task 3: Creating a Figure</a></li>
-<li class="chapter" data-level="6.4.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-4-t-tests"><i class="fa fa-check"></i><b>6.4.4</b> Task 4: t-tests</a></li>
+<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-1-evaluators"><i class="fa fa-check"></i><b>6.4.1</b> InClass Task 1: Evaluators</a></li>
+<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-2-ratings"><i class="fa fa-check"></i><b>6.4.2</b> InClass Task 2: Ratings</a></li>
+<li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-3-creating-a-figure"><i class="fa fa-check"></i><b>6.4.3</b> InClass Task 3: Creating a Figure</a></li>
+<li class="chapter" data-level="6.4.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-4-t-tests"><i class="fa fa-check"></i><b>6.4.4</b> InClass Task 4: t-tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#assignment-5"><i class="fa fa-check"></i><b>6.5</b> Assignment</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1a-libraries"><i class="fa fa-check"></i><b>6.5.1</b> Task 1A: Libraries</a></li>
@@ -372,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen’s D</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen's D</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-effect-size-from-a-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.2</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-effect-size-from-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.3</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-effect-size-from-matched-pairs-t-test"><i class="fa fa-check"></i><b>8.3.4</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -381,16 +356,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-sample-size-for-standard-power-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.7</b> Task 5: Sample size for standard power one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-effect-size-from-a-high-power-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.8</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-power-of-published-research"><i class="fa fa-check"></i><b>8.3.9</b> Task 7: Power of Published Research</a></li>
-<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-4"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
+<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-3"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#assignment-7"><i class="fa fa-check"></i><b>8.4</b> Assignment</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-3"><i class="fa fa-check"></i><b>8.4.1</b> Task 1</a></li>
-<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-3"><i class="fa fa-check"></i><b>8.4.2</b> Task 2</a></li>
-<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-2"><i class="fa fa-check"></i><b>8.4.3</b> Task 3</a></li>
-<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-4-3"><i class="fa fa-check"></i><b>8.4.4</b> Task 4</a></li>
-<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-2"><i class="fa fa-check"></i><b>8.4.5</b> Task 5</a></li>
-<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-2"><i class="fa fa-check"></i><b>8.4.6</b> Task 6</a></li>
-<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-2"><i class="fa fa-check"></i><b>8.4.7</b> Task 7</a></li>
+<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-1"><i class="fa fa-check"></i><b>8.4.1</b> Task 1</a></li>
+<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-1"><i class="fa fa-check"></i><b>8.4.2</b> Task 2</a></li>
+<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-1"><i class="fa fa-check"></i><b>8.4.3</b> Task 3</a></li>
+<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-4-1"><i class="fa fa-check"></i><b>8.4.4</b> Task 4</a></li>
+<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-1"><i class="fa fa-check"></i><b>8.4.5</b> Task 5</a></li>
+<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-1"><i class="fa fa-check"></i><b>8.4.6</b> Task 6</a></li>
+<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-1"><i class="fa fa-check"></i><b>8.4.7</b> Task 7</a></li>
 <li class="chapter" data-level="8.4.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-8-1"><i class="fa fa-check"></i><b>8.4.8</b> Task 8</a></li>
 <li class="chapter" data-level="8.4.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-9-1"><i class="fa fa-check"></i><b>8.4.9</b> Task 9</a></li>
 <li class="chapter" data-level="8.4.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-10"><i class="fa fa-check"></i><b>8.4.10</b> Task 10</a></li>
@@ -470,7 +445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activity-10"><i class="fa fa-check"></i><b>12.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-1-7"><i class="fa fa-check"></i><b>12.3.1</b> Task 1</a></li>
+<li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-1-5"><i class="fa fa-check"></i><b>12.3.1</b> Task 1</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-2-mean-squares-and-degrees-of-freedom"><i class="fa fa-check"></i><b>12.3.2</b> Task 2: Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-3-f-ratios"><i class="fa fa-check"></i><b>12.3.3</b> Task 3: F-ratios</a></li>
 <li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#using-ezezanova"><i class="fa fa-check"></i><b>12.3.4</b> Using ez::ezANOVA()</a></li>
@@ -497,8 +472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3.8" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.8</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#assignment-12"><i class="fa fa-check"></i><b>13.4</b> Assignment</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries-2"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
-<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data-2"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
+<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries-1"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
+<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data-1"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="13.4.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-2-calculate-cell-means"><i class="fa fa-check"></i><b>13.4.3</b> Task 2: Calculate cell means</a></li>
 <li class="chapter" data-level="13.4.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-3-marginal-means-for-sex"><i class="fa fa-check"></i><b>13.4.4</b> Task 3: Marginal means for sex</a></li>
 <li class="chapter" data-level="13.4.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-4-marginal-means-for-condition"><i class="fa fa-check"></i><b>13.4.5</b> Task 4: Marginal means for condition</a></li>
@@ -536,11 +511,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.4" data-path="regression.html"><a href="regression.html#assignment-13"><i class="fa fa-check"></i><b>14.4</b> Assignment</a></li>
 <li class="chapter" data-level="14.5" data-path="regression.html"><a href="regression.html#solutions-to-questions-13"><i class="fa fa-check"></i><b>14.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="14.5.1" data-path="regression.html"><a href="regression.html#inclass-ativities"><i class="fa fa-check"></i><b>14.5.1</b> InClass Ativities</a></li>
-<li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-3-6"><i class="fa fa-check"></i><b>14.5.2</b> Task 3</a></li>
-<li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-4-7"><i class="fa fa-check"></i><b>14.5.3</b> Task 4</a></li>
-<li class="chapter" data-level="14.5.4" data-path="regression.html"><a href="regression.html#task-5-6"><i class="fa fa-check"></i><b>14.5.4</b> Task 5</a></li>
-<li class="chapter" data-level="14.5.5" data-path="regression.html"><a href="regression.html#task-6-6"><i class="fa fa-check"></i><b>14.5.5</b> Task 6</a></li>
-<li class="chapter" data-level="14.5.6" data-path="regression.html"><a href="regression.html#task-7-6"><i class="fa fa-check"></i><b>14.5.6</b> Task 7</a></li>
+<li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-3-5"><i class="fa fa-check"></i><b>14.5.2</b> Task 3</a></li>
+<li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-4-5"><i class="fa fa-check"></i><b>14.5.3</b> Task 4</a></li>
+<li class="chapter" data-level="14.5.4" data-path="regression.html"><a href="regression.html#task-5-5"><i class="fa fa-check"></i><b>14.5.4</b> Task 5</a></li>
+<li class="chapter" data-level="14.5.5" data-path="regression.html"><a href="regression.html#task-6-5"><i class="fa fa-check"></i><b>14.5.5</b> Task 6</a></li>
+<li class="chapter" data-level="14.5.6" data-path="regression.html"><a href="regression.html#task-7-5"><i class="fa fa-check"></i><b>14.5.6</b> Task 7</a></li>
 <li class="chapter" data-level="14.5.7" data-path="regression.html"><a href="regression.html#task-8-4"><i class="fa fa-check"></i><b>14.5.7</b> Task 8</a></li>
 </ul></li>
 </ul></li>
@@ -603,7 +578,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 15</span> Combining ANOVA And Regression</h1>
 <div id="overview-14" class="section level2">
 <h2><span class="header-section-number">15.1</span> Overview</h2>
-<p>Over the last few weeks of the semester we have been really building up our skills on regression and on ANOVAs and seeing the link between them. Most places would tell you that they are seperate entitites but as you have seen after reading Miller and Haden (2013), after reading Dorothy Bishop’s blog, and after working through these labs, they are really just all related. ANOVAs to some degree are just a special type of regression where you have categorical predictors. But the question you probably now have in your heads is, well if they are the same, can’t we merge them, and combine categorical and continuous predictors in some fashion? Yes, yes we can! And that is exactly what we are going to do to today whilst learning a little bit about screen time and well-being (or wellbeing depending on your preference).</p>
+<p>Over the last few weeks of the semester we have been really building up our skills on regression and on ANOVAs and seeing the link between them. Most places would tell you that they are seperate entitites but as you have seen after reading Miller and Haden (2013), after reading Dorothy Bishop's blog, and after working through these labs, they are really just all related. ANOVAs to some degree are just a special type of regression where you have categorical predictors. But the question you probably now have in your heads is, well if they are the same, can't we merge them, and combine categorical and continuous predictors in some fashion? Yes, yes we can! And that is exactly what we are going to do to today whilst learning a little bit about screen time and well-being (or wellbeing depending on your preference).</p>
 
 </div>
 <div id="preclass-activity-12" class="section level2">
@@ -611,23 +586,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="read-5" class="section level3">
 <h3><span class="header-section-number">15.2.1</span> Read</h3>
 <p>Read this blog by Dorothy Bishop and review the past labs to see ANOVA and Regression all fit together.</p>
-<p>&lt;a href=“<a href="https://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html?m=1" class="uri">https://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html?m=1</a>”, target = &quot;_blank&quot;&gt;ANOVA, t-tests and regression: different ways of showing the same thing</a></p>
+<p><a href="https://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html?m=1", target = "_blank">ANOVA, t-tests and regression: different ways of showing the same thing</a></p>
 
 </div>
 </div>
 <div id="inclass-activity-13" class="section level2">
 <h2><span class="header-section-number">15.3</span> InClass Activity</h2>
-<p>&lt;&lt;Future PHIL - this lab is huge. Put the blog in the overview and split the inclass into preclass and inclass&gt;&gt;</p>
+<p>&lt;<Future PHIL - this lab is huge. Put the blog in the overview and split the inclass into preclass and inclass>&gt;</p>
 <p><strong>Background: Smartphone screen time and wellbeing</strong></p>
-<p>There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We’ll be looking at data from this recent study of English adolescents:</p>
+<p>There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We'll be looking at data from this recent study of English adolescents:</p>
 <blockquote>
-<p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204–215.</p>
+<p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204--215.</p>
 </blockquote>
-<p>This was a large-scale study that found support for the “Goldilocks” hypothesis among adolescents: that there is a “just right” amount of screen time, such that any amount more or less than this amount is associated with lower well-being that that duration. Much like the work you have been doing, this was a <em>huge</em> survey study with data containing responses from <em>over 120,000</em> participants! Fortunately, the authors made the data from this study openly available, which allows us to dig deeper into their results. And the question we want to expand on in this exercise is whether the relationship between screen time and well-being is modulated by partcipants’ (self-reported) sex. In other words, does screen time have a bigger impact on males or females, or is it the same for both.</p>
+<p>This was a large-scale study that found support for the &quot;Goldilocks&quot; hypothesis among adolescents: that there is a &quot;just right&quot; amount of screen time, such that any amount more or less than this amount is associated with lower well-being that that duration. Much like the work you have been doing, this was a <em>huge</em> survey study with data containing responses from <em>over 120,000</em> participants! Fortunately, the authors made the data from this study openly available, which allows us to dig deeper into their results. And the question we want to expand on in this exercise is whether the relationship between screen time and well-being is modulated by partcipants' (self-reported) sex. In other words, does screen time have a bigger impact on males or females, or is it the same for both.</p>
 <p>The dependent measure used in the study was the <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. This is a 14-item scale with 5 response categories, summed together to form a single score ranging from 14-70.</p>
-<p>At <a href="https://osf.io/82ybd/">Przybylski &amp; Weinstein’s page for this study on the Open Science Framework</a>, you can find the <a href="https://osf.io/82ybd/">participant survey</a> which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the <a href="https://osf.io/82ybd/">raw data</a>; however, for the purpose of this exercise, you will be using local pre-processed copies of the data found in the accompanying zip file on Moodle or &lt;a href = “<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_06/inclass/Level2_Semester2_Lab6_InClass_Data.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_06/inclass/Level2_Semester2_Lab6_InClass_Data.zip</a>”, target = &quot;_blank&quot;&gt;download from here</a></p>
+<p>At <a href="https://osf.io/82ybd/">Przybylski &amp; Weinstein's page for this study on the Open Science Framework</a>, you can find the <a href="https://osf.io/82ybd/">participant survey</a> which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the <a href="https://osf.io/82ybd/">raw data</a>; however, for the purpose of this exercise, you will be using local pre-processed copies of the data found in the accompanying zip file on Moodle or <a href = "https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_06/inclass/Level2_Semester2_Lab6_InClass_Data.zip", target = "_blank">download from here</a></p>
 <p>Przybylski and Weinstein looked at multiple measures of screen time, but again for the interests of this exercise we will be focusing on smartphone use, but do feel free to expand your skills after by looking at different definitoins of screen time. Overall, Przybylski and Weinstein suggested that decrements in wellbeing started to appear when respondents reported more than one hour of weekly smartphone use. So, bringing it back to our additional variable of sex, our question is now, does the negative association between hours of use and wellbeing (beyond the one-hour point) differ for boys and girls?</p>
-<p>Let’s think about this in terms of the variables. We have:</p>
+<p>Let's think about this in terms of the variables. We have:</p>
 <ul>
 <li><p>a continuous<span class="math inline">\(^*\)</span> DV, well-being;</p></li>
 <li><p>a continuous<span class="math inline">\(^*\)</span> predictor, screen time;</p></li>
@@ -635,7 +610,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>Note:</strong> these variables (<span class="math inline">\(^*\)</span>) are technically only quasi-continuous inasmuch as that only discrete values are possible. However, there are a sufficient number of discrete categories in our data that we can treat the data as effectively continuous.</p>
 <p>Now, in terms of analysis, what we are effectively trying to do is to estimate <strong>two slopes</strong> relating screen time to well-being, one for girls and one for boys, and then statistically compare these slopes. Sort of like running a correlation for boys, a correlation for girls, and comparing the two. Or alternatively, where you would run a regression (to estimate the slopes) but also one where you would need a t-test (to compare two groups). But the expressive power of regression allows us to do this all within a single model. Again, as we have seen building up to this lab, <strong>an independent groups t-test is just a special case of ordinary regression with a single categorical predictor; ANOVA is just a special case of regression where all predictors are categorical.</strong> But remember, although we can express any ANOVA design using regression, the converse is not true: we cannot express every regression design in ANOVA. As such people like regression, and the general linear model, as it allows us to have any combination of continuous and categorical predictors in the model. The only inconvenience with running ANOVA models as regression models is that you have to take care in how you numerically code the categorical predictors. We will use an approach called <strong>deviation coding</strong> which we will look at today later in this lab.</p>
-<p><strong>Let’s Begin</strong></p>
+<p><strong>Let's Begin</strong></p>
 <div id="loading-in-the-data" class="section level3">
 <h3><span class="header-section-number">15.3.1</span> Loading in the data</h3>
 <p>As always we will need to load in the tidyverse package and load in the data from the accompanying CSV (Comma-Separated Values) files, <code>wellbeing.csv</code>, <code>participant_info.csv</code>, and <code>screen_time.csv</code>.</p>
@@ -645,11 +620,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>wellbeing</strong> stores wellbeing.csv</li>
 <li><p><strong>screen</strong> stores screen_time.csv</p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
 pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;participant_info.csv&quot;</span>)
 wellbeing &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;wellbeing.csv&quot;</span>)
-screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;screen_time.csv&quot;</span>)</code></pre>
+screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;screen_time.csv&quot;</span>)</code></pre></div>
 </div>
 <div id="the-data" class="section level3">
 <h3><span class="header-section-number">15.3.2</span> The Data</h3>
@@ -681,10 +656,10 @@ screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span clas
 <li>Try recreating this figure based on the data in <code>screen</code>. Note that this will require some tidying of the data in <code>screen</code>:</li>
 </ul>
 <ol style="list-style-type: decimal">
-<li><p>You’ll first need to gather the <code>screen</code> tibble into long format and then break apart the column names into two separate columns, one for the name of the variable (<code>Watch</code>, <code>Comp</code>, <code>Comph</code>, and <code>Smart</code>) and the other for part of the week (<code>wk</code> and <code>we</code>). This is going to take using the <code>separate()</code> function which we haven’t used yet but we think you can manage.</p></li>
-<li><p>Next, you’ll need to alter the values of the variables to reflect the more descriptive text that appears in the plot (e.g., <code>&quot;Watch&quot;</code> becomes <code>&quot;Watching TV&quot;</code>; <code>&quot;wk&quot;</code> becomes <code>&quot;Weekday&quot;</code>). This is a <code>recode()</code> issue which you have done a number of times.</p></li>
+<li><p>You'll first need to gather the <code>screen</code> tibble into long format and then break apart the column names into two separate columns, one for the name of the variable (<code>Watch</code>, <code>Comp</code>, <code>Comph</code>, and <code>Smart</code>) and the other for part of the week (<code>wk</code> and <code>we</code>). This is going to take using the <code>separate()</code> function which we haven't used yet but we think you can manage.</p></li>
+<li><p>Next, you'll need to alter the values of the variables to reflect the more descriptive text that appears in the plot (e.g., <code>&quot;Watch&quot;</code> becomes <code>&quot;Watching TV&quot;</code>; <code>&quot;wk&quot;</code> becomes <code>&quot;Weekday&quot;</code>). This is a <code>recode()</code> issue which you have done a number of times.</p></li>
 </ol>
-<p>This is quite a tricky bit of wrangling which we think you are capable of but do not be put off if you can’t quite get it yet. The code is below for you to use once you have had a shot at it.</p>
+<p>This is quite a tricky bit of wrangling which we think you are capable of but do not be put off if you can't quite get it yet. The code is below for you to use once you have had a shot at it.</p>
 <div class="figure" style="text-align: center">
 <img src="15-s02-lab15c_files/figure-html/st_plot-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -696,14 +671,13 @@ screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span clas
 <ul>
 <li><code>gather()</code> the data in <code>screen</code> into three columns: Serial, var, hours</li>
 <li><code>?separate()</code> in the console</li>
-<li>seperate(data, column_name_containing_variables_to_split, c(“column_1_to_create”,“column_2_to_create”), “character_to_split_by”)</li>
+<li>seperate(data, column_name_containing_variables_to_split, c(&quot;column_1_to_create&quot;,&quot;column_2_to_create&quot;), &quot;character_to_split_by&quot;)</li>
 <li>each variable (category) has an underscore in its name. Use that to split it. I.e. Comph_we will get split into Comph and we</li>
 </ul>
 </div>
 <div id="hint-step-2" class="section level4">
 <h4><span class="header-section-number">15.3.4.2</span> Hint Step 2</h4>
-<p>data %&gt;%
-mutate(new_variable_name = recode(old_variable_name, “wk” = “Weekday”, “we” = “Weekend”))</p>
+<p>data %&gt;% mutate(new_variable_name = recode(old_variable_name, &quot;wk&quot; = &quot;Weekday&quot;, &quot;we&quot; = &quot;Weekend&quot;))</p>
 </div>
 </div>
 <div id="visualising-the-screen-time-and-well-being-relationship" class="section level3">
@@ -723,7 +697,7 @@ Figure 15.1: <strong>CAPTION THIS FIGURE!!</strong>
 <p>So far we are matching what the original authors suggested we would find in the data, this drop off in self-reported well-being for longer exposures of smart-phone use after 1 hour. However we said we wanted to look at this in terms of males and females, or boys and girls really, so we need to do a bit more wrangling. Also, as above we said there looked to be only limited difference between Weekday and Weekends so we will collapse weekday and weekend usage in smartphones.</p>
 <ol style="list-style-type: decimal">
 <li>Create a new table, <code>smarttot</code>, that takes the information in <code>screen2</code> and keeps only the smarthpone usage.</li>
-<li>Now create an average smartphone usage for each participant, called <code>tothours</code>, using a group_by and summarise, regardless of whether or not it is the weekend or weekday, i.e. the mean number of hours per day of smartphone use (averaged over weekends/weekdays) for that participant.</li>
+<li>Now create an average smartphone usage for each participant, called <code>tothours</code>, using a group_by and summarise, regardless of whether or not it is the weekend or weekday, i.e. the mean number of hours per day of smartphone use (averaged over weekends/weekdays) for that participant.</li>
 <li>Now, create a new tibble <code>smart_wb</code> that only includes participants from <code>smarttot</code> who used a smartphone for more than one hour per day each week, and then combine this tibble with the information in the <code>wemwbs</code> tibble and the <code>pinfo</code> tibble.</li>
 </ol>
 <p>The finished table should look something like this (where we are only showing the first 5 rows):</p>
@@ -821,19 +795,19 @@ Figure 15.2: <strong>CAPTION THIS FIGURE!!</strong>
 <p>Last bit of wrangling, I promise, before the analysis. Here we will introduce something that is worth doing to help with our interpretation. You can read up more on this later, and we will cover it in later years more, but when you have continuous variables in a regression, it is often sensible to transform them by <strong>mean centering</strong> them which has two very useful outcomes:</p>
 <ol style="list-style-type: decimal">
 <li><p>the intercept of the model now shows the predicted value of <span class="math inline">\(Y\)</span> for the mean value of the predictor variable rather than the predicted value of <span class="math inline">\(Y\)</span> at the zero value of the unscaled variable as it normally would;</p></li>
-<li><p>if there are interactions in the model, any lower-order effects (e.g. main effects) can be interpreted as they would have been had it of been simply an ANOVA.</p></li>
+<li><p>if there are interactions in the model, any lower-order effects (e.g. main effects) can be interpreted as they would have been had it of been simply an ANOVA.</p></li>
 </ol>
 <p>These steps seem rather worthwhile in terms of interpretation and the process is really straightforward. To <strong>mean center a continuos predictor</strong>, for example <code>X</code>, simply by subtracting the mean from each value of the predictor: i.e.<code>X_centered = X - mean(X)</code>.</p>
 <p>A second very useful thing to do that aids the interpretation if to convert your categorical variables into what is called <strong>deviation coding</strong>. Again, weally we are going to focus more on this in L3 but it is good to hear the term in advance as you will see it from time to time. Again, all this does is allow you to interpret the categorical predictors as though it were an ANOVA.</p>
 <p>We are going to do both these steps, <strong>mean centering of our continuous variable</strong> and <strong>deviation coding of our categorical variable</strong>. Here is the code to do it. Copy it and run it but be sure that you understand what it is doing.</p>
 <ul>
 <li>totothours_c is the mean centered values of tothours</li>
-<li>sex_c is the deviation coding of the sex column (sex) where male, which was coded as 1, is now coded as .5, and female is now coded as -.5 instead of 0. The <code>ifelse()</code> basically says, if that column you want me to look at says this (e.g. sex == 1), then I will put a .5, otherwise (or else) I will put a -.5.</li>
+<li>sex_c is the deviation coding of the sex column (sex) where male, which was coded as 1, is now coded as .5, and female is now coded as -.5 instead of 0. The <code>ifelse()</code> basically says, if that column you want me to look at says this (e.g. sex == 1), then I will put a .5, otherwise (or else) I will put a -.5.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">smart_wb &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tothours_c =</span> tothours <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(tothours),
-         <span class="dt">sex_c =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="fl">.5</span>, <span class="fl">-.5</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>tothours, <span class="op">-</span>sex)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">smart_wb &lt;-<span class="st"> </span>smart_wb %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tothours_c =</span> tothours -<span class="st"> </span><span class="kw">mean</span>(tothours),
+         <span class="dt">sex_c =</span> <span class="kw">ifelse</span>(sex ==<span class="st"> </span><span class="dv">1</span>, .<span class="dv">5</span>, -.<span class="dv">5</span>)) %&gt;%
+<span class="st">  </span><span class="kw">select</span>(-tothours, -sex)</code></pre></div>
 </div>
 <div id="estimating-model-parameters" class="section level3">
 <h3><span class="header-section-number">15.3.9</span> Estimating model parameters</h3>
@@ -891,7 +865,7 @@ Figure 15.2: <strong>CAPTION THIS FIGURE!!</strong>
 </ul>
 <p>Look at your model output in the <code>summary()</code> and try to answer the following questions. The solutions are below.</p>
 <ul>
-<li><p>The interaction between smartphone use and gender is shown by the variable <select class='solveme' data-answer='["tothours_c:sex_c"]'> <option></option> <option>tothours_c</option> <option>sex_c</option> <option>tothours_c:sex_c</option></select>, and this interaction was <select class='solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>nonsignificant</option></select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
+<li><p>The interaction between smartphone use and gender is shown by the variable <select class='solveme' data-answer='["tothours_c:sex_c"]'> <option></option> <option>tothours_c</option> <option>sex_c</option> <option>tothours_c:sex_c</option> </select> , and this interaction was <select class='solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>nonsignificant</option> </select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
 <li><p>To two decimal places, the intercept for male participants is: <input class='solveme nospaces' size='5' data-answer='["50.01"]'/></p></li>
 <li><p>To two decimal places, the slope for male participants is: <input class='solveme nospaces' size='5' data-answer='["-0.32","-.32"]'/></p></li>
 <li><p>To two decimal places, the intercept for female participants is: <input class='solveme nospaces' size='5' data-answer='["44.87"]'/></p></li>
@@ -902,9 +876,9 @@ Figure 15.2: <strong>CAPTION THIS FIGURE!!</strong>
 <li>Male: <input class='solveme nospaces' size='5' data-answer='["47.45"]'/></li>
 <li>Female: <input class='solveme nospaces' size='5' data-answer='["38.71"]'/></li>
 </ul>
-<p>And finally, what is the most reasonable interpretation of these results? <select class='solveme' data-answer='["smartphone use was more negatively associated with wellbeing for girls than for boys"]'> <option></option> <option>smartphone use harms girls more than boys</option> <option>smartphone use harms boys more than girls</option> <option>there is no evidence for gender differences in the relationship between smartphone use and well-being</option> <option>smartphone use was more negatively associated with wellbeing for girls than for boys</option></select></p>
+<p>And finally, what is the most reasonable interpretation of these results? <select class='solveme' data-answer='["smartphone use was more negatively associated with wellbeing for girls than for boys"]'> <option></option> <option>smartphone use harms girls more than boys</option> <option>smartphone use harms boys more than girls</option> <option>there is no evidence for gender differences in the relationship between smartphone use and well-being</option> <option>smartphone use was more negatively associated with wellbeing for girls than for boys</option> </select></p>
 <p><strong>Job Done!</strong></p>
-<p>You should now be ready to complete any future Homework Assignment related to ANCOVAs. We will hold off from a formula assignment on this approach just now and we will look at it again later in the semester, but for now, if you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>You should now be ready to complete any future Homework Assignment related to ANCOVAs. We will hold off from a formula assignment on this approach just now and we will look at it again later in the semester, but for now, if you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong>. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
@@ -920,39 +894,39 @@ Figure 15.2: <strong>CAPTION THIS FIGURE!!</strong>
 <h3><span class="header-section-number">15.5.1</span> InClass Activities</h3>
 <div id="loading-the-data" class="section level4">
 <h4><span class="header-section-number">15.5.1.1</span> Loading the Data</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
 pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;participant_info.csv&quot;</span>)
 wellbeing &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;wellbeing.csv&quot;</span>)
-screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;screen_time.csv&quot;</span>)</code></pre>
+screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;screen_time.csv&quot;</span>)</code></pre></div>
 </div>
 <div id="compute-the-well-being-score-for-each-participant-1" class="section level4">
 <h4><span class="header-section-number">15.5.1.2</span> Compute the well-being score for each participant</h4>
 <p><strong>Version 1</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">wemwbs &lt;-<span class="st"> </span>wellbeing <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;score&quot;</span>, <span class="op">-</span>Serial) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Serial) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tot_wellbeing =</span> <span class="kw">sum</span>(score))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wemwbs &lt;-<span class="st"> </span>wellbeing %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;score&quot;</span>, -Serial) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Serial) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tot_wellbeing =</span> <span class="kw">sum</span>(score))</code></pre></div>
 <p><strong>Version 2</strong></p>
 <ul>
 <li>this one is a bit slower.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">wemwbs &lt;-<span class="st"> </span>wellbeing <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tot_wellbeing =</span> WBOptimf <span class="op">+</span><span class="st"> </span>WBUseful <span class="op">+</span><span class="st"> </span>
-<span class="st">           </span>WBRelax <span class="op">+</span><span class="st"> </span>WBIntp <span class="op">+</span><span class="st">   </span>WBEnergy <span class="op">+</span><span class="st"> </span>WBDealpr <span class="op">+</span><span class="st"> </span>
-<span class="st">           </span>WBThkclr <span class="op">+</span><span class="st"> </span>WBGoodme <span class="op">+</span><span class="st"> </span>WBClsep <span class="op">+</span><span class="st"> </span>WBConfid <span class="op">+</span><span class="st"> </span>
-<span class="st">           </span>WBMkmind <span class="op">+</span><span class="st"> </span>WBLoved <span class="op">+</span><span class="st"> </span>WBIntthg <span class="op">+</span><span class="st"> </span>WBCheer) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(Serial, tot_wellbeing) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(Serial)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wemwbs &lt;-<span class="st"> </span>wellbeing %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tot_wellbeing =</span> WBOptimf +<span class="st"> </span>WBUseful +<span class="st"> </span>
+<span class="st">           </span>WBRelax +<span class="st"> </span>WBIntp +<span class="st">   </span>WBEnergy +<span class="st"> </span>WBDealpr +<span class="st"> </span>
+<span class="st">           </span>WBThkclr +<span class="st"> </span>WBGoodme +<span class="st"> </span>WBClsep +<span class="st"> </span>WBConfid +<span class="st"> </span>
+<span class="st">           </span>WBMkmind +<span class="st"> </span>WBLoved +<span class="st"> </span>WBIntthg +<span class="st"> </span>WBCheer) %&gt;%
+<span class="st">  </span><span class="kw">select</span>(Serial, tot_wellbeing) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(Serial)</code></pre></div>
 </div>
 <div id="visualising-screen-time-on-all-technologies-1" class="section level4">
 <h4><span class="header-section-number">15.5.1.3</span> Visualising Screen time on all technologies</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## screen time</span>
-screen_long &lt;-<span class="st"> </span>screen <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;hours&quot;</span>, <span class="op">-</span>Serial) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## screen time
+screen_long &lt;-<span class="st"> </span>screen %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;hours&quot;</span>, -Serial) %&gt;%
 <span class="st">  </span><span class="kw">separate</span>(var, <span class="kw">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="st">&quot;_&quot;</span>)
 
-screen2 &lt;-<span class="st"> </span>screen_long <span class="op">%&gt;%</span>
+screen2 &lt;-<span class="st"> </span>screen_long %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">variable =</span> <span class="kw">recode</span>(variable,
                <span class="st">&quot;Watch&quot;</span> =<span class="st"> &quot;Watching TV&quot;</span>,
                <span class="st">&quot;Comp&quot;</span> =<span class="st"> &quot;Playing Video Games&quot;</span>,
@@ -962,9 +936,9 @@ screen2 &lt;-<span class="st"> </span>screen_long <span class="op">%&gt;%</span>
               <span class="st">&quot;wk&quot;</span> =<span class="st"> &quot;Weekday&quot;</span>,
               <span class="st">&quot;we&quot;</span> =<span class="st"> &quot;Weekend&quot;</span>))
 
-<span class="kw">ggplot</span>(screen2, <span class="kw">aes</span>(hours)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(day <span class="op">~</span><span class="st"> </span>variable)</code></pre>
+<span class="kw">ggplot</span>(screen2, <span class="kw">aes</span>(hours)) +
+<span class="st">  </span><span class="kw">geom_bar</span>() +
+<span class="st">  </span><span class="kw">facet_grid</span>(day ~<span class="st"> </span>variable)</code></pre></div>
 <div class="figure" style="text-align: center">
 <img src="15-s02-lab15e_files/figure-html/st_plot_sol-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -974,14 +948,14 @@ screen2 &lt;-<span class="st"> </span>screen_long <span class="op">%&gt;%</span>
 </div>
 <div id="visualising-the-screen-time-and-well-being-relationship-1" class="section level4">
 <h4><span class="header-section-number">15.5.1.4</span> Visualising the Screen time and Well-being relationship</h4>
-<pre class="sourceCode r"><code class="sourceCode r">dat_means &lt;-<span class="st"> </span><span class="kw">inner_join</span>(wemwbs, screen2, <span class="st">&quot;Serial&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(variable, day, hours) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat_means &lt;-<span class="st"> </span><span class="kw">inner_join</span>(wemwbs, screen2, <span class="st">&quot;Serial&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(variable, day, hours) %&gt;%
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wellbeing =</span> <span class="kw">mean</span>(tot_wellbeing))
 
-<span class="kw">ggplot</span>(dat_means, <span class="kw">aes</span>(hours, mean_wellbeing, <span class="dt">linetype =</span> day)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">2</span>)</code></pre>
+<span class="kw">ggplot</span>(dat_means, <span class="kw">aes</span>(hours, mean_wellbeing, <span class="dt">linetype =</span> day)) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">facet_wrap</span>(~variable, <span class="dt">nrow =</span> <span class="dv">2</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:combined"></span>
 <img src="15-s02-lab15e_files/figure-html/combined-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -992,27 +966,27 @@ Figure 15.3: <strong>CAPTION THIS FIGURE!!</strong>
 <div id="smartphone-and-well-being-for-boys-and-girls-1" class="section level4">
 <h4><span class="header-section-number">15.5.1.5</span> Smartphone and well-being for boys and girls</h4>
 <p><strong>Solution Steps 1 to 2</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## get rid of people who used smartphone less than or equal to 1 hour total per week</span>
-smarttot &lt;-<span class="st"> </span>screen2 <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(variable <span class="op">==</span><span class="st"> &quot;Using Smartphone&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Serial) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tothours =</span> <span class="kw">mean</span>(hours))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get rid of people who used smartphone less than or equal to 1 hour total per week
+smarttot &lt;-<span class="st"> </span>screen2 %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(variable ==<span class="st"> &quot;Using Smartphone&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Serial) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tothours =</span> <span class="kw">mean</span>(hours))</code></pre></div>
 <p><strong>Solution Step 3</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">smart_wb &lt;-<span class="st"> </span>smarttot <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(tothours <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(wemwbs, <span class="st">&quot;Serial&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(pinfo, <span class="st">&quot;Serial&quot;</span>) </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">smart_wb &lt;-<span class="st"> </span>smarttot %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(tothours &gt;<span class="st"> </span><span class="dv">1</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(wemwbs, <span class="st">&quot;Serial&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(pinfo, <span class="st">&quot;Serial&quot;</span>) </code></pre></div>
 </div>
 <div id="visualise-and-interpreting-the-relationship-of-smartphone-use-and-wellbeing-by-sex-1" class="section level4">
 <h4><span class="header-section-number">15.5.1.6</span> Visualise and Interpreting the relationship of smartphone use and wellbeing by sex</h4>
 <p><strong>The Figure</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">smart_wb_gen &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(tothours, sex) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">smart_wb_gen &lt;-<span class="st"> </span>smart_wb %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(tothours, sex) %&gt;%
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wellbeing =</span> <span class="kw">mean</span>(tot_wellbeing))
 
-<span class="kw">ggplot</span>(smart_wb_gen, <span class="kw">aes</span>(tothours, mean_wellbeing, <span class="dt">color =</span> <span class="kw">factor</span>(sex))) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre>
+<span class="kw">ggplot</span>(smart_wb_gen, <span class="kw">aes</span>(tothours, mean_wellbeing, <span class="dt">color =</span> <span class="kw">factor</span>(sex))) +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <img src="15-s02-lab15e_files/figure-html/unnamed-chunk-2-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1024,12 +998,12 @@ Figure 15.4: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 <div id="estimating-model-parameters-1" class="section level4">
 <h4><span class="header-section-number">15.5.1.7</span> Estimating model parameters</h4>
-<pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(tot_wellbeing <span class="op">~</span><span class="st"> </span>tothours_c <span class="op">*</span><span class="st"> </span>sex_c, smart_wb)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(tot_wellbeing ~<span class="st"> </span>tothours_c *<span class="st"> </span>sex_c, smart_wb)
 
 <span class="co"># alternatively: </span>
 <span class="co"># mod &lt;- lm(tot_wellbeing ~ tothours_c + sex_c + tothours_c:sex_c, smart_wb)</span>
 
-<span class="kw">summary</span>(mod)</code></pre>
+<span class="kw">summary</span>(mod)</code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = tot_wellbeing ~ tothours_c * sex_c, data = smart_wb)
@@ -1213,7 +1187,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

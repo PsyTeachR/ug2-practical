@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lab 3 Visualisation Through ggplot2 | ug2-practical</title>
-  <meta name="description" content="Lab 3 Visualisation Through ggplot2 | ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="Lab 3 Visualisation Through ggplot2 | ug2-practical-materials">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Lab 3 Visualisation Through ggplot2 | ug2-practical" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="Lab 3 Visualisation Through ggplot2 | ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR" />
+<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-14" />
+<meta name="date" content="2019-06-18">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="data-wrangling-a-key-skill.html">
@@ -50,67 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -139,7 +114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -189,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -263,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -308,24 +283,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
-<li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1-creating-a-dataframe"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
-<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-2-comparing-original-and-new-sample-reaction-times"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
-<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-3-calculating-probability"><i class="fa fa-check"></i><b>6.2.4</b> Task 3: Calculating Probability</a></li>
+<li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
+<li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT2"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
+<li class="chapter" data-level="6.2.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT3"><i class="fa fa-check"></i><b>6.2.4</b> Task 3: Calculating Probability</a></li>
 <li class="chapter" data-level="6.2.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>6.2.5</b> The One-Sample t-test</a></li>
-<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-4-calculating-the-mean-and-standard-deviation"><i class="fa fa-check"></i><b>6.2.6</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
-<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-5-calculating-the-observed-test-statistic"><i class="fa fa-check"></i><b>6.2.7</b> Task 5: Calculating the Observed Test Statistic</a></li>
-<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-6-comparing-the-observed-test-statistic-to-the-t-distribution-using-pt"><i class="fa fa-check"></i><b>6.2.8</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
-<li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-7-comparing-the-observed-test-statistic-to-the-t-distribution-using-t.test"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
-<li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-8-drawing-conclusions-about-the-new-data"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT4"><i class="fa fa-check"></i><b>6.2.6</b> Task 4: Calculating the Mean and Standard Deviation</a></li>
+<li class="chapter" data-level="6.2.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT5"><i class="fa fa-check"></i><b>6.2.7</b> Task 5: Calculating the Observed Test Statistic</a></li>
+<li class="chapter" data-level="6.2.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT6"><i class="fa fa-check"></i><b>6.2.8</b> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></a></li>
+<li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT7"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
+<li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT8"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-2-additional"><i class="fa fa-check"></i><b>6.3</b> PreClass Activity 2 (Additional)</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#a-short-blog-on-barplots"><i class="fa fa-check"></i><b>6.3.1</b> A short blog on Barplots</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.4</b> InClass Activity</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1-evaluators"><i class="fa fa-check"></i><b>6.4.1</b> Task 1: Evaluators</a></li>
-<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-2-ratings"><i class="fa fa-check"></i><b>6.4.2</b> Task 2: Ratings</a></li>
-<li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-3-creating-a-figure"><i class="fa fa-check"></i><b>6.4.3</b> Task 3: Creating a Figure</a></li>
-<li class="chapter" data-level="6.4.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-4-t-tests"><i class="fa fa-check"></i><b>6.4.4</b> Task 4: t-tests</a></li>
+<li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-1-evaluators"><i class="fa fa-check"></i><b>6.4.1</b> InClass Task 1: Evaluators</a></li>
+<li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-2-ratings"><i class="fa fa-check"></i><b>6.4.2</b> InClass Task 2: Ratings</a></li>
+<li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-3-creating-a-figure"><i class="fa fa-check"></i><b>6.4.3</b> InClass Task 3: Creating a Figure</a></li>
+<li class="chapter" data-level="6.4.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-task-4-t-tests"><i class="fa fa-check"></i><b>6.4.4</b> InClass Task 4: t-tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#assignment-5"><i class="fa fa-check"></i><b>6.5</b> Assignment</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#task-1a-libraries"><i class="fa fa-check"></i><b>6.5.1</b> Task 1A: Libraries</a></li>
@@ -372,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen’s D</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen's D</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-effect-size-from-a-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.2</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-effect-size-from-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.3</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-effect-size-from-matched-pairs-t-test"><i class="fa fa-check"></i><b>8.3.4</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -381,16 +356,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-sample-size-for-standard-power-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.7</b> Task 5: Sample size for standard power one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-effect-size-from-a-high-power-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.8</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-power-of-published-research"><i class="fa fa-check"></i><b>8.3.9</b> Task 7: Power of Published Research</a></li>
-<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-4"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
+<li class="chapter" data-level="8.3.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#group-discussion-point-3"><i class="fa fa-check"></i><b>8.3.10</b> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#assignment-7"><i class="fa fa-check"></i><b>8.4</b> Assignment</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-3"><i class="fa fa-check"></i><b>8.4.1</b> Task 1</a></li>
-<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-3"><i class="fa fa-check"></i><b>8.4.2</b> Task 2</a></li>
-<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-2"><i class="fa fa-check"></i><b>8.4.3</b> Task 3</a></li>
-<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-4-3"><i class="fa fa-check"></i><b>8.4.4</b> Task 4</a></li>
-<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-2"><i class="fa fa-check"></i><b>8.4.5</b> Task 5</a></li>
-<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-2"><i class="fa fa-check"></i><b>8.4.6</b> Task 6</a></li>
-<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-2"><i class="fa fa-check"></i><b>8.4.7</b> Task 7</a></li>
+<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-1"><i class="fa fa-check"></i><b>8.4.1</b> Task 1</a></li>
+<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-1"><i class="fa fa-check"></i><b>8.4.2</b> Task 2</a></li>
+<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-1"><i class="fa fa-check"></i><b>8.4.3</b> Task 3</a></li>
+<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-4-1"><i class="fa fa-check"></i><b>8.4.4</b> Task 4</a></li>
+<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-5-1"><i class="fa fa-check"></i><b>8.4.5</b> Task 5</a></li>
+<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-6-1"><i class="fa fa-check"></i><b>8.4.6</b> Task 6</a></li>
+<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-7-1"><i class="fa fa-check"></i><b>8.4.7</b> Task 7</a></li>
 <li class="chapter" data-level="8.4.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-8-1"><i class="fa fa-check"></i><b>8.4.8</b> Task 8</a></li>
 <li class="chapter" data-level="8.4.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-9-1"><i class="fa fa-check"></i><b>8.4.9</b> Task 9</a></li>
 <li class="chapter" data-level="8.4.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-10"><i class="fa fa-check"></i><b>8.4.10</b> Task 10</a></li>
@@ -470,7 +445,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activity-10"><i class="fa fa-check"></i><b>12.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-1-7"><i class="fa fa-check"></i><b>12.3.1</b> Task 1</a></li>
+<li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-1-5"><i class="fa fa-check"></i><b>12.3.1</b> Task 1</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-2-mean-squares-and-degrees-of-freedom"><i class="fa fa-check"></i><b>12.3.2</b> Task 2: Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#task-3-f-ratios"><i class="fa fa-check"></i><b>12.3.3</b> Task 3: F-ratios</a></li>
 <li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#using-ezezanova"><i class="fa fa-check"></i><b>12.3.4</b> Using ez::ezANOVA()</a></li>
@@ -497,8 +472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3.8" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.8</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#assignment-12"><i class="fa fa-check"></i><b>13.4</b> Assignment</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries-2"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
-<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data-2"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
+<li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1a-libraries-1"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
+<li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-1b-loading-in-the-data-1"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="13.4.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-2-calculate-cell-means"><i class="fa fa-check"></i><b>13.4.3</b> Task 2: Calculate cell means</a></li>
 <li class="chapter" data-level="13.4.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-3-marginal-means-for-sex"><i class="fa fa-check"></i><b>13.4.4</b> Task 3: Marginal means for sex</a></li>
 <li class="chapter" data-level="13.4.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#task-4-marginal-means-for-condition"><i class="fa fa-check"></i><b>13.4.5</b> Task 4: Marginal means for condition</a></li>
@@ -536,11 +511,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.4" data-path="regression.html"><a href="regression.html#assignment-13"><i class="fa fa-check"></i><b>14.4</b> Assignment</a></li>
 <li class="chapter" data-level="14.5" data-path="regression.html"><a href="regression.html#solutions-to-questions-13"><i class="fa fa-check"></i><b>14.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="14.5.1" data-path="regression.html"><a href="regression.html#inclass-ativities"><i class="fa fa-check"></i><b>14.5.1</b> InClass Ativities</a></li>
-<li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-3-6"><i class="fa fa-check"></i><b>14.5.2</b> Task 3</a></li>
-<li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-4-7"><i class="fa fa-check"></i><b>14.5.3</b> Task 4</a></li>
-<li class="chapter" data-level="14.5.4" data-path="regression.html"><a href="regression.html#task-5-6"><i class="fa fa-check"></i><b>14.5.4</b> Task 5</a></li>
-<li class="chapter" data-level="14.5.5" data-path="regression.html"><a href="regression.html#task-6-6"><i class="fa fa-check"></i><b>14.5.5</b> Task 6</a></li>
-<li class="chapter" data-level="14.5.6" data-path="regression.html"><a href="regression.html#task-7-6"><i class="fa fa-check"></i><b>14.5.6</b> Task 7</a></li>
+<li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-3-5"><i class="fa fa-check"></i><b>14.5.2</b> Task 3</a></li>
+<li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-4-5"><i class="fa fa-check"></i><b>14.5.3</b> Task 4</a></li>
+<li class="chapter" data-level="14.5.4" data-path="regression.html"><a href="regression.html#task-5-5"><i class="fa fa-check"></i><b>14.5.4</b> Task 5</a></li>
+<li class="chapter" data-level="14.5.5" data-path="regression.html"><a href="regression.html#task-6-5"><i class="fa fa-check"></i><b>14.5.5</b> Task 6</a></li>
+<li class="chapter" data-level="14.5.6" data-path="regression.html"><a href="regression.html#task-7-5"><i class="fa fa-check"></i><b>14.5.6</b> Task 7</a></li>
 <li class="chapter" data-level="14.5.7" data-path="regression.html"><a href="regression.html#task-8-4"><i class="fa fa-check"></i><b>14.5.7</b> Task 8</a></li>
 </ul></li>
 </ul></li>
@@ -604,8 +579,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="overview-2" class="section level2">
 <h2><span class="header-section-number">3.1</span> Overview</h2>
 <p>In the last lab we encouraged you to always be looking at your data, making sure you are understanding your data and paying attention to how it is made up in regards to data types. A second way of looking at your data is through visualisation - figures and plots - to help understand patterns and effects in your data. For example, when we asked you about the relationship between age and the Ponzo illusion in Lab 1.</p>
-<p>Visualisation is very important for understanding your data, for example in regards to seeing differences between groups, but also for seeing where things don’t quite match up with what you think is happening. A great example of this is Anscombe’s Quartet, which you can read up about at a later date if you like - &lt;a href = “<a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">https://en.wikipedia.org/wiki/Anscombe%27s_quartet</a>”, target = &quot;_blank&quot;&gt;see here</a>. The key point is that it is always good to visualise your data and visualisation should be a common step in your practical skill set.</p>
-<p>Last year you learnt a bit about data visualisation using <code>ggplot2</code>, the main visualisation package of <code>tidyverse</code>, and you can find more info here if you like: &lt;a href = “<a href="http://ggplot2.org/" class="uri">http://ggplot2.org/</a>”, target = &quot;_blank&quot;&gt;ggplot2</a>. Today we will revisit plotting data and expand your skills in order to make effective and informative figures. This will become really beneficial to you as your progress through University and is a skill that applies to multiple careers, not just Psychology.</p>
+<p>Visualisation is very important for understanding your data, for example in regards to seeing differences between groups, but also for seeing where things don't quite match up with what you think is happening. A great example of this is Anscombe's Quartet, which you can read up about at a later date if you like - <a href = "https://en.wikipedia.org/wiki/Anscombe%27s_quartet", target = "_blank">see here</a>. The key point is that it is always good to visualise your data and visualisation should be a common step in your practical skill set.</p>
+<p>Last year you learnt a bit about data visualisation using <code>ggplot2</code>, the main visualisation package of <code>tidyverse</code>, and you can find more info here if you like: <a href = "http://ggplot2.org/", target = "_blank">ggplot2</a>. Today we will revisit plotting data and expand your skills in order to make effective and informative figures. This will become really beneficial to you as your progress through University and is a skill that applies to multiple careers, not just Psychology.</p>
 <p>In this lab you will:</p>
 <ol style="list-style-type: decimal">
 <li>Recap on visualisation</li>
@@ -617,26 +592,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="preclass-activity-1" class="section level2">
 <h2><span class="header-section-number">3.2</span> PreClass Activity</h2>
 <p><strong>Testing Mental Rotation Ability</strong></p>
-<p>The data we will use today comes from a recent replication of a classic experiment merging the fields of Perception and Cognition. &lt;a href=“<a href="http://science.sciencemag.org/content/171/3972/701" class="uri">http://science.sciencemag.org/content/171/3972/701</a>”, target = &quot;_blank“&gt;Shepard and Metzler (1971)</a> demonstrated that when participants are shown two similar three-dimensional shapes, one just a rotated version of the other (see the figure below - top panel), and asked participants whether they were the same shape or not, the reaction time and error rates of responses were a function of rotation; i.e. the larger the difference in rotation between the two shapes, the longer it took participants to say”same&quot; or “different”, and the more errors they made.</p>
+<p>The data we will use today comes from a recent replication of a classic experiment merging the fields of Perception and Cognition. <a href="http://science.sciencemag.org/content/171/3972/701", target = "_blank">Shepard and Metzler (1971)</a> demonstrated that when participants are shown two similar three-dimensional shapes, one just a rotated version of the other (see the figure below - top panel), and asked participants whether they were the same shape or not, the reaction time and error rates of responses were a function of rotation; i.e. the larger the difference in rotation between the two shapes, the longer it took participants to say &quot;same&quot; or &quot;different&quot;, and the more errors they made.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-rotation-task"></span>
 <img src="images/s01-lab03/preclass/13-113-1-PB.jpg" alt="The Mental Rotation Task as shown in Ganis and Kievit (2016) Figure 1" width="50%" />
 <p class="caption">
 Figure 3.1: The Mental Rotation Task as shown in Ganis and Kievit (2016) Figure 1
 </p>
 </div>
-<p>The image shown in Figure <a href="visualisation-through-ggplot2.html#fig:img-rotation-task">3.1</a> actually comes from the recent replication, &lt;a href=“<a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/" class="uri">https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/</a>”, target=&quot;_blank“&gt;Ganis and Kievit (2016)</a>. In the top panel the two shapes are the same but the shape on the right is rotated vertically at 150 degrees from the original (the left shape) and so participants should respond”same&quot;. In the bottom panel however the two shapes are different; the one on the right is again rotated at 150 degrees but in this trial it takes longer for participants to realise that they are different shapes.</p>
-<p>You can read more about Ganis and Kievit (2016) in your own time but the basic methods are that they ran 54 participants on a series of these images using 4 angles of rotation (0, 50, 100, 150 degrees) and asked people to respond same or different on each trial. The data can be &lt;a href=“<a href="http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/prep/Level2_Lab3_PreclassData.zip" class="uri">http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/prep/Level2_Lab3_PreclassData.zip</a>”, target = &quot;_blank&quot;&gt;downloaded from here</a>. You should use this data to follow along below and try to answer the questions.</p>
+<p>The image shown in Figure <a href="visualisation-through-ggplot2.html#fig:img-rotation-task">3.1</a> actually comes from the recent replication, <a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/", target="_blank">Ganis and Kievit (2016)</a>. In the top panel the two shapes are the same but the shape on the right is rotated vertically at 150 degrees from the original (the left shape) and so participants should respond &quot;same&quot;. In the bottom panel however the two shapes are different; the one on the right is again rotated at 150 degrees but in this trial it takes longer for participants to realise that they are different shapes.</p>
+<p>You can read more about Ganis and Kievit (2016) in your own time but the basic methods are that they ran 54 participants on a series of these images using 4 angles of rotation (0, 50, 100, 150 degrees) and asked people to respond same or different on each trial. The data can be <a href="http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/prep/Level2_Lab3_PreclassData.zip", target = "_blank">downloaded from here</a>. You should use this data to follow along below and try to answer the questions.</p>
 <p><strong>Visualising Data</strong></p>
 <ol style="list-style-type: decimal">
-<li>Download the data folder, unzip it, and save it to a folder you have access to (e.g. your M: drive if using the lab machines).</li>
+<li>Download the data folder, unzip it, and save it to a folder you have access to (e.g. your M: drive if using the lab machines).</li>
 <li>Set your working directory to that folder <code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></li>
 <li>Open a new Rscript and save it within the folder that contains the data, giving the script a sensible name, e.g. <code>Lab3_preclass_visualisations.R</code></li>
 <li>Copy the three code lines below into your script and run them to bring <code>tidyverse</code> into the library and to read in the two datafiles.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
 menrot &lt;-<span class="kw">read_csv</span>(<span class="st">&quot;MentalRotationBehavioralData.csv&quot;</span>)
-demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</code></pre>
+demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</code></pre></div>
 <div class="solution">
 <button>
 Portfolio Point - Why load tidyverse and not just ggplot2?
@@ -650,8 +625,7 @@ Small point, if looking for help on <code>ggplot</code>, the package is actually
 </p>
 </div>
 </div>
-<p><br>
-Let’s start by having a look at the data we have brought in. You can do this whichever way you choose; we mentioned three ways in the previous labs - check your notes.</p>
+<p><br> Let's start by having a look at the data we have brought in. You can do this whichever way you choose; we mentioned three ways in the previous labs - check your notes.</p>
 <p>First, <code>demog</code> - short for demographics. It has three columns:</p>
 <ul>
 <li>Participant - the ID of the participant</li>
@@ -675,12 +649,11 @@ Portfolio Point - A nice procedure
 </button>
 <div class="info">
 <p>
-Ganis and Kievit (2016) is a very short paper that is really to introduce the stimuli set rather than give an extensive background on the topic of mental rotation - we call this a ‘methods paper’. That said the writing of the paper is very clear and the procedure is well detailed as to how they ran the actual experiment. When writing a procedure rememeber to give as much information needed to allow someone to exactly replicate your study. Have a read at this procedure when you have time and think about what information is there, <strong>but also what information is not there</strong>, to help you develop your writing and your reports. For example, which fingers did the participants use to respond and why would that be important?
+Ganis and Kievit (2016) is a very short paper that is really to introduce the stimuli set rather than give an extensive background on the topic of mental rotation - we call this a 'methods paper'. That said the writing of the paper is very clear and the procedure is well detailed as to how they ran the actual experiment. When writing a procedure rememeber to give as much information needed to allow someone to exactly replicate your study. Have a read at this procedure when you have time and think about what information is there, <strong>but also what information is not there</strong>, to help you develop your writing and your reports. For example, which fingers did the participants use to respond and why would that be important?
 </p>
 </div>
 </div>
-<p><br>
-<strong>Creating Some Plots</strong></p>
+<p><br> <strong>Creating Some Plots</strong></p>
 <p>We now have our data and we want to create some plots to visualise it. We will show you the code to create four types of plots and then get you to practice more yourself in the labs, but you will remember some of this from Level 1 and you should edit/change the codes we give you and see what changes you can create - this is a great way of working. Be sure to bring any questions with you to the lab.</p>
 <div class="solution">
 <button>
@@ -707,7 +680,7 @@ it works on a concept of <strong>layers</strong>
 Looking at point a: The first thing you enter is your dataframe, your <code>data</code>. Then within the <code>aes()</code> you say what is my <code>x_axis</code> and <code>y_axis</code>, using the column names from within your dataframe. <code>aes</code> stands for aesthetics - how do you want it to look. Finally you tell the code what type of plot you want.
 </p>
 <p>
-On point b: Layers are a common way for graphics to work. Think about it as creating your first layer and then adding more layers on top to create the figure you want. The first layer is always your data and the x and y axes. The second layer, added by using the plus symbol ‘+’, is the type of plot. We will look at adding more layers as we progress.
+On point b: Layers are a common way for graphics to work. Think about it as creating your first layer and then adding more layers on top to create the figure you want. The first layer is always your data and the x and y axes. The second layer, added by using the plus symbol '+', is the type of plot. We will look at adding more layers as we progress.
 </p>
 <p>
 <code>ggplot()</code> is an incredibly powerful package that is used by a whole range of industries, including newspapers and mainstream media outlets, as it can do quite sophisticated images.
@@ -723,15 +696,15 @@ On point b: Layers are a common way for graphics to work. Think about it as crea
 <li>It then plots a scatterplot (<code>geom_point()</code>) where <code>age</code> is plotted on the x axis, and <code>Mean_Time</code> is on the y axis</li>
 <li>Finally, it uses an additional <code>aes</code> call to <code>color</code> by <code>Sex</code> which will color each point based on whether it was a male or female participant responding:</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_time_age &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_time_age &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
 <span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>)
 
 <span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_time_age, 
        <span class="kw">aes</span>(<span class="dt">x =</span> Age, 
            <span class="dt">y =</span> Mean_Time, 
-           <span class="dt">color =</span> Sex)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
+           <span class="dt">color =</span> Sex)) +
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim1"></span>
 <img src="03-s01-lab03b_files/figure-html/dim1-1.png" alt="A scatterplot of Mean Time as a function of Age" width="100%" />
 <p class="caption">
@@ -740,12 +713,12 @@ Figure 3.2: A scatterplot of Mean Time as a function of Age
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li><p>Looking at the scatterplot in Figure <a href="visualisation-through-ggplot2.html#fig:dim1">3.2</a>, what can you say about the relationship between age and overall response time? <select class='solveme' data-answer='["there is no overall relationship"]'> <option></option> <option>as age increases, overall response time increases</option> <option>as age increases, overall response time decreases</option> <option>there is no overall relationship</option></select></p></li>
-<li><p>Looking at the scatterplot, what can you say about difference between male and female participants? <select class='solveme' data-answer='["there is no real difference between males and females in terms of overall response time and age"]'> <option></option> <option>males show more of an increase in overall response time with age than females</option> <option>females show more of an increase in overall response time with age than males</option> <option>there is no real difference between males and females in terms of overall response time and age</option></select></p></li>
+<li><p>Looking at the scatterplot in Figure <a href="visualisation-through-ggplot2.html#fig:dim1">3.2</a>, what can you say about the relationship between age and overall response time? <select class='solveme' data-answer='["there is no overall relationship"]'> <option></option> <option>as age increases, overall response time increases</option> <option>as age increases, overall response time decreases</option> <option>there is no overall relationship</option> </select></p></li>
+<li><p>Looking at the scatterplot, what can you say about difference between male and female participants? <select class='solveme' data-answer='["there is no real difference between males and females in terms of overall response time and age"]'> <option></option> <option>males show more of an increase in overall response time with age than females</option> <option>females show more of an increase in overall response time with age than males</option> <option>there is no real difference between males and females in terms of overall response time and age</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don’t get these answers
+Explain This - I don't get these answers
 </button>
 <div class="info">
 <p>
@@ -756,8 +729,7 @@ When comparing sex, based on the color of the dots, again there appears to be no
 </p>
 </div>
 </div>
-<p><br>
-<strong>Note</strong>: It will often be the case that to visualise data you first half to wrangle it into a format. When we do this we will be using the functions we saw in Chapter 2, so make sure you have been through those tasks and have understood what the wrangle verbs are doing and how pipes work. Keep in mind that most functions use the format, <code>function(data, arguement)</code></p>
+<p><br> <strong>Note</strong>: It will often be the case that to visualise data you first half to wrangle it into a format. When we do this we will be using the functions we saw in Chapter 2, so make sure you have been through those tasks and have understood what the wrangle verbs are doing and how pipes work. Keep in mind that most functions use the format, <code>function(data, arguement)</code></p>
 </div>
 <div id="histograms---geom_histogram" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Histograms - geom_histogram()</h3>
@@ -765,15 +737,15 @@ When comparing sex, based on the color of the dots, again there appears to be no
 <p>Looking at our data, say we wanted to test if the overall distribution of mean response times for correct trials was normally distributed. The code below:</p>
 <ol style="list-style-type: decimal">
 <li>Wrangles the data to create an average response time for each participant, <code>Mean_Time</code>, and then filters this information for correct trials only. This is then stored in <code>menrot_hist_correct</code></li>
-<li>Plots a histogram (<code>geom_histogram()</code>) where <code>Mean_Time</code> is plotted on the x axis, and the count of each value in <code>Mean_Time</code> is plotted on the y axis. The code creates the y axis automatically and we don’t have to state it:</li>
+<li>Plots a histogram (<code>geom_histogram()</code>) where <code>Mean_Time</code> is plotted on the x axis, and the count of each value in <code>Mean_Time</code> is plotted on the y axis. The code creates the y axis automatically and we don't have to state it:</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_hist_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_hist_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>)
 
 <span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_hist_correct, 
-       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Time)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre>
+       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Time)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim2"></span>
 <img src="03-s01-lab03b_files/figure-html/dim2-1.png" alt="A histogram of distribution of Mean Time counts" width="100%" />
 <p class="caption">
@@ -782,12 +754,12 @@ Figure 3.3: A histogram of distribution of Mean Time counts
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li><p>Looking at the histogram, what can you say about the overall shape of the distribution? <select class='solveme' data-answer='["the data looks reasonably normally distirbuted"]'> <option></option> <option>the data looks reasonably normally distirbuted</option> <option>the data looks positively skewed</option> <option>the data looks negatively skewed</option></select></p></li>
-<li><p>Looking at the histogram, what is the most common average overall response time for correct trials? <select class='solveme' data-answer='["approximately 2500 milliseconds"]'> <option></option> <option>approximately 2000 milliseconds</option> <option>approximately 2500 milliseconds</option> <option>approximately 3000 milliseconds</option></select></p></li>
+<li><p>Looking at the histogram, what can you say about the overall shape of the distribution? <select class='solveme' data-answer='["the data looks reasonably normally distirbuted"]'> <option></option> <option>the data looks reasonably normally distirbuted</option> <option>the data looks positively skewed</option> <option>the data looks negatively skewed</option> </select></p></li>
+<li><p>Looking at the histogram, what is the most common average overall response time for correct trials? <select class='solveme' data-answer='["approximately 2500 milliseconds"]'> <option></option> <option>approximately 2000 milliseconds</option> <option>approximately 2500 milliseconds</option> <option>approximately 3000 milliseconds</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don’t get these answers
+Explain This - I don't get these answers
 </button>
 <div class="info">
 <p>
@@ -811,15 +783,15 @@ As the y axis is the count of the values on the x axis, the most common overall 
 <li>Plots a boxplot (<code>geom_boxplot()</code>) of the overall average response times on the y-axis, <code>Mean_Time</code>, split by the condition <code>CorrectResponse</code> on the x-axis</li>
 <li>Uses an additional <code>aes</code> call to <code>fill</code> the colour of the boxplots, of the two categories, based on whether <code>CorrectResponse</code> was correct or incorrect:</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_box_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_box_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
 <span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>)
 
 <span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_box_correct, 
        <span class="kw">aes</span>(<span class="dt">x =</span> CorrectResponse, 
            <span class="dt">y =</span> Mean_Time, 
-           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+           <span class="dt">fill =</span> CorrectResponse)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim4"></span>
 <img src="03-s01-lab03b_files/figure-html/dim4-1.png" alt="A boxplot of the spreads of Mean Time for Correct and Incorrect Responses" width="100%" />
 <p class="caption">
@@ -828,12 +800,12 @@ Figure 3.4: A boxplot of the spreads of Mean Time for Correct and Incorrect Resp
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li><p>Looking at the boxplots, how many outliers were there? <select class='solveme' data-answer='["0"]'> <option></option> <option>1</option> <option>2</option> <option>3</option> <option>0</option></select></p></li>
-<li><p>Looking at the boxplots, which condition had the longer median overall average response time to the mental rotation task? <select class='solveme' data-answer='["Median response time was longer for the Incorrect responses"]'> <option></option> <option>Median response time was longer for the Correct responses</option> <option>Median response time was longer for the Incorrect responses</option> <option>Both medians are the same approximately</option></select></p></li>
+<li><p>Looking at the boxplots, how many outliers were there? <select class='solveme' data-answer='["0"]'> <option></option> <option>1</option> <option>2</option> <option>3</option> <option>0</option> </select></p></li>
+<li><p>Looking at the boxplots, which condition had the longer median overall average response time to the mental rotation task? <select class='solveme' data-answer='["Median response time was longer for the Incorrect responses"]'> <option></option> <option>Median response time was longer for the Correct responses</option> <option>Median response time was longer for the Incorrect responses</option> <option>Both medians are the same approximately</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don’t get these answers
+Explain This - I don't get these answers
 </button>
 <div class="info">
 <p>
@@ -847,27 +819,27 @@ The median is one of the 5 values required to make a boxplot and is shown as the
 </div>
 <div id="barplots---geom_bar-or-geom_col" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Barplots - geom_bar() or geom_col()</h3>
-<p>Barplots typically show the <strong>average value of a condition</strong>, e.g. the mean, and the <strong>average spread of values</strong> via <strong>error bars</strong>, e.g. standard error. We don’t show error bars here below but you will learn about them at a later point. When looking at barplots, the main considerations are whether or not there appears to be a difference between the conditions you are interested in or are all conditions about the same? It is worth knowing that barplots are now used less frequently than they were as they actually do not show a lot of information, as discussed in this blog, &lt;a href=“<a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/" class="uri">https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/</a>”, target = &quot;_blank&quot;&gt;One simple step to improving statistical inference</a>. However, you will still see them in the field so it is good to be able to interpret them.</p>
-<p>Lookinga at our data, let’s say we are interested in whether there is a difference in the average percentage of correct and incorrect responses across male and female participants. The code below:</p>
+<p>Barplots typically show the <strong>average value of a condition</strong>, e.g. the mean, and the <strong>average spread of values</strong> via <strong>error bars</strong>, e.g. standard error. We don't show error bars here below but you will learn about them at a later point. When looking at barplots, the main considerations are whether or not there appears to be a difference between the conditions you are interested in or are all conditions about the same? It is worth knowing that barplots are now used less frequently than they were as they actually do not show a lot of information, as discussed in this blog, <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/", target = "_blank">One simple step to improving statistical inference</a>. However, you will still see them in the field so it is good to be able to interpret them.</p>
+<p>Lookinga at our data, let's say we are interested in whether there is a difference in the average percentage of correct and incorrect responses across male and female participants. The code below:</p>
 <ol style="list-style-type: decimal">
 <li>Wrangles the data through a series of steps to establish the overall percent average for correct and incorrect responses for both sex, stored in <code>menrot_resp_sex</code>.</li>
 <li>Plots a barplot (<code>geom_bar()</code>) with the condition <code>Sex</code> on the x axis, the <code>Avg_Percent</code> on the y axis, created through the wrangle, and <code>fill</code> the bars based on <code>CorrectResponse</code></li>
-<li>Finally, within the <code>geom_bar</code> it says to treat the data as final values and not to average them, <code>stat = &quot;identity&quot;</code>, and makes both columns visible by moving them apart <code>position = position_dodge(.9))</code> - without this last step the bars would overlap and you wouldn’t see everything. Try changing the <code>.9</code></li>
+<li>Finally, within the <code>geom_bar</code> it says to treat the data as final values and not to average them, <code>stat = &quot;identity&quot;</code>, and makes both columns visible by moving them apart <code>position = position_dodge(.9))</code> - without this last step the bars would overlap and you wouldn't see everything. Try changing the <code>.9</code></li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span>
 
-menrot_resp_sex &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> (n<span class="op">/</span>total_n_trials)<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) <span class="op">%&gt;%</span>
+menrot_resp_sex &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> (n/total_n_trials)*<span class="dv">100</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) %&gt;%
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Avg_Percent =</span> <span class="kw">mean</span>(PercentPerParticipant))
 
 <span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_resp_sex, 
        <span class="kw">aes</span>(<span class="dt">x =</span> Sex, 
            <span class="dt">y =</span> Avg_Percent, 
-           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span>
+           <span class="dt">fill =</span> CorrectResponse)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, 
-           <span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</code></pre>
+           <span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim5"></span>
 <img src="03-s01-lab03b_files/figure-html/dim5-1.png" alt="A barplot of the average percent Correct and Incorret responses for Female and Male participants - using geom_bar()" width="100%" />
 <p class="caption">
@@ -875,11 +847,11 @@ Figure 3.5: A barplot of the average percent Correct and Incorret responses for 
 </p>
 </div>
 <p><code>geom_col()</code> - short for column - is an alternative to <code>geom_bar()</code> that does not require the part of the code where you say to not do anything to the data, i.e. <code>stat=&quot;identity&quot;</code>. This is shown below. Notice the difference in codes but that they produce the same figure!</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_resp_sex, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_resp_sex, 
        <span class="kw">aes</span>(<span class="dt">x =</span> Sex, 
            <span class="dt">y =</span> Avg_Percent, 
-           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</code></pre>
+           <span class="dt">fill =</span> CorrectResponse)) +
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim6"></span>
 <img src="03-s01-lab03b_files/figure-html/dim6-1.png" alt="A barplot of the average percent Correct and Incorret responses for Female and Male participants - using geom_col()" width="100%" />
 <p class="caption">
@@ -888,14 +860,14 @@ Figure 3.6: A barplot of the average percent Correct and Incorret responses for 
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li><p>Looking at the barplot and data, on average, which sex had the most correct responses? <select class='solveme' data-answer='["female"]'> <option></option> <option>female</option> <option>male</option> <option>both the same</option> <option>can’t tell</option></select></p></li>
-<li><p>Looking at the barplot and data, on average, which sex had the most incorrect responses? <select class='solveme' data-answer='["male"]'> <option></option> <option>female</option> <option>male</option> <option>both the same</option> <option>can’t tell</option></select></p></li>
-<li><p>Looking at the code, what happens if you decrease the position.dodge() value? <select class='solveme' data-answer='["the bars start to overlap"]'> <option></option> <option>the bars get further apart</option> <option>the bars start to overlap</option> <option>nothing changes in the figure</option></select></p></li>
-<li><p>Looking at the code, what happens if you change the aes call of <code>fill</code> to <code>color</code>? <select class='solveme' data-answer='["the bars become grey and the outlines become different colors"]'> <option></option> <option>the bars will stay a different color</option> <option>the bars become grey and the outlines become different colors</option> <option>nothing changes in the figure</option></select></p></li>
+<li><p>Looking at the barplot and data, on average, which sex had the most correct responses? <select class='solveme' data-answer='["female"]'> <option></option> <option>female</option> <option>male</option> <option>both the same</option> <option>can't tell</option> </select></p></li>
+<li><p>Looking at the barplot and data, on average, which sex had the most incorrect responses? <select class='solveme' data-answer='["male"]'> <option></option> <option>female</option> <option>male</option> <option>both the same</option> <option>can't tell</option> </select></p></li>
+<li><p>Looking at the code, what happens if you decrease the position.dodge() value? <select class='solveme' data-answer='["the bars start to overlap"]'> <option></option> <option>the bars get further apart</option> <option>the bars start to overlap</option> <option>nothing changes in the figure</option> </select></p></li>
+<li><p>Looking at the code, what happens if you change the aes call of <code>fill</code> to <code>color</code>? <select class='solveme' data-answer='["the bars become grey and the outlines become different colors"]'> <option></option> <option>the bars will stay a different color</option> <option>the bars become grey and the outlines become different colors</option> <option>nothing changes in the figure</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don’t get these answers
+Explain This - I don't get these answers
 </button>
 <div class="info">
 <p>
@@ -923,28 +895,28 @@ The final point shows that you can add a lot more calls than just x and y axis t
 <li><p><code>guides</code> - remove it and see what happens. Do you understand why we use <code>fill</code> in this situation but perhaps not others?</p></li>
 </ul>
 <p>Try running and editing this code.</p>
-<pre class="sourceCode r"><code class="sourceCode r">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span>
 
-menrot_better_plot &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> n<span class="op">/</span>total_n_trials) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) <span class="op">%&gt;%</span>
+menrot_better_plot &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> n/total_n_trials) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) %&gt;%
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Avg_Percent =</span> <span class="kw">mean</span>(PercentPerParticipant))
 
 <span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_better_plot, 
        <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
            <span class="dt">y =</span> Avg_Percent, 
-           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>)) <span class="op">+</span>
+           <span class="dt">fill =</span> CorrectResponse)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>)) +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sex of Participant&quot;</span>, 
-       <span class="dt">y =</span> <span class="st">&quot;Percent Average (%)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>CorrectResponse) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+       <span class="dt">y =</span> <span class="st">&quot;Percent Average (%)&quot;</span>) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">facet_wrap</span>(~CorrectResponse) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
 <p><strong>A figure for all occasions</strong></p>
 <p>As you progress through Psychology you will come across a variety of different figures and plots, each looking slightly different and giving different information. When looking at these figures, and indeed when choosing one for your own analyses, you have to think about which figure is the most appropriate for your data. For example, scatterplots are great when both variables are continuous; boxplots and histograms are great for viewing spreads of data; barplots are commonly used where one variable is categorical - but as above note that barplots can be misleading and lots of new approaches to display categorical information are being created. Always keep asking yourself, does my plot display my data correctly. We will look more at this in upcoming labs and lectures where we will also work on improving our interpretation of figures.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>If you have any questions please post them on the Moodle forum of the slack forum &lt;a href = “<a href="https://rguppies.slack.com/" class="uri">https://rguppies.slack.com/</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
@@ -954,23 +926,23 @@ menrot_better_plot &lt;-<span class="st"> </span><span class="kw">count</span>(m
 <p>Visualisation is a key part of data analysis in exploring data, checking assumptions, and displaying results. Also, it is a really important skill for when you want to share your findings with others. As you develop your skills in Psychology you will start to analyse your own datasets, and learning how best to plot in different ways will benefit you in the long run. Keep in mind that this is a skill that you can carry into your future career even if that is outside of science.</p>
 <p>For visualisaion we use <code>ggplot2</code> and below we have listed some great online resources that you might want to consult if you want a fuller understanding.</p>
 <ul>
-<li>&lt;a href=“<a href="http://www.cookbook-r.com/Graphs/" class="uri">http://www.cookbook-r.com/Graphs/</a>”, target = &quot;_blank&quot;&gt;R Graphics Cookbook</a></li>
-<li>&lt;a href=“<a href="http://ggplot2.org/book/" class="uri">http://ggplot2.org/book/</a>”, target = &quot;_blank&quot;&gt;ggplot2 book</a></li>
-<li>&lt;a href=“<a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf</a>”, target = &quot;_blank&quot;&gt;ggplot2 cheatsheet</a></li>
-<li>&lt;a href=“<a href="http://ggplot2.tidyverse.org/reference/" class="uri">http://ggplot2.tidyverse.org/reference/</a>”, target = &quot;_blank&quot;&gt;ggplot2 Reference Guide</a></li>
+<li><a href="http://www.cookbook-r.com/Graphs/", target = "_blank">R Graphics Cookbook</a></li>
+<li><a href="http://ggplot2.org/book/", target = "_blank">ggplot2 book</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf", target = "_blank">ggplot2 cheatsheet</a></li>
+<li><a href="http://ggplot2.tidyverse.org/reference/", target = "_blank">ggplot2 Reference Guide</a></li>
 </ul>
 <p>It is <strong>highly recommended</strong> that you consult the <code>ggplot2</code> cheat sheet when you work with the package to get familiar with it.</p>
 <div id="mental-rotation-angle-and-reaction-time" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Mental Rotation: Angle and Reaction Time</h3>
-<p>We will use the same dataset for this class as we did in the preclass activity. To recap, &lt;a href=“<a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/" class="uri">https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/</a>”, target = &quot;_blank“&gt;Ganis and Kievit (2016)</a> created a modern stimuli set to test the classic concept of mental rotation first proposed by &lt;a href=”<a href="http://science.sciencemag.org/content/171/3972/701" class="uri">http://science.sciencemag.org/content/171/3972/701</a>“, target =”_blank&quot;&gt;Shepard and Metzler (1971)</a>. The idea is that the more rotated a test image is from an original image, the longer it will take for participants to determine if they are the same image or if they are completely different images. Results show this the case and suggest that, when doing mental rotation tasks, people do a form of internal linear interpolation, or internal mental rotation, meaning that they rotate the image in their mind back to the original angle and then compare the two images. This would be opposed to a more rapid contrast and compare approach not involving any rotation. As a result, the more rotation an image needs, the longer the task takes.</p>
-<p>Ganis and Kievit ran 54 participants on a series of these rotated images using 4 angles of rotation (0, 50, 100, 150 degrees rotated compared to the original) and asked people to respond ‘same’ or ‘different’ on each trial. Today, to further your understanding of this task and to develop your skills in visualisation and interpretation, we will look at mean reaction time for correct trials, as a function of the angle of rotation and sex. The data can be &lt;a href=“<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/inclass/Level2_Lab3_InClassData.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/inclass/Level2_Lab3_InClassData.zip</a>”, target = &quot;_blank&quot;&gt;downloaded from here</a>.</p>
+<p>We will use the same dataset for this class as we did in the preclass activity. To recap, <a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/", target = "_blank">Ganis and Kievit (2016)</a> created a modern stimuli set to test the classic concept of mental rotation first proposed by <a href="http://science.sciencemag.org/content/171/3972/701", target = "_blank">Shepard and Metzler (1971)</a>. The idea is that the more rotated a test image is from an original image, the longer it will take for participants to determine if they are the same image or if they are completely different images. Results show this the case and suggest that, when doing mental rotation tasks, people do a form of internal linear interpolation, or internal mental rotation, meaning that they rotate the image in their mind back to the original angle and then compare the two images. This would be opposed to a more rapid contrast and compare approach not involving any rotation. As a result, the more rotation an image needs, the longer the task takes.</p>
+<p>Ganis and Kievit ran 54 participants on a series of these rotated images using 4 angles of rotation (0, 50, 100, 150 degrees rotated compared to the original) and asked people to respond 'same' or 'different' on each trial. Today, to further your understanding of this task and to develop your skills in visualisation and interpretation, we will look at mean reaction time for correct trials, as a function of the angle of rotation and sex. The data can be <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/inclass/Level2_Lab3_InClassData.zip", target = "_blank">downloaded from here</a>.</p>
 <div class="solution">
 <button>
 Portfolio Point - as a function means?
 </button>
 <div class="info">
 <p>
-You will come across this phrase ‘as a function of’ quite a bit when dealing with visualisations. It means something like ‘compared by’ or ‘across’. So you could say we are going to look at Mean Reaction Time across the four different Angles of Rotation which would be written as Mean Reaction Time as a function of Angle of Rotation. Usually it would be plotted as y axis as a function of x axis. It is a similar idea to the functions we use in our codes in that you want to see what happens when you put y in the function x. It is good to become familiar with the terms and language that is used in reports so that a) you understand what you are reading and b) you can use the same language to give a professional feel.
+You will come across this phrase 'as a function of' quite a bit when dealing with visualisations. It means something like 'compared by' or 'across'. So you could say we are going to look at Mean Reaction Time across the four different Angles of Rotation which would be written as Mean Reaction Time as a function of Angle of Rotation. Usually it would be plotted as y axis as a function of x axis. It is a similar idea to the functions we use in our codes in that you want to see what happens when you put y in the function x. It is good to become familiar with the terms and language that is used in reports so that a) you understand what you are reading and b) you can use the same language to give a professional feel.
 </p>
 <p>
 Remember to be developing your own notes as you go!
@@ -981,7 +953,7 @@ Remember to be developing your own notes as you go!
 <div id="Ch3InClassQueT1" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Task 1: Loading and Viewing the Data</h3>
 <ol style="list-style-type: decimal">
-<li>Download the data, unzip it, and save it to a folder you have access to - e.g. somewhere on your <code>M:</code> drive</li>
+<li>Download the data, unzip it, and save it to a folder you have access to - e.g. somewhere on your <code>M:</code> drive</li>
 <li>Set your working directory to the folder with your data in it.</li>
 <li>Start a new script, save it to the folder with your data in it.</li>
 <li>In your script, load in the <code>tidyverse</code> library.</li>
@@ -1003,25 +975,24 @@ demog &lt;- read_csv()
 </p>
 </div>
 </div>
-<p><br>
-Remember to always be looking at your data as good practice and to make sure it is as you expect it to be. Using maybe either <code>View()</code> or <code>glimpse()</code> but do this in the console, never in your script or Rmd file. Other useful functions that you can use as checks are:</p>
+<p><br> Remember to always be looking at your data as good practice and to make sure it is as you expect it to be. Using maybe either <code>View()</code> or <code>glimpse()</code> but do this in the console, never in your script or Rmd file. Other useful functions that you can use as checks are:</p>
 <ol style="list-style-type: decimal">
 <li><code>str()</code> - This shows what type your data is. Look for words like table, dataframe, character, integer, numeric.</li>
 <li><code>head()</code>, <code>tail</code>, and <code>ls()</code> - These show the top six and bottom six rows with column names, or just the column names with <code>ls()</code>.</li>
 <li><code>dim()</code> - This shows the dimensions of the data.</li>
 </ol>
-<p>Refer to the preclass for a list of what all the columns refer to if you are not sure. And keep in mind that from now on <strong>you need to be careful with the spelling and punctuation of the variable names at all times - e.g. Female is not the same as female</strong>.</p>
+<p>Refer to the preclass for a list of what all the columns refer to if you are not sure. And keep in mind that from now on <strong>you need to be careful with the spelling and punctuation of the variable names at all times - e.g. Female is not the same as female</strong>.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>Take a couple of minutes to try the above functions and to answer the following questions.</p>
 <ul>
-<li><p>From the options, what type of data is the variable <code>Angle</code>, found in the dataframe <code>menrot</code>? <select class='solveme' data-answer='["integer"]'> <option></option> <option>character</option> <option>integer</option> <option>numeric</option></select></p></li>
+<li><p>From the options, what type of data is the variable <code>Angle</code>, found in the dataframe <code>menrot</code>? <select class='solveme' data-answer='["integer"]'> <option></option> <option>character</option> <option>integer</option> <option>numeric</option> </select></p></li>
 <li><p>Type in the box the name of the dataframe that contains information regarding the sex of the participants: <input class='solveme nospaces' size='8' data-answer='["demog"]'/></p></li>
-<li><p>From the options, which of these is a column within <code>menrot</code>? <select class='solveme' data-answer='["CorrectResponse"]'> <option></option> <option>Correctresponse</option> <option>CorretcResponse</option> <option>CorrectResponse</option> <option>correctReponse</option></select></p></li>
-<li><p>From the options, according to the dim() call, how many rows are there in demog? <select class='solveme' data-answer='["54"]'> <option></option> <option>3</option> <option>8</option> <option>54</option> <option>5184</option></select></p></li>
+<li><p>From the options, which of these is a column within <code>menrot</code>? <select class='solveme' data-answer='["CorrectResponse"]'> <option></option> <option>Correctresponse</option> <option>CorretcResponse</option> <option>CorrectResponse</option> <option>correctReponse</option> </select></p></li>
+<li><p>From the options, according to the dim() call, how many rows are there in demog? <select class='solveme' data-answer='["54"]'> <option></option> <option>3</option> <option>8</option> <option>54</option> <option>5184</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don’t get these answers
+Explain This - I don't get these answers
 </button>
 <div class="info">
 <p>
@@ -1054,7 +1025,7 @@ calling <code>str(menrot)</code> and looking through the information that comes 
 </div>
 <div id="Ch3InClassQueT2" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Task 2: Recreating the Figure</h3>
-<p>Let’s start by making a representation of the top part of Figure 2 in &lt;a href=“<a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/" class="uri">https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/</a>”, target = &quot;_blank&quot;&gt;Ganis and Kievit (2016)</a> - Mean Reaction Time as a function of Angle of Rotation.</p>
+<p>Let's start by making a representation of the top part of Figure 2 in <a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/", target = "_blank">Ganis and Kievit (2016)</a> - Mean Reaction Time as a function of Angle of Rotation.</p>
 <ol style="list-style-type: decimal">
 <li><p>Copy the lines of code below into your script.</p></li>
 <li>Replace the <code>NULL</code>s in order to recreate the figure below similar to that of Ganis and Kievit (2016) Figure 2 (top).
@@ -1064,15 +1035,15 @@ calling <code>str(menrot)</code> and looking through the information that comes 
 <li>You can see if you can figure out what <code>coord_cartesian</code> does by changing the numbers another time.</li>
 </ul></li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> </span><span class="ot">NULL</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="ot">NULL</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> </span><span class="ot">NULL</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="ot">NULL</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(<span class="ot">NULL</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(<span class="ot">NULL</span>))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="ot">NULL</span>, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="ot">NULL</span>, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1118,7 +1089,7 @@ Figure 3.7: Basic Scatterplot of Response Time by Angle of Rotation
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
 <p>Great, you have replicated the figure! However, do you know what it means? Spend a couple of minutes discussing with your partner or group what does the figure tell you about mean reaction time and angle of rotation, and how does it fit with the overall theory we introduced above. Answering this question may help:</p>
 <ul>
-<li>From the options, the figure would suggest that as angle of rotation increases: <select class='solveme' data-answer='["mean reaction time increases"]'> <option></option> <option>mean reaction time decreases</option> <option>mean reaction time stays the same</option> <option>mean reaction time increases</option></select></li>
+<li>From the options, the figure would suggest that as angle of rotation increases: <select class='solveme' data-answer='["mean reaction time increases"]'> <option></option> <option>mean reaction time decreases</option> <option>mean reaction time stays the same</option> <option>mean reaction time increases</option> </select></li>
 </ul>
 <div class="solution">
 <button>
@@ -1179,7 +1150,7 @@ Helpful Hint
 </p>
 </div>
 </div>
-<p>Well at least we now have different lines but we still can’t tell which sex is which line, can we? It just looks like two black parallel lines, one slightly higher than the other. What would be ideal would be changing the color of the points based on whether they are from male or female participants! Fortunately, the <code>geoms</code> can also take information as well.</p>
+<p>Well at least we now have different lines but we still can't tell which sex is which line, can we? It just looks like two black parallel lines, one slightly higher than the other. What would be ideal would be changing the color of the points based on whether they are from male or female participants! Fortunately, the <code>geoms</code> can also take information as well.</p>
 </div>
 <div id="Ch3InClassQueT5" class="section level3">
 <h3><span class="header-section-number">3.3.6</span> Task 5: Identifying Groups Using <strong><code>aes()</code></strong></h3>
@@ -1196,15 +1167,14 @@ Helpful Hint
 </p>
 </div>
 </div>
-<p>You should now have something like this:
-<br></p>
+<p>You should now have something like this: <br></p>
 <div class="figure" style="text-align: center"><span id="fig:Ch3InClassTask5-hidden"></span>
 <img src="03-s01-lab03c_files/figure-html/Ch3InClassTask5-hidden-1.png" alt="Separate lines for each Sex" width="100%" />
 <p class="caption">
 Figure 3.9: Separate lines for each Sex
 </p>
 </div>
-<p>Great so we can now see that the female line is on top and the male line is on the bottom. But before we start interpreting this figure let’s finish tidying it up with a few more tasks. For example the dots for each data point are perhaps a little small for our old eyes so we could increase them in size. Also color is great if you can print in color but we could also change the shape of the dots to help people distinguish between the Sex. To do this we will use the additional calls of <code>shape</code> and <code>size</code> within our <code>geom_point()</code>.</p>
+<p>Great so we can now see that the female line is on top and the male line is on the bottom. But before we start interpreting this figure let's finish tidying it up with a few more tasks. For example the dots for each data point are perhaps a little small for our old eyes so we could increase them in size. Also color is great if you can print in color but we could also change the shape of the dots to help people distinguish between the Sex. To do this we will use the additional calls of <code>shape</code> and <code>size</code> within our <code>geom_point()</code>.</p>
 </div>
 <div id="Ch3InClassQueT6" class="section level3">
 <h3><span class="header-section-number">3.3.7</span> Task 6: Changing the Shape and Size of Data Points</h3>
@@ -1231,14 +1201,14 @@ Figure 3.10: Changing Shape and Size of Data Points
 </div>
 <div class="solution">
 <button>
-Portfolio Point - in, out, what’s the aes about?
+Portfolio Point - in, out, what's the aes about?
 </button>
 <div class="info">
 <p>
 Hopefully you are beginning to spot the difference between setting a call within <code>aes()</code> (which stands for aesthetics) and setting outside the <code>aes()</code>. Outside <code>aes()</code> means that all conditions take the one value or color or type. Inside means that each condition takes a different value or color or type.
 </p>
 <p>
-Let’s look at what we have done above to help us compare.
+Let's look at what we have done above to help us compare.
 </p>
 <p>
 <code>size</code> is called outside of the <code>aes()</code> and we assign it a specific value. As you can see from the Task 6 figure, each condition has now the same size of points. We could set this size to what we want but keep it smallish: 3 or 5 are ok; 50 would be artistic but not that informative.
@@ -1250,21 +1220,21 @@ In contrast, we called <code>shape</code> inside the <code>aes()</code> and we s
 Had we instead set <code>shape</code> outside the <code>aes()</code>, something like <code>geom_point(shape = 3, size = 3)</code> then all conditions would have the same shape and the same size. Different numbers relate to different shapes and different sizes. For example compare <code>shape = 3</code> to <code>shape = 13</code>
 </p>
 <p>
-Likewise had we set the size within <code>aes()</code>, something like <code>geom_point(aes(shape = Sex, size = Sex))</code> then both male and female would have different shapes AND different sizes. You can play around with this in your code to see how things work. And of course there are other arguments you could use. For example if you wanted all points to have the same color, say red for example, then you could do <code>geom_point(color = “red”)</code>. Remember to put the quotes around the color.
+Likewise had we set the size within <code>aes()</code>, something like <code>geom_point(aes(shape = Sex, size = Sex))</code> then both male and female would have different shapes AND different sizes. You can play around with this in your code to see how things work. And of course there are other arguments you could use. For example if you wanted all points to have the same color, say red for example, then you could do <code>geom_point(color = &quot;red&quot;)</code>. Remember to put the quotes around the color.
 </p>
 <p>
-So hopefully this is starting to make sense and you can think about implementing it in your own figures. Note that arguements are separated by a comma. e.g. <code>geom_point(color = “red”, size = 3, shape = 2)</code>
+So hopefully this is starting to make sense and you can think about implementing it in your own figures. Note that arguements are separated by a comma. e.g. <code>geom_point(color = &quot;red&quot;, size = 3, shape = 2)</code>
 </p>
 </div>
 </div>
 </div>
 <div id="Ch3InClassQueT7" class="section level3">
 <h3><span class="header-section-number">3.3.8</span> Task 7: Adding Labels and Changing the Background</h3>
-<p>This figure is looking really nice now. Let’s finish it off by making it look a little more professional with appropriate labels and by editing the background. We introduced these to you in the preclass so hopefully you had a play with them to see how they work.</p>
+<p>This figure is looking really nice now. Let's finish it off by making it look a little more professional with appropriate labels and by editing the background. We introduced these to you in the preclass so hopefully you had a play with them to see how they work.</p>
 <p>To change a label we use the function, <code>labs()</code>, and it works like <code>labs(x = &quot;Name&quot;, y = &quot;Name&quot;, title = &quot;Name&quot;)</code>.</p>
 <ol style="list-style-type: decimal">
-<li><p>Add this function to your code so that the y axis indicates <code>Mean Reaction Time (ms)</code> and that the x axis indicates <code>Anlge of Rotation (degrees)</code>. Don’t worry about a title, we tend to not use these in Psychology; we use figure legends underneath instead.</p></li>
-<li><p>Set the figure as <code>theme_bw()</code> - this looks nice but there are other options you might want to try which you can explore through <code>?theme</code> or the &lt;a href = “<a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf</a>”, target = &quot;_blank&quot;&gt;cheatsheet</a>.</p></li>
+<li><p>Add this function to your code so that the y axis indicates <code>Mean Reaction Time (ms)</code> and that the x axis indicates <code>Anlge of Rotation (degrees)</code>. Don't worry about a title, we tend to not use these in Psychology; we use figure legends underneath instead.</p></li>
+<li><p>Set the figure as <code>theme_bw()</code> - this looks nice but there are other options you might want to try which you can explore through <code>?theme</code> or the <a href = "https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf", target = "_blank">cheatsheet</a>.</p></li>
 </ol>
 <div class="solution">
 <button>
@@ -1272,10 +1242,10 @@ Helpful Hint
 </button>
 <div class="info">
 <p>
-<code>labs(x = “…”, y = “…”) + theme_bw()</code>
+<code>labs(x = &quot;...&quot;, y = &quot;...&quot;) + theme_bw()</code>
 </p>
 <p>
-The key thing is to remember to <code>+</code> the layer into the ggplot chain. And don’t get this confused with pipes (%&gt;%).
+The key thing is to remember to <code>+</code> the layer into the ggplot chain. And don't get this confused with pipes (%&gt;%).
 </p>
 <p>
 <strong>Note:</strong> You add (+) layers, and you pipe (%&gt;%) functions.
@@ -1287,7 +1257,7 @@ The key thing is to remember to <code>+</code> the layer into the ggplot chain. 
 <h3><span class="header-section-number">3.3.9</span> Task 8: Separating a Variable and Removing Legends</h3>
 <p>Finally in the preclass we showed you two other functions that you could use to tidy up figures: <code>facet_wrap()</code> and <code>guides()</code>.</p>
 <ul>
-<li><p><code>facet_wrap()</code> is really effective for splitting up figures into panels based on a variable; it works like <code>facet_wrap(~variable)</code> where <code>~</code> can be read as <code>by</code>. So “split up the figure by variable”, for example <code>Sex</code>. And if you had two variables to split the figure by, then: <code>facet_wrap(~variable1 + variable2)</code>.</p></li>
+<li><p><code>facet_wrap()</code> is really effective for splitting up figures into panels based on a variable; it works like <code>facet_wrap(~variable)</code> where <code>~</code> can be read as <code>by</code>. So &quot;split up the figure by variable&quot;, for example <code>Sex</code>. And if you had two variables to split the figure by, then: <code>facet_wrap(~variable1 + variable2)</code>.</p></li>
 <li><p><code>guides()</code> is handy for turning on and off legends which might be taking up space. For instance, if you use a <code>facet_wrap()</code> to split the panels into Female and Male, do you really need the legend on the right saying Female and Male? You will normally have a guide for each <code>color</code>, <code>shape</code>, <code>etc</code>, call within an <code>aes()</code>. It works like <code>guide(call = FALSE)</code>.</p></li>
 </ul>
 <ol style="list-style-type: decimal">
@@ -1304,7 +1274,7 @@ Helpful Hint
 <code>facet_wrap(~variable)</code>
 </li>
 <li>
-guides(group = FALSE, ???? = False, ….)
+guides(group = FALSE, ???? = False, ....)
 </li>
 </ol>
 </div>
@@ -1320,8 +1290,8 @@ Figure 3.11: The finished figure!
 </div>
 <p>Take a few minutes with your partner or group to look at the figure and try to intepret it in terms of reaction time as a function of rotation and sex. Try answering the following questions to help your discussion:</p>
 <ul>
-<li><p>In both sex, mean reaction time <select class='solveme' data-answer='["increases with"]'> <option></option> <option>decreases with</option> <option>increases with</option> <option>is unaffected by</option></select> angle of rotation.</p></li>
-<li><p>Angle of Rotation influences <select class='solveme' data-answer='["female participants"]'> <option></option> <option>female participants</option> <option>male participants</option></select> more than <select class='solveme' data-answer='["male participants"]'> <option></option> <option>female participants</option> <option>male participants</option></select></p></li>
+<li><p>In both sex, mean reaction time <select class='solveme' data-answer='["increases with"]'> <option></option> <option>decreases with</option> <option>increases with</option> <option>is unaffected by</option> </select> angle of rotation.</p></li>
+<li><p>Angle of Rotation influences <select class='solveme' data-answer='["female participants"]'> <option></option> <option>female participants</option> <option>male participants</option> </select> more than <select class='solveme' data-answer='["male participants"]'> <option></option> <option>female participants</option> <option>male participants</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
@@ -1351,7 +1321,7 @@ Keep in mind that we are only looking at correct responses which would rule out 
 </ol>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Understanding figures through <code>ggplot</code> can seem like trial and error until you have a lot of experience. That is fine but just remember to keep adding notes to your Portfolio to help out the future you. In this class we have looked at working with layers and a variety of calls to shape, color, fills, etc, to create professional looking figures. And the beauty of it all is that once you have a figure you really like, you run the code and you get exactly the same figure again! Amazing or what???</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
@@ -1367,109 +1337,108 @@ Keep in mind that we are only looking at correct responses which would rule out 
 <h3><span class="header-section-number">3.5.1</span> InClass Activities</h3>
 <div id="inclass-task-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.1</span> InClass Task 1</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
 
 menrot &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MentalRotationBehavioralData.csv&quot;</span>)
-demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</code></pre>
+demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.2</span> InClass Task 2</h4>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Angle) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Angle) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.3</span> InClass Task 3</h4>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_angle_sex &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_angle_sex &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle_sex, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle_sex, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-4" class="section level4">
 <h4><span class="header-section-number">3.5.1.4</span> InClass Task 4</h4>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_grouped &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_grouped &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT4">Return to Task</a></p>
 </div>
 <div id="inclass-task-5" class="section level4">
 <h4><span class="header-section-number">3.5.1.5</span> InClass Task 5</h4>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_grouped_color &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_grouped_color &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped_color, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped_color, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex)) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT5">Return to Task</a></p>
 </div>
 <div id="inclass-task-6" class="section level4">
 <h4><span class="header-section-number">3.5.1.6</span> InClass Task 6</h4>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_shape_size &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_shape_size &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_shape_size, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_shape_size, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT6">Return to Task</a></p>
 </div>
 <div id="inclass-task-7-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.7</span> InClass Task 7</h4>
-<pre class="sourceCode r"><code class="sourceCode r">menrot_lab_theme &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">menrot_lab_theme &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_lab_theme, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_lab_theme, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT7">Return to Task</a></p>
 </div>
 <div id="inclass-task-8-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.8</span> InClass Task 8</h4>
-<pre class="sourceCode r"><code class="sourceCode r">manrot_facet_guide &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">manrot_facet_guide &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse ==<span class="st"> &quot;Correct&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))
 
-<span class="kw">ggplot</span>(<span class="dt">data =</span> manrot_facet_guide, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">group =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="ot">FALSE</span>, <span class="dt">shape =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
-<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>
-<a href="visualisation-through-ggplot2.html#Ch3InClassQueT8">Return to Task</a></p>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> manrot_facet_guide, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) +
+<span class="st">  </span><span class="kw">facet_wrap</span>(~Sex) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">group =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="ot">FALSE</span>, <span class="dt">shape =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span> <a href="visualisation-through-ggplot2.html#Ch3InClassQueT8">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
 </div>
@@ -1618,7 +1587,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
