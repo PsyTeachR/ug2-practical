@@ -464,6 +464,6 @@ To recap, we have shown you the following six skills:
   + Skill 5: Creating your own custom functions using `base::function()`
   + Skill 6: Repeating operations using `base::replicate()`
 
-You will need these skills in the coming lab to help you perform a real **permutation test**. Through these skills and the permutation test you will learn about null hypothesis significance testing. If you have any questions please post them on the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. 
+You will need these skills in the coming lab to help you perform a real **permutation test**. Through these skills and the permutation test you will learn about null hypothesis significance testing. If you have any questions please post them on the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. 
 
 Great work today. That is all for now. See you in the lab!

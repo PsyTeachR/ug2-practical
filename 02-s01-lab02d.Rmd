@@ -11,8 +11,8 @@ Now open the assignment .Rmd file within RStudio. You will see there is a code c
 In the lab we recapped on data-wrangling using the Wickham 6 verbs, looked at additional functions such as `gather()` and `inner_join()`, and at piping chains of code for efficiency using `%>%`. You will need these skills to complete the following assignment so please make sure you have carried out the PreClass and InClass activities before attempting this formative assignment. 
 Remember to follow the instructions and if you get stuck at any point to post questions on rguppies.slack.com channel **#level2_2018**. Also, two useful online resources are:
 
-* <a href="http://r4ds.had.co.nz", target = "_blank">Hadley Wickham's R for Data Science book @ http://r4ds.had.co.nz</a>
-* <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf", target = "_blank"> RStudio's dplyr cheatsheet @ Rstudio.com</a>
+* <a href="http://r4ds.had.co.nz" target = "_blank">Hadley Wickham's R for Data Science book @ http://r4ds.had.co.nz</a>
+* <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" target = "_blank"> RStudio's dplyr cheatsheet @ Rstudio.com</a>
 
 ### Today's Topic - The Ageing Brain 
 
@@ -22,13 +22,13 @@ However in order to make sure we are studying 'healhty' ageing, we first have to
 
 The data you have downloaded for this lab is example screening data taken from research investigating how the ageig brain processes different types of sounds. The tests used in this study are detailed below. Please note that the links are there to provide you with further information and examples of the tests once you have completed the assignment if you so wish; you do not have to read them to complete the assignment.
 
-* [Montreal Cognitive Assessment (MoCA)](https://www.mocatest.org) : a test specifically devised as a stand-alone screening tool for mild cognitive impairment. Assesses visuospatial skills, memory, language, attention, orientation, and abstraction skills. <a href="http://www.mocatest.org/pdf_files/test/MoCA-Test-English_7_1.pdf", target="_blank">Example here</a> 
+* [Montreal Cognitive Assessment (MoCA)](https://www.mocatest.org) : a test specifically devised as a stand-alone screening tool for mild cognitive impairment. Assesses visuospatial skills, memory, language, attention, orientation, and abstraction skills. <a href="http://www.mocatest.org/pdf_files/test/MoCA-Test-English_7_1.pdf" target="_blank">Example here</a> 
 
-* [Working Memory Digit Span Test (D-SPAN)](https://en.wikipedia.org/wiki/Memory_span#Digit-span): measures the capacity of participants' short-term (working) memory. <a href="http://www.dyslexia-international.org/content/Informal%20tests/Digitspan.pdf", target="_blank">Example here</a>
+* [Working Memory Digit Span Test (D-SPAN)](https://en.wikipedia.org/wiki/Memory_span#Digit-span): measures the capacity of participants' short-term (working) memory. <a href="http://www.dyslexia-international.org/content/Informal%20tests/Digitspan.pdf" target="_blank">Example here</a>
 
-* [D2 Test of Attention](https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3): measures participant's selective and sustained concentration and visual scanning speed. <a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg", target = "_blank">Example here</a> 
+* [D2 Test of Attention](https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3): measures participant's selective and sustained concentration and visual scanning speed. <a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg" target = "_blank">Example here</a> 
 
-* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participant's subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf", targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing", target = "_blank">Main Test page here</a>
+* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participant's subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf", targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing" target = "_blank">Main Test page here</a>
 
 **The Data Files**  
 
@@ -190,4 +190,4 @@ QHC_diff <- NULL
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2018**. 
+Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**. 

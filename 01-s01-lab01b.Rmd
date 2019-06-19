@@ -30,7 +30,7 @@ knitr::include_graphics("images/s01-lab01/preclass/rmd_header.png")
 
 ```
 
-By default the file header includes the info shown in Figure \@ref(fig:img-yaml-header) but there are many other options available. You can learn more about this in your spare time if you like through these links: <a href="http://rmarkdown.rstudio.com/html_document_format.html", target = "_blank">http://rmarkdown.rstudio.com/html_document_format.html</a> for **.html** options or <a href="http://rmarkdown.rstudio.com/html_document_format.html", target = "_blank">http://rmarkdown.rstudio.com/pdf_document_format.html</a> for **.pdf** options.
+By default the file header includes the info shown in Figure \@ref(fig:img-yaml-header) but there are many other options available. You can learn more about this in your spare time if you like through these links: <a href="http://rmarkdown.rstudio.com/html_document_format.html" target = "_blank">http://rmarkdown.rstudio.com/html_document_format.html</a> for **.html** options or <a href="http://rmarkdown.rstudio.com/html_document_format.html" target = "_blank">http://rmarkdown.rstudio.com/pdf_document_format.html</a> for **.pdf** options.
 
 ```{block, type = "try"}
 **BUT WAIT**!! What if you spelt your name wrong? How would you change this?
@@ -114,7 +114,7 @@ A good way to think about this is if you have an exam, it isn't helpful to be to
 `r unhide()`  
 
 <br>
-After saving the file a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the \`\`\`{r} and the closing \`\`\` in your code chunk have gone. Whenever you knit an RMarkdown file these lines will disappear leaving only the code within. You'll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the data or not through adding rules.
+After saving the file a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the <code>```{r}</code> and the closing <code>&#96;&#96;&#96;</code> in your code chunk have gone. Whenever you knit an RMarkdown file these lines will disappear leaving only the code within. You'll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the data or not through adding rules.
 
 ```{r img-rmd-summary2, echo = FALSE, out.width='100%', fig.cap = "The knitted summary output"}
 
@@ -234,7 +234,7 @@ Inline coding does not use the curly brackets around the `r`. All you need is a 
 
 ### Formatting the R Markdown File
 
-The last thing we want to show you in this preclass activity is how to format your text. When you're not writing in code chunks you can format your document in lots of different ways just like you would in a Word document. The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf", target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out. 
+The last thing we want to show you in this preclass activity is how to format your text. When you're not writing in code chunks you can format your document in lots of different ways just like you would in a Word document. The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out. 
 
 We can make some text **bold** by including two \*\* (two asterisks) at the start and end of the text we want to present in bold font. For example:
 <br><br>

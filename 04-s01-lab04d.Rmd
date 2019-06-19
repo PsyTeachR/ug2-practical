@@ -4,7 +4,7 @@ This is a formative assignment but we strongly encourage you to do the assignmen
 
 **Lab 4: Formative Probability Assignment!**
 
-In order to complete this assignment yoU first have to download the assignment .Rmd file which you need to edit - titled `GUID_Level2_Lab4.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_04/homework/Level2_Lab4_AssignmentFiles.zip", target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.
+In order to complete this assignment yoU first have to download the assignment .Rmd file which you need to edit - titled `GUID_Level2_Lab4.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_04/homework/Level2_Lab4_AssignmentFiles.zip" target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.
 
 Now open the assignment .Rmd file within RStudio. You will see there is a code chunk for each of the 10 tasks. Much as you did in the previous assignments follow the instructions on what to edit in each code chunk. This will often be entering code or a single value and will be based on the skills learnt in the current lab as well as all previous labs.
 
@@ -117,6 +117,6 @@ t10 <- NULL
 <br>
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any tasks please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
+Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any tasks please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
 
 See you in the next lab!

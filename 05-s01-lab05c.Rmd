@@ -29,7 +29,7 @@ Let's get started!
 
 1.2.  Now type the statement `set.seed(1011)` at the top of your script after your library call and run it.  (This 'seeds' the random number generator so that you will get the same results as everyone else. The number 1011 is a bit random but if everyone uses it then we all get the same outcome. Different seeds give different outcomes)  
 
-1.3.  <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_05/inclass/perm_data.zip", target="_blank">Download the data file from here</a> and read the data in `perm_data.csv` into a variable called `dat`.  
+1.3.  <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_05/inclass/perm_data.zip" target="_blank">Download the data file from here</a> and read the data in `perm_data.csv` into a variable called `dat`.  
 
 1.4.  Let's give every participant a participant number as well by adding a new column to `dat`. Something like this would work: `mutate(subj_id = row_number())`
 

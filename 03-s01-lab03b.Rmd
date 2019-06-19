@@ -7,7 +7,7 @@ demog <- read_csv("./data/03-s01/preclass/demographics.csv")
 
 **Testing Mental Rotation Ability**
 
-The data we will use today comes from a recent replication of a classic experiment merging the fields of Perception and Cognition. <a href="http://science.sciencemag.org/content/171/3972/701", target = "_blank">Shepard and Metzler (1971)</a> demonstrated that when participants are shown two similar three-dimensional shapes, one just a rotated version of the other (see the figure below - top panel), and asked participants whether they were the same shape or not, the reaction time and error rates of responses were a function of rotation; i.e. the larger the difference in rotation between the two shapes, the longer it took participants to say "same" or "different", and the more errors they made. 
+The data we will use today comes from a recent replication of a classic experiment merging the fields of Perception and Cognition. <a href="http://science.sciencemag.org/content/171/3972/701" target = "_blank">Shepard and Metzler (1971)</a> demonstrated that when participants are shown two similar three-dimensional shapes, one just a rotated version of the other (see the figure below - top panel), and asked participants whether they were the same shape or not, the reaction time and error rates of responses were a function of rotation; i.e. the larger the difference in rotation between the two shapes, the longer it took participants to say "same" or "different", and the more errors they made. 
 
 ```{r img-rotation-task, echo = FALSE, out.width='50%', fig.cap = "The Mental Rotation Task as shown in Ganis and Kievit (2016) Figure 1"}
 
@@ -15,9 +15,9 @@ knitr::include_graphics("images/s01-lab03/preclass/13-113-1-PB.jpg")
 
 ```
 
-The image shown in Figure \@ref(fig:img-rotation-task) actually comes from the recent replication, <a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/", target="_blank">Ganis and Kievit (2016)</a>. In the top panel the two shapes are the same but the shape on the right is rotated vertically at 150 degrees from the original (the left shape) and so participants should respond "same". In the bottom panel however the two shapes are different; the one on the right is again rotated at 150 degrees but in this trial it takes longer for participants to realise that they are different shapes. 
+The image shown in Figure \@ref(fig:img-rotation-task) actually comes from the recent replication, <a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/" target="_blank">Ganis and Kievit (2016)</a>. In the top panel the two shapes are the same but the shape on the right is rotated vertically at 150 degrees from the original (the left shape) and so participants should respond "same". In the bottom panel however the two shapes are different; the one on the right is again rotated at 150 degrees but in this trial it takes longer for participants to realise that they are different shapes. 
 
-You can read more about Ganis and Kievit (2016) in your own time but the basic methods are that they ran 54 participants on a series of these images using 4 angles of rotation (0, 50, 100, 150 degrees) and asked people to respond same or different on each trial. The data can be <a href="http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/prep/Level2_Lab3_PreclassData.zip", target = "_blank">downloaded from here</a>. You should use this data to follow along below and try to answer the questions.
+You can read more about Ganis and Kievit (2016) in your own time but the basic methods are that they ran 54 participants on a series of these images using 4 angles of rotation (0, 50, 100, 150 degrees) and asked people to respond same or different on each trial. The data can be <a href="http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/prep/Level2_Lab3_PreclassData.zip" target = "_blank">downloaded from here</a>. You should use this data to follow along below and try to answer the questions.
 
 **Visualising Data**
 
@@ -201,7 +201,7 @@ The median is one of the 5 values required to make a boxplot and is shown as the
 
 ### Barplots - geom_bar() or geom_col()
 
-Barplots typically show the **average value of a condition**, e.g. the mean, and the **average spread of values** via **error bars**, e.g. standard error. We don't show error bars here below but you will learn about them at a later point. When looking at barplots, the main considerations are whether or not there appears to be a difference between the conditions you are interested in or are all conditions about the same? It is worth knowing that barplots are now used less frequently than they were as they actually do not show a lot of information, as discussed in this blog, <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/", target = "_blank">One simple step to improving statistical inference</a>. However, you will still see them in the field so it is good to be able to interpret them. 
+Barplots typically show the **average value of a condition**, e.g. the mean, and the **average spread of values** via **error bars**, e.g. standard error. We don't show error bars here below but you will learn about them at a later point. When looking at barplots, the main considerations are whether or not there appears to be a difference between the conditions you are interested in or are all conditions about the same? It is worth knowing that barplots are now used less frequently than they were as they actually do not show a lot of information, as discussed in this blog, <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/" target = "_blank">One simple step to improving statistical inference</a>. However, you will still see them in the field so it is good to be able to interpret them. 
 
 Lookinga at our data, let's say we are interested in whether there is a difference in the average percentage of correct and incorrect responses across male and female participants. The code below:
 
@@ -300,4 +300,4 @@ As you progress through Psychology you will come across a variety of different f
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. 
+If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. 

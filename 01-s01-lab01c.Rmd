@@ -5,7 +5,7 @@ library(tidyverse)
 ponzo_data <- read_csv("data/01-s01/inclass/PonzoAgeData.csv")
 ```
 
-<span style="font-size: 16px; font-weight: bold; color: var(--green);">In order to complete this activity you should have worked through the Lab PreClass Activity. You may also need <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf", target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents.</span> 
+<span style="font-size: 16px; font-weight: bold; color: var(--green);">In order to complete this activity you should have worked through the Lab PreClass Activity. You may also need <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents.</span> 
 
 ### R Markdown and The Experimental Design Portfolio
 
@@ -35,7 +35,7 @@ The activities in this lab will make use of an **open dataset**.
 
 `r hide("Explain This - What is an open dataset?")`
 ```{block, type = "info"}
-An open dataset is made available for everyone to see and is stored on the internet for other researchers to use. In the PreClass activity you saw an example of this at the very start in the PLOS One article. Many journals now ask researchers to make their data available or to post it somewhere accessible like the <a href="https://www.osf.io", target = "_blank">Open Science Framework</a>.
+An open dataset is made available for everyone to see and is stored on the internet for other researchers to use. In the PreClass activity you saw an example of this at the very start in the PLOS One article. Many journals now ask researchers to make their data available or to post it somewhere accessible like the <a href="https://www.osf.io" target = "_blank">Open Science Framework</a>.
     
 Interestingly, the art of making your data available was standard in classic older articles. The data we are using today comes from 1967. Sometime between then and more recent times data started being made unavailable - closed. We believe all data should be made available and will encourage you to do that over the coming years.
 ```
@@ -43,9 +43,9 @@ Interestingly, the art of making your data available was standard in classic old
 <br>
 The data we will use today is from a paper looking at the **Ponzo illusion** and Age:
 
-**Leibowitz, H. W. & Judisch, J. M. (1967). The Relation between Age and the Magnitude of the Ponzo Illusion. The American Journal of Psychology, 80(1), 105-109.** It can be accessed on campus (University of Glasgow) through <a href="https://www.jstor.org/stable/1420548?seq=1#page_scan_tab_contents", target = "_blank">this link</a>.
+**Leibowitz, H. W. & Judisch, J. M. (1967). The Relation between Age and the Magnitude of the Ponzo Illusion. The American Journal of Psychology, 80(1), 105-109.** It can be accessed on campus (University of Glasgow) through <a href="https://www.jstor.org/stable/1420548?seq=1#page_scan_tab_contents" target = "_blank">this link</a>.
 
-The basics of the Ponzo illusion (<a href="https://en.wikipedia.org/wiki/Ponzo_illusion", target = "_blank">Wikipedia page</a>) is that two lines of the same size are viewed as being of different length based on surrounding information - like sleepers on a traintrack. See Figure 1 of the Leibowitz and Judisch (1967) for an example (P106). The authors showed people two vertical lines surrounded by differing horizontal lines running at angles behind the main vertical lines. The authors varied the size of one of the vertical lines (left line) and asked the participants to judge which of the two vertical lines was bigger or longer; the left line (variable) or the right one (standard). The paper also tested how this illusion was influenced by age. For more info, see the paper.  For the dependent variable, they measured what size the left line had to be to be considered the same size as the standard line on the right. The data we will be using can be seen on Pg107, and includes:
+The basics of the Ponzo illusion (<a href="https://en.wikipedia.org/wiki/Ponzo_illusion" target = "_blank">Wikipedia page</a>) is that two lines of the same size are viewed as being of different length based on surrounding information - like sleepers on a traintrack. See Figure 1 of the Leibowitz and Judisch (1967) for an example (P106). The authors showed people two vertical lines surrounded by differing horizontal lines running at angles behind the main vertical lines. The authors varied the size of one of the vertical lines (left line) and asked the participants to judge which of the two vertical lines was bigger or longer; the left line (variable) or the right one (standard). The paper also tested how this illusion was influenced by age. For more info, see the paper.  For the dependent variable, they measured what size the left line had to be to be considered the same size as the standard line on the right. The data we will be using can be seen on Pg107, and includes:
 
 * Which Group people were assigned to according to age, with each group being made of 10 people of the same sex
 * The Sex of the Group
@@ -162,7 +162,7 @@ When writing a report, how would you cite:
 - **Two** papers in **one** paretheses? `r mcq(c("Order chronologically according to year, separated by a semi-colon", answer = "Order alphabetically according to first author surname, separated by a semi-colon"))`
 - **Two** papers of the **same** author? `r mcq(c("Order chronologically according to year, separated by a semi-colon", answer = "Order chronologically according to year, separated by a comma", "Order alphabetically by adding a letter to each year"))`
 
-For more information on how to format citations, you can look at this helpful <a href = "https://owl.english.purdue.edu/owl/resource/560/03/", target = "_blank">APA formatting and style guide</a>.
+For more information on how to format citations, you can look at this helpful <a href = "https://owl.english.purdue.edu/owl/resource/560/03/" target = "_blank">APA formatting and style guide</a>.
 
 ### Task 5: Making Text Bold or Italicized {#Ch1InClassQueT5}
 
@@ -248,7 +248,7 @@ You can use RStudio's autocomplete (the tab button) to see the different options
 
 **Again, knit your document to make sure it is working correctly. Below your table you should now have the ggplot code followed by the nice scatterplot.** 
 
-We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report!. You can compare it to the one we have created to see if they match by clicking <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.html", target = "_blank">here for the html output</a> or <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.Rmd", target = "_blank">here for the R Markdown code</a>. Fix anything that is not formatted as in our template.**  
+We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report!. You can compare it to the one we have created to see if they match by clicking <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.html" target = "_blank">here for the html output</a> or <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.Rmd" target = "_blank">here for the R Markdown code</a>. Fix anything that is not formatted as in our template.**  
 
 `r hide("Portfolio Point - The Power of R Markdown and the ggplot Package")`
 ```{block, type = "info"}

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lab 7 Within-Subjects t-test | ug2-practical</title>
-  <meta name="description" content="Lab 7 Within-Subjects t-test | ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="Lab 7 Within-Subjects t-test | ug2-practical-materials">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Lab 7 Within-Subjects t-test | ug2-practical" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="Lab 7 Within-Subjects t-test | ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR" />
+<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-18" />
+<meta name="date" content="2019-06-19">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="nhst-and-one-sample-t-tests.html">
@@ -50,67 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -139,7 +114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -189,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -263,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -368,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen’s D</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen's D</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-effect-size-from-a-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.2</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-effect-size-from-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.3</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-effect-size-from-matched-pairs-t-test"><i class="fa fa-check"></i><b>8.3.4</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -599,7 +574,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 7</span> Within-Subjects t-test</h1>
 <div id="overview-6" class="section level2">
 <h2><span class="header-section-number">7.1</span> Overview</h2>
-<p>In the previous labs we have looked at one-sample t-tests and between-samples t-tests. For today’s activities we are going to look at the remaining type of t-test; the <strong>within-subjects t-test</strong> (sometimes called the <strong>dependent sample</strong> or <strong>paired sample t-test</strong>). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations <strong>from the same participants</strong> is zero. As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis.</p>
+<p>In the previous labs we have looked at one-sample t-tests and between-samples t-tests. For today's activities we are going to look at the remaining type of t-test; the <strong>within-subjects t-test</strong> (sometimes called the <strong>dependent sample</strong> or <strong>paired sample t-test</strong>). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations <strong>from the same participants</strong> is zero. As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis.</p>
 <ul>
 <li>The null hypothesis assumes that the true mean difference between the paired samples is zero.</li>
 <li>The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero.</li>
@@ -617,11 +592,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Portfolio Point - The assumption of variance
 </button>
 <p>One of the main differences in the assumptions between a between-subjects t-test and a within-subjects t-test is the assumption of equal variance.</p>
-<p>The between-subjects t-test classically would have an assumption of equal variance. Or at least what is known as the Student’s t-test has the assumption of equal variance. The top half of the equation of the formula (the numerator) is the difference in means of the two samples whereas the denominator relates to the variance of both groups. As such in the Student’s t-test if the variances are unequal then you can get erroneous results. Modern thinking however, and this is from your preclass reading, suggests that it is always better to run a Welch’s t-test for between-subjects where the assumption is that variance is not equal. From now on, unless stated otherwise, you should run a Welch’s t-test.</p>
+<p>The between-subjects t-test classically would have an assumption of equal variance. Or at least what is known as the Student's t-test has the assumption of equal variance. The top half of the equation of the formula (the numerator) is the difference in means of the two samples whereas the denominator relates to the variance of both groups. As such in the Student's t-test if the variances are unequal then you can get erroneous results. Modern thinking however, and this is from your preclass reading, suggests that it is always better to run a Welch's t-test for between-subjects where the assumption is that variance is not equal. From now on, unless stated otherwise, you should run a Welch's t-test.</p>
 <p>In practice:</p>
 <ul>
-<li>to run a Student’s t-test you set <code>var.equal = TRUE</code></li>
-<li>to run a Welch’s t-test you set <code>var.equal = FALSE</code></li>
+<li>to run a Student's t-test you set <code>var.equal = TRUE</code></li>
+<li>to run a Welch's t-test you set <code>var.equal = FALSE</code></li>
 </ul>
 <p>Conversely, there is no concern with variance in a within-subjects t-test because, as you will know from lectures, the top half of the equation of the formula (the numerator) is the mean difference between the two conditions, and so it is only one set of values and there is nothing to equate it to. This test does not have any concern with variance.</p>
 </div>
@@ -631,17 +606,17 @@ Portfolio Point - The assumption of variance
 <h2><span class="header-section-number">7.2</span> PreClass Activity</h2>
 <div id="reading" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Reading</h3>
-<p>Read the following blog on using Welch’s t-test.</p>
-<p>&lt;a href = “<a href="https://daniellakens.blogspot.co.uk/2015/01/always-use-welchs-t-test-instead-of.html" class="uri">https://daniellakens.blogspot.co.uk/2015/01/always-use-welchs-t-test-instead-of.html</a>”, target = &quot;_blank&quot;&gt;Always use Welch’s t-test instead of Student’s t-test</a> by Daniel Lakens.</p>
+<p>Read the following blog on using Welch's t-test.</p>
+<p><a href = "https://daniellakens.blogspot.co.uk/2015/01/always-use-welchs-t-test-instead-of.html", target = "_blank">Always use Welch's t-test instead of Student's t-test</a> by Daniel Lakens.</p>
 <p>For further reading you can look at the paper that resulted from this blog:</p>
-<p>Delacre, M., Lakens, D., &amp; Leys, C. (in press)&lt;a href = “<a href="https://osf.io/sbp6k/" class="uri">https://osf.io/sbp6k/</a>”, target = &quot;_blank&quot;&gt;Why Psychologists Should by Default Use Welch’s t-test Instead of Student’s t-test</a>. International Review of Social Psychology.</p>
+<p>Delacre, M., Lakens, D., &amp; Leys, C. (in press)<a href = "https://osf.io/sbp6k/", target = "_blank">Why Psychologists Should by Default Use Welch's t-test Instead of Student's t-test</a>. International Review of Social Psychology.</p>
 </div>
 <div id="task" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Task</h3>
 <ol style="list-style-type: decimal">
-<li>Copy the script within the blog into an R script and try running it to see the difference between Welch’s t-test (the recommended in the blog) and Student’s t-test (the standard in the field). <strong>Note:</strong> You will need the car package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car).</li>
+<li>Copy the script within the blog into an R script and try running it to see the difference between Welch's t-test (the recommended in the blog) and Student's t-test (the standard in the field). <strong>Note:</strong> You will need the car package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car).</li>
 </ol>
-<p>Don’t worry if you don’t understand all the code. It is highly commented but it is tricky. The key thing is to try and run it and to look at the figures that come out of it - particularly the third one that you see in the blog, the one with the red line on it and compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other.</p>
+<p>Don't worry if you don't understand all the code. It is highly commented but it is tricky. The key thing is to try and run it and to look at the figures that come out of it - particularly the third one that you see in the blog, the one with the red line on it and compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Change the values for n1, n2, sd1 and sd2 at the top of the script to see what effect this has on the Type 1 Error rate (alpha = .05). Again look at the figure with the red line, comparing significance on one test versus significance on the other. This is what should change depending on the n of each sample and whether the variance is equal or not.</p></li>
 <li><p>Think about the overall point of this blog and which test we should use when conducting a t-test. We will look at this more in the lectures and labs.</p></li>
@@ -652,14 +627,14 @@ Portfolio Point - The assumption of variance
 <div id="inclass-activity-4" class="section level2">
 <h2><span class="header-section-number">7.3</span> InClass Activity</h2>
 <p><strong>Juror Decision Making: Does the order of information affect juror judgements of guilt or innocence?</strong></p>
-<p>For this activity we will look at a replication of Furnham (1986) that the School of Psychology, University of Glasgow, carried out in 2016 - 2017. It would be worth familiarising yourself with the original study at some point for more information regarding the concepts of the study, but it is not essential in order to complete the assignment: &lt;a href=“<a href="http://www.tandfonline.com/doi/abs/10.1080/00221309.1986.9711045" class="uri">http://www.tandfonline.com/doi/abs/10.1080/00221309.1986.9711045</a>”, target = &quot;_blank&quot;&gt;Furnham, A. (1986), The Robustness of the Recency Effect: Studies Using Legal Evidence</a></p>
-<p>The overall aim of the original experiment was to investigate whether the decision a jury member makes about the innocence or guilt of a defendant could be influenced by something as simple as <strong>when crucial evidence is presented during a trial</strong>. During the experiment participants (Level 2 Psychology students) listened to a series of recordings that recreated the 1804 trial of a man known as Joseph Parker who was accused of assuming two identities and marrying two women; i.e. bigamy. Each participant listened to the same recordings of evidence, presented by both prosecution and defence witnesses, and were asked to judge how guilty they thought Mr. Parker was at 14 different points during the experiment on a scale of 1 to 9: 1 being innocent and 9 being guilty.</p>
-<p>The manipulation in the experiment was that the order of evidence was altered so that half the participants received one order and the other half received the second order. Key to the order change was the time at which a <strong>critical</strong> piece of evidence was presented. This critical evidence proved that the defendant was innocenct. The <strong>middle</strong> group heard this evidence at Timepoint 9 of the trial whereas the <strong>late</strong> group heard this evidence at Timepoint 13. You will have an opportunity to look at all the data in due course but, for today’s exercise, we will only focus on the <strong>late</strong> group.</p>
-<p>In this exercise, your task is to analyse the data to examine whether the participants’ ratings of guilt significantly changed <strong>before</strong> and <strong>after</strong> the presentation of the critical evidence in the <strong>late</strong> condition. If the critical evidence, which proved the defendant’s innocence, had the desired effect then you should see a significant drop in ratings of guilt after hearing this evidence (Timepoint 13) compared to before (Timepoint 12). Or in other words, <strong>we hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.</strong></p>
+<p>For this activity we will look at a replication of Furnham (1986) that the School of Psychology, University of Glasgow, carried out in 2016 - 2017. It would be worth familiarising yourself with the original study at some point for more information regarding the concepts of the study, but it is not essential in order to complete the assignment: <a href="http://www.tandfonline.com/doi/abs/10.1080/00221309.1986.9711045", target = "_blank">Furnham, A. (1986), The Robustness of the Recency Effect: Studies Using Legal Evidence</a></p>
+<p>The overall aim of the original experiment was to investigate whether the decision a jury member makes about the innocence or guilt of a defendant could be influenced by something as simple as <strong>when crucial evidence is presented during a trial</strong>. During the experiment participants (Level 2 Psychology students) listened to a series of recordings that recreated the 1804 trial of a man known as Joseph Parker who was accused of assuming two identities and marrying two women; i.e. bigamy. Each participant listened to the same recordings of evidence, presented by both prosecution and defence witnesses, and were asked to judge how guilty they thought Mr. Parker was at 14 different points during the experiment on a scale of 1 to 9: 1 being innocent and 9 being guilty.</p>
+<p>The manipulation in the experiment was that the order of evidence was altered so that half the participants received one order and the other half received the second order. Key to the order change was the time at which a <strong>critical</strong> piece of evidence was presented. This critical evidence proved that the defendant was innocenct. The <strong>middle</strong> group heard this evidence at Timepoint 9 of the trial whereas the <strong>late</strong> group heard this evidence at Timepoint 13. You will have an opportunity to look at all the data in due course but, for today's exercise, we will only focus on the <strong>late</strong> group.</p>
+<p>In this exercise, your task is to analyse the data to examine whether the participants' ratings of guilt significantly changed <strong>before</strong> and <strong>after</strong> the presentation of the critical evidence in the <strong>late</strong> condition. If the critical evidence, which proved the defendant's innocence, had the desired effect then you should see a significant drop in ratings of guilt after hearing this evidence (Timepoint 13) compared to before (Timepoint 12). Or in other words, <strong>we hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.</strong></p>
 <div id="task-1-load-the-data" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Task 1: Load the Data</h3>
 <ul>
-<li>Download the data for this experiment by &lt;a href=“<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_07/inclass/Level2_Lab7_InclassData.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_07/inclass/Level2_Lab7_InclassData.zip</a>”, target = &quot;_blank&quot;&gt;clicking this link</a> or from Moodle.</li>
+<li>Download the data for this experiment by <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_07/inclass/Level2_Lab7_InclassData.zip", target = "_blank">clicking this link</a> or from Moodle.</li>
 <li>Unzip the data and save it into a folder you have access to and set that folder as your working directory.</li>
 <li>Open a new script.</li>
 <li>Today you will need the <code>broom</code> and <code>tidyverse</code> libraries. Load these in this order. Remember order matters.</li>
@@ -676,7 +651,7 @@ Portfolio Point - The assumption of variance
 <li><p><code>gather()</code> the data so that you have the below structure. Note that only the first four rows are shown</p></li>
 <li><p>Do this all as one pipe and store it in a tibble called <code>lates</code>.</p></li>
 </ol>
-<pre><code>## Warning: package &#39;broom&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## Warning: package &#39;broom&#39; was built under R version 3.5.2</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -718,9 +693,9 @@ Portfolio Point - The assumption of variance
 Helpful Hint
 </button>
 <ol style="list-style-type: decimal">
-<li><p>You need to specify the column you want to filter from, stating which variable (i.e. <code>Late</code>) that this column is ‘equal to’ (i.e. ‘==’)</p></li>
+<li><p>You need to specify the column you want to filter from, stating which variable (i.e. <code>Late</code>) that this column is 'equal to' (i.e. '==')</p></li>
 <li><p>Other than the two columns representing Timepoints 12 and 13, there are two other columns you need to keep in order to identify the participant and group. Use the table as a guide.</p></li>
-<li><p>When renaming, first state the new variable name and then designate this to the old variable name. i.e. <code>rename(data, new_column_name = old_column_name)</code>. If the old column is a number, put it in back ticks e.g. Five = <code>`5`</code>.</p></li>
+<li><p>When renaming, first state the new variable name and then designate this to the old variable name. i.e. <code>rename(data, new_column_name = old_column_name)</code>. If the old column is a number, put it in back ticks e.g. Five = <code>`5`</code>.</p></li>
 <li><p>The structure shown has two new columns: <code>Timepoint</code> and <code>GuiltRating</code>, which are both created from columns Twelve to Thirteen. You should state these new column names when using <code>gather()</code>, as well as the columns you used to create them.</p></li>
 </ol>
 </div>
@@ -729,7 +704,7 @@ Helpful Hint
 <ul>
 <li>To check you have completed this Task correctly, enter the appropriate values into the boxes.
 <ul>
-<li>This dataset has: <input class='solveme nospaces' size='1' data-answer='["4"]'/> columns by <input class='solveme nospaces' size='3' data-answer='["150"]'/> rows.</li>
+<li>This dataset has: <input class='solveme nospaces' size='3' data-answer='["4"]'/> columns by <input class='solveme nospaces' size='3' data-answer='["150"]'/> rows.</li>
 </ul></li>
 </ul>
 </div>
@@ -746,7 +721,7 @@ Helpful Hint
 </button>
 <ol style="list-style-type: decimal">
 <li>ggplot() + geom_?</li>
-<li>A histogram only requires you to state ‘x’ and not ‘y’. We are examining the guilt rating scores across participants. Which column from <code>lates</code> should be ‘x’?</li>
+<li>A histogram only requires you to state 'x' and not 'y'. We are examining the guilt rating scores across participants. Which column from <code>lates</code> should be 'x'?</li>
 <li><code>binwidth</code> is an argument you can specify within <code>geom_histogram()</code>. Think about an appropriate binwidth. Your guilt rating scale runs from 1 to 9 in increments of 1.</li>
 <li>You have used something like <code>facet_?()</code> to display a categorical variables (i.e. <code>Timeoint</code>) according to the different levels it contains. You need to specify the variable you want to use, using <code>~</code> before the variable name.</li>
 <li>Beyond this point, you can think about adding appropriate labels and color if you like.</li>
@@ -764,30 +739,30 @@ Helpful Hint
 Helpful Hint
 </button>
 <ol style="list-style-type: decimal">
-<li>This time when using <code>ggplot()</code> to create a boxplot, you need to specify both ‘x’, which is the discrete/categorical variable, and ‘y’, which is the continuous variable.</li>
+<li>This time when using <code>ggplot()</code> to create a boxplot, you need to specify both 'x', which is the discrete/categorical variable, and 'y', which is the continuous variable.</li>
 <li>geom_boxplot() - see lab 3 for an example.</li>
 </ol>
 </div>
 <div id="quickfire-questions-1" class="section level4">
 <h4><span class="header-section-number">7.3.4.1</span> <span style="color:DARKGREEN"> Quickfire Questions </span></h4>
 <ul>
-<li>How many outliers do you see? <select class='solveme' data-answer='["1"]'> <option></option> <option>0</option> <option>1</option> <option>2</option> <option>3</option> <option>too many to count</option></select></li>
+<li>How many outliers do you see? <select class='solveme' data-answer='["1"]'> <option></option> <option>0</option> <option>1</option> <option>2</option> <option>3</option> <option>too many to count</option> </select></li>
 </ul>
-<p>Remember that outliers are represented as dots or stars beyond the whiskers of the boxplot. We won’t “deal” with outliers today but it would be worth thinking about how you could “deal” with them in future.</p>
+<p>Remember that outliers are represented as dots or stars beyond the whiskers of the boxplot. We won't &quot;deal&quot; with outliers today but it would be worth thinking about how you could &quot;deal&quot; with them in future.</p>
 </div>
 </div>
 <div id="task-5-the-violin-plot" class="section level3">
 <h3><span class="header-section-number">7.3.5</span> Task 5: The Violin Plot</h3>
 <p>Boxplots and histograms tell you slightly different information about the same data. But we have already introduced you to a new type of figure that we can combine with a boxplot that will show the same information in one figure. It is called a <strong>violin plot</strong> and can be created using the <code>geom_violin()</code> function.</p>
 <ul>
-<li>Take the code you’ve written above for the boxplot (Task 4) and add on <code>geom_violin</code> as another layer. You may need to rearrange your code (i.e. the boxplot and violin plot functions) so that the violin plots appear underneath the boxplot.</li>
+<li>Take the code you've written above for the boxplot (Task 4) and add on <code>geom_violin</code> as another layer. You may need to rearrange your code (i.e. the boxplot and violin plot functions) so that the violin plots appear underneath the boxplot.</li>
 </ul>
 <div class="solution">
 <button>
 Helpful Hint
 </button>
 <ul>
-<li><p><code>ggplot()</code> works on layers - the first layer (i.e. the first plot you call) is underneath the second layer. This means that to get a boxplot showing on top of a violin plot, the violin must come first (i.e. you need to call <code>geom_violin()</code> before you call <code>geom_boxplot()</code>)</p></li>
+<li><p><code>ggplot()</code> works on layers - the first layer (i.e. the first plot you call) is underneath the second layer. This means that to get a boxplot showing on top of a violin plot, the violin must come first (i.e. you need to call <code>geom_violin()</code> before you call <code>geom_boxplot()</code>)</p></li>
 <li><p>We have embellished the figure a little in the solution that you can have a look at once you have the basics sorted. Things like adding a <code>width</code> call to the boxplot, or an <code>alpha</code> call to the violin.</p></li>
 </ul>
 </div>
@@ -824,15 +799,15 @@ Helpful Hint
 <div id="quickfire-questions-2" class="section level4">
 <h4><span class="header-section-number">7.3.6.1</span> <span style="color:DARKGREEN"> Quickfire Questions </span></h4>
 <ul>
-<li>From the options, which equation would use to calculate the LowerCI? <select class='solveme' data-answer='["mean - 1.96 * se"]'> <option></option> <option>mean - 1.96 * sd</option> <option>mean * 1.96 - se</option> <option>mean - 1.96 * se</option> <option>mean * 1.96 - sd</option></select></li>
-<li>From the options, which equation would use to calculate the UpperCI? <select class='solveme' data-answer='["mean + 1.96 * se"]'> <option></option> <option>mean + 1.96 * sd</option> <option>mean * 1.96 + se</option> <option>mean + 1.96 * se</option> <option>mean * 1.96 + sd</option></select></li>
+<li><p>From the options, which equation would use to calculate the LowerCI? <select class='solveme' data-answer='["mean - 1.96 * se"]'> <option></option> <option>mean - 1.96 * sd</option> <option>mean * 1.96 - se</option> <option>mean - 1.96 * se</option> <option>mean * 1.96 - sd</option> </select></p></li>
+<li><p>From the options, which equation would use to calculate the UpperCI? <select class='solveme' data-answer='["mean + 1.96 * se"]'> <option></option> <option>mean + 1.96 * sd</option> <option>mean * 1.96 + se</option> <option>mean + 1.96 * se</option> <option>mean * 1.96 + sd</option> </select></p></li>
 </ul>
 <div class="solution">
 <button>
 Portfolio Point - What is 1.96?
 </button>
-<p>For data that is normally distributed, you’re looking to calculate the 95% Confidence Interval (meaning there is a 95% probability that a data point lies within this specified parameter). To do this you require a z-score which tells you how many standard deviations you are from the mean. 95% of the area under a normal distribution curve lies within 1.96 standard deviations from the mean.</p>
-<p>If you were looking to calculate a 99% Confidence Interval you would instead use a z-score of 2.576. This takes into account a greater area under the normal distribution curve and so you are further away from the mean (i.e. closer to the tail ends of the curve), resulting in a higher z-score.</p>
+<p>For data that is normally distributed, you're looking to calculate the 95% Confidence Interval (meaning there is a 95% probability that a data point lies within this specified parameter). To do this you require a z-score which tells you how many standard deviations you are from the mean. 95% of the area under a normal distribution curve lies within 1.96 standard deviations from the mean.</p>
+<p>If you were looking to calculate a 99% Confidence Interval you would instead use a z-score of 2.576. This takes into account a greater area under the normal distribution curve and so you are further away from the mean (i.e. closer to the tail ends of the curve), resulting in a higher z-score.</p>
 </div>
 </div>
 </div>
@@ -846,15 +821,15 @@ Portfolio Point - What is 1.96?
 <li>Feel free to embellish the figure as you see fit.</li>
 </ul></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),
-              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),
+              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> .<span class="dv">15</span>)</code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
 </button>
 <ul>
 <li>We recommend using <code>geom_col()</code></li>
-<li>Remember to add (+) the <code>geom_errorbar()</code> line above to your code! Don’t pipe it.</li>
+<li>Remember to add (+) the <code>geom_errorbar()</code> line above to your code! Don't pipe it.</li>
 <li>In the above code for error bars, the aesthetic, <code>aes()</code>, allows you to set the min and max values.</li>
 <li><code>position = &quot;dodge&quot;</code> does the same as <code>position = position_dodge()</code> and <code>position = position_dodge(width = .9)</code>. There are a number of ways to use a position call and they all do the same thing.</li>
 </ul>
@@ -862,13 +837,13 @@ Helpful Hint
 <p><strong>Important to remember</strong>: as we have mentioned in previous labs, barplots are not that informative in themselves. Keep in mind that going ahead in your research that you should look to use plots that incorporate a good indication of the distribution/spread of the individual data points as well.</p>
 <div id="group-discussion-point-1" class="section level4">
 <h4><span class="header-section-number">7.3.7.1</span> <span style="color:DARKBLUE"> <strong>Group Discussion Point</strong> </span></h4>
-<p>Think back to the hypothesis. <strong>We hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.</strong> Spend a few minutes talking to your group about whether you think there will be a significant difference between the two timepoints. What evidence do you have? Think about the overlap of confidence intervals! Remember the key thing at this stage is that it is a subjective impression - “It appears that there might be….” or words to that effect.</p>
+<p>Think back to the hypothesis. <strong>We hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.</strong> Spend a few minutes talking to your group about whether you think there will be a significant difference between the two timepoints. What evidence do you have? Think about the overlap of confidence intervals! Remember the key thing at this stage is that it is a subjective impression - &quot;It appears that there might be....&quot; or words to that effect.</p>
 </div>
 </div>
 <div id="task-8-the-t-test" class="section level3">
 <h3><span class="header-section-number">7.3.8</span> Task 8: The t-test</h3>
 <p>Now we have checked our assumptions and ran our dscriptives, the last thing we need to do is to perform the within-subjects t-test to test the differences between the time points.</p>
-<p>To perform the within-subjects t-test you use the same <code>t.test</code> function as you did in Lab 6. However, this time you add the argument, <code>paired = TRUE</code>, as this is what tells the code “yes, this is a paired t-test”.</p>
+<p>To perform the within-subjects t-test you use the same <code>t.test</code> function as you did in Lab 6. However, this time you add the argument, <code>paired = TRUE</code>, as this is what tells the code &quot;yes, this is a paired t-test&quot;.</p>
 <ul>
 <li>Perform a paired-sample t-test between guilt ratings at the crucial time points (Twelve and Thirteen) for the subjects in the late group. Store the data (e.g. <code>tidy</code>) in a tibble called <code>results</code>.</li>
 </ul>
@@ -876,12 +851,12 @@ Helpful Hint
 <button>
 Helpful Hint
 </button>
-<p>Here’s a reminder on the arguments used in <code>t.test()</code>:</p>
+<p>Here's a reminder on the arguments used in <code>t.test()</code>:</p>
 <p><code>t.test(x ~ y, data, paired = TRUE/FALSE, alternative = &quot;two.sided&quot;/&quot;greater&quot;/&quot;less&quot;)</code></p>
 <ul>
-<li><code>y</code> is typically your grouping variable (i.e. your independent variable).</li>
-<li>Once you’ve calculated <code>results</code>, don’t forget to <code>tidy()</code> - you can add this using a pipe!</li>
-<li>If you don’t quite understand the use of <code>tidy()</code> yet, run your <code>t.test()</code> without <code>tidy()</code> and see what happens!</li>
+<li><code>y</code> is typically your grouping variable (i.e. your independent variable).</li>
+<li>Once you've calculated <code>results</code>, don't forget to <code>tidy()</code> - you can add this using a pipe!</li>
+<li>If you don't quite understand the use of <code>tidy()</code> yet, run your <code>t.test()</code> without <code>tidy()</code> and see what happens!</li>
 </ul>
 </div>
 <div id="group-discussion-point-2" class="section level4">
@@ -892,7 +867,7 @@ Helpful Hint
 <div id="task-9-the-write-up" class="section level3">
 <h3><span class="header-section-number">7.3.9</span> Task 9: The Write-up</h3>
 <p>Fill in the blanks below to complete this paragraph, summarising the results of the study. You will need to refer back to the information within <code>results</code> and <code>descriptives</code> to get the correct answers and to make sure you understand the output of the t-test. Enter all values to two decimal places and present the absolute t-value.</p>
-<p>&quot;A <select class='solveme' data-answer='["paired-samples t-test"]'> <option></option> <option>paired-samples t-test</option> <option>one-sample t-test</option> <option>between-samples t-test</option> <option>matched-pairs t-test</option></select> was ran to compare the change in guilt ratings before (M = <input class='solveme nospaces' size='1' data-answer='["5.80","5.8"]'/>, SD = <input class='solveme nospaces' size='1' data-answer='["1.50","1.5"]'/>) and after (M = <input class='solveme nospaces' size='1' data-answer='["4.04"]'/>, SD = <input class='solveme nospaces' size='1' data-answer='["1.93"]'/>) the crucial evidence was heard. A <select class='solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>non-significant</option></select> difference was found (t(<input class='solveme nospaces' size='1' data-answer='["74"]'/>) = <input class='solveme nospaces' size='1' data-answer='["8.23"]'/>, p <select class='solveme' data-answer='["< .001"]'> <option></option> <option>= .05</option> <option>&gt; .05</option> <option>= .001</option> <option>&lt; .001</option></select>) with Timepoint 13 having an average rating <input class='solveme nospaces' size='1' data-answer='["1.76"]'/> units lower than Timepoint 12. This tells us <select class='solveme' data-answer='["that the critical evidence did have an influence on the rating of guilt by jury members"]'> <option></option> <option>that the critical evidence did have an influence on the rating of guilt by jury members</option> <option>that the critical evidence did not have an influence on the rating of guilt by jury members</option> <option>that the critical evidence and the rating of guilt by jury members are unconnected</option> <option>something but I am not quite sure right now, I best ask!</option></select></p>
+<p>&quot;A <select class='solveme' data-answer='["paired-samples t-test"]'> <option></option> <option>paired-samples t-test</option> <option>one-sample t-test</option> <option>between-samples t-test</option> <option>matched-pairs t-test</option> </select> was ran to compare the change in guilt ratings before (M = <input class='solveme nospaces' size='1' data-answer='["5.80","5.8"]'/>, SD = <input class='solveme nospaces' size='1' data-answer='["1.50","1.5"]'/>) and after (M = <input class='solveme nospaces' size='1' data-answer='["4.04"]'/>, SD = <input class='solveme nospaces' size='1' data-answer='["1.93"]'/>) the crucial evidence was heard. A <select class='solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>non-significant</option> </select> difference was found (t(<input class='solveme nospaces' size='1' data-answer='["74"]'/>) = <input class='solveme nospaces' size='1' data-answer='["8.23"]'/>, p <select class='solveme' data-answer='["< .001"]'> <option></option> <option>= .05</option> <option>&gt; .05</option> <option>= .001</option> <option>&lt; .001</option> </select> ) with Timepoint 13 having an average rating <input class='solveme nospaces' size='1' data-answer='["1.76"]'/> units lower than Timepoint 12. This tells us <select class='solveme' data-answer='["that the critical evidence did have an influence on the rating of guilt by jury members"]'> <option></option> <option>that the critical evidence did have an influence on the rating of guilt by jury members</option> <option>that the critical evidence did not have an influence on the rating of guilt by jury members</option> <option>that the critical evidence and the rating of guilt by jury members are unconnected</option> <option>something but I am not quite sure right now, I best ask!</option> </select></p>
 <div class="solution">
 <button>
 Helpful Hint
@@ -904,8 +879,8 @@ Helpful Hint
 </ul>
 </div>
 <p><strong>Note:</strong> When writing a code or your own report, you can make your write-up reproducible as well by using the output of your tibbles and calling specific columns. For example, t(<code>results$parameter</code>) = <code>results$statistic %&gt;% abs()</code>, p &lt; .001, when converted to inline coding and knitted will become t(74) = 8.2322025, p &lt; .001. So code can prevent mistakes in write-ups!</p>
-<p>Well done, you have completed the activities for this week’s lab! You can see how performing the t-test is only a small part of the entire process: wrangling the data, calculating descriptives, and plotting the data to check the distributions and assumptions is a major part of the analysis process. Over the past labs you have been building all of these skills and so you should be able to see them being put to good use now that we have moved onto more complex data analysis. Running the inferential part is usually just one line of code.</p>
-<p>If you’re wanting to practice your skills further you could perform a t-test for the “middle” group where the crucial evidence was presented on time point 9. Otherwise, you should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>Well done, you have completed the activities for this week's lab! You can see how performing the t-test is only a small part of the entire process: wrangling the data, calculating descriptives, and plotting the data to check the distributions and assumptions is a major part of the analysis process. Over the past labs you have been building all of these skills and so you should be able to see them being put to good use now that we have moved onto more complex data analysis. Running the inferential part is usually just one line of code.</p>
+<p>If you're wanting to practice your skills further you could perform a t-test for the &quot;middle&quot; group where the crucial evidence was presented on time point 9. Otherwise, you should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
@@ -925,10 +900,10 @@ Helpful Hint
 <button>
 Solution Task 1
 </button>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
 <span class="kw">library</span>(tidyverse)
 
-ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</code></pre>
+ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</code></pre></div>
 </div>
 <p><strong>Click the tab to see the solution</strong></p>
 </div>
@@ -938,10 +913,10 @@ ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cla
 <button>
 Solution Task 2
 </button>
-<pre class="sourceCode r"><code class="sourceCode r">lates &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings, Evidence <span class="op">==</span><span class="st"> &quot;Late&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve<span class="op">:</span>Thirteen)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lates &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings, Evidence ==<span class="st"> &quot;Late&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve:Thirteen)</code></pre></div>
 </div>
 <p><strong>Click the tab to see the solution</strong></p>
 </div>
@@ -951,12 +926,12 @@ Solution Task 2
 <button>
 Possible Solution Task 3
 </button>
-<pre class="sourceCode r"><code class="sourceCode r">lates <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(GuiltRating)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
-<span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Timepoint) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
-<span class="kw">theme_bw</span>()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lates %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(GuiltRating)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) +
+<span class="st"> </span><span class="kw">facet_wrap</span>(~Timepoint) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) +
+<span class="kw">theme_bw</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-4-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -972,14 +947,14 @@ Figure 7.1: <strong>CAPTION THIS FIGURE!!</strong>
 <button>
 Possible Solution Task 4
 </button>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We have added a couple of extra lines to tidy up the plot</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We have added a couple of extra lines to tidy up the plot</span>
 
-lates <span class="op">%&gt;%</span><span class="st"> </span>
+lates %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Timepoint,
-             <span class="dt">y =</span> GuiltRating)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+             <span class="dt">y =</span> GuiltRating)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-5-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -995,27 +970,27 @@ Figure 7.2: <strong>CAPTION THIS FIGURE!!</strong>
 <button>
 Possible Solution Task 5
 </button>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We have added color but that was not necessary</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We have added color but that was not necessary</span>
 
-lates <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+lates %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))+
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> .<span class="dv">2</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-61"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-6-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 7.3: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You could even add the `geom_jitter` to have all the data points</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You could even add the `geom_jitter` to have all the data points</span>
 
-lates <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">width =</span> <span class="fl">.1</span>, <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
+lates %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))+
+<span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> .<span class="dv">2</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) +
+<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">width =</span> .<span class="dv">1</span>, <span class="dt">alpha =</span> .<span class="dv">2</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-62"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-6-2.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1031,14 +1006,14 @@ Figure 7.4: <strong>CAPTION THIS FIGURE!!</strong>
 <button>
 Solution Task 6
 </button>
-<pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>lates <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Timepoint) <span class="op">%&gt;%</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>lates %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Timepoint) %&gt;%
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
             <span class="dt">mean =</span> <span class="kw">mean</span>(GuiltRating),
             <span class="dt">sd =</span> <span class="kw">sd</span>(GuiltRating),
-            <span class="dt">se =</span> sd<span class="op">/</span><span class="kw">sqrt</span>(n),
-            <span class="dt">LowerCI =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se,
-            <span class="dt">UpperCI =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se)</code></pre>
+            <span class="dt">se =</span> sd/<span class="kw">sqrt</span>(n),
+            <span class="dt">LowerCI =</span> mean -<span class="st"> </span><span class="fl">1.96</span>*se,
+            <span class="dt">UpperCI =</span> mean +<span class="st"> </span><span class="fl">1.96</span>*se)</code></pre></div>
 </div>
 <p><strong>Click the tab to see the solution</strong></p>
 </div>
@@ -1048,36 +1023,36 @@ Solution Task 6
 <button>
 Possible Solution Task 7
 </button>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Bar plot with 95% Confidence Intervals. We may have embellished the figure a little, but you can mess around with it to see what each bit does.</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Bar plot with 95% Confidence Intervals. We may have embellished the figure a little, but you can mess around with it to see what each bit does.</span>
 
-<span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#999000&quot;</span>, <span class="st">&quot;#000999&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#999000&quot;</span>, <span class="st">&quot;#000999&quot;</span>)) +
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) +
 <span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),
-                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
+                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> .<span class="dv">15</span>) +
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-81"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 7.5: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An alternative way to display just the means and errorbars would be to use the pointrange approach.</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An alternative way to display just the means and errorbars would be to use the pointrange approach.</span>
 
 <span class="co"># point_range with 95% CI</span>
-<span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))<span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)<span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+<span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))+
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)+
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) +
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-82"></span>
 <img src="07-s01-lab07e_files/figure-html/unnamed-chunk-8-2.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1093,7 +1068,7 @@ Figure 7.6: <strong>CAPTION THIS FIGURE!!</strong>
 <button>
 Solution Task 8
 </button>
-<pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(GuiltRating <span class="op">~</span><span class="st"> </span>Timepoint, <span class="dt">data =</span> lates, <span class="dt">paired =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(GuiltRating ~<span class="st"> </span>Timepoint, <span class="dt">data =</span> lates, <span class="dt">paired =</span> <span class="ot">TRUE</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">tidy</span>()</code></pre></div>
 </div>
 <p><strong>Click the tab to see the solution</strong></p>
 </div>
@@ -1103,7 +1078,7 @@ Solution Task 8
 <button>
 Possible Solution Task 9
 </button>
-<p>“A paired-samples t-test was ran to compare the change in guilt ratings before (M = 5.8, SD = 1.5) and after (M = 4.04, SD = 1.93) the crucial evidence was heard. A <strong>significant</strong> difference was found (t(74) = 8.23, p = 4.711340610^{-12}) with Timepoint 13 having an average rating 1.76 units lower than Timepoint 12. This tells us that the critical evidence did have an influence on the rating of guilt by jury members”.&quot;</p>
+<p>&quot;A paired-samples t-test was ran to compare the change in guilt ratings before (M = 5.8, SD = 1.5) and after (M = 4.04, SD = 1.93) the crucial evidence was heard. A <strong>significant</strong> difference was found (t(74) = 8.23, p = 4.711340610^{-12}) with Timepoint 13 having an average rating 1.76 units lower than Timepoint 12. This tells us that the critical evidence did have an influence on the rating of guilt by jury members&quot;.&quot;</p>
 <p>Actually, the p-value above is a bit silly and would normally be written as p &lt; .001 but we used code to create this paragraph and the code for the p-value is a bit more complicated than just rounding:</p>
 <p><code>ifelse(round(results$p.value,3) == 0, .001, round(results$p.value,3))</code> and would return p &lt; 0.001</p>
 </div>
@@ -1255,7 +1230,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

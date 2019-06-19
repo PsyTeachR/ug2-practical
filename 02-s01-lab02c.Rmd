@@ -161,7 +161,7 @@ The `reponses` tibble is far from being tidy; each row represents multiple obser
     
 Eh, what's a tibble?
 
-A tibble is simply a dataframe - or a table of data with columns and rows - that is really handy for working with when using the `tidyverse` packages. When we say tibble, you can think of a dataframe with rows and columns of information and numbers stored in them - like `responses`, it is a tibble. For more info, see here: <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html", target = "_blank">Tibbles</a>
+A tibble is simply a dataframe - or a table of data with columns and rows - that is really handy for working with when using the `tidyverse` packages. When we say tibble, you can think of a dataframe with rows and columns of information and numbers stored in them - like `responses`, it is a tibble. For more info, see here: <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html" target = "_blank">Tibbles</a>
 ```
 `r unhide()`  
 

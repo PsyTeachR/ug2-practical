@@ -49,7 +49,7 @@ Power is an interplay between three other aspects of research design:
 * the sample size (n); 
 * the effect size - how big is the difference (measured in a number of ways). 
 
-If you know any three of these four elements (power, alpha, effect size, n) you can calculate the fourth. We will save further discussion of power until Lab 8 but if you want to read ahead then this blog is highly recommended: <a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/", target ="_blank">The Power Dialogues</a>.
+If you know any three of these four elements (power, alpha, effect size, n) you can calculate the fourth. We will save further discussion of power until Lab 8 but if you want to read ahead then this blog is highly recommended: <a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/" target ="_blank">The Power Dialogues</a>.
 ```
 `r unhide()`
 <br>
@@ -61,7 +61,7 @@ Below you see the data you have collected from `r n_new` participants. Their mea
 knitr::kable(ns_data, caption = "Data for 22 Participants on Posner task")
 ```
 
-In <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738", target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was `r orig_mean` ms with a SD = `r orig_sd` ms. As above, your overall goal is to do further analyses where the new 22 participants are compared with the original 22 participants, but in order to do this you first must show that the new participants are from the same population as the original sample.
+In <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was `r orig_mean` ms with a SD = `r orig_sd` ms. As above, your overall goal is to do further analyses where the new 22 participants are compared with the original 22 participants, but in order to do this you first must show that the new participants are from the same population as the original sample.
 
 To state this in terms of a hypothesis, you are testing that there is no significant difference between the new sample and the original sample based on mean reaction times to valid trials on the modified Posner experiment.
 
@@ -255,7 +255,7 @@ To make sure you are understanding the output of the t-test, try to answer the f
 
 ### Task 8: Drawing Conclusions about the new data {#Ch6PreClassQueT8}
 
-Given these results, what do you conclude about what how similar these `r n_new` participants are to the original participants in <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738", target = "_blank">Woods et al (2009)</a> and whether or not you have managed to recruit sleepers similar to that study? 
+Given these results, what do you conclude about what how similar these `r n_new` participants are to the original participants in <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a> and whether or not you have managed to recruit sleepers similar to that study? 
 
 * Think about which test used more of the available information? 
 * Also, how reliable is the finding if the two tests give different answers?
@@ -264,5 +264,5 @@ We have given some of our thoughts at the bottom of the solutions.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-That's all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. See you in the lab!
+That's all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. See you in the lab!
 

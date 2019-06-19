@@ -2,7 +2,7 @@
 
 One thing we looked at in the lecture and in the preclass activity were some rather "basic" ideas about probability using cards. Here is a couple of very quick questions using dice (or die if you prefer) to make sure you understand this. 
 
-Have a go and see how you get on. If you don't get the right answers, be sure to ask in the lab or post on the slack forum <a href = "https://rguppies.slack.com/", target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.
+Have a go and see how you get on. If you don't get the right answers, be sure to ask in the lab or post on the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.
 
 ### Back to Basics
 

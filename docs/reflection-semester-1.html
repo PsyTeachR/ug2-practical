@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lab 9 Reflection - Semester 1 | ug2-practical</title>
-  <meta name="description" content="Lab 9 Reflection - Semester 1 | ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="Lab 9 Reflection - Semester 1 | ug2-practical-materials">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Lab 9 Reflection - Semester 1 | ug2-practical" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="Lab 9 Reflection - Semester 1 | ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR" />
+<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-18" />
+<meta name="date" content="2019-06-19">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="apes-alpha-power-effect-sizes-sample-size.html">
@@ -50,67 +51,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -139,7 +114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -189,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -263,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -368,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen’s D</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#effect-sizes---cohens-d"><i class="fa fa-check"></i><b>8.3.1</b> Effect Sizes - Cohen's D</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-1-effect-size-from-a-one-sample-t-test"><i class="fa fa-check"></i><b>8.3.2</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-2-effect-size-from-between-subjects-t-test"><i class="fa fa-check"></i><b>8.3.3</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#task-3-effect-size-from-matched-pairs-t-test"><i class="fa fa-check"></i><b>8.3.4</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -607,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As we are reflecting in this lab, your preclass activities this time are:</p>
 <ol style="list-style-type: decimal">
 <li><p>Review the labs from this semester and note any issues you have with the elements covered - both in terms of concepts and code.</p></li>
-<li><p>Post these issues on &lt;a href = “<a href="https://moodle.gla.ac.uk" class="uri">https://moodle.gla.ac.uk</a>”, target = &quot;_blank&quot;&gt;the Practical labs forum on Moodle</a> and bring them to the lab next week.</p></li>
+<li><p>Post these issues on <a href = "https://moodle.gla.ac.uk", target = "_blank">the Practical labs forum on Moodle</a> and bring them to the lab next week.</p></li>
 </ol>
 
 </div>
@@ -617,13 +592,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Like the PreClass we want to spend sometime reflecting on what we have learnt and as such this InClass is about looking at ideas, concepts, and codes, that you have had issue with and seeing if we can resolve those issues. In class we will spend some time looking at any issues you have had along the way.</p></li>
 <li><p>We will also look at some other interesting things you can do in R should you wish to expand your own knowledge and skills, such as:</p>
 <ul>
-<li>Analysing Twitter data with the <strong><code>rtweet</code></strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-rtweet"><strong>???</strong></span>)</span></li>
-<li>Animating plots with the <strong><code>ggganimate</code></strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-gganimate"><strong>???</strong></span>)</span></li>
+<li>Analysing Twitter data with the <strong><code>rtweet</code></strong> package <span class="citation">(Kearney <a href="#ref-R-rtweet">2018</a>)</span></li>
+<li>Animating plots with the <strong><code>ggganimate</code></strong> package <span class="citation">(Pedersen and Robinson <a href="#ref-R-gganimate">2019</a>)</span></li>
 <li>Creating quickfire quizzes with the <strong><code>webex</code></strong> <span class="citation">(Barr and DeBruine <a href="#ref-R-webex">2019</a>)</span></li>
-<li>Make your own memes using the <strong><code>meme</code></strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-meme"><strong>???</strong></span>)</span></li>
-<li>&lt;a href=“<a href="https://dreamrs.shinyapps.io/memory-hex/" class="uri">https://dreamrs.shinyapps.io/memory-hex/</a>”, target = &quot;_blank“&gt;The Hex Sticker Memory game</a> and &lt;a href=”<a href="https://community.rstudio.com/t/shiny-contest-submission-hex-memory-game/25336" class="uri">https://community.rstudio.com/t/shiny-contest-submission-hex-memory-game/25336</a>“, target =”_blank&quot;&gt;the background behind it</a></li>
-<li>&lt;a href = “<a href="https://datatitian.com/how-to-turn-your-ggplot2-visualization-into-an-interactive-tweet/" class="uri">https://datatitian.com/how-to-turn-your-ggplot2-visualization-into-an-interactive-tweet/</a>”, target = &quot;_blank&quot;&gt;Creating interactive plots using ggplot and plotly</a></li>
-<li>Many diverse fields are now using R and this is a good example: &lt;a href = “<a href="https://learn.r-journalism.com/en/" class="uri">https://learn.r-journalism.com/en/</a>”, target = &quot;_blank&quot;&gt;R for Journalists</a></li>
+<li>Make your own memes using the <strong><code>meme</code></strong> package <span class="citation">(Yu <a href="#ref-R-meme">2018</a>)</span></li>
+<li><a href="https://dreamrs.shinyapps.io/memory-hex/", target = "_blank">The Hex Sticker Memory game</a> and <a href="https://community.rstudio.com/t/shiny-contest-submission-hex-memory-game/25336", target = "_blank">the background behind it</a></li>
+<li><a href = "https://datatitian.com/how-to-turn-your-ggplot2-visualization-into-an-interactive-tweet/", target = "_blank">Creating interactive plots using ggplot and plotly</a></li>
+<li>Many diverse fields are now using R and this is a good example: <a href = "https://learn.r-journalism.com/en/", target = "_blank">R for Journalists</a></li>
 </ul></li>
 </ol>
 
@@ -641,8 +616,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <h3><span class="header-section-number">A</span> References</h3>
 <div id="refs" class="references">
+<div id="ref-R-rtweet">
+<p>Kearney, Michael W. 2018. <em>Rtweet: Collecting Twitter Data</em>. <a href="https://CRAN.R-project.org/package=rtweet" class="uri">https://CRAN.R-project.org/package=rtweet</a>.</p>
+</div>
+<div id="ref-R-gganimate">
+<p>Pedersen, Thomas Lin, and David Robinson. 2019. <em>Gganimate: A Grammar of Animated Graphics</em>. <a href="https://CRAN.R-project.org/package=gganimate" class="uri">https://CRAN.R-project.org/package=gganimate</a>.</p>
+</div>
 <div id="ref-R-webex">
-<p>Barr, Dale, and Lisa DeBruine. 2019. <em>Webex: Create Interactive Web Exercises in ’R Markdown’</em>. <a href="https://CRAN.R-project.org/package=webex" class="uri">https://CRAN.R-project.org/package=webex</a>.</p>
+<p>Barr, Dale, and Lisa DeBruine. 2019. <em>Webex: Web Exercises for Student Self-Assessment</em>.</p>
+</div>
+<div id="ref-R-meme">
+<p>Yu, Guangchuang. 2018. <em>Meme: Create Meme</em>. <a href="https://CRAN.R-project.org/package=meme" class="uri">https://CRAN.R-project.org/package=meme</a>.</p>
 </div>
 </div>
 <div class="psyteachr_footer">
@@ -787,7 +771,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
