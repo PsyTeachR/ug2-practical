@@ -32,7 +32,7 @@ As above, you are only interested in the **Late** group for this assignment and 
 
 5. Do this all as one pipe and store it in a tibble called `lates`.  
 
-```{r ch7-task2, echo = FALSE, message=FALSE}
+```{r ch7-task2, echo = FALSE, message=FALSE, warning=FALSE}
 library(broom)
 ratings <- read_csv("data/07-s01/inclass/GuiltJudgements.csv")
 
@@ -233,7 +233,7 @@ Fill in the blanks below to complete this paragraph, summarising the results of 
 ```
 `r unhide()`
 <br>
-**Note:** When writing a code or your own report, you can make your write-up reproducible as well by using the output of your tibbles and calling specific columns. For example, t(`r backtick("r results$parameter")`) = `r backtick("r results$statistic %>% abs()")`, p < .001, when knitted will become t(`r results$parameter`) = `r results$statistic %>% abs()`, p < .001. So code can prevent mistakes in write-ups!
+**Note:** When writing a code or your own report, you can make your write-up reproducible as well by using the output of your tibbles and calling specific columns. For example, t(`r backtick("r results$parameter")`) = `r backtick("r results$statistic %>% abs()")`, p < .001, when knitted will become t(`r results$parameter`) = `r results$statistic %>% abs() %>% round(2)`, p < .001. So code can prevent mistakes in write-ups!
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 

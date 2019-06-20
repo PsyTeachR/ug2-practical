@@ -10,7 +10,6 @@ Below you will find the solutions to the questions for the Activities for this c
 
 #### Task 1
 
-`r hide("Solution Task 1")`
 ```{r, results='asis'}
 
 d <- 3.24 / sqrt(25 +1)
@@ -18,13 +17,9 @@ d <- 3.24 / sqrt(25 +1)
 # effect is medium to large; d = .64
 
 ```
-`r unhide()`
-<br>
-Click on the tab to reveal the solution
 
 #### Task 2
 
-`r hide("Solution Task 2")`
 ```{r, results='asis'}
 
 d <- (2*2.9) / sqrt(30)
@@ -32,13 +27,9 @@ d <- (2*2.9) / sqrt(30)
 # effect is large; d = 1.06
 
 ```
-`r unhide()`
-<br>
-Click on the tab to reveal the solution
 
 #### Task 3
 
-`r hide("Solution Task 3")`
 ```{r, results='asis'}
 
 N = 39 + 1
@@ -48,12 +39,9 @@ d <- 2.1 / sqrt(40)
 # effect is small; d = 0.33
 
 ```
-`r unhide()`
-<br>
-Click on the tab to reveal the solution
 
 #### Task 4
-`r hide("Solution Task 4")`
+
 ```{r, results='asis'}
 
 t = (10 - 11)/sqrt((1.3^2/30) + (1.7^2/30))
@@ -66,13 +54,11 @@ d = (2*t)/sqrt((30-1) + (30-1))
 # Remember that convention is that people report the t and d as positive.
 
 ```
-`r unhide()`
-<br>
-Click on the tab to reveal the solution
+
 
 #### Task 5
-`r hide("Solution Task 5")`
-```{r, results='asis', message = FALSE}
+
+```{r, results='asis', message = FALSE, warning = FALSE}
 library(tidyverse)
 library(broom)
 
@@ -81,29 +67,30 @@ sample_size <- power.t.test(delta = .23,
                             power = .8, 
                             sig.level = .05, 
                             alternative = "two.sided", 
-                            type = "one.sample") %>% tidy() %>% pull(n) %>% ceiling()
-
-sample_size
+                            type = "one.sample") %>% 
+  tidy() %>% 
+  pull(n) %>% 
+  ceiling()
 ```
-`r unhide()`
-<br>
-Click on the tab to reveal the solution
+
+* Giving a sample size of n = `r sample_size`
 
 #### Task 6
-`r hide("Solution Task 6")`
+
 ```{r, results='asis'}
 
 cohens <- power.t.test(n = 50,
                             power = .9, 
                             sig.level = .05, 
                             alternative = "two.sided", 
-                            type = "two.sample") %>% tidy() %>% pull(delta) %>% round(2)
+                            type = "two.sample") %>% 
+  tidy() %>% 
+  pull(delta) %>% 
+  round(2)
 
-cohens
 ```
-`r unhide()`
-<br>
-Click on the tab to reveal the solution
+
+* Giving a cohen's effect size of d = `r cohens`
 
 #### Task 7
 `r hide("Solution Task 7")`
@@ -155,9 +142,6 @@ tidy() %>% pull(n) %>% ceiling()
 sample_size
 
 ```
-`r unhide()`
-<br>
-Click on the tab to reveal the solution.
 
 ### Homework Activities
 

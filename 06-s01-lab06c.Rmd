@@ -1,5 +1,9 @@
 ## InClass Activity
 
+```{r ch6-setup}
+library(kableExtra)
+```
+
 **Comparing the Means of Two Samples**
 
 Two-sample designs are very common in Psychology as often we want to know whether there is a difference between groups on a particular variable.  There are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions).  In today's exercise we will focus on **independent samples**, which typically means that the observations in the two groups are unrelated - usually meaning different people.  In the next lab you will examine cases where the observations in the two groups are from pairs (**paired samples**) - most often the same people but could also be a matched pairs design.
@@ -96,7 +100,7 @@ This paper claimed there were 9 males, however looking at your results you can s
 This is why it's important to have reproducible data analyses for others to examine. Having another pair of eyes examining your data can be very beneficial in spotting any discrepancies - this allows for critical evaluation of analyses and results and improves the quality of research being published. All the more reason to emphasize the importance of conducting replication studies! #ReproducibleScience
 ```
 `r unhide()` 
-<br>    
+
 ### Task 2: Ratings {#Ch6InClassQueT2}
 
 We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
@@ -226,7 +230,7 @@ ggplot(ratings2, aes(condition, Rating, color = condition)) +
   theme_bw()
 ```
 `r unhide()`
-<br>
+
 ### Task 4: t-tests {#Ch6InClassQueT4}
 
 Brilliant! So far we have checked the descriptives and the last thing now is to check the inferential tests; the t-tests. You should still have `ratings2` stored from Task 2. From this tibble let's reproduce the **t-test** results from the article and at the same time show you how to run a t-test. Refer back to the lectures to understand the maths behind it but essentially it is a measure between the difference in means over the variance about those means. 
@@ -280,7 +284,11 @@ intellect_t <- t.test(intellect %>% filter(condition == "listened") %>% pull(Rat
 Now lets look at the `intellect_t`tibble we have created (assuming you piped into `tidy()`): 
 
 ```{r ch6-task4-table, echo = FALSE, results = 'asis'}
-knitr::kable(intellect_t, digits = 3, caption = "The t-test output of those in the intellect condition.")
+knitr::kable(intellect_t, 
+             digits = 3, 
+             caption = "The t-test output of those in the intellect condition.") %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 From the resultant tibble, `intellect_t`, you can see that you ran a Two Sample t-test (meaning between) with a two sided hypothesis test ("two.sided"). The mean for the listened condition, `estimate1`, was `r intellect_t$estimate1 %>% round(3)`, whilst the mean for the read condition, `estimate2` was `r intellect_t$estimate2 %>% round(3)`. So an overall difference of `r (intellect_t$estimate1 - intellect_t$estimate2) %>% round(3)`. The degrees of freedom, `parameter`, was `r intellect_t$parameter %>% round(3)`. The t-value, `statistic`, was `r intellect_t$statistic %>% round(3)`, and it was significant as the p-value, `p.value`, was `r intellect_t$p.value %>% round(4)` (lower than alpha ($a$) = .05 - the Type 1 error rate).  
@@ -310,14 +318,11 @@ results <- bind_rows(intellect_t, hire_t, impression_t)
 ```
 
 ```{r lab6-task4-table2, echo = FALSE, results = 'asis'}
-knitr::kable(results, caption = "Table Caption")
-```
-
-```{r table-test, echo = FALSE, results = 'asis'}
-iris %>%
-  group_by(Species) %>%
-  summarise_all(mean) %>%
-  knitr::kable(digits = 3, caption = "Example table with kable.")
+knitr::kable(results,
+             digits = 3,
+             caption = "Output of all three t-tests") %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span> 
