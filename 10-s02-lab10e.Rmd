@@ -1,0 +1,165 @@
+## Solutions to Questions
+
+```{r lab10-solutions-setup, echo = FALSE, message=FALSE, warning=FALSE}
+library("broom")
+library("tidyverse")
+mh <- read_csv("data/10-s02/inclass/MillerHadenData.csv")
+dat <- read_csv("data/10-s02/inclass/VapingData.csv")
+```
+
+Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### InClass Activity
+
+#### Task 1
+
+<div class="solution"><button>Miller and Haden: Load in data</button>
+```{r, eval=FALSE}
+library("broom")
+library("tidyverse")
+mh <- read_csv("MillerHadenData.csv")
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 2
+
+<div class="solution"><button>Miller and Haden: Type of Data</button>
+```{r}
+# Most likely to be interval data
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 3
+
+<div class="solution"><button>Miller and Haden: Filtering out potential NAs</button>
+```{r}
+filter(mh, !is.na(Abil)) # would keep everybody from the whole dataset that has a score for Ability
+filter(mh, is.na(Abil)) # would keep everybody from the whole dataset that does not have a score for Ability
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 4
+
+<div class="solution"><button>Miller and Haden: Figures</button>
+```{r}
+# Abil data appears as normal as expected for 25 participants
+ggplot(mh, aes(x = Abil)) + geom_histogram()
+# IQ data appears as normal as expected for 25 participants
+ggplot(mh, aes(x = IQ)) + geom_histogram()
+# Relationship appears normal, homoscedastitic, and with no clear outliers
+ggplot(mh, aes(x = Abil, y = IQ)) + geom_point()
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 5
+
+<div class="solution"><button>Miller and Haden: discussing descriptives</button>
+```{r}
+# As reading ability increases, so does IQ and as such it would appear that our data is inline with our hypothesis that the two variables are positively correlated. This appears to be a medium strength relationship.
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 6
+
+<div class="solution"><button>Miller and Haden: correlation</button>
+```{r}
+results <- cor.test(mh$Abil, mh$IQ, method = "pearson", alternative = "two.sided") %>% tidy
+
+results
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 7
+
+<div class="solution"><button>Miller and Haden: interpretation</button>
+```{r}
+pvalue <- results %>% pull(p.value) %>% round(3)
+df <- results %>% pull(parameter)
+correlation <- results %>% pull(estimate) %>% round(2)
+
+pvalue
+df
+correlation
+
+# A pearson correlation found reading ability and intelligence to be positively correlated with a medium to strong relationship, (r(23) = .45, p = .024). As such we can say that our hypothesis is supported and that there appears to be a relationship between reading ability and IQ in that as reading ability increases so does intelligence.
+# 
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 8
+
+<div class="solution"><button>Matrix of Correlations: Answers</button>
+```{r}
+# 1. The table looks the same across the diaganol because the correlation of e.g. Abil vs Abil is not shown, and the correlation of Abil vs Home is the same as the correlation of Home vs Abil
+# 2. Home vs Abil, r(23) = .74, p < .001 
+# 3. Home vs TV, r(23) = -.65, p < .001 
+```
+</div>
+
+** Click tab to see solution **
+
+#### Task 9
+
+```{r vaping_load, eval=FALSE}
+dat <- read_csv("VapingData.csv")
+```
+
+<div class="solution"><button>Vaping Data: Solutions</button>
+```{r}
+# Steps 1 to 5
+dat <- dat %>% 
+  filter(IAT_BLOCK3_Acc <= 1) %>%
+  filter(IAT_BLOCK5_Acc <= 1) %>%
+  mutate(IAT_ACC = (IAT_BLOCK3_Acc + IAT_BLOCK5_Acc)/2) %>%
+  filter(IAT_ACC > .8) %>%
+  mutate(IAT_RT = IAT_BLOCK5_RT - IAT_BLOCK3_RT)
+
+# Step 5
+descriptives <- dat %>% summarise(n = n(),
+                          mean_IAT_ACC = mean(IAT_ACC),
+                          mean_IAT_RT = mean(IAT_RT),
+                          mean_VPQ = mean(VapingQuestionnaireScore, na.rm = TRUE))
+# Useful averages - what if you want to know the average explicit attitude to Vaping?
+# Unuseful averages - If you are using an ordinal scale and people use the whole scale, the average will only tell you the middle of the scale; which you already know.
+
+# Step 6
+
+# check normality
+ggplot(dat, aes(x = VapingQuestionnaireScore)) + geom_histogram(binwidth = 10)
+ggplot(dat, aes(x = IAT_RT)) + geom_histogram()
+
+# check linear, homoscedasticity, outliers
+ggplot(dat, aes(x = IAT_RT, y = VapingQuestionnaireScore)) + geom_point() + theme_bw()
+
+# some people missing data - remove them
+dat <- dat %>% filter(!is.na(VapingQuestionnaireScore)) %>% filter(!is.na(IAT_RT))
+
+# Step 7
+results <- cor.test(dat$VapingQuestionnaireScore, dat$IAT_RT, method = "pearson") %>% tidy()
+
+correlation <- results %>% pull(estimate)
+df <- results %>% pull(parameter)
+pvalue <- results %>% pull(p.value)
+
+# Based on a .8 Accuracy cut-off, with no outliers spotted, a pearson correlation revealed that there was no significant relationshipt between implicit attitudes towards vaping and explicit attitudes towards vaping, r(143) = -.104, p = .212
+
+```
+</div>
+
+
+
+** Click tab to see solution **

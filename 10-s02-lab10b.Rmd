@@ -1,0 +1,16 @@
+## PreClass Activity
+
+### Read
+
+Read Chapters 10 and 11 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view", target = "_blank">Miller and Haden (2013)</a>. Both Chapters are really short but give a good basis to understanding Correlational analysis. Please note, in Chapter 10 all the terminology might not be clear to you yet, e.g. ANOVA means Analysis of Variance and GLM means General Linear Model (Reading Chapter 1 might help).
+
+### Watch
+
+Have a look at this visualisation of correlations by Kristoffer Magnusson: <a href = "https://rpsychologist.com/d3/correlation/", target = "_blank">https://rpsychologist.com/d3/correlation/</a>. 
+
+1. After having read Miller and Haden Chapter 11, use this visualisation page to visually replicate the scatterplots in Figures 11.3 and 11.4 - use a sample of 100.  After that, visually replicate the scatterplots in Figure 11.5. Each time you change the correlation, pay attention to the shared variance (the overlap between the two variables) and see how this changes with the changing level of association. 
+2. Also, try setting the correlation to r = .5 and then moving a sinlge dot to see how one data point, a potential outlier, can change the stated correlation value between two variables
+
+### Play
+
+Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online game: <a href = "http://guessthecorrelation.com/", target = "_blank">http://guessthecorrelation.com/</a>. Read the instuctions on the 'About' tab of the menu and then play the game. Try to achieve your highest score possible before giving up - at worst, 50 points.  Last year's top score was 206; do not let us down here! Post your amazing scores on the lab forum pages. The best posted score will win a free copy of Rstudio!!!

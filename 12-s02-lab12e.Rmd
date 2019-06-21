@@ -1,0 +1,114 @@
+## Solutions to Questions
+
+```{r lab12-solutions-setup, echo = FALSE, message=FALSE, warning=FALSE}
+dmx <- tibble(sub_id = 1:9,
+              i = rep(1:3, each = 3),
+              j = rep(1:3, times = 3),
+              typos = c(111, 102, 111, 
+                    89, 127, 90,
+                    97, 85, 88),
+              sound = rep(c("cafe", "jazz", "silence"), each = 3)) %>%
+  mutate(mu = mean(typos)) %>%
+  group_by(i) %>%
+  mutate(Ai = mean(typos) - mu) %>%
+  ungroup() %>%
+  mutate(err = typos - (mu + Ai))
+
+dat_ss <- dmx %>% 
+  summarise(total = sum(typos^2),
+            ss_mu = sum(mu^2),
+            ss_sound = sum(Ai^2),
+            ss_err = sum(err^2))
+```
+
+Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### InClass Activities
+
+#### Task 1 Question 1
+
+$SS_{total} - SS_{\mu}$ = `r as.integer(dat_ss[["total"]])` - `r as.integer(dat_ss[["ss_mu"]])` = `r as.integer(dat_ss[["total"]]) - as.integer(dat_ss[["ss_mu"]])`
+
+#### Task 1 Question 2
+
+$SS_{sound} / SS_{corrected\ total}$ = `r as.integer(dat_ss[["ss_sound"]])` / `r as.integer(dat_ss[["total"]]) - as.integer(dat_ss[["ss_mu"]])` = `r round(as.integer(dat_ss[["ss_sound"]]) / (as.integer(dat_ss[["total"]]) - as.integer(dat_ss[["ss_mu"]])),2)`
+    
+#### Task 1 Question 3
+
+$SS_{err} / SS_{corrected\ total}$ = `r as.integer(dat_ss[["ss_err"]])` / `r as.integer(dat_ss[["total"]]) - as.integer(dat_ss[["ss_mu"]])` = `r round(as.integer(dat_ss[["ss_err"]]) / (as.integer(dat_ss[["total"]]) - as.integer(dat_ss[["ss_mu"]])),2)`
+
+#### Task 2 Question 1
+
+k = number of conditions, so: 
+
+df = k - 1 = 3 - 1 = 2
+
+#### Task 2 Question 2
+
+N = 9, and $dfA_{i}$ = 2, so
+
+df = 9 - 2 - 1 = 6
+    
+#### Task 2 Question 3
+
+```{r ms_a}
+ms_a <- dat_ss[["ss_sound"]] / 2L  # 2 is the df for sound
+    
+ms_a
+```
+
+#### Task 2 Question 4
+
+```{r ms_err}
+ms_err <- dat_ss[["ss_err"]] / 6L  # 6 is the df for error
+
+ms_err
+```
+
+#### Task 2 Question 5
+
+$\mu_{cafe} = \mu_{jazz} = \mu_{silence}$
+
+#### T3 Question 1
+
+```{r fratio}
+f_obs <- ms_a / ms_err
+    
+f_obs
+```
+
+#### T3 Question 2
+
+The red line should be about F = 5.143, meaning that that is the minimum value of F, for those dfs, considered to be statistically significant at $\alpha = .05$
+
+#### T3 Question 3
+
+The approximate p-value for f_obs is p = .317.  
+
+#### T3 Question 4
+
+As $p$ > $\alpha$ we would retain the null hypothesis that there is no significant effect of group
+
+#### T3 Q5 Hint
+
+* look at inputs for the function - ?pf
+* ignore ncp
+* f_obs = q
+* lower.tail? What is the probability of obtaining an F_obs higher than your value.
+
+#### T3 Q5 Answer
+
+```{r}
+pf(f_obs, 2, 6, lower.tail = FALSE)
+```
+
+#### ezANOVA Solution
+
+```{r ez, warning = FALSE}
+dat <- select(dmx, sub_id, typos, sound)
+
+ez::ezANOVA(dat,
+            dv = typos,
+            wid = sub_id,
+            between = sound)
+```

@@ -1,0 +1,278 @@
+## InClass Activity
+
+**NOTE:** We assume from the preclass reading that you are now familiar with the terms **estimation equations**, **decomposition matrices**, and **sums of squares**.
+
+**One-factor ANOVA: Worked example**
+
+Today we are going to start with a step by step example of building a model for an ANOVA (Analysis of Variance).  After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.
+
+An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors).  Thinking back, a t-test is where you normally only have two conditions (levels) right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs hooligans (t-test), you can compare IQ scores for professors vs hooligans vs politicians (ANOVA); though one might argue that the latter two conditions (levels) are one in the same.
+
+Let's assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let's pretend you are studying how consuming food before an exam affects student performance.  You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you'd need **far more** than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).
+
+This is called a **one-factor design** because there is a single factor, which we might call "pre-exam consumption", that has three different levels: water, buffet, and salad. It is a between-subjects design because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.
+
+For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won't complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference in groups.
+
+Here's how the exam performance looks for each of the three groups:
+
+```{r echo=FALSE}
+RNGversion("3.5")
+set.seed(500)
+
+## this function creates error values for each condition
+err_vec <- function(n, sd) {
+  etmp <- as.integer(rnorm(n - 1, mean = 0, sd))
+  sample(c(etmp, 0L - as.integer(sum(etmp))))
+}
+
+.mu <- 50L
+.meal_eff <- c(8L, -6L, -2L)
+.etmp <- as.integer(rnorm(11, sd = 8))
+.err <- c(replicate(3, err_vec(4, 12)))
+.Y <- 50 + rep(.meal_eff, each = 4L) + .err
+```
+
+- **Control**: `r paste(.Y[1:4], collapse = ", ")`
+- **Buffet**: `r paste(.Y[5:8], collapse = ", ")`
+- **Salad**: `r paste(.Y[9:12], collapse = ", ")`
+
+### Test your understanding
+
+To make sure you understand, answer the following questions about the above experiment:
+
+1. Factor is another name for a `r mcq(c("level","condition","control", answer = "variable"))` of the experiment
+2. Level is another name for a `r mcq(c("factor", answer = "condition","control", "variable"))` of the experiment
+3. In this experiment we have `r mcq(c(answer = "1 factor with 3 levels", "1 level with 3 factors", "3 variables with 1 condition"))`
+4. Because each group contains different participants then this is a `r mcq(c("within-subjects design", answer = "between-subjects design", "mixed design"))`
+5. The fourth participant in the Control condition scored `r mcq(c(.Y[12], .Y[8], answer = .Y[4], .Y[3]))` on the exam
+
+### Estimating model components
+
+Great so we understand our experiment! Now, the General Linear Model (GLM) that we will fit to these data is:
+
+$Y_{ij} = \mu + A_i + S(A)_{ij}$
+
+Where:
+
+- $Y_{ij}$ is the observed value for observation $j$ of group $i$ - i.e. a given participant's score in a given group;
+- $\mu$ (pronounced "mu") is the population grand mean (estimated by the sample grand mean);
+- $A_i$ is the deviation of the population mean of group $i$ from the population grand mean;
+- $S(A)_{ij}$ is the error or "residual", defined as the observed value ($Y_{ij}$) minus the model prediction ($\hat{Y}_{ij}$), or the actual value minus the predicted value.
+- $\hat{Y}_{ij}$ is also known as the fitted value or the typical value or the predicted value of a participant in a group, and is calculated as: $\mu$ + $A_i$.
+
+We begin by applying the **estimation equations**.  Our estimate of the population grand mean $\mu$, will be based on the grand mean of the sample.  We will call this $\hat{\mu}$. The "party hat" that $\mu$ is wearing ($\hat{\mu}$) is just there to remind us that it is not the actual population mean, but an **estimate** of that value derived from our sample. So if we are working in predicted values, values we haven't actually collected, just predicted, then we stick the "party hat" on the symbol. If we are working in real values that we have collected, no party hat!
+
+The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:
+
+- $\hat{\mu} = Y_{..}$
+
+- $\hat{A}_i = Y_{i.} - \hat{\mu}$
+
+- $\widehat{S(A)}_{ij} = Y_{ij} - (\hat{\mu} + \hat{A}_i) = Y_{ij} - \hat{\mu} - \hat{A}_i$
+
+where
+
+- $Y_{..}$ is the mean of all 12 observations in the sample, and
+
+- $Y_{i.}$ is the mean of the 4 observations in group $i$.
+
+- $\hat{A}_i$ is the respective group mean minus the sample mean
+
+Applying these estimation equations to the data above yields the following decomposition matrix:
+
+```{r, echo = FALSE, results = 'markup'}
+.dmx <- tibble(i = rep(1:3, each = 4),
+       j = rep(1:4, times = 3),
+       Yij = .Y, mu = .mu, Ai = rep(.meal_eff, each = 4),
+       err = .err)
+
+.dmx
+```
+
+Note that in the above table: 
+
+* the column `mu` represents the value of $\hat{\mu}$, 
+* the columns `Ai` represents the value of $\hat{A}_i$, 
+* and the column `err` represents the value of $\widehat{S(A)}_{ij}$.  
+
+Spend a few moments understanding how this table expresses each of the 12 observed values in our example (the $Y_{ij}$s) in terms of the linear model: $Y_{ij} = \mu + A_i + S(A)_{ij}$.  
+
+For example, if the Control group is group $i$ = 1, then for the first participant, $j$ = 1, you would get:
+
+- $Y_{ij} = \mu + A_i + S(A)_{ij}$
+- $Y_{ij} = mu + Ai + err$
+- $37 = 50 + 8 + -21$
+
+### Test your understanding
+
+To make sure you understand the above equations before going on to calculate your own, answer the following questions about the above table which expresses the GLM decomposition matrix, and then check your answers.
+
+1. In which column of the table are the 12 observed values - i.e. the 12 original scores from the participants?
+
+    <div class="solution"><button>Answer</button>
+    The column named `Yij`
+    </div>
+
+2. What is the estimated grand mean of this sample? (hint: $\hat{\mu}$)
+
+    <div class="solution"><button>Answer</button>
+    `r .mu`
+    </div>
+
+3. Which rows of the table contain the data and model estimates for the **Buffet** group if they are group 2?
+
+    <div class="solution"><button>Answer</button>
+    The rows where `i` is equal to 2; in other words, rows 5-8
+    </div>
+
+4. What is the value of $\hat{A}_1$ and in what rows does it appear?
+
+    <div class="solution"><button>Answer</button>
+    `r .meal_eff[1]`; it appears in column `Ai`, rows 1-4, where `i` equals 1.  This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the **typical** participant in that group - as opposed to an individual participant in that group.
+    </div>
+
+5. What is the value of $\widehat{S(A)}_{32}$? (hint: this can be read as where i = 3 and j = 2)
+
+    <div class="solution"><button>Answer</button>
+    `r .err[10]`; it appears in column `err`, where `i` equals 3 and `j` equals 2. This can be thought of the unique difference for that participant from the sample mean and group mean.
+    </div>
+
+6. What is the model's prediction for a 'typical' participant in the "Salad" group? (hint: ($\hat{Y}_{ij}$ = mu + Ai)
+
+    <div class="solution"><button>Answer</button>
+    A 'typical' participant is one where the residual is 0; Thus, the prediction $\hat{Y}_{ij} = \hat{\mu} + \hat{A}_3$ = `r .mu` + `r .meal_eff[3]` = `r .mu + .meal_eff[3]`.  The model prediction is also known as the "fitted value" for this group.  
+    </div>
+
+7. Where in the table are the differences found between this 'typical' participant prediction and the observed values in the salad group?
+
+    <div class="solution"><button>Answer</button>
+    These are the called the "residuals" ($\widehat{S(A)}_{ij}$s) and are found in the `err` column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.
+    </div>
+
+### Recreate decomposition matrix from the raw data
+
+So we have shown you where all the parts of the table come from and how to calculate them. Now, for this part, your task is to reproduce the **decomposition matrix** tibble shown above, reproduced here:
+
+```{r echo = FALSE}
+.dmx
+```
+
+You will do this by typing the observed values into a tibble, and then writing code to add columns with estimates of the individual components. At the end, your table should look exactly like the one above. You already know how to do all the data-wrangling elements, so today really try to focus on understanding what the values mean.
+
+### Step 1: Create the basic tibble
+
+* Create a tibble named `dmx` (short for decomposition matrix). It will eventually contain all of the columns in the one above, but for now, just create the columns `i`, `j`, and `Yij` as they appear above. 
+
+- **hint 1**: You already know how to create a tibble (don't forget to load the tidyverse package first). In case you need to refresh your memory, see <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf", target = "_blank">page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Lab 5 Semester 1.
+- **hint 2**: You should just type in the values for `Yij` but try to use the rep() function for columns `i` (the group) and `j` (the participant).
+
+#### {.tabset .tabset-fade .tabset-pills}
+
+##### Step 1 Hints
+
+##### Create the tibble
+
+Don't forget to load the tidyverse
+
+`dmx <- tibble(i = NA, j = NA, Yij = NA)`
+
+##### The rep() function
+
+Remember that you can use `each` or `times` as calls in rep
+
+`rep(1:3, each = 4)`
+
+##### Typing in numbers
+
+The c() function will allow you to put in numbers
+
+`Column = c(37, 80, 64, 31)`
+
+#### Step 2: Estimate $\mu$
+
+Great, we have our group numbers $i$, our participant numbers $j$, and our participant scores $Yij$. Now we need to start expanding out `dmx`.  First thing we need is the grand mean: $\hat{\mu}$
+
+* Add a column to the table, called `mu` representing $\hat{\mu}$.  Call the resulting table `dmx2`.  Remember that you can add a column to a table using `mutate()`.
+
+#### {.tabset .tabset-fade .tabset-pills}
+
+##### Step 2 Hint
+
+##### Calculating mu
+
+Each value of `mu` should be the grand mean of the sample; the mean of all participants regardless of group
+
+```
+dmx2 <- dmx %>% 
+   mutate(mu = ???)
+```
+
+### Step 3: Entering the estimates $\hat{A}_1$, $\hat{A}_2$, $\hat{A}_3$
+
+Good! Now we need to add on a column showing the typical effect of being a member of a particular group; the `Ai` column.
+
+* Add a column to the table `dmx2` called `Ai`, with the three estimates for $\hat{A}_i$.  Store the resulting tibble in `dmx3`.
+* $\hat{A}_i$ is the difference between the grand mean $\hat{\mu}$ and the mean of individual groups. This means that you will need to group people by the group they belong to.
+* Add the `ungroup()` function to the end of your pipeline as you won't need this grouping after.
+
+#### {.tabset .tabset-fade .tabset-pills}
+
+##### Step 3 Hint
+
+##### Calculating $\hat{A}_i$
+
+```
+dmx3 <- dmx2 %>% 
+   group_by() %>%
+   mutate(Ai = something - something) %>%
+   ungroup()
+```
+### Step 4: Calculate $\widehat{S(A)}_{ij}$s
+
+Well done, you're almost there!  We just need to add on the final column, `err`, which is called the **residuals** or in other words, the difference between the score of a typical participant for that group (`mu` + `Ai`) and a given individual participant' score (`Yij`).
+
+* Add a column called `err` to `dmx3` and store the result in `dmx4`. The column `err` should contain the residuals - the difference between the observed (Yij) and fitted (typical) values.
+
+#### {.tabset .tabset-fade .tabset-pills}
+
+##### Step 4 Hint
+
+##### Calculating err
+
+$\widehat{S(A)}_{ij} = Y_{ij} - \hat{Y}_{ij}$
+
+$\hat{Y}_{ij} = \hat{\mu} + \hat{A}_i$ 
+
+### Step 5: Sums of squares
+
+Once you have your dmx, you can start performing the calculations.  Sums of squares are used in calculations for performing tests on model components, which we will learn more about soon, but you can practice them now as shown in Section 3.4 of Miller and Haden (2013).
+
+* Square all the individual values in the columns `Yij`, `mu`, `Ai`, and `err` in `dmx4`, 
+* Now sum up the squared values for each of these columns.  
+* Save these in a variable called `sstbl`.
+
+Here is an example of how you would square a value `x`: `x^2`.  The `^2` means take `x` to the power of 2.  So typing `3^2` in the console will give you `9` (try it if you're unsure). It also works for columns!
+
+* the Sums of Squares of `Yij` is called the Sums of Squares total or $SS_{total}$.
+* the Sums of Squares of `mu` is called the Sums of Squares of the grand mean or $SS_{\mu}$ and sometimes called the intercept.
+* the Sums of Squares of `Ai` is called the Sums of Squares of A or $SS_{A}$ and sometimes called $SS_{between}$.
+* the Sums of Squares of `err` is called the Sums of Squares error or $SS_{error}$ and sometimes called $SS_{within}$.
+
+####  {.tabset .tabset-fade .tabset-pills}
+
+##### Step 5 Hints
+
+##### mutate and square
+
+`dmx4 %>% mutate(Yij2 = Yij^2, ...)`
+
+##### summing up
+
+`summarise(ss_Y = sum(Yij2), ss_mu = ...)`
+
+**Job Done!**
+
+Well done! Display `dmx4` in the console and compare it to the table above.  How did you do?  If the values in your dmx4 do not match the table above then you need to go back and look at where it has gone wrong. Alternatively you should look at the solutions below.  Remember what we are doing here is setting up the ANOVA to compare the three groups to see if there is a significant difference between each group.  Doing it this way allows us to get an understanding of where the numbers come from, and it highlights that the analysis is about comparing variance within groups and variance between groups. If the variance between groups is larger than the variance within groups then it is likely that your experimental manipulation has had an effect.  Conversely, if the variance within groups is larger than the variance between groups then there is likely to be no effect of your experimental manipulation.
+
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.** However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel **#level2_2018**

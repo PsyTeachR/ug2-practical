@@ -1,0 +1,9 @@
+## PreClass Activity
+
+### Read
+
+Read Chapter 12 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view", target = "_blank">Miller and Haden (2013)</a> and try to understand the how the GLM applies to regression. The concept of regression will be familiar to you based on the stats lectures of this semester so some of the terms will just be recapping. Some will be an expansion of your understanding and basing the analysis in terms of the GLM.
+
+### Try
+
+Try out some of the computational understandings at the end of the chapter to test your knowledge.
