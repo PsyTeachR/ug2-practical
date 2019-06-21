@@ -42,6 +42,7 @@ knitr::knit_hooks$set(verbatim = function(before, options, envir) {
 
 ## verbatim inline R in backticks
 backtick <- function(code) {
+  code <- gsub("\\$", "\\\\$", code) 
   paste0("<code>&#096;", code, "&#096;</code>")
 }
 

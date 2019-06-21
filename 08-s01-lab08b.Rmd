@@ -8,7 +8,7 @@ Read the following blog on Power. This is a blog on a fictional conversation bet
 
 **Blog:**
 
-<a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/" target = "_blank">The Power Dialogues</a> by PIGEE at the University of Illinois.
+* <a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/" target = "_blank">The Power Dialogues</a> by PIGEE at the University of Illinois.
 
 ### Watch
 
@@ -16,7 +16,7 @@ You should also watch this short but nonetheless highly informative video by Dan
 
 **Video:**
 
-<a href = "https://www.youtube.com/watch?v=Lr-i4Ugoc5M&index=3&list=PLtAL5tCifMi5zG70dslERYcGApAQcvj1s" target = "_blank">Power Analysis and Sample Size Decisions</a> by Daniel Lakens
+* <a href = "https://www.youtube.com/watch?v=Lr-i4Ugoc5M&index=3&list=PLtAL5tCifMi5zG70dslERYcGApAQcvj1s" target = "_blank">Power Analysis and Sample Size Decisions</a> by Daniel Lakens
 
 Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you understand them better.
 

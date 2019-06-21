@@ -17,7 +17,7 @@ We will continue to focus on t-tests for this lab.  There are a number of differ
 
 Let's now try out some calculations. We will start with just looking at effect sizes from t-tests before calculating power in later tasks.
 
-### Task 1: Effect size from a one-sample t-test
+### Task 1: Effect size from a one-sample t-test {#Ch8InClassQueT1}
 
 * You run a one-sample t-test and discover a significant effect, t(25) = 3.24, p < .05. Calculate `d` and determine whether the effect size is small, medium or large.
 
@@ -39,7 +39,7 @@ Answering the following questions to check your answers. The solutions are at th
 * Enter the correct value of `d` for this analysis rounded to 2 decimal places: `r fitb(c("0.64", ".64"), ignore_ws = TRUE)`
 * According to Cohen (1988), the effect size for this t-test would probably be considered: `r mcq(c("small", answer = "medium", "large"))`  
 
-### Task 2: Effect size from between-subjects t-test
+### Task 2: Effect size from between-subjects t-test {#Ch8InClassQueT2}
 
 * You run a between-subjects t-test and discover a significant effect, t(30) = 2.9, p < .05. Calculate `d` and determine whether the effect size is small, medium or large.
 
@@ -60,7 +60,7 @@ Answering the following questions to check your answers. The solutions are at th
 * Enter the correct value of `d` for this analysis rounded to 2 decimal places:  `r fitb(c("1.06"), ignore_ws = TRUE)`
 * According to Cohen (1988), the effect size for this t-test would probably be considered: `r mcq(c("small", "medium", answer = "large"))`
 
-### Task 3: Effect Size from matched-pairs t-test
+### Task 3: Effect Size from matched-pairs t-test {#Ch8InClassQueT3}
 
 * You run a matched-pairs t-test between an ASD sample and a non-ASD sample and discover a significant effect t(39) = 2.1, p < .05. How many people are there in each group? Calculate `d` and determine whether the effect size is small, medium or large.
 
@@ -89,7 +89,7 @@ Answering the following questions to check your answers. The solutions are at th
 ```
 `r unhide()`  
 
-### Task 4: t-value and effect size for a between-subjects Experiment
+### Task 4: t-value and effect size for a between-subjects Experiment {#Ch8InClassQueT4}
 
 * You run a between-subjects design study and the descriptives tell you: **Group 1**, M = 10, SD = 1.3, n = 30; **Group 2**, M = 11, SD = 1.7, n = 30. Calculate `t` and `d` for this between-subjects experiment.
 
@@ -155,7 +155,7 @@ And it would tell you that you would need `r n_test` people per condition. But y
 
 Let's get started. **But before you start with this next task**, you will need to load in packages such as the `tidyverse` and `broom`.
 
-### Task 5: Sample size for standard power one-sample t-test
+### Task 5: Sample size for standard power one-sample t-test {#Ch8InClassQueT5}
 
 * Assuming you are interested in detecting a minimum Cohen's d of **d = .23**, what would be the minimum number of participants you would need in a one-sample t-test, assuming **power = .8**, $\alpha$ **= .05**, on a two-sided hypothesis? 
 
@@ -177,7 +177,7 @@ Answering the following question to check your answers. The solutions are at the
 
 * Enter the minimum number of participants you would need in this one-sample t-test: `r fitb("151")`
 
-### Task 6: Effect size from a high power between-subjects t-test
+### Task 6: Effect size from a high power between-subjects t-test {#Ch8InClassQueT6}
 
 * Assuming you run a between-subjects t-test with 50 participants per group and want a power of .9, what would be the minimum effect size you can reliably detect? Assume standard $\alpha$ and alternative hypothesis settings. Using a pipeline, store the answer as a single value called `cohens` and round to two decimal places.
 
@@ -199,9 +199,9 @@ Answering the following questions to check your answers. The solutions are at th
 * According to Cohen (1988), the effect size for this t-test is `r mcq(c("small", answer = "medium", "large"))`
 * Say you run the study and find that the effect size determined is d = .50. Given what you know about power, select the statement that is true: `r mcq(c("the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = .65",answer = "the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = .65"))`
 
-### Task 7: Power of Published Research
+### Task 7: Power of Published Research {#Ch8InClassQueT7}
 
-Thus far we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities"target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?
+Thus far we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?
 
 1. one-sample: t(31) = 2.96, p = .006
 2. paired t-test: t(31) = 2.42, p = .022
@@ -213,7 +213,7 @@ Thus far we have used hypothetical situations - now go look at the paper on the 
 * Calculate the achievable Cohens d for the studies and then calculate the established Cohen's d for the studies. 
 ```
 `r unhide()`
-
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
 Which of the t-tests do you believe to be underpowered? Why do you think this may be? Additional information about this to further your discussion can be found in the solution to task 8 at the end of this activity.

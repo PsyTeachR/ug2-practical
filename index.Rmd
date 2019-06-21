@@ -15,7 +15,7 @@ description: ug2-practical-materials
 # add any packages you want to cite here
 knitr::write_bib(c(
   .packages(), 'bookdown', 'tidyverse', 'broom', 'pwr', 'rtweet',
-  'meme', 'gganimate', 'webex'
+  'meme', 'gganimate', 'webex', 'ggforce', 'knitr'
 ), 'packages.bib')
 
 ```
