@@ -14,7 +14,7 @@ For this assignment you will answer a series of short single and Mulitple Choice
 
 **Let's Begin!**
 
-### Question 1
+### Question 1 {#Ch11AssignQueT1}
 
 Consider the following description of a study.
 
@@ -46,7 +46,7 @@ For the next few questions consider the decomposition matrix for a one-factor de
 |3   |   1 | 2        | 6     |   1      |  -5        |
 |3   |   2 | 12       | 6     |   1      |   5        |
 
-### Question 2
+### Question 2 {#Ch11AssignQueT2}
 
 According to the above decomposition matrix, the population grand mean is estimated to be:
 
@@ -61,7 +61,7 @@ Replace the NULL in the Q2 code chunk with the statement number that corresponds
 mcq2 <- NULL 
 ```
 
-### Question 3
+### Question 3 {#Ch11AssignQueT3}
 
 According to the above decomposition matrix, the value of $\hat{A}_3$ is:
 
@@ -76,7 +76,7 @@ Replace the NULL in the Q3 code chunk with the statement number that corresponds
 mcq3 <- NULL
 ```
 
-### Question 4
+### Question 4 {#Ch11AssignQueT4}
 
 According to the above decomposition matrix, the predicted value for a participant in group 1 is what? 
 
@@ -88,7 +88,7 @@ Replace the NULL in the Q4 code chunk with the actual value of the correct answe
 Q4 <- NULL  # replace NULL with your answer (a number)
 ```
 
-### Question 5
+### Question 5 {#Ch11AssignQueT5}
 
 Which observation or observations has/have the largest residual(s)?
 
@@ -103,7 +103,7 @@ Replace the NULL in the Q5 code chunk with the statement number that corresponds
 Q5 <- NULL
 ```
 
-### Question 6
+### Question 6 {#Ch11AssignQueT6}
 
 From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would $SS_{total}$ be for this model?
 
@@ -113,7 +113,7 @@ Replace the NULL in the Q6 code chunk with the actual value of the correct answe
 Q6 <- NULL  # replace NULL with your answer (a number)
 ```
 
-### Question 7
+### Question 7 {#Ch11AssignQueT7}
 
 From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would $SS_{error}$ be for this model?
 
@@ -123,7 +123,7 @@ Replace the NULL in the Q7 code chunk with the actual value of the correct answe
 Q7 <- NULL  # replace NULL with your answer (a number)
 ```
 
-### Question 8
+### Question 8 {#Ch11AssignQueT8}
 
 From reading Miller and Haden Chapter 3, and from the inclass activity Section 5, a study with a one-factor design with GLM $Y_{ij} = \mu + A_{ij} + S(A)_{ij}$ is found to have the following SS:
 
@@ -142,7 +142,7 @@ Q8 <- NULL # replace NULL with your answer (a number)
 ```
 
 
-### Question 9: Create your own decomposition matrix
+### Question 9: Create your own decomposition matrix {#Ch11AssignQueT9}
 
 Finally, this last task tests your ability to set up a decomposition matrix as shown inclass. The code chunk below creates the basic table structure you will need to complete this task. Run the code and have a look at the table, but DO NOT CHANGE IT!
 
@@ -184,19 +184,16 @@ dmx <- NULL
 ```
 
 ```{r dmx_warning, echo = FALSE}
-# Don't change anything in this code chunk; it is just here to help you check
-# that you've defined a table called `dmx` correctly. Pay attention to any warnings
-# that appear when you run this chunk. When the warning has gone away, that
-# means that the structure of `dmx` is correct (although it doesn't mean that
-# the values are correct!)
+# Don't change anything in this code chunk; it is just here to help you check  that you've defined a table called `dmx` correctly. Pay attention to any warnings  that appear when you run this chunk. When the warning has gone away, that  means that the structure of `dmx` is correct (although it doesn't mean that the values are correct!)
+
 if (!identical(names(dmx), names(dsetup)) || 
     !identical(dim(dmx), dim(dsetup))) {
   warning("If this warning appears in the output, you have not yet defined 'dmx' properly, and will lose points on the assessment. Check column names (including capitalization), column data types, and table structure.")
 }
 ```
 
-**Finished**
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
+Well done, you are finshed! Now you should go check your answers against the solutions which can be found at the end of this Chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
 
 See you in the next lab!
