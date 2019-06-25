@@ -8,3 +8,7 @@
   
 ```{block, type ="info"}
 ```
+
+%>%
+  kable_styling() %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")

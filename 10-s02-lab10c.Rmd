@@ -1,16 +1,12 @@
 ## InClass Activity
 
-**Correlations**
-
-
-
-**Let's Begin!**
-
-To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.
+We are going to jump straight into this one! To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.
 
 <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_01/inclass/Sem2Lab1_InClassData.zip" target = "_blank">Click here to download the data for today</a> or download it from Moodle.
 
-**Task 1:** After downloading the data folder, unzip the folder, set your working directory appropriately, open a new script, and load in the Miller and Haden data (`MillerHadenData.csv`), storing it in a tibble called `mh`. 
+### Task 1 - The Data {#Ch10InClassQueT1}
+
+After downloading the data folder, unzip the folder, set your working directory appropriately, open a new script, and load in the Miller and Haden data (`MillerHadenData.csv`), storing it in a tibble called `mh`. 
 
 * **Note 1:** Remember that in reality you could store the data under any name you like but to make it easier for a demonstrator to debug with you it is handy if we all use the same names.
 * **Note 2:** You will find that the instructions for tasks are sparse this semester as we want you to really push the skills you learnt in Semester 1. Don't worry though, we are always here to help, so if you get stuck, ask!
@@ -22,7 +18,7 @@ To get you used to running a correlation we will use the examples in **Miller an
 * Remember that we will always ask you to use read_csv() to load in data.
 ```
 `r unhide()`  
-
+<br>
 Let's look at your data - we showed you a number of ways to do this in Semester 1. As in Miller and Haden, we have 5 columns: 
 
 * the particpant (`Participant`), 
@@ -42,8 +38,13 @@ A probable hypothesis for today could be that as Reading Ability increases so do
 
 We will look at these in turn.
 
-### Assumption 1: Level of Measurement
-**Task 2:** If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and answering the following the question.
+**Assumption 1: Level of Measurement**
+
+### Task 2 - Interval or Ordinal {#Ch10InClassQueT2}
+
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
+
+If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and answering the following the question.
 
 * **Check your thinking:** the type of data in this analysis is most probably `r mcq(c("ratio", answer = "interval", answer = "ordinal", "nominal"))` as the data is `r mcq(c(answer = "continuous","discrete"))` and there is unlikely to be a true zero
 
@@ -53,11 +54,14 @@ We will look at these in turn.
 * is the difference between 1 and 2 on the scale equal to the difference between 2 and 3?
 ```
 `r unhide()`  
+<br>
+**Assumption 2: Pairs of Data**
 
-### Assumption 2: Pairs of Data
 All correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can't correlate against an empty cell! So now go check that you have a data point in both columns for each participant. After that, try answering the question in Task 3  
 
-**Task 3:** So it looks like that everyone has data in all the columns but let's test our skills a little whilst we are here.  Answer the following questions:
+### Task 3 - Missing Data {#Ch10InClassQueT3}
+
+It looks like that everyone has data in all the columns but let's test our skills a little whilst we are here.  Answer the following questions:
 
 1. How is missing data represented in a tibble? `r mcq(c("an empty cell", answer = "NA","a large number", "don't know"))`
 2. Which code would leave you with just the participants who were missing Reading Ability data in mh: 
@@ -69,11 +73,14 @@ All correlations must have a data point for each participant in the two variable
 * filter(dat, is.na(variable)) versus filter(dat, !is.na(variable))
 ```
 `r unhide()`  
+<br>
+**Assumption 3: The shape of my data**
 
-### Assumption 3: The shape of my data
 The remaining assumptions are all best checked through visualisations. You could use histograms to check that the data (Abil and IQ) are both normally distributed, and you could use a scatterplot (scattergrams) of IQ as a function of Abil to check whether the relationship is linear, with homoscedasticity, and without outliers! You could also use z-scores to check for outliers with the cut-off usually being set at around $\pm2.5SD$, and you can check this in your free time using a mutate function (e.g. `mutate(z = (X - mean(X))/SD(X))`), but today we will just use visual checks.
 
-**Task 4:** Create the following figures and discuss the outputs with your group: 
+### Task 4 - Normality {#Ch10InClassQueT4}
+
+Create the following figures and discuss the outputs with your group: 
 
 * A histogram for Ability and a histogram for IQ. 
     - Are they both normally distributed? 
@@ -91,12 +98,16 @@ The remaining assumptions are all best checked through visualisations. You could
 * Remember these are all judgement calls.
 ```
 `r unhide()`  
+<br>
+**Descriptives of a correlation**
 
-### Descriptives of a correlation
+A key thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis 
+ 
+### Task 5 - Descriptives {#Ch10InClassQueT5}
 
-The main thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis 
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
-**Task 5:** In your groups, looking at the scatterplot you created in Task 4, spend a couple of minutes discussing and describing the relationship between Ability and IQ in terms of your hypothesis. Remember this is a descriptive analysis at this stage, so nothing is confirmed. Does the relationship appear to be as we predicted in our hypothesis?
+Looking at the scatterplot you created in Task 4, spend a couple of minutes discussing and describing the relationship between Ability and IQ in terms of your hypothesis. Remember this is a descriptive analysis at this stage, so nothing is confirmed. Does the relationship appear to be as we predicted in our hypothesis?
 
 `r hide("Hints on discussing descriptives")`
 ```{block, type ="info"}
@@ -106,8 +117,8 @@ The main thing to keep in mind is that the scatterplot is actually the descripti
 * Hint 4: Can you say something about both the strength (weak, medium, strong) and the direction (positive, negative).
 ```
 `r unhide()`  
-
-### The correlation itself
+<br>
+**The correlation**
 
 Finally we will run the correlation using the `cor.test()` function.  Remember that for help on any function you can type `?cor.test` in the console window.  The `cor.test()` function requires:
 
@@ -121,9 +132,12 @@ For example, if your data is stored in `dat` and you are wanting a two-sided pea
 ```
 cor.test(dat$X, dat$Y, method = "pearson", alternative = "two.sided")
 ```
+
 * where `dat$X` means the column `X` in the tibble `dat`.  The dollar sign (`$`) is a way of indexing, or calling out, a specific column. 
 
-**Task 6:** Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called `results` (hint: `broom::tidy()`).
+### Task 6 - Pearson or Spearman {#Ch10InClassQueT6}
+
+Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called `results` (hint: `broom::tidy()`).
 
 `r hide("Hints to correlation")`
 ```{block, type ="info"}
@@ -131,12 +145,14 @@ cor.test(dat$X, dat$Y, method = "pearson", alternative = "two.sided")
 * Hint 2: results <- cor.test(mh$Abil......, method = ....., alternative....) %>% tidy()
 ```
 `r unhide()`  
-
-### Interpreting the Correlation 
+<br>
+**Interpreting the Correlation**
 
 You should now have a tibble called `results` that gives you the output of the correlation between Reading Ability and IQ for the school children measured in Miller and Haden (2013) Chapter 11. All that is left to do now, is interpret the output of the correlation. 
 
-**Task 7:** Look at `results`. Locate your correlation value, e.g. `results %>% pull(estimate)` and then with your group, answer the following questions:
+### Task 7 - Interpretation {#Ch10InClassQueT7}
+
+Look at `results`. Locate your correlation value, e.g. `results %>% pull(estimate)` and then with your group, answer the following questions:
 
 * The direction of the relationship between Ability and IQ is: `r mcq(c(answer = "positive", "negative","no relationship"))`
 * The strength of the relationship between Ability and IQ is: `r mcq(c("strong", answer = "medium", "weak"))`
@@ -151,8 +167,8 @@ You should now have a tibble called `results` that gives you the output of the c
 * Hint4: Hypotheses can only be supported or not supported, never proven.
 ```
 `r unhide()`  
-
-### In summary
+<br>
+**Recap so far**
 
 Great, so far we have set a hypothesis for a correlation, checked the assumptions, run the correlation and interpreted it appropriately. So as you can see running the correlation is the easy bit. As in a lot of analyses it is getting your data in order, checking assumptions, and interpreting your output that is the hard part. 
 
@@ -164,14 +180,13 @@ Above we ran one correlation and if we wanted to do a different correlation then
 
 First, we need to get rid of the Participant column as we don't want to correlate that with anything. It won't tell us anything. Copy and run the below line of code
 
-```{r, message = FALSE, warning = FALSE}
+```{r ch10-advance-load-hide, message = FALSE, warning = FALSE}
 library("Hmisc")
 library("tidyverse")
 mh <- read_csv("data/10-s02/inclass/MillerHadenData.csv") %>% select(-Participant)
 ```
 
-
-```{r, message = FALSE, warning = FALSE, eval = FALSE}
+```{r ch10-advance-load-show, message = FALSE, warning = FALSE, eval = FALSE}
 library("Hmisc")
 library("tidyverse")
 mh <- read_csv("MillerHadenData.csv") %>% select(-Participant)
@@ -179,18 +194,20 @@ mh <- read_csv("MillerHadenData.csv") %>% select(-Participant)
 
 Now run the following line. The `pairs()` function from the `Hmisc` library creates a matrix of scatterplots which you can then use to view all the relationships at the one time.
 
-```{r}
+```{r ch10-advance-pairs, fig.cap='Matrix of Correlation plots of Miller and Haden (2013) data'}
 pairs(mh)
 ```
 
 And the `rcorr()` function creates a matrix of correlations and p-values. But watch out, it only accepts the data in matrix format. Run the following two lines of code.
 
-```{r}
+```{r ch10-advance-matrix}
 mh_mx = as.matrix(mh, type = "pearson")
 rcorr(mh_mx)
 ```
 
-**Task 8:** After running the above lines, spend a few minutes answering the following questions with your group. The solutions are at the bottom of the page. The first table outputted is the correlation values and the second table is the p-values.
+### Task 8 - The Matrix {#Ch10InClassQueT8}
+
+After running the above lines, spend a few minutes answering the following questions with your group. The solutions are at the end of the chapter. The first table outputted is the correlation values and the second table is the p-values.
 
 1. Why do the tables look symmetrical around a blank diagonal?
 2. What is the strongest positive correlation?
@@ -198,7 +215,7 @@ rcorr(mh_mx)
 
 `r hide("Hints to Matrix of correlations")`
 ```{block, type ="info"}
-* Hint1: There is no hint, this is just a cheeky test to make sure you have read the correlation chapter in Miller and Haden, like we asked you to! :-)  If you are unsure of these answers, the solutions are at the bottom.
+* Hint1: There is no hint, this is just a cheeky test to make sure you have read the correlation chapter in Miller and Haden, like we asked you to! :-)  If you are unsure of these answers, the solutions are at the end of the chapter.
 ```
 `r unhide()`  
 
@@ -213,7 +230,9 @@ The IAT works on the principal that associations that go together (that are cong
 
 For today, you need to know that "Block 3" in the experiment tested reaction times and accuracy towards congruent associations, pairing positive words with Kitchen utensils and negative words with Vaping. "Block 5" in the experiment tested reaction times and accuracy towards incongruent associations, pairing positive words with Vaping and negative words with Kitchen Utensils. As such, if reaction times were longer in Block 5 than in Block 3 then people are considered to hold the view that Vaping is negative (i.e. congruent associations are quicker than incongruent associations). However, if reaction times were shorter in Block 5 than in Block 3 then people are considered to hold the view that Vaping is positive (i.e. incongruent associations were quicker than congruent associations). The difference between reaction times in Block5 and Block3 is called the participants IAT score.
 
-**Task 9**. Load in the data in `VapingData.csv` and analyse it to test the hypothesis that Implicit and Explicit attitudes towards Vaping are positively related. Here are some pointers, hints and tips.
+### Task 9 - Attitudes to Vaping {#Ch10InClassQueT9}
+
+Load in the data in `VapingData.csv` and analyse it to test the hypothesis that Implicit and Explicit attitudes towards Vaping are positively related. Here are some pointers, hints and tips.
 
 1. Start of by looking at the data.  You have 8 columns. Reaction times and Accuracy scores for blocks 3 and 5. The Explicit Vaping Questionnaire Scores. Sex and Age.
 2. Accuracy is as a proportion and as such can't go above 1. Participants entered their own data so some might have made a mistake. Get rid of everybody who had an accuracy greater than 1 in either block 3 or block 5.
@@ -236,7 +255,7 @@ For today, you need to know that "Block 3" in the experiment tested reaction tim
 * Hint Step 7: results <- cor.test(method = "pearson")?
 ```
 `r unhide()`  
-
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
 Excellent work, who would have thought that about Explicit and Implicit attitudes towards Vaping!!! 
