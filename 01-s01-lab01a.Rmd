@@ -21,8 +21,9 @@ R Markdown (abbreviated as Rmd) is a great way to create dynamic documents throu
 
 `r hide("Explain This - We Knit what?")`
 ```{block, type = "info"}
-Throughout the labs you will see little tabs that give more information, answers to quick questoins, helpful hints, solutions to tasks, or suggestions for information you want to note down somewhere. You do not have to read them all and you will find they get less as the course progresses, but they might help you if you are stuck on something.    
-Knit is what we say when we want to turn our R Markdown file into either a webpage, PDF, or a Word document. Often in the labs you will hear someone say, "Have you tried knitting it?" or "What happens when you knit it?". This simply means what happens when you try turning your file into a pdf or webpage.")
+Throughout the labs you will see little tabs that give more information, answers to quick questions, helpful hints, solutions to tasks, or suggestions for information you want to note down somewhere. You do not have to read them all and you will find they get less as the course progresses, but they might help you if you are stuck on something.
+
+Knit is what we say when we want to compile our R Markdown file into either a webpage, PDF, or a Word document. Often in the labs you will hear someone say, "Have you tried knitting it?" or "What happens when you knit it?". This simply means what happens when you try turning your file into a pdf or webpage.")
 ```
 `r unhide()`  
 
@@ -34,7 +35,7 @@ Knit is what we say when we want to turn our R Markdown file into either a webpa
 
 3. Including the R code directly lets others see how you did your analysis - this is a good thing for science! It is both Reproducible and Open!  
 
-4. You write your report in normal text so it's not necessary that you learn any new coding such as HTML.  
+4. You write your report in plain text, a non-proprietary format that is easy to share, and it's not necessary to learn any new coding syntax such as HTML.  
 
 ### Creating an R Markdown (.Rmd) File
 
