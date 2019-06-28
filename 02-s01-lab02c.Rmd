@@ -27,24 +27,32 @@ In terms of remembering all the functions, the truth is you don't have to know t
 
 In the style of programming we teach the most efficient format/layout of data is what is known as `Tidy Data`, and any data in this format is easily processed through the `tidyverse` package. However, the data you work with will not always be formatted in the most efficient way possible. If that happens then our first step is to put it into `Tidy Data` format. There are three fundamental rules defining `Tidy Data`:
 
-1. Each variable must have its own column.
-2. Each observation must have its own row.
-3. Each value must have its own cell (i.e. no grouping two variables together, e.g. time/date in one cell). 
-    i) A cell is where any specific row and column meet; a single data point in a tibble is a cell. 
+<!--
+This gets the third rule wrong. I have fixed it.
+-->
+
+1. Each variable forms a column.
+2. Each observation forms a row.
+3. Each type of observation unit forms a table. 
 
 `r hide("Explain this - If it isnt Tidy then what is it?")`
 ```{block, type ="info"}
 We use `Tidy Data` because it is really efficient and works well with the `tidyverse`. However, people used to use data structured in `long` format or `wide` format. 
     
-Long format is where each **row** is a participant from any given condition of your experiment and you would have a column saying what condition that participant was in and another column showing that participants score. 
+Long format is where each **row** is a single observation, typically a single trial in an experiment or a response to a single item on a questionnaire. When you have multiple trials per participant, you will have multiple rows for the same participant. To identify participants, you would need a variable with some kind of participant id, which can be as simple as a distinct integer value for each participant. In addition to the participant identifier, you would have any measurements taken during each observation (e.g., response time) and what experimental condition the observation was taken under.
 
-Wide format on the other hand, again each row was a participant, but each column was a condition, so each participant would be spread across multiple columns.  
+In wide format data, each **row** corresponds to a single participant, with multiple observations for that participant spread across columns. So for instance, with survey data, you would have a separate column for each survey question.
 
-`Tidy` is a mix of both of these approachs and works best for data-wrangling.")
+Most functions in the tidyverse assume long format data, so typically the first thing you need to do when you get wide-format data is to reshape it to long using `gather()`.
 ```
 `r unhide()`
 
 **Today's Lab - Analysing the Autism Specturm Quotient (AQ)**
+
+<!--
+TODO:
+link to level 1 lab
+-->
 
 To continue building your data wrangling skills we will recap the L11 lab on tidying up data from the Autism Spectrum Quotient (AQ) questionnaire. In that lab we used the AQ10; a non-diagnostic short form of the AQ with only 10 questions per participant. It is a discrete scale and the higher a participant scores on the AQ10 the more autistic-like traits they are said to display. Anyone scoring 7 or above is recommended for further diagnosis. You can see an example of the AQ10 through this link: <a href="http://docs.autismresearchcentre.com/tests/AQ10.pdf">AQ10 Example</a>. Remember you can revisit your Level 1 notes at any time but we will recap here for you. 
 
@@ -58,11 +66,11 @@ We have four data files to work with:
 * `pinfo.csv` containing participant information such as Age, Sex and importantly `ID` number.  
 
 
-**[Click here to download](data/02-s01/inclass/AQ_Analysis_Files.zip)** the files as a zip file. Alternatively download them from the Lab2 Moodle tab. Now unzip the files into a folder on your `M:` drive. We will use zip folders a lot so if this is something you struggle with please ask.
+[Click here to download](data/02-s01/inclass/AQ_Analysis_Files.zip) the files as a zip file. Alternatively download them from the Lab2 Moodle tab. Now unzip the files into a folder on your `M:` drive. We will use zip folders a lot so if this is something you struggle with please ask.
 
 `r hide("Portfolio Point - Open Data is best in csv format")`
 ```{block, type ="info"}
-`csv` stands for 'comma separated variable', and is a very basic way of transferring data. It really just stores numbers and text and nothing else. The great thing about being this basic is that it can be read by many different machines and does not need expensive licenses to open it.
+`csv` stands for 'comma separated values', and is a very basic format for storing data in a plain text file. It really just stores numbers and text separated by commas and nothing else. The great thing about being this basic is that it can be read by many different machines and is non-proprietary, i.e., you don't need to purchase commercial software to open it.
 ```
 `r unhide()`
 
@@ -75,8 +83,8 @@ Today we will work in a Rscript instead of .Rmd but if you want to turn the lab 
 Now would be a good time to make sure that you are all using RStudio effectively and know what each window does. 
 
 * TRUE or FALSE, the Console is best for practice and the Script Window is for saving: `r torf(TRUE)`
-* TRUE or FALSE, the Environment holds all the data you have loaded in and created: `r torf(TRUE)`
-* TRUE or FALSE, clicking the name of a variable or data in the Environment window will open it in the Script window: `r torf(TRUE)`
+* TRUE or FALSE, the Environment holds all the data and objects you have loaded in and created: `r torf(TRUE)`
+* TRUE or FALSE, clicking the name of a table in the Environment window will open it in the Script window: `r torf(TRUE)`
 
 `r hide("Explain this - I don't get these answers")`
 ```{block, type ="info"}
@@ -86,7 +94,7 @@ The answer to all of these are True.
 
 2. Any data you load in or create is held in the Environment (or Global Environment) window with the variable name that you gave it.
 
-3. By clicking the name of the variable in the Environment window it will open up in the Script window and you can look at it to make sure it is what you expect.
+3. By clicking the name of the table in the Environment window it will open up in the Script window and you can look at it to make sure it is what you expect. This only works for tables but not for other types of data.
 ```
 `r unhide()`
 

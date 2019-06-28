@@ -10,7 +10,7 @@ Remember from your previous experience that nearly all data in research methods 
 
 |Type of Data     | Description                                                  |
 |:------------|:-------------------------------------------------------------| 
-|Numeric     | Numbers including decimals  |
+|Double      | Numbers including decimals  |
 |Integer     | Numbers without decimals  |
 |Character     | Tends to contain letters or be words                       |
 
@@ -18,21 +18,21 @@ Remember from your previous experience that nearly all data in research methods 
 
 What type of data would these most likely be:
 
-* Male = `r mcq(c(answer = "Character","Numeric","Integer"))`
+* Male = `r mcq(c(answer = "Character","Double","Integer"))`
 
-* 7.15 = `r mcq(c("Character",answer = "Numeric","Integer"))`
+* 7.15 = `r mcq(c("Character",answer = "Double","Integer"))`
 
-* 137 = `r mcq(c("Character","Numeric",answer = "Integer"))`
+* 137 = `r mcq(c("Character","Double",answer = "Integer"))`
 
 `r hide("Portfolio Point - Data types and levels of measurement")`
 ```{block, type ="info"}
-There is a lot of different types of data and as well as different types of levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of Characters just like you can't take the average of Categorical data. Likewise, you can do any maths on Numeric data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
+There is a lot of different types of data and as well as different types of levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of Characters just like you can't take the average of Categorical data. Likewise, you can do any maths on Numeric data, whether double or integer, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
 ```
 `r unhide()`
 
 ### Revisiting the Wickham Six
 
-The main way we teach data-wrangling skills is by using the Wickham Six verbs. These are part of the `tidyverse` package which we introduced to you in Level 1. We will look at some of the basics again here but keep in mind that to look back at last years' exercises to see how used these verbs. The Wickham Six are: 
+The main way we teach data-wrangling skills is by using the Wickham Six "one-table" dplyr verbs. These are part of the `tidyverse` package which we introduced to you in Level 1. We will look at some of the basics again here but keep in mind that to look back at last year's exercises to see how used these verbs. The Wickham Six are: 
 
 |Function     | Description                                                  |
 |:------------|:-------------------------------------------------------------| 
@@ -48,17 +48,33 @@ The main way we teach data-wrangling skills is by using the Wickham Six verbs. T
 
 Today we are going to be using data from this recent paper: [Is there a Chastity Belt on Perception](http://journals.sagepub.com/doi/abs/10.1177/0956797617730892). You can read the full paper if you like, particularly if you are thinking about doing the action-perception registered report option, but we will summarise the paper for you. The paper asks, **does your ability to perform an action influence your perception?** For instance, does your ability to hit a tennis ball influence how fast you perceive the ball to be moving? Or to phrase another way, do expert tennis players perceive the ball moving slower than novice tennis players?  This experiment does not use tennis players however, they used the Pong task: "a computerised game in which participants aim to block moving balls with various sizes of paddles". A bit like a very classic retro arcade game. Participants tend to estimate the balls as moving faster when they have to block it with a smaller paddle as opposed to when they have a bigger paddle. You can read the paper to get more details if you wish but hopefully that gives enough of an idea to help you understand the wrangling we will do on the data. We have cleaned up the data a little to start with. Let's begin!
 
-1. Download the data as a zip file from [this link](https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_02/prep/Level2_Lab2_PreclassData_Pong.zip) and save it to somewhere you have access. In the lab, use your `M:` drive.
+1. Download the data as a zip file from [this link](data/02-s01/preclass/Level2_Lab2_InclassData_Pong.zip) and save it somewhere you have access. In the lab, use your `M:` drive.
 
 2. Set your working directory to the same folder as the data. `Session >> Set Working Directory >> Choose Directory`
 
-3. Open a new script and copy and paste the two lines below. Here we are a) bringing the `tidyverse` into our library and then b) loading in the data through the `read_csv()` function and storing it in the tibble called `pong_data`.
+3. Open a new script and copy and paste the two lines below. Here we are a) loading the `tidyverse` from our package library into our session and then b) loading in the data through the `read_csv()` function and storing it in the tibble called `pong_data`.
 
 ``` {r libraries, eval = FALSE, message = FALSE, warning = FALSE}
 library("tidyverse")
-pong_data <- read_csv("PongBlueRedBack 1-16 Codebook.csv")
+pong_data <- read_csv("PongBlueRedBack 1-16 Codebook.csv",
+                      col_types = "iiiiicii")
 ``` 
-  
+
+<!-- one issue here is that read_csv() defaults to loading in numeric columns
+     as type 'double', so the data types in the table are not accurate.
+     I suggest changing read_csv() to use the col_types argument 
+     (as I have done above). -DJB -->
+
+Note that we have specified the `col_types` argument as `"iiiiicii"`. The `col_types` argument allows you to control the data type for each variable. If you don't specify this argument, the default is for `read_csv()` to guess, and when it sees numbers in a column, it will default to treating it as type `double`.
+
+What does the `"iiiiicii"` string do? Well, we know that there are 8 different columns in the csv file, and we have 8 characters in the string `"iiiiicii"`; each letter in this string tells `read_csv()` the data type for each of these columns. The string has five "i"s followed by one "c" followed by two more "i"s, which tells `read_csv()` to treat the first five columns as type `integer` (i), the sixth column as type `character` (c), and the last two columns as type `integer`. (If we wanted a column to be read in as a double, we would use `"d"`.)
+
+```{r load-data-1, include = FALSE}
+library("tidyverse")
+pong_data <- read_csv("data/02-s01/preclass/PongBlueRedBack 1-16 Codebook.csv",
+                      col_types = "iiiiicii")
+```
+
 `r hide("Help my data is not loading?")`
 ```{block, type = "info"}
 The three most common mistakes we see are:
@@ -228,11 +244,15 @@ The vertical line `|` is the symbol for Or.
 
 The `mutate()` function lets us create a new variable in our dataset. For example, let's add a new column to `pong_data` in which the background color is converted into numeric form where `red` will become 1, and `blue` will become 2.
 
+<!-- 
+I am not a fan of overwriting a table. Can lead to confusion if lines are run in a jumbled order, as students often do. Also, it could feed into the false impression that students often have that functions such as mutate, filter, select etc. actually alter the original data rather than creating an altered copy of the dataset.
+-->
+
 ``` {r mutatedata, eval = FALSE}
-pong_data <- mutate(pong_data, 
-                    BackgroundColorNumeric = recode(BackgroundColor, 
-                                                    "red" = 1, 
-                                                    "blue" = 2))
+mutate(pong_data, 
+       BackgroundColorNumeric = recode(BackgroundColor, 
+                                       "red" = 1, 
+                                       "blue" = 2))
 ```
 
 The code here is is a bit complicated but:
@@ -244,16 +264,27 @@ The code here is is a bit complicated but:
 The `mutate()` function is also handy for making some calculations on or across columns in your data. For example, say you realise you made a mistake in your experiment where your participant numbers should be 1 higher for every participant, i.e. Participant 1 should actually be numbered as Participant 2, etc. You would do something like:
 
 ``` {r mutatedata2, eval = FALSE}
-pong_data <- mutate(pong_data, Participant = Participant + 1)
+mutate(pong_data, Participant = Participant + 1)
 ```
-Note here that you are giving the new column the same name as the old column `Participant`. What happens here is that you are **overwriting the old data with the new data**! So watch out, mutate can create a new column or overwrite an existing column, depending on what you tell it to do!  
+
+Note here that you are giving the new column the same name as the old column `Participant`. In the resulting table, the `Participant` column will have the new values which will differ from the values in the original `pong_data` table. While it may seem like you have overwritten these values, in reality you have created a copy of the table with altered values, but you have not lost anything: the original values are still there in `pong_data`. In general it is good practice not to overwrite `pong_data` with a new version of `pong_data`, but to store the altered table in a new object, e.g., `pong_data2`.
+
+<!--
+The below is only true and is something to "watch out" for if you name the resulting table the same as the original table. Otherwise there is no "overwriting", and if we bring this up, this will make students afraid to play around. So I have deleted it.
+-DJB
+-->
+
+<!--
+ What happens here is that you are **overwriting the old data with the new data**! So watch out, mutate can create a new column or overwrite an existing column, depending on what you tell it to do!  
+-->
 
 **Task 4: Mutating Variables**
 
 * You realise another mistake in that all your trial numbers are wrong. The first trial (trial number 1) was a practice so should be excluded. And your experiment actually started on trial 2. Tidy this up by:
 
 1. Creating a new variable and filtering out all trials with the number 1 (`TrialNumber` column) from `pong_data`, 
-2. and then use the `mutate()` function to recount all the remaining trial numbers, starting them at one again instead of two. Save it in `pong_data`.
+
+2. and then use the `mutate()` function to renumber all the remaining trial numbers, starting them at one again instead of two, and store the result as `pong_data2`.
 
 `r hide("Helpful Hint")`
 ```{block, type = "info"}
@@ -263,9 +294,17 @@ Step 1:
 
 Step 2: 
 
+You can only renumber the trials **for each participant** if you group the tibble by the values in `Participant` before applying the `mutate()` operation.
+
 * mutate(`TrialNumber` = TrialNumber minus 1)
 ```
 `r unhide()`  
+
+```{r hidden-block-1, include=FALSE}
+pong_data2 <- filter(pong_data, TrialNumber >= 2) %>%
+  mutate(TrialNumber = TrialNumber - 1L)
+```
+
 
 ### The **`group_by()`** Function - to group parts of data altogether {#Ch2PreClassQueT5}
 
@@ -273,13 +312,13 @@ The `group_by()` function groups the rows in a dataset according to a category y
 
 ``` {r groupeddata, eval = FALSE}
 # In this data we could group trials by `BackgroundColor`
-group_by(pong_data, BackgroundColor)
+group_by(pong_data2, BackgroundColor)
 
 # or by multiple criteria e.g. `HitOrMiss` and `BackgroundColor` 
-group_by(pong_data, HitOrMiss, BackgroundColor)
+group_by(pong_data2, HitOrMiss, BackgroundColor)
 ```
 
-Note that nothing actually appears to change in the data, unlike with the other functions, but a big operation has taken place. Look at the output in your console when you run `group_by(pong_data, BackgroundColor)`. At the top of the output notice that the 2nd line of the output tells us the grouping criteria and how many groups now exist: see the line `Groups: BackgroundColor [2]`: we grouped by `BackgroundColor` and there are `[2]` groups - one for red and one for blue.  
+Note that nothing actually appears to change in the data, unlike with the other functions, but a big operation has taken place. Look at the output in your console when you run `group_by(pong_data2, BackgroundColor)`. At the top of the output notice that the 2nd line of the output tells us the grouping criteria and how many groups now exist: see the line `Groups: BackgroundColor [2]`: we grouped by `BackgroundColor` and there are `[2]` groups - one for red and one for blue.  
 
 
 **Task 5: Grouping Data**
@@ -290,7 +329,7 @@ Note that nothing actually appears to change in the data, unlike with the other 
 ```{block, type = "info"}
 It is the same procedure as this but with different column names:
 
-`group_by(pong_data, HitOrMiss, BackgroundColor)`
+`group_by(pong_data2, HitOrMiss, BackgroundColor)`
 
 The number of groups should be between the sum of the number of background colors (red and blue) and the number of blocks (12).
 ```
@@ -303,25 +342,27 @@ The number of groups should be between the sum of the number of background color
 The `summarise()` function lets you calculate some descriptive statistics on your data. For example, say you want to know the number of hits there were for different paddle lengths, or number of hits there were when the background color was red or blue.
 
 ```{r datasummary, eval = FALSE}
-# First we group the data accordingly, storing it in `pong_data_group`
-pong_data_group <- group_by(pong_data, BackgroundColor, PaddleLength)
+# First we group the data accordingly, storing it in `pong_data2_group`
+pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
 
 # And then we summarise it, storing the answer in `total_hits`
-pong_data_hits <- summarise(pong_data_group, total_hits = sum(HitOrMiss))
+pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
 
 # And then for fun we can filter just the red, small paddle hits
-pong_data_hits_red_small <- filter(pong_data_hits, BackgroundColor == "red", PaddleLength == 50)
+pong_data2_hits_red_small <- filter(pong_data2_hits, BackgroundColor == "red", PaddleLength == 50)
 ```
 
 `summarise()` has a range of internal functions that make life really easy, e.g. `mean`, `sum`, `max`, `min`, etc. See the dplyr cheatsheets for more examples. 
 
 **Task 6: Summarising Data**
 
-* Run the first two lines of code in the box above to create `pong_data_hits` and then enter the number of hits made with the small paddle (50) and the red color background in this box: `r fitb("517")`
+* Run the first two lines of code in the box above to create `pong_data2_hits` and then enter the number of hits made with the small paddle (50) and the red color background in this box: `r fitb(pong_data2_hits_red_small %>% pull(total_hits))`
+
+<!-- answer you gave was incorrect (517 rather than 516) because the code you had that overwrote pong_data was not executed and practice trials were still being included. Better to generate answer dynamically -DJB -->
 
 **Note:**
 
-* The name of the column within `pong_data_hits` is `total_hits`; this is what you called it in the above code. You could have called it anything you wanted but always try to use something sensible.
+* The name of the column within `pong_data2_hits` is `total_hits`; this is what you called it in the above code. You could have called it anything you wanted but always try to use something sensible.
 
 * Make sure to call your variables something you (and anyone looking at your code) will understand and recognize later (i.e. not variable1, variable2, variable3. etc.), and avoid spaces (use_underscores_never_spaces). 
 
@@ -349,10 +390,10 @@ The `bind_rows()` function is useful if you want to combine two tibbles together
 
 ``` {r bindexample, eval = FALSE}
 # a tibble of ball speeds 1 and 2
-slow_ball<- filter(pong_data, BallSpeed < 3) 
+slow_ball <- filter(pong_data2, BallSpeed < 3) 
 
 # a tibble of ball speeds 6 and 7
-fast_ball <- filter(pong_data, BallSpeed >= 6) 
+fast_ball <- filter(pong_data2, BallSpeed >= 6) 
 
 # a combined tibble of extreme ball speeds
 extreme_balls <- bind_rows(slow_ball, fast_ball) 
@@ -361,7 +402,7 @@ extreme_balls <- bind_rows(slow_ball, fast_ball)
 Finally, the `count()` function is a shortcut that can sometimes be used to count up the number of rows you have for groups in your data, without having to use the `group_by()` and `summarise()` functions. For example, in Task 6 we combined `group_by()` and `summarise()` to calculate how many hits there were based on background color and paddle length. Alternatively we could have done:
 
 ``` {r countexample1, eval = FALSE}
-count(pong_data, BackgroundColor, PaddleLength, HitOrMiss)
+count(pong_data2, BackgroundColor, PaddleLength, HitOrMiss)
 ```
 
 The results are the same, just that in the `count()` version we get all the information, including misses, because we are just counting rows. In the `summarise()` method we only got hits because that was the effect of what we summed. So two different methods give similar answers - coding can be individualised and get the same result!
@@ -372,29 +413,29 @@ By now you'll have noticed that`tidyverse` functions generally take the followin
 
 ``` {r syntax, eval = FALSE}
 # function_name(dataset, arg1, arg2, ....)
-filter(pong_data, PaddleLength == "50", BallSpeed > 4)
+filter(pong_data2, PaddleLength == "50", BallSpeed > 4)
 
-group_by(pong_data, BallSpeed, Participant)
+group_by(pong_data2, BallSpeed, Participant)
 ```
 
-In the first example, we are filtering the whole `pong_data` dataset by a particular paddle length, then by particular speeds. In the second, we are grouping by `BallSpeed` and then by `Participant`. Note that the order of arguments is specific as it performs argument1 then argument2, etc. Changing the order of arguments may give a different output. So the order you work in is important, and this is called your **pipeline**. For example, here is one we used above to find how many hits there with the small paddle length and the red background.
+In the first example, we are filtering the whole `pong_data2` dataset by a particular paddle length, then by particular speeds. In the second, we are grouping by `BallSpeed` and then by `Participant`. Note that the order of arguments is specific as it performs argument1 then argument2, etc. Changing the order of arguments may give a different output. So the order you work in is important, and this is called your **pipeline**. For example, here is one we used above to find how many hits there with the small paddle length and the red background.
 
 ```{r datasummary-nopipe, eval = FALSE}
-# First we group the data accordingly, storing it in `pong_data_group`
-pong_data_group <- group_by(pong_data, BackgroundColor, PaddleLength)
+# First we group the data accordingly, storing it in `pong_data2_group`
+pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
 
 # And then we summarise it, storing the answer in `total_hits`
-pong_data_hits <- summarise(pong_data_group, total_hits = sum(HitOrMiss))
+pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
 
 # And filter just the red, small paddle hits
-pong_data_hits_red_small <- filter(pong_data_hits, BackgroundColor == "red", PaddleLength == 50)
+pong_data2_hits_red_small <- filter(pong_data2_hits, BackgroundColor == "red", PaddleLength == 50)
 ```
 
 Pipelines allow us to quickly, accurately, and reproducibly, perform an action that would take much longer manually. However we can make our code even more efficient, using less code, by stringing our sequence of functions together using '**pipes**', written as `%>%`. This would look like:
 
 ```{r datasummary-pipes, eval = FALSE}
 # Same pipeline using pipes
-pong_data_hits_red_small <- pong_data %>% 
+pong_data2_hits_red_small <- pong_data2 %>% 
   group_by(BackgroundColor, PaddleLength) %>% 
   summarise(total_hits = sum(HitOrMiss)) %>%
   filter(BackgroundColor == "red", PaddleLength == 50)
@@ -418,12 +459,12 @@ One last point on pipes is that they can be written in a single line of code but
 
 ``` {r pipes3, eval = FALSE}
 # Piped version that wont work 
-data_arrange <- pong_data 
+data_arrange <- pong_data2 
                 %>% filter(PaddleLength == "50")
                 %>% arrange(BallSpeed) 
 
 # Piped version that will work 
-data_arrange <- pong_data %>%
+data_arrange <- pong_data2 %>%
                 filter(PaddleLength == "50") %>%
                 arrange(BallSpeed) 
 ```
