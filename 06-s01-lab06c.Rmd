@@ -29,11 +29,11 @@ For this lab we will be revisiting the data from Schroeder and Epley (2015), whi
 
 Schroeder, J. and Epley, N. (2015). <a href = "https://doi.org/10.1177/0956797615572906" target = "_blank">The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal.</a> *Psychological Science, 26, 277--891*.
 
-The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the <a href = "https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Open Stats Lab</a>:
+The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the <a href = "https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Open Stats Lab</a>):
 
 "**A person's mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person's intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates' pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favorable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one's intellect, it is important that one's voice, quite literally, be heard.**"
 
-To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in **wide** format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in "tidy" format which can be <a href = "https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/inclass/Lab6_data.zip" target = "_blank">downloaded from here</a> or from Moodle. Likewise, if you are unsure about tidy format, refer back to the inclass activity of Lab 2.
+To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in **wide** format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in "tidy" format which can be [downloaded from here](data/06-s01/inclass/Lab6_data1.zip) or from Moodle. Likewise, if you are unsure about tidy format, refer back to the inclass activity of Lab 2.
 
 **Today's Goal!**
 
@@ -61,17 +61,35 @@ If you are using the Boyd Orr labs, `broom` is already installed and just needs 
 ```
 `r unhide()`  
 <br>
+
 ```{r ch6-task1-dataload, include = FALSE}
 library("tidyverse")
 library("broom") # you'll need broom::tidy() later
 
 evaluators <- read_csv("data/06-s01/inclass/evaluators.csv")
 
-evaluators %>%
-  summarize(mean_age = mean(age, na.rm = TRUE))
+agg <- evaluators %>%
+  summarize(mean_age = mean(age, na.rm = TRUE),
+            sd = sd(age, na.rm = TRUE))
 
-evaluators %>%
+m_age <- agg %>%
+  pull(mean_age) %>%
+  webex::round2(1)
+
+m_sd <- agg %>%
+  pull(sd) %>%
+  webex::round2(2)
+
+counts <- evaluators %>%
   count(sex)
+
+women <- counts %>%
+  filter(near(sex, 2)) %>%
+  pull(n)
+
+men <- counts %>%
+  filter(near(sex, 1)) %>%
+  pull(n)
 
 # If using `recode()`:
 evaluators %>%
@@ -84,10 +102,15 @@ evaluators %>%
 
 From your results:
 
-* What was the mean age of the evaluators in the study? Type in your answer to one decimal place: `r fitb("30.9")`
-* What was the standard deviation of the age of the evaluators in the study? Type in your answer to two decimal place: `r fitb("6.24")`
-* How many participants were noted as being female: `r fitb("30")`
-* How many participants were noted as being male: `r fitb("4")`
+<!--
+make the values dynamic in case the underlying data changes
+-DJB
+-->
+
+* What was the mean age of the evaluators in the study? Type in your answer to one decimal place: `r fitb(m_age)`
+* What was the standard deviation of the age of the evaluators in the study? Type in your answer to two decimal places: `r fitb(m_sd)`
+* How many participants were noted as being female: `r fitb(women)`
+* How many participants were noted as being male: `r fitb(men)`
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
@@ -314,7 +337,36 @@ impression <- filter(ratings2, Category == "impression")
 impression_t <- t.test(impression %>% filter(condition == "listened") %>% pull(Rating),
                       impression %>% filter(condition == "read") %>% pull(Rating),
                       var.equal = TRUE) %>% tidy()
-results <- bind_rows(intellect_t, hire_t, impression_t)
+results <- bind_rows(intellect_t %>% mutate(Category = "intellect"), 
+                     hire_t %>% mutate(Category = "hire"),
+                     impression_t %>% mutate(Category = "impression")) %>%
+  select(Category, everything())
+
+.hire_e1 <- results %>% filter(Category == "hire") %>%
+  pull(estimate1) %>% webex::round2(2)
+.hire_e2 <- results %>% filter(Category == "hire") %>% 
+  pull(estimate2) %>% webex::round2(2)
+.hire_df <- results %>% filter(Category == "hire") %>%
+  pull(parameter)
+.hire_t <- results %>% filter(Category == "hire") %>%
+  pull(statistic) %>%
+  webex::round2(2)
+.hire_p <- results %>% filter(Category == "hire") %>%
+  pull(p.value) %>%
+  webex::round2(3)
+
+.imp_e1 <- results %>% filter(Category == "impression") %>%
+  pull(estimate1) %>% webex::round2(2)
+.imp_e2 <- results %>% filter(Category == "impression") %>% 
+  pull(estimate2) %>% webex::round2(2)
+.imp_df <- results %>% filter(Category == "impression") %>%
+  pull(parameter)
+.imp_t <- results %>% filter(Category == "impression") %>%
+  pull(statistic) %>%
+  webex::round2(2)
+.imp_p <- results %>% filter(Category == "impression") %>%
+  pull(p.value) %>%
+  webex::round2(3)
 ```
 
 ```{r lab6-task4-table2, echo = FALSE, results = 'asis'}
@@ -327,22 +379,25 @@ knitr::kable(results,
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span> 
 
-* Were your results for `hire` significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):
+* Check your results for `hire`. Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):
 
-    + Mean `estimate1` (listened condition) = `r fitb("4.71")`  
+    + Mean `estimate1` (listened condition) = `r fitb(.hire_e1)`  
     
-    + Mean `estimate2` (read condition) = `r fitb("2.89")`  
+    + Mean `estimate2` (read condition) = `r fitb(.hire_e2)`  
     
-    + t(`r fitb("37")`) = `r fitb("2.62")`, p = `r fitb(c("0.013",".013"))`  
+    + t(`r fitb(.hire_df)`) = `r fitb(.hire_t)`, p = `r fitb(.hire_p, num = TRUE)`
     
+    + Is this significant with $\alpha = .05$? `r torf(.hire_p < .05)`
 
-* Were your results for `impression` significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):
+* Check your results for `impression`. Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):
 
-    + Mean`estimate1` (listened condition) = `r fitb("5.97")`  
+    + Mean`estimate1` (listened condition) = `r fitb(.imp_e1)`  
     
-    + Mean `estimate2` (read condition) = `r fitb("4.07")`  
+    + Mean `estimate2` (read condition) = `r fitb(.imp_e2)`  
     
-    + t(`r fitb("37")`) = `r fitb("2.85")`, p = `r fitb(c("0.007",".007"))` 
+    + t(`r fitb(.imp_df)`) = `r fitb(.imp_t)`, p = `r fitb(.imp_p, num = TRUE)` 
+    
+    + Is this result significant with $\alpha = .05$? `r torf(.imp_p < .05)`
     
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
