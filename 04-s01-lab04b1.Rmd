@@ -4,7 +4,7 @@
 
 Today we will being by recapping the concepts of probability calculations from Level 1, looking at discrete distributions. If you are unsure about discrete vs continuous you should try the other quick tutorial on it, to be found on Moodle. At the end of this section there are three Quickfire Questions to test your understanding. Any that you aren't clear on bring them to class next week for discussion.
 
-Probability is the extent to which an event is likely to occur and is represented by a number between 0 and 1, and the letter **p**. For example, the probability of flipping a coin and it landing on 'tails', most people would say, is estimated at **p = .5**, i.e. the likelihood of getting tails is $p = \frac {1}{2}\ $ as there is one desired outcome (tails) and two possibilities (heads or tails).  
+When talking about probability, we often are interested in the probability of an event occurring. The probability of an event is represented by a number between 0 and 1, and the letter **p**. For example, the probability of flipping a coin and it landing on 'tails', most people would say, is estimated at **p = .5**, i.e. the likelihood of getting tails is $p = \frac {1}{2}\ $ as there is one desired outcome (tails) and two possibilities (heads or tails).  
 <br>
 Calculating the probability  of any discrete event occuring can be formulated as:
 
@@ -16,9 +16,17 @@ $$p = \frac{number \  of  \ ways \ the \ event \ could \  arise}{number \ of \ p
 
 **2.** Likewise, the probability of drawing **either** a ten of clubs or a seven of diamonds as the the first card that you draw would be 2 in 52: $p = \frac {2}{52} \ = .038$. In this case you are adding to the chance of an event occurring by giving two possible outcomes, so it becomes **more likely** to happen than when you only had one outcome.  
 
-**3.** Now say you have two standard packs of cards **mixed** together. The probability of drawing the 10 of clubs from this mixed pack would be 2 in 104: $p = \frac{2}{104}= .019$. Two possible outcomes **but more alternatives** than above, 104 this time, meaning it is **less likely**.
+**3.** Now say you have two standard packs of cards **mixed** together. The probability of drawing the 10 of clubs from this mixed pack would be 2 in 104: $p = \frac{2}{104}= .019$. Two possible outcomes **but more alternatives** than above, 104 this time.
 
-**4.** Let's instead say you have two **separate** packs of cards. The probability of drawing the 10 of clubs from **both** packs would be: $p = \frac{1}{52} \times \frac{1}{52}= .0004$. The probability has gone down again because you have created an event that is **even more unlikely** to happen - this is called the `cumulative probability` - multiplying the two individual probabilities of **separate events** to find the combined or cumulative probability. 
+<!-- 
+above point said it was "less likely" but the probability is actually the same as in #1
+-->
+
+**4.** Let's instead say you have two **separate** packs of cards. The probability of drawing the 10 of clubs from **both** packs would be: $p = \frac{1}{52} \times \frac{1}{52}= .0004$. The probability has gone down again because you have created an event that is **even more unlikely** to happen - this is called the `joint probability` - multiplying the two individual probabilities of **two independent, mutually exclusive events** to find the joint probability. 
+
+<!--
+Cumulative probability != joint probability
+-->
 
 **5.** What about the probability of drawing the 10 of clubs from a pack of 52, putting it back (i.e. **replacement**), and subsequently drawing the 7 of diamonds? Again, this would be represented by multiplying together the probability of each of these events happening to obtain the `cumulative probability`: $p = \frac{1}{52} \times \frac{1}{52}= .0004$.
 
@@ -99,7 +107,7 @@ The ouptut of this line changes every time we run the code as we are randomly sa
 
 `r hide("Portfolio Point - What's a sampling distribution?")`
 ```{block, type ="info"}
-A sampling distribution shows you the probability of each possible outcome; e.g. the probability of 5 heads in 10 flips, or the probability of 4 heads in 10 flips, or the probability of X heads in 10 flips of the coin.  
+A sampling distribution shows you the probability of drawing samples with certain characteristics; e.g. the probability of 5 heads in 10 flips, or the probability of 4 heads in 10 flips, or the probability of X heads in 10 flips of the coin.  
 ```
 `r unhide()`  
 <br>
@@ -311,21 +319,44 @@ However, if you say give me the probability of 7 or more heads, then you need to
 `r unhide()`
 <br>
 
-### **`qbinom`** - The Quartile Function
+### **`qbinom`** - The Quantile Function
 
-Finally, the `qbinom` function is useful if you want to know the minimum number of successes ('heads') that would be needed to achieve a particular probability. This time the cut-off we specify is not the number of 'heads' we want but the **probability** we want. For example say we want to know the minimum number of 'heads' out of 10 flips that would result in a 5% heads success rate (a probability of .05), we would use the following code.  
+<!--
+This section is confusing. I have tried to clarify. -DJB
+-->
+
+The `qbinom()` function is the **inverse** of the `pbinom()` function. Whereas with `pbinom()` you supply an outcome value `x` and get a tail probability, with `qbinom()` you supply a tail probability and get the outcome value that (approximately) cuts off that tail probability. It is approximate with a discrete distribution because of the "jumps" in probability between the discrete outcomes.
+
+Let's see how these functions are inverses of one another:
+
+```{r inv-1-pbinom}
+p1 <- pbinom(49, 100, .5) # probability of 0 to 49 heads in 100 coin flips
+p1
+
+qbinom(p1, 100, .5) # gives us the value of 'x' that cuts off a probability of p1
+```
+
+For example, if we want to know what value cuts off a lower tail probability of .05, we would use the following code.
 
 ``` {r binom_distrib5}
 qbinom(.05, 10, 0.5) 
 ```
 
-As you can see we would need at least 2 Heads in 10 flips to maintain a probability of .05. 
+Because we are dealing with the lower tail, this is telling us for a lower tail probability of .05, we would expect at most 2 heads in 10 flips.  However, it is important to note that for a discrete distribution, this value is not exact. We can see this by:
+
+```{r pbinom-inexact}
+pbinom(2, 10, .5)
+```
+
+which is not exactly .05. This is because `x` is discrete, and so `qbinom()` gives us the closest category to the boundary.
 
 `r hide("Portfolio Point - I don't understand qbinom arguments")`
 ```{block, type ="info"}
 We found a lot of students asking about `qbinom` and how it works when you are inputting two different probabilities as the arguments for `qbinom`. Let us try and make things clearer. 
 
-The function is set up as `qbinom(p, size, prob)`. First of all, you have used `prob` in the previous two functions, `dbinom` and `pbinom`, and it represents the probability of success on a single trial (here it is the probability of 'heads' in one coin flip, .5). Now, `prob` represents the probability of success in **one** trial, whereas `p` represents the overall probability of success **across all trials** and gives you the number of heads that would give that probability. So you ask it for the minimum number of successes (e.g. heads) to maintain an overall probability of .05, in 10 flips, when the probability of a success on any one flip is .5. And it tells you the answer is 2.
+First, it is useful to remember that it is the inverse of `pbinom()`: `pbinom()` gives you a tail probability associated with `x`, and `qbinom()` gives you the closest `x` that cuts off the specified tail probability.
+
+The function is set up as `qbinom(p, size, prob)`. First of all, you have used `prob` in the previous two functions, `dbinom` and `pbinom`, and it represents the probability of success on a single trial (here it is the probability of 'heads' in one coin flip, .5). Now, `prob` represents the probability of success in **one** trial, whereas `p` represents the tail probability you desire. The function gives you the value of `x` that would yield that probability. So you give `qbinom()` a tail probability of .05, in 10 flips, when the probability of a success on any one flip is .5. And it tells you the answer is 2, meaning that getting at most 2 flips on 10 trials has a probability of roughly .05.
 
 `qbinom` also uses the `lower.tail` argument and it works in a similar fashion to `pbinom`.
 ```
@@ -333,7 +364,7 @@ The function is set up as `qbinom(p, size, prob)`. First of all, you have used `
 <br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-* Type in the box, the number of heads required to maintain an overall probability rate of 10% (.1) in 17 flips: `r fitb("6", ignore_ws = TRUE)`
+* Type in the box, the maximum number of heads associated with a tail probability of 10% (.1) in 17 flips: `r fitb("6", ignore_ws = TRUE)`
 
 `r hide("Explain This - I can't get the answer")`
 ```{block, type ="info"}
@@ -341,11 +372,16 @@ The answer would be 6 because the code would be:
 
 `qbinom(0.1, 17, 0.5, lower.tail = TRUE)`
 
-Remember that you want an overall probability of 10% (`p` = .1), you have 17 flips in each go (`size` = 17), and the probability of heads on any one flip is .5 (`prob` = .5). And you want the minimum number so the `lower.tail` is TRUE.
+Remember that you want an overall probability of 10% (`p` = .1), you have 17 flips in each go (`size` = 17), and the probability of heads on any one flip is .5 (`prob` = .5). And you the maximum number for the lower tail, so the `lower.tail` is TRUE.
 ```
 `r unhide()`
 <br>
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
+
+<!-- 
+I still think this section is confusing. We probably should revisit and try to clarify.
+-DJB
+-->
 
 Excellent! We have now recapped some general probability concepts as well as going over the binomial distribution again. We will focus on the normal distribution in the lab but it would help to read the brief section on it which can be found on Moodle. Keep in mind that what you are trying to get an understanding of is that every value in a distribution has a probability of existing in that distribution.  That probability may be very large, meaning that it is from the middle of the distribution, or that probability might be rather low, meaning it is from the tail, but ultimately every value of a distribution has a probability.
 

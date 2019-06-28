@@ -9,7 +9,7 @@ In this lab you will:
 3. Create probability distributions
 4. Make estimations from probability distributions.
 
-Probability is to some degree the cornerstone of any Psychological theory that is based on quantitative analysis. We establish an outcome (e.g. a difference between two events), then establish the probability of that outcome, before finally deciding if that probability is meaningful or not. You will have already seen this in your lectures and in the journal articles that you are reading. We will try to help you gain a deeper understanding of probability through the course of the next few labs and in how we use it to make an inference about a population. 
+Probability is to some degree the cornerstone of any Psychological theory that is based on quantitative analysis. We establish an outcome (e.g. a difference between two events), then establish the probability of that outcome against some model. Probability is important for quantifying the uncertainty in our conclusions. You will have already seen this in your lectures and in the journal articles that you are reading. We will try to help you gain a deeper understanding of probability through the course of the next few labs and in how we use it to make an inference about a population. 
 
 We will start by looking at some of the general ideas behind probability. We won't be using a lot of Psychology data or concepts here as it can be easier to understand in very concrete examples but be sure to try things out, ask questions, and think about how it might relate to Psychology examples. This preclass is a bit of a read so take your time and try to understand it fully.
 
@@ -31,9 +31,9 @@ This is a short tutorial with just a couple of quick recap questions on how the 
 <br>
 Fill in the blanks in the below sentences using the words: ordinal, nominal, categorical.
 
-* `r fitb("categorical", width = 8, ignore_case = TRUE, ignore_ws = TRUE)` data is based on a set of categories but the ordering doesn't matter (e.g. left or right handed). This is sometimes referred to as `r fitb("nominal", width = 8, ignore_case = TRUE, ignore_ws = TRUE)` data. For example, you could separate participants according to left or right handedness or by education level.
+* `r mcq(c(answer = "Nominal", "Ordinal"))` data is based on a set of categories that have no natural ordering (e.g. left or right handed). For example, you could separate participants according to left or right handedness or by course of study (e.g., psychology, biology, history, etc.).
 
-* `r fitb("ordinal", width = 8, ignore_case = TRUE, ignore_ws = TRUE)` data is a set of ordered categories; you know which is the top/best and which is the worst/lowest, but not the difference between categories. For example, you could ask participants to rate the attractiveness of different faces based on a 5-item Likert scale (very unattractive, unattractive, neutral, attractive, very attractive).   
+* `r mcq(c("Nominal", answer="Ordinal"))` data is a set of categories that have a natural ordering; you know which is the top/best and which is the worst/lowest, but the difference between categories may not be constant. For example, you could ask participants to rate the attractiveness of different faces based on a 5-item Likert scale (very unattractive, unattractive, neutral, attractive, very attractive).   
 
 **Continuous** data on the other hand can take any value. For example, we can measure age on a continuous scale (e.g. we can have an age of 26.55 years), also reaction time or the distance you travel to university every day. 
 

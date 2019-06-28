@@ -23,7 +23,7 @@ blocks_5k <- replicate(n = NULL,
 <br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-* The `n` NULL relates to: `r mcq(c(answer = "Number of replications", "Number of blocks in the experiment", "Number of trials in the experiment", "Number of faces in the experiment"))`
+* The `n` NULL relates to: `r mcq(c(answer = "Number of Monte Carlo replications", "Number of blocks in the experiment", "Number of trials in the experiment", "Number of faces in the experiment"))`
 
 * The `size` NULL relates to: `r mcq(c("Number of faces in a block", "Number of houses in a block", answer = "Number of trials in a block", "Number of noise patterns in a block"))`
 
@@ -41,7 +41,7 @@ You saw this exact same code in the preclass so be sure to have had a look there
 
 `r hide("Portfolio Point - Why the odd weight of probability?")`
 ```{block, type ="info"}
-Note that the probability (`prob`) is set to weight not seeing a face (2/3) more than seeing a face (1/3). Why is that? Remember that in this instance you have three different stimuli (face, house and noise) and therefore have a greater chance of not seeing a face in the experiment (i.e. you see a house or noise) than seeing a face in the experiment. You need to remember when using `sample` (`?sample`) to set the probability appropriately or you will end up with an incorrect calculation.
+Note that the elements in the `prob` argument set probabilities for the two outcomes specified in the first argument (0, 1). So, we are setting a 2/3 probability of 0 (no face), and a 1/3 probability of 1 (face). Why? Remember that in this instance you have three different stimuli (face, house and noise) and therefore have a greater chance of not seeing a face in the experiment (i.e. you see a house or noise) than seeing a face in the experiment. You need to remember when using `sample` (`?sample`) to set the probability appropriately or you will end up with an incorrect calculation.
 ```
 `r unhide()`
 <br>
@@ -92,11 +92,11 @@ On the second point, you need to think about the width of the distribution. The 
 <br> 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-* Using the appropriate `binom()` function, to three decimal places, type in the actual probability of 10 faces in 60 trials: `r fitb(c("0.002",".002"), width = 8, ignore_ws = TRUE)`
+* Using the appropriate `binom()` function, to three decimal places, type in the actual probability of exactly 10 faces in 60 trials: `r fitb(c("0.002",".002"), width = 8, ignore_ws = TRUE)`
 
 * Using the appropriate `binom()` function, to three decimal places, type in the actual probability of seeing more than, but not including, 25 faces in a block of 60 trials? `r fitb(c("0.068",".068"), width = 8, ignore_ws = TRUE)` 
 
-* Using the appropriate `binom()` function, type in what would be the minimum number of faces needed in a block of 60 trials to maintain at least 5% of trials being faces.`r fitb(c("14"), width = 8, ignore_ws = TRUE)`
+* Using the appropriate `binom()` function, enter the number of faces needed in a block of 60 trials that would cut off a lower tail probability of .05.`r fitb(c("14"), width = 8, ignore_ws = TRUE)`
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
@@ -104,7 +104,7 @@ On the second point, you need to think about the width of the distribution. The 
 
 2. You are looking for the cumulative probability for seeing more than but not including 25 faces in a block of 60 trials. What does this tell you about the apporpriate `binom()` function you require? Remember to set an appropriate call for `lower.tail`!
 
-3. The probability level has been provided for you (5% 0r .05). With this you are looking to find the minimum number of faces required to maintain this probability value. What does this tell you about the appropriate `binom()` function you require? If you are looking for the minimum number of faces required, is `lower.tail` set to TRUE or FALSE?
+3. The probability level has been provided for you (5% 0r .05). With this you are looking to find the cutoff value for this tail. What does this tell you about the appropriate `binom()` function you require? If you are looking for the probability of values at or below this cutoff, is `lower.tail` set to TRUE or FALSE?
 ```
 `r unhide()` 
 
