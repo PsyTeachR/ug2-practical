@@ -53,7 +53,7 @@ demog <- read_csv()
 Remember to always be looking at your data as good practice and to make sure it is as you expect it to be. Using maybe either `View()` or `glimpse()` but do this in the console, never in your script or Rmd file. Other useful functions that you can use as checks are:
 
 1. `str()` - This shows what type your data is. Look for words like table, dataframe, character, integer, numeric.
-2. `head()`, `tail`, and `ls()` - These show the top six and bottom six rows with column names, or just the column names with `ls()`.
+2. `head()`, `tail()`, and `names()` - These show the top six and bottom six rows with column names, or just the column names with `names()`.
 3. `dim()` - This shows the dimensions of the data.
 
 Refer to the preclass for a list of what all the columns refer to if you are not sure. And keep in mind that from now on **you need to be careful with the spelling and punctuation of the variable names at all times - e.g. Female is not the same as female**.  
@@ -62,7 +62,7 @@ Refer to the preclass for a list of what all the columns refer to if you are not
 
 Take a couple of minutes to try the above functions and to answer the following questions.
 
-* From the options, what type of data is the variable `Angle`, found in the dataframe `menrot`? `r mcq(c("character",answer = "integer","numeric"))`
+* From the options, what type of data is the variable `Angle`, found in the dataframe `menrot`? `r mcq(c("character",answer = "integer","double"))`
 
 * Type in the box the name of the dataframe that contains information regarding the sex of the participants: `r fitb("demog", width = 8, ignore_ws = TRUE)`
 
@@ -78,7 +78,7 @@ This is about making sure you are loading in your data correctly, using the inst
 
 2. `demog` should have been where you loaded information regarding the demographics including sex of participant.
 
-3. `ls(menrot)` will give you column names and this is about making sure of the correct spelling: CorrectResponse.
+3. `names(menrot)` will give you column names and this is about making sure of the correct spelling: CorrectResponse.
 
 4. `dim(demog)` shows you the number of rows (54) by the number of columns (3).
 ```
@@ -212,7 +212,8 @@ menrot_angle_sex <- filter(menrot, CorrectResponse == "Correct") %>%
   group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
-ggplot(data = menrot_angle_sex, aes(x = Angle, y = mean_Resp, group = Sex)) + 
+ggplot(data = menrot_angle_sex, 
+       aes(x = Angle, y = mean_Resp, group = Sex)) + 
   geom_point(aes(color = Sex)) +
   geom_line() +
   coord_cartesian(ylim = c(0, 3500), expand = TRUE)
