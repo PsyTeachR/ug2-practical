@@ -2,7 +2,7 @@
 
 **Lab 8: APES Assignment**
 
-In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Semester1_Lab8.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_08/homework/Level2_Lab8_Assignment_Files.zip" target = "_blank">Download the assignment zip file from here</a> or on Moodle. 
+In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Semester1_Lab8.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. [Download the assignment zip file from here](data/08-s01/homework/Level2_Lab8_Assignment_Files.zip) or from Moodle. <!-- TODO: fix the link -->
 
 *NOTE*: in nearly all of the problems below, you will need to replace `NULL` with a value or a pipeline of code that computes a value. Please pay special attention as to what the question is asking for as the output, e.g. *value* or a *tibble*; when asked for a *value* as an output, make sure it is a single value and not a value stored in a tibble. Finally, when altering code inside the code blocks, please *do not* re-order or rename the code blocks (T1, T2, ... etc.).  If you do, this may impact your grade! 
 
@@ -10,7 +10,7 @@ It's also recommended that you "Knit" a report to be able to see what you've acc
 
 **APES: Alpha, Power, Effect Size, and Sample Size**
 
-In the lab we have been looking at the interplay between the four components of Alpha, Power, Effect Size, and Sample Size.  This is a very important part of experimental design to understand as it will help you understand which studies are worth paying attention to and it will help you design your own studies in the coming years so that you know just how many people to run and what to make of the effect that you find. If you have not yet done so, we highly recommend reading the blog suggested as PreClass reading material and carrying out the activities in the inclass activity. These will help you will both the practicalities and the interpretation of the following assignment.
+In the lab we have been looking at the interplay between the four components of Alpha, Power, Effect Size, and Sample Size.  This is a very important part of experimental design to understand as it will <!-- help you understand which studies are worth paying attention to and it will --> help you design your own studies in the coming years so that you know just how many people to run and what to make of the effect that you find. If you have not yet done so, we highly recommend reading the blog suggested as PreClass reading material and carrying out the activities in the inclass activity. These will help you will both the practicalities and the interpretation of the following assignment.
 
 Remember that this assignment is formative but the knowledge gained from the practical activities in this lab will be super important to your future-self!
 
@@ -108,10 +108,10 @@ d1 <- NULL
 
 Assuming $power = .8$, $\alpha =.05$ on a two-tailed hypothesis, based on the `d1` value in Task 7 and the smallest achievable effect size of this study, which of the below statements is correct.
 
-1. The smallest effect size that this study can determine is d = .71. The detected effect size, `d1`, is larger than this and as such this study is suitably powered
-2. The smallest effect size that this study can determine is d = .17. The detected effect size, `d1`, is larger than this and as such this study is suitably powered
-3. The smallest effect size that this study can determine is d = .17. The detected effect size, `d1`, is smaller than this and as such this study is suitably powered
-4. The smallest effect size that this study can determine is d = .71. The detected effect size, `d1`, is smaller than this and as such this study is not suitably powered
+1. The smallest effect size that this study can determine is d = .71. The detected effect size, `d1`, is larger than this <!--  and as such this study is suitably powered -->
+2. The smallest effect size that this study can determine is d = .17. The detected effect size, `d1`, is larger than this <!-- and as such this study is suitably powered -->
+3. The smallest effect size that this study can determine is d = .17. The detected effect size, `d1`, is smaller than this <!-- and as such this study is suitably powered -->
+4. The smallest effect size that this study can determine is d = .71. The detected effect size, `d1`, is smaller than this <!-- and as such this study is not suitably powered -->
 
 Replace the NULL in the `T8` code chunk below with the number of the statement that is a true summary of this study. It may help you to calculate and store the smallest achievable effect size of this study in `poss_d`.
 
@@ -135,6 +135,9 @@ Using the `power.t.test()` function, what is the minimum effect size that this p
 ```{r T9}
 effect4 <- NULL
 ```
+<!--
+Again, I worry about comparing point estimates of effect sizes to the minimally powered effect size without any quantification of the uncertainty in the point estimate. So, better to skip this question.
+-DJB
 
 ### Assignment Task 10 {#Ch8AssignQueT10}
 
@@ -150,8 +153,9 @@ Replace the NULL in the `T10` code chunk below with the number of the statement 
 ```{r T10}
 answer_t10 <- NULL
 ```
+-->
 
-### Assignment Task 11 {#Ch8AssignQueT11}
+### Assignment Task 10 {#Ch8AssignQueT10}
 
 **Last but not least:**
 
@@ -168,10 +172,10 @@ Now look at the below four summary statements of the validity of the statements 
 3. Statements b and c are both TRUE.
 4. None of the statements are TRUE.
 
-Replace the NULL in the `T11` code chunk below with the number of the statement that is correct, storing the single value in `answer_t11`.
+Replace the NULL in the `T10` code chunk below with the number of the statement that is correct, storing the single value in `answer_t10`.
 
-```{r T11}
-answer_t11 <- NULL
+```{r T10}
+answer_t10 <- NULL
 ```
 
 ### The **`pwr`** package

@@ -104,9 +104,12 @@ ach_d_exp1 <- power.t.test(power = .8,
 exp1_d <- 2.96/sqrt(31+1) 
 ```
 
-* Giving an achievable effect size of `r ach_d_exp1` and they found an effect size of `r round(exp1_d,2)`.
+* This yields an achievable effect size of `r ach_d_exp1` 
+
+<!-- and they found an effect size of `r round(exp1_d,2)`.
 
 This study seems ok as the authors could achieve an effect size as low as .51 and found an effect size at .52
+-->
 
 **Example 2**
 
@@ -123,7 +126,12 @@ ach_d_exp2 <- power.t.test(power = .8,
 exp2_d <- 2.42/sqrt(31+1) 
 ```
 
-* Giving an achievable effect size of `r ach_d_exp2` and they found an effect size of `r round(exp2_d,2)`.
+* This yields an achievable effect size of `r ach_d_exp2` 
+
+<!-- 
+I'm removing this because I think the logic is invalid and it encourages students to judge studies based on their assumed power (which is unknowable for a single study) rather than focus on the planning aspect.
+
+and they found an effect size of `r round(exp2_d,2)`.
 
 This effect might not be as reliable as it could be given that the effect size found was much lower than the achievable effect size. One issue here could be that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then it would have been advisable to have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies really is no easy task and this research is really important. To counter such scenarios some consider the Many Labs approach a good way ahead.
 
@@ -142,6 +150,7 @@ sample_size <- power.t.test(power = .8,
 ```
 
 * Suggesting a sample size of n = `r sample_size` would be appropriate.
+-->
 
 [Return to Task](#Ch8InClassQueT7)
 
@@ -279,6 +288,10 @@ effect4 <- power.t.test(power = .8,
 
 [Return to Task](#Ch8AssignQueT9)
 
+<!--
+skip this one because it compares a point estimate to an effect size estimate without quantifying its uncertainty
+-DJB
+
 #### Assignment Task 10
 
 ```{r T10}
@@ -288,15 +301,16 @@ answer_t10 <- 4
 * This study does not have enough power to detect effect sizes at d1 or lower and as such answer_t10 = `r answer_t10`
 
 [Return to Task](#Ch8AssignQueT10)
+-->
 
-#### Assignment Task 11
+#### Assignment Task 10
 
-```{r T11}
-answer_t11 <- 2
+```{r T10}
+answer_t10 <- 2
 ```
 
-* In general, increasing sample size will increase the power of a study whereas lowering alpha (from .05 to .01) will decrease the power of a study. As such, statements a and canswer_t11 = `r answer_t11`.  
+* In general, increasing sample size will increase the power of a study whereas lowering alpha (from .05 to .01) will decrease the power of a study. As such, statements a and c are true; answer_t10 = `r answer_t10`.  
 
-[Return to Task](#Ch8AssignQueT11)
+[Return to Task](#Ch8AssignQueT10)
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>
