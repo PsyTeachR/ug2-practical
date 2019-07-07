@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lab 10 Correlations | ug2-practical</title>
-  <meta name="description" content="Lab 10 Correlations | ug2-practical-materials">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 10 Correlations | Level 2 Practical</title>
+  <meta name="description" content="ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 10 Correlations | ug2-practical" />
+  <meta property="og:title" content="Lab 10 Correlations | Level 2 Practical" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Lab 10 Correlations | ug2-practical-materials" />
+  <meta property="og:description" content="ug2-practical-materials" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 10 Correlations | ug2-practical" />
+  <meta name="twitter:title" content="Lab 10 Correlations | Level 2 Practical" />
   
-  <meta name="twitter:description" content="Lab 10 Correlations | ug2-practical-materials" />
+  <meta name="twitter:description" content="ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-25">
+<meta name="date" content="2019-07-07" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="reflection-semester-1.html">
@@ -52,45 +50,71 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include\style.css" type="text/css" />
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
 </head>
 
 <body>
@@ -103,22 +127,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">ug2-practical</a></li>
+<li><a href="./">Level 2 Practical</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a><ul>
-<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#what-is-r-markdown"><i class="fa fa-check"></i><b>1.1.1</b> What is R Markdown?</a></li>
 <li class="chapter" data-level="1.1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#advantages-of-using-r-markdown"><i class="fa fa-check"></i><b>1.1.2</b> Advantages of using R Markdown</a></li>
 <li class="chapter" data-level="1.1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#creating-an-r-markdown-.rmd-file"><i class="fa fa-check"></i><b>1.1.3</b> Creating an R Markdown (.Rmd) File</a></li>
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
-<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
+<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Options</a></li>
 <li class="chapter" data-level="1.2.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-inline-code"><i class="fa fa-check"></i><b>1.2.5</b> Adding Inline Code</a></li>
 <li class="chapter" data-level="1.2.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#formatting-the-r-markdown-file"><i class="fa fa-check"></i><b>1.2.6</b> Formatting the R Markdown File</a></li>
 </ul></li>
@@ -141,7 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
-<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
 <li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#revisiting-the-wickham-six"><i class="fa fa-check"></i><b>2.2.1</b> Revisiting the Wickham Six</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fa fa-check"></i><b>2.2.2</b> Learning to Wrangle: Is there a Chastity Belt on Perception</a></li>
@@ -165,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -184,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
-<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#scatterplots---geom_point"><i class="fa fa-check"></i><b>3.2.1</b> Scatterplots - <code>geom_point()</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#histograms---geom_histogram"><i class="fa fa-check"></i><b>3.2.2</b> Histograms - geom_histogram()</a></li>
@@ -210,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
-<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>4.1.1</b> Discrete or Continuous Datasets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a><ul>
@@ -239,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -258,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
 <li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
 <li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
@@ -281,7 +305,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
-<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
@@ -318,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
-<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-6"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
 <li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-4"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#reading"><i class="fa fa-check"></i><b>7.2.1</b> Reading</a></li>
 <li class="chapter" data-level="7.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#task"><i class="fa fa-check"></i><b>7.2.2</b> Task</a></li>
@@ -326,13 +350,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT1"><i class="fa fa-check"></i><b>7.3.1</b> Task 1: Load the Data</a></li>
 <li class="chapter" data-level="7.3.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT2"><i class="fa fa-check"></i><b>7.3.2</b> Task 2: Wrangle the Data</a></li>
-<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histograms for Normality</a></li>
+<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histogram for Normality</a></li>
 <li class="chapter" data-level="7.3.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT4"><i class="fa fa-check"></i><b>7.3.4</b> Task 4: A Boxplot of Outliers</a></li>
-<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: The Violin Plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Calculating Descriptives</a></li>
-<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: Visualising Means and Descriptives</a></li>
-<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The t-test</a></li>
-<li class="chapter" data-level="7.3.9" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT9"><i class="fa fa-check"></i><b>7.3.9</b> Task 9: The Write-up</a></li>
+<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: Calculating Descriptives</a></li>
+<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Visualising Means and Descriptives</a></li>
+<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: The t-test</a></li>
+<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The Write-up</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#assignment-6"><i class="fa fa-check"></i><b>7.4</b> Assignment</a></li>
 <li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a><ul>
@@ -340,7 +363,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a><ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-7"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
 <li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-5"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
@@ -375,14 +398,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html"><i class="fa fa-check"></i><b>9</b> Reflection - Semester 1</a><ul>
-<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-8"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#preclass-activity-6"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="9.3" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="9.4" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#assignment-8"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
 <li class="chapter" data-level="9.5" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a><ul>
-<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-9"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
 <li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-7"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="correlations.html"><a href="correlations.html#read"><i class="fa fa-check"></i><b>10.2.1</b> Read</a></li>
 <li class="chapter" data-level="10.2.2" data-path="correlations.html"><a href="correlations.html#watch-1"><i class="fa fa-check"></i><b>10.2.2</b> Watch</a></li>
@@ -407,7 +430,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-10"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
 <li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-8"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#read-1"><i class="fa fa-check"></i><b>11.2.1</b> Read</a></li>
 </ul></li>
@@ -436,7 +459,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
+<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-12"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
 <li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#read-2"><i class="fa fa-check"></i><b>12.2.1</b> Read</a></li>
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
@@ -453,7 +476,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
-<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-12"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-13"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
 <li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-10"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#read-3"><i class="fa fa-check"></i><b>13.2.1</b> Read</a></li>
 <li class="chapter" data-level="13.2.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#try-1"><i class="fa fa-check"></i><b>13.2.2</b> TRY</a></li>
@@ -488,7 +511,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a><ul>
-<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-13"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-14"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
 <li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-11"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="14.2.1" data-path="regression.html"><a href="regression.html#read-4"><i class="fa fa-check"></i><b>14.2.1</b> Read</a></li>
 <li class="chapter" data-level="14.2.2" data-path="regression.html"><a href="regression.html#try-2"><i class="fa fa-check"></i><b>14.2.2</b> Try</a></li>
@@ -517,7 +540,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA And Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-14"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
 <li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
 </ul></li>
@@ -539,7 +562,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
-<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-15"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
 <li class="chapter" data-level="16.2" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#preclass-activity-13"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="16.3" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#inclass-activity-14"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="16.4" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#assignment-15"><i class="fa fa-check"></i><b>16.4</b> Assignment</a></li>
@@ -563,7 +586,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ug2-practical</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Level 2 Practical</a>
           </h1>
         </div>
 
@@ -573,20 +596,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="correlations" class="section level1">
 <h1><span class="header-section-number">Lab 10</span> Correlations</h1>
-<div id="overview-9" class="section level2">
+<div id="overview-10" class="section level2">
 <h2><span class="header-section-number">10.1</span> Overview</h2>
 <p>As you will read in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> as part of the preclass reading, correlations are <strong>used to detect and quantify relationships among numerical variables</strong>. In short, you measure two variables and the correlation analysis tells you whether or not they are related in some manner - positively or negatively; one increases as the other increases; one decreases as the other increases; etc. However, unfortunately, you may have heard people say lots of negative things about correlations:</p>
 <ul>
 <li>they do not prove causality</li>
 <li>they suffer from the bidirectional problem (A vs B is the same as B vs A)</li>
-<li>any relationship found may be the result of an unknown third variable (e.g. murders and ice-creams)</li>
+<li>any relationship found may be the result of an unknown third variable (e.g. murders and ice-creams)</li>
 </ul>
-<p>But whilst these are true, correlations are an incredibly useful and commonly used measure in the field, so don't be put off from using them or designing a study that uses correlations. In fact, they can be used in a variety of areas including:</p>
+<p>But whilst these are true, correlations are an incredibly useful and commonly used measure in the field, so don’t be put off from using them or designing a study that uses correlations. In fact, they can be used in a variety of areas including:</p>
 <ul>
 <li>looking at reading ability and IQ scores such as in Miller and Haden Chapter 11, which we will look at today;</li>
-<li>exploring personality traits in voices (see <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185651" target = "_blank">Phil McAleer's work on Voices</a>)</li>
-<li>or traits in faces (see <a href="http://facelab.org/" target = "_blank">Lisa DeBruine's and Ben Jones's work</a>);</li>
-<li>brain-imaging analysis looking at activation in say the Amygdala in relation to emotion of faces (see <a href="https://psych.princeton.edu/person/alexander-todorov" target = "_blank">Alex Todorov's work at Princeton</a>);</li>
+<li>exploring personality traits in voices (see <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185651" target = "_blank">Phil McAleer’s work on Voices</a>)</li>
+<li>or traits in faces (see <a href="http://facelab.org/" target = "_blank">Lisa DeBruine’s and Ben Jones’s work</a>);</li>
+<li>brain-imaging analysis looking at activation in say the Amygdala in relation to emotion of faces (see <a href="https://psych.princeton.edu/person/alexander-todorov" target = "_blank">Alex Todorov’s work at Princeton</a>);</li>
 <li>social attidues, both implicity and explicit, as Helena Paterson will discuss in her Social lectures this semester;</li>
 <li>or a whole variety of fields where you simply measure the variables of interest.</li>
 </ul>
@@ -607,15 +630,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">10.2.1</span> Read</h3>
 <p><strong>Chapter</strong></p>
 <ul>
-<li>Read Chapters 10 and 11 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view", target = "_blank">Miller and Haden (2013)</a>.</li>
+<li>Read Chapters 10 and 11 of &lt;a href=“<a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" class="uri">https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view</a>”, target = &quot;_blank&quot;&gt;Miller and Haden (2013)</a>.</li>
 </ul>
-<p>Both chapters are really short but give a good basis to understanding correlational analysis. Please note, in Chapter 10 you might not know some some of the the terminology yet, e.g. ANOVA means Analysis of Variance and GLM means General Linear Model (Reading Chapter 1 might help). We will go into depth on these terms in the coming chapters.</p>
+<p>Both chapters are really short but give a good basis to understanding correlational analysis. Please note, in Chapter 10 you might not know some some of the the terminology yet, e.g. ANOVA means Analysis of Variance and GLM means General Linear Model (Reading Chapter 1 might help). We will go into depth on these terms in the coming chapters.</p>
 </div>
 <div id="watch-1" class="section level3">
 <h3><span class="header-section-number">10.2.2</span> Watch</h3>
 <p><strong>Visualisation</strong></p>
 <ul>
-<li>Have a look at this visualisation of correlations by Kristoffer Magnusson: <a href = "https://rpsychologist.com/d3/correlation/", target = "_blank">https://rpsychologist.com/d3/correlation/</a>.</li>
+<li>Have a look at this visualisation of correlations by Kristoffer Magnusson: &lt;a href = “<a href="https://rpsychologist.com/d3/correlation/" class="uri">https://rpsychologist.com/d3/correlation/</a>”, target = &quot;_blank&quot;&gt;https://rpsychologist.com/d3/correlation/</a>.</li>
 </ul>
 <ol style="list-style-type: decimal">
 <li>After having read Miller and Haden Chapter 11, use this visualisation page to visually replicate the scatterplots in Figures 11.3 and 11.4 - use a sample of 100. After that, visually replicate the scatterplots in Figure 11.5. Each time you change the correlation, pay attention to the shared variance (the overlap between the two variables) and see how this changes with the changing level of association.</li>
@@ -626,9 +649,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">10.2.3</span> Play</h3>
 <p><strong>Guess the correlation</strong></p>
 <ul>
-<li>Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online game: <a href = "http://guessthecorrelation.com/", target = "_blank">http://guessthecorrelation.com/</a>.</li>
+<li>Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online game: &lt;a href = “<a href="http://guessthecorrelation.com/" class="uri">http://guessthecorrelation.com/</a>”, target = &quot;_blank&quot;&gt;http://guessthecorrelation.com/</a>.</li>
 </ul>
-<p>Read the instuctions on the 'About' tab of the menu and then play the game. Try to achieve your highest score possible before giving up - at worst, 50 points. Last year's top score was 206; do not let us down here! Post your amazing scores on the lab forum pages. The best posted score will win a free copy of Rstudio!!! This sounds a bit of fun but being able to interpret scatterplots with a reasonable degree of accuracy can really help your understanding of a relationship.</p>
+<p>Read the instuctions on the ‘About’ tab of the menu and then play the game. Try to achieve your highest score possible before giving up - at worst, 50 points. Last year’s top score was 206; do not let us down here! Post your amazing scores on the lab forum pages. The best posted score will win a free copy of Rstudio!!! This sounds a bit of fun but being able to interpret scatterplots with a reasonable degree of accuracy can really help your understanding of a relationship.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 
 </div>
@@ -642,7 +665,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>After downloading the data folder, unzip the folder, set your working directory appropriately, open a new script, and load in the Miller and Haden data (<code>MillerHadenData.csv</code>), storing it in a tibble called <code>mh</code>.</p>
 <ul>
 <li><strong>Note 1:</strong> Remember that in reality you could store the data under any name you like but to make it easier for a demonstrator to debug with you it is handy if we all use the same names.</li>
-<li><strong>Note 2:</strong> You will find that the instructions for tasks are sparse this semester as we want you to really push the skills you learnt in Semester 1. Don't worry though, we are always here to help, so if you get stuck, ask!</li>
+<li><strong>Note 2:</strong> You will find that the instructions for tasks are sparse this semester as we want you to really push the skills you learnt in Semester 1. Don’t worry though, we are always here to help, so if you get stuck, ask!</li>
 </ul>
 <div class="solution">
 <button>
@@ -662,7 +685,8 @@ Remember that we will always ask you to use read_csv() to load in data.
 </ul>
 </div>
 </div>
-<p><br> Let's look at your data - we showed you a number of ways to do this in Semester 1. As in Miller and Haden, we have 5 columns:</p>
+<p><br>
+Let’s look at your data - we showed you a number of ways to do this in Semester 1. As in Miller and Haden, we have 5 columns:</p>
 <ul>
 <li>the particpant (<code>Participant</code>),</li>
 <li>Reading Ability (<code>Abil</code>),</li>
@@ -704,15 +728,17 @@ is the difference between 1 and 2 on the scale equal to the difference between 2
 </ul>
 </div>
 </div>
-<p><br> <strong>Assumption 2: Pairs of Data</strong></p>
-<p>All correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can't correlate against an empty cell! So now go check that you have a data point in both columns for each participant. After that, try answering the question in Task 3</p>
+<p><br>
+<strong>Assumption 2: Pairs of Data</strong></p>
+<p>All correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can’t correlate against an empty cell! So now go check that you have a data point in both columns for each participant. After that, try answering the question in Task 3</p>
 </div>
 <div id="Ch10InClassQueT3" class="section level3">
 <h3><span class="header-section-number">10.3.3</span> Task 3 - Missing Data</h3>
-<p>It looks like that everyone has data in all the columns but let's test our skills a little whilst we are here. Answer the following questions:</p>
+<p>It looks like that everyone has data in all the columns but let’s test our skills a little whilst we are here. Answer the following questions:</p>
 <ol style="list-style-type: decimal">
-<li>How is missing data represented in a tibble? <select class='solveme' data-answer='["NA"]'> <option></option> <option>an empty cell</option> <option>NA</option> <option>a large number</option> <option>don't know</option></select></li>
-<li>Which code would leave you with just the participants who were missing Reading Ability data in mh: <select class='solveme' data-answer='["filter(mh, is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select></li>
+<li>How is missing data represented in a tibble? <select class='solveme' data-answer='["NA"]'> <option></option> <option>an empty cell</option> <option>NA</option> <option>a large number</option> <option>don’t know</option></select></li>
+<li>Which code would leave you with just the participants who were missing Reading Ability data in mh:
+<select class='solveme' data-answer='["filter(mh, is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select></li>
 <li>Which code would leave you with just the participants who were not missing Reading Ability data in mh: <select class='solveme' data-answer='["filter(mh, !is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select></li>
 </ol>
 <div class="solution">
@@ -727,7 +753,8 @@ filter(dat, is.na(variable)) versus filter(dat, !is.na(variable))
 </ul>
 </div>
 </div>
-<p><br> <strong>Assumption 3: The shape of my data</strong></p>
+<p><br>
+<strong>Assumption 3: The shape of my data</strong></p>
 <p>The remaining assumptions are all best checked through visualisations. You could use histograms to check that the data (Abil and IQ) are both normally distributed, and you could use a scatterplot (scattergrams) of IQ as a function of Abil to check whether the relationship is linear, with homoscedasticity, and without outliers! You could also use z-scores to check for outliers with the cut-off usually being set at around <span class="math inline">\(\pm2.5SD\)</span>, and you can check this in your free time using a mutate function (e.g. <code>mutate(z = (X - mean(X))/SD(X))</code>), but today we will just use visual checks.</p>
 </div>
 <div id="Ch10InClassQueT4" class="section level3">
@@ -758,7 +785,7 @@ ggplot(mh, aes(x = )) + geom_histogram()
 ggplot(mh, aes(x = , y = )) + geom_point()
 </li>
 <li>
-Normality: something to keep in mind is that there are only 25 participants, so how 'normal' do we expect relationships to be
+Normality: something to keep in mind is that there are only 25 participants, so how ‘normal’ do we expect relationships to be
 </li>
 <li>
 homoscedasticity is that the spread of data points around the (imaginary) line of best fit is even on both sides along the line; as opposed to very narrow at one point and very wide at others.
@@ -769,7 +796,8 @@ Remember these are all judgement calls.
 </ul>
 </div>
 </div>
-<p><br> <strong>Descriptives of a correlation</strong></p>
+<p><br>
+<strong>Descriptives of a correlation</strong></p>
 <p>A key thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis</p>
 </div>
 <div id="Ch10InClassQueT5" class="section level3">
@@ -797,13 +825,14 @@ Hint 4: Can you say something about both the strength (weak, medium, strong) and
 </ul>
 </div>
 </div>
-<p><br> <strong>The correlation</strong></p>
+<p><br>
+<strong>The correlation</strong></p>
 <p>Finally we will run the correlation using the <code>cor.test()</code> function. Remember that for help on any function you can type <code>?cor.test</code> in the console window. The <code>cor.test()</code> function requires:</p>
 <ul>
 <li>the column name of Variable 1</li>
 <li>the column name of Variable 2</li>
-<li>the type of correlation you want to run: e.g. &quot;pearson&quot;, &quot;spearman&quot;</li>
-<li>the type of NHST tail you want to run: e.g. &quot;one.sided&quot;, &quot;two.sided&quot;</li>
+<li>the type of correlation you want to run: e.g. “pearson”, “spearman”</li>
+<li>the type of NHST tail you want to run: e.g. “one.sided”, “two.sided”</li>
 </ul>
 <p>For example, if your data is stored in <code>dat</code> and you are wanting a two-sided pearson correlation of the variables (columns) <code>X</code> and <code>Y</code>, then you would do:</p>
 <pre><code>cor.test(dat$X, dat$Y, method = &quot;pearson&quot;, alternative = &quot;two.sided&quot;)</code></pre>
@@ -813,7 +842,7 @@ Hint 4: Can you say something about both the strength (weak, medium, strong) and
 </div>
 <div id="Ch10InClassQueT6" class="section level3">
 <h3><span class="header-section-number">10.3.6</span> Task 6 - Pearson or Spearman</h3>
-<p>Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called <code>results</code> (hint: <code>broom::tidy()</code>).</p>
+<p>Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called <code>results</code> (hint: <code>broom::tidy()</code>).</p>
 <div class="solution">
 <button>
 Hints to correlation
@@ -824,12 +853,13 @@ Hints to correlation
 Hint 1: the data looked reasonably normal and linear so method would be?
 </li>
 <li>
-Hint 2: results &lt;- cor.test(mh$Abil......, method = ....., alternative....) %&gt;% tidy()
+Hint 2: results &lt;- cor.test(mh$Abil……, method = ….., alternative….) %&gt;% tidy()
 </li>
 </ul>
 </div>
 </div>
-<p><br> <strong>Interpreting the Correlation</strong></p>
+<p><br>
+<strong>Interpreting the Correlation</strong></p>
 <p>You should now have a tibble called <code>results</code> that gives you the output of the correlation between Reading Ability and IQ for the school children measured in Miller and Haden (2013) Chapter 11. All that is left to do now, is interpret the output of the correlation.</p>
 </div>
 <div id="Ch10InClassQueT7" class="section level3">
@@ -862,22 +892,23 @@ Hint4: Hypotheses can only be supported or not supported, never proven.
 </ul>
 </div>
 </div>
-<p><br> <strong>Recap so far</strong></p>
+<p><br>
+<strong>Recap so far</strong></p>
 <p>Great, so far we have set a hypothesis for a correlation, checked the assumptions, run the correlation and interpreted it appropriately. So as you can see running the correlation is the easy bit. As in a lot of analyses it is getting your data in order, checking assumptions, and interpreting your output that is the hard part.</p>
 <p>We have now walked you through one analysis but you can always go run more with the Miller and Haden dataset. There are six in total that could be run but watch out for Multiple Comparisons - where your Type 1 Error rate is inflated and where the chance of finding a significant effect is inflated by simply running numerous tests. Alternatively, we have another data set below that we want you to run a correlation on yourself but first we want to show you something that can be very handy when you want to view lots of correlations at once.</p>
 </div>
 <div id="advanced-1-matrix-of-scatterplots" class="section level3">
 <h3><span class="header-section-number">10.3.8</span> Advanced 1: Matrix of Scatterplots</h3>
 <p>Above we ran one correlation and if we wanted to do a different correlation then we would have to edit the <code>cor.test()</code> line and run it again. However, when you have lots of variables in a dataset, to get a quick overview of patterns, one thing you might want to do is run all the correlations at the same time or create a matrix of scatterplots at the one time. You can do this with functions from the <code>Hmisc</code> library - already installed in the Boyd Orr Labs. We will use the Miller and Haden data here again which you should still have in a tibble called <code>mh</code>.</p>
-<p>First, we need to get rid of the Participant column as we don't want to correlate that with anything. It won't tell us anything. Copy and run the below line of code</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;Hmisc&quot;</span>)
+<p>First, we need to get rid of the Participant column as we don’t want to correlate that with anything. It won’t tell us anything. Copy and run the below line of code</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;Hmisc&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/10-s02/inclass/MillerHadenData.csv&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">select</span>(-Participant)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;Hmisc&quot;</span>)
+mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/10-s02/inclass/MillerHadenData.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Participant)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;Hmisc&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">select</span>(-Participant)</code></pre></div>
+mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Participant)</code></pre>
 <p>Now run the following line. The <code>pairs()</code> function from the <code>Hmisc</code> library creates a matrix of scatterplots which you can then use to view all the relationships at the one time.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(mh)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(mh)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10-advance-pairs"></span>
 <img src="10-s02-lab10c_files/figure-html/ch10-advance-pairs-1.png" alt="Matrix of Correlation plots of Miller and Haden (2013) data" width="100%" />
 <p class="caption">
@@ -885,8 +916,8 @@ Figure 10.1: Matrix of Correlation plots of Miller and Haden (2013) data
 </p>
 </div>
 <p>And the <code>rcorr()</code> function creates a matrix of correlations and p-values. But watch out, it only accepts the data in matrix format. Run the following two lines of code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mh_mx =<span class="st"> </span><span class="kw">as.matrix</span>(mh, <span class="dt">type =</span> <span class="st">&quot;pearson&quot;</span>)
-<span class="kw">rcorr</span>(mh_mx)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mh_mx =<span class="st"> </span><span class="kw">as.matrix</span>(mh, <span class="dt">type =</span> <span class="st">&quot;pearson&quot;</span>)
+<span class="kw">rcorr</span>(mh_mx)</code></pre>
 <pre><code>##       Abil   IQ  Home    TV
 ## Abil  1.00 0.45  0.74 -0.29
 ## IQ    0.45 1.00  0.20  0.25
@@ -931,15 +962,15 @@ Hint1: There is no hint, this is just a cheeky test to make sure you have read t
 <li><strong>Explicit attitudes</strong> were measured via a questionnaire where higher scores indicated a positive attitude towards vaping.</li>
 <li><strong>Implicit attitudes</strong> were measured through an Implicit Association Test (IAT) using images of Vaping and Kitchen utensils and associating them with positive and negative words.</li>
 </ul>
-<p>The IAT works on the principal that associations that go together (that are congruent, e.g. warm and sun) should be quicker to respond to than associations that do not go together (that are incongruent, e.g. warm and ice). You can read up more on the procedure at a later date <a href="https://nobaproject.com/modules/research-methods-in-social-psychology" target = "_blank">here on the Noba Project</a> which has a good description of the procedure under the section &quot;Subtle/Nonsconscious Research Methods&quot;</p>
-<p>For today, you need to know that &quot;Block 3&quot; in the experiment tested reaction times and accuracy towards congruent associations, pairing positive words with Kitchen utensils and negative words with Vaping. &quot;Block 5&quot; in the experiment tested reaction times and accuracy towards incongruent associations, pairing positive words with Vaping and negative words with Kitchen Utensils. As such, if reaction times were longer in Block 5 than in Block 3 then people are considered to hold the view that Vaping is negative (i.e. congruent associations are quicker than incongruent associations). However, if reaction times were shorter in Block 5 than in Block 3 then people are considered to hold the view that Vaping is positive (i.e. incongruent associations were quicker than congruent associations). The difference between reaction times in Block5 and Block3 is called the participants IAT score.</p>
+<p>The IAT works on the principal that associations that go together (that are congruent, e.g. warm and sun) should be quicker to respond to than associations that do not go together (that are incongruent, e.g. warm and ice). You can read up more on the procedure at a later date <a href="https://nobaproject.com/modules/research-methods-in-social-psychology" target = "_blank">here on the Noba Project</a> which has a good description of the procedure under the section “Subtle/Nonsconscious Research Methods”</p>
+<p>For today, you need to know that “Block 3” in the experiment tested reaction times and accuracy towards congruent associations, pairing positive words with Kitchen utensils and negative words with Vaping. “Block 5” in the experiment tested reaction times and accuracy towards incongruent associations, pairing positive words with Vaping and negative words with Kitchen Utensils. As such, if reaction times were longer in Block 5 than in Block 3 then people are considered to hold the view that Vaping is negative (i.e. congruent associations are quicker than incongruent associations). However, if reaction times were shorter in Block 5 than in Block 3 then people are considered to hold the view that Vaping is positive (i.e. incongruent associations were quicker than congruent associations). The difference between reaction times in Block5 and Block3 is called the participants IAT score.</p>
 </div>
 <div id="Ch10InClassQueT9" class="section level3">
 <h3><span class="header-section-number">10.3.11</span> Task 9 - Attitudes to Vaping</h3>
 <p>Load in the data in <code>VapingData.csv</code> and analyse it to test the hypothesis that Implicit and Explicit attitudes towards Vaping are positively related. Here are some pointers, hints and tips.</p>
 <ol style="list-style-type: decimal">
 <li>Start of by looking at the data. You have 8 columns. Reaction times and Accuracy scores for blocks 3 and 5. The Explicit Vaping Questionnaire Scores. Sex and Age.</li>
-<li>Accuracy is as a proportion and as such can't go above 1. Participants entered their own data so some might have made a mistake. Get rid of everybody who had an accuracy greater than 1 in either block 3 or block 5.</li>
+<li>Accuracy is as a proportion and as such can’t go above 1. Participants entered their own data so some might have made a mistake. Get rid of everybody who had an accuracy greater than 1 in either block 3 or block 5.</li>
 <li>We also only want participants that were paying attention so best remove anybody whose average accuracy score across Blocks 3 and 5 was less than 80%. Note - this value is aribtrary and if you wanted, in your own experiment, you could use a more relaxed or strict cut-off based on other studies or guidance. Note that these decisions should be set out at the start of the researc., Finally, in this instance, remember, the values are in proportions not percentages (so 80% will be .8).</li>
 <li>Now create an IAT score for participants by subtracting Block 3 reaction times (RT) away from Block 5 reaction times e.g (B5-B3). Use the paragraph above to understand how the scores relate to attitudes.</li>
 <li>Create a descriptives summary of the number of people, the mean RT and Vaping Questionnaire Score. Why might these averages be useful? Why are averages not always useful in correlations?</li>
@@ -964,7 +995,7 @@ Hint Step 1: read_csv()
 Hint Step 2: filter(Accuracy &gt; 1 OR Accuracy &gt; 1)
 </li>
 <li>
-Hint Step 3: average accuracy: mutate(data, name = (1 + 2)/2) %&gt;% filter(name &gt; ...)
+Hint Step 3: average accuracy: mutate(data, name = (1 + 2)/2) %&gt;% filter(name &gt; …)
 </li>
 <li>
 Hint Step 4: RT: mutate(data, nom = 1 - 2)
@@ -977,15 +1008,16 @@ Hint Step 6: assumptions would be type of data, normality, linear relationship, 
 </li>
 <li>
 <p>
-Hint Step 7: results &lt;- cor.test(method = &quot;pearson&quot;)?
+Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 </p>
 </li>
 </ul>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Excellent work, who would have thought that about Explicit and Implicit attitudes towards Vaping!!!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. We won't incorporate Portfolio points this semester as by now you should know what sort of information you need to make a note of for yourself, and the more independent you are in your learning the better it will be, but please don't think they are no longer relevant by their abscence.</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. We won’t incorporate Portfolio points this semester as by now you should know what sort of information you need to make a note of for yourself, and the more independent you are in your learning the better it will be, but please don’t think they are no longer relevant by their abscence.</p>
 
 </div>
 </div>
@@ -1009,25 +1041,25 @@ Hint Step 7: results &lt;- cor.test(method = &quot;pearson&quot;)?
 <li>the order that libraries are read in is important. If there are any conflicts in terms of libraries then the last library that is loaded will be the functions you are using.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)
 <span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>)</code></pre></div>
+mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>)</code></pre>
 <p><a href="correlations.html#Ch10InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-6" class="section level4">
 <h4><span class="header-section-number">10.5.1.2</span> InClass Task 2</h4>
 <ul>
-<li>Actually the information within the textbook is unclear as to whether the data is interval or ordinal so we have accepted both as you could make a case for both arguments. A quick google search will show just as many people who think that IQ is interval as think it is oridinal. In terms of Reading Ability, again we probably don't know enough information about this scale to make a clear judgement but it is at least ordinal and could well be interval.</li>
+<li>Actually the information within the textbook is unclear as to whether the data is interval or ordinal so we have accepted both as you could make a case for both arguments. A quick google search will show just as many people who think that IQ is interval as think it is oridinal. In terms of Reading Ability, again we probably don’t know enough information about this scale to make a clear judgement but it is at least ordinal and could well be interval.</li>
 </ul>
 <p><a href="correlations.html#Ch10InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-5" class="section level4">
 <h4><span class="header-section-number">10.5.1.3</span> InClass Task 3</h4>
 <ul>
-<li><p>Missing data is represented by NA. It stands for Not Available but is a very good way of improving your Scottish accent. For example, &quot;is that a number&quot; can be replied with &quot;NA!&quot;.</p></li>
+<li><p>Missing data is represented by NA. It stands for Not Available but is a very good way of improving your Scottish accent. For example, “is that a number” can be replied with “NA!”.</p></li>
 <li><p>If you want to keep everybody from the whole dataset that has a score for Ability you would use:</p></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(mh, !<span class="kw">is.na</span>(Abil))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(mh, <span class="op">!</span><span class="kw">is.na</span>(Abil))</code></pre>
 <pre><code>## # A tibble: 25 x 5
 ##    Participant  Abil    IQ  Home    TV
 ##          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1041,14 +1073,14 @@ mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ##  8           8    55   101   119   717
 ##  9           9    62   118   155   643
 ## 10          10    61    99   121   674
-## # ... with 15 more rows</code></pre>
+## # … with 15 more rows</code></pre>
 <ul>
 <li>Alternatively, if you want to keep everybody from the whole dataset that does not have a score for Ability you would use:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(mh, <span class="kw">is.na</span>(Abil))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(mh, <span class="kw">is.na</span>(Abil))</code></pre>
 <pre><code>## # A tibble: 0 x 5
-## # ... with 5 variables: Participant &lt;dbl&gt;, Abil &lt;dbl&gt;, IQ &lt;dbl&gt;,
-## #   Home &lt;dbl&gt;, TV &lt;dbl&gt;</code></pre>
+## # … with 5 variables: Participant &lt;dbl&gt;, Abil &lt;dbl&gt;, IQ &lt;dbl&gt;, Home &lt;dbl&gt;,
+## #   TV &lt;dbl&gt;</code></pre>
 <p>Remember that you would need to store the output of this step, so really it would be something like <code>mh &lt;- filter(mh, !is.na(Abil))</code></p>
 <p><a href="correlations.html#Ch10InClassQueT3">Return to Task</a></p>
 </div>
@@ -1057,8 +1089,8 @@ mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <ul>
 <li>Reading ability data appears as normal as expected for 25 participants. Hard to say how close to normality something should look when there are so few participants.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-1"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-1-1.png" alt="Histogram showing the distribution of Reading Ability Scores from Miller and Haden (2013)" width="100%" />
 <p class="caption">
@@ -1068,8 +1100,8 @@ Figure 10.2: Histogram showing the distribution of Reading Ability Scores from M
 <ul>
 <li>IQ data appears as normal as expected for 25 participants</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-2"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-2-1.png" alt="Histogram showing the distribution of IQ Scores from Miller and Haden (2013)" width="100%" />
 <p class="caption">
@@ -1079,8 +1111,8 @@ Figure 10.3: Histogram showing the distribution of IQ Scores from Miller and Had
 <ul>
 <li>The relationship between reading ability and IQ scores appears appears linear and with no clear outliers. Data also appears homeoscedastic.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil, <span class="dt">y =</span> IQ)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil, <span class="dt">y =</span> IQ)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-3"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-3-1.png" alt="Scatterplot of IQ scores as a function of Reading Ability from Miller and Haden (2013) data" width="100%" />
 <p class="caption">
@@ -1100,11 +1132,11 @@ Figure 10.4: Scatterplot of IQ scores as a function of Reading Ability from Mill
 <li>We are going to run a pearson correlation as we would argue the data is interval and the relationship is linear.</li>
 <li>The correlation would be run as follows - tidying it into a nice and useable table.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(mh$Abil, 
-                    mh$IQ, 
+<pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(mh<span class="op">$</span>Abil, 
+                    mh<span class="op">$</span>IQ, 
                     <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, 
-                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span>tidy</code></pre></div>
+                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>tidy</code></pre>
 <ul>
 <li>The output of the table would look as follows:</li>
 </ul>
@@ -1162,7 +1194,7 @@ alternative
 0.718
 </td>
 <td style="text-align:left;">
-Pearson's product-moment correlation
+Pearson’s product-moment correlation
 </td>
 <td style="text-align:left;">
 two.sided
@@ -1182,16 +1214,16 @@ two.sided
 <li>The p-value is stored in <code>p.value</code></li>
 <li>And <code>statistic</code> is the t-value associated with this analysis as correlations use the t-distribution (same as in Semester 1) to determine probability of an outcome.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pvalue &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(p.value) %&gt;%<span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r">pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">pull</span>(p.value) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">round</span>(<span class="dv">3</span>)
 
-df &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span>
+df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">pull</span>(parameter)
 
-correlation &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(estimate) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</code></pre></div>
+correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">pull</span>(estimate) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</code></pre>
 <p>And we can use that information to write-up the following using inline coding for accuracy:</p>
 <ul>
 <li>A pearson correlation found reading ability and intelligence to be positively correlated with a medium to strong relationship, (r(<code>`r df`</code>) = <code>`r correlation`</code>, p = <code>`r pvalue`</code>). As such we can say that our hypothesis is supported and that there appears to be a relationship between reading ability and IQ in that as reading ability increases so does intelligence.</li>
@@ -1205,29 +1237,29 @@ correlation &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span
 <div id="inclass-task-8-3" class="section level4">
 <h4><span class="header-section-number">10.5.1.8</span> InClass Task 8</h4>
 <ol style="list-style-type: decimal">
-<li>The table looks the same across the diaganol because the correlation of e.g. Abil vs Abil is not shown, and the correlation of Abil vs Home is the same as the correlation of Home vs Abil</li>
+<li>The table looks the same across the diaganol because the correlation of e.g. Abil vs Abil is not shown, and the correlation of Abil vs Home is the same as the correlation of Home vs Abil</li>
 <li>The strongest positive correlation is between the number of minutes spend reading at home (Home) and Reading Ability (abil), r(23) = .74, p &lt; .001</li>
 <li>The strongest negative correlation is between the number of minutes spend reading at home (Home) and minutes spent watching TV per week (TV), r(23) = -.65, p &lt; .001</li>
 </ol>
 <p><a href="correlations.html#Ch10InClassQueT8">Return to Task</a></p>
 </div>
-<div id="inclass-task-9-1" class="section level4">
+<div id="inclass-task-9" class="section level4">
 <h4><span class="header-section-number">10.5.1.9</span> InClass Task 9</h4>
 <p><strong>Step 1</strong></p>
 <ul>
 <li>Reading in the Vaping Data using <code>read_csv()</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;VapingData.csv&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;VapingData.csv&quot;</span>)</code></pre>
 <p><strong>Steps 2 to 4</strong></p>
 <ul>
 <li>The main wrangle of parts 2 to 4</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span>dat %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK3_Acc &lt;=<span class="st"> </span><span class="dv">1</span>) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK5_Acc &lt;=<span class="st"> </span><span class="dv">1</span>) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_ACC =</span> (IAT_BLOCK3_Acc +<span class="st"> </span>IAT_BLOCK5_Acc)/<span class="dv">2</span>) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(IAT_ACC &gt;<span class="st"> </span>.<span class="dv">8</span>) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_RT =</span> IAT_BLOCK5_RT -<span class="st"> </span>IAT_BLOCK3_RT)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK3_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK5_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_ACC =</span> (IAT_BLOCK3_Acc <span class="op">+</span><span class="st"> </span>IAT_BLOCK5_Acc)<span class="op">/</span><span class="dv">2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(IAT_ACC <span class="op">&gt;</span><span class="st"> </span><span class="fl">.8</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_RT =</span> IAT_BLOCK5_RT <span class="op">-</span><span class="st"> </span>IAT_BLOCK3_RT)</code></pre>
 <p><strong>Step 5</strong></p>
 <ul>
 <li>It is always worth thinking about which averages are informative and which are not.
@@ -1236,17 +1268,17 @@ correlation &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span
 <li>In contrast, if you are using an ordinal scale and people use the whole of the scale then the average may just tell you the middle of the scale you are using - which you already know and really isnt that informative. So it is always worth thinking about what your descriptives are calculating.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>dat %&gt;%<span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
+<pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
                           <span class="dt">mean_IAT_ACC =</span> <span class="kw">mean</span>(IAT_ACC),
                           <span class="dt">mean_IAT_RT =</span> <span class="kw">mean</span>(IAT_RT),
                           <span class="dt">mean_VPQ =</span> <span class="kw">mean</span>(VapingQuestionnaireScore, 
-                                          <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
+                                          <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre>
 <p><strong>Step 6</strong></p>
 <ul>
 <li>A couple of visual checks of normality through histograms</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> VapingQuestionnaireScore)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre>
 <pre><code>## Warning: Removed 11 rows containing non-finite values (stat_bin).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-1"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-1-1.png" alt="Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)" width="100%" />
@@ -1254,8 +1286,8 @@ correlation &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span
 Figure 10.5: Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-2"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-2-1.png" alt="Histogram showing the distribution of IAT Reaction Times (Implicit)" width="100%" />
 <p class="caption">
@@ -1267,9 +1299,9 @@ Figure 10.6: Histogram showing the distribution of IAT Reaction Times (Implicit)
 <li>Remember that, often, the scatterplot is considered the descriptive of the correlation, hence why you see them including in journal articles to support the stated relationship.</li>
 <li>The scatterplot can be used to make descriptive claims about the direction of the relationship, the strength of the relationship, whether it is linear or not, and to check for outliers and homeoscedasticity.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT, <span class="dt">y =</span> VapingQuestionnaireScore)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT, <span class="dt">y =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
 <pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-3"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-3-1.png" alt="A scatterplot showing the relationship between implicit IAT reaction times (x) and explicit Vaping Questionnaire Scores (y)" width="100%" />
@@ -1278,19 +1310,19 @@ Figure 10.7: A scatterplot showing the relationship between implicit IAT reactio
 </p>
 </div>
 <ul>
-<li>A quick look at the data reveals some people do not have a Vaping Questionnaire score and some don't have an IAT score. The correlation only works when people have a score on both factors so we remove all those that only have a score on one of the factors.</li>
+<li>A quick look at the data reveals some people do not have a Vaping Questionnaire score and some don’t have an IAT score. The correlation only works when people have a score on both factors so we remove all those that only have a score on one of the factors.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span>dat %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(!<span class="kw">is.na</span>(VapingQuestionnaireScore)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(!<span class="kw">is.na</span>(IAT_RT))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(VapingQuestionnaireScore)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(IAT_RT))</code></pre>
 <p><strong>Step 7</strong></p>
 <ul>
 <li>The analysis and the write-up.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(dat$VapingQuestionnaireScore, dat$IAT_RT, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">tidy</span>()</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">correlation &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span><span class="kw">pull</span>(estimate)
-df &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span><span class="kw">pull</span>(parameter)
-pvalue &lt;-<span class="st"> </span>results %&gt;%<span class="st"> </span><span class="kw">pull</span>(p.value)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(dat<span class="op">$</span>VapingQuestionnaireScore, dat<span class="op">$</span>IAT_RT, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(estimate)
+df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(parameter)
+pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(p.value)</code></pre>
 <ul>
 <li>With inline coding:</li>
 </ul>
@@ -1447,7 +1479,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

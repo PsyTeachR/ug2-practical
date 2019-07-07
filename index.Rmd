@@ -1,6 +1,5 @@
 --- 
-title: "ug2-practical"
-author: "psyTeachR"
+title: "Level 2 Practical"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -20,7 +19,11 @@ knitr::write_bib(c(
 
 ```
 
-# Introduction {-}
+# Overview {-}
 
-Materials for the University of Glasgow School of Psychology Year 2 Research Methods and Statistics Practical Course
+<img src="images/L2.png" style="width: 200px; float: right;">
+
+Materials for the University of Glasgow School of Psychology Year 2 Research Methods and Statistics Practical Course. 
+
+This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as permutation tests, NHST, alpha, power, effect size, and sample size. Semester 2 focusses on correlations and the general linear model.
 

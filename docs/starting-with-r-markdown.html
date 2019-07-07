@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lab 1 Starting with R Markdown | ug2-practical</title>
-  <meta name="description" content="Lab 1 Starting with R Markdown | ug2-practical-materials">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 1 Starting with R Markdown | Level 2 Practical</title>
+  <meta name="description" content="ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 1 Starting with R Markdown | ug2-practical" />
+  <meta property="og:title" content="Lab 1 Starting with R Markdown | Level 2 Practical" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Lab 1 Starting with R Markdown | ug2-practical-materials" />
+  <meta property="og:description" content="ug2-practical-materials" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 1 Starting with R Markdown | ug2-practical" />
+  <meta name="twitter:title" content="Lab 1 Starting with R Markdown | Level 2 Practical" />
   
-  <meta name="twitter:description" content="Lab 1 Starting with R Markdown | ug2-practical-materials" />
+  <meta name="twitter:description" content="ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-25">
+<meta name="date" content="2019-07-07" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="index.html">
@@ -52,45 +50,71 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include\style.css" type="text/css" />
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
 </head>
 
 <body>
@@ -103,22 +127,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">ug2-practical</a></li>
+<li><a href="./">Level 2 Practical</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a><ul>
-<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#what-is-r-markdown"><i class="fa fa-check"></i><b>1.1.1</b> What is R Markdown?</a></li>
 <li class="chapter" data-level="1.1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#advantages-of-using-r-markdown"><i class="fa fa-check"></i><b>1.1.2</b> Advantages of using R Markdown</a></li>
 <li class="chapter" data-level="1.1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#creating-an-r-markdown-.rmd-file"><i class="fa fa-check"></i><b>1.1.3</b> Creating an R Markdown (.Rmd) File</a></li>
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
-<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
+<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Options</a></li>
 <li class="chapter" data-level="1.2.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-inline-code"><i class="fa fa-check"></i><b>1.2.5</b> Adding Inline Code</a></li>
 <li class="chapter" data-level="1.2.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#formatting-the-r-markdown-file"><i class="fa fa-check"></i><b>1.2.6</b> Formatting the R Markdown File</a></li>
 </ul></li>
@@ -141,7 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
-<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
 <li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#revisiting-the-wickham-six"><i class="fa fa-check"></i><b>2.2.1</b> Revisiting the Wickham Six</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fa fa-check"></i><b>2.2.2</b> Learning to Wrangle: Is there a Chastity Belt on Perception</a></li>
@@ -165,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -184,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
-<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#scatterplots---geom_point"><i class="fa fa-check"></i><b>3.2.1</b> Scatterplots - <code>geom_point()</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#histograms---geom_histogram"><i class="fa fa-check"></i><b>3.2.2</b> Histograms - geom_histogram()</a></li>
@@ -210,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
-<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>4.1.1</b> Discrete or Continuous Datasets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a><ul>
@@ -239,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -258,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
 <li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
 <li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
@@ -281,7 +305,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
-<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
@@ -318,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
-<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-6"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
 <li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-4"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#reading"><i class="fa fa-check"></i><b>7.2.1</b> Reading</a></li>
 <li class="chapter" data-level="7.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#task"><i class="fa fa-check"></i><b>7.2.2</b> Task</a></li>
@@ -326,13 +350,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT1"><i class="fa fa-check"></i><b>7.3.1</b> Task 1: Load the Data</a></li>
 <li class="chapter" data-level="7.3.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT2"><i class="fa fa-check"></i><b>7.3.2</b> Task 2: Wrangle the Data</a></li>
-<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histograms for Normality</a></li>
+<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histogram for Normality</a></li>
 <li class="chapter" data-level="7.3.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT4"><i class="fa fa-check"></i><b>7.3.4</b> Task 4: A Boxplot of Outliers</a></li>
-<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: The Violin Plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Calculating Descriptives</a></li>
-<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: Visualising Means and Descriptives</a></li>
-<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The t-test</a></li>
-<li class="chapter" data-level="7.3.9" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT9"><i class="fa fa-check"></i><b>7.3.9</b> Task 9: The Write-up</a></li>
+<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: Calculating Descriptives</a></li>
+<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Visualising Means and Descriptives</a></li>
+<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: The t-test</a></li>
+<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The Write-up</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#assignment-6"><i class="fa fa-check"></i><b>7.4</b> Assignment</a></li>
 <li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a><ul>
@@ -340,7 +363,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a><ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-7"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
 <li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-5"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
@@ -375,14 +398,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html"><i class="fa fa-check"></i><b>9</b> Reflection - Semester 1</a><ul>
-<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-8"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#preclass-activity-6"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="9.3" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="9.4" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#assignment-8"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
 <li class="chapter" data-level="9.5" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a><ul>
-<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-9"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
 <li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-7"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="correlations.html"><a href="correlations.html#read"><i class="fa fa-check"></i><b>10.2.1</b> Read</a></li>
 <li class="chapter" data-level="10.2.2" data-path="correlations.html"><a href="correlations.html#watch-1"><i class="fa fa-check"></i><b>10.2.2</b> Watch</a></li>
@@ -407,7 +430,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-10"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
 <li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-8"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#read-1"><i class="fa fa-check"></i><b>11.2.1</b> Read</a></li>
 </ul></li>
@@ -436,7 +459,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
+<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-12"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
 <li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#read-2"><i class="fa fa-check"></i><b>12.2.1</b> Read</a></li>
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
@@ -453,7 +476,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
-<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-12"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-13"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
 <li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-10"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#read-3"><i class="fa fa-check"></i><b>13.2.1</b> Read</a></li>
 <li class="chapter" data-level="13.2.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#try-1"><i class="fa fa-check"></i><b>13.2.2</b> TRY</a></li>
@@ -488,7 +511,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a><ul>
-<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-13"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-14"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
 <li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-11"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="14.2.1" data-path="regression.html"><a href="regression.html#read-4"><i class="fa fa-check"></i><b>14.2.1</b> Read</a></li>
 <li class="chapter" data-level="14.2.2" data-path="regression.html"><a href="regression.html#try-2"><i class="fa fa-check"></i><b>14.2.2</b> Try</a></li>
@@ -517,7 +540,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA And Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-14"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
 <li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
 </ul></li>
@@ -539,7 +562,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
-<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-15"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
 <li class="chapter" data-level="16.2" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#preclass-activity-13"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="16.3" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#inclass-activity-14"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="16.4" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#assignment-15"><i class="fa fa-check"></i><b>16.4</b> Assignment</a></li>
@@ -563,7 +586,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ug2-practical</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Level 2 Practical</a>
           </h1>
         </div>
 
@@ -574,9 +597,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="starting-with-r-markdown" class="section level1">
 <h1><span class="header-section-number">Lab 1</span> Starting with R Markdown</h1>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Level 2 Lab Series</span></p>
-<div id="overview" class="section level2">
+<div id="overview-1" class="section level2">
 <h2><span class="header-section-number">1.1</span> Overview</h2>
-<p>Over the course of this year's practical lab sessions we will help you learn a whole host of skills and methods based around being a Psychologist, starting right now!</p>
+<p>Over the course of this year’s practical lab sessions we will help you learn a whole host of skills and methods based around being a Psychologist, starting right now!</p>
 <p>A key goal of any researcher is to carry out an experiment and to tell others about it. One of the main ways we as Psychologists do this is through publication of a journal article. There are numerous ways that people combine different software to create a journal article, but a more recent innovation in the field that we want you to know about is creating reports and articles through R Markdown. If you like, you can see an example from a research team in our school in this <a href ="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185093" target = "_blank">recent PLOS article</a>. A link within the article methods section (this one - <a href="https://osf.io/eb9dq/" target = "_blank">https://osf.io/eb9dq/</a>) allows you to see the one file that creates the whole manuscript. Obviously you wont be writing full journal articles just yet but you will use R Markdown throughout this lab series to do assignments and you could even also use it in other subjects to write reports, or to even make yourself a portfolio of hints, tips, and study aids. We will start by showing you some of skills in using R Markdown efficiently.</p>
 <p><strong>In this lab you will learn:</strong></p>
 <ol style="list-style-type: decimal">
@@ -594,7 +617,10 @@ Explain This - We Knit what?
 </button>
 <div class="info">
 <p>
-Throughout the labs you will see little tabs that give more information, answers to quick questoins, helpful hints, solutions to tasks, or suggestions for information you want to note down somewhere. You do not have to read them all and you will find they get less as the course progresses, but they might help you if you are stuck on something.<br /> Knit is what we say when we want to turn our R Markdown file into either a webpage, PDF, or a Word document. Often in the labs you will hear someone say, &quot;Have you tried knitting it?&quot; or &quot;What happens when you knit it?&quot;. This simply means what happens when you try turning your file into a pdf or webpage.&quot;)
+Throughout the labs you will see little tabs that give more information, answers to quick questions, helpful hints, solutions to tasks, or suggestions for information you want to note down somewhere. You do not have to read them all and you will find they get less as the course progresses, but they might help you if you are stuck on something.
+</p>
+<p>
+Knit is what we say when we want to compile our R Markdown file into either a webpage, PDF, or a Word document. Often in the labs you will hear someone say, “Have you tried knitting it?” or “What happens when you knit it?”. This simply means what happens when you try turning your file into a pdf or webpage.&quot;)
 </p>
 </div>
 </div>
@@ -602,24 +628,24 @@ Throughout the labs you will see little tabs that give more information, answers
 <div id="advantages-of-using-r-markdown" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Advantages of using R Markdown</h3>
 <ol style="list-style-type: decimal">
-<li><p>The output is one file that includes figures, text and citations. No additional files are needed so it's easy to keep all your work in one place.</p></li>
-<li><p>R code can be put directly into a R Markdown report so it is not necessary to keep your writing (e.g. a Word document) and your analysis (e.g. your R script) separate.</p></li>
+<li><p>The output is one file that includes figures, text and citations. No additional files are needed so it’s easy to keep all your work in one place.</p></li>
+<li><p>R code can be put directly into a R Markdown report so it is not necessary to keep your writing (e.g. a Word document) and your analysis (e.g. your R script) separate.</p></li>
 <li><p>Including the R code directly lets others see how you did your analysis - this is a good thing for science! It is both Reproducible and Open!</p></li>
-<li><p>You write your report in normal text so it's not necessary that you learn any new coding such as HTML.</p></li>
+<li><p>You write your report in plain text, a non-proprietary format that is easy to share, and it’s not necessary to learn any new coding syntax such as HTML.</p></li>
 </ol>
 </div>
 <div id="creating-an-r-markdown-.rmd-file" class="section level3">
 <h3><span class="header-section-number">1.1.3</span> Creating an R Markdown (.Rmd) File</h3>
-<p>In this lab you're going to create your own R Markdown document. Knowing how to do this will:</p>
+<p>In this lab you’re going to create your own R Markdown document. Knowing how to do this will:</p>
 <ol style="list-style-type: lower-alpha">
 <li>help you with submitting homework assignments, and</li>
 <li>help you be able to create your own reports using it.</li>
 </ol>
-<p>If at any point you are unsure about how to do something remember to think about where you can get help. There is an <strong>R Markdown Cheatsheet</strong> on the top menu under <strong><code>Help &gt;&gt; Cheatsheets</code></strong> or do what we do, Google it. For example, if I forget how to put words in bold, I could simply go to Google and type &quot;<strong>rmarkdown bold</strong>&quot; and no doubt get a lot of useful hints.</p>
+<p>If at any point you are unsure about how to do something remember to think about where you can get help. There is an <strong>R Markdown Cheatsheet</strong> on the top menu under <strong><code>Help &gt;&gt; Cheatsheets</code></strong> or do what we do, Google it. For example, if I forget how to put words in bold, I could simply go to Google and type “<strong>rmarkdown bold</strong>” and no doubt get a lot of useful hints.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>We have put questions throughout to help you test your knowledge. When you type in or choose the correct answer, the dashed box will change color and become solid.</p>
 <ul>
-<li>From the following options, why are we creating an R Markdown document instead of simply using an R script? <select class='solveme' data-answer='["R Markdown can combine report writing and analysis","Reproducible Science!"]'> <option></option> <option>R Markdown can combine report writing and analysis</option> <option>R Scripts can't run code</option> <option>Reproducible Science!</option></select></li>
+<li>From the following options, why are we creating an R Markdown document instead of simply using an R script? <select class='solveme' data-answer='["R Markdown can combine report writing and analysis","Reproducible Science!"]'> <option></option> <option>R Markdown can combine report writing and analysis</option> <option>R Scripts can’t run code</option> <option>Reproducible Science!</option></select></li>
 </ul>
 <div class="solution">
 <button>
@@ -627,7 +653,7 @@ Explain This Answer!
 </button>
 <div class="info">
 <p>
-So there's more than one answer to this question! R Markdown can combine report writing and analysis, providing open access for others to examine data, and create more Reproducible Science. But what about the incorrect answer? R Scripts do in fact run R code as you may remember from Level 1 labs. The key difference is that R Scripts cannot really be used for documentation and creating reports - this is where R Markdown is used to ensure your code can be added to all the other information of your research and can be reproduced by others.
+So there’s more than one answer to this question! R Markdown can combine report writing and analysis, providing open access for others to examine data, and create more Reproducible Science. But what about the incorrect answer? R Scripts do in fact run R code as you may remember from Level 1 labs. The key difference is that R Scripts cannot really be used for documentation and creating reports - this is where R Markdown is used to ensure your code can be added to all the other information of your research and can be reproduced by others.
 </p>
 </div>
 </div>
@@ -640,9 +666,9 @@ So there's more than one answer to this question! R Markdown can combine report 
 </div>
 <div id="preclass-activiy" class="section level2">
 <h2><span class="header-section-number">1.2</span> PreClass Activiy</h2>
-<p>Having read the Overview for this Lab, and the reason behind using R, we are now going to show you how to make a reproducible code. If you have a laptop it is best to install R and RStudio on that for you to use. Dale Barr's video gives a reminder of how to install R and Rstudio. If you don't have it installed yet you can just read along today and try it out when you have access to a machine in the labs.</p>
+<p>Having read the Overview for this Lab, and the reason behind using R, we are now going to show you how to make a reproducible code. If you have a laptop it is best to install R and RStudio on that for you to use. Dale Barr’s video gives a reminder of how to install R and Rstudio. If you don’t have it installed yet you can just read along today and try it out when you have access to a machine in the labs.</p>
 <div id="lets-begin" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Let's Begin</h3>
+<h3><span class="header-section-number">1.2.1</span> Let’s Begin</h3>
 <ul>
 <li>Create a new R Markdown file (.Rmd) by opening Rstudio, and then on the top menu, selecting <strong><code>File &gt;&gt; New File &gt;&gt; R Markdown...</code></strong>. You should now see the following dialog box:</li>
 </ul>
@@ -678,7 +704,7 @@ Explain This - I spelt my name wrong!
 </button>
 <div class="info">
 <p>
-The long way would be to close the file and start again. The shorter way would be to just correct the info in the header - just remember to keep between the quotes. E.g. &quot;Si Cologe&quot; instead of &quot;Untitled&quot;
+The long way would be to close the file and start again. The shorter way would be to just correct the info in the header - just remember to keep between the quotes. E.g. “Si Cologe” instead of “Untitled”
 </p>
 </div>
 </div>
@@ -705,17 +731,17 @@ Figure 1.3: The defualt setup code chunk
 <p>The next code chunk in your file will look a bit like this:</p>
 <div class="verbatim">
 <p><code>```{r cars}</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cars)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cars)</code></pre>
 <code>```</code>
 </div>
-<p>Within the curly brackets, on the first line of the chunk, the word <code>cars</code> is included after the letter <code>r</code>. This is simply the <strong>name</strong> or the <strong>label</strong> for the code chunk and it really could have been called anything. For example, you could have called this code chunk <code>cars1</code> and a later chunk <code>cars2</code> to show it was the first and second chunk relating to cars. Whilst it is always advisable you name your code chunks you do not need to name them, however if you do put in names for the chunks <strong>do not use the same name twice</strong> as this will cause your script to crash when you knit it, e.g. Do not use <code>data</code> and <code>data</code>; instead maybe use <code>personality_data</code> and <code>participant_info</code> or whatever makes sense to what you are doing in the chunk.</p>
+<p>Within the curly brackets, on the first line of the chunk, the word <code>cars</code> is included after the letter <code>r</code>. This is simply the <strong>name</strong> or the <strong>label</strong> for the code chunk and it really could have been called anything. For example, you could have called this code chunk <code>cars1</code> and a later chunk <code>cars2</code> to show it was the first and second chunk relating to cars. Whilst it is always advisable you name your code chunks you do not need to name them, however if you do put in names for the chunks <strong>do not use the same name twice</strong> as this will cause your script to crash when you knit it, e.g. Do not use <code>data</code> and <code>data</code>; instead maybe use <code>personality_data</code> and <code>participant_info</code> or whatever makes sense to what you are doing in the chunk.</p>
 <div class="solution">
 <button>
 Explain This - You can crash whilst knitting?
 </button>
 <div class="info">
 <p>
-Remember knitting just means converting or rendering your file as a pdf, webpage, etc. Crashing means that you had an error in your code that stopped your knitting from working or finishing. You can usually find the problem line of code from the error message you'll see.
+Remember knitting just means converting or rendering your file as a pdf, webpage, etc. Crashing means that you had an error in your code that stopped your knitting from working or finishing. You can usually find the problem line of code from the error message you’ll see.
 </p>
 </div>
 </div>
@@ -723,7 +749,7 @@ Remember knitting just means converting or rendering your file as a pdf, webpage
 <p>The third line closes off the code chunk, again with the three backwards apostrophes. This means that whatever is contained between the first and third lines will be the code that is run.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li>From the following options what was the name, or label, of the <strong>default setup code chunk</strong> (i.e. the first code chunk in an R Markdown file)? <select class='solveme' data-answer='["setup"]'> <option></option> <option>include</option> <option>r</option> <option>setup</option> <option>FALSE</option></select></li>
+<li>From the following options what was the name, or label, of the <strong>default setup code chunk</strong> (i.e. the first code chunk in an R Markdown file)? <select class='solveme' data-answer='["setup"]'> <option></option> <option>include</option> <option>r</option> <option>setup</option> <option>FALSE</option></select></li>
 </ul>
 <div class="solution">
 <button>
@@ -752,14 +778,15 @@ Helpful Hint - One folder for all your work
 </button>
 <div class="info">
 <p>
-cat(&quot;It would be very beneficial to create a folder in your <code>M:</code> drive that will contain all your practical lab work for the rest of Level 2. Maybe something like <code>Psychology Level 2 Lab Work</code> and then have folders within that for each lab, e.g <code>Lab1</code>. The clearer the structure of these folders the easier it will be to find and use your files again! This is important as one thing we will keep telling you to do is <strong>Look Back</strong> at what you previously did.
+It would be very beneficial to create a folder in your <code>M:</code> drive that will contain all your practical lab work for the rest of Level 2. Maybe something like <code>Psychology Level 2 Lab Work</code> and then have folders within that for each lab, e.g <code>Lab1</code>. The clearer the structure of these folders the easier it will be to find and use your files again! This is important as one thing we will keep telling you to do is <strong>Look Back</strong> at what you previously did.
 </p>
 <p>
-A good way to think about this is if you have an exam, it isn't helpful to be told the location of your exam is 'Glasgow Uni' (i.e. a large folder of many locations). Instead you would need to be told the specific building (a folder within your larger folder), but more specifically the room number in the building where your exam is taking place (the folder which you are working from).
+A good way to think about this is if you have an exam, it isn’t helpful to be told the location of your exam is ‘Glasgow Uni’ (i.e. a large folder of many locations). Instead you would need to be told the specific building (a folder within your larger folder), but more specifically the room number in the building where your exam is taking place (the folder which you are working from).
 </p>
 </div>
 </div>
-<p><br> After saving the file a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the <code>```{r}</code> and the closing <code>```</code> in your code chunk have gone. Whenever you knit an RMarkdown file these lines will disappear leaving only the code within. You'll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the data or not through adding rules.</p>
+<p><br>
+After saving the file a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the <code>```{r}</code> and the closing <code>```</code> in your code chunk have gone. Whenever you knit an RMarkdown file these lines will disappear leaving only the code within. You’ll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the data or not through adding rules.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-rmd-summary2"></span>
 <img src="images/s01-lab01/preclass/rmd_summary2.png" alt="The knitted summary output" width="100%" />
 <p class="caption">
@@ -767,72 +794,79 @@ Figure 1.5: The knitted summary output
 </p>
 </div>
 </div>
-<div id="adding-rules-to-code-chunks" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> Adding Rules to Code Chunks</h3>
-<p>It can often be a good idea or even necessary to show the data or the outcome of a test in your report, for example if you were writing a report and wanted to include a table of results. But what if your code displayed a table that was 10,000 lines long? In that case we might want to not show the output and only show the code. You can do this by including a rule within the first line of your code chunk - your ```{r name, rule = option} line. You have already seen a rule before in the standard default chunk, the <code>include</code> rule, but there are a number of others.</p>
-<p><strong>To hide the output but show the code</strong> we use the <code>results = &quot;hide&quot;</code> rule:</p>
+<div id="adding-code-chunk-options" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> Adding Code Chunk Options</h3>
+<p>It can often be a good idea or even necessary to show the data or the outcome of a test in your report, for example if you were writing a report and wanted to include a table of results. But what if your code displayed a table that was 10,000 lines long? In that case we might want to not show the output and only show the code. You can do this by including an option within the first line of your code chunk - your ```{r name, option = value} line. You have already seen a chunk option before in the standard default chunk, the <code>include</code> option, but there are a number of others.</p>
+<p><strong>To hide the output but show the code</strong> we use the <code>results = &quot;hide&quot;</code> option:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-results-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_hide.png" alt="The results Rule" width="100%" />
 <p class="caption">
 Figure 1.6: The results Rule
 </p>
 </div>
-<p><br> <strong>Add this rule into your example code chunk, as shown above, and knit the file again. What happens?</strong> Note that there is a comma separating the name of the chunk and the rule. You should now see the code only and not the data. <br> Alternatively, we can <strong>Hide the code, but show the ouput</strong> by using the <code>echo = FALSE</code> rule:</p>
+<p><br>
+<strong>Add this option into your example code chunk, as shown above, and knit the file again. What happens?</strong> Note that there is a comma separating the name of the chunk and the option. You should now see the code only and not the data.
+<br>
+Alternatively, we can <strong>Hide the code, but show the output</strong> by using the <code>echo = FALSE</code> chunk option:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-echo-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_echo.png" alt="The echo Rule" width="100%" />
 <p class="caption">
 Figure 1.7: The echo Rule
 </p>
 </div>
-<p><br> In your template Rmd file the rule echo is set to <code>FALSE</code> meaning to show the figure and not the code. <strong>Change the rule in your code to <code>echo</code> and set it as <code>TRUE</code>, then knit the file again</strong>. What happens?</p>
+<p><br>
+In your template Rmd file the option echo is set to <code>FALSE</code> meaning to show the figure and not the code. <strong>Change the option in your code to <code>echo</code> and set it as <code>TRUE</code>, then knit the file again</strong>. What happens?</p>
 <div class="solution">
 <button>
 Explain This - Why would I hide my code?
 </button>
 <div class="info">
 <p>
-Remember from Level 1 where we called in libraries to our environment. The &quot;echo = FALSE&quot; option is useful for commands like <code>library()</code> when you are just calling a package into the library but don't necessarily want to display that in your final report or in your final HTML file. Another example might be if you wanted to make a plot but didn't want to include the code, you just want to show the plot in your report.
+Remember from Level 1 where we called in libraries to our environment. The “echo = FALSE” option is useful for commands like <code>library()</code> when you are just calling a package into the library but don’t necessarily want to display that in your final report or in your final HTML file. Another example might be if you wanted to make a plot but didn’t want to include the code, you just want to show the plot in your report.
 </p>
 </div>
 </div>
-<p><br> You might want to <strong>hide both the code AND the output</strong> by using the <code>include</code> rule:</p>
+<p><br>
+You might want to <strong>hide both the code AND the output</strong> by using the <code>include</code> option:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-include-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_hide_both.png" alt="The include Rule" width="100%" />
 <p class="caption">
 Figure 1.8: The include Rule
 </p>
 </div>
-<p><br> <strong>Change the rule to your example code chunk, as shown above, to <code>include = FALSE</code> and then knit the file again</strong>. What happens? Note that here the code still runs. It just does not show you anything.</p>
-<p>Finally, you can use the <code>eval</code> rule which specifies whether or not you want the code chunk you have written to be evaluated when you knit the RMarkdown file. Evaluated means to run or carry out the code. Here, the <code>eval = FALSE</code> rule will stop the code from being evaluated. The code will be shown because there is no rule stopping it but there will be no output because it won't get evaluated because of the <code>eval</code> rule being <code>FALSE</code>.</p>
+<p><br>
+<strong>Change the option to your example code chunk, as shown above, to <code>include = FALSE</code> and then knit the file again</strong>. What happens? Note that here the code still runs. It just does not show you anything.</p>
+<p>Finally, you can use the <code>eval</code> option which specifies whether or not you want the code chunk you have written to be evaluated when you knit the RMarkdown file. Evaluated means to run or carry out the code. Here, the <code>eval = FALSE</code> rule will stop the code from being evaluated. The code will be shown because there is no rule stopping it but there will be no output because it won’t get evaluated because of the <code>eval</code> option being <code>FALSE</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-eval-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_eval.png" alt="The eval Rule" width="100%" />
 <p class="caption">
 Figure 1.9: The eval Rule
 </p>
 </div>
-<p><br> This might be useful in cases where you want to show the code relating to how you programmed your stimuli for an experiment, but you don't necessarily want it to run as part of the RMarkdown file.</p>
+<p><br>
+This might be useful in cases where you want to show the code relating to how you programmed your stimuli for an experiment, but you don’t necessarily want it to run as part of the RMarkdown file.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>You've got a large dataset of thousands of participant's personality and happiness scores that you want to analyse and present in RMarkdown.</p>
+<p>You’ve got a large dataset of thousands of participants’ personality and happiness scores that you want to analyse and present in RMarkdown.</p>
 <ul>
-<li><p>You want to show the code you are running in your analysis but not show the output as this would be too much to display. Note that you want the code to run. Type in the box (e.g. <code>rule = set</code>) how you would set the <code>results</code> rule to do this? <input class='solveme nospaces' size='20' data-answer='["results = \"hide\""]'/></p></li>
+<li><p>You want to show the code you are running in your analysis but not show the output as this would be too much to display. Note that you want the code to run. Type in the box (e.g. <code>option = value</code>) how you would set the <code>results</code> option to do this? <input class='solveme nospaces' size='20' data-answer='["results = \"hide\""]'/></p></li>
 <li><p>You create a plot of happiness versus neuroticism scores but you want to hide the code and only show the output. How can you do this? <select class='solveme' data-answer='["echo = FALSE"]'> <option></option> <option>echo = TRUE</option> <option>include = FALSE</option> <option>code = HIDE</option> <option>echo = FALSE</option></select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't understand these answers
+Explain This - I don’t understand these answers
 </button>
 <div class="info">
 <p>
-The first answer should be <code>results = &quot;hide&quot;</code> as you want to show the code and run the code but not necessarily show the output of the code.
+The first answer should be <code>results = “hide”</code> as you want to show the code and run the code but not necessarily show the output of the code.
 </p>
 <p>
-In the second question, <code>include = FALSE</code> technically would hide the code, but this also hides the output! <code>echo = FALSE</code> allows you to still see your plot while hiding the code you want hidden. <code>code = HIDE</code> - if only it were that simple! The aim of these questions aren't to help you memorise these codes (no one can do that!), they're to help you gain a better understanding of how to apply these codes when you come across them in the future.
+In the second question, <code>include = FALSE</code> technically would hide the code, but this also hides the output! <code>echo = FALSE</code> allows you to still see your plot while hiding the code you want hidden. <code>code = HIDE</code> - if only it were that simple! The aim of these questions aren’t to help you memorise these codes (no one can do that!), they’re to help you gain a better understanding of how to apply these codes when you come across them in the future.
 </p>
 </div>
 </div>
 <p><br></p>
 <ul>
-<li>True or False, writing <code>echo = TRUE</code> has the same effect on the output of a code as if you had no echo rule at all: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
+<li>True or False, writing <code>echo = TRUE</code> has the same effect on the output of a chunk as if you had no echo rule at all: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
 </ul>
 <div class="solution">
 <button>
@@ -840,33 +874,39 @@ Explain This - Echo True or Not at all
 </button>
 <div class="info">
 <p>
-All of the rules have a default mode. For example, <code>echo</code>, <code>include</code>, and <code>eval</code> are usually by default set to <code>TRUE</code>. As a result, if you don't declare any <code>echo</code> rule, i.e. you don't declare <code>echo = FALSE</code>, then it is the same as declaring <code>echo = TRUE</code>. So no rule means that you are wanting that rule set as <code>TRUE</code>.
+All of the options have a default value. For example, <code>echo</code>, <code>include</code>, and <code>eval</code> are usually by default set to <code>TRUE</code>. As a result, if you don’t set the <code>echo</code> option, i.e. you don’t declare <code>echo = FALSE</code>, then it is the same as declaring <code>echo = TRUE</code>. So not specifying an option will give you the default value for that option.
 </p>
 </div>
 </div>
 <p><br></p>
 <ul>
-<li>True or False, there is no difference between the rules <code>results = &quot;hide&quot;</code> and <code>eval = FALSE</code> as they both hide the output: <select class='solveme' data-answer='["FALSE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
+<li>True or False, there is no difference between the chunk options <code>results = &quot;hide&quot;</code> and <code>eval = FALSE</code> as they both hide the output: <select class='solveme' data-answer='["FALSE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - What's the difference?
+Explain This - What’s the difference?
 </button>
 <div class="info">
 <p>
-In the first rule, <code>results = &quot;hide&quot;</code>, the code is evaluated and results are produced but the output is hidden. In the second rule, <code>eval = FALSE</code>, the code is not evaluated and therefor no results or output has been produced. If you need your output for a later part of the code then you would use the <code>results</code> rule. If you don't need the output and just want to show the code as an example then you would use the <code>eval</code> rule.
+With the first option, <code>results = “hide”</code>, the code is evaluated and results are produced but the output is hidden. With the second option, <code>eval = FALSE</code>, the code is not evaluated and therefor no results or output has been produced. If you need your output for a later part of the code then you would use the <code>results</code> option. If you don’t need the output and just want to show the code as an example then you would use the <code>eval</code> option.
 </p>
 </div>
 </div>
 </div>
 <div id="adding-inline-code" class="section level3">
 <h3><span class="header-section-number">1.2.5</span> Adding Inline Code</h3>
-<p>An alternative way to add code to a report is through what is called <strong>inline coding</strong>. Inline coding is slightly different to code chunks' you don't use a code chunk in fact. Inline coding can be inserted using a back-tick, then the letter <code>r</code>, followed by a space, the code you want to include, then another back-tick. For example, writing <code>`r 2 + 2`</code> would return the answer <strong>4</strong> when you knit the file instead of showing the code. Note that you do not do this inside a code chunk, you do this in line with your text, e.g.: <br><br> <strong>&quot;We ran <code>`r 2+2`</code> people&quot;.</strong> <br><br> Which when knitted becomes: <br><br> <strong>&quot;We ran 4 people&quot;.</strong></p>
+<p>An alternative way to add code to a report is through what is called <strong>inline code</strong>. Inline code is called this because it appears outside of a chunk, i.e., within text. Inline coding can be inserted using a back-tick, then the letter <code>r</code>, followed by a space, the code you want to run, then another back-tick. For example, writing <code>`r 2 + 2`</code> would return the answer <strong>4</strong> when you knit the file instead of showing the code. Note that you do not do this inside a code chunk, you do this inline with your text, e.g.:
+<br><br>
+<strong>“We ran <code>`r 2+2`</code> people”.</strong>
+<br><br>
+Which when knitted becomes:
+<br><br>
+<strong>“We ran 4 people”.</strong></p>
 <p>So inline coding is really useful if you want to do calculations <strong>within your text</strong> or insert values into text, say from a dataframe, to make an informative sentence.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>You need <select class='solveme' data-answer='["Three"]'> <option></option> <option>Two</option> <option>One</option> <option>Three</option></select> back tick(s) to insert <strong>code chunks</strong></p></li>
-<li><p>Why is this inline code, <code>`r 6 * 8`</code> , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='solveme' data-answer='["Curly brackets are only needed for code chunks"]'> <option></option> <option>You need a space between each back tick and the code</option> <option>Inline code cannot complete calcuations</option> <option>Curly brackets are only needed for code chunks</option></select></p></li>
+<li><p>Why is this inline code, <code>`{r} 6 * 8`</code> , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='solveme' data-answer='["Curly brackets are only needed for code chunks"]'> <option></option> <option>You need a space between each back tick and the code</option> <option>Inline code cannot complete calcuations</option> <option>Curly brackets are only needed for code chunks</option></select></p></li>
 </ul>
 <div class="solution">
 <button>
@@ -884,8 +924,15 @@ Inline coding does not use the curly brackets around the <code>r</code>. All you
 </div>
 <div id="formatting-the-r-markdown-file" class="section level3">
 <h3><span class="header-section-number">1.2.6</span> Formatting the R Markdown File</h3>
-<p>The last thing we want to show you in this preclass activity is how to format your text. When you're not writing in code chunks you can format your document in lots of different ways just like you would in a Word document. The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out.</p>
-<p>We can make some text <strong>bold</strong> by including two ** (two asterisks) at the start and end of the text we want to present in bold font. For example: <br><br> &quot;We ran **4 people**. <br><br> Which when knitted becomes: <br><br> &quot;We ran <strong>4 people</strong>&quot;. <br><br> <strong>Now write some text in your Rmd file and put it in bold.</strong> Knit the file to check it worked.</p>
+<p>The last thing we want to show you in this preclass activity is how to format your text. When you’re not writing in code chunks you can format your document in lots of different ways just like you would in a Word document. The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out.</p>
+<p>We can make some text <strong>bold</strong> by including two ** (two asterisks) at the start and end of the text we want to present in bold font. For example:
+<br><br>
+“We ran **4 people**.
+<br><br>
+Which when knitted becomes:
+<br><br>”We ran <strong>4 people</strong>&quot;.
+<br><br>
+<strong>Now write some text in your Rmd file and put it in bold.</strong> Knit the file to check it worked.</p>
 <p>You could also try use italics by putting a single * (asterisk) at the start and end of the word or sentence. <strong>Try this now</strong></p>
 <p>Finally, you might want to add headings and sub-headings to your file. For example, maybe you are writing a Psychology journal article and want to put in a header for the Introduction, Methods, Results, or Discussion sections. We do this using the # (hashtag) symbol as shown in Figure <a href="starting-with-r-markdown.html#fig:img-header-levels">1.10</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-header-levels"></span>
@@ -894,31 +941,33 @@ Inline coding does not use the curly brackets around the <code>r</code>. All you
 Figure 1.10: Inputting different Header levels using #s
 </p>
 </div>
-<p><br> <strong>Now, type the four main sections found in a Psychology journal article in your RMarkdown file, typing each one in a separate line</strong>. These are mentioned above. Knit the file. What do these look like?</p>
-<p><strong>Now add a different number of #'s before each heading</strong>, with a space between the heading and the hashtag (e.g. # Introduction) and knit the file again. What do you notice about the different number of hashtags?</p>
+<p><br>
+<strong>Now, type the four main sections found in a Psychology journal article in your RMarkdown file, typing each one in a separate line</strong>. These are mentioned above. Knit the file. What do these look like?</p>
+<p><strong>Now add a different number of #’s before each heading</strong>, with a space between the heading and the hashtag (e.g. # Introduction) and knit the file again. What do you notice about the different number of hashtags?</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>If * puts words into italics, and ** puts words into bold, type in the box what might you put before (and technically after) a word to put it into italics with bold? <input class='solveme nospaces' size='3' data-answer='["***"]'/></p></li>
-<li><p>True or False: The <strong>more</strong> '#'s you include, the <strong>smaller</strong> the header is: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></p></li>
+<li><p>True or False: The <strong>more</strong> ’#’s you include, the <strong>smaller</strong> the header is: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></p></li>
 <li><p>From the options, the most common order of headings found in a Psychology Journal are: <select class='solveme' data-answer='["Introduction, Methods, Results, Discussion"]'> <option></option> <option>Discussion, Introduction, Methods, Results</option> <option>Discussion, Results, Methods, Introduction</option> <option>Introduction, Methods, Results, Discussion</option> <option>Introduction, Results, Methods, Discussion</option></select></p></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't get these answers
+Explain This - I don’t get these answers
 </button>
 <div class="info">
 <p>
 If * at the start and end of the word puts it in italics (e.g. <em>italics</em>) and ** puts it in bold (e.g. <strong>bold</strong>), then putting three *** at the start and end will put it in italics with bold (e.g. <strong><em>italics-bold</em></strong>).
 </p>
 <p>
-It is true that the more #'s you use, the smaller the heading is. Word and other document writers use different headings as well. Here, # gives the biggest heading, and it gets smaller and smaller with every extra #.
+It is true that the more #’s you use, the smaller the heading is. Word and other document writers use different headings as well. Here, # gives the biggest heading, and it gets smaller and smaller with every extra #.
 </p>
 <p>
 Finally, in Psychology, the vast majority of journal articles are written in the format of: Introduction, Methods, Results, Discussion. In Semester 1 of Level 2 Psychology, you will write a report based on just the Introduction and the Methods. In Semester 2 you will write a report including all four sections. More on that to follow.
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done on working your way through this activity. Be sure to make notes for yourself, and to post any questions on the forums that you may have. See you in the lab!</p>
 
 </div>
@@ -928,15 +977,15 @@ Finally, in Psychology, the vast majority of journal articles are written in the
 <p><span style="font-size: 16px; font-weight: bold; color: var(--green);">In order to complete this activity you should have worked through the Lab PreClass Activity. You may also need <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents.</span></p>
 <div id="r-markdown-and-the-experimental-design-portfolio" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> R Markdown and The Experimental Design Portfolio</h3>
-<p>In the preclass activity we asked you to start playing about with R Markdown. Now in the lab we are going to continue learning about R Markdown as creating your own files from scratch is a great start to creating reproducible science! We will also start you off in creating your own <strong>Experimental Design Portfolio</strong> through R Markdown. The aim of this portfolio is to consolidate your learning in experimental design, allowing you to reflect back on how your learning has progressed. You should add to it whenever you think &quot;Oh that is a good tip!&quot; or &quot;That is something I want to remember!&quot;. Do this after a lab or a lecture, when you are collating all your notes together. Your portfolio is for you, unless you choose to share it of course, and will not be assessed or marked in anyway. It is your learning aid to help you develop your understanding of Research Methods in Psychology.</p>
-<p>By the end of these labs you should be able to use your portfolio for exam revision, particularly if you incorporate lecture material, so it's worth maintaining a clear structure to your portfolio! In this first lab, <strong>across 9 tasks</strong>, we will help you to understand how to structure and format R Markdown files; you can then apply what you learn here to your portfolio in your own time. We suggest having your portfolio open in every lab so you can add to it as you go along. Let's begin!</p>
+<p>In the preclass activity we asked you to start playing about with R Markdown. Now in the lab we are going to continue learning about R Markdown as creating your own files from scratch is a great start to creating reproducible science! We will also start you off in creating your own <strong>Experimental Design Portfolio</strong> through R Markdown. The aim of this portfolio is to consolidate your learning in experimental design, allowing you to reflect back on how your learning has progressed. You should add to it whenever you think “Oh that is a good tip!” or “That is something I want to remember!”. Do this after a lab or a lecture, when you are collating all your notes together. Your portfolio is for you, unless you choose to share it of course, and will not be assessed or marked in anyway. It is your learning aid to help you develop your understanding of Research Methods in Psychology.</p>
+<p>By the end of these labs you should be able to use your portfolio for exam revision, particularly if you incorporate lecture material, so it’s worth maintaining a clear structure to your portfolio! In this first lab, <strong>across 9 tasks</strong>, we will help you to understand how to structure and format R Markdown files; you can then apply what you learn here to your portfolio in your own time. We suggest having your portfolio open in every lab so you can add to it as you go along. Let’s begin!</p>
 <div class="solution">
 <button>
 Portfolio Point - Things you could include
 </button>
 <div class="info">
 <p>
-Throughout the semester you will see these Portfolio Points. They aren't always necessary to complete the lab but sometimes they will be and sometimes they are just things you might consider putting in your Portfolio to remember. What you keep in your portfolio is up to you but here are some examples of the kind of things we would recommend you include:
+Throughout the semester you will see these Portfolio Points. They aren’t always necessary to complete the lab but sometimes they will be and sometimes they are just things you might consider putting in your Portfolio to remember. What you keep in your portfolio is up to you but here are some examples of the kind of things we would recommend you include:
 </p>
 <ul>
 <li>
@@ -992,9 +1041,10 @@ Interestingly, the art of making your data available was standard in classic old
 </p>
 </div>
 </div>
-<p><br> The data we will use today is from a paper looking at the <strong>Ponzo illusion</strong> and Age:</p>
+<p><br>
+The data we will use today is from a paper looking at the <strong>Ponzo illusion</strong> and Age:</p>
 <p><strong>Leibowitz, H. W. &amp; Judisch, J. M. (1967). The Relation between Age and the Magnitude of the Ponzo Illusion. The American Journal of Psychology, 80(1), 105-109.</strong> It can be accessed on campus (University of Glasgow) through <a href="https://www.jstor.org/stable/1420548?seq=1#page_scan_tab_contents" target = "_blank">this link</a>.</p>
-<p>The basics of the Ponzo illusion (<a href="https://en.wikipedia.org/wiki/Ponzo_illusion" target = "_blank">Wikipedia page</a>) is that two lines of the same size are viewed as being of different length based on surrounding information - like sleepers on a traintrack. See Figure 1 of the Leibowitz and Judisch (1967) for an example (P106). The authors showed people two vertical lines surrounded by differing horizontal lines running at angles behind the main vertical lines. The authors varied the size of one of the vertical lines (left line) and asked the participants to judge which of the two vertical lines was bigger or longer; the left line (variable) or the right one (standard). The paper also tested how this illusion was influenced by age. For more info, see the paper. For the dependent variable, they measured what size the left line had to be to be considered the same size as the standard line on the right. The data we will be using can be seen on Pg107, and includes:</p>
+<p>The basics of the Ponzo illusion (<a href="https://en.wikipedia.org/wiki/Ponzo_illusion" target = "_blank">Wikipedia page</a>) is that two lines of the same size are viewed as being of different length based on surrounding information - like sleepers on a traintrack. See Figure 1 of the Leibowitz and Judisch (1967) for an example (P106). The authors showed people two vertical lines surrounded by differing horizontal lines running at angles behind the main vertical lines. The authors varied the size of one of the vertical lines (left line) and asked the participants to judge which of the two vertical lines was bigger or longer; the left line (variable) or the right one (standard). The paper also tested how this illusion was influenced by age. For more info, see the paper. For the dependent variable, they measured what size the left line had to be to be considered the same size as the standard line on the right. The data we will be using can be seen on page 107, and includes:</p>
 <ul>
 <li>Which Group people were assigned to according to age, with each group being made of 10 people of the same sex</li>
 <li>The Sex of the Group</li>
@@ -1004,7 +1054,7 @@ Interestingly, the art of making your data available was standard in classic old
 </div>
 <div id="Ch1InClassQueT1" class="section level3">
 <h3><span class="header-section-number">1.3.3</span> Task 1: Setting up Your R Markdown Portfolio</h3>
-<p>As above our overall goal is to make a reproducible &quot;report&quot; summarising the data in the Leibowitz and Judisch (1967). As we go along, remember to refer back to the PreClass activity and cheatsheets to help you. Let's begin!</p>
+<p>As above our overall goal is to make a reproducible “report” summarising the data in the Leibowitz and Judisch (1967). As we go along, remember to refer back to the PreClass activity and cheatsheets to help you. Let’s begin!</p>
 <ol style="list-style-type: decimal">
 <li>Create a new R Markdown document.</li>
 <li>Give it a title, e.g. <strong>My Psychology Research Methods Portfolio</strong></li>
@@ -1023,7 +1073,7 @@ Throughout the labs you will see these Helpful Hints. Usually the solutions are 
 In setting up this Rmd file, if you have followed these steps correctly, you will probably see a new R Markdown file with a header containing the title, author, date and output information as shown in the PreClass activity.
 </p>
 <p>
-If you don't see the document header, then you've probably created an R Script instead. Refer back to the PreClass activity and try again. Look further down the list of File options on the top menu. If stuck, speak to a tutor.
+If you don’t see the document header, then you’ve probably created an R Script instead. Refer back to the PreClass activity and try again. Look further down the list of File options on the top menu. If stuck, speak to a tutor.
 </p>
 </div>
 </div>
@@ -1067,8 +1117,8 @@ Remember that the fewer the number of hashtags the larger the heading size.
 <li>Copy and paste the code below into your code chunk. Spend a couple of minutes with a partner reminding yourself what the code does. The answer is in the hint below.</li>
 <li>Now, add or change the <code>echo</code> rule in your code chunk so that when you knit the file, the code <strong>will not be included</strong> in the final document.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-ponzo_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PonzoAgeData.csv&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+ponzo_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PonzoAgeData.csv&quot;</span>)</code></pre>
 <p><strong>Knit the document now and see what the output looks like. It will ask you to save the file somewhere. Remember that on the Boyd Orr Lab PCs this is best done on your M: drive, given available space.</strong></p>
 <p><strong>Important</strong>: There is a good chance that on the webpage that you have knitted, that you will see either some warnings or messages. You can suppress these using the <code>message</code> and <code>warning</code> rules within the code chunks as well. Try this now - the PreClass Activities and the R-Markdown cheatsheet will help.</p>
 <div class="solution">
@@ -1109,7 +1159,7 @@ Loads in the data using the <code>read_csv()</code> function and stores it in <c
 <code>read_csv()</code> is actually in the <code>readr</code> package and is available to you only after you have loaded in the <code>tidyverse</code> through <code>library(tidyverse)</code>. We will always tell you to use <code>read_csv()</code> to read in data from a csv file.
 </li>
 <li>
-remember <code>&lt;-</code> essentially means <code>assign this to that</code>. Assigning the ponzo data to the table <code>ponzo_data</code> can actually can be written the other way around - <code>read_csv(&quot;PonzoAgeData.csv&quot;) -&gt; ponzo_data</code> - but convention usually puts it the way we have in the code.
+remember <code>&lt;-</code> essentially means <code>assign this to that</code>. Assigning the ponzo data to the table <code>ponzo_data</code> can actually can be written the other way around - <code>read_csv(“PonzoAgeData.csv”) -&gt; ponzo_data</code> - but convention usually puts it the way we have in the code.
 </li>
 </ul>
 </div>
@@ -1120,18 +1170,18 @@ Portfolio Point - Set Working Directory
 </button>
 <div class="info">
 <p>
-One of the most common issues we see with people using RStudio is that they forget to set their working directory to the folder containing the data file they are working on. This means that when you try to knit or run a code line it won't work because RStudio doesn't know where the data is. Remember to set your working directory at the start of each session, using <strong><code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></strong>. Avoid using code to set your working directory as this will only work on your machine and not others and is therefor not fully reproducible without editing the script. &quot;)
+One of the most common issues we see with people using RStudio is that they forget to set their working directory to the folder containing the data file they are working on. This means that when you try to knit or run a code line it won’t work because RStudio doesn’t know where the data is. Remember to set your working directory at the start of each session, using <strong><code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></strong>. Avoid using code to set your working directory as this will only work on your machine and not others and is therefor not fully reproducible without editing the script. &quot;)
 </p>
 </div>
 </div>
 </div>
 <div id="Ch1InClassQueT4" class="section level3">
 <h3><span class="header-section-number">1.3.6</span> Task 4: Writing your Report</h3>
-<p>Let's start giving this brief report some information and structure as we would a full report.</p>
+<p>Let’s start giving this brief report some information and structure as we would a full report.</p>
 <ol style="list-style-type: decimal">
 <li>Underneath the code chunk you entered, put a new heading called <strong>Introduction</strong> and give it a <strong>Header 2</strong> size.</li>
 <li>Next, do a little research with your group on the <strong>Ponzo Illusion</strong> and write a sentence or two describing its function; include a citation to support your research. There is a link to the wikipedia page on the illusion at the top of this lab which might help.</li>
-<li>Finally, copy the text in the box below into your report and finish the text by putting the names of two hypotheses behind the illusion below the sentence in an <strong>ordered list</strong> style; i.e. 1... 2..., etc. The two hypotheses are <strong>The Framing hypothesis</strong> and <strong>The Perspective hypothesis</strong>.</li>
+<li>Finally, copy the text in the box below into your report and finish the text by putting the names of two hypotheses behind the illusion below the sentence in an <strong>ordered list</strong> style; i.e. 1… 2…, etc. The two hypotheses are <strong>The Framing hypothesis</strong> and <strong>The Perspective hypothesis</strong>.</li>
 </ol>
 <pre><code>&quot;There are two underlying hypotheses that may explain the Ponzo Illusion. These are: ...&quot;</code></pre>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Question</span></p>
@@ -1156,13 +1206,16 @@ One of the most common issues we see with people using RStudio is that they forg
 <ul>
 <li>Bold text and italicized text are created similarly, how do you create italicized text? <select class='solveme' data-answer='["* (before and after text)"]'> <option></option> <option>* (before text)</option> <option>** (before and after text)</option> <option>* (before and after text)</option> <option>** (before text)</option></select></li>
 </ul>
-<p><strong>It's a good idea to <code>knit</code> the file at this point to make sure the bold font is working correctly.</strong></p>
+<p><strong>It’s a good idea to <code>knit</code> the file at this point to make sure the bold font is working correctly.</strong></p>
 </div>
 <div id="Ch1InClassQueT6" class="section level3">
 <h3><span class="header-section-number">1.3.8</span> Task 6: Adding Links to the Data in your Methods</h3>
-<p>Good practice in a Report is to include information about where we got the data from. 1. Create a new heading below your list of the two hypotheses and call it <strong>Methods</strong>. Set it as <strong>Header 2</strong> size. 2. Below <strong>Methods</strong> write a new heading called <strong>Data</strong> and set it as <strong>Header 3</strong> size. 3. Underneath the Methods heading, copy and paste the sentence in below and turn the citation into an internet link to the paper.</p>
+<p>Good practice in a Report is to include information about where we got the data from.
+1. Create a new heading below your list of the two hypotheses and call it <strong>Methods</strong>. Set it as <strong>Header 2</strong> size.
+2. Below <strong>Methods</strong> write a new heading called <strong>Data</strong> and set it as <strong>Header 3</strong> size.
+3. Underneath the Methods heading, copy and paste the sentence in below and turn the citation into an internet link to the paper.</p>
 <blockquote>
-<p>&quot;The data in this report was obtained from within the original paper, (Lebowitz and Judisch, 2016). &quot;</p>
+<p>“The data in this report was obtained from within the original paper, (Lebowitz and Judisch, 2016).”</p>
 </blockquote>
 <p><strong>Now knit your document again to make sure your formatting is working. Titles should be bigger than normal text and the list should be indented and have numbers at the start of each line.</strong></p>
 <div class="solution">
@@ -1181,7 +1234,7 @@ Use the R Markdown cheatsheet to see how to insert links. It has something to do
 </div>
 <div id="Ch1InClassQueT7" class="section level3">
 <h3><span class="header-section-number">1.3.9</span> Task 7: Adding an Image to your Methods</h3>
-<p>For certain studies you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you'll see that adding an image is very similar to adding a link, the only difference is the <code>!</code> beforehand. For now we will just add an image of the illusion taken from the internet to illustrate how to do this.</p>
+<p>For certain studies you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you’ll see that adding an image is very similar to adding a link, the only difference is the <code>!</code> beforehand. For now we will just add an image of the illusion taken from the internet to illustrate how to do this.</p>
 <ol style="list-style-type: decimal">
 <li>Below the sentence you added for Task 6, add a new heading called <strong>Stimuli</strong> and set it as <strong>Header 3</strong> size.</li>
 <li>Below the <strong>Stimuli</strong> heading, insert the image at the following web address:</li>
@@ -1200,14 +1253,14 @@ Remember that a good methods section will contain all the necessary information 
 </div>
 <div id="Ch1InClassQueT8" class="section level3">
 <h3><span class="header-section-number">1.3.10</span> Task 8: Adding a Table to your Results</h3>
-<p>Another benefit of R Markdown is that you can insert tables of results directly into your report without having to format them - though for aesthetics you will want to learn how to format tables eventually. But for now...</p>
+<p>Another benefit of R Markdown is that you can insert tables of results directly into your report without having to format them - though for aesthetics you will want to learn how to format tables eventually. But for now…</p>
 <ol style="list-style-type: decimal">
 <li>Create a new heading below your methods sentence, called <strong>Results</strong> and format it as <strong>Header 2</strong> size.</li>
 <li>Add a new code chunk and give it the name <code>table</code>, and include the code shown below.</li>
 <li>Add an <code>echo</code> rule so that the code <strong>IS NOT</strong> included in the final document but the ouput table <strong>is</strong> included.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(ponzo_data, Sex) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">NofGroups=</span><span class="kw">n</span>(), <span class="dt">mean_length =</span> <span class="kw">mean</span>(ComparisonLength))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(ponzo_data, Sex) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">NofGroups=</span><span class="kw">n</span>(), <span class="dt">mean_length =</span> <span class="kw">mean</span>(ComparisonLength))</code></pre>
 <p><strong>Now, knit your document to see what you have produced. You should not see the above code, just the output table.</strong></p>
 </div>
 <div id="Ch1InClassQueT9" class="section level3">
@@ -1217,15 +1270,15 @@ Remember that a good methods section will contain all the necessary information 
 <li>Underneath your <code>table</code> code chunk, add a new code chunk and give it the name <code>plot</code>.</li>
 <li>Add the below code to the chunk and set the <code>include</code> rule so that both the code and the plot are included in the final report.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ponzo_data, <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ponzo_data, <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
 <div class="solution">
 <button>
 Portfolio Point - autocompletes
 </button>
 <div class="info">
 <p>
-You can use RStudio's autocomplete (the tab button) to see the different options for the different rules. For example, type <code>include =</code> and then hit the tab button on your keyboard. You should see the options of <code>TRUE</code> or <code>FALSE</code>. This works for a lot of functions you can't quite remember how to spell as well.
+You can use RStudio’s autocomplete (the tab button) to see the different options for the different rules. For example, type <code>include =</code> and then hit the tab button on your keyboard. You should see the options of <code>TRUE</code> or <code>FALSE</code>. This works for a lot of functions you can’t quite remember how to spell as well.
 </p>
 </div>
 </div>
@@ -1246,7 +1299,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);"> <strong>Group Discussion Point</strong> </span></p>
 <p>In your group, have a brief discussion about the figure to answer the following question.</p>
-<p>&quot;Based on the distibrution of the data, shown in the above Figure, ...&quot; <select class='solveme' data-answer='["as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line"]'> <option></option> <option>as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line</option> <option>as age increases, people perceive a longer vertical line to be of same length as the standard vertical linge</option> <option>There is no relationship between Age and the Ponzo illusion</option> <option>This figure tells me nothing about the relationship between Age and the Ponzo illusion</option></select></p>
+<p>“Based on the distibrution of the data, shown in the above Figure, …” <select class='solveme' data-answer='["as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line"]'> <option></option> <option>as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line</option> <option>as age increases, people perceive a longer vertical line to be of same length as the standard vertical linge</option> <option>There is no relationship between Age and the Ponzo illusion</option> <option>This figure tells me nothing about the relationship between Age and the Ponzo illusion</option></select></p>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1257,9 +1310,10 @@ What does each dot represent in the Figure, and what is the pattern of the dots?
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p><strong>Great work!</strong> We have now created a rough layout of a report. The only section we are missing is the Discussion where you relate the information from previous research to what your study showed. Feel free to add one in your own time; read the short summary at the end of the actual paper to help get your thoughts together. We will talk more about the structuring of reports all throughout the year so you will have a great idea of how to write one by the end of Level 2. Well done on succesfully creating your own R Markdown file!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is SUMMATIVE and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab</strong>. If you have any questions, please post them on the slack forum under the channel #level2_labs. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.**</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is SUMMATIVE and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab</strong>. If you have any questions, please post them on the slack forum under the channel #level2_labs. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.**</p>
 
 </div>
 </div>
@@ -1501,7 +1555,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

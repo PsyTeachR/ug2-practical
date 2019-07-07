@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lab 4 Revisiting Probability Distributions | ug2-practical</title>
-  <meta name="description" content="Lab 4 Revisiting Probability Distributions | ug2-practical-materials">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 4 Revisiting Probability Distributions | Level 2 Practical</title>
+  <meta name="description" content="ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 4 Revisiting Probability Distributions | ug2-practical" />
+  <meta property="og:title" content="Lab 4 Revisiting Probability Distributions | Level 2 Practical" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Lab 4 Revisiting Probability Distributions | ug2-practical-materials" />
+  <meta property="og:description" content="ug2-practical-materials" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 4 Revisiting Probability Distributions | ug2-practical" />
+  <meta name="twitter:title" content="Lab 4 Revisiting Probability Distributions | Level 2 Practical" />
   
-  <meta name="twitter:description" content="Lab 4 Revisiting Probability Distributions | ug2-practical-materials" />
+  <meta name="twitter:description" content="ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-25">
+<meta name="date" content="2019-07-07" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="visualisation-through-ggplot2.html">
@@ -52,45 +50,71 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include\style.css" type="text/css" />
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
 </head>
 
 <body>
@@ -103,22 +127,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">ug2-practical</a></li>
+<li><a href="./">Level 2 Practical</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a><ul>
-<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#what-is-r-markdown"><i class="fa fa-check"></i><b>1.1.1</b> What is R Markdown?</a></li>
 <li class="chapter" data-level="1.1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#advantages-of-using-r-markdown"><i class="fa fa-check"></i><b>1.1.2</b> Advantages of using R Markdown</a></li>
 <li class="chapter" data-level="1.1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#creating-an-r-markdown-.rmd-file"><i class="fa fa-check"></i><b>1.1.3</b> Creating an R Markdown (.Rmd) File</a></li>
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
-<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
+<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Options</a></li>
 <li class="chapter" data-level="1.2.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-inline-code"><i class="fa fa-check"></i><b>1.2.5</b> Adding Inline Code</a></li>
 <li class="chapter" data-level="1.2.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#formatting-the-r-markdown-file"><i class="fa fa-check"></i><b>1.2.6</b> Formatting the R Markdown File</a></li>
 </ul></li>
@@ -141,7 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
-<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
 <li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#revisiting-the-wickham-six"><i class="fa fa-check"></i><b>2.2.1</b> Revisiting the Wickham Six</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fa fa-check"></i><b>2.2.2</b> Learning to Wrangle: Is there a Chastity Belt on Perception</a></li>
@@ -165,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -184,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
-<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#scatterplots---geom_point"><i class="fa fa-check"></i><b>3.2.1</b> Scatterplots - <code>geom_point()</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#histograms---geom_histogram"><i class="fa fa-check"></i><b>3.2.2</b> Histograms - geom_histogram()</a></li>
@@ -210,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
-<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>4.1.1</b> Discrete or Continuous Datasets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a><ul>
@@ -239,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -258,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
 <li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
 <li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
@@ -281,7 +305,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
-<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
@@ -318,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
-<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-6"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
 <li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-4"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#reading"><i class="fa fa-check"></i><b>7.2.1</b> Reading</a></li>
 <li class="chapter" data-level="7.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#task"><i class="fa fa-check"></i><b>7.2.2</b> Task</a></li>
@@ -326,13 +350,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT1"><i class="fa fa-check"></i><b>7.3.1</b> Task 1: Load the Data</a></li>
 <li class="chapter" data-level="7.3.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT2"><i class="fa fa-check"></i><b>7.3.2</b> Task 2: Wrangle the Data</a></li>
-<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histograms for Normality</a></li>
+<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histogram for Normality</a></li>
 <li class="chapter" data-level="7.3.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT4"><i class="fa fa-check"></i><b>7.3.4</b> Task 4: A Boxplot of Outliers</a></li>
-<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: The Violin Plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Calculating Descriptives</a></li>
-<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: Visualising Means and Descriptives</a></li>
-<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The t-test</a></li>
-<li class="chapter" data-level="7.3.9" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT9"><i class="fa fa-check"></i><b>7.3.9</b> Task 9: The Write-up</a></li>
+<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: Calculating Descriptives</a></li>
+<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Visualising Means and Descriptives</a></li>
+<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: The t-test</a></li>
+<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The Write-up</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#assignment-6"><i class="fa fa-check"></i><b>7.4</b> Assignment</a></li>
 <li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a><ul>
@@ -340,7 +363,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a><ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-7"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
 <li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-5"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
@@ -375,14 +398,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html"><i class="fa fa-check"></i><b>9</b> Reflection - Semester 1</a><ul>
-<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-8"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#preclass-activity-6"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="9.3" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="9.4" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#assignment-8"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
 <li class="chapter" data-level="9.5" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a><ul>
-<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-9"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
 <li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-7"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="correlations.html"><a href="correlations.html#read"><i class="fa fa-check"></i><b>10.2.1</b> Read</a></li>
 <li class="chapter" data-level="10.2.2" data-path="correlations.html"><a href="correlations.html#watch-1"><i class="fa fa-check"></i><b>10.2.2</b> Watch</a></li>
@@ -407,7 +430,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-10"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
 <li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-8"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#read-1"><i class="fa fa-check"></i><b>11.2.1</b> Read</a></li>
 </ul></li>
@@ -436,7 +459,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
+<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-12"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
 <li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#read-2"><i class="fa fa-check"></i><b>12.2.1</b> Read</a></li>
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
@@ -453,7 +476,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
-<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-12"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-13"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
 <li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-10"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#read-3"><i class="fa fa-check"></i><b>13.2.1</b> Read</a></li>
 <li class="chapter" data-level="13.2.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#try-1"><i class="fa fa-check"></i><b>13.2.2</b> TRY</a></li>
@@ -488,7 +511,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a><ul>
-<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-13"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-14"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
 <li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-11"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="14.2.1" data-path="regression.html"><a href="regression.html#read-4"><i class="fa fa-check"></i><b>14.2.1</b> Read</a></li>
 <li class="chapter" data-level="14.2.2" data-path="regression.html"><a href="regression.html#try-2"><i class="fa fa-check"></i><b>14.2.2</b> Try</a></li>
@@ -517,7 +540,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA And Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-14"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
 <li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
 </ul></li>
@@ -539,7 +562,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
-<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-15"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
 <li class="chapter" data-level="16.2" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#preclass-activity-13"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="16.3" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#inclass-activity-14"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="16.4" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#assignment-15"><i class="fa fa-check"></i><b>16.4</b> Assignment</a></li>
@@ -563,7 +586,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ug2-practical</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Level 2 Practical</a>
           </h1>
         </div>
 
@@ -573,7 +596,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="revisiting-probability-distributions" class="section level1">
 <h1><span class="header-section-number">Lab 4</span> Revisiting Probability Distributions</h1>
-<div id="overview-3" class="section level2">
+<div id="overview-4" class="section level2">
 <h2><span class="header-section-number">4.1</span> Overview</h2>
 <p>In this lab you will:</p>
 <ol style="list-style-type: decimal">
@@ -582,8 +605,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Create probability distributions</li>
 <li>Make estimations from probability distributions.</li>
 </ol>
-<p>Probability is to some degree the cornerstone of any Psychological theory that is based on quantitative analysis. We establish an outcome (e.g. a difference between two events), then establish the probability of that outcome, before finally deciding if that probability is meaningful or not. You will have already seen this in your lectures and in the journal articles that you are reading. We will try to help you gain a deeper understanding of probability through the course of the next few labs and in how we use it to make an inference about a population.</p>
-<p>We will start by looking at some of the general ideas behind probability. We won't be using a lot of Psychology data or concepts here as it can be easier to understand in very concrete examples but be sure to try things out, ask questions, and think about how it might relate to Psychology examples. This preclass is a bit of a read so take your time and try to understand it fully.</p>
+<p>Probability is to some degree the cornerstone of any Psychological theory that is based on quantitative analysis. We establish an outcome (e.g. a difference between two events), then establish the probability of that outcome, before finally deciding if that probability is meaningful or not. You will have already seen this in your lectures and in the journal articles that you are reading. We will try to help you gain a deeper understanding of probability through the course of the next few labs and in how we use it to make an inference about a population.</p>
+<p>We will start by looking at some of the general ideas behind probability. We won’t be using a lot of Psychology data or concepts here as it can be easier to understand in very concrete examples but be sure to try things out, ask questions, and think about how it might relate to Psychology examples. This preclass is a bit of a read so take your time and try to understand it fully.</p>
 <p>There are no cheatsheets for this lab as we will not be using a specific package. However you can make full use of the R help function (e.g. <code>?sample</code>) when you are not clear on what a function does. Also, do not be shy to do what we do and run a Google Search for finding out more about some of the stats concepts covered here. There are loads of videos and help pages out there with clear examples to explain difficult concepts.</p>
 <div class="solution">
 <button>
@@ -597,14 +620,16 @@ The population is the whole group that you want to know something about - everyo
 </div>
 <div id="discrete-or-continuous-datasets" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Discrete or Continuous Datasets</h3>
-<p>This is a short tutorial with just a couple of quick recap questions on how the <strong>level of measurement</strong> can alter the way you tackle probability - i.e. whether the data is discrete or continuous.</p>
+<p>This is a short tutorial with just a couple of quick recap questions on how the <strong>level of measurement</strong> can alter the way you tackle probability - i.e. whether the data is discrete or continuous.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p><strong>Discrete</strong> data can only take integer values (whole numbers). For example, the number of participants in an experiment would be discrete - we can't have half a participant! Discrete variables can also be further broken down into <strong>nominal/categorical</strong> and <strong>ordinal</strong> variables. <br> Fill in the blanks in the below sentences using the words: ordinal, nominal, categorical.</p>
+<p><strong>Discrete</strong> data can only take integer values (whole numbers). For example, the number of participants in an experiment would be discrete - we can’t have half a participant! Discrete variables can also be further broken down into <strong>nominal/categorical</strong> and <strong>ordinal</strong> variables.
+<br>
+Fill in the blanks in the below sentences using the words: ordinal, nominal, categorical.</p>
 <ul>
-<li><p><input class='solveme nospaces ignorecase' size='8' data-answer='["categorical"]'/> data is based on a set of categories but the ordering doesn't matter (e.g. left or right handed). This is sometimes referred to as <input class='solveme nospaces ignorecase' size='8' data-answer='["nominal"]'/> data. For example, you could separate participants according to left or right handedness or by education level.</p></li>
+<li><p><input class='solveme nospaces ignorecase' size='8' data-answer='["categorical"]'/> data is based on a set of categories but the ordering doesn’t matter (e.g. left or right handed). This is sometimes referred to as <input class='solveme nospaces ignorecase' size='8' data-answer='["nominal"]'/> data. For example, you could separate participants according to left or right handedness or by education level.</p></li>
 <li><p><input class='solveme nospaces ignorecase' size='8' data-answer='["ordinal"]'/> data is a set of ordered categories; you know which is the top/best and which is the worst/lowest, but not the difference between categories. For example, you could ask participants to rate the attractiveness of different faces based on a 5-item Likert scale (very unattractive, unattractive, neutral, attractive, very attractive).</p></li>
 </ul>
-<p><strong>Continuous</strong> data on the other hand can take any value. For example, we can measure age on a continuous scale (e.g. we can have an age of 26.55 years), also reaction time or the distance you travel to university every day.</p>
+<p><strong>Continuous</strong> data on the other hand can take any value. For example, we can measure age on a continuous scale (e.g. we can have an age of 26.55 years), also reaction time or the distance you travel to university every day.</p>
 <p>Fill in the blanks in the below sentences using the two remaining levels of measurement not offered above</p>
 <ul>
 <li>Continuous data can be broken into <input class='solveme nospaces ignorecase' size='10' data-answer='["interval","ratio"]'/> or <input class='solveme nospaces ignorecase' size='10' data-answer='["interval","ratio"]'/> data - more of this another time.</li>
@@ -612,11 +637,11 @@ The population is the whole group that you want to know something about - everyo
 <p>When you read journal articles or when you are working with data in the lab, it is really good practice to take a minute or two to figure out the type of variables you are reading about and/or working with.</p>
 <div class="solution">
 <button>
-Explain This - I don't get these answers
+Explain This - I don’t get these answers
 </button>
 <div class="info">
 <p>
-The four level of measurements are nominal (also called categorical), ordinal, interval and ratio. Discrete data only uses categories or whole numbers and is therefore either nominal or ordinal data. Continuous data can take any value, e.g. 9.00 or 9.999999999, and so is either interval or ratio data.
+The four level of measurements are nominal (also called categorical), ordinal, interval and ratio. Discrete data only uses categories or whole numbers and is therefore either nominal or ordinal data. Continuous data can take any value, e.g. 9.00 or 9.999999999, and so is either interval or ratio data.
 </p>
 </div>
 </div>
@@ -629,17 +654,18 @@ The four level of measurements are nominal (also called categorical), ordinal, i
 <h2><span class="header-section-number">4.2</span> PreClass Activity 1</h2>
 <div id="general-probability-calculations" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> General Probability Calculations</h3>
-<p>Today we will being by recapping the concepts of probability calculations from Level 1, looking at discrete distributions. If you are unsure about discrete vs continuous you should try the other quick tutorial on it, to be found on Moodle. At the end of this section there are three Quickfire Questions to test your understanding. Any that you aren't clear on bring them to class next week for discussion.</p>
-<p>Probability is the extent to which an event is likely to occur and is represented by a number between 0 and 1, and the letter <strong>p</strong>. For example, the probability of flipping a coin and it landing on 'tails', most people would say, is estimated at <strong>p = .5</strong>, i.e. the likelihood of getting tails is <span class="math inline">\(p = \frac {1}{2}\ \)</span> as there is one desired outcome (tails) and two possibilities (heads or tails).<br />
-<br> Calculating the probability of any discrete event occuring can be formulated as:</p>
+<p>Today we will being by recapping the concepts of probability calculations from Level 1, looking at discrete distributions. If you are unsure about discrete vs continuous you should try the other quick tutorial on it, to be found on Moodle. At the end of this section there are three Quickfire Questions to test your understanding. Any that you aren’t clear on bring them to class next week for discussion.</p>
+<p>Probability is the extent to which an event is likely to occur and is represented by a number between 0 and 1, and the letter <strong>p</strong>. For example, the probability of flipping a coin and it landing on ‘tails’, most people would say, is estimated at <strong>p = .5</strong>, i.e. the likelihood of getting tails is <span class="math inline">\(p = \frac {1}{2}\\)</span> as there is one desired outcome (tails) and two possibilities (heads or tails).<br />
+<br>
+Calculating the probability of any discrete event occuring can be formulated as:</p>
 <p><span class="math display">\[p = \frac{number \  of  \ ways \ the \ event \ could \  arise}{number \ of \ possible \ outcomes}\]</span></p>
 <p><strong>For example:</strong></p>
 <p><strong>1.</strong> The probability of drawing the ten of clubs from a standard pack of cards would be 1 in 52: <span class="math inline">\(p = \frac {1}{52} \ = .019\)</span>. One outcome (ten of clubs) with 52 possible outcomes (all the cards)</p>
 <p><strong>2.</strong> Likewise, the probability of drawing <strong>either</strong> a ten of clubs or a seven of diamonds as the the first card that you draw would be 2 in 52: <span class="math inline">\(p = \frac {2}{52} \ = .038\)</span>. In this case you are adding to the chance of an event occurring by giving two possible outcomes, so it becomes <strong>more likely</strong> to happen than when you only had one outcome.</p>
 <p><strong>3.</strong> Now say you have two standard packs of cards <strong>mixed</strong> together. The probability of drawing the 10 of clubs from this mixed pack would be 2 in 104: <span class="math inline">\(p = \frac{2}{104}= .019\)</span>. Two possible outcomes <strong>but more alternatives</strong> than above, 104 this time, meaning it is <strong>less likely</strong>.</p>
-<p><strong>4.</strong> Let's instead say you have two <strong>separate</strong> packs of cards. The probability of drawing the 10 of clubs from <strong>both</strong> packs would be: <span class="math inline">\(p = \frac{1}{52} \times \frac{1}{52}= .0004\)</span>. The probability has gone down again because you have created an event that is <strong>even more unlikely</strong> to happen - this is called the <code>cumulative probability</code> - multiplying the two individual probabilities of <strong>separate events</strong> to find the combined or cumulative probability.</p>
+<p><strong>4.</strong> Let’s instead say you have two <strong>separate</strong> packs of cards. The probability of drawing the 10 of clubs from <strong>both</strong> packs would be: <span class="math inline">\(p = \frac{1}{52} \times \frac{1}{52}= .0004\)</span>. The probability has gone down again because you have created an event that is <strong>even more unlikely</strong> to happen - this is called the <code>cumulative probability</code> - multiplying the two individual probabilities of <strong>separate events</strong> to find the combined or cumulative probability.</p>
 <p><strong>5.</strong> What about the probability of drawing the 10 of clubs from a pack of 52, putting it back (i.e. <strong>replacement</strong>), and subsequently drawing the 7 of diamonds? Again, this would be represented by multiplying together the probability of each of these events happening to obtain the <code>cumulative probability</code>: <span class="math inline">\(p = \frac{1}{52} \times \frac{1}{52}= .0004\)</span>.</p>
-<p><strong>6.</strong> Finally, say you draw the 10 of clubs from a pack of 52 but this time <strong>don't replace it</strong>. What is the probability that you will draw the 7 of diamonds in your next draw (again without replacing it) and the 3 of hearts in a third draw? This time the number of cards in the pack is <strong>fewer</strong> for the second (51 cards) and third draws (50 cards) so you take that into account in your multiplication: <span class="math inline">\(p = \frac{1}{52} \times \frac{1}{51}\times \frac{1}{50}= .000008\)</span>.</p>
+<p><strong>6.</strong> Finally, say you draw the 10 of clubs from a pack of 52 but this time <strong>don’t replace it</strong>. What is the probability that you will draw the 7 of diamonds in your next draw (again without replacing it) and the 3 of hearts in a third draw? This time the number of cards in the pack is <strong>fewer</strong> for the second (51 cards) and third draws (50 cards) so you take that into account in your multiplication: <span class="math inline">\(p = \frac{1}{52} \times \frac{1}{51}\times \frac{1}{50}= .000008\)</span>.</p>
 <div class="solution">
 <button>
 Portfolio Point - Presenting probabilities
@@ -653,7 +679,8 @@ But you may have noticed that sometimes we write p = .008, for example, and some
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>What is the probability of randomly drawing your name out of a hat of 12 names where one name is definitely your name? Enter your answer to 3 decimal places: <input class='solveme nospaces' size='5' data-answer='["0.083",".083"]'/></p></li>
 <li><p>What is the probability of randomly drawing your name out of a hat of 12 names, putting it back, and drawing your name again? Enter your answer to 3 decimal places: <input class='solveme nospaces' size='5' data-answer='["0.007",".007"]'/></p></li>
@@ -685,13 +712,13 @@ Think about the first trial: there are 120 possible outcomes (faces) in which yo
 </div>
 <div class="solution">
 <button>
-Explain This - I don't get these answers
+Explain This - I don’t get these answers
 </button>
 <div class="info">
 <ol style="list-style-type: decimal">
 <li>
 <p>
-p = 0.083 or p = .083. One outcome (your name) out of 12 possibilities, i.e. 1/12
+p = 0.083 or p = .083. One outcome (your name) out of 12 possibilities, i.e. 1/12
 </p>
 </li>
 <li>
@@ -711,92 +738,94 @@ p = 0.006 or p = .006. It starts off as 10 out of 120, but as you remove one inv
 <div id="creating-a-simple-probability-distribution" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Creating a Simple Probability Distribution</h3>
 <p>We will now recap plotting probability distributions by looking at the probability distributions of a simulated coin toss. Work through this example and then apply the logic to the quickfire questions at the end of the section.</p>
-<p>Imagine we want to know the probability of getting X number of heads in 10 coin flips. To simulate 10 coin flips we used the <code>sample()</code> function where we randomly sample (with replacement) from all possible events: i.e. either <strong>heads</strong> or <strong>tails</strong>.</p>
+<p>Imagine we want to know the probability of getting X number of heads in 10 coin flips. To simulate 10 coin flips we used the <code>sample()</code> function where we randomly sample (with replacement) from all possible events: i.e. either <strong>heads</strong> or <strong>tails</strong>.</p>
 <ul>
 <li>Open a new script and copy in the code lines below. The last argument in the code above provides the instruction to sample with or without replacement by setting it to <code>TRUE</code> or <code>FALSE</code> respectively.</li>
-<li><strong>Note1:</strong> Because our event labels are strings (text), we enter them into the function as a vector; i.e. in &quot;quotes&quot;</li>
-<li><strong>Note2:</strong> Below the lines of code, you will see the output that we got when we ran our code. Don't worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.</li>
+<li><strong>Note1:</strong> Because our event labels are strings (text), we enter them into the function as a vector; i.e. in “quotes”</li>
+<li><strong>Note2:</strong> Below the lines of code, you will see the output that we got when we ran our code. Don’t worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;HEADS&quot;</span>, <span class="st">&quot;TAILS&quot;</span>), <span class="dv">10</span>, <span class="ot">TRUE</span>) </code></pre></div>
-<pre><code>##  [1] &quot;HEADS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;TAILS&quot;
-##  [9] &quot;HEADS&quot; &quot;HEADS&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
+<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;HEADS&quot;</span>, <span class="st">&quot;TAILS&quot;</span>), <span class="dv">10</span>, <span class="ot">TRUE</span>) </code></pre>
+<pre><code>##  [1] &quot;HEADS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;TAILS&quot;
+##  [9] &quot;TAILS&quot; &quot;TAILS&quot;</code></pre>
 <div class="solution">
 <button>
 Portfolio Point - Sampling and Replacement
 </button>
 <div class="info">
 <p>
-Sampling is simply choosing or selecting something - here we are randomly choosing one of the possible options. Other psychology experiment 'sampling' could include randomly selecting participants, randomly choosing which stimuli to present on a given trial, or randomly assigning participants to a condition e.g.drug or placebo...etc.
+Sampling is simply choosing or selecting something - here we are randomly choosing one of the possible options. Other psychology experiment ‘sampling’ could include randomly selecting participants, randomly choosing which stimuli to present on a given trial, or randomly assigning participants to a condition e.g.drug or placebo…etc.
 </p>
 <p>
-Replacement is putting the sampled option back into the 'pot' of possible options. For example, on the first turn you randomly sample HEADS from the options of HEADS and TAILS with replacement, meaning that on the next you have the same two options again; HEADS or TAILS. Sampling without replacement means that you remove the option from subsequent turns. So say on the first turn you randomly sample HEADS from the options HEADS and TAILS but without replacement. Now on the second turn you only have the option of TAILS to 'randomly' sample from. On the third turn without replacement you would have no options. So replacement means putting the option back for the next turn.
+Replacement is putting the sampled option back into the ‘pot’ of possible options. For example, on the first turn you randomly sample HEADS from the options of HEADS and TAILS with replacement, meaning that on the next you have the same two options again; HEADS or TAILS. Sampling without replacement means that you remove the option from subsequent turns. So say on the first turn you randomly sample HEADS from the options HEADS and TAILS but without replacement. Now on the second turn you only have the option of TAILS to ‘randomly’ sample from. On the third turn without replacement you would have no options. So replacement means putting the option back for the next turn.
 </p>
 </div>
 </div>
-<p><br> Why would you or why wouldn't you want to use sampling with replacement in our coin toss scenario? If you aren't sure then set replacement as <code>FALSE</code> and run the code again. The code will stop working after 2 coin flips. We want to sample with replacement here because we want both options available at each sampling - and if we didn't then we would run out of options very quickly since we're doing 10 flips.</p>
-<p>So far our code returns the outcomes from the 10 flips; either heads or tails. If we want to count how many 'heads' we have we can simply sum up the heads. However, heads isn't a number, so to make life easier we can re-label our events as <strong>0 for tails</strong> and <strong>1 for heads</strong>. Now if we run the code again we can pipe the sample into a <code>sum()</code> function to total up all the 1s (heads) from the 10 flips.</p>
+<p><br>
+Why would you or why wouldn’t you want to use sampling with replacement in our coin toss scenario? If you aren’t sure then set replacement as <code>FALSE</code> and run the code again. The code will stop working after 2 coin flips. We want to sample with replacement here because we want both options available at each sampling - and if we didn’t then we would run out of options very quickly since we’re doing 10 flips.</p>
+<p>So far our code returns the outcomes from the 10 flips; either heads or tails. If we want to count how many ‘heads’ we have we can simply sum up the heads. However, heads isn’t a number, so to make life easier we can re-label our events as <strong>0 for tails</strong> and <strong>1 for heads</strong>. Now if we run the code again we can pipe the sample into a <code>sum()</code> function to total up all the 1s (heads) from the 10 flips.</p>
 <ul>
 <li>Run this line of code a number of times, what do you notice about the output?</li>
-<li><strong>Note1:</strong> As our event labels are now numeric, we don't need the vector.</li>
+<li><strong>Note1:</strong> As our event labels are now numeric, we don’t need the vector.</li>
 <li><strong>Note2:</strong> <code>0:1</code> means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>() </code></pre></div>
-<pre><code>## [1] 6</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() </code></pre>
+<pre><code>## [1] 3</code></pre>
 <p>The ouptut of this line changes every time we run the code as we are randomly sampling 10 coin flips each time. And to be clear, if you get an answer of 6 for example, this means 6 heads, and in turn, 4 tails. By running this code over and over again we are basically demonstrating how a <strong>sampling distribution</strong> is created.</p>
 <div class="solution">
 <button>
-Portfolio Point - What's a sampling distribution?
+Portfolio Point - What’s a sampling distribution?
 </button>
 <div class="info">
 <p>
-A sampling distribution shows you the probability of each possible outcome; e.g. the probability of 5 heads in 10 flips, or the probability of 4 heads in 10 flips, or the probability of X heads in 10 flips of the coin.
+A sampling distribution shows you the probability of each possible outcome; e.g. the probability of 5 heads in 10 flips, or the probability of 4 heads in 10 flips, or the probability of X heads in 10 flips of the coin.
 </p>
 </div>
 </div>
-<p><br> But in order to create a full and accurate sampling distribution we need to replicate these 10 flips a number of times. The more replications we do the more reliable the estimates. Let's do 10000 replications of our 10 coin flips. This means we flip the coin 10 times, count how many heads, save that number, and then repeat it 10000 times. We could do it the slow way we demonstrated above, just running the same line over and over and over again and noting the outcome each time. Or we could use the <code>replicate</code> function.</p>
+<p><br>
+But in order to create a full and accurate sampling distribution we need to replicate these 10 flips a number of times. The more replications we do the more reliable the estimates. Let’s do 10000 replications of our 10 coin flips. This means we flip the coin 10 times, count how many heads, save that number, and then repeat it 10000 times. We could do it the slow way we demonstrated above, just running the same line over and over and over again and noting the outcome each time. Or we could use the <code>replicate</code> function.</p>
 <ul>
 <li>Copy this line of code into your script and run it.</li>
 <li>Here we are doing exactly as we said and saving the 10000 outputs (counts of heads) in the variable called <code>heads10k</code> (k is shorthand for thousand).</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heads10k &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>())   </code></pre></div>
-<pre><code>##  int [1:10000] 2 5 6 7 4 5 7 5 5 6 ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">heads10k &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>())   </code></pre>
+<pre><code>##  int [1:10000] 6 5 7 4 3 7 7 4 6 3 ...</code></pre>
 <p>The results of these 10000 replications are now stored in a vector called <code>heads10k</code>. If you have a look at <code>heads10k</code>, as shown in the bottom box, it is a series of 10000 numbers between 0 and 10 each indicating the number of heads, or more specifically 1s, that you got in a set of 10 flips.</p>
 <p>Now in order to complete our distribution we need to:</p>
 <ol style="list-style-type: decimal">
 <li>convert the vector (list of numbers for the heads counts) into a data frame (a table) so we can work on it.</li>
-<li>Then group the results by the number of possible <code>heads</code>; i.e. group all the times we got 5 heads together, all the times we got 4 heads together, etc.</li>
-<li>Finally, we work out the probability of a <code>heads</code> result, (e.g. probability of 5 heads), by totaling the number of observations for each possible result (e.g. 5 heads) and submitting it to our probability formula above (number of outcomes of event divided by all possible outcomes)
+<li>Then group the results by the number of possible <code>heads</code>; i.e. group all the times we got 5 heads together, all the times we got 4 heads together, etc.</li>
+<li>Finally, we work out the probability of a <code>heads</code> result, (e.g. probability of 5 heads), by totaling the number of observations for each possible result (e.g. 5 heads) and submitting it to our probability formula above (number of outcomes of event divided by all possible outcomes)
 <ul>
-<li>so the number of times we got a specific number of heads (e.g. 5 heads) divided by the total number of outcomes (i.e. the number of replications - 10000).</li>
+<li>so the number of times we got a specific number of heads (e.g. 5 heads) divided by the total number of outcomes (i.e. the number of replications - 10000).</li>
 </ul></li>
 </ol>
 <p>We can carry out these steps using the following code:</p>
 <ul>
 <li>Copy the below code into your script and run it.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data10k &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">heads =</span> heads10k) %&gt;%<span class="st">   </span><span class="co"># convert to a data frame </span>
-<span class="st">                </span><span class="kw">group_by</span>(heads) %&gt;%<span class="st">           </span><span class="co"># group by number of possibilities</span>
-<span class="st">                </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="dt">p=</span>n/<span class="dv">10000</span>) <span class="co"># count occurances of possibility,</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">data10k &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">heads =</span> heads10k) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># convert to a data frame </span>
+<span class="st">                </span><span class="kw">group_by</span>(heads) <span class="op">%&gt;%</span><span class="st">           </span><span class="co"># group by number of possibilities</span>
+<span class="st">                </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="dt">p=</span>n<span class="op">/</span><span class="dv">10000</span>) <span class="co"># count occurances of possibility,</span></code></pre>
 <pre><code>## Warning: `data_frame()` is deprecated, use `tibble()`.
 ## This warning is displayed once per session.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">                                              <span class="co"># &amp; calculate probability (p) of</span>
-                                              <span class="co"># each</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">                                              <span class="co"># &amp; calculate probability (p) of</span>
+                                              <span class="co"># each</span></code></pre>
 <p>We now have a discrete probability distribution of the number of heads in 10 coin flips. Use the <code>View()</code> function to have look at your <code>data10k</code> variable. You should now see for each heads outcome, the total number of occurrences in 10000 replications (<code>n</code>) plus the probability of that outcome (<code>p</code>).</p>
 <p>It might be useful to visualize the distribution as a histogram:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(data10k, <span class="kw">aes</span>(heads,p)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;skyblue&quot;</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Number of Heads&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Probability of Heads in 10 flips (p)&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_bw</span>() +
-<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits=</span><span class="dv">0</span>:<span class="dv">10</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(data10k, <span class="kw">aes</span>(heads,p)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;skyblue&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Number of Heads&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Probability of Heads in 10 flips (p)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits=</span><span class="dv">0</span><span class="op">:</span><span class="dv">10</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:10khist"></span>
 <img src="04-s01-lab04b1_files/figure-html/10khist-1.png" alt="Probability Distribution of Number of Heads in 10 Flips" width="100%" />
 <p class="caption">
 Figure 4.1: Probability Distribution of Number of Heads in 10 Flips
 </p>
 </div>
-<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2388</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
-<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0014</strong>, and the probability of 1 heads is <strong>0.0091</strong>, and the probability of 2 heads is <strong>0.0473</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0578</strong></p>
+<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2463</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
+<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0012</strong>, and the probability of 1 heads is <strong>0.0091</strong>, and the probability of 2 heads is <strong>0.047</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0573</strong></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>Look at the probability values corresponding to the number of coin flips you created in the <code>data10k</code> sample distribution (use <code>View()</code> to see this):</p>
 <ul>
@@ -806,17 +835,17 @@ Figure 4.1: Probability Distribution of Number of Heads in 10 Flips
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't understand the answers!
+Explain This - I don’t understand the answers!
 </button>
 <div class="info">
 <p>
-If you think about it, we can't get 5.5 heads or 2.3 heads, we can only get whole numbers, 2 heads or 5 heads. This means that the data and the distribution is discrete. (Don't be confused by one of the functions saying continuous)
+If you think about it, we can’t get 5.5 heads or 2.3 heads, we can only get whole numbers, 2 heads or 5 heads. This means that the data and the distribution is discrete. (Don’t be confused by one of the functions saying continuous)
 </p>
 <p>
 To find the probability of getting say 4, 5, or 6 heads in 10 coin flips, you are combining related scenarios together, therefore you need to find the individual probabilities of getting 4, 5 or 6 heads in 10 coin flips, then sum the probabilities together to get the appropriate probability of obtaining 4, 5 or 6 heads. It is the same with 6 or more heads, just sum the probabilities of 6, 7, 8, 9 and 10 heads to get the probability of 6 or more heads.
 </p>
 <p>
-Not sure if you should be summing or multiplying probabilities? A good way to remember, from both the coin flip examples and from the pack of cards examples earlier, is that if the scenarios are <strong>related</strong> you are summing probabilities, if scenarios are <strong>separate</strong> you are multiplying probabilities. <strong>Related</strong> scenarios are usually asking you about the probability of <strong>'either / or'</strong> scenarios occuring, whereas <strong>separate</strong> scenarios usually ask about the probability of one scenario <strong>'and'</strong> another scenario both occuring.
+Not sure if you should be summing or multiplying probabilities? A good way to remember, from both the coin flip examples and from the pack of cards examples earlier, is that if the scenarios are <strong>related</strong> you are summing probabilities, if scenarios are <strong>separate</strong> you are multiplying probabilities. <strong>Related</strong> scenarios are usually asking you about the probability of <strong>‘either / or’</strong> scenarios occuring, whereas <strong>separate</strong> scenarios usually ask about the probability of one scenario <strong>‘and’</strong> another scenario both occuring.
 </p>
 <p>
 Your sample distribution <code>data10k</code> has already completed the first part of this calculation for you (finding individual probabilities of n heads in 10 coing flips), so all you need to to is sum the required probailities together!
@@ -826,20 +855,20 @@ Your sample distribution <code>data10k</code> has already completed the first pa
 </div>
 <div id="the-binomial-distribution---creating-a-discrete-distribution" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> The Binomial Distribution - Creating a Discrete Distribution</h3>
-<p>Great, so we are now learning how probabilities and distributions work. However, if we had wanted to calculate the probability of 8 heads from 10 coin flips we don't have to go through this entire procedure each time. Instead, because we have a dichotomous outcome, &quot;heads or tails&quot;, we can calculate probabilities using the <strong>binomial distribution</strong> - effectively what you just created. You can look up the R help page on the binomial distribution (type <code>?dbinom</code> directly into the console) to understand how to use it but we will walk through some essentials here.</p>
-<p>We'll use 3 functions to work with the binomial distribution:</p>
+<p>Great, so we are now learning how probabilities and distributions work. However, if we had wanted to calculate the probability of 8 heads from 10 coin flips we don’t have to go through this entire procedure each time. Instead, because we have a dichotomous outcome, “heads or tails”, we can calculate probabilities using the <strong>binomial distribution</strong> - effectively what you just created. You can look up the R help page on the binomial distribution (type <code>?dbinom</code> directly into the console) to understand how to use it but we will walk through some essentials here.</p>
+<p>We’ll use 3 functions to work with the binomial distribution:</p>
 <ul>
-<li><p><code>dbinom</code> - the density function: gives you the probability of <code>x</code> successes (heads) given the <code>size</code> (trials) and probability of success <code>prob</code> on a single trial (here it's 0.5, because we assume we're flipping a fair coin)</p></li>
-<li><p><code>pbinom</code> - the distribution function: gives you the probability of getting a number of successes below a certain cut-off point (e.g. probability of getting 0 to 5 heads out of 10 flips), given the <code>size</code> and the <code>prob</code>.</p></li>
+<li><p><code>dbinom</code> - the density function: gives you the probability of <code>x</code> successes (heads) given the <code>size</code> (trials) and probability of success <code>prob</code> on a single trial (here it’s 0.5, because we assume we’re flipping a fair coin)</p></li>
+<li><p><code>pbinom</code> - the distribution function: gives you the probability of getting a number of successes below a certain cut-off point (e.g. probability of getting 0 to 5 heads out of 10 flips), given the <code>size</code> and the <code>prob</code>.</p></li>
 <li><p><code>qbinom</code> - the quantile function: is the inverse of<code>pbinom</code> in that it gives you the x axis value below (and including the value) which the summation of probabilities is greater than or equal to a given probability <code>p</code>, plus given the <code>size</code> and <code>prob</code>.</p></li>
 </ul>
 </div>
 <div id="dbinom---the-density-function" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> <strong><code>dbinom</code></strong> - The Density Function</h3>
-<p>Using the <code>dbinom</code> function we can create probabilities for any possible outcomes of <code>heads</code> (e.g. 3) in 10 flips.:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</code></pre></div>
+<p>Using the <code>dbinom</code> function we can create probabilities for any possible outcomes of <code>heads</code> (e.g. 3) in 10 flips.:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</code></pre>
 <p>or all possible outcomes of heads (0:10) in 10 flips:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">0</span>:<span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</code></pre>
 <p>And if we plot the probability of all possible outcomes in 10 flips it would look like this:</p>
 <div class="figure" style="text-align: center"><span id="fig:binom-distrib1"></span>
 <img src="04-s01-lab04b1_files/figure-html/binom-distrib1-1.png" alt="Probability Distribution of Number of Heads in 10 Flips" width="100%" />
@@ -849,12 +878,12 @@ Figure 4.2: Probability Distribution of Number of Heads in 10 Flips
 </div>
 <p>The dbinom (<strong>d</strong>ensity <strong>binom</strong>) function takes the format of <code>dbinom(x, size, prob)</code>, where the arguments we give are:</p>
 <ul>
-<li><code>x</code> the number of 'heads' we want to know the probability of. Either a single one, <code>3</code> or a series <code>0:10</code>.</li>
+<li><code>x</code> the number of ‘heads’ we want to know the probability of. Either a single one, <code>3</code> or a series <code>0:10</code>.</li>
 <li><code>size</code> the number of trials (flips) we are doing; in this case, 10 flips.</li>
-<li><code>prob</code> the probability of 'heads' on one trial. Here chance is 50-50 which as a probability we state as 0.5 or .5</li>
+<li><code>prob</code> the probability of ‘heads’ on one trial. Here chance is 50-50 which as a probability we state as 0.5 or .5</li>
 </ul>
 <p>Now say if we wanted to know the probability of 6 heads out of 10 flips, we would write:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">6</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)  <span class="co"># we only have to change the first (x) argument</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">6</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)  <span class="co"># we only have to change the first (x) argument</span></code></pre>
 <pre><code>## [1] 0.2050781</code></pre>
 <p>As such the probability of 6 heads, using <code>dbinom</code> is p = 0.2050781. If you compare this value to the <code>data10k</code> value for 6 you will see they are similar but not quite the same because <code>dbinom</code> uses a lot more replications than the 10000 we used.</p>
 In terms of visualising what we have just calculated. That number represents the height of the green bar in the plot below.
@@ -870,7 +899,7 @@ Figure 4.3: Probability Distribution of Number of Heads in 10 Flips with the pro
 </ul>
 <div class="solution">
 <button>
-Explain This - I can't get the right answer
+Explain This - I can’t get the right answer
 </button>
 <div class="info">
 <p>
@@ -885,13 +914,13 @@ You want to know the probability of 2 heads in 10 flips. X is therefor 2; Size i
 <div id="pbinom---the-cumulative-probability-function" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> <strong><code>pbinom</code></strong> - The Cumulative Probability Function</h3>
 <p>What if we wanted to know the probability of <strong>up to and including</strong> 3 heads out of 10 flips? We can either use <code>dbinom</code> for each outcome up to 3 heads and sum the results:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">0</span>:<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>()</code></pre>
 <pre><code>## [1] 0.171875</code></pre>
-<p>Or we can use the <code>pbinom</code> function; known as the <strong>cumulative probability distribution function</strong> or the <strong>cumulative density function</strong>. The first argument we give is the <strong>cut-off</strong> value up to and including which we want to know the probability of (here it's up to 3 <code>heads</code>). Then, as before, we tell it how many flips we want to do and the probability of <code>heads</code> on a single trial.</p>
+<p>Or we can use the <code>pbinom</code> function; known as the <strong>cumulative probability distribution function</strong> or the <strong>cumulative density function</strong>. The first argument we give is the <strong>cut-off</strong> value up to and including which we want to know the probability of (here it’s up to 3 <code>heads</code>). Then, as before, we tell it how many flips we want to do and the probability of <code>heads</code> on a single trial.</p>
 <ul>
 <li>Copy this line into your script and run it:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinom</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)  </code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinom</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)  </code></pre>
 <pre><code>## [1] 0.171875</code></pre>
 <p>So the probability of <strong>up to and including 3 heads</strong> (as <code>lower.tail = TRUE</code>) out of 10 flips is <strong>0.172</strong>. For visualization, what we have done is calculated the cumulative probability of the lower tail of the distribution up to our cut-off of 3 (in green below):</p>
 <div class="figure" style="text-align: center"><span id="fig:binom-plot2"></span>
@@ -902,9 +931,9 @@ Figure 4.4: Probability Distribution of Number of Heads in 10 Flips with the pro
 </div>
 <p>So the <code>pbinom</code> function gives us the <strong>cumulative probability</strong> of outcomes <strong>up to and including the cut-off</strong>.</p>
 <p>But what if we wanted to know the probability of outcomes <strong>including and above</strong> a certain value? Say we want to know the probability of 7 heads or more out of 10 coin flips. The code would be this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinom</span>(<span class="dv">6</span>, <span class="dv">10</span>, <span class="fl">0.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) </code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pbinom</span>(<span class="dv">6</span>, <span class="dv">10</span>, <span class="fl">0.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) </code></pre>
 <pre><code>## [1] 0.171875</code></pre>
-<p>We still specify our cut-off as 6 heads, even though we want 7 and above, but we switch the <code>lower.tail</code> call from <code>TRUE</code> to <code>FALSE</code> to tell <code>pbinom</code> we don't want the lower tail this time (to the left of and including the cut-off), we want the <strong>upper tail, to the right of the cut-off</strong>. This results in the cumulative probability for the upper tail of the distribution down to our cut-off value (shown in green below). We set the cut-off as '6' because in the discrete distribution, only the <code>lower.tail = TRUE</code> includes the cut-off (6 and below) whereas the <code>lower.tail = FALSE</code> would be everything above the cut-off <strong>but not including</strong> the cut-off (7 and above).</p>
+<p>We still specify our cut-off as 6 heads, even though we want 7 and above, but we switch the <code>lower.tail</code> call from <code>TRUE</code> to <code>FALSE</code> to tell <code>pbinom</code> we don’t want the lower tail this time (to the left of and including the cut-off), we want the <strong>upper tail, to the right of the cut-off</strong>. This results in the cumulative probability for the upper tail of the distribution down to our cut-off value (shown in green below). We set the cut-off as ‘6’ because in the discrete distribution, only the <code>lower.tail = TRUE</code> includes the cut-off (6 and below) whereas the <code>lower.tail = FALSE</code> would be everything above the cut-off <strong>but not including</strong> the cut-off (7 and above).</p>
 <div class="figure" style="text-align: center"><span id="fig:binom-plot3"></span>
 <img src="04-s01-lab04b1_files/figure-html/binom-plot3-1.png" alt="Probability Distribution of Number of Heads in 10 Flips with the probability of 7 or more Heads highlighted in green - `lower.tail = FALSE`" width="100%" />
 <p class="caption">
@@ -917,17 +946,18 @@ Portfolio Point - Am all in a Tail Spin! Lower TRUE or FALSE
 </button>
 <div class="info">
 <p>
-The most confusing part for people we find is the concept of <code>lower.tail</code>. If you look at a distribution, say the binomial, you find a lot of the high bars are in the middle of the distribution and the smaller bars are at the far left and right of the distribution. Well the far left and right of the distribution is called the <strong>tail</strong> of the distribution - they tend to be an extremity of the distribution that taper off like a.....well like a tail. A lot of the time we will talk of left and right tails but here in the <code>pbinom</code> function it only ever considers the data in relation to the left side of the data - this is what it calls the <code>lower.tail</code>.
+The most confusing part for people we find is the concept of <code>lower.tail</code>. If you look at a distribution, say the binomial, you find a lot of the high bars are in the middle of the distribution and the smaller bars are at the far left and right of the distribution. Well the far left and right of the distribution is called the <strong>tail</strong> of the distribution - they tend to be an extremity of the distribution that taper off like a…..well like a tail. A lot of the time we will talk of left and right tails but here in the <code>pbinom</code> function it only ever considers the data in relation to the left side of the data - this is what it calls the <code>lower.tail</code>.
 </p>
 <p>
-Let's consider <code>lower.tail = TRUE</code>, this is the default, so if you dont state <code>lower.tail</code> then this is what is considered to be what you want. <code>lower.tail = TRUE</code> means all the values to the left of your value including the value you state. So on the binomial distribution if you say give me the probability of 5 heads or less, then you would set <code>lower.tail = TRUE</code> and you would be counting and summing the probability of 0, 1, 2, 3, 4 and 5 heads. You can check this with <code>dbinom(0:5, 10, .5) %&gt;% sum()</code>.
+Let’s consider <code>lower.tail = TRUE</code>, this is the default, so if you dont state <code>lower.tail</code> then this is what is considered to be what you want. <code>lower.tail = TRUE</code> means all the values to the left of your value including the value you state. So on the binomial distribution if you say give me the probability of 5 heads or less, then you would set <code>lower.tail = TRUE</code> and you would be counting and summing the probability of 0, 1, 2, 3, 4 and 5 heads. You can check this with <code>dbinom(0:5, 10, .5) %&gt;% sum()</code>.
 </p>
 <p>
 However, if you say give me the probability of 7 or more heads, then you need to do <code>lower.tail = FALSE</code>, to consider the right-hand side tail, but also, you need to set the code as <code>pbinom(6, 10, .5, lower.tail = FALSE)</code>. Why 6 and not 7? Because the <code>pbinom</code> function, when <code>lower.tail = FALSE</code>, starts at the value <strong>plus one to the value you state</strong>; it always considers the value you state as being part of the <code>lower.tail</code> so if you say 6, it includes 6 in the <code>lower.tail</code> and then gives you 7, 8, 9 and 10 as the upper tail. If you said 7 with <code>lower.tail = FALSE</code>, then it would only give you 8, 9 and 10. This is tricky but worth keeping in mind when you are using <code>pbinom</code> function. And remember, you can always check it by using <code>dbinom(7:10, 10, .5) %&gt;% sum()</code> and seeing whether it matches <code>pbinom(6, 10, 0.5, lower.tail=FALSE)</code> or <code>pbinom(7, 10, 0.5, lower.tail=FALSE)</code>
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>Using the format of the above <code>pbinom</code> function, enter the code that would determine the probability of <strong>up to and including</strong> 5 heads out of 20 flips, assuming a probability of 0.5: <input class='solveme nospaces' size='45' data-answer='["pbinom(5, 20, 0.5)","pbinom(5, 20, .5)","pbinom(5, 20, 0.5, lower.tail=TRUE)","pbinom(5, 20, .5, lower.tail=TRUE)"]'/></p></li>
 <li><p>To two decimal places, what is the probability of obtaining <strong>more than but not including</strong> 50 heads in 100 flips? <input class='solveme nospaces' size='15' data-answer='[".46","0.46"]'/></p></li>
@@ -940,12 +970,12 @@ Helpful Hint
 <ol style="list-style-type: decimal">
 <li>
 <p>
-You are looking to calcuate the probability of 5 or less heads (<code>x</code>) out of 20 flips (<code>size</code>), with the probability of 'heads' in one trial (<code>prob</code>) remaining the same. Do you need the <code>lower.tail</code> call here if you are calculating the cumulative probability of the lower tail of the distribution?
+You are looking to calcuate the probability of 5 or less heads (<code>x</code>) out of 20 flips (<code>size</code>), with the probability of ‘heads’ in one trial (<code>prob</code>) remaining the same. Do you need the <code>lower.tail</code> call here if you are calculating the cumulative probability of the lower tail of the distribution?
 </p>
 </li>
 <li>
 <p>
-You are looking to calculate the probability of 51 or more heads (<code>x</code>), out of 100 flips (<code>size</code>), with the probability of 'heads' in one trial (<code>prob</code>) remaining the same. Do you need the <code>lower.tail</code> call here if you are calculating the cumulative probability of the upper tail of the distribution? Remember, because you are not looking at the <code>lower.tail</code>, the value of heads that you enter in <code>pbinom</code> will <strong>not</strong> be included in the final calculation, e.g. entering <code>pbinom(3, 100, lower.tail = FALSE)</code> will give you the probability for 4 and above heads. If you were instead looking at the <code>lower.tail</code>, entering <code>pbinom(3, 100, lower.tail = TRUE)</code> would give you the probability of 3 and below heads.
+You are looking to calculate the probability of 51 or more heads (<code>x</code>), out of 100 flips (<code>size</code>), with the probability of ‘heads’ in one trial (<code>prob</code>) remaining the same. Do you need the <code>lower.tail</code> call here if you are calculating the cumulative probability of the upper tail of the distribution? Remember, because you are not looking at the <code>lower.tail</code>, the value of heads that you enter in <code>pbinom</code> will <strong>not</strong> be included in the final calculation, e.g. entering <code>pbinom(3, 100, lower.tail = FALSE)</code> will give you the probability for 4 and above heads. If you were instead looking at the <code>lower.tail</code>, entering <code>pbinom(3, 100, lower.tail = TRUE)</code> would give you the probability of 3 and below heads.
 </p>
 </li>
 </ol>
@@ -953,7 +983,7 @@ You are looking to calculate the probability of 51 or more heads (<code>x</code>
 </div>
 <div class="solution">
 <button>
-Explain This - I can't get these answers
+Explain This - I can’t get these answers
 </button>
 <div class="info">
 <ol style="list-style-type: decimal">
@@ -974,33 +1004,34 @@ The code for the second one would be: <code>pbinom(50, 100, 0.5, lower.tail = FA
 </div>
 <div id="qbinom---the-quartile-function" class="section level3">
 <h3><span class="header-section-number">4.2.6</span> <strong><code>qbinom</code></strong> - The Quartile Function</h3>
-<p>Finally, the <code>qbinom</code> function is useful if you want to know the minimum number of successes ('heads') that would be needed to achieve a particular probability. This time the cut-off we specify is not the number of 'heads' we want but the <strong>probability</strong> we want. For example say we want to know the minimum number of 'heads' out of 10 flips that would result in a 5% heads success rate (a probability of .05), we would use the following code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qbinom</span>(.<span class="dv">05</span>, <span class="dv">10</span>, <span class="fl">0.5</span>) </code></pre></div>
+<p>Finally, the <code>qbinom</code> function is useful if you want to know the minimum number of successes (‘heads’) that would be needed to achieve a particular probability. This time the cut-off we specify is not the number of ‘heads’ we want but the <strong>probability</strong> we want. For example say we want to know the minimum number of ‘heads’ out of 10 flips that would result in a 5% heads success rate (a probability of .05), we would use the following code.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qbinom</span>(.<span class="dv">05</span>, <span class="dv">10</span>, <span class="fl">0.5</span>) </code></pre>
 <pre><code>## [1] 2</code></pre>
 <p>As you can see we would need at least 2 Heads in 10 flips to maintain a probability of .05.</p>
 <div class="solution">
 <button>
-Portfolio Point - I don't understand qbinom arguments
+Portfolio Point - I don’t understand qbinom arguments
 </button>
 <div class="info">
 <p>
 We found a lot of students asking about <code>qbinom</code> and how it works when you are inputting two different probabilities as the arguments for <code>qbinom</code>. Let us try and make things clearer.
 </p>
 <p>
-The function is set up as <code>qbinom(p, size, prob)</code>. First of all, you have used <code>prob</code> in the previous two functions, <code>dbinom</code> and <code>pbinom</code>, and it represents the probability of success on a single trial (here it is the probability of 'heads' in one coin flip, .5). Now, <code>prob</code> represents the probability of success in <strong>one</strong> trial, whereas <code>p</code> represents the overall probability of success <strong>across all trials</strong> and gives you the number of heads that would give that probability. So you ask it for the minimum number of successes (e.g. heads) to maintain an overall probability of .05, in 10 flips, when the probability of a success on any one flip is .5. And it tells you the answer is 2.
+The function is set up as <code>qbinom(p, size, prob)</code>. First of all, you have used <code>prob</code> in the previous two functions, <code>dbinom</code> and <code>pbinom</code>, and it represents the probability of success on a single trial (here it is the probability of ‘heads’ in one coin flip, .5). Now, <code>prob</code> represents the probability of success in <strong>one</strong> trial, whereas <code>p</code> represents the overall probability of success <strong>across all trials</strong> and gives you the number of heads that would give that probability. So you ask it for the minimum number of successes (e.g. heads) to maintain an overall probability of .05, in 10 flips, when the probability of a success on any one flip is .5. And it tells you the answer is 2.
 </p>
 <p>
 <code>qbinom</code> also uses the <code>lower.tail</code> argument and it works in a similar fashion to <code>pbinom</code>.
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li>Type in the box, the number of heads required to maintain an overall probability rate of 10% (.1) in 17 flips: <input class='solveme nospaces' size='1' data-answer='["6"]'/></li>
 </ul>
 <div class="solution">
 <button>
-Explain This - I can't get the answer
+Explain This - I can’t get the answer
 </button>
 <div class="info">
 <p>
@@ -1014,9 +1045,10 @@ Remember that you want an overall probability of 10% (<code>p</code> = .1), you 
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Excellent! We have now recapped some general probability concepts as well as going over the binomial distribution again. We will focus on the normal distribution in the lab but it would help to read the brief section on it which can be found on Moodle. Keep in mind that what you are trying to get an understanding of is that every value in a distribution has a probability of existing in that distribution. That probability may be very large, meaning that it is from the middle of the distribution, or that probability might be rather low, meaning it is from the tail, but ultimately every value of a distribution has a probability.</p>
-<p>If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!</p>
+<p>If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!</p>
 
 </div>
 </div>
@@ -1024,8 +1056,8 @@ Remember that you want an overall probability of 10% (<code>p</code> = .1), you 
 <h2><span class="header-section-number">4.3</span> PreClass Activity 2</h2>
 <div id="continuous-data---brief-recap-on-the-normal-distribution" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Continuous Data - Brief Recap on The Normal Distribution</h3>
-<p>This a very short recap on the normal distribution which will help you in the lab if you read it before arriving. In the main PreClass activity we have seen how we can use a distribution to estimate probabilities and determine cut-off values (these will play an important part in hypothesis testing in later labs!), but we have looked only at the <strong>discrete binomial distribution</strong>. Many of the variables we will encounter will be <strong>continuous</strong> and tend to show a <strong>normal distribution</strong> (e.g. height, weight, IQ).</p>
-<p>Let's say we're interested in the height of the population of level 2 psychology students, which we estimate to be between 146cm and 194cm. If we plotted this as a continuous, normal distribution, it will look like:</p>
+<p>This a very short recap on the normal distribution which will help you in the lab if you read it before arriving. In the main PreClass activity we have seen how we can use a distribution to estimate probabilities and determine cut-off values (these will play an important part in hypothesis testing in later labs!), but we have looked only at the <strong>discrete binomial distribution</strong>. Many of the variables we will encounter will be <strong>continuous</strong> and tend to show a <strong>normal distribution</strong> (e.g. height, weight, IQ).</p>
+<p>Let’s say we’re interested in the height of the population of level 2 psychology students, which we estimate to be between 146cm and 194cm. If we plotted this as a continuous, normal distribution, it will look like:</p>
 <div class="figure" style="text-align: center"><span id="fig:normplot1"></span>
 <img src="04-s01-lab04b2_files/figure-html/normplot1-1.png" alt="The Normal Distribution" width="100%" />
 <p class="caption">
@@ -1043,7 +1075,7 @@ Figure 4.6: The Normal Distribution
 <p><strong>5. The curve approaches, but never touches, the x axis:</strong> You will never have a probability of 0 for a given x axis value.</p>
 <p><strong>6. The normal distribution follows the Empirical Rule:</strong> The Empirical Rule states that 99.7% of the data within the normal distribution falls within three standard deviations (<span class="math inline">\(\pm3\sigma\)</span>) from the mean, 95% fall within two standard deviations (<span class="math inline">\(\pm2\sigma\)</span>), and 68% fall within one standard deviation (<span class="math inline">\(\pm\sigma\)</span>).</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>We will look at the normal distribution more in the lab. If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!</p>
+<p>We will look at the normal distribution more in the lab. If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!</p>
 
 </div>
 </div>
@@ -1082,13 +1114,15 @@ Figure 4.6: The Normal Distribution
 </div>
 <div id="estimating-from-the-normal-distribution" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> Estimating from the Normal Distribution</h3>
-<p>We won't ask you to create a normal distribution as it is more complicated than the binomial distribution you estimated in the preclass. Unlike coin flips, the outcome in the normal distribution is not just 50/50. Instead, just as with the binomial distribution (and other distributions) there are functions that allow us to estimate the normal distribution and to ask questions about the distribution. These are:</p>
+<p>We won’t ask you to create a normal distribution as it is more complicated than the binomial distribution you estimated in the preclass. Unlike coin flips, the outcome in the normal distribution is not just 50/50. Instead, just as with the binomial distribution (and other distributions) there are functions that allow us to estimate the normal distribution and to ask questions about the distribution. These are:</p>
 <ul>
 <li><code>dnorm()</code> - the density function</li>
 <li><code>pnorm()</code> - the probability or distribution function</li>
 <li><code>qnorm()</code> - the quantile function</li>
 </ul>
-<p>They work in a similar way to their binomial counterparts. If you are unsure about how a function works you can call the help on it by typing in the console, for example, <code>?dnorm</code> or <code>?dnorm()</code>, but the brackets aren't essential for the help. <br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p>They work in a similar way to their binomial counterparts. If you are unsure about how a function works you can call the help on it by typing in the console, for example, <code>?dnorm</code> or <code>?dnorm()</code>, but the brackets aren’t essential for the help.
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>Type in the box the binomial counterpart to <code>dnorm()</code>? <input class='solveme nospaces' size='10' data-answer='["dbinom()"]'/></p></li>
 <li><p>Type in the box the binomial counterpart to <code>pnorm()</code>? <input class='solveme nospaces' size='10' data-answer='["pbinom()"]'/></p></li>
@@ -1096,11 +1130,11 @@ Figure 4.6: The Normal Distribution
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't get the answers
+Explain This - I don’t get the answers
 </button>
 <div class="info">
 <p>
-The counterpart functions all start with the same letter, d, p, q, it is just the distribution name that changes, <code>binom</code>, <code>norm</code>, <code>t</code> - though we haven't quite come across the t-distribution yet.
+The counterpart functions all start with the same letter, d, p, q, it is just the distribution name that changes, <code>binom</code>, <code>norm</code>, <code>t</code> - though we haven’t quite come across the t-distribution yet.
 </p>
 <ol style="list-style-type: decimal">
 <li>
@@ -1133,21 +1167,21 @@ There is also <code>rnorm()</code> and <code>rbinom()</code> but we will look at
 <li>the <code>mean</code> of our data</li>
 <li>and standard deviation <code>sd</code> of our data.</li>
 </ul>
-<p>We will use IQ as an example. Many Psychologists are interested in studying IQ, perhaps in terms of heritability, or interested in controlling for IQ in their own studies to rule out any effect (e.g. clinical and autism studies).</p>
+<p>We will use IQ as an example. Many Psychologists are interested in studying IQ, perhaps in terms of heritability, or interested in controlling for IQ in their own studies to rule out any effect (e.g. clinical and autism studies).</p>
 <div id="Ch4InClassQueT1" class="section level4">
 <h4><span class="header-section-number">4.4.3.1</span> Task 1: Standard Deviations and IQ Score Distribution</h4>
 <ol style="list-style-type: decimal">
 <li>Copy the below code into a new script and run it. Remember that you will need to call <code>tidyverse</code> to your library first. e.g. <code>library(&quot;tidyverse&quot;)</code>.</li>
 </ol>
 <p>This code creates the below plot showing a normal distribution of IQ scores (M = 100, SD = 15) ranging from 40 to 160. These are values considered typical for the general population.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First we set up our range of values from 40 to 160</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First we set up our range of values from 40 to 160</span>
 IQ_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">IQ_range =</span> <span class="kw">c</span>(<span class="dv">40</span>, <span class="dv">160</span>))
 
 <span class="co"># Then we plot the distribution of IQ_data, where we have M = 100 and SD = 15</span>
-<span class="kw">ggplot</span>(IQ_data, <span class="kw">aes</span>(IQ_range)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;IQ Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<span class="kw">ggplot</span>(IQ_data, <span class="kw">aes</span>(IQ_range)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;IQ Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:normplot"></span>
 <img src="04-s01-lab04c1_files/figure-html/normplot-1.png" alt="Distribution of IQ scores" width="100%" />
 <p class="caption">
@@ -1158,7 +1192,9 @@ Figure 4.7: Distribution of IQ scores
 <li>Which part of the code do you need to change to alter the SD of your plot? <select class='solveme' data-answer='["sd = 15"]'> <option></option> <option>mean = 100</option> <option>sd = 15</option> <option>(40, 160)</option></select></li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li>Now copy and edit the above code to plot a distribution with <code>mean = 100</code> and <code>sd = 10</code>, and compare the first plot to your own plot. <br> <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></li>
+<li>Now copy and edit the above code to plot a distribution with <code>mean = 100</code> and <code>sd = 10</code>, and compare the first plot to your own plot.
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></li>
 </ol>
 <p>What does changing the <code>sd</code> do to the shape of the distribution? Spend a few minutes editing the code and discussing with your group to answer the following questions:</p>
 <ul>
@@ -1168,7 +1204,7 @@ Figure 4.7: Distribution of IQ scores
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't get Standard Deviations!
+Explain This - I don’t get Standard Deviations!
 </button>
 <div class="info">
 <ol style="list-style-type: decimal">
@@ -1199,25 +1235,28 @@ So one sample has a very tight range of IQs and the other sample has a very wide
 </p>
 </div>
 </div>
-<p><br> So far so good! But in the above example we told <code>dnorm()</code> the values at the limit of our range and it did the rest; we said give us a range of 40 to 160 IQ scores. However, we could plot it another way by telling <code>dnorm()</code> the sequence, or range, of values we want and how much precision we want between them.</p>
+<p><br>
+So far so good! But in the above example we told <code>dnorm()</code> the values at the limit of our range and it did the rest; we said give us a range of 40 to 160 IQ scores. However, we could plot it another way by telling <code>dnorm()</code> the sequence, or range, of values we want and how much precision we want between them.</p>
 </div>
 <div id="Ch4InClassQueT2" class="section level4">
 <h4><span class="header-section-number">4.4.3.2</span> Task 2: Changing Range and Step Size of The Normal Distribution</h4>
 <ol style="list-style-type: decimal">
-<li>Copy the code below in to your script and run it. Here we plot the standard Normal Distribution from -4 to 4 in steps of 0.01. We have also stated a mean of 0 and a sd of 1.</li>
+<li>Copy the code below in to your script and run it.
+Here we plot the standard Normal Distribution from -4 to 4 in steps of 0.01. We have also stated a mean of 0 and a sd of 1.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ND_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">ND_range =</span> <span class="kw">seq</span>(-<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>))
-<span class="kw">ggplot</span>(ND_data, <span class="kw">aes</span>(ND_range)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;SD units&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;The Normal Distribution&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ND_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">ND_range =</span> <span class="kw">seq</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>))
+<span class="kw">ggplot</span>(ND_data, <span class="kw">aes</span>(ND_range)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;SD units&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;The Normal Distribution&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ND-example"></span>
 <img src="04-s01-lab04c1_files/figure-html/ND-example-1.png" alt="The Normal Distribution with Mean = 0 and SD = 1" width="100%" />
 <p class="caption">
 Figure 4.8: The Normal Distribution with Mean = 0 and SD = 1
 </p>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li>Fill in the box to show what you would type to get a range and step size of <code>-10</code> to <code>10</code> in steps of <code>.05</code>:</li>
 </ul>
@@ -1229,7 +1268,7 @@ Figure 4.8: The Normal Distribution with Mean = 0 and SD = 1
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't understand the answer!
+Explain This - I don’t understand the answer!
 </button>
 <div class="info">
 <p>
@@ -1246,9 +1285,9 @@ However, when comparing the plots, whilst the plot itself may look thinner, the 
 <h3><span class="header-section-number">4.4.4</span> <strong><code>pnorm()</code></strong> - The Probability or Distribution Function</h3>
 <p>Just as <code>dnorm()</code> works like <code>dbinom()</code>, <code>pnorm()</code> works just like <code>pbinom()</code>. So, <code>pnorm()</code>, given the <code>mean</code> and <code>sd</code> of our data, returns the <strong>cumulative density function (cumulative probability)</strong> that a given probability (<code>p</code>) lies at a specified <strong>cut-off point and below</strong>, unless <code>lower.tail = FALSE</code> is specified in which case it is from the <strong>cut-off point and above</strong>.</p>
 <p>We will use height to give a concrete example. Say that we test a sample of students (M = 170cm, SD = 7). If we want to calculate the probability that a given student is 150cm or shorter we would do the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lower.tail = TRUE means lower than and including the value of X</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lower.tail = TRUE means lower than and including the value of X</span>
 <span class="co"># TRUE is the default so we don&#39;t actually need to declare it</span>
-<span class="kw">pnorm</span>(<span class="dv">150</span>, <span class="dv">170</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<span class="kw">pnorm</span>(<span class="dv">150</span>, <span class="dv">170</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>This tells us that finding the probability of someone 150cm or smaller in our class is <strong>p = 0.0021374</strong> or <strong>0.21%</strong>. This is a very small probability and suggests that it is pretty unlikely to find someone of 150cm in our class. This is mainly because of how small the standard deviation of our distribution is. Think back to what we said earlier about narrow standard deviations round the mean!</p>
 <div id="Ch4InClassQueT3" class="section level4">
 <h4><span class="header-section-number">4.4.4.1</span> Task 3: Calculating Cumulative Probability of Height</h4>
@@ -1258,20 +1297,20 @@ However, when comparing the plots, whilst the plot itself may look thinner, the 
 <p>To three decimal places, as in Task 3, what is the probability of a student being 190cm or taller in this class? <input class='solveme nospaces' size='5' data-answer='["0.002",".002"]'/></p>
 <div class="solution">
 <button>
-Explain This - I don't understand the answer!
+Explain This - I don’t understand the answer!
 </button>
 <div class="info">
 <p>
 The answer is .002. See the solution code at the bottom of the page to see how to complete Task 3.
 </p>
 <p>
-There is a difference in where you need to specify the cut-off point in the <code>pbinom</code> (discussed in the preclass activity) and <code>pnorm</code> functions for values <strong>above</strong> <code>x</code>, i.e. when <strong><code>lower.tail = FALSE</code></strong>.
+There is a difference in where you need to specify the cut-off point in the <code>pbinom</code> (discussed in the preclass activity) and <code>pnorm</code> functions for values <strong>above</strong> <code>x</code>, i.e. when <strong><code>lower.tail = FALSE</code></strong>.
 </p>
 <p>
-If you had discrete data, say the number of coin flips that result in <code>heads</code>, and wanted to calculate the probability above <code>x</code>, you would apply <code>pbinom</code> and have to specify your cut-off point as <strong><code>x-1</code></strong> to include <code>x</code> in your calculation. For example, to calculate the probability of 4 or more 'heads' occuring in 10 coin flips, you would specify <code>pbinom(3, 10, 0.5, lower.tail = FALSE)</code> as <code>lower.tail</code> includes the value you state.
+If you had discrete data, say the number of coin flips that result in <code>heads</code>, and wanted to calculate the probability above <code>x</code>, you would apply <code>pbinom</code> and have to specify your cut-off point as <strong><code>x-1</code></strong> to include <code>x</code> in your calculation. For example, to calculate the probability of 4 or more ‘heads’ occuring in 10 coin flips, you would specify <code>pbinom(3, 10, 0.5, lower.tail = FALSE)</code> as <code>lower.tail</code> includes the value you state.
 </p>
 <p>
-For continuous data, however, such as height, you would be applying <code>pnorm</code> and therefore can specify your cut-off point simply as <strong><code>x</code></strong>. In the above example, for the cut-off point of 190, a mean of 170 and standard deviation of 7, you can write <code>pnorm(190, 170, 7, lower.tail = FALSE)</code>. The way to think about this is that setting <code>x</code> as 189 on a continuous scale, when you only want all values greater than 190, would also include all the possible values between 189 and 190. Setting <code>x</code> at 190 starts it at 190.0000000...001.
+For continuous data, however, such as height, you would be applying <code>pnorm</code> and therefore can specify your cut-off point simply as <strong><code>x</code></strong>. In the above example, for the cut-off point of 190, a mean of 170 and standard deviation of 7, you can write <code>pnorm(190, 170, 7, lower.tail = FALSE)</code>. The way to think about this is that setting <code>x</code> as 189 on a continuous scale, when you only want all values greater than 190, would also include all the possible values between 189 and 190. Setting <code>x</code> at 190 starts it at 190.0000000…001.
 </p>
 <p>
 This is a tricky difference between <code>pbinom</code> and <code>pnorm</code> to recall easily, so best include this explanation point in your portfolio to help you carry out the correct analyses in the future!
@@ -1301,11 +1340,12 @@ You already have your mean and standard deviations to input in <code>pnorm</code
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>To three decimal places, what is the cumulative probability of the shaded area in Task 4? <input class='solveme nospaces' size='5' data-answer='["0.016",".016"]'/></p>
 <div class="solution">
 <button>
-Explain This - I don't get this answer
+Explain This - I don’t get this answer
 </button>
 <div class="info">
 <p>
@@ -1318,8 +1358,8 @@ The answer should be .016. See the solution code at the end of the Chapter for T
 <div id="qnorm---the-quantile-function" class="section level3">
 <h3><span class="header-section-number">4.4.5</span> <strong><code>qnorm()</code></strong> - The Quantile Function</h3>
 <p>Using <code>qnorm</code> we can do the inverse of <code>pnorm()</code>, and instead of finding out the cumulative probability from a given set of probabilities, we can find a cut-off value given a desired probability. For example, what is the maximum IQ a student would have if they were in the bottom 10% of the IQ distribution (<code>M = 100</code> &amp; <code>SD = 15</code>)?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.1</span>, <span class="dv">100</span>, <span class="dv">15</span>) 
-<span class="co"># note that we need to convert 10% to a probability (0.1).</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.1</span>, <span class="dv">100</span>, <span class="dv">15</span>) 
+<span class="co"># note that we need to convert 10% to a probability (0.1).</span></code></pre>
 <p>So anyone with an IQ of <strong>80.8</strong> or lower would be in the bottom 10%. To recap, we have calculated the <strong>inverse cumulative density function (or inverse of the cumulative probability)</strong> of the <strong>lower tail</strong> of the distribution, with a cut-off of a probability of 0.1 (10%), illustrated in purple below:</p>
 <div class="figure" style="text-align: center"><span id="fig:pnormplot2"></span>
 <img src="04-s01-lab04c1_files/figure-html/pnormplot2-1.png" alt="The Normal Distribution of Height with the bottom 10% of heights highlighted in purple" width="100%" />
@@ -1339,17 +1379,19 @@ Helpful Hint
 </button>
 <div class="info">
 <p>
-Part 1: Remember to include the <code>lower.tail</code> call if required! If you are unsure, visualise what you are trying to find (i.e. the lowest IQ score you can have to be in top 5%) by sketching it out on a normal distribution curve. It may help to reverse the question to sound more like the previous example.
+Part 1: Remember to include the <code>lower.tail</code> call if required! If you are unsure, visualise what you are trying to find (i.e. the lowest IQ score you can have to be in top 5%) by sketching it out on a normal distribution curve. It may help to reverse the question to sound more like the previous example.
 </p>
 <p>
 Part 2: For the second part, each function, not necessarily <code>qnorm</code>, gives one value, so you are looking to do separate calculations for each IQ. Then you have to combine these two values, but are you summing or subtracting them? Is it more or less likely for students to have an IQ that falls between this range than above or below a cut-off?
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>To one decimal place, enter your answer for Task 5 part 1: What is the lowest IQ score a student must have to be in the top 5% of the distribution? <input class='solveme nospaces' size='5' data-answer='["124.7"]'/></p></li>
-<li><p>To two decimal places, enter your answer for Task 5 part 2: What is the probability that a student will have an IQ between 105 and 110, on a normal distribution of mean = 100, sd = 15? <input class='solveme nospaces' size='4' data-answer='["0.12",".12"]'/> <br></p></li>
+<li><p>To two decimal places, enter your answer for Task 5 part 2: What is the probability that a student will have an IQ between 105 and 110, on a normal distribution of mean = 100, sd = 15? <input class='solveme nospaces' size='4' data-answer='["0.12",".12"]'/>
+<br></p></li>
 </ul>
 <div class="solution">
 <button>
@@ -1370,8 +1412,9 @@ You could use <code>pnorm()</code> to establish the probability of an IQ of 110.
 </ol>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>You have now recapped probability and the binomial and normal distributions. You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module</strong>. However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p>You have now recapped probability and the binomial and normal distributions. You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module</strong>. However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 <p>Excellent work! You are Probably an expert! Now go try the assignment!</p>
 
 </div>
@@ -1382,17 +1425,19 @@ You could use <code>pnorm()</code> to establish the probability of an IQ of 110.
 <p>In the preclass activity we focussed a lot on basic probability and <strong>binomial distributions</strong>. If you have followed it, and understood it correctly, you should be able to have a go at this following scenario to help deepen your understanding of the binomial distribution. Have a go and see how you get on. Solutions are at the bottom of the page.</p>
 <div id="return-of-the-binomial" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> Return of the Binomial</h3>
-<p>You design a psychology experiment where you are interested in how quickly people spot faces. Using a standard task you show images of <strong>faces, houses, and noise patterns,</strong> and ask participants to respond to each image by saying <strong>'face'</strong> or <strong>'not face'</strong>. You set the experiment so that, across the whole experiment, the number of images per stimuli type are evenly split (1/3 per type) but they are not necessarily evenly split in any one block. <strong>Each block contains 60 trials</strong>.</p>
+<p>You design a psychology experiment where you are interested in how quickly people spot faces. Using a standard task you show images of <strong>faces, houses, and noise patterns,</strong> and ask participants to respond to each image by saying <strong>‘face’</strong> or <strong>‘not face’</strong>. You set the experiment so that, across the whole experiment, the number of images per stimuli type are evenly split (1/3 per type) but they are not necessarily evenly split in any one block. <strong>Each block contains 60 trials</strong>.</p>
 <p>To test your experiment you run 1 block of your experiment and get concerned that you only saw 10 face images. As this is quite a low number out of a total of 60 you think something might be wrong. You decide to create a probability distribution for a given block of your experiment to test the likelihood of seeing a face (coded as 1) versus not seeing a face (coded as 0).</p>
 <p>You start off with the below code but it is incomplete.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">blocks_5k &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n =</span> <span class="ot">NULL</span>, 
-                       <span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, 
+<pre class="sourceCode r"><code class="sourceCode r">blocks_5k &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n =</span> <span class="ot">NULL</span>, 
+                       <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, 
                               <span class="dt">size =</span> <span class="ot">NULL</span>, 
                               <span class="dt">replace =</span> <span class="ot">NULL</span>, 
-                              <span class="kw">c</span>(<span class="dv">2</span>/<span class="dv">3</span>,<span class="dv">1</span>/<span class="dv">3</span>)) %&gt;%<span class="st"> </span>
-<span class="st">                         </span><span class="kw">sum</span>())</code></pre></div>
+                              <span class="kw">c</span>(<span class="dv">2</span><span class="op">/</span><span class="dv">3</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">                         </span><span class="kw">sum</span>())</code></pre>
 <ol style="list-style-type: decimal">
-<li>Copy the code to a script and replace the <code>NULLs</code> with the correct value and statement to establish how many different number of faces you might seen in 1 block of 60 trials, over 5000 replications. Answering the following questions to help you out: <br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></li>
+<li>Copy the code to a script and replace the <code>NULLs</code> with the correct value and statement to establish how many different number of faces you might seen in 1 block of 60 trials, over 5000 replications. Answering the following questions to help you out:
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></li>
 </ol>
 <ul>
 <li><p>The <code>n</code> NULL relates to: <select class='solveme' data-answer='["Number of replications"]'> <option></option> <option>Number of replications</option> <option>Number of blocks in the experiment</option> <option>Number of trials in the experiment</option> <option>Number of faces in the experiment</option></select></p></li>
@@ -1401,7 +1446,7 @@ You could use <code>pnorm()</code> to establish the probability of an IQ of 110.
 </ul>
 <div class="solution">
 <button>
-Explain This - I don't understand these answers
+Explain This - I don’t understand these answers
 </button>
 <div class="info">
 <ul>
@@ -1426,28 +1471,31 @@ Portfolio Point - Why the odd weight of probability?
 </button>
 <div class="info">
 <p>
-Note that the probability (<code>prob</code>) is set to weight not seeing a face (2/3) more than seeing a face (1/3). Why is that? Remember that in this instance you have three different stimuli (face, house and noise) and therefore have a greater chance of not seeing a face in the experiment (i.e. you see a house or noise) than seeing a face in the experiment. You need to remember when using <code>sample</code> (<code>?sample</code>) to set the probability appropriately or you will end up with an incorrect calculation.
+Note that the probability (<code>prob</code>) is set to weight not seeing a face (2/3) more than seeing a face (1/3). Why is that? Remember that in this instance you have three different stimuli (face, house and noise) and therefore have a greater chance of not seeing a face in the experiment (i.e. you see a house or noise) than seeing a face in the experiment. You need to remember when using <code>sample</code> (<code>?sample</code>) to set the probability appropriately or you will end up with an incorrect calculation.
 </p>
 </div>
 </div>
-<p><br> 2. Your <code>blocks_5k</code> code has created 5000 values where each value represents the number of faces you 'saw' in each individual block of 60 trials - like the number of heads you see in 10 flips. If your code has worked then running the below chunk should produce a probability distribution of your data. Run it and see. If not, something has gone wrong; debug or compare to the solution at the bottom of the page.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data5k &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">faces_per_block =</span> blocks_5k) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">count</span>(faces_per_block) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">p =</span> n /<span class="st"> </span><span class="dv">5000</span>)
-<span class="kw">ggplot</span>(data5k, <span class="kw">aes</span>(faces_per_block, p)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_light</span>()</code></pre></div>
+<p><br>
+2. Your <code>blocks_5k</code> code has created 5000 values where each value represents the number of faces you ‘saw’ in each individual block of 60 trials - like the number of heads you see in 10 flips. If your code has worked then running the below chunk should produce a probability distribution of your data. Run it and see. If not, something has gone wrong; debug or compare to the solution at the bottom of the page.</p>
+<pre class="sourceCode r"><code class="sourceCode r">data5k &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">faces_per_block =</span> blocks_5k) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">count</span>(faces_per_block) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">p =</span> n <span class="op">/</span><span class="st"> </span><span class="dv">5000</span>)
+<span class="kw">ggplot</span>(data5k, <span class="kw">aes</span>(faces_per_block, p)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_light</span>()</code></pre>
 <p>If you view <code>data5k</code>, you will now see three columns:</p>
 <ol style="list-style-type: decimal">
 <li><code>faces_per_block</code> tells you all the number of face trials seen in a block of 60 trials. Note that it does not run from 0 to 60.</li>
-<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 206 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
+<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 240 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
 <li><code>p</code> tells you the probability of the corresponding number of <code>faces_per_block</code>.</li>
 </ol>
-<p>From your <code>data5k</code> tibble, what was the probability of seeing only 10 faces in a block? Ours was <strong>0.001</strong> but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use <code>View()</code> or <code>glimpse()</code> on <code>data5k</code>. <br> <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
+<p>From your <code>data5k</code> tibble, what was the probability of seeing only 10 faces in a block? Ours was <strong>0.001</strong> but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use <code>View()</code> or <code>glimpse()</code> on <code>data5k</code>.
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
 <p>Discuss in your groups the following questions:</p>
 <ol style="list-style-type: decimal">
 <li><p>If the probability of seeing only 10 faces was p = 0.001, what does that say about whether our experiment is coded correctly or not?</p></li>
-<li><p>We only have data for 27 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 27?</p></li>
+<li><p>We only have data for 29 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 29?</p></li>
 </ol>
 <div class="solution">
 <button>
@@ -1462,7 +1510,8 @@ On the second point, you need to think about the width of the distribution. The 
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>Using the appropriate <code>binom()</code> function, to three decimal places, type in the actual probability of 10 faces in 60 trials: <input class='solveme nospaces' size='8' data-answer='["0.002",".002"]'/></p></li>
 <li><p>Using the appropriate <code>binom()</code> function, to three decimal places, type in the actual probability of seeing more than, but not including, 25 faces in a block of 60 trials? <input class='solveme nospaces' size='8' data-answer='["0.068",".068"]'/></p></li>
@@ -1476,7 +1525,7 @@ Helpful Hint
 <ol style="list-style-type: decimal">
 <li>
 <p>
-You are looking for the probability of one specific value of faces appearing, i.e. 10 faces in a total of 60 trials. You are not looking for the cumulative probability or a range of values. What does this tell you about the apporpriate <code>binom()</code> function you require? Also, in the <code>sample</code> function, we created a vector of probability dependent on the appearance of both faces and other stimuli. For the <code>binom()</code> function, you need to include only the probability of faces appearing.
+You are looking for the probability of one specific value of faces appearing, i.e. 10 faces in a total of 60 trials. You are not looking for the cumulative probability or a range of values. What does this tell you about the apporpriate <code>binom()</code> function you require? Also, in the <code>sample</code> function, we created a vector of probability dependent on the appearance of both faces and other stimuli. For the <code>binom()</code> function, you need to include only the probability of faces appearing.
 </p>
 </li>
 <li>
@@ -1494,7 +1543,7 @@ The probability level has been provided for you (5% 0r .05). With this you are l
 </div>
 <div class="solution">
 <button>
-Explain This - I don't get these answers
+Explain This - I don’t get these answers
 </button>
 <div class="info">
 <ol style="list-style-type: decimal">
@@ -1523,18 +1572,19 @@ The answer would be 14 using the <code>qbinom()</code> function based on wanting
 </p>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done on completing this activty! Once you have completed the main body inclass assignment on the Normal Distribution, you should be ready to complete the assignment for this lab. Good luck and remember to refer back to the codes and questions in this lab and the preclass if you get stuck!.</p>
 
 </div>
 </div>
 <div id="inclass-activity-3-additional" class="section level2">
 <h2><span class="header-section-number">4.6</span> InClass Activity 3 (Additional)</h2>
-<p>One thing we looked at in the lecture and in the preclass activity were some rather &quot;basic&quot; ideas about probability using cards. Here is a couple of very quick questions using dice (or die if you prefer) to make sure you understand this.</p>
-<p>Have a go and see how you get on. If you don't get the right answers, be sure to ask in the lab or post on the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>One thing we looked at in the lecture and in the preclass activity were some rather “basic” ideas about probability using cards. Here is a couple of very quick questions using dice (or die if you prefer) to make sure you understand this.</p>
+<p>Have a go and see how you get on. If you don’t get the right answers, be sure to ask in the lab or post on the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 <div id="back-to-basics" class="section level3">
 <h3><span class="header-section-number">4.6.1</span> Back to Basics</h3>
-<p>Show your answer either as a fraction (e.g. 1/52) or to 3 decimal places (e.g. 0.019).</p>
+<p>Show your answer either as a fraction (e.g. 1/52) or to 3 decimal places (e.g. 0.019).</p>
 <ul>
 <li><p>What is the probability of rolling a 4 on a single roll of a six-sided dice? <input class='solveme nospaces' size='10' data-answer='["1/6","0.167",".167"]'/></p></li>
 <li><p>What is the probability of rolling a 4, 5 <strong>or</strong> 6 on a single roll? <input class='solveme nospaces' size='10' data-answer='["3/6","1/2","0.5",".5"]'/></p></li>
@@ -1575,7 +1625,8 @@ When you have two separate events the probability of them both happening is the 
 </ol>
 </div>
 </div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done on completing this activty! Once you have completed the main body inclass assignment on the Normal Distribution, you should be ready to complete the assignment for this lab. Good luck and remember to refer back to the codes and questions in this lab and the preclass if you get stuck!.</p>
 
 </div>
@@ -1587,9 +1638,9 @@ When you have two separate events the probability of them both happening is the 
 <p>In order to complete this assignment yoU first have to download the assignment .Rmd file which you need to edit - titled <code>GUID_Level2_Lab4.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_04/homework/Level2_Lab4_AssignmentFiles.zip" target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.</p>
 <p>Now open the assignment .Rmd file within RStudio. You will see there is a code chunk for each of the 10 tasks. Much as you did in the previous assignments follow the instructions on what to edit in each code chunk. This will often be entering code or a single value and will be based on the skills learnt in the current lab as well as all previous labs.</p>
 <div id="todays-topic---probability" class="section level3">
-<h3><span class="header-section-number">4.7.1</span> Today's Topic - Probability</h3>
+<h3><span class="header-section-number">4.7.1</span> Today’s Topic - Probability</h3>
 <p>In the lab you recapped and expanded on your understanding of probability, including a number of <code>binom</code> and <code>norm</code> functions as well as some more basic ideas on probability. You will need these skills to complete the following assignment so please make sure you have carried out the PreClass and InClass activities before attempting this formative assignment. Remember to follow the instructions and if you get stuck at any point to post tasks on rguppies.slack.com channel <strong>#level2_2018</strong>.</p>
-<p><strong>Before starting let's check</strong></p>
+<p><strong>Before starting let’s check</strong></p>
 <ol style="list-style-type: decimal">
 <li>The .Rmd file is saved into a folder on your computer that you have access to and you have manually set this folder as your working directory. For assessments we ask that you save it with the format GUID_Level2_Lab4.Rmd where GUID is replaced with your GUID. Though this is a formative assessment it may be good practice to do the same here.</li>
 </ol>
@@ -1598,62 +1649,63 @@ When you have two separate events the probability of them both happening is the 
 <div id="Ch4AssignQueLib" class="section level3">
 <h3><span class="header-section-number">4.7.2</span> Load in the Library</h3>
 <p>There is a good chance that you will need the tidyverse library at some point in this exercise so load it in the code chunk below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: something to do with library() and tidyverse</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hint: something to do with library() and tidyverse</span></code></pre>
 <p><strong>Basic probability and the binomial distribution questions</strong></p>
 <p><strong>Background Information:</strong> You are conducting an auditory discrimination experiment in which participants have to listen to a series of sounds and determine whether the sound was human or not. On each trial participants hear one brief sound (100 ms) and must report whether the sound was from a human (coded as 1) or not (coded as 0). The sounds were either: a person, an animal, a vehicle, or a tone.</p>
 </div>
 <div id="Ch4AssignQueT1" class="section level3">
 <h3><span class="header-section-number">4.7.3</span> Assignment Task 1</h3>
 <p>On a single trial, what is the probability that the sound will not be a person? Replace the <code>NULL</code> in the t1 code chunk with either mathematical notation or a single value. If entering a single value, give your answer to two decimal places.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t1 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t1 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT2" class="section level3">
 <h3><span class="header-section-number">4.7.4</span> Assignment Task 2</h3>
 <p>Over a sequence of 4 trials, with replacement, what is the probability of the following sequence of sounds: animal, animal, vehicle, tone? Replace the <code>NULL</code> in the t2 code chunk with either mathematical notation or a single value. If entering a single value, give your answer to three decimal places.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t2 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t2 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT3" class="section level3">
 <h3><span class="header-section-number">4.7.5</span> Assignment Task 3</h3>
 <p>Over a sequence of four trials, without replacment, what is the probability of the following sequence of sounds: person, tone, animal, person? Replace the <code>NULL</code> in the t3 code chunk with either mathematical notation or a single value.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t3 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t3 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT4" class="section level3">
 <h3><span class="header-section-number">4.7.6</span> Assignment Task 4</h3>
-<p>Replace the <code>NULL</code> below with code using the appropriate binomial distribution function to determine the probability of hearing 17 'tone' trials in a sequence of 100 trials. Assume the probability of a tone on any single trial is 1 in 4. Store the output in <code>t4</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t4 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<p>Replace the <code>NULL</code> below with code using the appropriate binomial distribution function to determine the probability of hearing 17 ‘tone’ trials in a sequence of 100 trials. Assume the probability of a tone on any single trial is 1 in 4. Store the output in <code>t4</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">t4 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT5" class="section level3">
 <h3><span class="header-section-number">4.7.7</span> Assignment Task 5</h3>
-<p>Replace the <code>NULL</code> below with code using the appropriate binomial distribution function to determine what is the probability of hearing 30 'vehicle' trials or more in a sequence of 100 trials. Assume the probability of a vehicle trial on any one trial is 1 in 4. Store the output in <code>t5</code>. <em>Hint: do we want the upper or lower tails of the distribution</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t5 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<p>Replace the <code>NULL</code> below with code using the appropriate binomial distribution function to determine what is the probability of hearing 30 ‘vehicle’ trials or more in a sequence of 100 trials. Assume the probability of a vehicle trial on any one trial is 1 in 4. Store the output in <code>t5</code>. <em>Hint: do we want the upper or lower tails of the distribution</em>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">t5 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT6" class="section level3">
 <h3><span class="header-section-number">4.7.8</span> Assignment Task 6</h3>
 <p>If a block of our experiment contained 100 trials, enter a line of code to run 10000 replications of one block, summing how many living sounds were heard in each replication. Code 1 for living sounds (person/animal) and 0 for non living sounds (vehicle/tone) and assume the probability of a living sound on any given trial is <span class="math inline">\(p = .5\)</span>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t6 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t6 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p><strong>Normal Distribution Questions</strong></p>
-<p><strong>Background Information:</strong> Previously, in Lab 2, we looked at an ageing research project investigating differences in visual processing speed between younger (M = 22 years) and older adults (M = 71 years). One check in this experiment, prior to further analysis, is to make sure that older participants do not show signs of mild cognitive impairment (early symptoms of Alzheimer's disease). To do this we carry out a battery of cognitive tests to screen for such symptoms. One of the tests is the D2 test of attention which is a target cancellation task (i.e. participants cross out all letter d's with two dashes from a line of letters - see Lab 2 for an example). It is designed to test people's selective and sustained attention and visual scanning speed. The results of the test give a single score of <em>Concentration Performance</em> for each participant. The key piece of information for this analysis is that the distributions of D2 test scores are typically normally distributed (<code>M = 100</code>, <code>SD = 10</code>).</p>
+<p><strong>Background Information:</strong> Previously, in Lab 2, we looked at an ageing research project investigating differences in visual processing speed between younger (M = 22 years) and older adults (M = 71 years). One check in this experiment, prior to further analysis, is to make sure that older participants do not show signs of mild cognitive impairment (early symptoms of Alzheimer’s disease). To do this we carry out a battery of cognitive tests to screen for such symptoms. One of the tests is the D2 test of attention which is a target cancellation task (i.e. participants cross out all letter d’s with two dashes from a line of letters - see Lab 2 for an example). It is designed to test people’s selective and sustained attention and visual scanning speed. The results of the test give a single score of <em>Concentration Performance</em> for each participant. The key piece of information for this analysis is that the distributions of D2 test scores are typically normally distributed (<code>M = 100</code>, <code>SD = 10</code>).</p>
 </div>
 <div id="Ch4AssignQueT7" class="section level3">
 <h3><span class="header-section-number">4.7.9</span> Assignment Task 7</h3>
 <p>Replace the <code>NULL</code> below with code using the appropriate function to determine the probability that a given participant will have a D2 score of exactly 90? Store the output in <code>t7</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t7 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t7 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT8" class="section level3">
 <h3><span class="header-section-number">4.7.10</span> Assignment Task 8</h3>
 <p>Replace the <code>NULL</code> below with code using the appropriate function to determine the probability that a given participant will have a D2 score of 120 or more? Store the output in <code>t8</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT9" class="section level3">
 <h3><span class="header-section-number">4.7.11</span> Assignment Task 9</h3>
 <p>Replace the <code>NULL</code> below with code using the appropriate function(s) to determine what is the difference in scores that cut off the top and bottom 5% of the distribution? Store the output in <code>t9</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t9 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t9 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="Ch4AssignQueT10" class="section level3">
 <h3><span class="header-section-number">4.7.12</span> Assignment Task 10</h3>
 <p>Finally, if a participant says to you that they are worried because they have heard that their Concentration Performance was in the bottom 2% of scores on the distribution, what is the maximum D2 score that they can have? Replace the <code>NULL</code> below with a single value to two decimal places. Do not enter code. Store this in <code>t10</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
-<p><br> <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<pre class="sourceCode r"><code class="sourceCode r">t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<p><br>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any tasks please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
 
@@ -1666,42 +1718,42 @@ When you have two separate events the probability of them both happening is the 
 <h3><span class="header-section-number">4.8.1</span> InClass Activities</h3>
 <div id="inclass-task-1-1" class="section level4">
 <h4><span class="header-section-number">4.8.1.1</span> InClass Task 1</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(IQ_data, <span class="kw">aes</span>(IQ_data)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">10</span>)) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;IQ Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Distribution of IQ Scores&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(IQ_data, <span class="kw">aes</span>(IQ_data)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">10</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;IQ Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Distribution of IQ Scores&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-2" class="section level4">
 <h4><span class="header-section-number">4.8.1.2</span> InClass Task 2</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ND_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">ND_range =</span> <span class="kw">seq</span>(-<span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.05</span>))
-<span class="kw">ggplot</span>(ND_data, <span class="kw">aes</span>(ND_range)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;SD units&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;The Normal Distribution&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ND_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">ND_range =</span> <span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.05</span>))
+<span class="kw">ggplot</span>(ND_data, <span class="kw">aes</span>(ND_range)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;SD units&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;The Normal Distribution&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-2" class="section level4">
 <h4><span class="header-section-number">4.8.1.3</span> InClass Task 3</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Key thing is to set lower.tail to FALSE to calculate the above area.</span>
-<span class="kw">pnorm</span>(<span class="dv">190</span>, <span class="dv">170</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Key thing is to set lower.tail to FALSE to calculate the above area.</span>
+<span class="kw">pnorm</span>(<span class="dv">190</span>, <span class="dv">170</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-4-1" class="section level4">
 <h4><span class="header-section-number">4.8.1.4</span> InClass Task 4</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the area is 185cm and above. </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the area is 185cm and above. </span>
 <span class="co"># Key thing is to set lower.tail to FALSE to calculate the above area.</span>
-<span class="kw">pnorm</span>(<span class="dv">185</span>, <span class="dv">170</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<span class="kw">pnorm</span>(<span class="dv">185</span>, <span class="dv">170</span>, <span class="dv">7</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4InClassQueT4">Return to Task</a></p>
 </div>
 <div id="inclass-task-5-1" class="section level4">
 <h4><span class="header-section-number">4.8.1.5</span> InClass Task 5</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Question 1</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Question 1</span>
 <span class="kw">qnorm</span>(<span class="fl">0.95</span>, <span class="dv">100</span>, <span class="dv">15</span>, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)
 
 <span class="co"># Question 2</span>
-  <span class="kw">pnorm</span>(<span class="dv">105</span>, <span class="dv">100</span>, <span class="dv">15</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) -
-<span class="st">    </span><span class="kw">pnorm</span>(<span class="dv">110</span>, <span class="dv">100</span>, <span class="dv">15</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+  <span class="kw">pnorm</span>(<span class="dv">105</span>, <span class="dv">100</span>, <span class="dv">15</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="op">-</span>
+<span class="st">    </span><span class="kw">pnorm</span>(<span class="dv">110</span>, <span class="dv">100</span>, <span class="dv">15</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4InClassQueT5">Return to Task</a></p>
 </div>
 </div>
@@ -1709,13 +1761,13 @@ When you have two separate events the probability of them both happening is the 
 <h3><span class="header-section-number">4.8.2</span> Assignment Solution</h3>
 <div id="load-in-the-library" class="section level4">
 <h4><span class="header-section-number">4.8.2.1</span> Load in the Library</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4AssignQueLib">Return to Task</a></p>
 </div>
 <div id="assignment-task-1" class="section level4">
 <h4><span class="header-section-number">4.8.2.2</span> Assignment Task 1</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t1 &lt;-<span class="st"> </span><span class="dv">3</span>/<span class="dv">4</span>
-t1 &lt;-<span class="st"> </span><span class="fl">0.75</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t1 &lt;-<span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">4</span>
+t1 &lt;-<span class="st"> </span><span class="fl">0.75</span></code></pre>
 <ul>
 <li>The probability that the sound will not be a person is 0.75</li>
 </ul>
@@ -1723,8 +1775,8 @@ t1 &lt;-<span class="st"> </span><span class="fl">0.75</span></code></pre></div>
 </div>
 <div id="assignment-task-2" class="section level4">
 <h4><span class="header-section-number">4.8.2.3</span> Assignment Task 2</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t2 &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">4</span>) *<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">4</span>) *<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">4</span>) *<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">4</span>)
-t2 &lt;-<span class="st"> </span>.<span class="dv">004</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t2 &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)
+t2 &lt;-<span class="st"> </span><span class="fl">.004</span></code></pre>
 <ul>
 <li>The probability of that sequence of sounds is 0.004</li>
 </ul>
@@ -1732,8 +1784,8 @@ t2 &lt;-<span class="st"> </span>.<span class="dv">004</span></code></pre></div>
 </div>
 <div id="assignment-task-3" class="section level4">
 <h4><span class="header-section-number">4.8.2.4</span> Assignment Task 3</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t3 &lt;-<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">4</span>) *<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">3</span>) *<span class="st"> </span>(<span class="dv">1</span>/<span class="dv">2</span>) *<span class="st"> </span>(<span class="dv">0</span>/<span class="dv">1</span>)
-t3 &lt;-<span class="st"> </span><span class="dv">0</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t3 &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">0</span><span class="op">/</span><span class="dv">1</span>)
+t3 &lt;-<span class="st"> </span><span class="dv">0</span></code></pre>
 <ul>
 <li>The probability of that sequence of sounds is 0</li>
 </ul>
@@ -1741,18 +1793,18 @@ t3 &lt;-<span class="st"> </span><span class="dv">0</span></code></pre></div>
 </div>
 <div id="assignment-task-4" class="section level4">
 <h4><span class="header-section-number">4.8.2.5</span> Assignment Task 4</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t4 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv">17</span>, <span class="dv">100</span>, <span class="dv">1</span>/<span class="dv">4</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t4 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv">17</span>, <span class="dv">100</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>)</code></pre>
 <ul>
-<li>Assuming a probability of a tone on a given trial is 1 in 4, the probability of hearing 17 'tone' trials in a sequence of 100 trials is 0.0165156</li>
+<li>Assuming a probability of a tone on a given trial is 1 in 4, the probability of hearing 17 ‘tone’ trials in a sequence of 100 trials is 0.0165156</li>
 </ul>
 <p><a href="revisiting-probability-distributions.html#Ch4AssignQueT4">Return to Task</a></p>
 </div>
 <div id="assignment-task-5" class="section level4">
 <h4><span class="header-section-number">4.8.2.6</span> Assignment Task 5</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t5 &lt;-<span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">29</span>, <span class="dv">100</span>, <span class="dv">1</span>/<span class="dv">4</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
-t5 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv">30</span>:<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">1</span>/<span class="dv">4</span>) %&gt;%<span class="st"> </span><span class="kw">sum</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t5 &lt;-<span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">29</span>, <span class="dv">100</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)
+t5 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv">30</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>()</code></pre>
 <ul>
-<li>In this scenario, the probability of hearing 30 'vehicle' trials or more in a sequence of 100 trials is 0.149541</li>
+<li>In this scenario, the probability of hearing 30 ‘vehicle’ trials or more in a sequence of 100 trials is 0.149541</li>
 </ul>
 <p><a href="revisiting-probability-distributions.html#Ch4AssignQueT5">Return to Task</a></p>
 </div>
@@ -1761,14 +1813,14 @@ t5 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv"
 <ul>
 <li>The appropriate code would be:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t6 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span>:<span class="dv">1</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>, <span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>)) %&gt;%<span class="st"> </span><span class="kw">sum</span>())</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t6 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>, <span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>())</code></pre>
 <p>If you were to look at your output you would see something like the following. Remember your numbers will vary from ours tude to random sampling. Here we are only showing the first 10 values of 10000</p>
-<pre><code>##  int [1:10000] 50 47 49 50 53 43 56 54 46 45 ...</code></pre>
+<pre><code>##  int [1:10000] 43 50 49 47 45 46 49 47 50 56 ...</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4AssignQueT6">Return to Task</a></p>
 </div>
 <div id="assignment-task-7" class="section level4">
 <h4><span class="header-section-number">4.8.2.8</span> Assignment Task 7</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t7 &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">10</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t7 &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">10</span>)</code></pre>
 <ul>
 <li>The probability of a given participant having a D2 score of exactly 90 is 0.0241971</li>
 </ul>
@@ -1776,7 +1828,7 @@ t5 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv"
 </div>
 <div id="assignment-task-8" class="section level4">
 <h4><span class="header-section-number">4.8.2.9</span> Assignment Task 8</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t8 &lt;-<span class="st"> </span><span class="kw">pnorm</span>(<span class="dv">120</span>, <span class="dv">100</span>, <span class="dv">10</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t8 &lt;-<span class="st"> </span><span class="kw">pnorm</span>(<span class="dv">120</span>, <span class="dv">100</span>, <span class="dv">10</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
 <ul>
 <li>The probability that a given participant will have a D2 score of 120 or more is 0.0227501</li>
 </ul>
@@ -1784,7 +1836,7 @@ t5 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv"
 </div>
 <div id="assignment-task-9" class="section level4">
 <h4><span class="header-section-number">4.8.2.10</span> Assignment Task 9</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t9 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>, <span class="dv">100</span>, <span class="dv">10</span>) -<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">05</span>, <span class="dv">100</span>, <span class="dv">10</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t9 &lt;-<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>, <span class="dv">100</span>, <span class="dv">10</span>) <span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">05</span>, <span class="dv">100</span>, <span class="dv">10</span>)</code></pre>
 <ul>
 <li>The difference in scores that cut off the top and bottom 5% of the distribution is 32.8970725</li>
 </ul>
@@ -1792,7 +1844,7 @@ t5 &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv"
 </div>
 <div id="assignment-task-10" class="section level4">
 <h4><span class="header-section-number">4.8.2.11</span> Assignment Task 10</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">t10 &lt;-<span class="st"> </span><span class="fl">79.46</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">t10 &lt;-<span class="st"> </span><span class="fl">79.46</span></code></pre>
 <ul>
 <li>The maximum D2 score that they can have in this situation is 79.46</li>
 </ul>
@@ -1945,7 +1997,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

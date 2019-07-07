@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lab 13 Continuing the GLM: Two-factor designs | ug2-practical</title>
-  <meta name="description" content="Lab 13 Continuing the GLM: Two-factor designs | ug2-practical-materials">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 13 Continuing the GLM: Two-factor designs | Level 2 Practical</title>
+  <meta name="description" content="ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 13 Continuing the GLM: Two-factor designs | ug2-practical" />
+  <meta property="og:title" content="Lab 13 Continuing the GLM: Two-factor designs | Level 2 Practical" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Lab 13 Continuing the GLM: Two-factor designs | ug2-practical-materials" />
+  <meta property="og:description" content="ug2-practical-materials" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 13 Continuing the GLM: Two-factor designs | ug2-practical" />
+  <meta name="twitter:title" content="Lab 13 Continuing the GLM: Two-factor designs | Level 2 Practical" />
   
-  <meta name="twitter:description" content="Lab 13 Continuing the GLM: Two-factor designs | ug2-practical-materials" />
+  <meta name="twitter:description" content="ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-06-25">
+<meta name="date" content="2019-07-07" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="continuing-the-glm-one-factor-anova.html">
@@ -52,45 +50,71 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include\style.css" type="text/css" />
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
 </head>
 
 <body>
@@ -103,22 +127,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">ug2-practical</a></li>
+<li><a href="./">Level 2 Practical</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a><ul>
-<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#what-is-r-markdown"><i class="fa fa-check"></i><b>1.1.1</b> What is R Markdown?</a></li>
 <li class="chapter" data-level="1.1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#advantages-of-using-r-markdown"><i class="fa fa-check"></i><b>1.1.2</b> Advantages of using R Markdown</a></li>
 <li class="chapter" data-level="1.1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#creating-an-r-markdown-.rmd-file"><i class="fa fa-check"></i><b>1.1.3</b> Creating an R Markdown (.Rmd) File</a></li>
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
-<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
+<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Options</a></li>
 <li class="chapter" data-level="1.2.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-inline-code"><i class="fa fa-check"></i><b>1.2.5</b> Adding Inline Code</a></li>
 <li class="chapter" data-level="1.2.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#formatting-the-r-markdown-file"><i class="fa fa-check"></i><b>1.2.6</b> Formatting the R Markdown File</a></li>
 </ul></li>
@@ -141,7 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
-<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
 <li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#revisiting-the-wickham-six"><i class="fa fa-check"></i><b>2.2.1</b> Revisiting the Wickham Six</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fa fa-check"></i><b>2.2.2</b> Learning to Wrangle: Is there a Chastity Belt on Perception</a></li>
@@ -165,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -184,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
-<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#scatterplots---geom_point"><i class="fa fa-check"></i><b>3.2.1</b> Scatterplots - <code>geom_point()</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#histograms---geom_histogram"><i class="fa fa-check"></i><b>3.2.2</b> Histograms - geom_histogram()</a></li>
@@ -210,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
-<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>4.1.1</b> Discrete or Continuous Datasets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a><ul>
@@ -239,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -258,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
 <li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
 <li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
@@ -281,7 +305,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
-<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
@@ -318,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
-<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-6"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
 <li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-4"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#reading"><i class="fa fa-check"></i><b>7.2.1</b> Reading</a></li>
 <li class="chapter" data-level="7.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#task"><i class="fa fa-check"></i><b>7.2.2</b> Task</a></li>
@@ -326,13 +350,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT1"><i class="fa fa-check"></i><b>7.3.1</b> Task 1: Load the Data</a></li>
 <li class="chapter" data-level="7.3.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT2"><i class="fa fa-check"></i><b>7.3.2</b> Task 2: Wrangle the Data</a></li>
-<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histograms for Normality</a></li>
+<li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histogram for Normality</a></li>
 <li class="chapter" data-level="7.3.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT4"><i class="fa fa-check"></i><b>7.3.4</b> Task 4: A Boxplot of Outliers</a></li>
-<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: The Violin Plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Calculating Descriptives</a></li>
-<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: Visualising Means and Descriptives</a></li>
-<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The t-test</a></li>
-<li class="chapter" data-level="7.3.9" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT9"><i class="fa fa-check"></i><b>7.3.9</b> Task 9: The Write-up</a></li>
+<li class="chapter" data-level="7.3.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT5"><i class="fa fa-check"></i><b>7.3.5</b> Task 5: Calculating Descriptives</a></li>
+<li class="chapter" data-level="7.3.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT6"><i class="fa fa-check"></i><b>7.3.6</b> Task 6: Visualising Means and Descriptives</a></li>
+<li class="chapter" data-level="7.3.7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT7"><i class="fa fa-check"></i><b>7.3.7</b> Task 7: The t-test</a></li>
+<li class="chapter" data-level="7.3.8" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT8"><i class="fa fa-check"></i><b>7.3.8</b> Task 8: The Write-up</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#assignment-6"><i class="fa fa-check"></i><b>7.4</b> Assignment</a></li>
 <li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a><ul>
@@ -340,7 +363,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a><ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-7"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
 <li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-5"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
@@ -375,14 +398,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html"><i class="fa fa-check"></i><b>9</b> Reflection - Semester 1</a><ul>
-<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-8"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#preclass-activity-6"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="9.3" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="9.4" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#assignment-8"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
 <li class="chapter" data-level="9.5" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a><ul>
-<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-9"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
 <li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-7"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="correlations.html"><a href="correlations.html#read"><i class="fa fa-check"></i><b>10.2.1</b> Read</a></li>
 <li class="chapter" data-level="10.2.2" data-path="correlations.html"><a href="correlations.html#watch-1"><i class="fa fa-check"></i><b>10.2.2</b> Watch</a></li>
@@ -407,7 +430,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-10"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
 <li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-8"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#read-1"><i class="fa fa-check"></i><b>11.2.1</b> Read</a></li>
 </ul></li>
@@ -436,7 +459,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
+<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-12"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
 <li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#read-2"><i class="fa fa-check"></i><b>12.2.1</b> Read</a></li>
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
@@ -453,7 +476,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
-<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-12"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-13"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
 <li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-10"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#read-3"><i class="fa fa-check"></i><b>13.2.1</b> Read</a></li>
 <li class="chapter" data-level="13.2.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#try-1"><i class="fa fa-check"></i><b>13.2.2</b> TRY</a></li>
@@ -488,7 +511,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a><ul>
-<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-13"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-14"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
 <li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-11"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="14.2.1" data-path="regression.html"><a href="regression.html#read-4"><i class="fa fa-check"></i><b>14.2.1</b> Read</a></li>
 <li class="chapter" data-level="14.2.2" data-path="regression.html"><a href="regression.html#try-2"><i class="fa fa-check"></i><b>14.2.2</b> Try</a></li>
@@ -517,7 +540,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA And Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-14"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
 <li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
 </ul></li>
@@ -539,7 +562,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
-<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-15"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
 <li class="chapter" data-level="16.2" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#preclass-activity-13"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="16.3" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#inclass-activity-14"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="16.4" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#assignment-15"><i class="fa fa-check"></i><b>16.4</b> Assignment</a></li>
@@ -563,7 +586,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ug2-practical</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Level 2 Practical</a>
           </h1>
         </div>
 
@@ -573,17 +596,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="continuing-the-glm-two-factor-designs" class="section level1">
 <h1><span class="header-section-number">Lab 13</span> Continuing the GLM: Two-factor designs</h1>
-<div id="overview-12" class="section level2">
+<div id="overview-13" class="section level2">
 <h2><span class="header-section-number">13.1</span> Overview</h2>
-<p>For the past couple of weeks we have been building our understanding of the General Linear Model and in particular how it applies to a one-factor between-subjects ANOVA. Remember this is the scenario where you have one IV (categorical) and one DV (continuous) and you want to know if there is a significant effect at the different levels of your factor; where factor is another name for variable (or IV) and level is another name for condition (or group). We started out with the decomposition matrix, calculated our sums of squares, and from there our F-value to determine if there was a significant effect. One thing that is really worth keeping in mind is that the ANOVA is an omnibus test in that it tells you there is a significant effect of that factor, but it doesn't specifically say in which way is that effect manifested; you always have to do a little work there to tease out the pattern of the effect. Say for instance you test a one-way ANOVA on three animal categories on some test (dogs, cats, gerbils). The ANOVA will tell you if there is an overall effect (or difference between groups) but you need to do a little work to find out is the difference between cats and dogs, dogs and gerbils, etc etc. But more on that another time.</p>
-<p>One-way ANOVAs are great when you only have one IV but the really useful thing about ANOVAs, and the GLM really, is that it can handle much more complex situations; which we are going to look at a little today. You were asked to read up on Chapter 4 of Miller and Haden (2013) looking at two-factor, between-subjects designs. This is the scenario where you have two factors (IVs) and it is different people in each condition. For example, say your IVs were people who can/can't juggle, and people who do/don't have pets. You have 4 groups here as you have people who can juggle and have pets, people who can't juggle and have pets, people who can juggle and don't have pets, and people who can't juggle and who don't have pets (how sad!!!). This would be an example of a two-way between-subjects factorial ANOVA. And it is this scenario that we will look at today.</p>
+<p>For the past couple of weeks we have been building our understanding of the General Linear Model and in particular how it applies to a one-factor between-subjects ANOVA. Remember this is the scenario where you have one IV (categorical) and one DV (continuous) and you want to know if there is a significant effect at the different levels of your factor; where factor is another name for variable (or IV) and level is another name for condition (or group). We started out with the decomposition matrix, calculated our sums of squares, and from there our F-value to determine if there was a significant effect. One thing that is really worth keeping in mind is that the ANOVA is an omnibus test in that it tells you there is a significant effect of that factor, but it doesn’t specifically say in which way is that effect manifested; you always have to do a little work there to tease out the pattern of the effect. Say for instance you test a one-way ANOVA on three animal categories on some test (dogs, cats, gerbils). The ANOVA will tell you if there is an overall effect (or difference between groups) but you need to do a little work to find out is the difference between cats and dogs, dogs and gerbils, etc etc. But more on that another time.</p>
+<p>One-way ANOVAs are great when you only have one IV but the really useful thing about ANOVAs, and the GLM really, is that it can handle much more complex situations; which we are going to look at a little today. You were asked to read up on Chapter 4 of Miller and Haden (2013) looking at two-factor, between-subjects designs. This is the scenario where you have two factors (IVs) and it is different people in each condition. For example, say your IVs were people who can/can’t juggle, and people who do/don’t have pets. You have 4 groups here as you have people who can juggle and have pets, people who can’t juggle and have pets, people who can juggle and don’t have pets, and people who can’t juggle and who don’t have pets (how sad!!!). This would be an example of a two-way between-subjects factorial ANOVA. And it is this scenario that we will look at today.</p>
 
 </div>
 <div id="preclass-activity-10" class="section level2">
 <h2><span class="header-section-number">13.2</span> PreClass Activity</h2>
 <div id="read-3" class="section level3">
 <h3><span class="header-section-number">13.2.1</span> Read</h3>
-<p>Read Chapter 4 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view", target = "_blank">Miller and Haden (2013)</a> and try to understand the situation where you have 2 factors with at least two levels each; in this lab we will look at interactions.</p>
+<p>Read Chapter 4 of &lt;a href=“<a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" class="uri">https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view</a>”, target = &quot;_blank&quot;&gt;Miller and Haden (2013)</a> and try to understand the situation where you have 2 factors with at least two levels each; in this lab we will look at interactions.</p>
 </div>
 <div id="try-1" class="section level3">
 <h3><span class="header-section-number">13.2.2</span> TRY</h3>
@@ -674,17 +697,17 @@ A2
 ## 10     2     2     1    78    72     1     3
 ## 11     2     2     2    78    72     1     3
 ## 12     2     2     3    84    72     1     3</code></pre>
-<p>The code to create the above matrix is in the solutions at the end of this chapter in case you want to create the matrix yourself as practice. If not, copy and paste this code into a code chunk of an RMarkdown file or into an R script (and make sure you also load tidyverse so that you can use the dplyr functions and pipes.) As Yoda once said, &quot;do or do not, there is no try!&quot;</p>
+<p>The code to create the above matrix is in the solutions at the end of this chapter in case you want to create the matrix yourself as practice. If not, copy and paste this code into a code chunk of an RMarkdown file or into an R script (and make sure you also load tidyverse so that you can use the dplyr functions and pipes.) As Yoda once said, “do or do not, there is no try!”</p>
 <p>Run the code and look at <code>decomp</code> to confirm to yourself that it worked. Note the use of the <code>group_by()</code> function so that the values calculated with in <code>mutate()</code> are only calculated for each group.</p>
 </div>
 <div id="adding-the-missing-columns" class="section level3">
 <h3><span class="header-section-number">13.3.2</span> Adding the missing columns</h3>
 <p>Once you understand the table and code, try writing code to add the two missing columns to our matrix. Store the resulting table in <code>decomp2</code>.</p>
-<p>Here are some hints but again the code is in the solutions if you can't quite get it - remember, as Dumbledore once paraphrased, &quot;Help will always be given at Glasgow to those that look for it.&quot;</p>
+<p>Here are some hints but again the code is in the solutions if you can’t quite get it - remember, as Dumbledore once paraphrased, “Help will always be given at Glasgow to those that look for it.”</p>
 <p><strong>Hints:</strong></p>
 <ul>
 <li><code>AB_ij</code> (<span class="math inline">\(\hat{A}_{ij}\)</span>) is what is left of the mean value of all participants in that group once you have removed the effect of the grand mean, the effect of factor one, and the effect of factor two</li>
-<li><code>err</code> (<span class="math inline">\(\widehat{S(AB)}_{ijk}\)</span>) is what is left from an individual's score after removing the effect of the grand mean, the effect of factor A, the effect of factor B, and the interaction effect.</li>
+<li><code>err</code> (<span class="math inline">\(\widehat{S(AB)}_{ijk}\)</span>) is what is left from an individual’s score after removing the effect of the grand mean, the effect of factor A, the effect of factor B, and the interaction effect.</li>
 </ul>
 </div>
 <div id="understanding-the-two-factor-decomposition-matrix" class="section level3">
@@ -1073,7 +1096,7 @@ err
 </tr>
 </tbody>
 </table>
-<p>So let's now make sure we understand the table that we have and that we can pinpoint different elements of it by answering the following questions:</p>
+<p>So let’s now make sure we understand the table that we have and that we can pinpoint different elements of it by answering the following questions:</p>
 <ol style="list-style-type: decimal">
 <li><p>From the options, what was the DV-value of participant <span class="math inline">\(Y_{212}\)</span>? <select class='solveme' data-answer='["67"]'> <option></option> <option>64</option> <option>65</option> <option>66</option> <option>67</option></select></p></li>
 <li><p>Type in the value of <span class="math inline">\(SS_{B}\)</span>: <input class='solveme nospaces' size='3' data-answer='["108"]'/></p></li>
@@ -1088,7 +1111,7 @@ err
 <div id="get-your-data-ready-for-analysis" class="section level3">
 <h3><span class="header-section-number">13.3.4</span> Get your data ready for analysis</h3>
 <p>It is excellent that you now understand a decomposition matrix and how it relates to an F-ratio. In reality however, we rarely will you ever derive a decomposition matrix by hand; the point was to improve your understanding of the calculations behind an ANOVA.</p>
-<p>Let's continue using the simulated data from above and run through the analysis steps we would normally follow. But first, let's put it in a more useful format.</p>
+<p>Let’s continue using the simulated data from above and run through the analysis steps we would normally follow. But first, let’s put it in a more useful format.</p>
 <p>The first thing we might want to do is to add columns that more clearly indicate the levels of our two factors. Right now the levels of A are represented by <code>i</code> and the levels of <code>B</code> are represented by <code>j</code>. But the data should really look more like this below:</p>
 <pre><code>## # A tibble: 12 x 4
 ##       id A     B     Y_ijk
@@ -1106,7 +1129,7 @@ err
 ## 11    11 A2    B2       78
 ## 12    12 A2    B2       84</code></pre>
 <p>We will need the <code>id</code> column (a unique value for each participant) for when we run <code>ezANOVA()</code> later.</p>
-<p>Again the code to convert <code>decomp</code> into this table (named <code>dat</code>) is hidden below and you can use it if you like, but if you want to practice your skills first and convert the table yourself, that is also fine. Don't spend too long on it though as it is more the output we want to look at. So if you are stuck, copy the code and run it in your session. We'll be working with the new table <code>dat</code> for the remaining exercises.</p>
+<p>Again the code to convert <code>decomp</code> into this table (named <code>dat</code>) is hidden below and you can use it if you like, but if you want to practice your skills first and convert the table yourself, that is also fine. Don’t spend too long on it though as it is more the output we want to look at. So if you are stuck, copy the code and run it in your session. We’ll be working with the new table <code>dat</code> for the remaining exercises.</p>
 </div>
 <div id="visualizing-2x2-designs-in-r-the-interaction-plot" class="section level3">
 <h3><span class="header-section-number">13.3.5</span> Visualizing 2x2 designs in R: The interaction plot</h3>
@@ -1114,7 +1137,7 @@ err
 <p>Remember that before you can make an interaction plot, you need to calculate the cell means.</p>
 <ul>
 <li><p>First create a table called <code>cell_means</code> with the cell means stored in the column <code>m</code>. <strong>HINT</strong> - think group_by and summarise to leave three columns only, each with 4 rows. For example, one row will show A, A, mean-value</p></li>
-<li><p>Next, reproduce the plot below. Don't look at the solution below until you've really tried! You will need two geoms: one to draw the points, one to draw the lines. And think about what is your x and y axes and how do you group the lines.</p></li>
+<li><p>Next, reproduce the plot below. Don’t look at the solution below until you’ve really tried! You will need two geoms: one to draw the points, one to draw the lines. And think about what is your x and y axes and how do you group the lines.</p></li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
 <img src="13-s02-lab13c_files/figure-html/unnamed-chunk-10-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
@@ -1137,24 +1160,24 @@ Figure 13.1: <strong>CAPTION THIS FIGURE!!</strong>
 <li>Are the means of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> different, disregarding the effect of Factor A?</li>
 <li>Are the means of <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> influenced by the effect of Factor B? What do non-parallel (or crossing lines) suggest about an interaction?</li>
 </ol>
-<p>Looking at the figure you might suggest, no main effect of A, no main effect of B, but that there is an interaction between A and B. Let's test this using the <code>ez:ezANOVA()</code> function!</p>
+<p>Looking at the figure you might suggest, no main effect of A, no main effect of B, but that there is an interaction between A and B. Let’s test this using the <code>ez:ezANOVA()</code> function!</p>
 <ul>
 <li>Perform the 2x2 ANOVA on <code>dat</code> and store the output in <code>result</code>.
 <ul>
 <li>Try not to look at the solution until you have tried the <code>?ezANOVA</code> to see how to add more than one condition of the same design.</li>
-<li>a second hint is that both factors are &quot;between&quot;, so you want to focus on adding a second &quot;between&quot; condition</li>
+<li>a second hint is that both factors are “between”, so you want to focus on adding a second “between” condition</li>
 </ul></li>
 </ul>
 <p>We have also hidden a short summary of the output of the ANOVA to give you an idea of the outcome. Think about the outcome for a moment or two before looking at the summary.</p>
 </div>
 <div id="summarising-the-output" class="section level3">
 <h3><span class="header-section-number">13.3.7</span> Summarising the output</h3>
-<p>So it turns out we were sort of right and sort of wrong. There was no main effect of Factor A as we predicted. The means at <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are very similar when you disregard the effect of Factor B. However, there actually was a main effect of Factor B; i.e. there was a significant difference between the means of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> when you disregard the effect of Factor A. In fact, you could go on to say that the mean of <span class="math inline">\(B_2\)</span> (M = 75) is significantly larger than the mean of <span class="math inline">\(B_1\)</span> (M = 69). And finally, we predicted that there would be a significant interaction and there was one because the effect of Factor A is modulated by Factor B, and vice versa.</p>
-<p>One thing to point out here, when there are only two conditions in a factor and there is a significant main effect of that Factor (in this example Factor B) then to further qualify that effect you simply have to say which of the two conditions was bigger than the other! Group 2 bigger than Group 1 or Group 1 bigger than Group 2. When there is more than two conditions in a facor (e.g. three) or in the interaction, it is not that straightforward and you need to do further comparisons such as pairwise comparisons, t-test, simple main effects, or TUKEY HSDs, to tease those effects a part. We will cover more of that in the lecture series.</p>
+<p>So it turns out we were sort of right and sort of wrong. There was no main effect of Factor A as we predicted. The means at <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are very similar when you disregard the effect of Factor B. However, there actually was a main effect of Factor B; i.e. there was a significant difference between the means of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> when you disregard the effect of Factor A. In fact, you could go on to say that the mean of <span class="math inline">\(B_2\)</span> (M = 75) is significantly larger than the mean of <span class="math inline">\(B_1\)</span> (M = 69). And finally, we predicted that there would be a significant interaction and there was one because the effect of Factor A is modulated by Factor B, and vice versa.</p>
+<p>One thing to point out here, when there are only two conditions in a factor and there is a significant main effect of that Factor (in this example Factor B) then to further qualify that effect you simply have to say which of the two conditions was bigger than the other! Group 2 bigger than Group 1 or Group 1 bigger than Group 2. When there is more than two conditions in a facor (e.g. three) or in the interaction, it is not that straightforward and you need to do further comparisons such as pairwise comparisons, t-test, simple main effects, or TUKEY HSDs, to tease those effects a part. We will cover more of that in the lecture series.</p>
 </div>
 <div id="app-understanding-main-effects-and-interactions" class="section level3">
 <h3><span class="header-section-number">13.3.8</span> App: Understanding main effects and interactions</h3>
-<p>If time permits (or on your own time), check out the accompanying shiny app on main effects and interactions. This allows you to move sliders and change the sizes of main effects / interactions and see how it affects cell means and effect decompositions. This will help sharpen your intuitions about these concepts. Download the app from Moodle or <a href="./data/13-s02/inclass/factorial_app.zip", target = "_blank">from this link</a>.</p>
+<p>If time permits (or on your own time), check out the accompanying shiny app on main effects and interactions. This allows you to move sliders and change the sizes of main effects / interactions and see how it affects cell means and effect decompositions. This will help sharpen your intuitions about these concepts. Download the app from Moodle or &lt;a href=“./data/13-s02/inclass/factorial_app.zip”, target = &quot;_blank&quot;&gt;from this link</a>.</p>
 <p><strong>Job Done!</strong></p>
 <p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong></p>
 
@@ -1164,21 +1187,21 @@ Figure 13.1: <strong>CAPTION THIS FIGURE!!</strong>
 <h2><span class="header-section-number">13.4</span> Assignment</h2>
 <p>This is a summative assignment. Instructions as to how to access and submit your assignment will be made available during the course.</p>
 <p><strong>Lab 13: Two-Factor ANOVA: Perspective-Taking in Language Comprehension</strong></p>
-<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester2_Lab4.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_04/homework/Level2_Semester2_Lab4_AssignmentFiles.zip", target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.</p>
+<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester2_Lab4.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. &lt;a href=“<a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_04/homework/Level2_Semester2_Lab4_AssignmentFiles.zip" class="uri">https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_04/homework/Level2_Semester2_Lab4_AssignmentFiles.zip</a>”, target = &quot;_blank&quot;&gt;Download the Assignment .zip file from here</a> or on Moodle.</p>
 <p><strong>Background: Perspective-Taking in Language Comprehension</strong></p>
-<p>For this assignment, you will be looking at real data from <strong>Experiment 2</strong> of <a href = "https://www.sciencedirect.com/science/article/pii/S0010027703000647?via%3Dihub", target = "_blank">Keysar, Lin, and Barr (2003)</a>, &quot;Limits on Theory of Mind Use in Adults&quot;, <strong>Cognition</strong>, <strong>89</strong>, 29--41. This study used eye-tracking to investigate people's ability to take another's perspective during a kind of communication game. (The data that you will be analysing, while real, did not appear in the original report.)</p>
-<p>The communication game that participants played was as follows. Each participant sat at a table opposite a confederate participant (a stooge from the lab who pretended to be a naive participant). Between the two participants was an upright set of shelves (see figure below). The participants played a game in which the real participant was assigned the role of the &quot;matcher&quot; and the confederate the role of the &quot;director&quot;. The director was given a picture with a goal state for the grid, showing how the objects needed to be arranged. However, the director was not allowed to touch the objects. To get the objects in their proper places, the director needed to give instructions to the matcher to move the objects. For example, the director might say, &quot;take the red box in the top corner and move it down to the very bottom row,&quot; and the matcher would then perform the action. The matcher's eye movements were tracked as they listened to and interpreted the director's instructions.</p>
+<p>For this assignment, you will be looking at real data from <strong>Experiment 2</strong> of &lt;a href = “<a href="https://www.sciencedirect.com/science/article/pii/S0010027703000647?via%3Dihub" class="uri">https://www.sciencedirect.com/science/article/pii/S0010027703000647?via%3Dihub</a>”, target = &quot;_blank“&gt;Keysar, Lin, and Barr (2003)</a>,”Limits on Theory of Mind Use in Adults&quot;, <strong>Cognition</strong>, <strong>89</strong>, 29–41. This study used eye-tracking to investigate people’s ability to take another’s perspective during a kind of communication game. (The data that you will be analysing, while real, did not appear in the original report.)</p>
+<p>The communication game that participants played was as follows. Each participant sat at a table opposite a confederate participant (a stooge from the lab who pretended to be a naive participant). Between the two participants was an upright set of shelves (see figure below). The participants played a game in which the real participant was assigned the role of the “matcher” and the confederate the role of the “director”. The director was given a picture with a goal state for the grid, showing how the objects needed to be arranged. However, the director was not allowed to touch the objects. To get the objects in their proper places, the director needed to give instructions to the matcher to move the objects. For example, the director might say, “take the red box in the top corner and move it down to the very bottom row,” and the matcher would then perform the action. The matcher’s eye movements were tracked as they listened to and interpreted the director’s instructions.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-lab13-grids"></span>
 <img src="images/s02-lab13/homework/grids.png" alt="Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)" width="50%" />
 <p class="caption">
 Figure 13.2: Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)
 </p>
 </div>
-<p>To investigate perspective taking, the instructions given by the director were actually scripted beforehand in order to create certain ambiguities. Most of the objects in the grid, such as the red box, were mutually visible to both participants (i.e., visible from both sides of the grid). However, some of objects, like the brush and the green candle, were occluded from the director's view; the matcher could see them, but had no reason to believe that the director knew the contents of these occluded squares, and thus had no reason to expect her to ever refer to them. However, sometimes the director would refer to a mutually visible object using a description that also happened to match one of the hidden objects. For instance, the director might instruct the matcher to &quot;pick up the small candle.&quot; Note that for the director, the small candle is the purple candle. A given matcher would see this grid in one of two conditions: In the <strong>Experimental</strong> condition, the matcher saw an additional green candle in a hidden box that was even smaller than the purple candle (see middle panel of the above figure). This object was called a &quot;competitor&quot; because it matched the description of the intended referent (the purple candle). In the <strong>Baseline</strong> condition, the green candle was replaced with an object that did not match the director's description, such as an apple. These ambiguous situations provided the main data for the experiment, and in total there were eight different grids in the experiment that presented analogous situations to the example above.</p>
-<p><a href="https://journals.sagepub.com/doi/abs/10.1111/1467-9280.00211", target = "_blank">A previous eye-tracking study by the same authors</a> had found the presence of the competitors severely confused the matchers, suggesting that people were surprisingly egocentric---they found it hard to ignore &quot;privileged&quot; information when interpreting another person's speech. For example, when the director said to &quot;pick up the small candle,&quot; they spent far more time looking at a hidden green candle than a hidden apple, even though neither one of these objects, being hidden, was a viable referent. We refer to the difference in looking time as the 'egocentric interference effect'.</p>
+<p>To investigate perspective taking, the instructions given by the director were actually scripted beforehand in order to create certain ambiguities. Most of the objects in the grid, such as the red box, were mutually visible to both participants (i.e., visible from both sides of the grid). However, some of objects, like the brush and the green candle, were occluded from the director’s view; the matcher could see them, but had no reason to believe that the director knew the contents of these occluded squares, and thus had no reason to expect her to ever refer to them. However, sometimes the director would refer to a mutually visible object using a description that also happened to match one of the hidden objects. For instance, the director might instruct the matcher to “pick up the small candle.” Note that for the director, the small candle is the purple candle. A given matcher would see this grid in one of two conditions: In the <strong>Experimental</strong> condition, the matcher saw an additional green candle in a hidden box that was even smaller than the purple candle (see middle panel of the above figure). This object was called a “competitor” because it matched the description of the intended referent (the purple candle). In the <strong>Baseline</strong> condition, the green candle was replaced with an object that did not match the director’s description, such as an apple. These ambiguous situations provided the main data for the experiment, and in total there were eight different grids in the experiment that presented analogous situations to the example above.</p>
+<p>&lt;a href=“<a href="https://journals.sagepub.com/doi/abs/10.1111/1467-9280.00211" class="uri">https://journals.sagepub.com/doi/abs/10.1111/1467-9280.00211</a>”, target = &quot;_blank“&gt;A previous eye-tracking study by the same authors</a> had found the presence of the competitors severely confused the matchers, suggesting that people were surprisingly egocentric—they found it hard to ignore”privileged&quot; information when interpreting another person’s speech. For example, when the director said to “pick up the small candle,” they spent far more time looking at a hidden green candle than a hidden apple, even though neither one of these objects, being hidden, was a viable referent. We refer to the difference in looking time as the ‘egocentric interference effect’.</p>
 <p>Experiment 2 by Keysar, Lin, and Barr aimed to follow up on this finding. In the previous article, the matcher had reason to believe that the director was merely ignorant of the identity of the hidden objects. But what would happen if the matcher was given reason to believe that the director actually had a <strong>false belief</strong> about the hidden object? For example, would the matcher experience less egocentric interference if he or she had reason to think that the director thought that the hidden candle was a toy truck?</p>
 <p>To test this, half of the participants were randomly assigned to a <strong>false belief</strong> condition, where the matcher was led to believe that the director had a false belief about the identity of the hidden object; the other half participated in the <strong>ignorance</strong> condition, where as in previous experiments, they were led to believe that the director simply did not know what was in the hidden squares.</p>
-<p>There were 40 participants in this study, 20 in the false belief condition, and 20 in the ignorance condition. There were also an equal number of male and female participants in the study. To spoil the plot a bit, Keysar, Lin and Barr did not find any effect of condition on looking time. However, they did not consider sex as a potential moderating variable. Thus, we will explore the effects of ignorance vs. false belief on egocentric interference, broken down by the sex of the matcher.</p>
+<p>There were 40 participants in this study, 20 in the false belief condition, and 20 in the ignorance condition. There were also an equal number of male and female participants in the study. To spoil the plot a bit, Keysar, Lin and Barr did not find any effect of condition on looking time. However, they did not consider sex as a potential moderating variable. Thus, we will explore the effects of ignorance vs. false belief on egocentric interference, broken down by the sex of the matcher.</p>
 <p><strong>Before starting lets check:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>The <code>.csv</code> file is saved into a folder on your computer and you have manually set this folder as your working directory.</p></li>
@@ -1187,16 +1210,16 @@ Figure 13.2: Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)
 <div id="task-1a-libraries" class="section level3">
 <h3><span class="header-section-number">13.4.1</span> Task 1A: Libraries</h3>
 <ul>
-<li>In today's assignment you will need both the <code>tidyverse</code> and <code>ez</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
+<li>In today’s assignment you will need both the <code>tidyverse</code> and <code>ez</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load in the packages</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load in the packages</span></code></pre>
 </div>
 <div id="task-1b-loading-in-the-data" class="section level3">
 <h3><span class="header-section-number">13.4.2</span> Task 1B: Loading in the data</h3>
 <ul>
 <li>Use <code>read_csv()</code> to replace the <code>NULL</code> in the t1B code chunk below to load in the data stored in the datafile <code>keysar_lin_barr_2003.csv</code>. Store the data in the variable <code>dat</code>. Do not change the filename of the datafile.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p>Take a look at your data (<code>dat</code>) in the console using <code>glimpse()</code> or <code>View()</code>, or just display it by typing in the name. You will see the following columns:</p>
 <table>
 <thead>
@@ -1224,7 +1247,7 @@ Figure 13.2: Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)
 </tr>
 </tbody>
 </table>
-<p>We have simplified things from the original experiment by collapsing the baseline vs. experimental conditions into a single DV. Our DV, egocentric interference, is the average difference in looking time for each subject (in milliseconds per trial) for hidden competitors (e.g., small candle) versus hidden noncompetitors (e.g., apple). The larger this number, the more egocentric interference the subject experienced.</p>
+<p>We have simplified things from the original experiment by collapsing the baseline vs. experimental conditions into a single DV. Our DV, egocentric interference, is the average difference in looking time for each subject (in milliseconds per trial) for hidden competitors (e.g., small candle) versus hidden noncompetitors (e.g., apple). The larger this number, the more egocentric interference the subject experienced.</p>
 </div>
 <div id="task-2-calculate-cell-means" class="section level3">
 <h3><span class="header-section-number">13.4.3</span> Task 2: Calculate cell means</h3>
@@ -1239,7 +1262,7 @@ Figure 13.2: Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cell_means &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">cell_means &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <table>
 <thead>
 <tr>
@@ -1329,7 +1352,7 @@ XX
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_sex &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">marg_sex &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <table>
 <thead>
 <tr>
@@ -1382,7 +1405,7 @@ XX
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_cond &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">marg_cond &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <table>
 <thead>
 <tr>
@@ -1434,7 +1457,7 @@ XX
 </ul></li>
 <li><strong>Note:</strong> The figure below is a nice figure but should really have error bars on it if I was including it in an actual paper. Including the error bars may help in clarifying the descriptive statistics as you would see as although the means are different, there is huge overlap in terms of error bars.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># to do: something with ggplot to replicate the figure</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># to do: something with ggplot to replicate the figure</span></code></pre>
 <div class="figure" style="text-align: center"><span id="fig:t5-hide"></span>
 <img src="13-s02-lab13d_files/figure-html/t5-hide-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1454,7 +1477,7 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 <li>We hypothesised that there would be a significant interaction between condition and sex of participant on egocentric interference (mean looking time (msecs))</li>
 <li>We hypothesised that there will be no significant difference between males and females in egocentric interference (mean looking time (msecs)) regardless of condition but that there would be a significant difference between participants in the false belief condition and those in the ignorance condition in terms of egocentric interference (mean looking time (msecs)) regardless of sex of participant.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t6 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t6 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-7-recap-question-2" class="section level3">
 <h3><span class="header-section-number">13.4.8</span> Task 7: Recap Question 2</h3>
@@ -1468,7 +1491,7 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 <li>The female participants have an average shorter looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex</li>
 <li>The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of condition</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t7 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t7 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-8-recap-question-3" class="section level3">
 <h3><span class="header-section-number">13.4.9</span> Task 8: Recap Question 3</h3>
@@ -1482,7 +1505,7 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 <li>The participants in the false belief group had an average longer looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of sex.</li>
 <li>The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of sex.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-9-running-the-factorial-anova" class="section level3">
 <h3><span class="header-section-number">13.4.10</span> Task 9: Running the factorial ANOVA</h3>
@@ -1495,7 +1518,7 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 <li>The code will convert the condition and participant ids to factors automatically. This is fine.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-10-interpreting-the-anova-output-question" class="section level3">
 <h3><span class="header-section-number">13.4.11</span> Task 10: Interpreting the ANOVA output Question</h3>
@@ -1509,7 +1532,7 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 <li>There is no significant main effect of sex or condition and there is no significant interaction between condition and sex.</li>
 <li>There is a significant main effect of sex, a significant main effect of condition, and a significant interaction between condition and sex</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 </div>
 <div id="task-11-report-your-results" class="section level3">
 <h3><span class="header-section-number">13.4.12</span> Task 11: Report your results</h3>
@@ -1518,7 +1541,7 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 <p>Write your summary between the two green lines shown in the GUID file.</p>
 <!-- end of results: don't delete this line -->
 <p><strong>Finished</strong></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the &lt;a href = “<a href="https://rguppies.slack.com" class="uri">https://rguppies.slack.com</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
 
 </div>
@@ -1543,11 +1566,11 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 <div id="to-add-the-last-columns" class="section level4">
 <h4><span class="header-section-number">13.5.1.2</span> To Add the last columns</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">decomp2 &lt;-<span class="st"> </span>decomp %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(i, j) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">AB_ij =</span> <span class="kw">mean</span>(Y_ijk) -<span class="st"> </span>mu -<span class="st"> </span>A_i -<span class="st"> </span>B_j) %&gt;%
-<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Y_ijk -<span class="st"> </span>mu -<span class="st"> </span>A_i -<span class="st"> </span>B_j -<span class="st"> </span>AB_ij)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">decomp2 &lt;-<span class="st"> </span>decomp <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(i, j) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">AB_ij =</span> <span class="kw">mean</span>(Y_ijk) <span class="op">-</span><span class="st"> </span>mu <span class="op">-</span><span class="st"> </span>A_i <span class="op">-</span><span class="st"> </span>B_j) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Y_ijk <span class="op">-</span><span class="st"> </span>mu <span class="op">-</span><span class="st"> </span>A_i <span class="op">-</span><span class="st"> </span>B_j <span class="op">-</span><span class="st"> </span>AB_ij)</code></pre>
 </div>
 <div id="understanding-the-two-factor-decomposition-matrix-1" class="section level4">
 <h4><span class="header-section-number">13.5.1.3</span> Understanding the two-factor decomposition matrix</h4>
@@ -1586,21 +1609,21 @@ Figure 13.3: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 <div id="table-converter-code" class="section level4">
 <h4><span class="header-section-number">13.5.1.4</span> Table converter code</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span>decomp %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span>decomp <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">A =</span> <span class="kw">paste0</span>(<span class="st">&quot;A&quot;</span>, i),
          <span class="dt">B =</span> <span class="kw">paste0</span>(<span class="st">&quot;B&quot;</span>, j),
-         <span class="dt">id =</span> <span class="kw">row_number</span>()) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(id, A, B, Y_ijk)</code></pre></div>
+         <span class="dt">id =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(id, A, B, Y_ijk)</code></pre>
 </div>
 <div id="visualizing-2x2-designs-in-r-the-interaction-plot-1" class="section level4">
 <h4><span class="header-section-number">13.5.1.5</span> Visualizing 2x2 designs in R: The interaction plot</h4>
 <div id="cell-means" class="section level5">
 <h5><span class="header-section-number">13.5.1.5.1</span> Cell means</h5>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cell_means &lt;-<span class="st"> </span>dat %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(A, B) %&gt;%
+<pre class="sourceCode r"><code class="sourceCode r">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(A, B) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y_ijk))
 
-cell_means</code></pre></div>
+cell_means</code></pre>
 <pre><code>## # A tibble: 4 x 3
 ## # Groups:   A [2]
 ##   A     B         m
@@ -1612,9 +1635,9 @@ cell_means</code></pre></div>
 </div>
 <div id="the-plot" class="section level5">
 <h5><span class="header-section-number">13.5.1.5.2</span> The Plot</h5>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B, <span class="dt">shape =</span> B, <span class="dt">color =</span> B)) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) +
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B, <span class="dt">shape =</span> B, <span class="dt">color =</span> B)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
 <img src="13-s02-lab13e_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1625,34 +1648,35 @@ Figure 13.4: <strong>CAPTION THIS FIGURE!!</strong>
 <div id="easter-egg-figure-solution" class="section level5">
 <h5><span class="header-section-number">13.5.1.5.3</span> Easter Egg Figure Solution</h5>
 <p>The plot above is functional but sometimes you want something a bit more communicative. It is worth working on your figures so here is an example that you can think about for your report. Remember to look back through previous labs and homework as well (Semester 1: Lab 3, Lab 7, Lab 6, Lab 5 &amp; 9 assignments, for instance) to see how figures can be improved.</p>
-<p>The code below adds another few dimensions to the above figure. Copy and run the code in your Rmd, knitting it to HTML, and play with the different parts to see what they do. We have changed the legends to be more descriptive and to have more readable text, fixed the scale for the vertical axis, made the figure black and white without a box, we also added 95% confidence intervals and a figure caption. There are of course various ways to do these changes, in particular the caption, but this is an option.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Will only run if you have the tibble dat from earlier in this worksheet</span>
-cell_means1 &lt;-<span class="st"> </span>dat %&gt;%
-<span class="kw">group_by</span>(A, B) %&gt;%
+<p>The code below adds another few dimensions to the above figure. Copy and run the code in your Rmd, knitting it to HTML, and play with the different parts to see what they do. We have changed the legends to be more descriptive and to have more readable text, fixed the scale for the vertical axis, made the figure black and white without a box, we also added 95% confidence intervals and a figure caption.
+There are of course various ways to do these changes, in particular the caption, but this is an option.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Will only run if you have the tibble dat from earlier in this worksheet</span>
+cell_means1 &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
+<span class="kw">group_by</span>(A, B) <span class="op">%&gt;%</span>
 <span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y_ijk),
           <span class="dt">n =</span> <span class="kw">n</span>(),
           <span class="dt">sd_scores =</span> <span class="kw">sd</span>(Y_ijk),
-          <span class="dt">ste_scores =</span> sd_scores/<span class="kw">sqrt</span>(n),
-          <span class="dt">ci =</span> <span class="fl">1.96</span> *<span class="st"> </span>ste_scores)
+          <span class="dt">ste_scores =</span> sd_scores<span class="op">/</span><span class="kw">sqrt</span>(n),
+          <span class="dt">ci =</span> <span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>ste_scores)
   
-<span class="kw">ggplot</span>(cell_means1, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B)) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> B), <span class="dt">size =</span> <span class="dv">3</span>) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> m -<span class="st"> </span>ci, <span class="dt">ymax =</span> m +<span class="st"> </span>ci), 
+<span class="kw">ggplot</span>(cell_means1, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> B), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> m <span class="op">-</span><span class="st"> </span>ci, <span class="dt">ymax =</span> m <span class="op">+</span><span class="st"> </span>ci), 
                 <span class="dt">width =</span> <span class="fl">0.05</span>, 
-                <span class="dt">size =</span> .<span class="dv">5</span>) +
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) +
+                <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Groups in Factor A&quot;</span>, 
        <span class="dt">y =</span> <span class="st">&quot;Mean Scores&quot;</span>, 
-       <span class="dt">caption =</span> <span class="st">&quot;Figure 1. Mean scores from the example data for the two-way </span><span class="ch">\n</span><span class="st">between-subjects design ANOVA. Error bars indicate 95% </span><span class="ch">\n</span><span class="st">confidence intervals.&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_shape_discrete</span>(<span class="st">&quot;Groups in Factor B&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>() +
+       <span class="dt">caption =</span> <span class="st">&quot;Figure 1. Mean scores from the example data for the two-way </span><span class="ch">\n</span><span class="st">between-subjects design ANOVA. Error bars indicate 95% </span><span class="ch">\n</span><span class="st">confidence intervals.&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_shape_discrete</span>(<span class="st">&quot;Groups in Factor B&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">12</span>),
         <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">12</span>),
         <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),
         <span class="dt">legend.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),
         <span class="dt">legend.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),
-        <span class="dt">plot.caption  =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">hjust =</span> <span class="dv">0</span>))</code></pre></div>
+        <span class="dt">plot.caption  =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">hjust =</span> <span class="dv">0</span>))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:easter-figure"></span>
 <img src="13-s02-lab13e_files/figure-html/easter-figure-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1664,14 +1688,14 @@ Figure 13.5: <strong>CAPTION THIS FIGURE!!</strong>
 <div id="anova-using-ez" class="section level4">
 <h4><span class="header-section-number">13.5.1.6</span> ANOVA Using Ez</h4>
 <p><strong>The code</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, 
+<pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, 
                   <span class="dt">dv =</span> Y_ijk, 
                   <span class="dt">wid =</span> id, 
                   <span class="dt">between =</span> .(A, B),
-                  <span class="dt">detailed =</span> <span class="ot">TRUE</span>) <span class="co"># This gives sum squares information</span></code></pre></div>
+                  <span class="dt">detailed =</span> <span class="ot">TRUE</span>) <span class="co"># This gives sum squares information</span></code></pre>
 <pre><code>## Coefficient covariances computed by hccm()</code></pre>
 <p><strong>The output</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result$ANOVA</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>ANOVA</code></pre>
 <pre><code>##   Effect DFn DFd SSn SSd          F          p p&lt;.05        ges
 ## 1      A   1   8  12 140  0.6857143 0.43163404       0.07894737
 ## 2      B   1   8 108 140  6.1714286 0.03786084     * 0.43548387
@@ -1683,17 +1707,17 @@ Figure 13.5: <strong>CAPTION THIS FIGURE!!</strong>
 <div id="task-1a-libraries-1" class="section level4">
 <h4><span class="header-section-number">13.5.2.1</span> Task 1A: Libraries</h4>
 <ul>
-<li>In today's assignment you will need both the <code>tidyverse</code> and <code>ez</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
+<li>In today’s assignment you will need both the <code>tidyverse</code> and <code>ez</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ez)
-<span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ez)
+<span class="kw">library</span>(tidyverse)</code></pre>
 </div>
 <div id="task-1b-loading-in-the-data-1" class="section level4">
 <h4><span class="header-section-number">13.5.2.2</span> Task 1B: Loading in the data</h4>
 <ul>
 <li>Use <code>read_csv()</code> to replace the <code>NULL</code> in the t1B code chunk below to load in the data stored in the datafile <code>keysar_lin_barr_2003.csv</code>. Store the data in the variable <code>dat</code>. Do not change the filename of the datafile.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;keysar_lin_barr_2003.csv&quot;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;keysar_lin_barr_2003.csv&quot;</span>)</code></pre>
 <p>Take a look at your data (<code>dat</code>) in the console using <code>glimpse()</code> or <code>View()</code>, or just display it by typing in the name. You will see the following columns:</p>
 <table>
 <thead>
@@ -1721,7 +1745,7 @@ Figure 13.5: <strong>CAPTION THIS FIGURE!!</strong>
 </tr>
 </tbody>
 </table>
-<p>We have simplified things from the original experiment by collapsing the baseline vs. experimental conditions into a single DV. Our DV, egocentric interference, is the average difference in looking time for each subject (in milliseconds per trial) for hidden competitors (e.g., small candle) versus hidden noncompetitors (e.g., apple). The larger this number, the more egocentric interference the subject experienced.</p>
+<p>We have simplified things from the original experiment by collapsing the baseline vs. experimental conditions into a single DV. Our DV, egocentric interference, is the average difference in looking time for each subject (in milliseconds per trial) for hidden competitors (e.g., small candle) versus hidden noncompetitors (e.g., apple). The larger this number, the more egocentric interference the subject experienced.</p>
 </div>
 <div id="task-2-calculate-cell-means-1" class="section level4">
 <h4><span class="header-section-number">13.5.2.3</span> Task 2: Calculate cell means</h4>
@@ -1736,9 +1760,9 @@ Figure 13.5: <strong>CAPTION THIS FIGURE!!</strong>
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cell_means &lt;-<span class="st"> </span>dat %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(sex, condition) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(sex, condition) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</code></pre>
 <table>
 <thead>
 <tr>
@@ -1828,9 +1852,9 @@ ignorance
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_sex &lt;-<span class="st"> </span>dat %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(sex) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">marg_sex &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</code></pre>
 <table>
 <thead>
 <tr>
@@ -1883,9 +1907,9 @@ male
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">marg_cond &lt;-<span class="st"> </span>dat %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(condition) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">marg_cond &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(condition) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</code></pre>
 <table>
 <thead>
 <tr>
@@ -1937,13 +1961,13 @@ ignorance
 </ul></li>
 <li><strong>Note:</strong> The figure below is a nice figure but should really have error bars on it if I was including it in an actual paper. Including the error bars may help in clarifying the descriptive statistics as you would see as although the means are different, there is huge overlap in terms of error bars.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># to do: something with ggplot to replicate the figure</span>
-<span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(condition, m, <span class="dt">shape =</span> sex, <span class="dt">group =</span> sex, <span class="dt">color =</span> sex)) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;mean looking time (msecs)&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># to do: something with ggplot to replicate the figure</span>
+<span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(condition, m, <span class="dt">shape =</span> sex, <span class="dt">group =</span> sex, <span class="dt">color =</span> sex)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;mean looking time (msecs)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:t5"></span>
 <img src="13-s02-lab13e_files/figure-html/t5-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
@@ -1963,7 +1987,7 @@ Figure 13.6: <strong>CAPTION THIS FIGURE!!</strong>
 <li>We hypothesised that there would be a significant interaction between condition and sex of participant on egocentric interference (mean looking time (msecs))</li>
 <li>We hypothesised that there will be no significant difference between males and females in egocentric interference (mean looking time (msecs)) regardless of condition but that there would be a significant difference between participants in the false belief condition and those in the ignorance condition in terms of egocentric interference (mean looking time (msecs)) regardless of sex of participant.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t6 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t6 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre>
 </div>
 <div id="task-7-recap-question-2-1" class="section level4">
 <h4><span class="header-section-number">13.5.2.8</span> Task 7: Recap Question 2</h4>
@@ -1977,7 +2001,7 @@ Figure 13.6: <strong>CAPTION THIS FIGURE!!</strong>
 <li>The female participants have an average shorter looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex</li>
 <li>The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of condition</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t7 &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t7 &lt;-<span class="st"> </span><span class="dv">1</span></code></pre>
 </div>
 <div id="task-8-recap-question-3-1" class="section level4">
 <h4><span class="header-section-number">13.5.2.9</span> Task 8: Recap Question 3</h4>
@@ -1991,7 +2015,7 @@ Figure 13.6: <strong>CAPTION THIS FIGURE!!</strong>
 <li>The participants in the false belief group had an average longer looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of sex.</li>
 <li>The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of sex.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t8 &lt;-<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t8 &lt;-<span class="st"> </span><span class="dv">2</span></code></pre>
 </div>
 <div id="task-9-running-the-factorial-anova-1" class="section level4">
 <h4><span class="header-section-number">13.5.2.10</span> Task 9: Running the factorial ANOVA</h4>
@@ -2004,10 +2028,10 @@ Figure 13.6: <strong>CAPTION THIS FIGURE!!</strong>
 <li>The code will convert the condition and participant ids to factors automatically. This is fine.</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, <span class="dt">dv =</span> looktime, <span class="dt">wid =</span> subject,
+<pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, <span class="dt">dv =</span> looktime, <span class="dt">wid =</span> subject,
                <span class="dt">between =</span> .(condition, sex))
 
-mod$ANOVA</code></pre></div>
+mod<span class="op">$</span>ANOVA</code></pre>
 <pre><code>##          Effect DFn DFd         F         p p&lt;.05         ges
 ## 1     condition   1  36 0.7913759 0.3795907       0.021509820
 ## 2           sex   1  36 0.6405277 0.4287699       0.017481399
@@ -2025,17 +2049,17 @@ mod$ANOVA</code></pre></div>
 <li>There is no significant main effect of sex or condition and there is no significant interaction between condition and sex.</li>
 <li>There is a significant main effect of sex, a significant main effect of condition, and a significant interaction between condition and sex</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">answer_t10 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">answer_t10 &lt;-<span class="st"> </span><span class="dv">3</span></code></pre>
 </div>
 <div id="task-11-report-your-results-1" class="section level4">
 <h4><span class="header-section-number">13.5.2.12</span> Task 11: Report your results</h4>
 <p>Write a paragraph reporting your findings. <em>NOTE:</em> You can use inline code to report the <span class="math inline">\(F\)</span> values, but note that you cannot use <code>broom::tidy()</code> for objects created by <code>ezANOVA()</code>. Here is a hint: <code>mod$ANOVA</code> gives you a table of your results (<code>ezANOVA()</code> returns a list with two elements; <code>mod$ANOVA</code> returns the element of the list called <code>ANOVA</code> that has the results). You can <code>pull()</code> and <code>pluck()</code> whatever you need from this table.</p>
 <!-- start of results: don't delete this line -->
-<p>There is no definitive way to write this paragraph but essentially your findings should report both main effects and the interaction, giving appropriate F outputs, e.g. F(1, 36) = .79, p = .38, and give some interpretation/qualification of the results using the means and standard deviations above, e.g. looking time was not significantly different between the false belief task (M = X, SD = XX) or the Ignorance task (M = XX, SD = XX). Something along the following would be appropriate:</p>
+<p>There is no definitive way to write this paragraph but essentially your findings should report both main effects and the interaction, giving appropriate F outputs, e.g. F(1, 36) = .79, p = .38, and give some interpretation/qualification of the results using the means and standard deviations above, e.g. looking time was not significantly different between the false belief task (M = X, SD = XX) or the Ignorance task (M = XX, SD = XX). Something along the following would be appropriate:</p>
 <p><strong>A two-way between-subjects factorial ANOVA was conducted testing the main effects and interaction between sex(Male vs Female) and condition (false belief vs ignorance) on the average looking time (msecs) on a matching task. Results revealed no significant interaction (F(1, 36) = .21, p = .647) suggesting that there is no modulation of condition by sex of participant in this looking task. Furthermore there was no significant main effect of sex (F(1, 36) = .64, p = .429) suggesting that male (M = 555.04, SD = 707.81) and female participants (M = 777.98, SD = 911.53) perform similarly in this task. Finally, there was no significant main effect of condition (F(1, 36) = .79, p = .38) suggesting that whether participants were given a false belief scenario (M = 594.58, SD = 775.91) or an ignorance scenario (M = 794.58, SD = 861.23) had no overall impact on their performance.</strong></p>
 <!-- end of results: don't delete this line -->
 <p><strong>Finished</strong></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the &lt;a href = “<a href="https://rguppies.slack.com" class="uri">https://rguppies.slack.com</a>”, target = &quot;_blank&quot;&gt;rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
 
 </div>
@@ -2184,7 +2208,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
