@@ -164,19 +164,24 @@ Now that you know what to change, plot the normal distribution with the range of
 
 * Compare your new plot the the original one we created. What change is there in the distribution? `r mcq(c("Distribution widens", answer = "No change in distribution", "Distribution narrows"))`
 
-* To three decimal places, what is the probability of the value 0 in the normal distribution (M = 0, SD = 1): `r fitb(c("0.399",".399"), width = 10, ignore_ws = TRUE)`
+<!--
+The probability of any specific value (including exact zero) in a continuous distribution is infinitesimal, because there are an infinite number of points. This is how continuous distributions differ from discrete distributions. So I have deleted the next question because it is misleading.
+-DJB
+-->
 
 `r hide("Explain This - I don't understand the answer!")`
 ```{block, type ="info"}
 To change the distribution you would write: `ND_data <- tibble(ND_range = seq(-10, 10, 0.05))`
 
-However, when comparing the plots, whilst the plot itself may look thinner, the distribution has not changed. The change in appearance is due to the range of `sd` values which have been extended from -4 and 4 to -10 and 10. The density of values within those values has not changed however and you will see, more clearly in the second plot, that values beyond -3 and 3 are very unlikely. You can test this by looking at the `dnorm()` function. Note that it only looks at the mean and the standard deviation. So if you asked for `dnorm(x = 0, mean = 0, sd = 1)` you will get p = .399 every time because the range does not matter!
+However, when comparing the plots, whilst the plot itself may look thinner, the distribution has not changed. The change in appearance is due to the range of `sd` values which have been extended from -4 and 4 to -10 and 10. The density of values within those values has not changed however and you will see, more clearly in the second plot, that values beyond -3 and 3 are very unlikely.
 ```
 `r unhide()`
 
 ### **`pnorm()`** - The Probability or Distribution Function
 
-Just as `dnorm()` works like `dbinom()`, `pnorm()` works just like `pbinom()`. So, `pnorm()`, given the  `mean` and `sd` of our data, returns the **cumulative density function (cumulative probability)** that a given probability (`p`) lies at a specified **cut-off point and below**, unless `lower.tail = FALSE` is specified in which case it is from the **cut-off point and above**. 
+There is one important difference you should note between continuous and discrete probability distributions. With discrete probability distributions, there are usually a finite number of outcomes over which you take a probability. For instance, with 4 coin flips, there are 5 possible outcomes for the number of heads: 0, 1, 2, 3, 4, 5. We can use `dbinom()` to get the exact probability for each. However, with a truly continuous variable, the number of possible outcomes are infinite, because you not only have 0.01 but also .0000001 and .00000000001 to arbitrary levels of precision. So rather than asking for the probability of a single value, we ask the probability for a **range of values**, which is equal to the area under the curve for that range.
+
+The `pnorm()` function works just like `pbinom()`. So, `pnorm(x)`, given the  `mean` and `sd` of our data, returns a tail probability (or "cumulative probability") associated with `x`. The default is to give the probability of `x` or lower (the default is `lower.tail = TRUE`). If you want the probability of `x` or higher, use `lower.tail = FALSE`.
 
 We will use height to give a concrete example. Say that we test a sample of students (M = 170cm, SD = 7). If we want to calculate the probability that a given student is 150cm or shorter we would do the following:
 
@@ -186,7 +191,7 @@ We will use height to give a concrete example. Say that we test a sample of stud
 pnorm(150, 170, 7, lower.tail = TRUE)
 ```
 
-This tells us that finding the probability of someone 150cm or smaller in our class is **p = `r pnorm(150, 170, 7, lower.tail = TRUE)`** or **`r round(pnorm(150, 170, 7, lower.tail = TRUE)*100, 2)`%**. This is a very small probability and suggests that it is pretty unlikely to find someone of 150cm in our class. This is mainly because of how small the standard deviation of our distribution is. Think back to what we said earlier about narrow standard deviations round the mean!  
+This tells us that finding the probability of someone 150cm or shorter in our class is about **p = `r pnorm(150, 170, 7, lower.tail = TRUE)`**; stated differently, we would expect **`r round(pnorm(150, 170, 7, lower.tail = TRUE)*100, 2)`%** of students would be 150cm or shorter. This is a very small probability and suggests that it is pretty unlikely to find someone shorter than 150cm in our class. This is mainly because of how small the standard deviation of our distribution is. Think back to what we said earlier about narrow standard deviations round the mean!
 
 #### Task 3: Calculating Cumulative Probability of Height {#Ch4InClassQueT3}
 
@@ -228,7 +233,7 @@ polygon(c( x[x>=185], xmax),  c(ymin, y[x>=185]), col="purple")
 text(185+1, 0.01, "185cm", col = "purple")}
 ```
 
-1. Using the information in the figure, and the mean and SD as above, calculate the cumulative probability of the shaded area.
+1. Using the information in the figure, and the mean and SD as above, calculate the probability associated with the shaded area.
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
@@ -248,7 +253,7 @@ The answer should be .016. See the solution code at the end of the Chapter for T
 
 ### **`qnorm()`** - The Quantile Function
 
-Using `qnorm` we can do the inverse of `pnorm()`, and instead of finding out the cumulative probability from a given set of probabilities, we can find a cut-off value given a desired probability. For example, what is the maximum IQ a student would have if they were in the bottom 10% of the IQ distribution (`M = 100` & `SD = 15`)?
+Using `qnorm()` we can do the inverse of `pnorm()`, and instead of finding out the cumulative probability from a given set of probabilities, we can find a cut-off value given a desired probability. For example, what is the maximum IQ a student would have if they were in the bottom 10% of the IQ distribution (`M = 100` & `SD = 15`)?
 
 ``` {r qnorm, results = 'hide'}
 qnorm(0.1, 100, 15) 

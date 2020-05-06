@@ -142,10 +142,10 @@ glimpse(t6)
 #### Assignment Task 7
 
 ```{r t7}
-t7 <- dnorm(90, 100, 10)
+t7 <- pnorm(90, 100, 10)
 ```
 
-* The probability of a given participant having a D2 score of exactly 90 is `r t7`
+* The probability of a given participant having a D2 score of 90 or lower is `r t7`
 
 [Return to Task](#Ch4AssignQueT7)
 

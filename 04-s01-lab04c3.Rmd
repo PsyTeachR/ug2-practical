@@ -19,13 +19,14 @@ Show your answer either as a fraction (e.g. 1/52) or to 3 decimal places (e.g. `
 Remember: 
 
 * probability is the number of times or ways an event can occur divided by the total number of all possible outcomes. 
-* When you have two separate events the probability of them both happening is the cumulative probability which is calculated by mutliplying all the individual probabilities together.
+
+* When you have two separate events the probability of them both happening is the joint probability which is calculated by mutliplying all the individual probabilities together.
 
 1. .167 as you have 1 outcome over 6 possibilities
 
 2. .5 as you have 3 outcomes over 6 possibilities
 
-3. .028 as you have 1 out of 6 on both occasions so the cumulative is used.
+3. .028 as you have 1 out of 6 on both occasions so the joint probability is used.
 ```
 `r unhide()`
 <br>
