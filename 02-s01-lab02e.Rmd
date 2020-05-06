@@ -58,7 +58,7 @@ filter(pong_data,
 pong_data_filt <- filter(pong_data, TrialNumber >= 2) 
 # remember you can call this variable anything, as long as it makes sense to yourself and others
 
-pong_data <- mutate(pong_data_filt, TrialNumber = TrialNumber - 1)
+pong_data2 <- mutate(pong_data_filt, TrialNumber = TrialNumber - 1)
 
 ```
 
@@ -67,7 +67,7 @@ pong_data <- mutate(pong_data_filt, TrialNumber = TrialNumber - 1)
 #### PreClass Task 5
 
 ``` {r Ch2PreClassTask5, eval = FALSE}
-group_by(pong_data, BlockNumber, BackgroundColor)
+group_by(pong_data2, BlockNumber, BackgroundColor)
 ```
 
 [Return to Task](#Ch2PreClassQueT5)
@@ -75,12 +75,11 @@ group_by(pong_data, BlockNumber, BackgroundColor)
 #### PreClass Task 6
 
 ``` {r Ch2PreClassTask6, eval = FALSE}
-pong_data <- read_csv("PongBlueRedBack 1-16 Codebook.csv")
-pong_data_group <- group_by(pong_data, BackgroundColor, PaddleLength)
-pong_data_hits <- summarise(pong_data_group, total_hits = sum(HitOrMiss))
+pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
+pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
 ```
 
-* You should find that the number of hits made with the small paddle (50) and the red color background is `r pong_data %>% group_by(BackgroundColor, PaddleLength) %>% summarise(total_hits = sum(HitOrMiss)) %>% filter(BackgroundColor == "red") %>% slice(1) %>% pull(total_hits)`
+* You should find that the number of hits made with the small paddle (50) and the red color background is `r pong_data2 %>% group_by(BackgroundColor, PaddleLength) %>% summarise(total_hits = sum(HitOrMiss)) %>% filter(BackgroundColor == "red") %>% slice(1) %>% pull(total_hits)`
 
 [Return to Task](#Ch2PreClassQueT6)
 
