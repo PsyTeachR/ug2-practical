@@ -11,12 +11,12 @@ A common statistical question when comparing two groups might be, "**Is there a 
 
 Using the techniques you read about in the PreClass and in previous labs, today you will learn how to test the null hypothesis of no difference between two independent groups. We will first do this using a **permutation test** before looking at other tests in later labs. 
 
-A permutation test is a basic inferential procedure that involves a reshuffling of group labels or values to create new possible outcomes of the data you collected to see how your original mean difference compares to all possible outcomes. The test can in fact be applied in many situations, this is just one, and it provides a good starting place for understanding hypothesis testing. The steps for the exercise below, and really the logic of a permutation test for two independent groups, are:
+A permutation test is a basic inferential procedure that involves a reshuffling of group labels or values to create new possible outcomes of the data you collected to see how your original mean difference compares to a distribution of possible outcomes. The test can in fact be applied in many situations, this is just one, and it provides a good starting place for understanding hypothesis testing. The steps for the exercise below, and really the logic of a permutation test for two independent groups, are:
 
 1. Calculate the real difference $D_{orig}$ between the means of two groups (e.g. Mean of A minus Mean of B).
 2. Randomly shuffle the group labels (i.e. which group each participant belonged to - A or B) and re-calculate the difference, $D'$.
 3. Repeat step 2 $N_{r}$ times, where $N_r$ is a large number (typically greater than 1000), storing each $D_i'$ value to form a null hypothesis distribution.
-4. Locate the difference you observed in step 1 (the real difference) on the null hypothesis distribution of all possible differences. 
+4. Locate the difference you observed in step 1 (the real difference) on the null hypothesis distribution of differences. 
 5. Decide whether the original difference is sufficiently extreme to reject the null hypothesis of no difference ($H_0$).
 
 This logic works because if the null hypothesis is true (there is no difference between the groups) then the labeling of the observations/participants into groups is arbitrary, and we can rearrange the labels in order to estimate the likelihood of our original difference under the $H_0$. In other words if you know the original value of the difference between two groups (or the true difference) falls in the middle of your permuted distribution then there is no significant difference between the two groups. If however the original difference falls in the tail of the permuted distribution then there might be a significant difference depending on how far into the tail it falls.
@@ -27,22 +27,22 @@ Let's get started!
 
 1.1.  Open a new script and call the `tidyverse` into your library.  
 
-1.2.  Now type the statement `set.seed(1011)` at the top of your script after your library call and run it.  (This 'seeds' the random number generator so that you will get the same results as everyone else. The number 1011 is a bit random but if everyone uses it then we all get the same outcome. Different seeds give different outcomes)  
+1.2.  Now type the statement `set.seed(1011)` at the top of your script after your library call and run it.  (This 'seeds' the random number generator so that you will get the same results as everyone else. The number 1011 is a bit random but if everyone uses it then we all get the same outcome. Different seeds give different outcomes. Also if you want to get the exact results shown here, make sure you are using R version 3.6 or higher, because random number generation changed from R version 3.5 to 3.6.) 
 
-1.3.  <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_05/inclass/perm_data.zip" target="_blank">Download the data file from here</a> and read the data in `perm_data.csv` into a variable called `dat`.  
+1.3.  [Download the data file from here](data/05-s01/inclass/perm_data.zip) and read the data in `perm_data.csv` into a variable called `dat`.  
 
 1.4.  Let's give every participant a participant number as well by adding a new column to `dat`. Something like this would work: `mutate(subj_id = row_number())`
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
 
-1. Something to do with `library()`
+1.1. Something to do with `library()`
 
-2. `set.seed(1011)`
+1.2. `set.seed(1011)`
 
-3. Something to do with `read_csv()`
+1.3. Something to do with `read_csv()`
 
-4. pipe `%>%` on the mutate line shown
+1.4. pipe `dat %>%` into the mutate line shown
 ```
 `r unhide()`
 
@@ -57,13 +57,23 @@ You will see that in the example here to put a row number for each of the partic
 
 Have a look at the resulting tibble, `dat`.  
 
+```{r read-dat, echo = FALSE, message = FALSE}
+library("tidyverse")
+
+set.seed(1011)
+dat <- read_csv("data/05-s01/inclass/perm_data.csv") %>%
+  mutate(subj_id = row_number())
+
+dat
+```
+
 * The column `Y` is your dependent variable (DV) 
 * The column `group` is your independent variable (IV).
 * The columns `subj_id` is the participant number.
 
 ### Step 2: Calculate the Original Mean Difference - $D_{orig}$ {#Ch5InClassQueT2}
 
-We now need to write a pipeline of five functions that calculates the mean difference between the groups in `dat`, Group A minus Group B. Broken down into steps this would be: 
+We now need to write a pipeline of five commands that calculates the mean difference between the groups in `dat`, Group A minus Group B. Broken down into steps this would be: 
 
 2.1.1. Use a pipe of two `dplyr` one-table verbs (e.g. Lab 2) to create a tibble where each row contains the mean of one of the groups. Name the column storing the means as `m`. 
 
@@ -89,9 +99,19 @@ We now need to write a pipeline of five functions that calculates the mean diffe
 ```
 `r unhide()`
 
+```{r hidden-1, include=FALSE}
+diff <- dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m) %>%
+  mutate(x = A - B) %>%
+  pull(x)
+```
+
+
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-* Check that your value for `d_orig` is correct, without using the solution, by typing your `d_orig` value to two decimal places in the box. Include the sign, e.g. -1.23. The box will go green if you are correct. `r fitb(-7.39, width = 10, ignore_ws = TRUE)`
+* Check that your value for `d_orig` is correct, without using the solution, by typing your `d_orig` value to two decimal places in the box. Include the sign, e.g. -1.23. The box will go green if you are correct. `r fitb(round(diff, 2), width = 10, ignore_ws = TRUE)`
 
 The above steps have created a pipeline of five functions to get one value. Nice! We now need to turn this into a function because we are going to be permuting the data set (specifically the grouping labels) and re-calculating the difference many, many times.
 
@@ -131,7 +151,7 @@ is.numeric(d_orig)
 ```
 `r unhide()`
 
-So we now have the original difference between the groups stored in `d_orig`. Next we need to create a distribution of all possible differences to see where our original difference lies in this distribution. But first we need to shuffle the `group` letters (A or B) in our dataset and find the difference...a few hundred times!
+So we now have the original difference between the groups stored in `d_orig`. Next we need to create a distribution of possible differences to see where our original difference lies in this distribution. But first we need to shuffle the `group` letters (A or B) in our dataset and find the difference...a few hundred times!
 
 ### Step 3: Permute the Group Labels {#Ch5InClassQueT3}
 
