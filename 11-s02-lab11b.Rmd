@@ -1,0 +1,11 @@
+## PreClass Activity
+
+The PreClass Activity for this Chapter is just reading. It is quite a bit of reading but don't worry if you don't understand it all first time round. The best way to look at it will be to read through as prep, get the gist, then use it to support the class activity and re-read to consolidate knowledge for the assessment.
+
+### Read
+
+**Chapters**
+
+* As preparation, please read chapters 1 to 3 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. In this week's InClass activity we will be working up to the concept of Sums of Squares which is around Section 3.4 of Miller and Haden (2013)
+
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>

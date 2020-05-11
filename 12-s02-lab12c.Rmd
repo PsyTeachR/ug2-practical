@@ -1,0 +1,218 @@
+## InClass Activity
+
+**One-factor ANOVA: Worked example**
+
+Let's start with some simulated data corresponding to a between-subjects design with three groups (conditions/levels) on one factor (variable). In this hypothetical study, you're investigating the effects of ambient noise on concentration. You have participants transcribe a handwritten document onto a laptop and count the number of typing errors (DV = typos) each participant makes under their respective different conditions:
+
+* while hearing ambient conversation such as you would find in a busy cafe ("cafe" condition); 
+* while listening to mellow jazz music ("jazz" condition); 
+* or in silence ("silence" condition).  
+
+Again for practice we will only use small, highly under-powered groups. You have three different participants in each condition. As such, your data are as follows:
+
+- **cafe**: 111, 102, 111 
+- **jazz**: 89, 127, 90
+- **silence**: 97, 85, 88
+
+Below is the decomposition matrix for this data set, based on the GLM: $Y_{ij} = \mu + A_i + S(A)_{ij}$. This is what we did last week in the lab and what you did for the homework activity. You can have a go at creating it yourself from scratch if you like, as good practice, or, in the interests of time, feel free to reveal the code and run that code to create the dmx. 
+
+**Note** that we have also included a column called `sub_id` with a unique identifier for each participant. This is not that important for the `dmx` but we will definitely need it later for running the ANOVA using the `ez::ezANOVA()` function, so let's just include it now so we don't forget.
+
+<div class="solution"><button>Reveal DMX code</button>
+```{r dmx}
+dmx <- tibble(sub_id = 1:9,
+              i = rep(1:3, each = 3),
+              j = rep(1:3, times = 3),
+              typos = c(111, 102, 111, 
+                    89, 127, 90,
+                    97, 85, 88),
+              sound = rep(c("cafe", "jazz", "silence"), each = 3)) %>%
+  mutate(mu = mean(typos)) %>%
+  group_by(i) %>%
+  mutate(Ai = mean(typos) - mu) %>%
+  ungroup() %>%
+  mutate(err = typos - (mu + Ai))
+```
+</div>
+<br>
+```{r dmx-show, echo = FALSE, results='asis'}
+knitr::kable(dmx, 
+             align = "c",
+             digits = 3,
+             caption = "Decomposition Matrix for Typos Example") %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
+```
+<br>
+We finished off last week by calculating the Sums of Squares for the different columns. Remember that the Sums of Squares (or often shortend to $SS$) is literally squaring the values within a column and summing them up, and that it is a measure of the variance attributable to that part of the model (or that column). 
+
+The Sums of squares for the above model has the following relationship:
+
+$SS_{total} = SS_{\mu} + SS_{A} + SS_{error}$
+
+* Have a go at calculating the SS of the above `dmx` table using the code we showed you towards the end of the inclass activity last week. If unsure, then the solution is below:
+
+<div class="solution"><button>Calculating Sums of Squares</button>
+```{r dat_ss}
+dat_ss <- dmx %>% 
+  summarise(total = sum(typos^2),
+            ss_mu = sum(mu^2),
+            ss_sound = sum(Ai^2),
+            ss_err = sum(err^2))
+```
+
+* **Which would give:**
+
+```{r dat-ss-show, echo=FALSE, results='asis'}
+knitr::kable(dat_ss, 
+             align = "c",
+             digits = 3,
+             caption = "Sums of Squares for Typos Example") %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", box_css = "border: 0px;")
+```
+</div>
+<br>
+We can check that we have calculated everything correctly by using the following relationship:
+
+if:
+
+$SS_{total} = SS_{\mu} + SS_{A} + SS_{error}$
+
+then:
+
+`r as.integer(dat_ss[["total"]])` = `r as.integer(dat_ss[["ss_mu"]])` + `r dat_ss[["ss_sound"]]` + `r dat_ss[["ss_err"]]`.
+
+### Task 1 - Quick Checks {#Ch12InClassQueT1}
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">SlowBurner Questions</span>
+
+Answer the following questions. The solutions are at the end of the chapter.
+
+1. Calculate the **corrected total sum of squares** where the corrected total is the $SS_{total}$ minus the part of the total attributable to the intercept (i.e., the grand mean, $SS_{\mu}$).
+
+2. What proportion of the corrected total sum of squares is attributable to the main effect of `sound`? (**hint**: $SS_{sound} = SS_{A}$)
+
+3. What proportion of the corrected total is attributable to residual error? (**hint**: $SS_{error}$)
+
+### Task 2 - Mean squares and degrees of freedom {#Ch12InClassQueT2}
+
+Great, so now we know how to create our decomposition matrix and how to calculate our sums of squares. The only thing left to do is to calculate the F ratio to determine if there is a significant effect between our groups. To do that we first need to calculate some Mean Squares. But, as it is always good to have a view of the whole picture, let's not forget that the whole purpose here is to show you where the numbers come from in our quest to determine if there is a significant difference between our groups, or in other words, is there an effect of listening condition on concentration!
+
+You will remember from your lectures and from your reading of Miller & Haden (2013) that the F value is a ratio of two estimates of population variance:
+
+$F = \frac{MS_{between}}{MS_{within}}$
+
+also sometimes seen as
+
+$F = \frac{MS_{treatment}}{MS_{error}}$
+
+and in Miller and Haden as
+
+$F = \frac{MS_{A}}{MS_{S(A)}}$
+
+And you will also remember that the mean square (MS) is a sums of squares (SS) divided by its degrees of freedom (df). If you don't remember what degrees of freedom are, go back to pages 21-23 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. They have a good explanation for it, however, these things are easy to forget, so make sure to qucikly skim back through the book. 
+
+$MS = \frac{SS}{df}$
+
+So let's start putting this together!  If we know the SS of our group/treatment ($SS_{A}$ - also called the between variance) and we know the SS of our error/residuals ($SS_{error}$ - also called the within variance), then we can convert both of them to Mean Squares (MS) (i.e. the average variance for that condition) by dividing them by their respective degrees of freedom (df). 
+
+We can then calculate F observed (also called F ratio) by $MS_{A} / MS_{error}$.  If the $MS_{error}$ is larger than $MS_{A}$ (the group effect) then F will be small and there will be no significant effect of group - any difference in groups is purely due to individual differences (another way of thinking about error). On the other hand, if $MS_{A}$ (the group effect) is larger than $MS_{error}$ then F will be large, and depending on how large F is, there may be a significant difference caused by your group variable.
+
+With all that in mind, and it may take a couple of readings, try to answer the following questions (consulting Miller & Haden Ch. 3 and your lecture slides where needed). The solutions are at the end of the chapter.
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">SlowBurner Questions</span>
+
+1. Stated in terms of $\mu_{jazz}$, $\mu_{cafe}$, and $\mu_{silence}$, what is the null hypothesis for this specific study of the effects of sound on typographic errors? 
+
+2. How many degrees of freedom are there for $A_{i}$, the main effect of **sound**, if $dfA_{i}$ = k - 1?
+
+3. How many degrees of freedom are there for $S(A)_{ij}$, the error term, if $dfS(A)_{ij}$ = N - $dfA_{i}$ - 1?
+
+4. Calculate $MS_{A}$, where $A$ is the factor **sound**.  
+
+**Note:** You can access individual columns in a table using double square brackets `[[]]`; for instance dat_ss[["ss_mu"]] gives you the column `ss_mu` from `dat_ss`. This is an alternative to `$` that some may know; e.g. `dat_ss$mu`.
+
+5. Calculate $MS_{S(A)}$. 
+
+`r hide("Hints for Task 2")`
+```{block, type ="info"}
+1. Remember that the null says that there are no differences between conditions.
+2. Sound, our factor, has three levels.
+3. N is the total number of participants
+4. $MS_{A} = \frac{SS_{A}}{dfA_{i}}$
+5. $MS_{S(A)} = \frac{SS_{error}}{dfS(A)_{ij}}$
+```
+`r unhide()`
+    
+### Task 3 - F-ratios {#Ch12InClassQueT3}
+
+Last step, the F ratio.  
+
+As above, if the null hypothesis is true, then both estimates of the population variance ($MS_{between}$ and $MS_{within}$) should line up, and the $F$-ratio should approach 1 (because $x/x = 1$). Now, we can't expect these two estimates to be **exactly** equal because of sampling bias, so to see how **un**likely our observed F-ratio is under the null hypothesis, we have to compare it to the F distribution.
+
+To learn a bit about the F distribution we have created a shiny app to play with.  Shiny Apps are interactive webpages and applications made through R.  Download the app from Moodle or [from this link](data/12-s02/inclass/F_distribution.zip).  Unzip the folder, open up the file app.R through R Studio, and click **Run app** in R Studio to launch it (found at the top right-hand side of script window - there is a <span style = "color:green">green play</span> sign). The App window will open showing you some parameters to adjust and a wonderful F distribution plot. 
+
+**Note:** When we are finished with the App, close the App window to start typing in console again.
+
+* The F distribution is a representation of the probability of various values of F under the null hypothesis. It depends upon two parameters: $df_{numerator}$ and $df_{denominator}$. Play around with the sliders corresponding to these two parameters and observe how the shape of the distribution changes.
+
+* There is also a slider that lets you specify an observed $F$ ratio (to one digit of precision).  It is represented on the <span style = "color:blue">blue line</span> of the graph.  Move this slider around and watch how the p-values change.  The p-value is the total area under the curve to the right of the blue line.
+
+* The <span style = "color:red">red line</span> on the plot denotes the critical value of F required for a significant difference, given the $\alpha$ (type 1 error rate) and the $df_{numerator}$ and $df_{denominator}$ .
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Slow Burner Questions</span>
+
+Try using your data and the app to answer the following questions. The solutions are at the end of the chapter.
+
+1. From your data, calculate the observed F ratio (called `f_obs`) for the effect of `sound` on `typos` (concentration). (**hint**: $MS_{between} / MS_{within}$
+
+Using the app, set $\alpha = .05$, set the degrees of freedom to correspond to those in your study, and set the observed F ratio as close as you can to the value you got in the above question.  
+
+2. Now, according to the app, what is the critical value for $F$ (**hint**: red line)?
+
+3. According to the app, what is the approximate $p$ value associated with your observed $F$ ratio?
+
+4. Based on these values, do you reject or retain the null hypothesis?
+
+**Tricky question:** Note that you can use the distribution functions for $F$ in the same way you did in previous Semester 1 labs (e.g. Lab 4) for the normal distribution (`pnorm()`, `dnorm()`, `qnorm()`) or for the binomial distribution (`pbinom()`, `dbinom()`, `qbinom()`), keeping in mind however that the F distribution, being continuous, is more analogous to the normal distribution.  See `?df` for the distribution functions associated with $F$.
+
+5. Using the appropriate distribution function, calculate the $p$ value associated with $F_{obs}$. This will be more precise than the app.
+
+`r hide("Hints for Question 5")`
+```{block, type ="info"}
+* look at inputs for the function - ?pf
+* ignore ncp
+* f_obs = q
+* lower.tail? What is the probability of obtaining an F_obs higher than your value.
+```
+`r unhide()`
+
+### Task 4 - Using ez::ezANOVA() {#Ch12InClassQueT4}
+
+Great, so we have calculated F for this test and made a judgement about whether it is significant or not. But that was quite a long way of doing it, and whilst it is always great to understand where the data comes from, you don't want to have to do that each time you run a test.  So now we are going to re-analyse the same dataset but this time we are going to have the computer do all the computational work for us. 
+
+There are various options for running ANOVAs in R, but the function we will be using for this course is `ezANOVA()` function in the **`ez`** add-on package.  Note that to use `ezANOVA()` you either have to load in the package using `library("ez")`, or you can call it directly without loading using `ez::ezANOVA()` (the `package_name::function` syntax).  If you're just using the function once, the latter often makes more sense.  The **`ez`** package is already installed in the Boyd Orr machines so it only needs called to the library. On your own machines you will need to install the package if you haven't already done so.
+
+* Have a qucik read through the documentation for `ezANOVA` (type `?ezANOVA` in the console) and pay specific attention to how you stipulate the datafile, the dv, the factor, the participants, etc.  It also helps to look at some examples.  Then try to specify the call to `ezANOVA()` so that it reproduces the results you got when you did it by hand above. 
+
+* What do you conclude about the effects of ambient noise on concentration?
+
+`r hide("Hints for ezANOVA")`
+```{block, type ="info"}
+* create a tibble called `dat` keeping only the columns you need from dmx
+* you need your dv column, your condition column, and your participant id column that we created at the start
+* ezANOVA(data = ?, dv = ?, wid = ?, between = ?)
+* you will get two outputs. One is the F-test. One is Levene's homogeniety of variance. Make sure you can identify both.
+```
+`r unhide()`
+<br>
+**Conclusion**
+
+Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 6) = 1.413, p = .31, ges = .32. However, before you go off and publish this highly underpowered study we should probably look to replicate it with a larger sample (which you could calculate using your skills from Chapter 8).
+
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
+
+Excellent work today! And super interesting as well, huh? Quick, everyone to the cafe and don't worry about the typos!!!! Only joking, we are all going to the cafe to replicate!
+
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.** If you have any questions, please post them on the slack forum under the channel #level2_2019. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.

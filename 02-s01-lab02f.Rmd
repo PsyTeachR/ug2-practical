@@ -1,0 +1,82 @@
+## Additional Material
+
+Below is some additional material that might help your wrangling.
+
+```{r lab2-additional-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+# preclass
+pong_data <- read_csv("./data/02-s01/preclass/PongBlueRedBack 1-16 Codebook.csv")
+pong_data3 <- read_csv("./data/02-s01/preclass/PongBlueRedBack 1-16 Codebook.csv",
+                      col_types = "iiiiicii")
+
+# inclass
+responses <- read_csv("./data/02-s01/inclass/responses.csv")
+qformats <- read_csv("./data/02-s01/inclass/qformats.csv")
+scoring <- read_csv("./data/02-s01/inclass/scoring.csv")
+pinfo <- read_csv("./data/02-s01/inclass/pinfo.csv")
+``` 
+
+### More on read_csv() {-}
+
+In the preclass activity we used the following code to load in our data:
+
+``` {r lab2-add-1, eval = FALSE, message = FALSE, warning = FALSE}
+pong_data <- read_csv("PongBlueRedBack 1-16 Codebook.csv")
+``` 
+
+This is a totally acceptable approach and it is the one we will use 99% of the time. Now one thing to note that the `read_csv()` function by default always loads any number as **double**, meaning that it can take a decimal. As shown here by the <dbl> at the start of each variable. The one column that is not a double is the BackgroundColor column, which is of course "characters" <chr>.
+
+* **Note:** we can use `glimpse()` from `dplyr` to check our data types.
+
+```{r lab2-add-1-glimpse}
+
+glimpse(pong_data)
+```
+
+However you might not always want this default and might want to stipulate the data-type to load the data in as. Particularly if you already know the data-type you should have. Let's look at this first and then talk about it.
+
+``` {r lab2-add-2, eval = FALSE, message = FALSE, warning = FALSE}
+pong_data3 <- read_csv("PongBlueRedBack 1-16 Codebook.csv",
+                      col_types = "iiiiicii")
+``` 
+
+Which if we look at again, we now see that the numerical data are **integers** <int> instead of **double** <dbl>.
+
+```{r lab2-add-2-glimpse}
+glimpse(pong_data3)
+```
+
+So what is the difference? Note that in the new code we have specified the `col_types` argument as `"iiiiicii"`. The `col_types` argument allows you to control the data type for each variable. If you don't specify this argument, the default is for `read_csv()` to guess, and when it sees numbers in a column, it will default to treating it as type `double`.
+
+What does the `"iiiiicii"` string do? Well, we know that there are 8 different columns in the csv file, and we have 8 characters in the string `"iiiiicii"`; each letter in this string tells `read_csv()` the data type for each of these columns. The string has five "i"s followed by one "c" followed by two more "i"s, which tells `read_csv()` to treat the first five columns as type `integer` (i), the sixth column as type `character` (c), and the last two columns as type `integer`. (If we wanted a column to be read in as a double, we would use `"d"`.)
+
+Whilst this is a very useful approach if you are already familiar with the type and structure of the data you are working with, it can cause issues if you don't know that. For instance, you need to know exactly how many columns there are, what order, and what type they are in. So it can get tricky. For this series of lab activities, we will just stick to using the basic read_csv() defaults and not state column types.
+
+### More on Code Layout {-}
+
+One issue we see a lot is people not being able to debug their code quickly (i.e. find issues) because of the way the code is laid out. Pipes (%>%) helps with that, but so does taking new lines for different parts of your code. After a comma (,) or a pipe (%>%), you can take a new line to continue your code to make it easier to read and follow. For example, both of the following will work, but the second is easiest to read.
+
+```{r lab2-add3-1, eval = FALSE}
+musical_means <- group_by(responses_points, ID) %>% summarise(Total_QHC = sum(SCORE)) %>% inner_join(screening, "ID") %>% group_by(MUSICAL) %>% summarise(mean_score = mean(Total_QHC))
+```
+
+```{r lab2-add3-2, eval = FALSE}
+musical_means <- group_by(responses_points, ID) %>%
+                  summarise(Total_QHC = sum(SCORE)) %>%
+                  inner_join(screening, "ID") %>%
+                  group_by(MUSICAL) %>%
+                  summarise(mean_score = mean(Total_QHC))
+```
+
+And you could even expand this second option further to make it clearer on the `group_by()` and `inner_join()` what are the different inputs:
+
+```{r lab2-add3-3, eval = FALSE}
+musical_means <- group_by(responses_points, 
+                          ID) %>%
+                  summarise(Total_QHC = sum(SCORE)) %>%
+                  inner_join(screening, 
+                             "ID") %>%
+                  group_by(MUSICAL) %>%
+                  summarise(mean_score = mean(Total_QHC))
+```
+
+Remember, **Tidy Code and Tidy Data Make Wrangling Fun!** OK, that is not catchy, but true!

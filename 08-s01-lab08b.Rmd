@@ -1,0 +1,45 @@
+## PreClass Activity
+
+As in the last lab, the Preclass activity involves reading a blog and watching a video. We have selected this material to help give you a better understanding of power and how it interacts with effect size, sample size, and alpha. We have also suggested a couple of other links that you can look at and play with to get a rounder view.
+
+### Reading
+
+Read the following blog on Power. This is a blog on a fictional conversation between a professor and a student on the importance on power. Grab a coffee and have a read. Don't worry about reading all the additional papers unless you want to; just the blog is fine to get an understanding.
+
+**Blog:**
+
+* <a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/" target = "_blank">The Power Dialogues</a> by PIGEE at the University of Illinois.
+
+### Watch
+
+You should also watch this short but nonetheless highly informative video by Daniel Lakens on Power and Sample Size. And his shirt is amazing!
+
+**Video:**
+
+* <a href = "https://www.youtube.com/watch?v=Lr-i4Ugoc5M&index=3&list=PLtAL5tCifMi5zG70dslERYcGApAQcvj1s" target = "_blank">Power Analysis and Sample Size Decisions</a> by Daniel Lakens
+
+Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you to understand them better.
+
+### Optional
+
+There are a number of great webpages and blogs that will help you understand the concepts in this chapter. Here are some that we think might be fun for you to look at. You don't have to look at all of these for this lab but do come back to them as they will really help you as you progress in the course. We are deliberately giving you a number of options here as for everyone there is that one analogy that will work best for you and that one paper that will make everything click into place. That example will be different from person to person so having a variety of explanations will help.
+
+* A YouTube video by Dan Quintana (University of Oslo) showing how to use the **`pwr`** package to calculate power in t-tests, correlations, and one-way ANOVAs <a href="https://www.youtube.com/watch?v=ZIjOG8LTTh8" target = "_blank">https://www.youtube.com/watch?v=ZIjOG8LTTh8</a>
+
+* A shiny app created by Lisa Debruine (University of Glasgow) on guessing the effect size between two conditions <a href="http://shiny.psy.gla.ac.uk/guess/" target = "_blank">http://shiny.psy.gla.ac.uk/guess/</a>
+
+* A blog by Daniel Lakens (Eindhoven University of Technology) on determining the smallest effect size you are interested in. This is often referred to as the Smallest Effect Size of Interest (SESOI) <a href="http://daniellakens.blogspot.com/2017/05/how-power-analysis-implicitly-reveals.html" target = "_blank">http://daniellakens.blogspot.com/2017/05/how-power-analysis-implicitly-reveals.html</a>
+
+* An interactive webpage by Kristoffer Magnusson (Karolina Instituet, Stockholm) on interpreting Cohen's d effect size <a href="https://rpsychologist.com/d3/cohend/" target = "_blank">https://rpsychologist.com/d3/cohend/</a>
+
+* A shiny app by Hause Lin (University of Toronto) showing the conversion of one effect size into another <a href="http://escal.site/" target = "_blank">http://escal.site/</a>
+
+* A Frontiers in Psychology paper by Daniel Lakens on calculating various effect sizes for t-tests and ANOVAs <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full" target = "_blank">https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full</a>
+
+* A blog by Daniel Lakens on what Type I and Type II errors are acceptable. In short, justify everything <a href="http://daniellakens.blogspot.com/2019/05/justifying-your-alpha-by-minimizing-or.html" target = "_blank">http://daniellakens.blogspot.com/2019/05/justifying-your-alpha-by-minimizing-or.html</a>
+
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
+
+Hopefully this has given you a good basis to understanding power, sample sizes, alpha, and effect sizes. These are difficult concepts to grasp and it will take a lot of time thinking about them and interacting with them before they really start to sink in.  Hopefully however, if nothing else, the least you come away with is the idea that the number of participants you should run in a study is not an arbitrary decision but is in fact a relationship between the effect size you want to test for and the level of error (Type I or Type II) you are willing to accept.
+
+As always, the best way to understand something is to put it into your own words so don't forget to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. See you in the lab!

@@ -1,0 +1,15 @@
+# Introduction to GLM: One-factor ANOVA
+
+## Overview
+
+A key way that we attempt to learn from data is to build a **statistical model** that captures relationships among variables. In this chapter we will introduce you to the General Linear Model (GLM) and you will read about this approach in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass. This is a common approach in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this semester as we will spend some of the next few lessons looking at it and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to. 
+
+One of the best ways to learn about linear models is to do things "by hand" on a "toy" dataset. As such, the goals of this inclass assignment are:
+
+- to recap and practice entering data into a "tibble" (tidyverse data frame - as in Semester 1 Lab 5);
+- to learn how to estimate model parameters from a dataset;
+- to learn how to derive a **decomposition matrix** that expresses each observation as a linear sum of model components and error.
+
+These terms will become more familiar to you over the labs and from reading Miller and Haden, but remember to make notes for yourself to help your solidify your learning. 
+
+**Note:** You will notice a slight change in the assignments this semester in that you are required to do a little more computation than before, but all the skills you need will of course be shown to you or you already have them. Last semester we developed your general practical data skills and now this semester we want to up your understanding of the analysis and data you are working with by working through the models by hand before running the functions. We did a little of this with the t-test but this time we will focus on the General Linear Model (GLM) as this one modelling approach covers a number of different analyses. As always ask as many questions as you like!

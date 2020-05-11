@@ -1,0 +1,295 @@
+## Solutions to Questions
+
+```{r lab2-solutions-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+# preclass
+pong_data <- read_csv("./data/02-s01/preclass/PongBlueRedBack 1-16 Codebook.csv")
+# inclass
+responses <- read_csv("./data/02-s01/inclass/responses.csv")
+qformats <- read_csv("./data/02-s01/inclass/qformats.csv")
+scoring <- read_csv("./data/02-s01/inclass/scoring.csv")
+pinfo <- read_csv("./data/02-s01/inclass/pinfo.csv")
+``` 
+
+Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### PreClass Activities
+
+#### PreClass Task 1
+
+```{r Ch2PreClassTask1, eval = FALSE}
+# To include variables:
+select(pong_data, Participant, PaddleLength, TrialNumber, BackgroundColor, HitOrMiss)
+
+# To exclude variables:
+select(pong_data, -JudgedSpeed, -BallSpeed, -BlockNumber)
+
+# To select in order:
+select(pong_data, BallSpeed, HitOrMiss, JudgedSpeed, Participant, TrialNumber)
+```
+
+[Return to Task](#Ch2PreClassQueT1)
+
+#### PreClass Task 2
+
+```{r Ch2PreClassTask2, eval = FALSE}
+arrange(pong_data, desc(HitOrMiss), desc(JudgedSpeed))
+```
+
+[Return to Task](#Ch2PreClassQueT2)
+
+#### PreClass Task 3
+
+``` {r Ch2PreClassTask3, eval = FALSE}
+filter(pong_data, 
+       JudgedSpeed == 1, 
+       BallSpeed %in% c("2", "4", "5", "7"), 
+       HitOrMiss == 0)
+```
+
+[Return to Task](#Ch2PreClassQueT3)
+
+#### PreClass Task 4
+
+``` {r Ch2PreClassTask4, eval = FALSE}
+pong_data_filt <- filter(pong_data, TrialNumber >= 2) 
+# remember you can call this variable anything, as long as it makes sense to yourself and others
+
+pong_data2 <- mutate(pong_data_filt, TrialNumber = TrialNumber - 1)
+
+```
+
+[Return to Task](#Ch2PreClassQueT4)
+
+#### PreClass Task 5
+
+``` {r Ch2PreClassTask5, eval = FALSE}
+group_by(pong_data2, BlockNumber, BackgroundColor)
+```
+
+[Return to Task](#Ch2PreClassQueT5)
+
+#### PreClass Task 6
+
+``` {r Ch2PreClassTask6, eval = FALSE}
+pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
+pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
+```
+
+```{r lab2-preclass-sol-hidden-1, echo=FALSE}
+
+pong_data2 <- filter(pong_data, TrialNumber >= 2) %>%
+  mutate(TrialNumber = TrialNumber - 1) %>%
+  mutate(Participant = Participant + 1)
+
+# First we group the data accordingly, storing it in `pong_data2_group`
+pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
+
+# And then we summarise it, storing the answer in `total_hits`
+pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
+
+# And then for fun we can filter just the red, small paddle hits
+pong_data2_hits_red_small <- filter(pong_data2_hits, BackgroundColor == "red", PaddleLength == 50)
+```
+
+
+* You should find that the number of hits made with the small paddle (50) and the red color background is `r pong_data2 %>% group_by(BackgroundColor, PaddleLength) %>% summarise(total_hits = sum(HitOrMiss)) %>% filter(BackgroundColor == "red") %>% slice(1) %>% pull(total_hits)`
+
+[Return to Task](#Ch2PreClassQueT6)
+
+### InClass Actitivies
+
+#### InClass Task 2
+
+```{r Ch2InClassTask2, eval = FALSE}
+library(tidyverse)
+# or
+library("tidyverse")
+
+# both do the same thing.
+```
+
+[Return to Task](#Ch2InClassQueT2)
+
+#### InClass Task 3
+
+```{r Ch2InClassTask3, eval = FALSE}
+responses <- read_csv("responses.csv")                  
+qformats <- read_csv("qformats.csv")                 
+scoring <- read_csv("scoring.csv")                  
+pinfo <- read_csv("pinfo.csv")
+```
+
+[Return to Task](#Ch2InClassQueT3)
+
+#### InClass Task 7 
+
+```{r Ch2InClassTask7, eval = FALSE}
+aq_scores <- rscores %>% 
+             group_by(Id) %>% # group by the ID number in column Id
+             summarise(AQ = sum(Score)) # sum column Score to obtain AQ scores.
+```
+
+[Return to Task](#Ch2InClassQueT7)
+
+
+#### InClass Task 8
+
+```{r Ch2InClassTask8, eval = FALSE}
+aq_scores2 <- responses %>% gather(Question, Response, Q1:Q10) %>% 
+  inner_join(qformats, "Question") %>%
+  inner_join(scoring, c("QFormat", "Response")) %>%
+             group_by(Id) %>% 
+             summarise(AQ = sum(Score))
+```
+
+[Return to Task](#Ch2InClassQueT8)
+
+### Assignment Solution
+
+```{r lab2-assignment-solutions-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+# assignment
+screening <- read_csv("./data/02-s01/homework/p_screen.csv")
+responses <- read_csv("./data/02-s01/homework/QHC_responses.csv")
+scoring <- read_csv("./data/02-s01/homework/QHC_scoring.csv")
+``` 
+
+#### Assignment Task 1 - Oldest Participant
+
+* Whether you coded this answer or just read from the data, the Participant with ID Number 3 is the oldest.
+
+```{r Ch2AssignmentTask1}
+oldest_participant <- 3
+
+# This could also be answered with code. We haven't quite shown you how yet but it would look like this:
+oldest_participant_code <- arrange(screening, desc(AGE)) %>% 
+  slice(1) %>% 
+  pull(ID)
+```
+
+[Return to Task](#Ch2AssignQueT1)
+
+#### Assignment Task 2 - Arranging D-SPAN
+
+* `arrange()` is the main function here
+* You also needed to use `desc()` to sort from high to low
+
+```{r Ch2AssignmentTask2}
+cogtest_sort <- arrange(screening, desc(DSPAN))
+```
+
+[Return to Task](#Ch2AssignQueT2)
+
+#### Assignment Task 3 - Foreign Language Speakers
+
+1. First group the screening data by FLANG using `group_by()`
+2. Next, summarise, paying attention to use the variable names as instructed
+
+```{r Ch2AssignmentTask3}
+screen_groups <- group_by(screening, FLANG) 
+descriptives <- summarise(screen_groups, n = n(), median_age = median(AGE))
+```
+
+[Return to Task](#Ch2AssignQueT3)
+
+#### Assignment Task 4 - Creating Percentage MOCA scores
+
+* `mutate()` is the function to add a new column to data
+* Here we are mutating/adding on a column called `MOCA_Perc` which shows a participant's MOCA score divided by 30 and multiplied by 100.
+
+```{r Ch2AssignmentTask4}
+screening <- mutate(screening, MOCA_Perc = (MOCA / 30) * 100)
+```
+
+[Return to Task](#Ch2AssignQueT4)
+
+#### Assignment Task 5 - Remove the MOCA column
+
+* `select()` is the key function to keep and remove certain columns.
+* Two options here; both would give the same dataframe.
+* The first option shows how to deselect a column and keep everything else.
+* The second option shows how to select all the columns you want.
+* Remember that order is very important and you should select the columns in the order you want.
+
+```{r Ch2AssignmentTask5}
+# First Option
+screening <- select(screening, -MOCA)
+# Second Option
+screening <- select(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)
+```
+
+[Return to Task](#Ch2AssignQueT5)
+
+#### Assignment Task 6 - Gather the Responses together
+
+* `gather()` is the function to use here.
+* People take a while to understand this function but spend some time looking at the example below and it will start to make some sense.
+* The first argument is the data. In this case `responses`.
+* The second argument is the name of a new column which will hold all the question numbers (e.g. Q1, Q2, Q3, etc). This could be called anything but here we are calling it `Question`.
+* The third argument is the name of a new column which will hold the answers to the questions stored in `Question` - e.g. the actual answer for that participant to Q1 will appear in this column. Again this could be called anything but here we are calling it `RESPONSE`.
+* The last argument is the name of the columns you want to gather. Here we are gathering all columns between the Q1 column and the Q15 column.
+
+```{r Ch2AssignmentTask6}
+responses_long <- gather(responses, Question, RESPONSE, Q1:Q15)
+```
+
+[Return to Task](#Ch2AssignQueT6)
+
+#### Assignment Task 7 - Joining the data
+
+* `inner_join()` will combine all common information in two sets of data by a common column or columns.
+* Here we are joining the data in `responses_long` with the data in `scoring` by the common column `RESPONSE`.
+* Keep in mind that `inner_join()` keeps only the rows that have data in both datasets. It will remove rows that only have data in one dataset.
+* When joining two datasets, join by **ALL** common columns when there is more than one column in common.
+
+```{r Ch2AssignmentTask7}
+responses_points <- inner_join(responses_long, scoring, "RESPONSE")
+```
+
+[Return to Task](#Ch2AssignQueT7)
+
+#### Assignment Task 8 - Working the Pipes
+
+* This is the code we started with.  
+
+```{r Ch2AssignmentTask8_pre, eval = FALSE}
+participant_groups <- group_by(responses_points, ID)
+participant_scores <- summarise(participant_groups, Total_QHC = sum(SCORE))
+participant_screening <- inner_join(participant_scores, screening, "ID")
+screening_groups_new <- group_by(participant_screening, MUSICAL)
+musical_means <- summarise(screening_groups_new, mean_score = mean(Total_QHC))
+```
+
+* Below is how to transcribe the above series of functions into a pipeline.
+* Remember, when using pipes, the output of the previous function is the input of the subsequent function
+
+```{r Ch2AssignmentTask8}
+musical_means <- group_by(responses_points, ID) %>%
+                  summarise(Total_QHC = sum(SCORE)) %>%
+                  inner_join(screening, "ID") %>%
+                  group_by(MUSICAL) %>%
+                  summarise(mean_score = mean(Total_QHC))
+```
+
+[Return to Task](#Ch2AssignQueT8)
+
+#### Assignment Task 9 - Difference in Musical Means
+
+* People who play music have a QHC score that is 1.53 units higher than people who don't play music.
+* You can do this by looking in `musical_means`, reading the values, and doing some quick maths.
+* A second option is through code. Code is always better as it can reduce error and is reproducible!
+
+```{r Ch2AssignmentTask9}
+# Option 1
+QHC_diff <- 1.53
+
+# Option 2
+# You will soon learn the functions to do this by code but here is how you could do it.
+QHC_diff_code <- spread(musical_means, MUSICAL, mean_score) %>% 
+  mutate(diff = YES - NO) %>% 
+  pull(diff) %>% 
+  round(2)
+```
+
+[Return to Task](#Ch2AssignQueT9)
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

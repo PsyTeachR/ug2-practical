@@ -1,0 +1,123 @@
+## Additional Material
+
+Below is some additional material that might help your figures in reports
+
+```{r lab3-preclass-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+menrot <-read_csv("./data/03-s01/preclass/MentalRotationBehavioralData.csv")
+demog <- read_csv("./data/03-s01/preclass/demographics.csv")
+``` 
+
+### Combining Figures
+
+Space within a report is a commodity. Figures can be incredibly useful in getting information across in a very efficient manner, but when you have a strict word count, having multiple figures can really chew into the limit, given that each figure needs a legend and each legend counts.  One way to get around this is to merge figures together into one big figure, that perhaps convey similar or related information. We are going to show you how to do that using a package called `patchwork`.
+
+Thinking back to the preclass, figures like boxplots and histograms, when combined, can be incredibly useful in understanding the overall shape of your data and whether or not it fits the assumptions of inferential tests, something we will come on to later. If we were to create two separate plots, we might get something like this:
+
+```{r ch3-add-1, include=TRUE, message=FALSE, fig.cap='A histogram of distribution of Mean Time counts by Sex'}
+
+menrot_hist_correct <- group_by(menrot, Participant, CorrectResponse) %>% 
+  summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
+  filter(CorrectResponse == "Correct") %>%
+  inner_join(demog, "Participant")
+
+ggplot(data = menrot_hist_correct, 
+       aes(x = Mean_Time,
+           fill = Sex)) + 
+  geom_histogram() +
+  theme_bw()
+```
+<br>
+
+And:
+
+```{r ch3-add-2, include=TRUE, fig.cap='A boxplot of the spreads of Mean Time for Correct Responses by Sex'}
+
+menrot_box_correct <- group_by(menrot, Participant, CorrectResponse) %>% 
+  summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
+  filter(CorrectResponse == "Correct") %>%
+  inner_join(demog, "Participant")
+
+ggplot(data = menrot_box_correct, 
+       aes(x = CorrectResponse, 
+           y = Mean_Time, 
+           fill = Sex)) + 
+  geom_boxplot() +
+  theme_bw()
+```
+<br>
+
+Now given that they both divide the data by sex, you can start to see how the figure legends become a bit repetitive, and how combining them into one figure would potentially make things easier.  There are a number of packages to do this, but `patchwork` is very straightforward and flexible.
+
+```{block, type = "danger"}
+
+**DO NOT install packages in the Boyd Orr labs; they are already there and just need called in through `library()`. If it is not there, speak to a member of the team.** 
+
+However, If you are using a computer at home and you haven't previously installed the `patchwork` package on your own machine before, you will have to install it first, e.g. `install.packages("patchwork")`.
+```
+<br>
+
+Let's now call in `patchwork`
+
+```{r patch-call, warning=FALSE}
+library(patchwork)
+```
+
+The first thing you need to do when patchwork is save your figures in an object (just like you would with the output of any function). Using the code above, this might look like below for the boxplot:
+
+```{r ch3-add-3, include=TRUE}
+p_box <- ggplot(data = menrot_box_correct, 
+       aes(x = CorrectResponse, 
+           y = Mean_Time, 
+           fill = Sex)) + 
+  geom_boxplot() +
+  labs(title = "A") +
+  theme_bw()
+```
+
+And below for the histogram:
+
+```{r ch3-add-4, include=TRUE}
+p_hist <- ggplot(data = menrot_hist_correct, 
+       aes(x = Mean_Time,
+           fill = Sex)) + 
+  geom_histogram() +
+  labs(title = "B") +
+  theme_bw()
+```
+<br>
+
+**Note:** The reason for the inclusion of a title on each figure will become clear in a second.
+
+Now when you run these codes no figures will be generated as you are saving them as objects. It is important to know this as if someone asks you to make sure the figure is generated when your code knits, and you have saved it as an object, then your figure might not show.  If you have save a figure as an object, you can generate the figure by just calling the name of the object. If you look at the ggplot cheatsheet you will see this approach a lot.
+
+```{r p-box, fig.cap='A boxplot of the spreads of Mean Time for Correct Responses by Sex'}
+p_box
+```
+
+```{r p-hist, fig.cap='A histogram of distribution of Mean Time counts by Sex'}
+p_hist
+```
+
+Great, but we want the figures in a single figure right? Well to do that in patchwork, we simply "add" the figures together using a plus sign (+), as such:
+
+```{r comb1, fig.cap='A boxplot (A - left) of the spreads of Mean Time for Correct Responses, and histogram (B - right) of distribution of Mean Time counts, both separated by Sex (female - red, male - cyan)'}
+p_box + p_hist
+```
+
+And we can use the titles that we put on the figures above to tell readers which figure within the combined figure we are referring to, A or B, left or right, as shown in the Figure legend.
+
+Awesome, but we can also change the layout. Say we wanted the figures on top of each other - portrait rather than landscape - well in that instance we divide the figures using the divide sign (/), as such:
+
+```{r comb2, fig.cap='A boxplot (A - top) of the spreads of Mean Time for Correct Responses, and histogram (B - bottom) of distribution of Mean Time counts, both separated by Sex (female - red, male - cyan)'}
+p_box / p_hist
+```
+
+And now we refer to top and bottom, rather than left and right.  In fact, `patchwork` is really flexible and can work with multiple figures and arrangements.  Hypothetically, say you had three figures and wanted two on top of one, then you would use the approach of combining "+" and "/" as such:
+
+```{r comb3, eval = FALSE}
+(figure1 + figure2)/figure3
+```
+
+Remember the trick to using patchwork is to save your figures as objects first (`p1 <- ggplot(....)`) and the rest is easy. But be sure to always know if your figure is shown when knitted or not; more often than not, seeing the figure is more important than seeing the code.
+
+**Happy Visualising!**

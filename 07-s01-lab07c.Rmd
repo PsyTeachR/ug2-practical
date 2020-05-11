@@ -1,0 +1,231 @@
+## InClass Activity
+
+**Juror Decision Making: Does the order of information affect juror judgements of guilt or innocence?**
+
+For this activity we will look at a replication of Furnham (1986) that the School of Psychology, University of Glasgow, carried out in 2016 - 2017. It would be worth familiarising yourself with the original study at some point for more information regarding the concepts of the study, but it is not essential in order to complete the assignment: <a href="http://www.tandfonline.com/doi/abs/10.1080/00221309.1986.9711045" target = "_blank">Furnham, A. (1986), The Robustness of the Recency Effect: Studies Using Legal Evidence</a>
+
+The overall aim of the original experiment was to investigate whether the decision a jury member makes about the innocence or guilt of a defendant could be influenced by something as simple as **when crucial evidence is presented during a trial**. During the experiment participants (Level 2 Psychology students) listened to a series of recordings that recreated the 1804 trial of a man known as Joseph Parker who was accused of assuming two identities and marrying two women; i.e. bigamy. Each participant listened to the same recordings of evidence, presented by both prosecution and defence witnesses, and were asked to judge how guilty they thought Mr. Parker was at 14 different points during the experiment on a scale of 1 to 9: 1 being innocent and 9 being guilty. 
+
+The manipulation in the experiment was that the order of evidence was altered so that half the participants received one order and the other half received the second order. Key to the order change was the time at which a **critical** piece of evidence was presented. This critical evidence proved that the defendant was innocent. The **middle** group heard this evidence at Timepoint 9 of the trial whereas the **late** group heard this evidence at Timepoint 13. You will have an opportunity to look at all the data in due course but, for today's exercise, we will only focus on the **late** group.
+
+In this exercise, your task is to analyse the data to examine whether the participants' ratings of guilt significantly changed **before** and **after** the presentation of the critical evidence in the **late** condition. If the critical evidence, which proved the defendant's innocence, had the desired effect then you should see a significant drop in ratings of guilt after hearing this evidence (Timepoint 13) compared to before (Timepoint 12). Or in other words, **we hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.**
+
+### Task 1: Load the Data {#Ch7InClassQueT1}
+
+* [Download the data for this experiment from here](data/07-s01/inclass/Level2_Lab7_InclassData.zip) or from Moodle.
+* Unzip the data and save it into a folder you have access to and set that folder as your working directory. 
+* Open a new script.
+* Today you will need the `broom` and `tidyverse` libraries. Load these in this order. Remember order matters.
+* Using `read_csv()`, load in the data from the experiment contained in `GuiltJudgements.csv` and store it in a tibble called `ratings`. 
+
+### Task 2: Wrangle the Data {#Ch7InClassQueT2}
+
+As above, you are only interested in the **Late** group for this assignment and only for **Timepoints 12 (rating before key evidence) and 13 (rating after key evidence)**. But having had a look at `ratings` you will see that the Timepoints are in `wide` format (columns `1` to `14` - each a different timepoint) and the `Evidence` column contains the `Middle` group as well. ***Hmmmm!***
+
+1. `filter()` only those participants from the `Late` condition.  
+
+2. `select()` only the Timepoints 12 and 13.  
+
+3. `rename()` these Timepoints as Twelve and Thirteen as numerical names are hard to deal with.  Leave it in wide format because you will need this for the `t.test()` function for paired data.
+
+4. Calculate a difference score `diff` for each participant (Twelve minus Thirteen).
+
+5. Do this all as one pipe and store it in a tibble called `lates`. 
+
+Check that your table looks like the table below.
+```{r ch7-task2, echo = FALSE, message=FALSE, warning=FALSE}
+library(broom)
+ratings <- read_csv("data/07-s01/inclass/GuiltJudgements.csv")
+lates <- ratings %>% 
+  filter(Evidence == "Late") %>%
+  select(Participant, Evidence, `12`, `13`) %>%
+  rename(Twelve = `12`, Thirteen = `13`) %>%
+  mutate(diff = Twelve - Thirteen)
+descriptives <- lates %>% 
+  select(-diff) %>%
+  gather(Timepoint, GuiltRating, Twelve, Thirteen) %>%
+  group_by(Timepoint) %>%
+  summarise(n = n(),
+            mean = mean(GuiltRating),
+            sd = sd(GuiltRating),
+            se = sd/sqrt(n),
+            LowerCI = mean - 1.96*se,
+            UpperCI = mean + 1.96*se) %>%
+  mutate_at(vars(mean, sd, se, LowerCI, UpperCI),
+            webex::round2, digits = 2)
+.d12 <- descriptives %>% filter(Timepoint == "Twelve")
+.d13 <- descriptives %>% filter(Timepoint == "Thirteen")
+
+results <- t.test(lates %>% pull(Twelve),
+                  lates %>% pull(Thirteen), paired = TRUE) %>%
+  tidy()
+```
+```{r table, echo = FALSE, results='asis'}
+knitr::kable(lates[1:4,], align = "c", caption = "How your table should look from Task 2")
+```
+  
+`r hide("Helpful Hint")`
+```{block, type ="info"}
+1. You need to specify the column you want to filter from, stating which variable (i.e. `Late`) that this column is 'equal to' (i.e. '==')
+
+2. Other than the two columns representing Timepoints 12 and 13, there are two other columns you need to keep in order to identify the participant and group. Use the table as a guide.
+
+3. When renaming, first state the new variable name and then designate this to the old variable name. i.e. `rename(data, new_column_name = old_column_name)`. If the old column is a number, put it in back ticks e.g. Five = `` `5` ``.
+
+4. Use `mutate(diff = ...?)` in your pipeline.
+```
+`r unhide()`
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
+
+* To check you have completed this Task correctly, enter the appropriate values into the boxes. 
+    - This dataset has: `r fitb(ncol(lates))` columns by `r fitb(nrow(lates))` rows.
+    
+### Task 3: Look at the Histogram for Normality {#Ch7InClassQueT3}
+
+Before running an inferential analysis, we need to check the assumption of normality. Because the within-subject t-test is based on difference scores, we should calculate the difference scores and check that the distribution of these scores is approximately Normal.
+
+In this task we will do it through creating a **histogram** for the difference scores. Create a histogram and set the binwidth to something reasonable for this experiment.
+
+`r hide("Helpful Hint")`
+```{block, type ="info"}
+1. ggplot() + geom_? 
+
+2. A histogram only requires you to state 'x' and not 'y'. We are examining the differences in guilt rating scores across participants. Which column from `lates` should be 'x'?
+
+3. `binwidth` is an argument you can specify within `geom_histogram()`. Think about an appropriate binwidth. Your guilt rating scale runs from 1 to 9 in increments of 1. 
+
+4. Beyond this point, you can think about adding appropriate labels and color if you like.
+```
+`r unhide()`
+
+### Task 4: A Boxplot of Outliers {#Ch7InClassQueT4}
+
+We can also check for outliers on the difference scores.
+
+* Create a boxplot of the difference scores. 
+
+`r hide("Helpful Hint")`
+```{block, type ="info"}
+1. This time when using `ggplot()` to create a boxplot, you need to specify both 'x', which is the discrete/categorical variable, and 'y', which is the continuous variable.
+
+2. geom_boxplot() - see lab 3 for an example. 
+```
+`r unhide()`
+<br>
+
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
+
+* How many outliers do you see? `r mcq(c(answer = "0", "1", "2", "3","too many to count"))`
+
+Remember that outliers are represented as dots or stars beyond the whiskers of the boxplot. We won't deal with outliers today but it would be worth thinking about how you could deal with them in future.
+
+**We will now run some descriptives to start understanding the relationship between the two levels of interest: Timepoint 12 and Timepoint 13.**
+
+### Task 5: Calculating Descriptives {#Ch7InClassQueT5}
+
+* Calculate the mean, standard deviation, and Lower and Upper values of the 95% Confidence Interval for both levels of the Independent Variable (the two timepoints). You will need to also calculate the `n()` and the Standard Error to complete this task. Store all this data in a variable called `descriptives`. 
+
+**Note: calculating the descriptives will be easier if you use `gather()` to reshape the Twelve and Thirteen columns to long format, creating new key field `Timepoint` to hold the values Twelve and Thirteen and value field `GuiltRating` to hold the responses. But before you `gather()` remove the `diff` column from lates since we won't be working with this for the descriptives.
+
+`r hide("Helpful Hint")`
+```{block, type ="info"}
+1. `select(lates, -diff) %>% gather(Timepoint, GuiltRating, ...???)`
+2. `group_by()` the categorical column `Timepoint`. This is the column you want to compare groups for.
+3. `summarise()`
+4. Different calculations can be used within the same `summarise()` function as long as they are calculated in the order which you require them. For example, you first need to calculate the participant number, `n = n()`, and the standard deviation, `sd = sd(variable)`, in order to calculate the standard error, `se = sd/sqrt(n)`, which is required to calculate your Confidence Intervals.
+5. For the 95% Confidence Interval, you need to calculate a LowerCI and an UpperCI using the appropriate formula.
+```
+`r unhide()`
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
+
+* From the options, which equation would use to calculate the LowerCI? `r mcq(c("mean - 1.96 * sd", "mean * 1.96 - se", answer = "mean - 1.96 * se", "mean * 1.96 - sd"))`
+* From the options, which equation would use to calculate the UpperCI? `r mcq(c("mean + 1.96 * sd", "mean * 1.96 + se", answer = "mean + 1.96 * se", "mean * 1.96 + sd"))`
+
+`r hide("Portfolio Point - What is 1.96?")`
+```{block, type ="info"}
+For data that is normally distributed, you're looking to calculate the 95% Confidence Interval (meaning there is a 95% probability that a data point lies within this specified parameter). To do this you require a z-score which tells you how many standard deviations you are from the mean. 95% of the area under a normal distribution curve lies within 1.96 standard deviations from the mean. 
+
+If you were looking to calculate a 99% Confidence Interval you would instead use a z-score of 2.576. This takes into account a greater area under the normal distribution curve and so you are further away from the mean (i.e. closer to the tail ends of the curve), resulting in a higher z-score.
+```
+`r unhide()`  
+
+### Task 6: Visualising Means and Descriptives {#Ch7InClassQueT6}
+
+* Using the data in `descriptives`, produce a plot that visualises the mean and 95% Confidence Intervals.
+    - One way would be a basic barplot, shown in previous labs, with error bars indicating the 95% CI. 
+    - To add the error bars you could add a line like below.
+    - Feel free to embellish the figure as you see fit.
+    
+```{r ch7-task7, eval = FALSE}
+geom_errorbar(aes(ymin = LowerCI, ymax = UpperCI),
+              position = "dodge", width = .15)
+```
+
+`r hide("Helpful Hint")`
+```{block, type ="info"}
+* We recommend using `geom_col()`
+* Remember to add (+) the `geom_errorbar()` line above to your code! Don't pipe it.
+* In the above code for error bars, the aesthetic, `aes()`, allows you to set the min and max values. 
+* `position = "dodge"` does the same as `position = position_dodge()` and `position = position_dodge(width = .9)`. There are a number of ways to use a position call and they all do the same thing.
+```
+`r unhide()`
+<br>
+
+**Important to remember**: as we have mentioned in previous labs, barplots are not that informative in themselves. Going ahead in your research, keep in mind that you should look to use plots that incorporate a good indication of the distribution/spread of the individual data points as well.  
+
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
+
+Think back to the hypothesis. **We hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.** Spend a few minutes talking to your group about whether you think there will be a significant difference between the two timepoints. What evidence do you have? Think about the overlap of confidence intervals! Remember the key thing at this stage is that it is a subjective impression - "It appears that there might be...." or words to that effect.
+
+### Task 7: The t-test {#Ch7InClassQueT7}
+
+Now we have checked our assumptions and ran our dscriptives, the last thing we need to do is to perform the within-subjects t-test to test the differences between the time points. 
+
+To perform the within-subjects t-test you use the same `t.test` function as you did in Lab 6. However, this time you have to do a few things differently. If you look at the help for `t.test` (`?t.test`) you can see that there are two different methods for calling `t.test`:
+
+* The default method, with syntax `t.test(x, y = NULL, ...)`;
+
+* The "formula" method, with syntax `t.test(formula, data, ...)`.
+
+The documentation is not clear on this, but **you can only use the formula method for an independent-samples t-test.** If you want to do a paired t-test, then you have to use the default method, specifying two vectors `x` and `y` and setting the `paired` argument to `TRUE`. The `x` and `y` vectors should have the participants' data in the "Twelve" and "Thirteen" conditions in the same order, which we can ensure by passing the column `Twelve` as `x` and `Thirteen` as `y`.
+
+* Perform a paired-sample t-test between guilt ratings at the crucial time points (Twelve and Thirteen) for the subjects in the late group. Store the data (e.g. `tidy`) in a tibble called `results`. 
+
+`r hide("Helpful Hint")`
+```{block, type ="info"}
+* To pull out the `Twelve` and `Thirteen` columns to pass as `x` and `y`, you can use: `lates %>% pull(Twelve)` and `lates %>% pull(Thirteen)`.
+
+* Once you've calculated `results`, don't forget to `tidy()` - you can add this using a pipe! 
+
+* If you don't quite understand the use of `tidy()` yet, run your `t.test()` without `tidy()` and see what happens!
+```
+`r unhide()`
+<br>
+<span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
+
+Look within the tibble `results`. In groups, break down the results you can see. Was there a significant difference or not? We are about to write it up so best we know for sure. How can you tell? 
+
+### Task 8: The Write-up {#Ch7InClassQueT8}
+
+Fill in the blanks below to complete this paragraph, summarising the results of the study. You will need to refer back to the information within `results` and `descriptives` to get the correct answers and to make sure you understand the output of the t-test. Enter all values to two decimal places and present the absolute t-value.
+
+"A `r mcq(c(answer = "paired-samples t-test","one-sample t-test","between-subjects t-test","independent-samples t-test"))` was run to compare the change in guilt ratings before (M = `r fitb(.d12$mean, width = 1)`, SD = `r fitb(.d12$sd, width = 1)`) and after (M = `r fitb(.d13$mean, width = 1)`, SD = `r fitb(.d13$sd, width = 1)`) the crucial evidence was heard. A `r mcq(c(answer = "significant","non-significant"))` difference was found (t(`r fitb(results$parameter, width = 1)`) = `r fitb(webex::round2(results$statistic, 2), width = 1)`, p `r mcq(c("= .05","> .05","= .001",answer = "< .001"))`) with Timepoint 13 having an average rating `r fitb(webex::round2(results$estimate, 2), width = 1)` units lower than Timepoint 12. This tells us `r mcq(c(answer = "that the critical evidence did have an influence on the rating of guilt by jury members", "that the critical evidence did not have an influence on the rating of guilt by jury members", "that the critical evidence and the rating of guilt by jury members are unconnected", "something but I am not quite sure right now, I best ask!"))`
+
+`r hide("Helpful Hint")`
+```{block, type ="info"}
+* t-tests take the following format: t(df) = t-value, p = p-value
+* your `results` states degrees of freedom as `parameter`, and your t-value as `statistic`. 
+* `estimate` is your mean difference between ratings at Timepoints Twelve and Thirteen.
+```
+`r unhide()`
+<br>
+**Note:** When writing a code for your own report, you can make your write-up reproducible as well by using the output of your tibbles and calling specific columns. For example, t(`r backtick("r results$parameter")`) = `r backtick("r results$statistic %>% abs()")`, p < .001, when knitted will become t(`r results$parameter`) = `r results$statistic %>% abs() %>% round(2)`, p < .001. So code can prevent mistakes in write-ups!
+
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
+
+Well done, you have completed the activities for this week's lab! You can see how performing the t-test is only a small part of the entire process: wrangling the data, calculating descriptives, and plotting the data to check the distributions and assumptions is a major part of the analysis process. Over the past labs, you have been building all of these skills and so you should be able to see them being put to good use now that we have moved onto more complex data analysis. Running the inferential part is usually just one line of code. 
+
+If you're wanting to practice your skills further, you could perform a t-test for the "middle" group where the crucial evidence was presented on time point 9. Otherwise, you should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.** If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.
+

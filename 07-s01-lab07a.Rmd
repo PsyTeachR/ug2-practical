@@ -1,0 +1,32 @@
+# Within-Subjects t-test
+
+## Overview
+
+In the previous labs, we have looked at one-sample t-tests and between-samples t-tests. For today's activities we are going to look at the remaining type of t-test; the **within-subjects t-test** (sometimes called the **dependent sample** or **paired sample t-test**). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations **from the same participants** is zero. As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis. 
+
+* The null hypothesis assumes that the true mean difference between the paired samples is zero. 
+* The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero.
+
+Again like in all tests, and particularly parametric tests, the within-subjects t-test makes a number of assumptions:
+
+* All participants appear in both conditions/groups. 
+* The dependent variable must be continuous (interval/ratio).  
+* The dependent variable should be normally distributed.  
+
+**Before beginning any analysis it is always a good idea to check if the data deviates from these assumptions and whether it contains any outliers, in order to assess the quality of the results.**  
+
+`r hide("Portfolio Point - The assumption of variance")`
+```{block, type ="info"}
+One of the main differences in the assumptions between a between-subjects t-test and a within-subjects t-test is the assumption of equal variance.
+
+The between-subjects t-test classically would have an assumption of equal variance. Or at least what is known as the Student's t-test has the assumption of equal variance. The top half of the equation of the formula (the numerator) is the difference in means of the two samples whereas the denominator relates to the variance of both groups.  As such, in the Student's t-test, if the variances are unequal then you can get erroneous results.  Modern thinking however, and this is from your preclass reading, suggests that it is always better to run a Welch's t-test for between-subjects where the assumption is that variance is not equal. From now on, unless stated otherwise, you should run a Welch's t-test. 
+
+In practice: 
+
+* to run a Student's t-test you set `var.equal = TRUE`
+* to run a Welch's t-test you set `var.equal = FALSE`
+
+Conversely, there is no concern with variance in a within-subjects t-test because, as you will know from lectures, the top half of the equation of the formula (the numerator) is the mean difference between the two conditions, and so it is only one set of values and there is nothing to equate it to. This test does not have any concern with variance.
+
+```
+`r unhide()`

@@ -1,0 +1,161 @@
+## Solutions to Questions
+
+```{r lab14-solutions-setup, echo = FALSE, message=FALSE, warning=FALSE}
+ratings <- read_csv("data/14-s02/inclass/voice_ratings.csv")
+acoustics <- read_csv("data/14-s02/inclass/voice_acoustics.csv")
+```
+
+Below you will find the solutions to the questions for the Activities in this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### InClass Ativities
+
+#### Task 1
+
+```{r ch14-t1-load, eval = FALSE}
+library("broom")
+library("tidyverse")
+
+ratings <- read_csv("voice_ratings.csv")
+acoustics <- read_csv("voice_acoustics.csv")
+```
+
+[Return to Task](#Ch14InClassQueT1)
+
+#### Task 2
+
+* We are calling the new tibble `ratings_tidy`. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on, the tibble names might not match up so, you may need to do a little bit of backtracking to see where tibbles were created.
+
+```{r ch14-t2-reshape}
+ratings_tidy <- gather(ratings, participant, rating, P1:P28)
+```
+
+[Return to Task](#Ch14InClassQueT2)
+
+### Task 3
+
+```{r ch14-t3-ratings_means}
+ratings_mean <- ratings_tidy %>% 
+  group_by(VoiceID) %>% 
+  summarise(mean_rating = mean(rating))
+```
+
+[Return to Task](#Ch14InClassQueT3)
+
+### Task 4
+
+```{r ch14-t4-joined}
+joined <- inner_join(ratings_mean, acoustics, "VoiceID") %>% filter(sex == "M")
+```
+
+[Return to Task](#Ch14InClassQueT4)
+
+### Task 5
+
+```{r ch14-t5-scatter-sol, echo = FALSE, fig.cap='Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating'}
+ggplot(joined, aes(value, mean_rating)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_y_continuous(breaks = c(1:7), limits = c(1,7)) +
+  facet_wrap(~measures, nrow = 1, ncol = 2, scales = "free") +
+  theme_classic()
+```
+
+[Return to Task](#Ch14InClassQueT5)
+
+### Task 6
+
+* `spread()` often catches people out.  It is a bit like the reverse of `gather()`
+* It takes in the data and you tell it which values you want spread and by which column - though in the order of data, column, value. Makes sense huh!
+
+```{r ch14-t6-data-spread}
+joined_wide <- joined %>% spread(measures, value)
+```
+
+[Return to Task](#Ch14InClassQueT6)
+
+### Task 7
+
+**Simple Linear Regression - Pitch**
+
+The pitch model would be written as such:
+
+```{r ch14-t7-mod1}
+mod_pitch <- lm(mean_rating ~ Pitch, joined_wide)
+```
+
+And give the following output:
+
+```{r ch14-t7-mod1-output}
+summary(mod_pitch)
+```
+
+**Simple Linear Regression - Dispersion**
+
+The Dispersion model would be written as such:
+
+```{r ch14-t7-mod2}
+mod_disp <- lm(mean_rating ~ Dispersion, joined_wide)
+```
+
+And give the following output:
+
+```{r ch14-t7-mod2-output}
+summary(mod_disp)
+```
+
+**Multiple Linear Regression - Pitch + Dispersion**
+
+The model with both Pitch and Dispersion as predictors would be written as such:
+
+```{r ch14-t7-mod3}
+mod_pitchdisp <- lm(mean_rating ~ Pitch + Dispersion, joined_wide)
+```
+
+And give the following output:
+
+```{r ch14-t7-mod3-output}
+summary(mod_pitchdisp)
+```
+
+[Return to Task](#Ch14InClassQueT7)
+
+### Task 8
+
+**A brief explanation:**
+
+From the models you can see that the Dispersion only model is not actually significant (F(1,30) = 1.98, p = .17) meaning that it is not actually any use as a model. This is backed up by it only explaining 3% of the variance.  Looking at the multiple linear regression model which contains both pitch and dispersion we can see that it is a useful model ((F(2,29) - 7.81, P = .002) explaining 30.5% of the variance). However only pitch is a significant predictor in this model and actually the multiple regression model has smaller predictive ability than the pitch alone model. There is an arguement to be made that the pitch alone model is the best model in the current analysis.
+
+[Return to Task](#Ch14InClassQueT8)
+
+#### Task 9
+
+**Solution Version 1**
+
+```{r ch14-t9-predict}
+newdata <- tibble(Pitch = 150, Dispersion = 1100)
+```
+
+```{r ch14-t9-predict-output}
+predict(mod_pitchdisp, newdata)
+```
+
+**Solution Version 2**
+
+```{r predict2}
+predict(mod_pitchdisp, tibble(Pitch = 150, 
+                              Dispersion = 1100))
+```
+
+**Solution Version 3**
+
+* And if you want to bring it out as a single value, say for a write-up, you could do the following
+* This does pop out a warning about a `deprecated` function meaning that this won't work in future updates but for now it is ok to use.
+
+```{r predict3}
+predict(mod_pitchdisp, tibble(Pitch = 150, 
+                              Dispersion = 1100)) %>% tidy() %>% pull() %>% round(1)
+```
+
+[Return to Task](#Ch14InClassQueT9)
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

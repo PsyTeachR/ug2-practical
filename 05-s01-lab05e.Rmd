@@ -1,0 +1,156 @@
+## Solutions to Questions
+
+```{r lab5-solutions-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+RNGversion("3.5")
+set.seed(1011)
+dat <- read_csv("./data/05-s01/inclass/perm_data.csv") %>% 
+  mutate(subj_id = row_number())
+``` 
+
+Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+
+### InClass Activities
+
+#### Step 1
+
+```{r data-load, message = FALSE, eval=FALSE}
+library("tidyverse")
+
+## Note: 
+## Here's how we created the data for today's task:
+## dat <- tibble(group = rep(c("A", "B"), each = 50),
+##               Y = c(rnorm(50, 100, 15),
+##                     rnorm(50, 110, 15)))
+##
+## write_csv(dat, "perm_data.csv")
+## You could create a new dataset yourself and try it again.
+
+dat <- read_csv("perm_data.csv") %>% 
+  mutate(subj_id = row_number())
+```
+
+[Return to Task](#Ch5InClassQueT1)
+
+#### Step 2
+
+**Step 2.1.1 - the basic dat pipeline**
+
+```{r basic-dat}
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y))
+```
+
+
+**Step 2.1.2 - using `spread()` to separate the groups**
+```{r spread-part}
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m)
+```
+
+**Step 2.1.3 - `mutate()` the column of mean differences**
+```{r mutate-part}
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m) %>%
+  mutate(diff = A - B)
+```
+
+
+**Step 2.1.4 - `pull()` out the difference**
+```{r pull-part}
+dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m) %>%
+  mutate(diff = A - B) %>%
+  pull(diff)
+
+```
+
+**Step 2.2 - setting up the `calc_diff()` function**
+```{r calc_diff_solution}
+calc_diff <- function(x) {
+  x %>%
+    group_by(group) %>%
+    summarise(m = mean(Y)) %>%
+    spread(group, m) %>%
+    mutate(diff = A - B) %>%
+    pull(diff)
+}
+```
+
+**Step 2.3 - Calculating d_orig using calc_diff()**
+```{r d_orig_solution}
+d_orig <- calc_diff(dat)
+is.tibble(d_orig)
+is.numeric(d_orig)
+```
+
+[Return to Task](#Ch5InClassQueT2)
+
+#### Step 3
+
+```{r permute_fn}
+permute <- function(x) {
+  x %>%
+    mutate(group = sample(group))
+}
+
+permute(dat)
+```
+
+[Return to Task](#Ch5InClassQueT3)
+
+#### Step 4
+
+**Step 4.1 - the pipeline**
+```{r permute_once}
+dat %>% permute() %>% calc_diff()
+```
+
+
+**Step 4.2 - creating nhd**
+```{r nhd}
+nhd <- replicate(1000, dat %>% permute() %>% calc_diff())
+```
+
+**Step 4.3 - plotting nhd**
+```{r histogram}
+ggplot(tibble(x = nhd), aes(x)) + geom_histogram(binwidth = 1)
+```
+
+[Return to Task](#Ch5InClassQueT4)
+
+#### Step 5
+
+**Step 5.1 - The logical vector**
+
+* This code establishes all the values in nhd that are equal to or greater than the value in d_orig
+* It returns all these values as TRUE and all other values as FALSE
+* `abs()` tells the code to ignore the sign of the value (i.e. assumes everything is positive)
+```{r lvec}
+lvec = abs(nhd) >= abs(d_orig)
+```
+
+
+**Step 5.2 - Sum up all the TRUE values**
+
+* This gives the total number of values greater or equal to d_orig
+```{r n-exceed}
+n_exceeding_orig <- sum(lvec)
+```
+
+**Step 5.3 - Calculate the probability**
+
+* The probability of obtaining d_orig or greater is calculated by the number of values equal to or greater than d_orig, divided by the full size of nhd (or in other words, its length)
+```{r prob-p}
+p <- n_exceeding_orig / length(nhd)
+```
+
+[Return to Task](#Ch5InClassQueT5)
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>
