@@ -762,8 +762,8 @@ p = 0.006 or p = .006. It starts off as 10 out of 120, but as you remove one inv
 </ul>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
 <a class="sourceLine" id="cb106-2" data-line-number="2"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;HEADS&quot;</span>, <span class="st">&quot;TAILS&quot;</span>), <span class="dv">10</span>, <span class="ot">TRUE</span>) </a></code></pre></div>
-<pre><code>##  [1] &quot;HEADS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot;
-##  [9] &quot;HEADS&quot; &quot;TAILS&quot;</code></pre>
+<pre><code>##  [1] &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;TAILS&quot; &quot;HEADS&quot;
+##  [9] &quot;TAILS&quot; &quot;HEADS&quot;</code></pre>
 <div class="solution">
 <button>
 Portfolio Point - Sampling and Replacement
@@ -786,7 +786,7 @@ Why would you or why wouldn’t you want to use sampling with replacement in our
 <li><strong>Note2:</strong> <code>0:1</code> means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.</li>
 </ul>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() </a></code></pre></div>
-<pre><code>## [1] 5</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>The ouptut of this line changes every time we run the code as we are randomly sampling 10 coin flips each time. And to be clear, if you get an answer of 6 for example, this means 6 heads, and in turn, 4 tails. By running this code over and over again we are basically demonstrating how a <strong>sampling distribution</strong> is created.</p>
 <div class="solution">
 <button>
@@ -805,7 +805,7 @@ But in order to create a full and accurate sampling distribution we need to repl
 <li>Here we are doing exactly as we said and saving the 10000 outputs (counts of heads) in the variable called <code>heads10k</code> (k is shorthand for thousand).</li>
 </ul>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">heads10k &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">10</span>, <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>())   </a></code></pre></div>
-<pre><code>##  int [1:10000] 5 5 5 4 6 6 4 4 3 1 ...</code></pre>
+<pre><code>##  int [1:10000] 7 3 7 4 6 4 5 5 8 4 ...</code></pre>
 <p>The results of these 10000 replications are now stored in a vector called <code>heads10k</code>. If you have a look at <code>heads10k</code>, as shown in the bottom box, it is a series of 10000 numbers between 0 and 10 each indicating the number of heads, or more specifically 1s, that you got in a set of 10 flips.</p>
 <p>Now in order to complete our distribution we need to:</p>
 <ol style="list-style-type: decimal">
@@ -838,8 +838,8 @@ But in order to create a full and accurate sampling distribution we need to repl
 Figure 4.1: Probability Distribution of Number of Heads in 10 Flips
 </p>
 </div>
-<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2379</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
-<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0009</strong>, and the probability of 1 heads is <strong>0.0092</strong>, and the probability of 2 heads is <strong>0.0424</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0525</strong></p>
+<p>So in our analysis, the probability of getting 5 heads in 10 flips is <strong>0.2518</strong>. But remember, do not be surprised if you get a slightly different value. Ten thousand replications is a lot but not a huge amount compared to infinity. If you run the analysis with more replications your numbers would become more stable, e.g. <code>100K</code>.</p>
+<p>Note that as the possible number of heads in 10 flips are all related to one another, then summing up all the probabilities of the different number of heads will give you a total of 1. You can use this informaiton to start asking questions such as what would be the probability of obtaining 2 or less Heads in 10 flips? Well, if the probability of no heads in this distribution is <strong>0.0013</strong>, and the probability of 1 heads is <strong>0.009</strong>, and the probability of 2 heads is <strong>0.0441</strong>, then the probability of 2 or less Heads in this distribution is simply the sum of these values: <strong>0.0544</strong></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>Look at the probability values corresponding to the number of coin flips you created in the <code>data10k</code> sample distribution (use <code>View()</code> to see this):</p>
 <ul>
@@ -1515,7 +1515,7 @@ Note that the elements in the <code>prob</code> argument set probabilities for t
 <p>If you view <code>data5k</code>, you will now see three columns:</p>
 <ol style="list-style-type: decimal">
 <li><code>faces_per_block</code> tells you all the number of face trials seen in a block of 60 trials. Note that it does not run from 0 to 60.</li>
-<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 221 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
+<li><code>n</code> tells you the number of blocks in which the corresponding number of face trials appeared, e.g. in 215 blocks there were 15 face trials. (Remember this is sampled data so your values may be different!).</li>
 <li><code>p</code> tells you the probability of the corresponding number of <code>faces_per_block</code>.</li>
 </ol>
 <p>From your <code>data5k</code> tibble, what was the probability of seeing only 10 faces in a block? Ours was <strong>0.002</strong> but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use <code>View()</code> or <code>glimpse()</code> on <code>data5k</code>.
@@ -1524,7 +1524,7 @@ Note that the elements in the <code>prob</code> argument set probabilities for t
 <p>Discuss in your groups the following questions:</p>
 <ol style="list-style-type: decimal">
 <li><p>If the probability of seeing only 10 faces was p = 0.002, what does that say about whether our experiment is coded correctly or not?</p></li>
-<li><p>We only have data for 29 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 29?</p></li>
+<li><p>We only have data for 28 potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than 28?</p></li>
 </ol>
 <div class="solution">
 <button>
@@ -1844,7 +1844,7 @@ When you have two separate events, the probability of them both happening is the
 </ul>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1">t6 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>, <span class="kw">c</span>(.<span class="dv">5</span>,.<span class="dv">5</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>())</a></code></pre></div>
 <p>If you were to look at your output you would see something like the following. Remember your numbers will vary from ours due to random sampling. Here we are only showing the first 10 values of 10000</p>
-<pre><code>##  int [1:10000] 49 59 57 49 53 49 58 57 49 53 ...</code></pre>
+<pre><code>##  int [1:10000] 61 37 50 48 52 46 42 50 49 48 ...</code></pre>
 <p><a href="revisiting-probability-distributions.html#Ch4AssignQueT6">Return to Task</a></p>
 </div>
 <div id="assignment-task-7" class="section level4">
