@@ -56,7 +56,7 @@ If you are using the Boyd Orr labs, `broom` is already installed and just needs 
 * You can use `summarise()` and `count()` or a pipeline with `group_by()` to complete this task.
 * When analysing the number of male and female evaluators it isn't initially clear that '1' represents males and '2' represents females. 
 * We can use `recode()` to convert the numeric names to indicate something more meaningful. Have a look at`?recode` to see if you can work out how to use it. It'll help to use `mutate()` to create a new variable to `recode()` the numeric names for evaluators. 
-* This website is also incredibly useful and one to save for anytime you need to use recode(): https://debruine.github.io/recode.html.
+* This website is also incredibly useful and one to save for anytime you need to use recode(): https://debruine.github.io/posts/recode/.
 * For your own analysis and future reproducible analyses, it's a good idea to make these representations clearer to others. 
 ```
 `r unhide()`  

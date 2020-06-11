@@ -70,7 +70,7 @@ knitr::kable(lates[1:4,], align = "c", caption = "How your table should look fro
 
 2. Other than the two columns representing Timepoints 12 and 13, there are two other columns you need to keep in order to identify the participant and group. Use the table as a guide.
 
-3. When renaming, first state the new variable name and then designate this to the old variable name. i.e. `rename(data, new_column_name = old_column_name)`. If the old column is a number, put it in back ticks e.g. Five = `` `5` ``.
+3. When renaming, first state the new variable name and then designate this to the old variable name. i.e. `rename(data, new_column_name = old_column_name)`. If the old column is a number, put it in back ticks e.g. Five = `r backtick("5")`.
 
 4. Use `mutate(diff = ...?)` in your pipeline.
 ```

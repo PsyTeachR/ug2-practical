@@ -98,6 +98,7 @@ The values are: 631.2, 800.8, 595.4, 502.6, 604.5, 516.9, 658.0, 502.0, 496.7, 6
 ```
 `r unhide()`
 <br>
+
 ### Task 2: Comparing Original and New Sample Reaction Times {#Ch6PreClassQueT2}
 
 Our next step is to establish how many participants from the new sample are above the mean in the original paper.  
@@ -231,6 +232,7 @@ The `pt()` function works similar to `pbinom()` and `pnorm()`:
 ```
 `r unhide()`
 <br>
+
 ### Task 7: Comparing the Observed Test Statistic to the t-distribution using **`t.test()`** {#Ch6PreClassQueT7}
 
 Now that you have done this by hand, try using the `t.test()` function to get the same result.  Take a moment to read the documentation for this function by typing `?t.test` in the console window.  No need to store the t-test output in a dataframe but do check that the p-value matches the `pval` in Task 6.
@@ -260,9 +262,9 @@ Given these results, what do you conclude about how similar these `r n_new` part
 * Think about which test used more of the available information? 
 * Also, how reliable is the finding if the two tests give different answers?
 
-We have given some of our thoughts at the bottom of the solutions.
+We have given some of our thoughts at the end of the chapter.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-That's all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. See you in the lab!
+That's all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the forums
 

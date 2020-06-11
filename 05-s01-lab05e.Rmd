@@ -86,8 +86,8 @@ calc_diff <- function(x) {
 **Step 2.3 - Calculating d_orig using calc_diff()**
 ```{r d_orig_solution}
 d_orig <- calc_diff(dat)
-is.tibble(d_orig)
-is.numeric(d_orig)
+is_tibble(d_orig)
+is_numeric(d_orig)
 ```
 
 [Return to Task](#Ch5InClassQueT2)
