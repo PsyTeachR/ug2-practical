@@ -1,6 +1,6 @@
 ## InClass Activity 2 (Additional)
 
-In the preclass activity, we focused a lot on basic probability and **binomial distributions**. If you have followed it, and understood it correctly, you should be able to have a go at the following scenario to help deepen your understanding of the binomial distribution. Have a go and see how you get on. Solutions are at the bottom of the page. 
+In the preclass activity, we focused a lot on basic probability and **binomial distributions**. If you have followed it, and understood it correctly, you should be able to have a go at the following scenario to help deepen your understanding of the binomial distribution. Have a go and see how you get on. Solutions are at the end of the chapter. 
 
 ### Return of the Binomial
 
@@ -110,15 +110,15 @@ On the second point, you need to think about the width of the distribution. The 
 
 `r hide("Explain This - I don't get these answers")`
 ```{block, type ="info"}
-1. The answer would be .002 as you require the density, `dbinom()`, of 10 faces out of a possible 60 given a probability of 1/3. See the Binomial Quickfire Questions solution below for the code.
+1. The answer would be .002 as you require the density, `dbinom()`, of 10 faces out of a possible 60 given a probability of 1/3. The appropriate code is as follows:
 
 **Code:** `dbinom(10, 60, 1/3)`
 
-2. The answer would be .068 as you require the cumulative probability, `pbinom()`, of more than 25 faces out of 60 given a probability of 1/3. As it is more than 25, setting 25 with `lower.tail` set as FALSE will give you 26 and above (remember this is a binomial distribution, so where you set your cut-off is very important). See the Binomial Quickfire Questions solution below for the code.
+2. The answer would be .068 as you require the cumulative probability, `pbinom()`, of more than 25 faces out of 60 given a probability of 1/3. As it is more than 25, setting 25 with `lower.tail` set as FALSE will give you 26 and above (remember this is a binomial distribution, so where you set your cut-off is very important). The appropriate code is as follows:
 
 **Code:** `pbinom(25, 60, 1/3, lower.tail = FALSE)`
 
-3. The answer would be 14 using the `qbinom()` function based on wanting to maintain 5% probability of faces in 60 trials. See the Binomial Quickfire Questions solution below for the code.
+3. The answer would be 14 using the `qbinom()` function based on wanting to maintain 5% probability of faces in 60 trials. The appropriate code is as follows:
 
 **Code:** `qbinom(.05, 60, 1/3)`
 ```

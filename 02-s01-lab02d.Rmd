@@ -28,7 +28,7 @@ The data you have downloaded for this lab is example screening data taken from r
 
 * [D2 Test of Attention](https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3): measures participants' selective and sustained concentration and visual scanning speed. <a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg" target = "_blank">Example here</a> 
 
-* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participants' subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf" targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing" target = "_blank">Main Test page here</a>
+* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participants' subjective experience of their own hearing abilities. <a href="http://www.betterhearing.org/check-your-hearing" target = "_blank">Main Webpage for Group here</a>
 
 **The Data Files**  
 
@@ -190,4 +190,4 @@ QHC_diff <- NULL
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finished! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**. 
+Well done, you are finished! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the forums.

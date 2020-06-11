@@ -73,7 +73,7 @@ A **permutation** is just a different ordering of the same values.  For example,
 + 3, 1, 2
 + 3, 2, 1
 
-The more values you have, the more permutations of the order you have. The number of permutations can be calculated by, for example, `3*2*1`, where 3 is the number of values you have. Or through code: `factorial(3) = 6`. This assumes that each value is used once in the sequence and that each value never changes, i.e. 1234 cannot suddenly become 1235.
+The more values you have, the more permutations of the order you have. The number of permutations can be calculated by, for example, `3 x 2 x 1 = 6`, where 3 is the number of values you have. Or through code: `factorial(3) = 6`. This assumes that each value is used once in the sequence and that each value never changes, i.e. 1234 cannot suddenly become 1235.
 ```
 `r unhide()`
 

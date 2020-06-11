@@ -129,7 +129,7 @@ We can carry out these steps using the following code:
 
 * Copy the below code into your script and run it.
 
-``` {r coin_distribution}
+``` {r coin_distribution, warning = FALSE}
 data10k <- data_frame(heads = heads10k) %>%   # convert to a data frame 
                 group_by(heads) %>%           # group by number of possibilities
                 summarise(n = n(), p=n/10000) # count occurances of possibility,
