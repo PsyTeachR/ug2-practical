@@ -302,13 +302,15 @@ ifelse(results$p.value < .001,
        paste0("p = ", round(results$p.value,3))) 
 ```
 
-So instead of writing **p = `r results %>% pull(p.value)`**, you would write **`r ifelse(results$p.value < .001, "p < .001", paste0("p = ", round(results$p.value,3)))` **
+So instead of writing **t(`r results %>% pull(parameter)`) = `r results %>% pull(statistic) %>% round(2) %>% abs()`, p = `r results %>% pull(p.value)`**, you would write **t(`r results %>% pull(parameter)`) = `r results %>% pull(statistic) %>% round(2) %>% abs()`, `r ifelse(results$p.value < .001, "p < .001", paste0("p = ", round(results$p.value,3)))`** 
 
 The in-line coding for these options would look like: 
 
-`r backtick("r results %>% pull(p.value)")` for `r results %>% pull(p.value)`
+p = `r backtick("r results %>% pull(p.value)")` for p = `r results %>% pull(p.value)`
 
-& `r backtick("r ifelse(results$p.value < .001, \"p < .001\", paste0(\"p = \", round(results$p.value,3)))")` for `r ifelse(results$p.value < .001, "p < .001", paste0("p = ", round(results$p.value,3)))`
+& 
+
+`r backtick("r ifelse(results$p.value < .001, \"p < .001\", paste0(\"p = \", round(results$p.value,3)))")` for `r ifelse(results$p.value < .001, "p < .001", paste0("p = ", round(results$p.value,3)))`
 
 [Return to Task](#Ch7InClassQueT9)
 
