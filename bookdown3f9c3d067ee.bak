@@ -1,5 +1,3 @@
-
-
 ## Assignment
 
 **Lab 8: APES Assignment**
@@ -26,9 +24,10 @@ Remember that this assignment is formative but the knowledge gained from the pra
 
 You do not need the `pwr` library as all of the below questions can be completed with base functions but if you prefer to use the `pwr` library then load it below in the `libary` code chunk as well.
 
-
-```r
+```{r library, message=FALSE, warning=FALSE}
 # TO DO, load in the two stated libraries as you will need functions from these libraries
+
+
 ```
 
 **Basic Calculations**
@@ -39,8 +38,7 @@ You do not need the `pwr` library as all of the below questions can be completed
 
 Replace the `NULL` in the `T1` code chunk below with either a single value, or with mathematical notation, so that `error_rate` returns the actual value of the Type II error rate for this study.  By mathematical notation we mean you to use the appropriate formula but insert the actual values.
 
-
-```r
+```{r T1}
 error_rate <- NULL
 ```
 
@@ -50,8 +48,7 @@ error_rate <- NULL
 
 Replace the `NULL` in the `T2` code chunk below with mathematical notation so that `effect1` returns the value of the effect size. Do not round the value.
 
-
-```r
+```{r T2}
 effect1 <- NULL
 ```
 
@@ -61,8 +58,7 @@ effect1 <- NULL
 
 Replace the `NULL` in the `T3` code chunk below with mathematical notation so that `effect2` returns the value of the effect size. Do not round the value.
 
-
-```r
+```{r T3}
 effect2 <- NULL
 ```
 
@@ -76,8 +72,7 @@ effect2 <- NULL
 * **Note2:** If using the `pwr` package you do not declare `sd`
 * **Note3:** If using the `pwr` package `delta` is the same as `d`
 
-
-```r
+```{r T4}
 participants <- NULL 
 ```
 
@@ -85,8 +80,7 @@ participants <- NULL
 
 * Using a pipeline similar to Task 4, what is the minimum effect size that a one-sample t-test study (two-tailed hypothesis) could reliably detect given the following details : $\beta = .16, \alpha = 0.01, n = 30$. Round to two decimal places and replace the NULL in the `T5` code chunk below to store this value in `effect3`.
 
-
-```r
+```{r T5}
 effect3 <- NULL
 ```
 
@@ -98,8 +92,7 @@ effect3 <- NULL
 
 $$ t = \frac {{\bar{x_{1}}} - \bar{x_{2}}}{ \sqrt {\frac {{s_{1}}^2}{n_{1}} + \frac {{s_{2}}^2}{n_{2}}}}$$ 
 
-
-```r
+```{r T6}
 tval <- NULL
 ```
 
@@ -107,8 +100,7 @@ tval <- NULL
 
 * Using the `tval` calculated in Task 6, calculate the effect size of this study and store it as `d1` in the `T7` code chunk below, replacing the `NULL` with the appropriate formula and values. Do not round `d1`.
 
-
-```r
+```{r T7}
 d1 <- NULL
 ```
 
@@ -123,8 +115,7 @@ Assuming $power = .8$, $\alpha =.05$ on a two-tailed hypothesis, based on the `d
 
 Replace the NULL in the `T8` code chunk below with the number of the statement that is a true summary of this study. It may help you to calculate and store the smallest achievable effect size of this study in `poss_d`.
 
-
-```r
+```{r T8}
 #hint: use poss_d to calculate the smallest possible effect size of this study to help you answer this question.
 poss_d <- NULL
 
@@ -141,8 +132,7 @@ Below is a paragraph from the results of Experiment 4 from *Schroeder, J., & Epl
 
 Using the `power.t.test()` function, what is the minimum effect size that this paper could have reliably detected? Test at $power = .8$ for a two-sided hypothesis. Use the $\alpha$ stated in the paragraph and the smallest *n* stated; store the value as `effect4` in the `T9` code chunk below. Replace the `NULL` with your pipeline and round the effect size to two decimal places.
 
-
-```r
+```{r T9}
 effect4 <- NULL
 ```
 
@@ -157,8 +147,7 @@ Given the value of `effect4` calculated in Task 9, and the stated alpha in the p
 
 Replace the NULL in the `T10` code chunk below with the number of the statement that is TRUE, storing the single value in `answer_t10`.
 
-
-```r
+```{r T10}
 answer_t10 <- NULL
 ```
 
@@ -181,8 +170,7 @@ Now look at the below four summary statements of the validity of the statements 
 
 Replace the NULL in the `T11` code chunk below with the number of the statement that is correct, storing the single value in `answer_t11`.
 
-
-```r
+```{r T11}
 answer_t11 <- NULL
 ```
 

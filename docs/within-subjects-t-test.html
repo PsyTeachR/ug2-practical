@@ -1421,10 +1421,11 @@ two.sided
 <div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="kw">ifelse</span>(results<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">.001</span>, </a>
 <a class="sourceLine" id="cb335-2" data-line-number="2">       <span class="st">&quot;p &lt; .001&quot;</span>, </a>
 <a class="sourceLine" id="cb335-3" data-line-number="3">       <span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(results<span class="op">$</span>p.value,<span class="dv">3</span>))) </a></code></pre></div>
-<p>So instead of writing <strong>p = 4.711340610^{-12}</strong>, you would write <strong>p &lt; .001 </strong></p>
+<p>So instead of writing <strong>t(74) = 8.23, p = 4.711340610^{-12}</strong>, you would write <strong>t(74) = 8.23, p &lt; .001</strong></p>
 <p>The in-line coding for these options would look like:</p>
-<p><code>`r results %&gt;% pull(p.value)`</code> for 4.711340610^{-12}</p>
-<p>&amp; <code>`r ifelse(results$p.value &lt; .001, “p &lt; .001”, paste0(“p =”, round(results$p.value,3)))`</code> for p &lt; .001</p>
+<p>p = <code>`r results %&gt;% pull(p.value)`</code> for p = 4.711340610^{-12}</p>
+<p>&amp;</p>
+<p><code>`r ifelse(results$p.value &lt; .001, “p &lt; .001”, paste0(“p =”, round(results$p.value,3)))`</code> for p &lt; .001</p>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
