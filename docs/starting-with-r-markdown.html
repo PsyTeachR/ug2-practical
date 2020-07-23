@@ -23,7 +23,6 @@
 
 
 
-<meta name="date" content="2020-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -616,8 +615,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Level 2 Practical Lab Series</span></p>
 <div id="overview-1" class="section level2">
 <h2><span class="header-section-number">1.1</span> Overview</h2>
-<p>Over the course of this year’s practical lab sessions we will help you learn a whole host of skills and methods based around being a Psychologist, starting right now!</p>
-<p>A key goal of any researcher is to carry out an experiment and to tell others about it. One of the main ways we as Psychologists do this is through publication of a journal article. There are numerous ways that people combine different software to create a journal article, but a more recent innovation in the field that we want you to know about is creating reports and articles through R Markdown. If you like, you can see an example from a research team in our school in this <a href ="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185093" target = "_blank">recent PLOS article</a>. A link within the article methods section (this one - <a href="https://osf.io/eb9dq/" target = "_blank">https://osf.io/eb9dq/</a>) allows you to see the one file that creates the whole manuscript. Obviously you won’t be writing full journal articles just yet but you will use R Markdown throughout this lab series to do assignments and you could even also use it in other subjects to write reports, or to even make yourself a portfolio of hints, tips, and study aids. We will start by showing you some of skills in using R Markdown efficiently.</p>
+<p>Over the course of this year’s practical lab sessions we will help you learn a whole host of skills and methods based around being a Psychologist, starting right now! If you have completed Book 1 in the <strong>PsyTeachR</strong> series (<a href="https://psyteachr.github.io/" target = "_blank">https://psyteachr.github.io/</a>) then the first few labs will be familiar to you, with some additions. This is deliberate in order to refresh your skills before we approach new skills covered later in this book.</p>
+<p>A key goal of any researcher is to carry out an experiment and to tell others about it. One of the main ways we as Psychologists do this is through publication of a journal article. There are numerous ways that people combine different software to create a journal article, but a more recent innovation in the field that we want you to know about is creating reports and articles through R Markdown. If you like, you can see an example from a research team in our school in this <a href ="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185093" target = "_blank">recent PLOS article</a>. A link within the article methods section (this one - <a href="https://osf.io/eb9dq/" target = "_blank">https://osf.io/eb9dq/</a>) allows you to see the one file that creates the whole manuscript. Obviously you won’t be writing full journal articles just yet but you will use R Markdown throughout this lab series to do assignments. You could also use it in other subjects to write reports, or to make yourself a portfolio of hints, tips, and study aids as we suggest throughout the labs.</p>
+<p>Today, we will start by showing you some of skills in using R Markdown efficiently.</p>
 <p><strong>In this lab you will learn:</strong></p>
 <ol style="list-style-type: decimal">
 <li>What is R Markdown?</li>
@@ -639,6 +639,9 @@ Throughout the labs you will see little tabs that give more information, answers
 <p>
 Knit is what we say when we want to turn our R Markdown file into either a webpage, PDF, or a Word document. Often in the labs you will hear someone say, “Have you tried knitting it?” or “What happens when you knit it?”. This simply means what happens when you try turning your file into a pdf or webpage.
 </p>
+<p>
+For any of the practical data assignments, one check to run before submitting is to knit your code to an html (webpage) file and then see if you can open that file in your browser. This doesn’t check that your code is correct. It does however confirm that your code runs and has no critical issues in it that would stop your code from running. A very valuable check.
+</p>
 </div>
 </div>
 </div>
@@ -647,18 +650,18 @@ Knit is what we say when we want to turn our R Markdown file into either a webpa
 <ol style="list-style-type: decimal">
 <li><p>The output is one file that includes figures, text and citations. No additional files are needed so it’s easy to keep all your work in one place.</p></li>
 <li><p>R code can be put directly into an R Markdown report so it is not necessary to keep your writing (e.g. a Word document) and your analysis (e.g. your R script) separate.</p></li>
-<li><p>Including the R code directly lets others see how you did your analysis - this is a good thing for science! It is both Reproducible and Open!</p></li>
-<li><p>You write your report in plain text, a non software-specific format that is easy to share, so it’s not necessary to learn any new coding such as HTML.</p></li>
+<li><p>Including the R code directly lets others see how you did your analysis - this is a good thing for science! It is Reproducible and Transparen, key components of Open Science!</p></li>
+<li><p>You write your report in plain text, a non software-specific format that is easy to share, so it’s not necessary to learn any new coding such as HTM, but can create various outputs depending on what you need.</p></li>
 </ol>
 </div>
 <div id="creating-an-r-markdown-.rmd-file" class="section level3">
 <h3><span class="header-section-number">1.1.3</span> Creating an R Markdown (.Rmd) File</h3>
 <p>In this lab you’re going to create your own R Markdown document. Knowing how to do this will:</p>
 <ol style="list-style-type: lower-alpha">
-<li>help you with submitting homework assignments, and</li>
+<li>help you navigate R Markdown, in turn with submitting homework assignments, and</li>
 <li>help you to create your own reports using it.</li>
 </ol>
-<p>If at any point you are unsure about how to do something remember to think about where you can get help. There is an <strong>R Markdown Cheatsheet</strong> on the top menu under <strong><code>Help &gt;&gt; Cheatsheets</code></strong> or do what we do, Google it. For example, if I forget how to put words in bold, I could simply go to Google and type “<strong>rmarkdown bold</strong>” and no doubt get a lot of useful hints.</p>
+<p>If at any point you are unsure about how to do something remember to think about where you can get help. There is an <strong>R Markdown Cheatsheet</strong> on the top menu under <strong><code>Help &gt;&gt; Cheatsheets</code></strong> or do what we do, google it. For example, if I forget how to put words in bold, I could simply go to Google and type “<strong>rmarkdown bold</strong>” and no doubt get a lot of useful hints. There is nothing wrong with this. Nobody is expecting you to keep every function in your head; we all need reminders. You will find some elements stick in your head better than others. So remember, google is your friend!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>We have put questions throughout to help you test your knowledge. When you type in or choose the correct answer, the dashed box will change color and become solid.</p>
 <ul>
@@ -670,20 +673,20 @@ Explain This Answer!
 </button>
 <div class="info">
 <p>
-So there’s more than one answer to this question! R Markdown can combine report writing and analysis, providing open access for others to examine data, and create more Reproducible Science. But what about the incorrect answer? R Scripts do in fact run R code as you may remember from Level 1 labs. The key difference is that R Scripts cannot really be used for documentation and creating reports - this is where R Markdown is used to ensure your code can be added to all the other information of your research and can be reproduced by others.
+So there’s more than one answer to this question! R Markdown can combine report writing and analysis, providing open access for others to examine data, and create more Reproducible Science. But what about the incorrect answer? R Scripts do in fact run R code as you may remember from Level 1 labs. The key difference is that R Scripts cannot really be used for documentation and creating reports as easily - this is where R Markdown is used to ensure your code can be added to all the other information of your research and can be reproduced by others.
 </p>
 </div>
 </div>
 </div>
 <div id="one-last-thing-before-beginning" class="section level3">
 <h3><span class="header-section-number">1.1.4</span> One last thing before beginning!</h3>
-<p>Before working through the rest of this Lab you may want to watch the short videos on the Moodle pages and the <a href = "https://psyteachr.github.io/ug1-practical/" target = "_blank">Level 1 PsyTeachR Data Skills book</a> reminding you about the skills we want you to learn through using R and RStudio, and the various file formats you will be working with.</p>
+<p>Before working through the rest of this Lab you may want to watch the short videos on the Moodle pages and the <a href = "https://psyteachr.github.io/ug1-practical/" target = "_blank">Level 1 PsyTeachR Grassroots book</a> reminding you about the skills we want you have already learnt through using R and RStudio, and the various file formats you will be working with.</p>
 
 </div>
 </div>
 <div id="preclass-activiy" class="section level2">
 <h2><span class="header-section-number">1.2</span> PreClass Activiy</h2>
-<p>Having read the Overview for this Lab, and the reason behind using R, we are now going to show you how to make a reproducible code. If you have a laptop, it is best to install R and RStudio on that for you to use. Dale Barr’s video gives a reminder of how to install R and Rstudio. If you don’t have it installed yet you can just read along today and try it out when you have access to a machine in the labs.</p>
+<p>Having read the Overview for this lab, and the reason behind using R, we are now going work on making a reproducible code. If you have a laptop, it is best to install R and Rstudio on that for you to use. The videos on Moodle and in the Grassroots book gives a reminder of how to install R and Rstudio. If you don’t have it installed yet you can just read along today and try it out when you have access to a machine in the labs or online through a cloud, server or remote access.</p>
 <div id="lets-begin" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Let’s Begin</h3>
 <ul>
@@ -728,14 +731,14 @@ The long way would be to close the file and start again. The shorter way would b
 </div>
 <div id="code-chunks" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Code Chunks</h3>
-<p>Immediately below the header information you will see the default setup <strong>code chunk</strong> as shown in Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>. Most of the time you will not edit the information in this <a class='glossary' target='_blank' title='A block of R code in an R Markdown file.' href='https://psyteachr.github.io/glossary/c#chunk'>chunk</a> and you will add information, text, and code, below it.</p>
+<p>Immediately below the header information you will see the default setup <strong>code chunk</strong> as shown in Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>. Most of the time, in this lab series, you will not edit the information in this <a class='glossary' target='_blank' title='A block of R code in an R Markdown file.' href='https://psyteachr.github.io/glossary/c#chunk'>chunk</a>. Instead, you will add information, text, code, and chunks, below this chunk.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-setup-chunk"></span>
 <img src="images/s01-lab01/preclass/rmd_defaultchunk.png" alt="The defualt setup code chunk" width="100%" />
 <p class="caption">
 Figure 1.3: The defualt setup code chunk
 </p>
 </div>
-<p>In RMarkdown you can type any text you want directly in the document just as you would in a word document. However, if you want to include code you need to include it in one of these <strong>code chunks</strong> similar to Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>. Code chunks start with a line that contains three backwards apostrophes <strong>`</strong> (these are called grave accents - often in the top-left of keyboards), and then a set of curly brackets with the letter r inside:</p>
+<p>In RMarkdown you can type any text you want directly in the document just as you would in a word document. However, if you want to include code you need to include it in one of these <strong>code chunks</strong> similar to Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>. Code chunks start with a line that contains three backwards apostrophes <strong>`</strong> (these are called grave accents - often in the top-left of QWERTY keyboards), and then a set of curly brackets with the letter r inside:</p>
 <div class="verbatim">
 <code>```{r}</code><code>```</code>
 </div>
@@ -744,14 +747,14 @@ Figure 1.3: The defualt setup code chunk
 <li>The three back ticks <strong>`</strong> are the part of the Rmd file that says this is code being inserted into my document.</li>
 <li>The {r} part says that you are specifically including R code.</li>
 </ul>
-<p>The default setup code chunk provides some basic options for your RMarkdown file for when it knits your work. As above, for now, it is best to leave this particular code chunk alone. Instead we will show you how to use RMarkdown by editing the code chunks that come after this default chunk.</p>
+<p>The default setup code chunk provides some basic options for your R Markdown file for when it knits your work. As above, for now, it is best to leave this particular code chunk alone. Instead we will show you how to use R Markdown by editing the code chunks that come after this default chunk.</p>
 <p>The next code chunk in your file will look a bit like this:</p>
 <div class="verbatim">
 <p><code>```{r cars}</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">summary</span>(cars)</a></code></pre></div>
 <code>```</code>
 </div>
-<p>Within the curly brackets, on the first line of the chunk, the word <code>cars</code> is included after the letter <code>r</code>. This is simply the <strong>name</strong> or the <strong>label</strong> for the code chunk and it really could have been called anything. For example, you could have called this code chunk <code>cars1</code> and a later chunk <code>cars2</code> to show it was the first and second chunk relating to cars. Whilst it is always advisable you name your code chunks, you do not need to name them. However, if you do put in names for the chunks <strong>do not use the same name twice</strong> as this will cause your script to crash when you knit it, e.g. Do not use <code>data</code> and <code>data</code>; instead maybe use <code>personality_data</code> and <code>participant_info</code> or whatever makes sense to what you are doing in the chunk.</p>
+<p>Within the curly brackets, on the first line of the chunk, the word <code>cars</code> is included after the letter <code>r</code>. This is simply the <strong>name</strong> or the <strong>label</strong> for the code chunk and it really could have been called anything. For example, you could have called this code chunk <code>cars1</code> and a later chunk <code>cars2</code> to show it was the first and second chunk relating to cars. Whilst it is always advisable you name your code chunks, you do not need to name them. However, if you do put in names for the chunks <strong>do not use the same name twice</strong> as this will cause your script to crash when you knit it, e.g. Do not use <code>data</code> and <code>data</code>; instead maybe use <code>personality_data</code> and <code>participant_info</code> or whatever makes sense to what you are doing in the chunk. OK? Different names for different chunks! They are all individual.</p>
 <div class="solution">
 <button>
 Explain This - You can crash whilst knitting?
@@ -765,6 +768,17 @@ Remember knitting just means converting or rendering your file as a pdf, webpage
 <p><br>
 The second line in the above <strong>code chunk</strong> is the R code we have written: <code>summary(cars)</code>. In this case, we are just asking for a <code>summary()</code> of the inbuilt dataset <code>cars</code>. R has a lot of inbuilt datasets for you to practice on; <code>cars</code> is one of these.</p>
 <p>The third line closes off the code chunk, again with the three backwards apostrophes. This means that whatever is contained between the first and third lines will be the code that is run.</p>
+<div class="solution">
+<button>
+Helpful Hint - Be sure to close the chunk
+</button>
+<div class="info">
+<p>
+When people are first starting out using R Markdown, a common issue is code not working because they have started the code chunk correctly, but have forgotten to close it at the bottom with the three backticks. Remember, three backticks to open, three backticks to close, and in our chunk we bind them.
+</p>
+</div>
+</div>
+<p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li>From the following options what was the name, or label, of the <strong>default setup code chunk</strong> (i.e. the first code chunk in an R Markdown file)? <select class='solveme' data-answer='["setup"]'> <option></option> <option>include</option> <option>r</option> <option>setup</option> <option>FALSE</option></select></li>
@@ -789,22 +803,33 @@ If you look at the default setup code chunk you can see the code chunk has the n
 Figure 1.4: The knit button. Clicking this will knit your file.
 </p>
 </div>
-<p>When you click <code>Knit</code> it will ask you to save the file as an .Rmd file. Call the file <code>L2Psych_Lab1_Preclass.Rmd</code> and save it in a folder where you will keep all the information for this lab. When working in the Psychology labs or the University Library you need to save in a location or drive space that you have full access to and can save files to. The best one on campus is your <code>M:</code> drive. If using your own device then anywhere you can save the file should work.</p>
+<p>When you click <code>Knit</code> it will ask you to save the file as an .Rmd file. Call the file <code>L2Psych_Lab1_Preclass.Rmd</code> and save it in a folder where you will keep all the information for this lab. When working in the Psychology labs or the University Library you need to save in a location or drive space that you have full access to and can save files to. The best one on campus is your <code>M:</code> drive. If using your own device then anywhere you can save the file should work. However, having a good folder structure will help you navigate the labs better.</p>
 <div class="solution">
 <button>
 Helpful Hint - One folder for all your work
 </button>
 <div class="info">
 <p>
-It would be very beneficial to create a folder in your <code>M:</code> drive that will contain all your practical lab work for the rest of Level 2. Maybe something like <code>Psychology Level 2 Lab Work</code> and then have folders within that for each lab, e.g <code>Lab1</code>. The clearer the structure of these folders the easier it will be to find and use your files again! This is important as one thing we will keep telling you to do is <strong>Look Back</strong> at what you previously did.
+It would be very beneficial to create a folder in your <code>M:</code> drive that will contain all your practical lab work for the rest of Level 2. Maybe something like <code>Psychology_Level_2_Lab_Work</code> and then have folders within that for each lab, e.g <code>Lab1</code>. The clearer the structure of these folders the easier it will be to find and use your files again! This is important as one thing we will keep telling you to do is <strong>LOOK BACK</strong> (politely) at what you previously did.
 </p>
 <p>
 A good way to think about this is if you have an exam, it isn’t helpful to be told the location of your exam is ‘Glasgow Uni’ (i.e. a large folder of many locations). Instead you would need to be told the specific building (a folder within your larger folder), but more specifically the room number in the building where your exam is taking place (the folder which you are working from).
 </p>
+<p>
+Couple of tips:
+</p>
+<ul>
+<li>
+Avoid spaces in file names and folder names. It can make life really complicated and is a bad habit to start with. Use underscores between words in filenames and folder names.
+</li>
+<li>
+Never call your folder “R”. This will crash your R and potentially lead you to having to reinstall both R and Rstudio. When Rstudio opens it looks for a folder called R which it expects to contain the software and libraries. If they aren’t there because it is now looking in a different folder with the same name, things go wrong. Sort of like the Sally-Anne False Belief task, but not as exciting.
+</li>
+</ul>
 </div>
 </div>
 <p><br>
-After saving the file, a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the <code>```{r}</code> and the closing <code>```</code> in your code chunk have gone. Whenever you knit an RMarkdown file these lines will disappear leaving only the code within. You’ll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the data or not through adding rules.</p>
+After saving the file, a webpage should appear. The first thing to notice is that some lines in the code chunks have disappeared: the <code>```{r}</code> and the closing <code>```</code> in your code chunk have gone. Whenever you knit an R Markdown file these lines will disappear leaving only the code within. You’ll also notice that the output of the code is also now showing in your webpage. In the next section we will show you how to control showing the output of your code, or not, through adding rules.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-rmd-summary2"></span>
 <img src="images/s01-lab01/preclass/rmd_summary2.png" alt="The knitted summary output" width="100%" />
 <p class="caption">
@@ -814,8 +839,8 @@ Figure 1.5: The knitted summary output
 </div>
 <div id="adding-code-chunk-rules-and-options" class="section level3">
 <h3><span class="header-section-number">1.2.4</span> Adding Code Chunk Rules and Options</h3>
-<p>It can often be a good idea or even necessary to show the data or the outcome of a test in your report, for example if you were writing a report and wanted to include a table of results. But what if your code displayed a table that was 10,000 lines long? In that case we might want to not show the output and only show the code. You can do this by including a rule within the first line of your code chunk - your ```{r name, rule = option} line. You have already seen a rule before in the standard default chunk, the <code>include</code> rule, but there are a number of others.</p>
-<p><strong>To hide the output but show the code</strong> we use the <code>results = &quot;hide&quot;</code> rule:</p>
+<p>It can often be a good idea or even necessary to show the data or the outcome of a test in your report, for example if you were writing a report and wanted to include a table of results. But what if your code displayed a table that was 10,000 lines long? In that case we might want to not show the output and only show the code. You can do this by including a rule within the first line of your code chunk - your ```{r name, rule = option} line. You have already seen a rule before in the standard default chunk, the <code>include</code> rule, but there are a number of others. Let’s look at some now:</p>
+<p>First, let’s look at how to <strong>hide the output but show the code</strong>. Here, we use the <code>results = &quot;hide&quot;</code> rule:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-results-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_hide.png" alt="The results Rule" width="100%" />
 <p class="caption">
@@ -823,9 +848,9 @@ Figure 1.6: The results Rule
 </p>
 </div>
 <p><br>
-<strong>Add this rule into your example code chunk, as shown above, and knit the file again. What happens?</strong> Note that there is a comma separating the name of the chunk and the rule. You should now see the code only and not the data.
-<br>
-Alternatively, we can <strong>Hide the code, but show the ouput</strong> by using the <code>echo = FALSE</code> rule:</p>
+<strong>Add this rule into your example code chunk, as shown above, and knit the file again. What happens?</strong> Note that there is a comma separating the name of the chunk and the rule. You should now see the code only and not the data. A key thing to note here is that your code is still “running”, it just isn’t showing an output. For example, say your code said <code>x &lt;- 2 + 2</code>. With the <code>results = &quot;hide&quot;</code> rule, you would still be running that line of code, x being assigned as 4, but you just don’t see the output.
+<br><br>
+Alternatively, we can <strong>hide the code, but show the ouput</strong> by using the <code>echo = FALSE</code> rule:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-echo-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_echo.png" alt="The echo Rule" width="100%" />
 <p class="caption">
@@ -845,7 +870,7 @@ Remember from Level 1 where we called in libraries to our environment. The “ec
 </div>
 </div>
 <p><br>
-You might want to <strong>hide both the code AND the output</strong> by using the <code>include</code> rule:</p>
+Next, say you want to <strong>hide both the code AND the output</strong> but still run the code. You can do this using the <code>include</code> rule:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-include-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_hide_both.png" alt="The include Rule" width="100%" />
 <p class="caption">
@@ -862,7 +887,120 @@ Figure 1.9: The eval Rule
 </p>
 </div>
 <p><br>
-This might be useful in cases where you want to show the code relating to how you programmed your stimuli for an experiment, but you don’t necessarily want it to run as part of the RMarkdown file.</p>
+This might be useful in cases where you want to show the code relating to how you programmed your stimuli for an experiment, but you don’t necessarily want it to run as part of the R Markdown file.
+<br>
+<br>
+We could probably do with a wee summary here:
+<br></p>
+<table>
+<caption>
+<span id="tab:chp1-secret-table-disp">Table 1.1: </span>Rules! Rules! Rules!
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Code
+</th>
+<th style="text-align:center;">
+Does Code Run
+</th>
+<th style="text-align:center;">
+Does Code Show
+</th>
+<th style="text-align:center;">
+Do Results Show
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+eval = FALSE
+</td>
+<td style="text-align:center;">
+NO
+</td>
+<td style="text-align:center;">
+YES
+</td>
+<td style="text-align:center;">
+NO
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+echo = TRUE
+</td>
+<td style="text-align:center;">
+YES
+</td>
+<td style="text-align:center;">
+YES
+</td>
+<td style="text-align:center;">
+YES
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+echo = FALSE
+</td>
+<td style="text-align:center;">
+YES
+</td>
+<td style="text-align:center;">
+NO
+</td>
+<td style="text-align:center;">
+YES
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+results = “hide”
+</td>
+<td style="text-align:center;">
+YES
+</td>
+<td style="text-align:center;">
+YES
+</td>
+<td style="text-align:center;">
+NO
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+include = FALSE
+</td>
+<td style="text-align:center;">
+YES
+</td>
+<td style="text-align:center;">
+NO
+</td>
+<td style="text-align:center;">
+NO
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>You can also mix and match rules to get the code/output to display as you want. It takes a little getting used to at first but if in doubt, just ask.</p>
+<div class="solution">
+<button>
+Portfolio Point - autocompletes
+</button>
+<div class="info">
+<p>
+You can use RStudio’s autocomplete (the tab button) to see the different options for the different rules. For example, type <code>include =</code> and then hit the tab button on your keyboard. You should see the options of <code>TRUE</code> or <code>FALSE</code>.
+</p>
+<p>
+Autocomplete also works for a lot of functions you can’t quite remember how to spell as well. gg-what? gg-{tab button}… Ah yes, <code>ggplot()</code>.
+</p>
+</div>
+</div>
+<p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>You’ve got a large dataset of thousands of participants’ personality and happiness scores that you want to analyse and present in RMarkdown.</p>
 <ul>
@@ -878,7 +1016,10 @@ Explain This - I don’t understand these answers
 The first answer should be <code>results = “hide”</code> as you want to show the code and run the code but not necessarily show the output of the code.
 </p>
 <p>
-In the second question, <code>include = FALSE</code> technically would hide the code, but this also hides the output! <code>echo = FALSE</code> allows you to still see your plot while hiding the code you want hidden. <code>code = HIDE</code> - if only it were that simple! The aim of these questions aren’t to help you memorise these codes (no one can do that!); they’re to help you gain a better understanding of how to apply these codes when you come across them in the future.
+In the second question, <code>include = FALSE</code> technically would hide the code, but this also hides the output! <code>echo = FALSE</code> allows you to still see your plot while hiding the code you want hidden. <code>code = HIDE</code> - if only it were that simple!
+</p>
+<p>
+Remember, the aim of these questions aren’t to help you memorise these codes (no one can do that!); they’re to help you gain a better understanding of how to apply these codes when you come across them in the future.
 </p>
 </div>
 </div>
@@ -913,37 +1054,49 @@ With setting <code>results = “hide”</code>, the code is evaluated and result
 </div>
 <div id="adding-inline-code" class="section level3">
 <h3><span class="header-section-number">1.2.5</span> Adding Inline Code</h3>
-<p>An alternative way to add code to a report is through what is called using <strong>inline code</strong>. With inline code you don’t use a code chunk. Instead the code appears <strong>inline</strong> with the text. Inline code can be inserted using a back-tick, then the letter <code>r</code>, followed by a space, the code you want to include, then another back-tick. For example, writing <code>`r 2 + 2`</code> would return the answer <strong>4</strong> when you knit the file instead of showing the code. Note that you do not do this inside a code chunk, you do this in line with your text, e.g.:
+<p>An alternative way to add code to a report is through what is called using <strong>inline code</strong>. With inline code you don’t use a code chunk. Instead the code appears <strong>inline</strong> with the text. Inline code can be inserted using a back-tick, then the letter <code>r</code>, followed by a space, then the code you want to include, then finally another back-tick. For example, writing <code>`r 2 + 2`</code> would return the answer <strong>4</strong> when you knit the file instead of showing the code. Remember, you do not do this inside a code chunk, you do this in line with your text, e.g.:
 <br><br>
 <strong>“We ran <code>`r 2+2`</code> people”.</strong>
 <br><br>
 Which when knitted becomes:
 <br><br>
 <strong>“We ran 4 people”.</strong></p>
-<p>So inline coding is really useful if you want to do calculations <strong>within your text</strong> or insert values into text, say from a dataframe, to make an informative sentence.</p>
+<p>So inline coding is really useful if you want to do calculations <strong>within your text</strong> or insert values into text, say from a dataframe, to make an informative sentence. We will look at more complex examples later in the labs but again this is a really useful tool for writing manuscripts through R Markdown the more comfortable you get with it.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li><p>You need <select class='solveme' data-answer='["Three"]'> <option></option> <option>Two</option> <option>One</option> <option>Three</option></select> back tick(s) to insert <strong>code chunks</strong></p></li>
-<li><p>Why is this inline code, <code>`{r} 6 * 8`</code> , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='solveme' data-answer='["Curly brackets are only needed for code chunks"]'> <option></option> <option>You need a space between each back tick and the code</option> <option>Inline code cannot complete calcuations</option> <option>Curly brackets are only needed for code chunks</option></select></p></li>
+<li><p>Why is this inline code, <code>`{r} 6 * 8`</code> , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='solveme' data-answer='["Curly brackets around the r are only needed for code chunks"]'> <option></option> <option>You need a space between each back tick and the code</option> <option>Inline code cannot complete calcuations</option> <option>Curly brackets around the r are only needed for code chunks</option></select></p></li>
 </ul>
 <div class="solution">
 <button>
 Explain This - Why are these answers correct?
 </button>
 <div class="info">
+<ul>
+<li>
 <p>
 All code chunks start and end with three back-ticks.
 </p>
+</li>
+<li>
 <p>
-Inline coding does not use the curly brackets around the <code>r</code>. All you need is a back-tick, r, space, code, and a final back-tick.
+Inline coding does not use the curly brackets around the <code>r</code>.
 </p>
+</li>
+<li>
+<p>
+All you need for inline coding is a back-tick, r, space, code, and a final back-tick.
+</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="formatting-the-r-markdown-file" class="section level3">
 <h3><span class="header-section-number">1.2.6</span> Formatting the R Markdown File</h3>
-<p>The last thing we want to show you in this preclass activity is how to format your text. When you’re not writing in code chunks you can format your document in lots of different ways just like you would in a Word document. The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out.</p>
-<p>We can make some text <strong>bold</strong> by including two ** (two asterisks) at the start and end of the text we want to present in bold font. For example:
+<p>The last thing we want to show you in this preclass activity is how to format your text.</p>
+<p>When you’re not writing in code chunks you can format your document in lots of different ways just like you would in a Word document (or other expensive license-based software). The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out.</p>
+<p>We can make text <strong>bold</strong> by including two ** (two asterisks) at the start and end of the text we want to present in bold font. For example:
 <br><br>
 “We ran **4 people**.
 <br><br>
@@ -951,7 +1104,14 @@ Which when knitted becomes:
 <br><br>”We ran <strong>4 people</strong>&quot;.
 <br><br>
 <strong>Now write some text in your Rmd file and put it in bold.</strong> Knit the file to check it worked.</p>
-<p>You could also try using italics by putting a single * (asterisk) at the start and end of the word or sentence. <strong>Try this now</strong></p>
+<p>You could also try using italics by putting a single * (asterisk) at the start and end of the word or sentence. <strong>Try this now.</strong> Here is an example to help.
+<br><br>
+“We ran *4 people*.
+<br><br>
+Which when knitted becomes:
+<br><br>”We ran <em>4 people</em>&quot;.
+<br><br></p>
+<p><strong>Note:</strong> italics can be difficult to read for many people and as such we have tried to avoid using it in this book. If you find some italics, where it is not necessary, please let us know and claim your reward of a packet of minstrels. Yes, a whole packet!</p>
 <p>Finally, you might want to add headings and sub-headings to your file. For example, maybe you are writing a Psychology journal article and want to put in a header for the Introduction, Methods, Results, or Discussion sections. We do this using the # (hashtag) symbol as shown in Figure <a href="starting-with-r-markdown.html#fig:img-header-levels">1.10</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-header-levels"></span>
 <img src="images/s01-lab01/preclass/rmd_hashtag.png" alt="Inputting different Header levels using #s" width="100%" />
@@ -960,7 +1120,7 @@ Figure 1.10: Inputting different Header levels using #s
 </p>
 </div>
 <p><br>
-<strong>Now, type the four main sections found in a Psychology journal article in your RMarkdown file, typing each one in a separate line</strong>. These are mentioned above. Knit the file. What do these look like?</p>
+<strong>Now, type the four main sections found in a Psychology journal article in your R Markdown file, typing each one in a separate line</strong>. These are mentioned above. Knit the file. What do these look like?</p>
 <p><strong>Now add a different number of #’s before each heading</strong>, with a space between the heading and the hashtag (e.g. # Introduction) and knit the file again. What do you notice about the different number of hashtags?</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
@@ -980,7 +1140,7 @@ If * at the start and end of the word puts it in italics (e.g. <em>italics</em>)
 It is true that the more #’s you use, the smaller the heading is. Word and other document writers use different headings as well. Here, # gives the biggest heading, and it gets smaller and smaller with every extra #.
 </p>
 <p>
-Finally, in Psychology, the vast majority of journal articles are written in the format of: Introduction, Methods, Results, Discussion. In Semester 1 of Level 2 Psychology, you will write a report based on just the Introduction and the Methods. In Semester 2 you will write a report including all four sections. More on that to follow.
+Finally, in Psychology, the vast majority of journal articles are written in the format of: Introduction, Methods, Results, Discussion. This format does not always hold as some journals ask authors to use a different format, depending how much emphasis that journal (erroneously) likes to put on results over hypothesis and methods. We however teach the order stated above. The question and approach is always as important, if not more so, than the results! Which of course you know from learning about Registered Reports in the labs and lectures.
 </p>
 </div>
 </div>
@@ -992,10 +1152,10 @@ Finally, in Psychology, the vast majority of journal articles are written in the
 </div>
 <div id="inclass-activiy" class="section level2">
 <h2><span class="header-section-number">1.3</span> InClass Activiy</h2>
-<p><span style="font-size: 16px; font-weight: bold; color: var(--green);">In order to complete this activity you should have worked through the Lab PreClass Activity. You may also need <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents.</span></p>
+<p><span style="font-size: 16px; font-weight: bold; color: var(--green);">For all the inclass activities, you will need to have completed the PreClass Activities. You may also need some cheatsheets such as <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents. We will tell you which additional material might help where we think it is appropriate.</span></p>
 <div id="r-markdown-and-the-experimental-design-portfolio" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> R Markdown and The Experimental Design Portfolio</h3>
-<p>In the preclass activity, we asked you to start playing about with R Markdown. Now, in the lab, we are going to continue learning about R Markdown as creating your own files from scratch is a great start to creating reproducible science! We will also start you off in creating your own <strong>Experimental Design Portfolio</strong> through R Markdown. The aim of this portfolio is to consolidate your learning in experimental design, allowing you to reflect back on how your learning has progressed. You should add to it whenever you think “Oh that is a good tip!” or “That is something I want to remember!”. Do this after a lab or a lecture, when you are collating all your notes together. Your portfolio is for you, unless you choose to share it of course, and will not be assessed or marked in anyway. It is your learning aid to help you develop your understanding of Research Methods in Psychology.</p>
+<p>In the preclass activity, we asked you to start playing about with R Markdown. Now, in the lab, we are going to continue learning about R Markdown as creating your own files from scratch is a great start to creating reproducible science! We will also start you off in creating your own <strong>Experimental Design and Analysis Portfolio</strong> through R Markdown. The aim of this portfolio is to consolidate your learning in experimental design and analysis, allowing you to reflect back on how your learning has progressed. You should add to it whenever you think “Oh that is a good tip!” or “That is something I want to remember!”. Do this after a lab or a lecture, when you are collating all your notes together. Your portfolio is for you, unless you choose to share it of course, and will not be assessed or marked in anyway. It is your learning aid to help you develop your understanding of research methods and analysis in Psychology.</p>
 <p>By the end of these labs you should be able to use your portfolio for exam revision, particularly if you incorporate lecture material, so it’s worth maintaining a clear structure to your portfolio! In this first lab, <strong>across 9 tasks</strong>, we will help you to understand how to structure and format R Markdown files; you can then apply what you learn here to your portfolio in your own time. We suggest having your portfolio open in every lab so you can add to it as you go along. Let’s begin!</p>
 <div class="solution">
 <button>
@@ -1018,7 +1178,7 @@ a top tip is to write a short summary after every paper you read, including the 
 </ul>
 </li>
 <li>
-Design aspects of your Registered Report
+Aspects of your Reports’ designs and analyses
 <ul>
 <li>
 what decisions you made and why; how they compare to other studies.
@@ -1033,6 +1193,9 @@ For codes you find more challenging to understand the function of
 </li>
 <li>
 For codes you might use more frequently in future activities
+</li>
+<li>
+We are developing a glossary which you can send us items to include or get involved with. It is still in development but you can see it here <a href="https://psyteachr.github.io/glossary/" target = "_blank">https://psyteachr.github.io/glossary/</a>.
 </li>
 </ul>
 </li>
@@ -1055,16 +1218,16 @@ Explain This - What is an open dataset?
 An open dataset is made available for everyone to see and is stored on the internet for other researchers to use. In the PreClass activity, you saw an example of this at the very start in the PLOS One article. Many journals now ask researchers to make their data available or to post it somewhere accessible like the <a href="https://www.osf.io" target = "_blank">Open Science Framework</a>.
 </p>
 <p>
-Interestingly, the art of making your data available was standard in classic older articles. The data we are using today comes from 1967. Sometime between then and more recent times, data started being made unavailable - closed. We believe all data should be made available and will encourage you to do that over the coming years.
+Interestingly, the art of making your data available was standard in classic older articles. The data we are using today comes from 1967. Sometime between then and more recent times, data started being made unavailable - closed. We believe all data should be made available and will encourage you to do that over the coming years. Transparent science is Open Science!
 </p>
 </div>
 </div>
 <p><br>
 The data we will use today is from a paper looking at the <strong>Ponzo illusion</strong> and Age:</p>
-<p><strong>Leibowitz, H. W. &amp; Judisch, J. M. (1967). The Relation between Age and the Magnitude of the Ponzo Illusion. The American Journal of Psychology, 80(1), 105-109.</strong> It can be accessed on campus (University of Glasgow) through <a href="https://www.jstor.org/stable/1420548?seq=1#page_scan_tab_contents" target = "_blank">this link</a>.</p>
-<p>The basics of the Ponzo illusion (<a href="https://en.wikipedia.org/wiki/Ponzo_illusion" target = "_blank">Wikipedia page</a>) is that two lines of the same size are viewed as being of different length based on surrounding information - like sleepers on a traintrack. See Figure 1 of Leibowitz and Judisch (1967) for an example (P106). The authors showed people two vertical lines surrounded by differing horizontal lines running at angles behind the main vertical lines. The authors varied the size of one of the vertical lines (left line) and asked the participants to judge which of the two vertical lines was bigger or longer; the left line (variable) or the right one (standard). The paper also tested how this illusion was influenced by age. For more info, see the paper. For the dependent variable, they measured what size the left line had to be to be considered the same size as the standard line on the right. The data we will be using can be seen on page 107, and includes:</p>
+<p><strong>Leibowitz, H. W. &amp; Judisch, J. M. (1967). The Relation between Age and the Magnitude of the Ponzo Illusion. The American Journal of Psychology, 80(1), 105-109.</strong> It can be accessed on campus (University of Glasgow) through <a href="https://www.jstor.org/stable/1420548?seq=1#page_scan_tab_contents" target = "_blank">this link</a>. Off campus you can sign in to read it through the University of Glasgow library if you are a student at Glasgow.</p>
+<p>The basics of the Ponzo illusion (<a href="https://en.wikipedia.org/wiki/Ponzo_illusion" target = "_blank">Wikipedia page</a>) is that two lines of the same size are viewed as being of different length based on surrounding information - like sleepers on a traintrack. See Figure 1 of Leibowitz and Judisch (1967) for an example (P106). The authors showed people two vertical lines surrounded by differing horizontal lines running at angles behind the main vertical lines. The authors varied the size of one of the vertical lines (left line) and asked the participants to judge which of the two vertical lines was bigger or longer; the left line (variable) or the right one (standard). The paper also tested how this illusion was influenced by age. For more info, see the paper. Operationalising the dependent variable, Leibowitz &amp; Judisch measured what size the left line had to be to be considered the same size as the standard line on the right. The data we will be using can be seen on page 107, and includes:</p>
 <ul>
-<li>Which Group people were assigned to according to age, with each group being made of 10 people of the same sex</li>
+<li>Which Group participants were assigned to according to age, with each group being made of 10 participants of the same sex</li>
 <li>The Sex of the Group</li>
 <li>The Mean Age of the Group</li>
 <li>The Mean Length of the left vertical line</li>
@@ -1091,12 +1254,12 @@ Throughout the labs you will see these Helpful Hints. Usually the solutions are 
 In setting up this Rmd file, if you have followed these steps correctly, you will probably see a new R Markdown file with a header containing the title, author, date and output information as shown in the PreClass activity.
 </p>
 <p>
-If you don’t see the document header, then you’ve probably created an R Script instead. Refer back to the PreClass activity and try again. Look further down the list of File options on the top menu. If stuck, speak to a tutor.
+If you don’t see the document header, then you’ve probably created an R Script instead. Refer back to the PreClass activity and try again. Look further down the list of File options on the top menu. If stuck, speak to a tutor or ask on an appropriate forum.
 </p>
 </div>
 </div>
 <p><br>
-You can now remove the parts of the generic R Markdown code that we do not need; anything <strong>after</strong> the <code>setup</code> code chunk can be removed (see Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>). So anything after line 11 can be removed. Leave the first code chunk however - lines 8 to 10 - as these lines make R Markdown show code chunks unless otherwise specified.</p>
+You can now remove the parts of the generic R Markdown code that we do not need; anything <strong>after</strong> the <code>setup</code> code chunk can be removed (see Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>). So anything after line 11 can be removed. Leave the first code chunk however - lines 8 to 10 - as these lines make R Markdown show code chunks unless otherwise specified - note the <code>echo =  TRUE</code>.</p>
 <div class="solution">
 <button>
 Portfolio Point - Code Chunk Reminders
@@ -1110,14 +1273,14 @@ After the lab it might be handy to write a reminder somewhere in your portfolio 
 </div>
 <div id="Ch1InClassQueT2" class="section level3">
 <h3><span class="header-section-number">1.3.4</span> Task 2: Give your Report a Heading</h3>
-<p>We are going to start off your portfolio with creating a brief report on the Leibowitz and Judisch paper, so we should give it a heading.</p>
+<p>We are going to start off your portfolio with creating a brief report on Leibowitz and Judisch (1967), so we should give it a heading.</p>
 <ol style="list-style-type: decimal">
 <li>After the <code>setup</code> code chunk, give your report a heading, e.g. <strong>Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</strong>.</li>
 <li>Using hashtags, give this heading a <strong>Header 1</strong> size.</li>
 </ol>
 <div class="solution">
 <button>
-Helpful Hint
+Helpful Hint - hashtags are not just for social media
 </button>
 <div class="info">
 <p>
@@ -1128,9 +1291,24 @@ Remember that the fewer the number of hashtags the larger the heading size.
 </div>
 <div id="Ch1InClassQueT3" class="section level3">
 <h3><span class="header-section-number">1.3.5</span> Task 3: Creating a Code Chunk</h3>
-<p>We are going to need the data soon so best to bring it in at the start.</p>
+<p>We are going to need the data soon so best to bring it in at the start of our code.</p>
 <ol style="list-style-type: decimal">
 <li>Set your working directory: <strong><code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></strong></li>
+</ol>
+<div class="solution">
+<button>
+Portfolio Point - Set Working Directory
+</button>
+<div class="info">
+<p>
+One of the most common issues we see with people using Rstudio is that they forget to set their working directory to the folder containing the data file they are working on. This means that when you try to knit or run a code line it won’t work because Rstudio doesn’t know where the data is. Remember to set your working directory at the start of each session, using <strong><code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></strong>
+</p>
+<p>
+Avoid using code to set your working directory as often this will only work on your machine and not others and is therefore not fully reproducible without editing the script.
+</p>
+</div>
+</div>
+<ol start="2" style="list-style-type: decimal">
 <li>Download the data for this lab in a zip file by clicking <a href="./data/01-s01/inclass/PonzoAgeData.zip">this link</a>. Unzip it and save it to the folder you are working in.</li>
 <li>Create a new code chunk in your R Markdown script, give this code chunk the name <code>load_data</code>.</li>
 <li>Copy and paste the code below into your code chunk. Spend a couple of minutes with a partner reminding yourself what the code does. The answer is in the hint below.</li>
@@ -1142,7 +1320,7 @@ Remember that the fewer the number of hashtags the larger the heading size.
 <p><strong>Important</strong>: There is a good chance that, on the webpage that you have knitted, you will see either some warnings or messages. You can suppress these using the <code>message</code> and <code>warning</code> rules within the code chunks as well. Try this now - the PreClass Activities and the R-Markdown cheatsheet will help.</p>
 <div class="solution">
 <button>
-Helpful Hint
+Helpful Hint - what was all that?
 </button>
 <div class="info">
 <p>
@@ -1150,7 +1328,7 @@ Helpful Hint
 </p>
 <ul>
 <li>
-echo can equal TRUE or FALSE.
+Step 4 - echo can equal TRUE or FALSE.
 </li>
 <li>
 Remember to separate rules in the code chunk with commas. E.g. {r, rule1 = FALSE, rule2 = TRUE}
@@ -1161,10 +1339,10 @@ Remember to separate rules in the code chunk with commas. E.g. {r, rule1 = FALSE
 </p>
 <ol style="list-style-type: decimal">
 <li>
-Loads the <code>tidyverse</code> packages and all associated packages e.g. <code>dplyr</code>, <code>readr</code> and <code>ggplot2</code>. Remember, you used these in Level 1.<br />
+Line 1 loads the <code>tidyverse</code> packages and all associated packages e.g. <code>dplyr</code>, <code>readr</code> and <code>ggplot2</code>. You have used these in Level 1 Grassroots book - we will recap a lot of that in the coming labs.<br />
 </li>
 <li>
-Loads in the data using the <code>read_csv()</code> function and stores it in <code>ponzo_data</code>.
+Line 2 loads in the data using the <code>read_csv()</code> function and stores it in <code>ponzo_data</code>.
 </li>
 </ol>
 <p>
@@ -1172,25 +1350,15 @@ Loads in the data using the <code>read_csv()</code> function and stores it in <c
 </p>
 <ul>
 <li>
-<code>ponzo_data</code> could have been called anything but best to call it something that makes it clear what it is.
+<code>ponzo_data</code> could have been called anything but best to call it something that makes it clear what it is. Only rule is no spaces in the name. <code>ponzo_data</code> and <code>ponzo.data</code> are acceptable, and different from each other. <code>ponzo data</code> is not acceptable and will crash the code.
 </li>
 <li>
-<code>read_csv()</code> is actually in the <code>readr</code> package and is available to you only after you have loaded in <code>tidyverse</code> through <code>library(tidyverse)</code>. We will always tell you to use <code>read_csv()</code> to read in data from a csv file.
+<code>read_csv()</code> is actually in the <code>readr</code> package and is available to you only after you have loaded in <code>tidyverse</code> through <code>library(tidyverse)</code>. We will <strong>always</strong> tell you to use <code>read_csv()</code> to read in data from a csv file. There are other codes that load in data - one very similar one is <code>read.csv()</code>. They work differently. Only ever use <code>read_csv()</code> in your Psychology labs unless otherwise instructed.
 </li>
 <li>
 remember <code>&lt;-</code> essentially means <code>assign this to that</code>. Assigning the ponzo data to the table <code>ponzo_data</code> can actually can be written the other way around - <code>read_csv(“PonzoAgeData.csv”) -&gt; ponzo_data</code> - but convention usually puts it the way we have in the code.
 </li>
 </ul>
-</div>
-</div>
-<div class="solution">
-<button>
-Portfolio Point - Set Working Directory
-</button>
-<div class="info">
-<p>
-One of the most common issues we see with people using RStudio is that they forget to set their working directory to the folder containing the data file they are working on. This means that when you try to knit or run a code line it won’t work because RStudio doesn’t know where the data is. Remember to set your working directory at the start of each session, using <strong><code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></strong>. Avoid using code to set your working directory as this will only work on your machine and not others and is therefore not fully reproducible without editing the script.
-</p>
 </div>
 </div>
 </div>
@@ -1199,21 +1367,50 @@ One of the most common issues we see with people using RStudio is that they forg
 <p>Let’s start giving this brief report some information and structure as we would a full report.</p>
 <ol style="list-style-type: decimal">
 <li>Underneath the code chunk you entered, put a new heading called <strong>Introduction</strong> and give it a <strong>Header 2</strong> size.</li>
-<li>Next, do a little research with your group on the <strong>Ponzo Illusion</strong> and write a sentence or two describing its function; include a citation to support your research. There is a link to the wikipedia page on the illusion at the top of this lab which might help.</li>
+<li>Next, do a little research with your group on the <strong>Ponzo Illusion</strong> and write a sentence or two describing how it works and what it tells us; include a citation to support your research. There is a link to the wikipedia page on the illusion at the top of this lab which might help.</li>
 <li>Finally, copy the text in the box below into your report and finish the text by putting the names of two hypotheses behind the illusion below the sentence in an <strong>ordered list</strong> style; i.e. 1… 2…, etc. The two hypotheses are <strong>The Framing hypothesis</strong> and <strong>The Perspective hypothesis</strong>.</li>
 </ol>
 <pre><code>&quot;There are two underlying hypotheses that may explain the Ponzo Illusion. These are: ...&quot;</code></pre>
+<div class="solution">
+<button>
+Helpful Hint - Lists
+</button>
+<div class="info">
+<p>
+Lists can be tricky to begin with but are very straightforward once you know the key points.
+</p>
+<ul>
+<li>
+The list begins after a blank line after any text. If you start the list without leaving a blank line at the top it won’t work.
+</li>
+<li>
+Each point starts with an asterisk (*) or by an integer and full-stop (e.g. <code>1.</code>)
+</li>
+<li>
+You must have a space after the * or 1. before writing your point.
+</li>
+<li>
+Each point is a new line.
+</li>
+<li>
+To stagger points on a list (i.e. indent), leave 4 blank spaces (two tabs) and then put your * etc.
+</li>
+</ul>
+</div>
+</div>
+<p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Question</span></p>
 <p>Here are a couple of questions to try out in your group to remind you about using citations:</p>
 <p>When writing a report, how would you cite:</p>
 <ul>
-<li>Papers with <strong>five</strong> authors for the <strong>first</strong> time? <select class='solveme' data-answer='["Author 1, Author 2, Author 3, Author 4, & Author 5, Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
-<li>Papers with <strong>five</strong> authors for the <strong>second</strong> time? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
-<li>Papers with <strong>seven</strong> authors for the <strong>first</strong> time? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7</option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7, Year</option> <option>Author 1 et al., Year</option></select></li>
+<li>Papers with <strong>five</strong> authors on the <strong>first</strong> mention? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
+<li>Papers with <strong>five</strong> authors on the <strong>second</strong> mention? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
+<li>Papers with <strong>seven</strong> authors on the <strong>first</strong> mention? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7</option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7, Year</option> <option>Author 1 et al., Year</option></select></li>
+<li>Papers with <strong>two</strong> authors in a citation? <select class='solveme' data-answer='["(Author 1 & Author 2)"]'> <option></option> <option>(Author 1 &amp; Author 2)</option> <option>(Author 1 et al., Year)</option></select></li>
 <li><strong>Two</strong> papers in <strong>one</strong> paretheses? <select class='solveme' data-answer='["Order alphabetically according to first author surname, separated by a semi-colon"]'> <option></option> <option>Order chronologically according to year, separated by a semi-colon</option> <option>Order alphabetically according to first author surname, separated by a semi-colon</option></select></li>
 <li><strong>Two</strong> papers of the <strong>same</strong> author? <select class='solveme' data-answer='["Order chronologically according to year, separated by a comma"]'> <option></option> <option>Order chronologically according to year, separated by a semi-colon</option> <option>Order chronologically according to year, separated by a comma</option> <option>Order alphabetically by adding a letter to each year</option></select></li>
 </ul>
-<p>For more information on how to format citations, you can look at this helpful <a href = "https://owl.english.purdue.edu/owl/resource/560/03/" target = "_blank">APA formatting and style guide</a>.</p>
+<p>Those questions about citations may throw you a little. In late 2019, the APA Style Guide 7th edition was released. One of the biggest changes here was that for papers of three or more authors, the citation would only show the first author and the year, as opposed to listing all authors on first citation. Two author papers and single author papers still always show all authors. For more information on how to format citations, you can look at the highly recommended <a href = "https://apastyle.apa.org/style-grammar-guidelines/citations/basic-principles/author-date" target = "_blank">APA Style blog</a>.</p>
 </div>
 <div id="Ch1InClassQueT5" class="section level3">
 <h3><span class="header-section-number">1.3.7</span> Task 5: Making Text Bold or Italicized</h3>
@@ -1225,21 +1422,23 @@ One of the most common issues we see with people using RStudio is that they forg
 <ul>
 <li>Bold text and italicized text are created similarly, how do you create italicized text? <select class='solveme' data-answer='["* (before and after text)"]'> <option></option> <option>* (before text)</option> <option>** (before and after text)</option> <option>* (before and after text)</option> <option>** (before text)</option></select></li>
 </ul>
-<p><strong>It’s a good idea to <code>knit</code> the file at this point to make sure the bold font is working correctly.</strong></p>
+<p><strong>It’s a good idea to <code>knit</code> the file at this point to make sure the codes are all working correctly.</strong></p>
 </div>
 <div id="Ch1InClassQueT6" class="section level3">
 <h3><span class="header-section-number">1.3.8</span> Task 6: Adding Links to the Data in your Methods</h3>
-<p>Good practice in a Report is to include information about where we got the data from.
-1. Create a new heading below your list of the two hypotheses and call it <strong>Methods</strong>. Set it as <strong>Header 2</strong> size.
-2. Below <strong>Methods</strong> write a new heading called <strong>Data</strong> and set it as <strong>Header 3</strong> size.
-3. Underneath the Methods heading, copy and paste in the below sentence and turn the citation into an internet link to the paper.</p>
+<p>Good practice in a Report is to include information about where we got the data from.</p>
+<ol style="list-style-type: decimal">
+<li>Create a new heading below your list of the two hypotheses and call it <strong>Methods</strong>. Set it as <strong>Header 2</strong> size.</li>
+<li>Below <strong>Methods</strong> write a new heading called <strong>Data</strong> and set it as <strong>Header 3</strong> size.</li>
+<li>Underneath the Methods heading, copy and paste in the below sentence and turn the citation into an internet link to the paper.</li>
+</ol>
 <blockquote>
 <p>“The data in this report was obtained from within the original paper, (Lebowitz and Judisch, 2016).”</p>
 </blockquote>
 <p><strong>Now knit your document again to make sure your formatting is working. Titles should be bigger than normal text and the list should be indented and have numbers at the start of each line.</strong></p>
 <div class="solution">
 <button>
-Helpful Hint
+Helpful Hint - adding links?
 </button>
 <div class="info">
 <p>
@@ -1253,7 +1452,8 @@ Use the R Markdown cheatsheet to see how to insert links. It has something to do
 </div>
 <div id="Ch1InClassQueT7" class="section level3">
 <h3><span class="header-section-number">1.3.9</span> Task 7: Adding an Image to your Methods</h3>
-<p>For certain studies, you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you’ll see that adding an image is very similar to adding a link, the only difference is the <code>!</code> beforehand. For now we will just add an image of the illusion taken from the internet to illustrate how to do this.</p>
+<p>For certain studies, you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you’ll see that adding an image is very similar to adding a link, the only difference is the exclamation mark, <code>!</code>, beforehand. Surprising, I know!</p>
+<p>For now we will just add an image of the illusion taken from the internet to illustrate how to add images to our documents.</p>
 <ol style="list-style-type: decimal">
 <li>Below the sentence you added for Task 6, add a new heading called <strong>Stimuli</strong> and set it as <strong>Header 3</strong> size.</li>
 <li>Below the <strong>Stimuli</strong> heading, insert the image at the following web address:</li>
@@ -1267,6 +1467,9 @@ Portfolio Point - A good methods section
 <p>
 Remember that a good methods section will contain all the necessary information that would be required for another researcher to replicate your experiment exactly! It would normally be split into three or four sections including Ethics, Participants, Stimuli, and Procedure.
 </p>
+<p>
+This may sound very obvious but you would be surprised at how many Methods sections don’t give enough information for replicating the study. Articles tend to have word counts - just like your assignments. Authors have tended to cut words where they can to fit in further discussion or more results. Methods sections have suffered as a result. But no more!
+</p>
 </div>
 </div>
 </div>
@@ -1275,11 +1478,13 @@ Remember that a good methods section will contain all the necessary information 
 <p>Another benefit of R Markdown is that you can insert tables of results directly into your report without having to format them - though for aesthetics you will want to learn how to format tables eventually. But for now…</p>
 <ol style="list-style-type: decimal">
 <li>Create a new heading below your methods sentence, called <strong>Results</strong> and format it as <strong>Header 2</strong> size.</li>
-<li>Add a new code chunk and give it the name <code>table</code>, and include the code shown below.</li>
+<li>Add a new code chunk and give it the name <code>table</code>, and include the code shown below. The first part of the code <code>my_table &lt;- group_by %&gt;% summarise</code> creates the table and stores it in <code>my_table</code>. The second part of the code <code>my_table</code> calls the table. Calls means <code>to display or to show me</code> in this sense.</li>
 <li>Add an <code>echo</code> rule so that the code <strong>IS NOT</strong> included in the final document but the ouput table <strong>is</strong> included.</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">group_by</span>(ponzo_data, Sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">NofGroups=</span><span class="kw">n</span>(), <span class="dt">mean_length =</span> <span class="kw">mean</span>(ComparisonLength))</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">my_table &lt;-<span class="st"> </span><span class="kw">group_by</span>(ponzo_data, Sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">NofGroups=</span><span class="kw">n</span>(), <span class="dt">mean_length =</span> <span class="kw">mean</span>(ComparisonLength))</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">my_table</a></code></pre></div>
 <p><strong>Now, knit your document to see what you have produced. You should not see the above code, just the output table.</strong></p>
 </div>
 <div id="Ch1InClassQueT9" class="section level3">
@@ -1294,16 +1499,36 @@ Remember that a good methods section will contain all the necessary information 
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="solution">
 <button>
-Portfolio Point - autocompletes
+Portfolio Point - to assign or to not assign
 </button>
 <div class="info">
 <p>
-You can use RStudio’s autocomplete (the tab button) to see the different options for the different rules. For example, type <code>include =</code> and then hit the tab button on your keyboard. You should see the options of <code>TRUE</code> or <code>FALSE</code>. This works for a lot of functions you can’t quite remember how to spell as well.
+You may notice above that we assigned our data in the table to <code>my_table</code> and then called <code>my_table</code> to show it. However, we didn’t do that for the figure. We just put the code for the figure but did not assign it. Why?
+</p>
+<p>
+There is no great answer and you could assign both or not assign either, and we will chop and change throughout the labs to show you the difference but the tendency is to assign tables but not assign figures. Simply because we often are creating the figures to show them and therefor assigning them and then calling them requires more code. Tables on the other hand are often stored to work on later, so it makes sense to assign them.
+</p>
+<p>
+Again this is not a hard and fast rule and often we will assign figures but it just makes it quicker not to. If you ever do assign a figure remember to call it, or your figure won’t be displayed!
 </p>
 </div>
 </div>
-<p><br>
-<strong>Again, knit your document to make sure it is working correctly. Below your table you should now have the ggplot code followed by the nice scatterplot.</strong></p>
+<p><br></p>
+<p><strong>Again, knit your document to make sure it is working correctly. Below your table you should now have the ggplot code followed by the nice scatterplot.</strong></p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);"> <strong>Group Discussion Point</strong> </span></p>
+<p>In your group, have a brief discussion about the figure to answer the following question.</p>
+<p>“Based on the distibrution of the data, shown in the above Figure, …” <select class='solveme' data-answer='["as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line"]'> <option></option> <option>as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line</option> <option>as age increases, people perceive a longer vertical line to be of same length as the standard vertical linge</option> <option>There is no relationship between Age and the Ponzo illusion</option> <option>This figure tells me nothing about the relationship between Age and the Ponzo illusion</option></select></p>
+<div class="solution">
+<button>
+Helpful Hint
+</button>
+<div class="info">
+<p>
+What does each dot represent in the Figure, and what is the pattern of the dots?
+</p>
+</div>
+</div>
+<p><br></p>
 <p>We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report! Compare your report to the one we have created to see if they match, which can be found at the end of this chapter using menu on the left (i.e. InClass Comparison) or <a href="data/01-s01/inclass/ProducedPonzoTemplate.zip">click here to download the .Rmd file in a zip folder</a>. <strong>Fix anything that is not formatted as in our template.</strong></p>
 <div class="solution">
 <button>
@@ -1318,22 +1543,8 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 </p>
 </div>
 </div>
-<p><br>
-<span style="font-size: 22px; font-weight: bold; color: var(--purple);"> <strong>Group Discussion Point</strong> </span></p>
-<p>In your group, have a brief discussion about the figure to answer the following question.</p>
-<p>“Based on the distibrution of the data, shown in the above Figure, …” <select class='solveme' data-answer='["as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line"]'> <option></option> <option>as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line</option> <option>as age increases, people perceive a longer vertical line to be of same length as the standard vertical linge</option> <option>There is no relationship between Age and the Ponzo illusion</option> <option>This figure tells me nothing about the relationship between Age and the Ponzo illusion</option></select></p>
-<div class="solution">
-<button>
-Helpful Hint
-</button>
-<div class="info">
-<p>
-What does each dot represent in the Figure, and what is the pattern of the dots?
-</p>
-</div>
-</div>
-<p><br>
-<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p><br></p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p><strong>Great work!</strong> We have now created a rough layout of a report. The only section we are missing is the Discussion where you relate the information from previous research to what your study showed. Feel free to add one in your own time; read the short summary at the end of the actual paper to help get your thoughts together. We will talk more about the structuring of reports all throughout the year so you will have a great idea of how to write one by the end of Level 2. Well done on succesfully creating your own R Markdown file!</p>
 <p>You are now ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is SUMMATIVE and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab</strong>. If you have any questions, please post them on the forums. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
@@ -1373,7 +1584,7 @@ What does each dot represent in the Figure, and what is the pattern of the dots?
 <li>Task 4 is about setting a title to <code>Header 2</code> style. This is done via two <code>##</code> at the start of the line - before the word Introduction in this case but don’t forget the space.</li>
 </ol>
 <p><code>## Introduction</code></p>
-<p>Worth noting that, in basic R Scripts, <code>#</code> at the start of the line would result in turning the line into a <a class='glossary' target='_blank' title='You can annotate .R files or chunks in .Rmd files with comments by prefacing each line of the coment with one or more hash symbols (#).' href='https://psyteachr.github.io/glossary/c#comment'>comment</a>. Here, in R Markdown, <code>#</code> sets the header size much like a Word document header</p>
+<p><strong>Worth noting:</strong> In basic R Scripts, <code>#</code> at the start of the line would result in turning the line into a <a class='glossary' target='_blank' title='You can annotate .R files or chunks in .Rmd files with comments by prefacing each line of the coment with one or more hash symbols (#).' href='https://psyteachr.github.io/glossary/c#comment'>comment</a>. Here, in R Markdown, <code>#</code> sets the header size much like a Word document header</p>
 <ol start="2" style="list-style-type: decimal">
 <li>For the second part, create an ordered list by putting <code>1</code> followed by a <code>.</code> then a space before the first piece of information. A <code>2</code> then a <code>.</code> before the second, and so on. Note that lists will only work if there is a empty line above the list as well:</li>
 </ol>
