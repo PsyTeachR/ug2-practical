@@ -72,11 +72,10 @@ group_by(pong_data2, BlockNumber, BackgroundColor)
 
 ``` {r Ch2PreClassTask6, eval = FALSE}
 pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
-pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
+pong_data2_hits <- summarise(pong_data2_group, mean_hits = mean(HitOrMiss))
 ```
 
 ```{r lab2-preclass-sol-hidden-1, echo=FALSE}
-
 pong_data2 <- filter(pong_data, TrialNumber >= 2) %>%
   mutate(TrialNumber = TrialNumber - 1) %>%
   mutate(Participant = Participant + 1)
@@ -85,14 +84,14 @@ pong_data2 <- filter(pong_data, TrialNumber >= 2) %>%
 pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
 
 # And then we summarise it, storing the answer in `total_hits`
-pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
+pong_data2_hits <- summarise(pong_data2_group, mean_hits = mean(HitOrMiss))
 
 # And then for fun we can filter just the red, small paddle hits
 pong_data2_hits_red_small <- filter(pong_data2_hits, BackgroundColor == "red", PaddleLength == 50)
 ```
 
 
-* You should find that the number of hits made with the small paddle (50) and the red color background is `r pong_data2 %>% group_by(BackgroundColor, PaddleLength) %>% summarise(total_hits = sum(HitOrMiss)) %>% filter(BackgroundColor == "red") %>% slice(1) %>% pull(total_hits)`
+* You should find that the number of hits made with the small paddle (50) and the red color background is `r pong_data2_hits_red_small %>% pull(mean_hits)`
 
 [Return to Task](#Ch2PreClassQueT6)
 
@@ -135,7 +134,10 @@ aq_scores <- rscores %>%
 #### InClass Task 8
 
 ```{r Ch2InClassTask8, eval = FALSE}
-aq_scores2 <- responses %>% gather(Question, Response, Q1:Q10) %>% 
+aq_scores2 <- responses %>% 
+  pivot_longer(cols = Q1:Q10,
+               names_to = "Question",
+               values_to = "Response"),
   inner_join(qformats, "Question") %>%
   inner_join(scoring, c("QFormat", "Response")) %>%
              group_by(Id) %>% 
@@ -157,10 +159,13 @@ scoring <- read_csv("./data/02-s01/homework/QHC_scoring.csv")
 
 * Whether you coded this answer or just read from the data, the Participant with ID Number 3 is the oldest.
 
-```{r Ch2AssignmentTask1}
+```{r Ch2AssignmentTask1-1}
 oldest_participant <- 3
+```
 
-# This could also be answered with code. We haven't quite shown you how yet but it would look like this:
+This could also be answered with code. We haven't quite shown you how yet but it would look like this:
+
+```{r Ch2AssignmentTask1-2}
 oldest_participant_code <- arrange(screening, desc(AGE)) %>% 
   slice(1) %>% 
   pull(ID)
@@ -183,10 +188,14 @@ cogtest_sort <- arrange(screening, desc(DSPAN))
 
 1. First group the screening data by FLANG using `group_by()`
 2. Next, summarise, paying attention to use the variable names as instructed
+3. `n()` is a function that we use within `summarise()` to count how many observations we have. It works like `count()` but you can't use `count()` within `summarise()`
+4. `median()` is the function that we use within `summarise()` to calculate the median. Much like we do with `sum()` or `mean()` or `sd()`, etc.
 
 ```{r Ch2AssignmentTask3}
 screen_groups <- group_by(screening, FLANG) 
-descriptives <- summarise(screen_groups, n = n(), median_age = median(AGE))
+descriptives <- summarise(screen_groups, 
+                          n = n(), 
+                          median_age = median(AGE))
 ```
 
 [Return to Task](#Ch2AssignQueT3)
@@ -210,10 +219,15 @@ screening <- mutate(screening, MOCA_Perc = (MOCA / 30) * 100)
 * The second option shows how to select all the columns you want.
 * Remember that order is very important and you should select the columns in the order you want.
 
-```{r Ch2AssignmentTask5}
-# First Option
+Option 1:
+
+```{r Ch2AssignmentTask5-1}
 screening <- select(screening, -MOCA)
-# Second Option
+```
+
+Option 2:
+
+```{r Ch2AssignmentTask5-2}
 screening <- select(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)
 ```
 

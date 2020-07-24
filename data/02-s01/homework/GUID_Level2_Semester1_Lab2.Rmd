@@ -36,8 +36,9 @@ When altering code inside the code blocks, *do not* re-order or rename the code 
 
 Replace the `NULL` in the `T1` code chunk with the Participant ID of the oldest participant. Store this single value in `oldest_participant` (e.g. `oldest_participant <- 999`.
 
+* **hint:** look at your data, who is oldest?
+
 ```{r T1}
-# hint: look at your data, who is oldest?
 oldest_participant <- NULL
 ```
 
@@ -45,8 +46,9 @@ oldest_participant <- NULL
 
 Replace the `NULL` in the `T2` code chunk with code that arranges participants' D-SPAN performance from highest to lowest using the appropriate one-table dplyr (i.e., Wickham) verb. Store the output in `cogtest_sort`. (e.g. `cogtest_sort <- verb(data, argument)`)
 
+* **hint:** arrange your screening data
+
 ```{r T2}
-# hint: arrange your screening data
 cogtest_sort <- NULL
 ```
 
@@ -54,10 +56,11 @@ cogtest_sort <- NULL
 
 Replace the `NULL` in each of the two lines of code chunk `T3`, so that `descriptives` has a column called `n` that shows the number of participants that speak a foreign language and number of participants that do not speak a foreign language, and another column called `median_age` that shows the median age for those two groups. If you have done this correctly, `descriptives` should have 3 columns and 2 rows of data, not including the header row.
 
+* hint: First need to group_by() foreign language
+* hint: Second need to summarise(). You will need the `n()` function. Pay attention to specific column names given.
+
 ```{r T3}
-# hint: First need to group_by() foreign language
 screen_groups <- NULL
-# hint: second need to summarise(). Pay attention to specific column names given.
 descriptives <- NULL
 ```
 
@@ -65,8 +68,9 @@ descriptives <- NULL
 
 Replace the `NULL` in the `T4` code chunk with code using one of the dplyr verbs to add a new column called `MOCA_Perc` to the dataframe `screening` In this new column should be the `MOCA` scores coverted to percentages. The maximum achievable score on MOCA is `30` and percentages are calculated as `(participant score / max score) * 100`. Store this output in `screening`.
 
+* **hint:** mutate() something using MOCA and the percentage formula
+
 ```{r T4}
-# hint: mutate() something using MOCA and the percentage formula
 screening <- NULL
 ```
 
@@ -74,17 +78,21 @@ screening <- NULL
 
 Now that we have our MoCA score expressed as a percentage `MOCA_Perc` we no longer need the raw scores held in `MOCA`. Replace the `NULL` in the `T5` code chunk using a one-table dplyr verb to keep all the columns of `screening`, with the same order, but without the `MOCA` column. Store this output in `screening`.
 
+* **hint:** select your columns
+
 ```{r T5}
-# hint: select your columns
 screening <- NULL
 ```
 
 ### Task 6 - Gather the Responses together
 
-Replace the `NULL` in the `T6` code chunk using code to gather the responses to all the questions of the QHC from wide format to tidy/long format. Name the first column `Question` and the second column `RESPONSE`. Store this output in `responses_long`.  
+Replace the `NULL` in the `T6` code chunk using code to gather the responses to all the questions of the QHC from wide format to tidy/long format. Put the names in `Question` and the values in `RESPONSE`. Store this output in `responses_long`.
+
+* **hint:** pivot_lnger()
+* **hint:** names to "Question"
+* **hint:** values to "RESPONSE"
 
 ```{r T6}
-# hint: gather the question columns (Q1:Q15) in responses
 responses_long <- NULL 
 ```
 
