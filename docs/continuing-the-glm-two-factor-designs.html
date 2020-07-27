@@ -191,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT2"><i class="fa fa-check"></i><b>2.3.2</b> Task 2: Bring in Your Library</a></li>
 <li class="chapter" data-level="2.3.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT3"><i class="fa fa-check"></i><b>2.3.3</b> Task 3: Load in the Data</a></li>
 <li class="chapter" data-level="2.3.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT4"><i class="fa fa-check"></i><b>2.3.4</b> Task 4: Review Your Data.</a></li>
-<li class="chapter" data-level="2.3.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT5"><i class="fa fa-check"></i><b>2.3.5</b> Task 5: Gathering Data.</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT5"><i class="fa fa-check"></i><b>2.3.5</b> Task 5: Gathering Data with pivot_longer().</a></li>
 <li class="chapter" data-level="2.3.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT6"><i class="fa fa-check"></i><b>2.3.6</b> Task 6: Combining Data.</a></li>
 <li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT7"><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
@@ -217,6 +217,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#additional-material"><i class="fa fa-check"></i><b>2.6</b> Additional Material</a><ul>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-read_csv"><i class="fa fa-check"></i>More on read_csv()</a></li>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-code-layout"><i class="fa fa-check"></i>More on Code Layout</a></li>
+<li><a href="data-wrangling-a-key-skill.html#more-on-gathering-data---pivot_longer-and-gather">More on gathering data - <code>pivot_longer()</code> and <code>gather()</code></a></li>
+<li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-binding-and-joining"><i class="fa fa-check"></i>More on binding and joining</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
@@ -245,7 +247,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activities-1"><i class="fa fa-check"></i><b>3.5.1</b> InClass Activities</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-figures"><i class="fa fa-check"></i><b>3.6.1</b> Combining Figures</a></li>
+<li class="chapter" data-level="3.6.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to"><i class="fa fa-check"></i><b>3.6.1</b> More on <code>aes()</code> - when to and when not to!</a></li>
+<li class="chapter" data-level="" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-plots-into-one-figure"><i class="fa fa-check"></i>Combining Plots into one Figure</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
@@ -1728,14 +1731,14 @@ Figure 13.2: Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)
 <ul>
 <li>In today’s assignment you will need both the <code>tidyverse</code> and <code>ez</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
 </ul>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" data-line-number="1"><span class="co"># load in the packages</span></a></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1"><span class="co"># load in the packages</span></a></code></pre></div>
 </div>
 <div id="Ch13AssignQueT1B" class="section level3">
 <h3><span class="header-section-number">13.4.2</span> Task 1B: Loading in the data</h3>
 <ul>
 <li>Use <code>read_csv()</code> to replace the <code>NULL</code> in the t1B code chunk below to load in the data stored in the datafile <code>keysar_lin_barr_2003.csv</code>. Store the data in the variable <code>dat</code>. Do not change the filename of the datafile.</li>
 </ul>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p>Take a look at your data (<code>dat</code>) in the console using <code>glimpse()</code> or <code>View()</code>, or just display it by typing in the name. You will see the following columns:</p>
 <table>
 <thead>
@@ -1778,7 +1781,7 @@ Figure 13.2: Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1">cell_means &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">cell_means &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1868,7 +1871,7 @@ XX
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb433-1" data-line-number="1">marg_sex &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">marg_sex &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1921,7 +1924,7 @@ XX
 <li>Follow the case and spelling <em>exactly</em>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" data-line-number="1">marg_cond &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">marg_cond &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1973,7 +1976,7 @@ XX
 </ul></li>
 <li><strong>Note:</strong> The figure below is a nice figure but should really have error bars on it if I was including it in an actual paper. Including the error bars may help in clarifying the descriptive statistics and you will see that here, although the means are different, there is huge overlap in terms of error bars which may indicate no overall effect.</li>
 </ul>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb435-1" data-line-number="1"><span class="co"># to do: something with ggplot to replicate the figure</span></a></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1"><span class="co"># to do: something with ggplot to replicate the figure</span></a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:t5-hide"></span>
 <img src="13-s02-lab13d_files/figure-html/t5-hide-1.png" alt="Replicate this Figure" width="100%" />
 <p class="caption">
@@ -1993,7 +1996,7 @@ Figure 13.3: Replicate this Figure
 <li>We hypothesised that there would be a significant interaction between condition and sex of participant on egocentric interference (mean looking time (msecs))</li>
 <li>We hypothesised that there will be no significant difference between males and females in egocentric interference (mean looking time (msecs)) regardless of condition but that there would be a significant difference between participants in the false belief condition and those in the ignorance condition in terms of egocentric interference (mean looking time (msecs)) regardless of sex of participant.</li>
 </ol>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" data-line-number="1">answer_t6 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1">answer_t6 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch13AssignQueT7" class="section level3">
 <h3><span class="header-section-number">13.4.8</span> Task 7: Recap Question 2</h3>
@@ -2007,7 +2010,7 @@ Figure 13.3: Replicate this Figure
 <li>The female participants have an average shorter looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex.</li>
 <li>The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of condition.</li>
 </ol>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1">answer_t7 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1">answer_t7 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch13AssignQueT8" class="section level3">
 <h3><span class="header-section-number">13.4.9</span> Task 8: Recap Question 3</h3>
@@ -2021,7 +2024,7 @@ Figure 13.3: Replicate this Figure
 <li>The participants in the false belief group had an average longer looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of sex.</li>
 <li>The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of sex.</li>
 </ol>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1">answer_t8 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">answer_t8 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch13AssignQueT9" class="section level3">
 <h3><span class="header-section-number">13.4.10</span> Task 9: Running the factorial ANOVA</h3>
@@ -2034,7 +2037,7 @@ Figure 13.3: Replicate this Figure
 <li>You will see in red in the output that the code will convert the condition and participant ids to factors automatically. This is fine.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch13AssignQueT10" class="section level3">
 <h3><span class="header-section-number">13.4.11</span> Task 10: Interpreting the ANOVA output Question</h3>
@@ -2048,7 +2051,7 @@ Figure 13.3: Replicate this Figure
 <li>There is no significant main effect of sex or condition and there is no significant interaction between condition and sex.</li>
 <li>There is a significant main effect of sex, a significant main effect of condition, and a significant interaction between condition and sex.</li>
 </ol>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch13AssignQueT11" class="section level3">
 <h3><span class="header-section-number">13.4.12</span> Task 11: Report your results</h3>
@@ -2084,11 +2087,11 @@ Figure 13.3: Replicate this Figure
 </div>
 <div id="adding-the-missing-columns" class="section level4">
 <h4><span class="header-section-number">13.5.1.2</span> Adding the missing columns</h4>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" data-line-number="1">decomp2 &lt;-<span class="st"> </span>decomp <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb442-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(i, j) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb442-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">AB_ij =</span> <span class="kw">mean</span>(Y_ijk) <span class="op">-</span><span class="st"> </span>mu <span class="op">-</span><span class="st"> </span>A_i <span class="op">-</span><span class="st"> </span>B_j) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb442-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb442-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Y_ijk <span class="op">-</span><span class="st"> </span>mu <span class="op">-</span><span class="st"> </span>A_i <span class="op">-</span><span class="st"> </span>B_j <span class="op">-</span><span class="st"> </span>AB_ij)</a></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" data-line-number="1">decomp2 &lt;-<span class="st"> </span>decomp <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb470-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(i, j) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb470-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">AB_ij =</span> <span class="kw">mean</span>(Y_ijk) <span class="op">-</span><span class="st"> </span>mu <span class="op">-</span><span class="st"> </span>A_i <span class="op">-</span><span class="st"> </span>B_j) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb470-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb470-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Y_ijk <span class="op">-</span><span class="st"> </span>mu <span class="op">-</span><span class="st"> </span>A_i <span class="op">-</span><span class="st"> </span>B_j <span class="op">-</span><span class="st"> </span>AB_ij)</a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT2">Return to Task</a></p>
 </div>
 <div id="understanding-the-two-factor-decomposition-matrix" class="section level4">
@@ -2113,23 +2116,23 @@ Figure 13.3: Replicate this Figure
 </div>
 <div id="get-your-data-ready-for-analysis" class="section level4">
 <h4><span class="header-section-number">13.5.1.4</span> Get your data ready for analysis</h4>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" data-line-number="1">dat &lt;-<span class="st"> </span>decomp <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb443-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">A =</span> <span class="kw">paste0</span>(<span class="st">&quot;A&quot;</span>, i),</a>
-<a class="sourceLine" id="cb443-3" data-line-number="3">         <span class="dt">B =</span> <span class="kw">paste0</span>(<span class="st">&quot;B&quot;</span>, j),</a>
-<a class="sourceLine" id="cb443-4" data-line-number="4">         <span class="dt">id =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb443-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(id, A, B, Y_ijk)</a></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1">dat &lt;-<span class="st"> </span>decomp <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb471-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">A =</span> <span class="kw">paste0</span>(<span class="st">&quot;A&quot;</span>, i),</a>
+<a class="sourceLine" id="cb471-3" data-line-number="3">         <span class="dt">B =</span> <span class="kw">paste0</span>(<span class="st">&quot;B&quot;</span>, j),</a>
+<a class="sourceLine" id="cb471-4" data-line-number="4">         <span class="dt">id =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb471-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(id, A, B, Y_ijk)</a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT4">Return to Task</a></p>
 </div>
 <div id="visualizing-2x2-designs-the-interaction-plot" class="section level4">
 <h4><span class="header-section-number">13.5.1.5</span> Visualizing 2x2 designs: The interaction plot</h4>
 <p><strong>Creating the Cell means</strong></p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb444-1" data-line-number="1">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb444-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(A, B) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb444-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y_ijk))</a></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb472-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(A, B) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb472-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y_ijk))</a></code></pre></div>
 <p><strong>Reproducing the Plot</strong></p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" data-line-number="1"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B, <span class="dt">shape =</span> B, <span class="dt">color =</span> B)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb445-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb445-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B, <span class="dt">shape =</span> B, <span class="dt">color =</span> B)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb473-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb473-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch13-inclass-t5-sol-2"></span>
 <img src="13-s02-lab13e_files/figure-html/ch13-inclass-t5-sol-2-1.png" alt="The plot that the code gives" width="100%" />
 <p class="caption">
@@ -2141,32 +2144,32 @@ Figure 13.4: The plot that the code gives
 <p>The code below adds another few dimensions to the above figure. Copy and run the code in your Rmd, knitting it to HTML, and play with the different parts to see what they do. We have changed the legends to be more descriptive and to have more readable text, fixed the scale for the vertical axis, made the figure black and white without a box, we also added 95% confidence intervals and a figure caption.</p>
 <p>There are of course various ways to do these changes, in particular the caption, but this is an option.</p>
 <p><strong>Note:</strong> This will only run if you have the tibble dat from earlier in this worksheet</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1">cell_means1 &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb446-2" data-line-number="2"><span class="kw">group_by</span>(A, B) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb446-3" data-line-number="3"><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y_ijk),</a>
-<a class="sourceLine" id="cb446-4" data-line-number="4">          <span class="dt">n =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb446-5" data-line-number="5">          <span class="dt">sd_scores =</span> <span class="kw">sd</span>(Y_ijk),</a>
-<a class="sourceLine" id="cb446-6" data-line-number="6">          <span class="dt">ste_scores =</span> sd_scores<span class="op">/</span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb446-7" data-line-number="7">          <span class="dt">ci =</span> <span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>ste_scores)</a>
-<a class="sourceLine" id="cb446-8" data-line-number="8">  </a>
-<a class="sourceLine" id="cb446-9" data-line-number="9"><span class="kw">ggplot</span>(cell_means1, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> B), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> m <span class="op">-</span><span class="st"> </span>ci, <span class="dt">ymax =</span> m <span class="op">+</span><span class="st"> </span>ci), </a>
-<a class="sourceLine" id="cb446-13" data-line-number="13">                <span class="dt">width =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb446-14" data-line-number="14">                <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-15" data-line-number="15"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-16" data-line-number="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Groups in Factor A&quot;</span>, </a>
-<a class="sourceLine" id="cb446-17" data-line-number="17">       <span class="dt">y =</span> <span class="st">&quot;Mean Scores&quot;</span>, </a>
-<a class="sourceLine" id="cb446-18" data-line-number="18">       <span class="dt">caption =</span> <span class="st">&quot;Figure 1. Mean scores from the example data for the two-way </span><span class="ch">\n</span><span class="st">between-subjects design ANOVA. Error bars indicate 95% </span><span class="ch">\n</span><span class="st">confidence intervals.&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-19" data-line-number="19"><span class="st">  </span><span class="kw">scale_shape_discrete</span>(<span class="st">&quot;Groups in Factor B&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-20" data-line-number="20"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-21" data-line-number="21"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">12</span>),</a>
-<a class="sourceLine" id="cb446-22" data-line-number="22">        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">12</span>),</a>
-<a class="sourceLine" id="cb446-23" data-line-number="23">        <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),</a>
-<a class="sourceLine" id="cb446-24" data-line-number="24">        <span class="dt">legend.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),</a>
-<a class="sourceLine" id="cb446-25" data-line-number="25">        <span class="dt">legend.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),</a>
-<a class="sourceLine" id="cb446-26" data-line-number="26">        <span class="dt">plot.caption  =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">hjust =</span> <span class="dv">0</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" data-line-number="1">cell_means1 &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb474-2" data-line-number="2"><span class="kw">group_by</span>(A, B) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb474-3" data-line-number="3"><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y_ijk),</a>
+<a class="sourceLine" id="cb474-4" data-line-number="4">          <span class="dt">n =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb474-5" data-line-number="5">          <span class="dt">sd_scores =</span> <span class="kw">sd</span>(Y_ijk),</a>
+<a class="sourceLine" id="cb474-6" data-line-number="6">          <span class="dt">ste_scores =</span> sd_scores<span class="op">/</span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb474-7" data-line-number="7">          <span class="dt">ci =</span> <span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>ste_scores)</a>
+<a class="sourceLine" id="cb474-8" data-line-number="8">  </a>
+<a class="sourceLine" id="cb474-9" data-line-number="9"><span class="kw">ggplot</span>(cell_means1, <span class="kw">aes</span>(A, m, <span class="dt">group =</span> B)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> B), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> m <span class="op">-</span><span class="st"> </span>ci, <span class="dt">ymax =</span> m <span class="op">+</span><span class="st"> </span>ci), </a>
+<a class="sourceLine" id="cb474-13" data-line-number="13">                <span class="dt">width =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb474-14" data-line-number="14">                <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-15" data-line-number="15"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-16" data-line-number="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Groups in Factor A&quot;</span>, </a>
+<a class="sourceLine" id="cb474-17" data-line-number="17">       <span class="dt">y =</span> <span class="st">&quot;Mean Scores&quot;</span>, </a>
+<a class="sourceLine" id="cb474-18" data-line-number="18">       <span class="dt">caption =</span> <span class="st">&quot;Figure 1. Mean scores from the example data for the two-way </span><span class="ch">\n</span><span class="st">between-subjects design ANOVA. Error bars indicate 95% </span><span class="ch">\n</span><span class="st">confidence intervals.&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-19" data-line-number="19"><span class="st">  </span><span class="kw">scale_shape_discrete</span>(<span class="st">&quot;Groups in Factor B&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-20" data-line-number="20"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb474-21" data-line-number="21"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb474-22" data-line-number="22">        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">12</span>),</a>
+<a class="sourceLine" id="cb474-23" data-line-number="23">        <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),</a>
+<a class="sourceLine" id="cb474-24" data-line-number="24">        <span class="dt">legend.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),</a>
+<a class="sourceLine" id="cb474-25" data-line-number="25">        <span class="dt">legend.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>),</a>
+<a class="sourceLine" id="cb474-26" data-line-number="26">        <span class="dt">plot.caption  =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">hjust =</span> <span class="dv">0</span>))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch13-inclass-t5-sol-3"></span>
 <img src="13-s02-lab13e_files/figure-html/ch13-inclass-t5-sol-3-1.png" alt="A nice figure example" width="100%" />
 <p class="caption">
@@ -2178,12 +2181,12 @@ Figure 13.5: A nice figure example
 <div id="anova-using-ez" class="section level4">
 <h4><span class="header-section-number">13.5.1.6</span> ANOVA Using Ez</h4>
 <p><strong>The code</strong></p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, </a>
-<a class="sourceLine" id="cb447-2" data-line-number="2">                  <span class="dt">dv =</span> Y_ijk, </a>
-<a class="sourceLine" id="cb447-3" data-line-number="3">                  <span class="dt">wid =</span> id, </a>
-<a class="sourceLine" id="cb447-4" data-line-number="4">                  <span class="dt">between =</span> .(A, B),</a>
-<a class="sourceLine" id="cb447-5" data-line-number="5">                  <span class="dt">detailed =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb447-6" data-line-number="6"><span class="st">                  </span><span class="kw">print</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, </a>
+<a class="sourceLine" id="cb475-2" data-line-number="2">                  <span class="dt">dv =</span> Y_ijk, </a>
+<a class="sourceLine" id="cb475-3" data-line-number="3">                  <span class="dt">wid =</span> id, </a>
+<a class="sourceLine" id="cb475-4" data-line-number="4">                  <span class="dt">between =</span> .(A, B),</a>
+<a class="sourceLine" id="cb475-5" data-line-number="5">                  <span class="dt">detailed =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb475-6" data-line-number="6"><span class="st">                  </span><span class="kw">print</span>()</a></code></pre></div>
 <pre><code>## Coefficient covariances computed by hccm()</code></pre>
 <pre><code>## $ANOVA
 ##   Effect DFn DFd SSn SSd          F          p p&lt;.05        ges
@@ -2336,8 +2339,8 @@ A:B
 <ul>
 <li>In today’s assignment you will need both the <strong><code>tidyverse</code></strong> and <strong><code>ez</code></strong> packages.</li>
 </ul>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1"><span class="kw">library</span>(ez)</a>
-<a class="sourceLine" id="cb450-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1"><span class="kw">library</span>(ez)</a>
+<a class="sourceLine" id="cb478-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1A">Return to Task</a></p>
 </div>
 <div id="task-1b-loading-in-the-data" class="section level4">
@@ -2345,7 +2348,7 @@ A:B
 <ul>
 <li>Remember to use <code>read_csv()</code> to load in the data.</li>
 </ul>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;keysar_lin_barr_2003.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;keysar_lin_barr_2003.csv&quot;</span>)</a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1B">Return to Task</a></p>
 </div>
 <div id="task-2-calculate-cell-means-for-the-cell-means." class="section level4">
@@ -2353,9 +2356,9 @@ A:B
 <ul>
 <li>The code below will give the table shown.</li>
 </ul>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb452-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex, condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb452-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb480-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex, condition) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb480-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2439,9 +2442,9 @@ ignorance
 <ul>
 <li>The code below will give the table shown for the marginal means of sex.</li>
 </ul>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1">marg_sex &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb453-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb453-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1">marg_sex &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb481-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb481-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2488,9 +2491,9 @@ male
 <ul>
 <li>The code below will give the table shown for the marginal means of condition.</li>
 </ul>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1">marg_cond &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb454-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb454-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1">marg_cond &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb482-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb482-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2537,12 +2540,12 @@ ignorance
 <ul>
 <li>The code below will produce the shown figure.</li>
 </ul>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(condition, m, <span class="dt">shape =</span> sex, <span class="dt">group =</span> sex, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb455-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb455-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb455-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;mean looking time (msecs)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb455-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb455-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" data-line-number="1"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(condition, m, <span class="dt">shape =</span> sex, <span class="dt">group =</span> sex, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb483-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb483-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb483-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;mean looking time (msecs)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb483-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb483-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:t5"></span>
 <img src="13-s02-lab13e_files/figure-html/t5-1.png" alt="You should have produced a similar figure" width="100%" />
 <p class="caption">
@@ -2556,7 +2559,7 @@ Figure 13.6: You should have produced a similar figure
 <p>We want the alternative, not the null hypothesis here. So, an acceptable hypothesis for the interaction effect of sex and condition would be:</p>
 <p><strong>We hypothesised that there would be a significant interaction between condition and sex of participant on egocentric interference (mean looking time (msecs)).</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1">answer_t6 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1">answer_t6 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT6">Return to Task</a></p>
 </div>
 <div id="task-7-recap-question-2" class="section level4">
@@ -2564,7 +2567,7 @@ Figure 13.6: You should have produced a similar figure
 <p>A good description of the marginal means for sex would be:</p>
 <p><strong>The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex.</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1">answer_t7 &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1">answer_t7 &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT7">Return to Task</a></p>
 </div>
 <div id="task-8-recap-question-3" class="section level4">
@@ -2572,7 +2575,7 @@ Figure 13.6: You should have produced a similar figure
 <p>A good description of the marginal means for condition would be:</p>
 <p><strong>The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of condition.</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">answer_t8 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" data-line-number="1">answer_t8 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT8">Return to Task</a></p>
 </div>
 <div id="task-9-running-the-factorial-anova" class="section level4">
@@ -2580,9 +2583,9 @@ Figure 13.6: You should have produced a similar figure
 <ul>
 <li>The code below will produce the shown ANOVA output</li>
 </ul>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, <span class="dt">dv =</span> looktime, <span class="dt">wid =</span> subject,</a>
-<a class="sourceLine" id="cb459-2" data-line-number="2">               <span class="dt">between =</span> .(condition, sex))</a></code></pre></div>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(mod<span class="op">$</span>ANOVA)</a></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb487-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, <span class="dt">dv =</span> looktime, <span class="dt">wid =</span> subject,</a>
+<a class="sourceLine" id="cb487-2" data-line-number="2">               <span class="dt">between =</span> .(condition, sex))</a></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(mod<span class="op">$</span>ANOVA)</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2685,7 +2688,7 @@ condition:sex
 <p>A good summary of the outcome ANOVA would be:</p>
 <p><strong>There is no significant main effect of sex or condition and there is no significant interaction between condition and sex.</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb489-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT10">Return to Task</a></p>
 </div>
 <div id="task-11-report-your-results" class="section level4">
