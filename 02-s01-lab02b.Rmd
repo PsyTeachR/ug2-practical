@@ -175,6 +175,7 @@ arrange(pong_data, desc(BallSpeed), BackgroundColor)
     * Does `desc()` also work for `BackgroundColor`?
 ```
 `r unhide()`  
+<br>
 
 **Task 2: Arranging Data with the `arrange()` function**
 
@@ -268,7 +269,7 @@ Right? Wrong! This actually says "give me everything that is a cat and a dog". B
 
 `filter(animal_data, animals == "cat" | animals == "dog")` 
 
-The vertical line `|` is the symbol for Or. 
+The vertical line `|` is the symbol for **or**, just as `&` is the symbol for **and**. 
 
 **TOP TIP:** Always pay attention to what you want and most importantly to what your code produces.
 
@@ -406,7 +407,18 @@ knitr::kable(pong_data2_hits_red_small, align = "c", caption = "Summarising with
 
 * The name of the column within `pong_data2_hits_red_small` that has the summarised data is `total_hits`; this is what you called it when creating `pong_data2_hits`. You could have called it anything you wanted but always try to use something sensible. Make sure to call your variables something you (and anyone looking at your code) will understand and recognize later (i.e. not variable1, variable2, variable3. etc.), and avoid spaces (use_underscores_never_spaces).
 
-`summarise()` has a range of internal functions that make life really easy, e.g. `mean()`, `median()`, `n()`, `sum()`, `max`, `min`, etc. See the dplyr cheatsheets for more examples. 
+`summarise()` has a range of internal functions that make life really easy, e.g. `mean()`, `median()`, `n()`, `sum()`, `max`, `min`, etc. Some common ones are shown below but see the `dplyr` cheatsheets for more examples.
+
+|function|example|purpose|
+|:------:|:------|:------|
+|n()     |N = n()|number of values| 
+|mean()  |m = mean(X)|mean of values in stated column - e.g. column X|
+|median()|mdn = median(X)|median of values in stated column - e.g. column X|
+|sum()  |sm = sum(X)|sum of values in stated column - e.g. column X|
+|max()  |mx = max(X)|max of values in stated column - e.g. column X|
+|min()  |mn = min(X)|min of values in stated column - e.g. column X|
+|sd()   |stdev = sd(X)|standard deviation of values in stated column - e.g. column X|
+
 
 **Task 6: Summarising Data with summarise()**
 

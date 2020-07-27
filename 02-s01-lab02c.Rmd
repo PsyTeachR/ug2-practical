@@ -212,7 +212,7 @@ Let's see if you understand `pivot_longer()`. Say I wanted to gather the first t
 `r hide("Explain this - I dont get the right answer!")`
 ```{block, type ="info"}
 
-`sandwich <- pivot_longer(responses, cols = Q1:Q3, names_to = \"Jam\", values_to = \"Strawberry\")`
+`sandwich <- pivot_longer(responses, cols = Q1:Q3, names_to = "Jam", values_to = "Strawberry")`
     
 `pivot_longer()` wants the data first, then the columns to gather, then the name of the new column to store the gathered column names in and finally the name of the new column to store the values in.
 ```

@@ -926,6 +926,7 @@ Does <code>desc()</code> also work for <code>BackgroundColor</code>?
 </ul>
 </div>
 </div>
+<p><br></p>
 <p><strong>Task 2: Arranging Data with the <code>arrange()</code> function</strong></p>
 <ol style="list-style-type: decimal">
 <li>Arrange the data in <code>pong_data</code> by two variables: <code>HitOrMiss</code> (putting hits - 1 - first), and <code>JudgedSpeed</code> (fast judgement - 1 - first).</li>
@@ -1052,7 +1053,7 @@ You could do this in three filters where each one uses the output of the preceed
 <p><code>filter(animal_data, animals == &quot;cat&quot;, animals == &quot;dog&quot;)</code></p>
 <p>Right? Wrong! This actually says “give me everything that is a cat and a dog”. But nothing is a cat and a dog, that would be weird - like a dat or a cog! What you actually want is everything that is either a cat <strong>or</strong> a dog, which is stated as:</p>
 <p><code>filter(animal_data, animals == &quot;cat&quot; | animals == &quot;dog&quot;)</code></p>
-<p>The vertical line <code>|</code> is the symbol for Or.</p>
+<p>The vertical line <code>|</code> is the symbol for <strong>or</strong>, just as <code>&amp;</code> is the symbol for <strong>and</strong>.</p>
 <p><strong>TOP TIP:</strong> Always pay attention to what you want and most importantly to what your code produces.</p>
 </div>
 <div id="Ch2PreClassQueT4" class="section level3">
@@ -1195,7 +1196,58 @@ red
 <ul>
 <li>The name of the column within <code>pong_data2_hits_red_small</code> that has the summarised data is <code>total_hits</code>; this is what you called it when creating <code>pong_data2_hits</code>. You could have called it anything you wanted but always try to use something sensible. Make sure to call your variables something you (and anyone looking at your code) will understand and recognize later (i.e. not variable1, variable2, variable3. etc.), and avoid spaces (use_underscores_never_spaces).</li>
 </ul>
-<p><code>summarise()</code> has a range of internal functions that make life really easy, e.g. <code>mean()</code>, <code>median()</code>, <code>n()</code>, <code>sum()</code>, <code>max</code>, <code>min</code>, etc. See the dplyr cheatsheets for more examples.</p>
+<p><code>summarise()</code> has a range of internal functions that make life really easy, e.g. <code>mean()</code>, <code>median()</code>, <code>n()</code>, <code>sum()</code>, <code>max</code>, <code>min</code>, etc. Some common ones are shown below but see the <code>dplyr</code> cheatsheets for more examples.</p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="31%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">function</th>
+<th align="left">example</th>
+<th align="left">purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">n()</td>
+<td align="left">N = n()</td>
+<td align="left">number of values</td>
+</tr>
+<tr class="even">
+<td align="center">mean()</td>
+<td align="left">m = mean(X)</td>
+<td align="left">mean of values in stated column - e.g. column X</td>
+</tr>
+<tr class="odd">
+<td align="center">median()</td>
+<td align="left">mdn = median(X)</td>
+<td align="left">median of values in stated column - e.g. column X</td>
+</tr>
+<tr class="even">
+<td align="center">sum()</td>
+<td align="left">sm = sum(X)</td>
+<td align="left">sum of values in stated column - e.g. column X</td>
+</tr>
+<tr class="odd">
+<td align="center">max()</td>
+<td align="left">mx = max(X)</td>
+<td align="left">max of values in stated column - e.g. column X</td>
+</tr>
+<tr class="even">
+<td align="center">min()</td>
+<td align="left">mn = min(X)</td>
+<td align="left">min of values in stated column - e.g. column X</td>
+</tr>
+<tr class="odd">
+<td align="center">sd()</td>
+<td align="left">stdev = sd(X)</td>
+<td align="left">standard deviation of values in stated column - e.g. column X</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Task 6: Summarising Data with summarise()</strong></p>
 <ul>
 <li>Use the lines of code above to calculate the mean number of hits made with the small paddle (50) and the red color background. Enter that value in this box: <input class='solveme nospaces' size='3' data-answer='["516"]'/></li>
@@ -1554,7 +1606,7 @@ Explain this - I dont get the right answer!
 </button>
 <div class="info">
 <p>
-<code>sandwich &lt;- pivot_longer(responses, cols = Q1:Q3, names_to = &amp;quot;Jam&amp;quot;, values_to = &amp;quot;Strawberry&amp;quot;)</code>
+<code>sandwich &lt;- pivot_longer(responses, cols = Q1:Q3, names_to = “Jam”, values_to = “Strawberry”)</code>
 </p>
 <p>
 <code>pivot_longer()</code> wants the data first, then the columns to gather, then the name of the new column to store the gathered column names in and finally the name of the new column to store the values in.
@@ -1722,8 +1774,9 @@ At any point where the first argument of your function is the name of a variable
 <div id="assignment-1" class="section level2">
 <h2><span class="header-section-number">2.4</span> Assignment</h2>
 <p>This is a formative assignment but we strongly encourage you to do the assignment as the knowledge gained from the practical activities in this lab will be super important to your future-self!</p>
+<p>One thing to keep in mind in all assignments is that spelling it really important when learning about being reproducible. Remember that <code>Mycolumn</code> is a different column to <code>mycolumn</code> and when being reproducible only one is correct. Likewise, <code>Mydata</code> and <code>mydata</code> are two different tibbles, and <code>read_csv()</code> and <code>read.csv()</code> are two different functions. Check the instructions and check your work!</p>
 <p><strong>Lab 2: Formative Data Wrangling Assignment</strong></p>
-<p>In order to complete this assignment you will need to download the data .csv files, as well as the assignment .Rmd file, which you need to edit, titled <code>GUID_Level2_Semester1_Lab2.Rmd</code>. These can be downloaded within a zip file from the below link. Once downloaded and unzipped, you should create a new folder that you will use as your working directory; put the data files and the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/02-s01/homework/ch2-assign-data.zip"><strong>Download the Assignment .zip file from here</strong></a>.</p>
+<p>In order to complete this assignment you will need to download the data .csv files, as well as the assignment .Rmd file, which you need to edit, titled <code>GUID_Level2_Semester1_Lab2.Rmd</code>. These can be downloaded within a zip file from the below link. Once downloaded and unzipped, you should create a new folder that you will use as your working directory; put the data files and the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/02-s01/homework/ch2-assign-data-2020.zip"><strong>Download the Assignment .zip file from here</strong></a>.</p>
 <p>Now open the assignment .Rmd file within RStudio. You will see there is a code chunk for each task. As you did in previous assignments, follow the instructions on what to edit in each code chunk. This will often be entering code based on what we have covered up until this point, either entering code or a value.</p>
 <p>In this chapter we recapped on data-wrangling using the Wickham 6 verbs, looked at additional functions such as <code>pivot_longer()</code> and <code>inner_join()</code>, and at piping chains of code for efficiency using <code>%&gt;%</code>. You will need these skills to complete the following assignment so please make sure you have carried out the PreClass and InClass activities before attempting this formative assignment. Remember to follow the instructions and if you get stuck at any point to post questions on the available forums. Also, two useful online resources are:</p>
 <ul>
@@ -1854,28 +1907,33 @@ At any point where the first argument of your function is the name of a variable
 <h3><span class="header-section-number">2.4.9</span> Task 7 - Joining the data</h3>
 <p>Now we need to join the number of points for each response in <code>scoring</code> to the participants’ responses in <code>responses_long</code>.</p>
 <p>Replace the <code>NULL</code> in the <code>T7</code> code chunk using <code>inner_join()</code> to combine <code>responses_long</code> and <code>scoring</code> into a new variable called <code>responses_points</code>.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="co"># hint: join them by the column common to both scoring and responses_long</span></a>
-<a class="sourceLine" id="cb57-2" data-line-number="2">responses_points &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<ul>
+<li><strong>hint:</strong> join them by the column common to both scoring and responses_long</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">responses_points &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch2AssignQueT8" class="section level3">
 <h3><span class="header-section-number">2.4.10</span> Task 8 - Working the Pipes</h3>
-<p>Below we have given you a code chunk with 5 lines of code. The code takes the data in its current long format and then creates a QHC score for each participant, before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don’t - and stores it in a variable called <code>musical_means</code>.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)</a>
-<a class="sourceLine" id="cb58-2" data-line-number="2">participant_scores &lt;-<span class="st"> </span><span class="kw">summarise</span>(participant_groups, <span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE))</a>
-<a class="sourceLine" id="cb58-3" data-line-number="3">participant_screening &lt;-<span class="st"> </span><span class="kw">inner_join</span>(participant_scores, screening, <span class="st">&quot;ID&quot;</span>)</a>
-<a class="sourceLine" id="cb58-4" data-line-number="4">screening_groups_new &lt;-<span class="st"> </span><span class="kw">group_by</span>(participant_screening, MUSICAL)</a>
-<a class="sourceLine" id="cb58-5" data-line-number="5">musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
-<p>Replace the <code>NULL</code> in the <code>T8</code> code chunk with the following code converted into a functioning pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people stored in <code>musical_means</code> which should be made of two rows by two columns.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="co"># hint: in pipes, the output of the previous function is the input of the subsequent function.</span></a>
-<a class="sourceLine" id="cb59-2" data-line-number="2"><span class="co"># hint: function1 %&gt;% function2</span></a>
-<a class="sourceLine" id="cb59-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb59-4" data-line-number="4">musical_means &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<p>Below we have given you five lines of code that takes the data in its current long format and then creates a QHC score for each participant (<code>group_by()...summarise()</code>). It then joins the screening information (<code>inner_join()</code>) before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don’t. This final step is stored as a tibble called <code>musical_means</code>.</p>
+<pre><code>participant_groups &lt;- group_by(responses_points, ID)
+participant_scores &lt;- summarise(participant_groups, Total_QHC = sum(SCORE))
+participant_screening &lt;- inner_join(participant_scores, screening, &quot;ID&quot;)
+screening_groups_new &lt;- group_by(participant_screening, MUSICAL)
+musical_means &lt;- summarise(screening_groups_new, mean_score = mean(Total_QHC))</code></pre>
+<p>Use the above five lines of code to replace the <code>NULL</code> in the <code>T8</code> code chunk with a functioning code pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people being stored in the tibble <code>musical_means</code>. This final tibble will consist of two rows by two columns (i.e. four cells in total).</p>
+<ul>
+<li><strong>hint:</strong> in pipes, the output of the previous function is the input of the subsequent function.</li>
+<li><strong>hint:</strong> function1(…) %&gt;% function2(…)</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch2AssignQueT9" class="section level3">
 <h3><span class="header-section-number">2.4.11</span> Task 9 - Difference in Musical Means</h3>
-<p>Finally, replace the <code>NULL</code> in the <code>T9</code> code chunk with a single value, to two decimal places, that is the value of how much higher the QHC score of people who play music is compared to people who don’t play music (e.g. 2.93)</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># hint: look in musical means and enter the difference between the two means.</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2">QHC_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<p>Finally, replace the <code>NULL</code> in the <code>T9</code> code chunk with the value of how much higher the QHC score of people who play music is compared to people who don’t play music. This should be a single numeric value, to two decimal places, e.g. 2.93</p>
+<ul>
+<li><strong>hint:</strong> look in musical means and enter the difference between the two means.</li>
+</ul>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">QHC_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done, you are finished! Now you should go check your answers against the solutions at the end of this chapter. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that <code>Mycolumn</code> is different to <code>mycolumn</code> and only one is correct. If you have any questions, please post them on the forums.</p>
 
@@ -1888,46 +1946,52 @@ At any point where the first argument of your function is the name of a variable
 <h3><span class="header-section-number">2.5.1</span> PreClass Activities</h3>
 <div id="preclass-task-1" class="section level4">
 <h4><span class="header-section-number">2.5.1.1</span> PreClass Task 1</h4>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="co"># To include variables:</span></a>
-<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">select</span>(pong_data, Participant, PaddleLength, TrialNumber, BackgroundColor, HitOrMiss)</a>
-<a class="sourceLine" id="cb61-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb61-4" data-line-number="4"><span class="co"># To exclude variables:</span></a>
-<a class="sourceLine" id="cb61-5" data-line-number="5"><span class="kw">select</span>(pong_data, <span class="op">-</span>JudgedSpeed, <span class="op">-</span>BallSpeed, <span class="op">-</span>BlockNumber)</a>
-<a class="sourceLine" id="cb61-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb61-7" data-line-number="7"><span class="co"># To select in order:</span></a>
-<a class="sourceLine" id="cb61-8" data-line-number="8"><span class="kw">select</span>(pong_data, BallSpeed, HitOrMiss, JudgedSpeed, Participant, TrialNumber)</a></code></pre></div>
+<ul>
+<li>Using <code>select()</code> to include only stated columns:</li>
+</ul>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">select</span>(pong_data, Participant, PaddleLength, TrialNumber, BackgroundColor, HitOrMiss)</a></code></pre></div>
+<ul>
+<li>Using <code>select()</code> to exclude certain columns:</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">select</span>(pong_data, <span class="op">-</span>JudgedSpeed, <span class="op">-</span>BallSpeed, <span class="op">-</span>BlockNumber)</a></code></pre></div>
+<ul>
+<li>Using <code>select()</code> to change the order of columns:</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">select</span>(pong_data, BallSpeed, HitOrMiss, JudgedSpeed, Participant, TrialNumber)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT1">Return to Task</a></p>
 </div>
 <div id="preclass-task-2" class="section level4">
 <h4><span class="header-section-number">2.5.1.2</span> PreClass Task 2</h4>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">arrange</span>(pong_data, <span class="kw">desc</span>(HitOrMiss), <span class="kw">desc</span>(JudgedSpeed))</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">arrange</span>(pong_data, <span class="kw">desc</span>(HitOrMiss), <span class="kw">desc</span>(JudgedSpeed))</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT2">Return to Task</a></p>
 </div>
 <div id="preclass-task-3" class="section level4">
 <h4><span class="header-section-number">2.5.1.3</span> PreClass Task 3</h4>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">filter</span>(pong_data, </a>
-<a class="sourceLine" id="cb63-2" data-line-number="2">       JudgedSpeed <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb63-3" data-line-number="3">       BallSpeed <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;7&quot;</span>), </a>
-<a class="sourceLine" id="cb63-4" data-line-number="4">       HitOrMiss <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">filter</span>(pong_data, </a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">       JudgedSpeed <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">       BallSpeed <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;7&quot;</span>), </a>
+<a class="sourceLine" id="cb65-4" data-line-number="4">       HitOrMiss <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT3">Return to Task</a></p>
 </div>
 <div id="preclass-task-4" class="section level4">
 <h4><span class="header-section-number">2.5.1.4</span> PreClass Task 4</h4>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">pong_data_filt &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, TrialNumber <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2</span>) </a>
-<a class="sourceLine" id="cb64-2" data-line-number="2"><span class="co"># remember you can call this variable anything, as long as it makes sense to yourself and others</span></a>
-<a class="sourceLine" id="cb64-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb64-4" data-line-number="4">pong_data2 &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data_filt, <span class="dt">TrialNumber =</span> TrialNumber <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<ul>
+<li>first step is created with <code>filter()</code></li>
+<li>the second step is created with <code>mutate()</code></li>
+</ul>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">pong_data_filt &lt;-<span class="st"> </span><span class="kw">filter</span>(pong_data, TrialNumber <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2</span>) </a>
+<a class="sourceLine" id="cb66-2" data-line-number="2">pong_data2 &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data_filt, <span class="dt">TrialNumber =</span> TrialNumber <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT4">Return to Task</a></p>
 </div>
 <div id="preclass-task-5" class="section level4">
 <h4><span class="header-section-number">2.5.1.5</span> PreClass Task 5</h4>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">group_by</span>(pong_data2, BlockNumber, BackgroundColor)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">group_by</span>(pong_data2, BlockNumber, BackgroundColor)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT5">Return to Task</a></p>
 </div>
 <div id="preclass-task-6" class="section level4">
 <h4><span class="header-section-number">2.5.1.6</span> PreClass Task 6</h4>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">pong_data2_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(pong_data2, BackgroundColor, PaddleLength)</a>
-<a class="sourceLine" id="cb66-2" data-line-number="2">pong_data2_hits &lt;-<span class="st"> </span><span class="kw">summarise</span>(pong_data2_group, <span class="dt">mean_hits =</span> <span class="kw">mean</span>(HitOrMiss))</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">pong_data2_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(pong_data2, BackgroundColor, PaddleLength)</a>
+<a class="sourceLine" id="cb68-2" data-line-number="2">pong_data2_hits &lt;-<span class="st"> </span><span class="kw">summarise</span>(pong_data2_group, <span class="dt">mean_hits =</span> <span class="kw">mean</span>(HitOrMiss))</a></code></pre></div>
 <ul>
 <li>You should find that the number of hits made with the small paddle (50) and the red color background is 0.450655</li>
 </ul>
@@ -1938,38 +2002,42 @@ At any point where the first argument of your function is the name of a variable
 <h3><span class="header-section-number">2.5.2</span> InClass Actitivies</h3>
 <div id="inclass-task-2" class="section level4">
 <h4><span class="header-section-number">2.5.2.1</span> InClass Task 2</h4>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb67-2" data-line-number="2"><span class="co"># or</span></a>
-<a class="sourceLine" id="cb67-3" data-line-number="3"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb67-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb67-5" data-line-number="5"><span class="co"># both do the same thing.</span></a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<ul>
+<li>Note, there is no difference between <code>library(tidyverse)</code> and <code>library(&quot;tidyverse&quot;)</code> both will work.</li>
+</ul>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3" class="section level4">
 <h4><span class="header-section-number">2.5.2.2</span> InClass Task 3</h4>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;responses.csv&quot;</span>)                  </a>
-<a class="sourceLine" id="cb68-2" data-line-number="2">qformats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;qformats.csv&quot;</span>)                 </a>
-<a class="sourceLine" id="cb68-3" data-line-number="3">scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;scoring.csv&quot;</span>)                  </a>
-<a class="sourceLine" id="cb68-4" data-line-number="4">pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;pinfo.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;responses.csv&quot;</span>)                  </a>
+<a class="sourceLine" id="cb71-2" data-line-number="2">qformats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;qformats.csv&quot;</span>)                 </a>
+<a class="sourceLine" id="cb71-3" data-line-number="3">scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;scoring.csv&quot;</span>)                  </a>
+<a class="sourceLine" id="cb71-4" data-line-number="4">pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;pinfo.csv&quot;</span>)</a></code></pre></div>
+<ul>
+<li>Note that there is a difference between <code>responses &lt;- read_csv(&quot;responses.csv&quot;)</code> and <code>responses &lt;- read_csv(responses.csv)</code>. You will need quotes around the .csv filename as shown in the code chunk above (e.g. <code>responses &lt;- read_csv(&quot;responses.csv&quot;)</code>), or the code won’t work.</li>
+</ul>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-7" class="section level4">
 <h4><span class="header-section-number">2.5.2.3</span> InClass Task 7</h4>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">aq_scores &lt;-<span class="st"> </span>rscores <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb69-2" data-line-number="2"><span class="st">             </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># group by the ID number in column Id</span></a>
-<a class="sourceLine" id="cb69-3" data-line-number="3"><span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score)) <span class="co"># sum column Score to obtain AQ scores.</span></a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">aq_scores &lt;-<span class="st"> </span>rscores <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb72-2" data-line-number="2"><span class="st">             </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># group by the ID number in column Id</span></a>
+<a class="sourceLine" id="cb72-3" data-line-number="3"><span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score)) <span class="co"># sum column Score to obtain AQ scores.</span></a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT7">Return to Task</a></p>
 </div>
 <div id="inclass-task-8" class="section level4">
 <h4><span class="header-section-number">2.5.2.4</span> InClass Task 8</h4>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">aq_scores2 &lt;-<span class="st"> </span>responses <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb70-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> Q1<span class="op">:</span>Q10,</a>
-<a class="sourceLine" id="cb70-3" data-line-number="3">               <span class="dt">names_to =</span> <span class="st">&quot;Question&quot;</span>,</a>
-<a class="sourceLine" id="cb70-4" data-line-number="4">               <span class="dt">values_to =</span> <span class="st">&quot;Response&quot;</span>),</a>
-<a class="sourceLine" id="cb70-5" data-line-number="5">  <span class="kw">inner_join</span>(qformats, <span class="st">&quot;Question&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb70-6" data-line-number="6"><span class="st">  </span><span class="kw">inner_join</span>(scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb70-7" data-line-number="7"><span class="st">             </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb70-8" data-line-number="8"><span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">aq_scores2 &lt;-<span class="st"> </span>responses <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> Q1<span class="op">:</span>Q10,</a>
+<a class="sourceLine" id="cb73-3" data-line-number="3">               <span class="dt">names_to =</span> <span class="st">&quot;Question&quot;</span>,</a>
+<a class="sourceLine" id="cb73-4" data-line-number="4">               <span class="dt">values_to =</span> <span class="st">&quot;Response&quot;</span>),</a>
+<a class="sourceLine" id="cb73-5" data-line-number="5">  <span class="kw">inner_join</span>(qformats, <span class="st">&quot;Question&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb73-6" data-line-number="6"><span class="st">  </span><span class="kw">inner_join</span>(scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb73-7" data-line-number="7"><span class="st">             </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb73-8" data-line-number="8"><span class="st">             </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8">Return to Task</a></p>
 </div>
 </div>
@@ -1980,11 +2048,11 @@ At any point where the first argument of your function is the name of a variable
 <ul>
 <li>Whether you coded this answer or just read from the data, the Participant with ID Number 3 is the oldest.</li>
 </ul>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">oldest_participant &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">oldest_participant &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <p>This could also be answered with code. We haven’t quite shown you how yet but it would look like this:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">oldest_participant_code &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(AGE)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb72-2" data-line-number="2"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb72-3" data-line-number="3"><span class="st">  </span><span class="kw">pull</span>(ID)</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">oldest_participant_code &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(AGE)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb75-3" data-line-number="3"><span class="st">  </span><span class="kw">pull</span>(ID)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1">Return to Task</a></p>
 </div>
 <div id="assignment-task-2---arranging-d-span" class="section level4">
@@ -1993,7 +2061,7 @@ At any point where the first argument of your function is the name of a variable
 <li><code>arrange()</code> is the main function here</li>
 <li>You also needed to use <code>desc()</code> to sort from high to low</li>
 </ul>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">cogtest_sort &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(DSPAN))</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">cogtest_sort &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(DSPAN))</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2">Return to Task</a></p>
 </div>
 <div id="assignment-task-3---foreign-language-speakers" class="section level4">
@@ -2004,10 +2072,10 @@ At any point where the first argument of your function is the name of a variable
 <li><code>n()</code> is a function that we use within <code>summarise()</code> to count how many observations we have. It works like <code>count()</code> but you can’t use <code>count()</code> within <code>summarise()</code></li>
 <li><code>median()</code> is the function that we use within <code>summarise()</code> to calculate the median. Much like we do with <code>sum()</code> or <code>mean()</code> or <code>sd()</code>, etc.</li>
 </ol>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">screen_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(screening, FLANG) </a>
-<a class="sourceLine" id="cb74-2" data-line-number="2">descriptives &lt;-<span class="st"> </span><span class="kw">summarise</span>(screen_groups, </a>
-<a class="sourceLine" id="cb74-3" data-line-number="3">                          <span class="dt">n =</span> <span class="kw">n</span>(), </a>
-<a class="sourceLine" id="cb74-4" data-line-number="4">                          <span class="dt">median_age =</span> <span class="kw">median</span>(AGE))</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">screen_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(screening, FLANG) </a>
+<a class="sourceLine" id="cb77-2" data-line-number="2">descriptives &lt;-<span class="st"> </span><span class="kw">summarise</span>(screen_groups, </a>
+<a class="sourceLine" id="cb77-3" data-line-number="3">                          <span class="dt">n =</span> <span class="kw">n</span>(), </a>
+<a class="sourceLine" id="cb77-4" data-line-number="4">                          <span class="dt">median_age =</span> <span class="kw">median</span>(AGE))</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT3">Return to Task</a></p>
 </div>
 <div id="assignment-task-4---creating-percentage-moca-scores" class="section level4">
@@ -2016,7 +2084,7 @@ At any point where the first argument of your function is the name of a variable
 <li><code>mutate()</code> is the function to add a new column to data</li>
 <li>Here we are mutating/adding on a column called <code>MOCA_Perc</code> which shows a participant’s MOCA score divided by 30 and multiplied by 100.</li>
 </ul>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">mutate</span>(screening, <span class="dt">MOCA_Perc =</span> (MOCA <span class="op">/</span><span class="st"> </span><span class="dv">30</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">mutate</span>(screening, <span class="dt">MOCA_Perc =</span> (MOCA <span class="op">/</span><span class="st"> </span><span class="dv">30</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT4">Return to Task</a></p>
 </div>
 <div id="assignment-task-5---remove-the-moca-column" class="section level4">
@@ -2029,22 +2097,37 @@ At any point where the first argument of your function is the name of a variable
 <li>Remember that order is very important and you should select the columns in the order you want.</li>
 </ul>
 <p>Option 1:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, <span class="op">-</span>MOCA)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, <span class="op">-</span>MOCA)</a></code></pre></div>
 <p>Option 2:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)</a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT5">Return to Task</a></p>
 </div>
 <div id="assignment-task-6---gather-the-responses-together" class="section level4">
 <h4><span class="header-section-number">2.5.3.6</span> Assignment Task 6 - Gather the Responses together</h4>
 <ul>
-<li><code>gather()</code> is the function to use here.</li>
+<li><code>pivot_longer()</code> is the function to use here.</li>
 <li>People take a while to understand this function but spend some time looking at the example below and it will start to make some sense.</li>
 <li>The first argument is the data. In this case <code>responses</code>.</li>
-<li>The second argument is the name of a new column which will hold all the question numbers (e.g. Q1, Q2, Q3, etc). This could be called anything but here we are calling it <code>Question</code>.</li>
-<li>The third argument is the name of a new column which will hold the answers to the questions stored in <code>Question</code> - e.g. the actual answer for that participant to Q1 will appear in this column. Again this could be called anything but here we are calling it <code>RESPONSE</code>.</li>
-<li>The last argument is the name of the columns you want to gather. Here we are gathering all columns between the Q1 column and the Q15 column.</li>
+<li>The second argument is the name of the columns you want to gather. Here we are gathering all columns between the Q1 column and the Q15 column. Remember that the colon (:) says “from … to …”
+<ul>
+<li>You do not actually need to write <code>cols =</code> but it makes things clearer.</li>
+<li>“Gathering” of columns is based on position in the tibble. If the order of columns in the tibble was Q1 then Q15, the above code would only gather those two columns. As it is, in our tibble, the order, is Q1, Q2, Q3, … Q15, and therefore the code gathers all the columns between Q1 and Q15.<br />
+</li>
+<li>Colum names are not put in quotes because they exist already in the tibble <code>responses</code>.</li>
+</ul></li>
+<li>The third and fourth arguments are the names of the new columns we are creating;
+<ul>
+<li>the first will store the question numbers, <code>Question</code>. I.e. put the question names (<code>names_to = ...</code>) in a column called “Question”.</li>
+<li>the second will store the values/responses, <code>Response</code>. I.e. put the values/responses to the questions (<code>values_to = ...</code>) in a column called “Response”.</li>
+<li>These new column names are put in quotes because they do not already exist in the tibble. This is not always the case but is the case for this function.</li>
+<li>Note that these names could have been anything but by using these names the code makes more sense.</li>
+<li>Lastly, you do need to write <code>names_to = ...</code> and <code>values_to = ...</code> otherwise the columns won’t be created correctly.</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">responses_long &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, RESPONSE, Q1<span class="op">:</span>Q15)</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">responses_long &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(responses, </a>
+<a class="sourceLine" id="cb81-2" data-line-number="2">                         <span class="dt">cols =</span> Q1<span class="op">:</span>Q15, </a>
+<a class="sourceLine" id="cb81-3" data-line-number="3">                         <span class="dt">names_to =</span> <span class="st">&quot;Question&quot;</span>, </a>
+<a class="sourceLine" id="cb81-4" data-line-number="4">                         <span class="dt">values_to =</span> <span class="st">&quot;RESPONSE&quot;</span>)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT6">Return to Task</a></p>
 </div>
 <div id="assignment-task-7---joining-the-data" class="section level4">
@@ -2055,7 +2138,7 @@ At any point where the first argument of your function is the name of a variable
 <li>Keep in mind that <code>inner_join()</code> keeps only the rows that have data in both datasets. It will remove rows that only have data in one dataset.</li>
 <li>When joining two datasets, join by <strong>ALL</strong> common columns when there is more than one column in common.</li>
 </ul>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">responses_points &lt;-<span class="st"> </span><span class="kw">inner_join</span>(responses_long, scoring, <span class="st">&quot;RESPONSE&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">responses_points &lt;-<span class="st"> </span><span class="kw">inner_join</span>(responses_long, scoring, <span class="st">&quot;RESPONSE&quot;</span>)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT7">Return to Task</a></p>
 </div>
 <div id="assignment-task-8---working-the-pipes" class="section level4">
@@ -2063,20 +2146,20 @@ At any point where the first argument of your function is the name of a variable
 <ul>
 <li>This is the code we started with.</li>
 </ul>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)</a>
-<a class="sourceLine" id="cb80-2" data-line-number="2">participant_scores &lt;-<span class="st"> </span><span class="kw">summarise</span>(participant_groups, <span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE))</a>
-<a class="sourceLine" id="cb80-3" data-line-number="3">participant_screening &lt;-<span class="st"> </span><span class="kw">inner_join</span>(participant_scores, screening, <span class="st">&quot;ID&quot;</span>)</a>
-<a class="sourceLine" id="cb80-4" data-line-number="4">screening_groups_new &lt;-<span class="st"> </span><span class="kw">group_by</span>(participant_screening, MUSICAL)</a>
-<a class="sourceLine" id="cb80-5" data-line-number="5">musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)</a>
+<a class="sourceLine" id="cb83-2" data-line-number="2">participant_scores &lt;-<span class="st"> </span><span class="kw">summarise</span>(participant_groups, <span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE))</a>
+<a class="sourceLine" id="cb83-3" data-line-number="3">participant_screening &lt;-<span class="st"> </span><span class="kw">inner_join</span>(participant_scores, screening, <span class="st">&quot;ID&quot;</span>)</a>
+<a class="sourceLine" id="cb83-4" data-line-number="4">screening_groups_new &lt;-<span class="st"> </span><span class="kw">group_by</span>(participant_screening, MUSICAL)</a>
+<a class="sourceLine" id="cb83-5" data-line-number="5">musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
 <ul>
 <li>Below is how to transcribe the above series of functions into a pipeline.</li>
 <li>Remember, when using pipes, the output of the previous function is the input of the subsequent function</li>
 </ul>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb81-3" data-line-number="3"><span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb81-4" data-line-number="4"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb81-5" data-line-number="5"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-4" data-line-number="4"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-5" data-line-number="5"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT8">Return to Task</a></p>
 </div>
 <div id="assignment-task-9---difference-in-musical-means" class="section level4">
@@ -2086,15 +2169,15 @@ At any point where the first argument of your function is the name of a variable
 <li>You can do this by looking in <code>musical_means</code>, reading the values, and doing some quick maths.</li>
 <li>A second option is through code. Code is always better as it can reduce error and is reproducible!</li>
 </ul>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co"># Option 1</span></a>
-<a class="sourceLine" id="cb82-2" data-line-number="2">QHC_diff &lt;-<span class="st"> </span><span class="fl">1.53</span></a>
-<a class="sourceLine" id="cb82-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb82-4" data-line-number="4"><span class="co"># Option 2</span></a>
-<a class="sourceLine" id="cb82-5" data-line-number="5"><span class="co"># You will soon learn the functions to do this by code but here is how you could do it.</span></a>
-<a class="sourceLine" id="cb82-6" data-line-number="6">QHC_diff_code &lt;-<span class="st"> </span><span class="kw">spread</span>(musical_means, MUSICAL, mean_score) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb82-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> YES <span class="op">-</span><span class="st"> </span>NO) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb82-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(diff) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb82-9" data-line-number="9"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="co"># Option 1</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2">QHC_diff &lt;-<span class="st"> </span><span class="fl">1.53</span></a>
+<a class="sourceLine" id="cb85-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb85-4" data-line-number="4"><span class="co"># Option 2</span></a>
+<a class="sourceLine" id="cb85-5" data-line-number="5"><span class="co"># You will soon learn the functions to do this by code but here is how you could do it.</span></a>
+<a class="sourceLine" id="cb85-6" data-line-number="6">QHC_diff_code &lt;-<span class="st"> </span><span class="kw">spread</span>(musical_means, MUSICAL, mean_score) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb85-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> YES <span class="op">-</span><span class="st"> </span>NO) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb85-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(diff) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb85-9" data-line-number="9"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
@@ -2107,12 +2190,12 @@ At any point where the first argument of your function is the name of a variable
 <div id="more-on-read_csv" class="section level3 unnumbered">
 <h3>More on read_csv()</h3>
 <p>In the preclass activity we used the following code to load in our data:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)</a></code></pre></div>
 <p>This is a totally acceptable approach and it is the one we will use 99% of the time. Now one thing to note that the <code>read_csv()</code> function by default always loads any number as <strong>double</strong>, meaning that it can take a decimal. As shown here by the <dbl> at the start of each variable. The one column that is not a double is the BackgroundColor column, which is of course “characters” <chr>.</p>
 <ul>
 <li><strong>Note:</strong> we can use <code>glimpse()</code> from <code>dplyr</code> to check our data types.</li>
 </ul>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data)</a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data)</a></code></pre></div>
 <pre><code>## Observations: 4,608
 ## Variables: 8
 ## $ Participant     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
@@ -2124,10 +2207,10 @@ At any point where the first argument of your function is the name of a variable
 ## $ HitOrMiss       &lt;dbl&gt; 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0...
 ## $ BlockNumber     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...</code></pre>
 <p>However you might not always want this default and might want to stipulate the data-type to load the data in as. Particularly if you already know the data-type you should have. Let’s look at this first and then talk about it.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">pong_data3 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>,</a>
-<a class="sourceLine" id="cb86-2" data-line-number="2">                      <span class="dt">col_types =</span> <span class="st">&quot;iiiiicii&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">pong_data3 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb89-2" data-line-number="2">                      <span class="dt">col_types =</span> <span class="st">&quot;iiiiicii&quot;</span>)</a></code></pre></div>
 <p>Which if we look at again, we now see that the numerical data are <strong>integers</strong> <int> instead of <strong>double</strong> <dbl>.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data3)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data3)</a></code></pre></div>
 <pre><code>## Observations: 4,608
 ## Variables: 8
 ## $ Participant     &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
@@ -2146,20 +2229,20 @@ At any point where the first argument of your function is the name of a variable
 <div id="more-on-code-layout" class="section level3 unnumbered">
 <h3>More on Code Layout</h3>
 <p>One issue we see a lot is people not being able to debug their code quickly (i.e. find issues) because of the way the code is laid out. Pipes (%&gt;%) helps with that, but so does taking new lines for different parts of your code. After a comma (,) or a pipe (%&gt;%), you can take a new line to continue your code to make it easier to read and follow. For example, both of the following will work, but the second is easiest to read.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb90-2" data-line-number="2"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb90-3" data-line-number="3"><span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb90-4" data-line-number="4"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb90-5" data-line-number="5"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb93-3" data-line-number="3"><span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb93-4" data-line-number="4"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb93-5" data-line-number="5"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
 <p>And you could even expand this second option further to make it clearer on the <code>group_by()</code> and <code>inner_join()</code> what are the different inputs:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, </a>
-<a class="sourceLine" id="cb91-2" data-line-number="2">                          ID) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb91-3" data-line-number="3"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb91-4" data-line-number="4"><span class="st">                  </span><span class="kw">inner_join</span>(screening, </a>
-<a class="sourceLine" id="cb91-5" data-line-number="5">                             <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb91-6" data-line-number="6"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb91-7" data-line-number="7"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, </a>
+<a class="sourceLine" id="cb94-2" data-line-number="2">                          ID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-4" data-line-number="4"><span class="st">                  </span><span class="kw">inner_join</span>(screening, </a>
+<a class="sourceLine" id="cb94-5" data-line-number="5">                             <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-6" data-line-number="6"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-7" data-line-number="7"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
 <p>Remember, <strong>Tidy Code and Tidy Data Make Wrangling Fun!</strong> OK, that is not catchy, but true!</p>
 <hr />
 </div>
@@ -2172,7 +2255,7 @@ At any point where the first argument of your function is the name of a variable
 </ul>
 <p><strong>An example with gather()</strong></p>
 <p>In the example in class, Task 5, we have all the data we need loaded in, but in order to make it easier for us to get the AQ score for each participant, we need to change the layout of the <code>responses</code> tibble. In class we use the <code>pivot_longer()</code> function but you could have done it with the <code>gather()</code> function as follows</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, Response, Q1<span class="op">:</span>Q10)</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, Response, Q1<span class="op">:</span>Q10)</a></code></pre></div>
 <ul>
 <li>The first argument given to the <code>gather()</code> function is the dataset which holds the data we want to wrangle, <code>responses</code>.</li>
 <li>The second and third arguments are the names we want to give the columns we are creating;
@@ -2365,7 +2448,7 @@ Dogs
 </tbody>
 </table>
 <p>Because these two tables have no overlapping information about participants but have a similar tibble structure (i.e. number and names of columns) then the way we can combine the tibbles is by putting one tibble below the other using <code>bind_rows()</code></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">all_animals &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(cats, dogs)</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">all_animals &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(cats, dogs)</a></code></pre></div>
 <p>Which would give us:</p>
 <table>
 <caption>
@@ -2498,7 +2581,7 @@ Dogs
 </tbody>
 </table>
 <p>And say now we want to tack on the age information from each participant. Because <code>all_animals</code> and <code>ages</code> have overlapping information that we can use to link the information, we can put the new information at the side of the tibble as a new column using <code>inner_join()</code>.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">all_animals_ages &lt;-<span class="st"> </span><span class="kw">inner_join</span>(all_animals, ages, <span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Animal&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">all_animals_ages &lt;-<span class="st"> </span><span class="kw">inner_join</span>(all_animals, ages, <span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Animal&quot;</span>))</a></code></pre></div>
 <p>Which would give us:</p>
 <table>
 <caption>
@@ -2664,6 +2747,43 @@ Dogs
 </tbody>
 </table>
 <p>There is actualy <code>bind_cols()</code> as well as a host of other join functions, e.g. <code>full_join()</code>, <code>anti_join()</code>. You will pick up more of these functions as we continue but we hope this helps clarify these two functions a little.</p>
+<p><strong>A quick table on some useful joins()`</strong></p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="31%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">function</th>
+<th align="left">Example</th>
+<th align="left">Final tibble has…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">full_join()</td>
+<td align="left">full_join(x,y, by = “ID”)</td>
+<td align="left">information for all observations found in both original tibbles</td>
+</tr>
+<tr class="even">
+<td align="center">inner_join()</td>
+<td align="left">inner_join(x,y, by = “ID”)</td>
+<td align="left">information for only observations found in both original tibbles</td>
+</tr>
+<tr class="odd">
+<td align="center">anti_join()</td>
+<td align="left">anti_join(x,y, by = “ID”)</td>
+<td align="left">information for observations found in tibble x but not tibble y</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left">anti_join(y,x, by = “ID”)</td>
+<td align="left">information for observations found in tibble y but not tibble x</td>
+</tr>
+</tbody>
+</table>
 <hr />
 
 </div>

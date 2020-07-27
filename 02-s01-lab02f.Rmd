@@ -201,4 +201,12 @@ knitr::kable(all_animals_ages,
 
 There is actualy `bind_cols()` as well as a host of other join functions, e.g. `full_join()`, `anti_join()`. You will pick up more of these functions as we continue but we hope this helps clarify these two functions a little.
 
+**A quick table on some useful joins()`**
+
+|function|Example|Final tibble has...|
+|:------:|:------|:------|
+|full_join()|full_join(x,y, by = "ID")|information for all observations found in both original tibbles|
+|inner_join()|inner_join(x,y, by = "ID")|information for only observations found in both original tibbles|
+|anti_join()|anti_join(x,y, by = "ID")|information for observations found in tibble x but not tibble y|
+|           |anti_join(y,x, by = "ID")|information for observations found in tibble y but not tibble x|
 ---

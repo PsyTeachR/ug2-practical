@@ -8,6 +8,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
+One thing to keep in mind in all assignments is that spelling it really important when learning about being reproducible. Remember that `Mycolumn` is a different column to `mycolumn` and when being reproducible only one is correct. Likewise, `Mydata` and `mydata` are two different tibbles, and `read_csv()` and `read.csv()` are two different functions. Check the instructions and check your work!
+
 ## Before starting lets check:
 
 1. The `.csv` files are saved into a folder on your computer and you have manually set this folder as your working directory. 
@@ -102,14 +104,15 @@ Now we need to join the number of points for each response in `scoring` to the p
 
 Replace the `NULL` in the `T7` code chunk using `inner_join()` to combine `responses_long` and `scoring` into a new variable called `responses_points`. 
 
+* **hint:** join them by the column common to both scoring and responses_long
+
 ```{r T7}
-# hint: join them by the column common to both scoring and responses_long
 responses_points <- NULL
 ```
 
 ### Task 8 - Working the Pipes
 
-Below we have given you a code chunk with 5 lines of code. The code takes the data in its current long format and then creates a QHC score for each participant, before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don't - and stores it in a variable called `musical_means`.
+Below we have given you five lines of code that takes the data in its current long format and then creates a QHC score for each participant (`group_by()...summarise()`). It then joins the screening information (`inner_join()`) before calculating a mean QHC score for the two groups of participants - those that play musical intruments and those that don't. This final step is stored as a tibble called `musical_means`.  
 
 ```
 participant_groups <- group_by(responses_points, ID)
@@ -118,24 +121,26 @@ participant_screening <- inner_join(participant_scores, screening, "ID")
 screening_groups_new <- group_by(participant_screening, MUSICAL)
 musical_means <- summarise(screening_groups_new, mean_score = mean(Total_QHC))
 ```
-Replace the `NULL` in the `T8` code chunk with the following code converted into a fuctioning pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people stored in `musical_means` which should be made of two rows by two columns.  
+
+Use the above five lines of code to replace the `NULL` in the `T8` code chunk with a functioning code pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people being stored in the tibble `musical_means`. This final tibble will consist of two rows by two columns (i.e. four cells in total).  
+
+* **hint:** in pipes, the output of the previous function is the input of the subsequent function.
+* **hint:** function1(...) %>% function2(...)
 
 ```{r T8}
-# hint: in pipes, the output of the previous function is the input of the subsequent function.
-# hint: function1 %>% function2
-
 musical_means <- NULL
 ```
 
 ### Task 9 - Difference in Musical Means
 
-Finally, replace the `NULL` in the `T9` code chunk with a single value, to two decimal places, that is the value of how much higher the QHC score of people who play music is compared to people who don't play music (e.g. 2.93)
+Finally, replace the `NULL` in the `T9` code chunk with the value of how much higher the QHC score of people who play music is compared to people who don't play music. This should be a single numeric value, to two decimal places, e.g. 2.93
+
+* **hint:** look in musical means and enter the difference between the two means.
 
 ```{r T9}
-# hint: look in musical means and enter the difference between the two means.
 QHC_diff <- NULL
 ```
 
 ## Finished
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> forum **#level2_2019**. 
+Well done, you are finshed! Now you should go check your answers against the solutions at the end of the chapter. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the forums.
