@@ -34,6 +34,8 @@ ggplot(data = menrot_angle, aes(x = Angle, y = mean_Resp)) +
   coord_cartesian(ylim = c(0, 3500), expand = TRUE)
 ```
 
+* `coord_cartesian()` is a function that can be used to show certain parts of a figure, controlling the visible X and Y axes. `expand = TRUE` adds a smaller buffer to the numbers you set. If you want to remove this buffer then set `expand = FALSE`.
+
 [Return to Task](#Ch3InClassQueT2)
 
 #### InClass Task 3
@@ -41,7 +43,7 @@ ggplot(data = menrot_angle, aes(x = Angle, y = mean_Resp)) +
 ```{r Ch3InClassSolT3, eval=FALSE}
 menrot_angle_sex <- filter(menrot, CorrectResponse == "Correct") %>%
   inner_join(demog, "Participant") %>%
-  group_by(Sex, Angle) %>% 
+  group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
 ggplot(data = menrot_angle_sex, aes(x = Angle, y = mean_Resp)) + 
@@ -57,7 +59,7 @@ ggplot(data = menrot_angle_sex, aes(x = Angle, y = mean_Resp)) +
 ```{r Ch3InClassSolT4, eval=FALSE}
 menrot_grouped <- filter(menrot, CorrectResponse == "Correct") %>%
   inner_join(demog, "Participant") %>%
-  group_by(Sex, Angle) %>% 
+  group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
 ggplot(data = menrot_grouped, aes(x = Angle, y = mean_Resp, group = Sex)) + 
@@ -73,7 +75,7 @@ ggplot(data = menrot_grouped, aes(x = Angle, y = mean_Resp, group = Sex)) +
 ```{r Ch3InClassSolT5, eval=FALSE}
 menrot_grouped_color <- filter(menrot, CorrectResponse == "Correct") %>%
   inner_join(demog, "Participant") %>%
-  group_by(Sex, Angle) %>% 
+  group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
 ggplot(data = menrot_grouped_color, aes(x = Angle, y = mean_Resp, group = Sex)) + 
@@ -89,7 +91,7 @@ ggplot(data = menrot_grouped_color, aes(x = Angle, y = mean_Resp, group = Sex)) 
 ```{r Ch3InClassSolT6, eval=FALSE}
 menrot_shape_size <- filter(menrot, CorrectResponse == "Correct") %>%
   inner_join(demog, "Participant") %>%
-  group_by(Sex, Angle) %>% 
+  group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
 ggplot(data = menrot_shape_size, aes(x = Angle, y = mean_Resp, group = Sex)) + 
@@ -105,7 +107,7 @@ ggplot(data = menrot_shape_size, aes(x = Angle, y = mean_Resp, group = Sex)) +
 ```{r Ch3InClassSolT7, eval=FALSE}
 menrot_lab_theme <- filter(menrot, CorrectResponse == "Correct") %>%
   inner_join(demog, "Participant") %>%
-  group_by(Sex, Angle) %>% 
+  group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
 ggplot(data = menrot_lab_theme, aes(x = Angle, y = mean_Resp, group = Sex)) + 
@@ -120,10 +122,10 @@ ggplot(data = menrot_lab_theme, aes(x = Angle, y = mean_Resp, group = Sex)) +
 
 #### InClass Task 8
 
-```{r Ch3InClassSolT8, eval=FALSE}
+```{r Ch3InClassSolT8-1, fig.cap='Task 8'}
 manrot_facet_guide <- filter(menrot, CorrectResponse == "Correct") %>%
   inner_join(demog, "Participant") %>%
-  group_by(Sex, Angle) %>% 
+  group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
 ggplot(data = manrot_facet_guide, aes(x = Angle, y = mean_Resp, group = Sex)) + 
@@ -135,6 +137,26 @@ ggplot(data = manrot_facet_guide, aes(x = Angle, y = mean_Resp, group = Sex)) +
   guides(group = FALSE, color = FALSE, shape = FALSE) +
   theme_bw()
 ```
+
+* Remembering it is a layer system, we could use the below code to have the lines behind the points.
+
+```{r Ch3InClassSolT8-2, fig.cap='Task 8 Alternative'}
+manrot_facet_guide <- filter(menrot, CorrectResponse == "Correct") %>%
+  inner_join(demog, "Participant") %>%
+  group_by(Angle, Sex) %>% 
+  summarise(mean_Resp = mean(Time))
+
+ggplot(data = manrot_facet_guide, aes(x = Angle, y = mean_Resp, group = Sex)) + 
+  geom_line() +
+  geom_point(aes(color = Sex, shape = Sex), size = 3) +
+  coord_cartesian(ylim = c(0, 3500), expand = TRUE) +
+  labs(x = "Angel of Rotation (degrees)", y = "Mean Reaction Time (ms)") +
+  facet_wrap(~Sex) +
+  guides(group = FALSE, color = FALSE, shape = FALSE) +
+  theme_bw()
+```
+
+
 
 [Return to Task](#Ch3InClassQueT8)
 

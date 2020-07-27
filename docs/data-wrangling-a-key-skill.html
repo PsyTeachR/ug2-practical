@@ -247,7 +247,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activities-1"><i class="fa fa-check"></i><b>3.5.1</b> InClass Activities</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-figures"><i class="fa fa-check"></i><b>3.6.1</b> Combining Figures</a></li>
+<li class="chapter" data-level="3.6.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to"><i class="fa fa-check"></i><b>3.6.1</b> More on <code>aes()</code> - when to and when not to!</a></li>
+<li class="chapter" data-level="" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-plots-into-one-figure"><i class="fa fa-check"></i>Combining Plots into one Figure</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
@@ -644,7 +645,7 @@ For instance, do you remember how to get help on an R function in RStudio? In yo
 <div id="preclass-activity" class="section level2">
 <h2><span class="header-section-number">2.2</span> PreClass Activity</h2>
 <p><strong>Revisiting Tabular Data</strong></p>
-<p>From working with data previously you know that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type <code>vignette(&quot;tibble&quot;)</code> in the Console Window). A tibble is really just a table of data with columns and rows of information, and within the tibble you can get different types of data, i.e. double, integer, and character.</p>
+<p>From working with data previously you know that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type <code>vignette(&quot;tibble&quot;)</code> in the Console Window). A tibble is really just a table of data with columns and rows of information, and within the tibble you can get different <a class='glossary' target='_blank' title='The kind of data represented by an object.' href='https://psyteachr.github.io/glossary/d#data-type'>types of data</a>, i.e. <a class='glossary' target='_blank' title='A data type representing a real decimal number' href='https://psyteachr.github.io/glossary/d#double'>double</a>, <a class='glossary' target='_blank' title='A data type representing whole numbers.' href='https://psyteachr.github.io/glossary/i#integer'>integer</a>, and <a class='glossary' target='_blank' title='A data type representing strings of text.' href='https://psyteachr.github.io/glossary/c#character'>character</a>.</p>
 <table>
 <colgroup>
 <col width="17%" />
@@ -672,7 +673,7 @@ For instance, do you remember how to get help on an R function in RStudio? In yo
 </tbody>
 </table>
 <ul>
-<li><strong>Note:</strong> Double is sometimes referred to as Numeric. The key point is though that these terms refer to values that have decimals.</li>
+<li><strong>Note:</strong> Double and Integer can both be referred to as Numeric data, and you will see this word from time to time. For clarity, we will use Double as a term for any number with a decimal (e.g. 3.14) and Integer as a term for any whole number (no decimal, e.g. 3).</li>
 </ul>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>What type of data would these most likely be:</p>
@@ -687,7 +688,7 @@ Portfolio Point - Data types and levels of measurement
 </button>
 <div class="info">
 <p>
-There are lots of different types of data as well as different levels of measurements and it can get very confusing. It’s important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can’t take the average of characters just like you can’t take the average of categorical data. Likewise, you can do any maths on double (‘numeric’) data and integer data, just like you can on interval and ratio data. Integer data is funny in that sometimes it is ordinal and sometimes it is interval, sometimes you should take the median, sometimes you should take the mean.
+There are lots of different types of data as well as different levels of measurements and it can get very confusing. It’s important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can’t take the average of characters just like you can’t take the average of categorical data. Likewise, you can do any maths on double and integer data, just like you can on interval and ratio data. Integer data is funny in that sometimes it is ordinal and sometimes it is interval, sometimes you should take the median, sometimes you should take the mean.
 </p>
 <p>
 The main point is to always know what type of data you are using and to think about what you can and cannot do with them.

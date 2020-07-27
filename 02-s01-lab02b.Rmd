@@ -6,7 +6,7 @@ pong_data <- read_csv("./data/02-s01/preclass/PongBlueRedBack 1-16 Codebook.csv"
 
 **Revisiting Tabular Data**
 
-From working with data previously you know that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type `vignette("tibble")` in the Console Window). A tibble is really just a table of data with columns and rows of information, and within the tibble you can get different types of data, i.e. double, integer, and character.
+From working with data previously you know that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type `vignette("tibble")` in the Console Window). A tibble is really just a table of data with columns and rows of information, and within the tibble you can get different `r glossary("data type", display = "types of data")`, i.e. `r glossary("double")`, `r glossary("integer")`, and `r glossary("character")`.
 
 |Type of Data     | Description                                                  |
 |:------------|:-------------------------------------------------------------| 
@@ -14,7 +14,7 @@ From working with data previously you know that nearly all data in research meth
 |Integer     | Numbers without decimals  (e.g. 3)|
 |Character     | Tends to contain letters or be words, but can be numbers (e.g. "AB12", "Data Rocks!")                       |
 
-* **Note:** Double is sometimes referred to as Numeric. The key point is though that these terms refer to values that have decimals.
+* **Note:** Double and Integer can both be referred to as Numeric data, and you will see this word from time to time. For clarity, we will use Double as a term for any number with a decimal (e.g. 3.14) and Integer as a term for any whole number (no decimal, e.g. 3).
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
@@ -28,7 +28,7 @@ What type of data would these most likely be:
 
 `r hide("Portfolio Point - Data types and levels of measurement")`
 ```{block, type ="info"}
-There are lots of different types of data as well as different levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of characters just like you can't take the average of categorical data. Likewise, you can do any maths on double ('numeric') data and integer data, just like you can on interval and ratio data. Integer data is funny in that sometimes it is ordinal and sometimes it is interval, sometimes you should take the median, sometimes you should take the mean. 
+There are lots of different types of data as well as different levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of characters just like you can't take the average of categorical data. Likewise, you can do any maths on double and integer data, just like you can on interval and ratio data. Integer data is funny in that sometimes it is ordinal and sometimes it is interval, sometimes you should take the median, sometimes you should take the mean. 
 
 The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
 ```
