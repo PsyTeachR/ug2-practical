@@ -1,7 +1,7 @@
 
 --- 
 title: "Level 2 Research Methods and Statistics Practical Skills"
-date: "Last Update: 2020-07-27"
+date: "Last Update: 2020-07-28"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -25,3 +25,5 @@ Materials for the University of Glasgow School of Psychology Year 2 Research Met
 **Contact:** This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact [Phil McAleer](mailto:philip.mcaleer@glasgow.ac.uk).
 
 **R Version:** This book has been written with R version 3.5.1 (2018-07-02)
+
+**Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.

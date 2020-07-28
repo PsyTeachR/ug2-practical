@@ -2,7 +2,7 @@
 
 In the preclass activity, we focused a lot on basic probability and **binomial distributions**. If you have followed it, and understood it correctly, you should be able to have a go at the following scenario to help deepen your understanding of the binomial distribution. Have a go and see how you get on. Solutions are at the end of the chapter. 
 
-### Return of the Binomial
+### Return of the Binomial {Ch4InClassQueBinomial}
 
 You design a psychology experiment where you are interested in how quickly people spot faces. Using a standard task you show images of **faces, houses, and noise patterns,** and ask participants to respond to each image by saying **'face'** or **'not face'**. You set the experiment so that, across the whole experiment, the number of images per stimuli type are evenly split (1/3 per type) but they are not necessarily evenly split in any one block. **Each block contains 60 trials**.  
 
@@ -21,6 +21,7 @@ blocks_5k <- replicate(n = NULL,
 
 1. Copy the code to a script and replace the `NULLs` with the correct value and statement to establish how many different numbers of faces you might see in 1 block of 60 trials, over 5000 replications. Answering the following questions to help you out:
 <br>
+
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 * The `n` NULL relates to: `r mcq(c(answer = "Number of Monte Carlo replications", "Number of blocks in the experiment", "Number of trials in the experiment", "Number of faces in the experiment"))`
@@ -31,21 +32,22 @@ blocks_5k <- replicate(n = NULL,
 
 `r hide("Explain This - I don't understand these answers")`
 ```{block, type ="info"}
-* `replicate` is how many times you want to run the sample, n = 5000. 
+* `replicate` is how many times you want to run the sample, n = 5000. Monte Carlo replications are their official name.
 * The number of trials is the `size`, 60. 
 * And in order for the code to work, and to not run out of options, you need to set `replace` as TRUE.
 
-You saw this exact same code in the preclass so be sure to have had a look there. The solution code is shown in one of the code chunks below.
+You saw a very similar code in the preclass so be sure to have had a look there. The solution code is shown at the end of the chapter
 ```
 `r unhide()`
 
 `r hide("Portfolio Point - Why the odd weight of probability?")`
 ```{block, type ="info"}
-Note that the elements in the `prob` argument set probabilities for the two outcomes specified in the first argument (0, 1). So, we are setting a 2/3 probability of 0 (no face), and a 1/3 probability of 1 (face). Why? Remember that in this instance you have three different stimuli (face, house and noise) and therefore have a greater chance of not seeing a face in the experiment (i.e. you see a house or noise) than seeing a face in the experiment. You need to remember when using `sample` (`?sample`) to set the probability appropriately or you will end up with an incorrect calculation.
+Note that the values in the `prob` argument (i.e. `c(2/3, 1/3)` ) set probabilities for the two outcomes specified in the first argument (0, 1). So, we are setting a 2/3 probability of 0 (no face), and a 1/3 probability of 1 (face). Why? Remember that in this instance you have three different stimuli (face, house and noise) and therefore we have a greater chance of not seeing a face in the experiment (i.e. you see a house or noise) than seeing a face in the experiment. You need to remember when using `sample` (`?sample`) to set the probability appropriately or you will end up with an incorrect calculation.
 ```
 `r unhide()`
 <br>
-2. Your `blocks_5k` code has created 5000 values where each value represents the number of faces you 'saw' in each individual block of 60 trials - like the number of heads you see in 10 flips. If your code has worked, then running the chunk below should produce a probability distribution of your data. Run it and see. If not, something has gone wrong; debug or compare to the solution at the bottom of the page.  
+
+2. If you completed the above task correctly, your `blocks_5k` code has created 5000 values where each value represents the number of faces you 'saw' in each individual replication (i.e. block) of 60 trials - like the number of heads you saw in 10 flips. If your code has worked, then running the chunk below should produce a probability distribution of your data. Run it and see. If not, something has gone wrong in your code above; debug or compare you code to the solution at the end of the chapter.  
 
 ```{r 5k-plot, include = TRUE, eval = FALSE}
 data5k <- tibble(faces_per_block = blocks_5k) %>% 
@@ -58,11 +60,14 @@ ggplot(data5k, aes(faces_per_block, p)) +
 
 If you view `data5k`, you will now see three columns: 
 ```{r 5k-tibble, echo=FALSE, include = FALSE}
+set.seed(1409)
+
 blocks_5k <- replicate(n = 5000, 
                        sample(0:1,
                               size = 60, 
                               replace = TRUE, 
                               c(2/3,1/3)) %>% sum())
+
 data5k <- tibble(faces_per_block = blocks_5k) %>% 
   count(faces_per_block) %>%
   mutate(p = n / 5000)
@@ -74,11 +79,12 @@ data5k <- tibble(faces_per_block = blocks_5k) %>%
 
 From your `data5k` tibble, what was the probability of seeing only 10 faces in a block? Ours was **`r filter(data5k, faces_per_block == 10) %>% pull(p) %>% round(3)`** but remember that we are using a limited number of replications here so our numbers will vary from yours. To find this value you can use `View()` or `glimpse()` on `data5k`.
 <br>
+
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
 Discuss in your groups the following questions:
 
-1. If the probability of seeing only 10 faces was p = `r filter(data5k, faces_per_block == 10) %>% pull(p) %>% round(3)`, what does that say about whether our experiment is coded correctly or not?
+1. If the probability of seeing only 10 faces was approximately p = `r filter(data5k, faces_per_block == 10) %>% pull(p) %>% round(3)`, what does that say about whether our experiment is coded correctly or not?
 
 2. We only have data for `r dim(data5k)[1]` potential different number of face trials within a block. Why does this value not stretch from 0 to 60, or at least have more potential values than `r dim(data5k)[1]`?
 
@@ -100,7 +106,7 @@ On the second point, you need to think about the width of the distribution. The 
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
-1. You are looking for the probability of one specific value of faces appearing, i.e. 10 faces in a total of 60 trials. You are not looking for the cumulative probability or a range of values. What does this tell you about the apporpriate `binom()` function you require? Also, in the `sample` function, we created a vector of probability dependent on the appearance of both faces and other stimuli. For the `binom()` function, you need to include only the probability of faces appearing. 
+1. You are looking for the probability of one specific value of faces appearing, i.e. 10 faces in a total of 60 trials. You are not looking for the cumulative probability or a range of values. What does this tell you about the apporpriate `binom()` function you require? Also, in the `sample` function, we created a vector of probability dependent on the appearance of both faces and other stimuli. However, for the `binom()` function, you need to include only the probability of faces appearing - $\frac{1}{3}$. 
 
 2. You are looking for the cumulative probability for seeing more than but not including 25 faces in a block of 60 trials. What does this tell you about the apporpriate `binom()` function you require? Remember to set an appropriate call for `lower.tail`!
 

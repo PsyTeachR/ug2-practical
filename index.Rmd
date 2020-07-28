@@ -32,3 +32,5 @@ Materials for the University of Glasgow School of Psychology Year 2 Research Met
 **Contact:** This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact [Phil McAleer](mailto:philip.mcaleer@glasgow.ac.uk).
 
 **R Version:** This book has been written with `r R.version.string`
+
+**Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
