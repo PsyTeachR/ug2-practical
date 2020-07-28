@@ -2,11 +2,11 @@
 
 ### Continuous Data - Brief Recap on The Normal Distribution
 
-This a very short recap on the normal distribution which will help you in the lab if you read it before arriving. In the main PreClass activity, we have seen how we can use a distribution to estimate probabilities and determine cut-off values (these will play an important part in hypothesis testing in later labs!), but we have looked only at the **discrete binomial distribution**. Many of the variables we will encounter will be **continuous** and tend to show a **normal distribution** (e.g. height, weight, IQ). 
+This a very short recap on the normal distribution which will help you work through the rest of this chapter if you read it before attempting the rest. In the first PreClass activity, we have seen how we can use a distribution to estimate probabilities and determine cut-off values (these will play an important part in hypothesis testing in later chapters!), but we have looked only at the **discrete binomial distribution**. Many of the variables we will encounter will be **continuous** and tend to show a **normal distribution** (e.g. height, weight, IQ). 
 
-Let's say we're interested in the height of the population of level 2 psychology students, which we estimate to be between 146cm and 194cm. If we plotted this as a continuous, normal distribution, it will look like:
+Let's say we're interested in the height of the `r glossary("population")` of Level 2 psychology students, which we estimate to be between 146cm and 194cm. If we plotted this as a continuous, normal distribution, it will look like:
 
-``` {r normplot1, eval = TRUE, echo = FALSE, fig.cap = 'The Normal Distribution'}
+``` {r normplot1, eval = TRUE, echo = FALSE, fig.cap = 'The Normal Distribution of height in Level 2 Psychology students (black line). Green line represents the mean. Blue line represent 1 Standard Deviation from the mean. Yellow line represents 2 Standard Deviation from the mean. Red line represents 3 Standard Deviation from the mean.'}
 
 x <- seq(146,194,0.01) # here we use the sequence function to generate our quantiles ranging from -4 to 4 in steps of 0.01
 mean = 170
@@ -33,7 +33,7 @@ text(mean+(3*sd)+2, 0.01, expression(+3*sigma), col = "red")
 
 ```
 
-The figure shows the hypothetical probability density of heights ranging from 146cm to 194cm in the population of level 2 psychology students (black curve). This data is **normally distributed** - we know this as it has the following properties:
+The figure shows the hypothetical probability density of heights ranging from 146cm to 194cm in the population of level 2 psychology students (black curve). This data is **normally distributed** and has the following properties:
 
 ### Properties of the Normal distribution:
 
@@ -51,4 +51,4 @@ The figure shows the hypothetical probability density of heights ranging from 14
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-We will look at the normal distribution more in the lab. If you have any questions please post them on the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!
+We will look at the normal distribution more in the InClass activity but if you have any questions please post them on forums or ask a member of staff. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. 

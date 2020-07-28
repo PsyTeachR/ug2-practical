@@ -5,8 +5,8 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+set.seed(1409)
 library(tidyverse)
-set.seed(1001)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -20,7 +20,7 @@ In the lab you recapped and expanded on your understanding of probability, inclu
 
 ## Before starting let's check
 
-1. This .Rmd file is saved into a folder on your computer that you have access to and you have manually set this folder as your working directory. For assessments we ask that you save it with the format GUID_Level2_Lab4.Rmd where GUID is replaced with your GUID. Though this is a formative assessment it may be good practice to do the same here.
+1. This .Rmd file is saved into a folder on your computer that you have access to and you have manually set this folder as your working directory. For assessments we ask that you save it with the format GUID_Level2_Semester1_Lab4.Rmd where GUID is replaced with your GUID. Though this is a formative assessment it may be good practice to do the same here.
 
 **Note:** You should complete the below code chunks by replacing the `NULL` (except the library chunk where the appropriate code should just be entered). Not all answers require coding. On those that do not require code you can enter the answer as either code, mathematical notation, or an actual single value. Pay attention to the number of decimal places required.
 
@@ -123,4 +123,6 @@ t10 <- NULL
 
 # Finished
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the forums!
+Well done, you are finshed! Now you should go check your answers against the solutions at the end of the chapter. You are looking to check that questions looking for a single value have the same answer as you, and that questions asking for code have the same code as you or give the same answer where alternative variations in the code are allowed (e.g. including `lower.tail = TRUE` or not including it as it is default). Remember that a single value is not the same as a coded answer and that spelling matters, `replicate()` is not the same as `replicat()`. Where there are alternative answers, it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions, please post them on the forums!
+
+Lastly, keep in mind the main point about probability, that we are interested in determining the probability of a given value on a distribution! That is what it is all about and is what we will look at more of in Chapter 5.

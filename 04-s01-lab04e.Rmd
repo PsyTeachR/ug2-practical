@@ -6,10 +6,18 @@ Below you will find the solutions to the questions for the Activities for this c
 
 #### InClass Task 1
 
-```{r, eval = FALSE}
-ggplot(IQ_data, aes(IQ_data)) + 
-  stat_function(fun = dnorm, args = list(mean = 100, sd = 10)) +
-  labs(x = "IQ Score", y = "probability", title = "Distribution of IQ Scores") +
+* First we set up our range of IQ values from 40 to 160
+* Then we plot the distribution of IQ_data, where we have M = 100 and SD = 10
+
+```{r, warning=FALSE, message=FALSE, fig.cap = 'Distribution of IQ scores with mean = 100, sd = 10'}
+
+library(tidyverse)
+
+IQ_data <- tibble(IQ_range = c(40, 160))
+
+ggplot(IQ_data, aes(IQ_range)) + 
+  stat_function(fun = dnorm, args = list(mean = 100, sd = 15)) +
+  labs(x = "IQ Score", y = "probability") +
   theme_classic()
 ```
 
@@ -17,8 +25,9 @@ ggplot(IQ_data, aes(IQ_data)) +
 
 #### InClass Task 2
 
-```{r, eval = FALSE}
+```{r, fig.cap = 'Normal Distribution shown on a scale of -10 to 10, with a mean = 0, sd = 1'}
 ND_data <- tibble(ND_range = seq(-10,10,0.05))
+
 ggplot(ND_data, aes(ND_range)) + 
   stat_function(fun = dnorm, args = list(mean = 0, sd = 1)) +
   labs(x = "SD units", y = "probability", title = "The Normal Distribution") +
@@ -29,8 +38,9 @@ ggplot(ND_data, aes(ND_range)) +
 
 #### InClass Task 3
 
-```{r, eval = FALSE}
-# Key thing is to set lower.tail to FALSE to calculate the above area.
+* Key thing is to set lower.tail to FALSE to calculate the above area. When using `pnorm()` you state the actual cut-off even if using `lower.tail = FALSE`. If using `pbinom()` you state the cut-off minus one if using `lower.tail = FALSE`
+
+```{r}
 pnorm(190, 170, 7, lower.tail = FALSE)
 ```
 
@@ -38,9 +48,10 @@ pnorm(190, 170, 7, lower.tail = FALSE)
 
 #### InClass Task 4
 
-```{r, eval = FALSE}
-# the area is 185cm and above. 
-# Key thing is to set lower.tail to FALSE to calculate the above area.
+* The highlighted area is 185cm and above. 
+* Key thing is to set lower.tail to FALSE to calculate the area from the cut-off and above.
+
+```{r}
 pnorm(185, 170, 7, lower.tail = FALSE)
 ```
 
@@ -48,16 +59,35 @@ pnorm(185, 170, 7, lower.tail = FALSE)
 
 #### InClass Task 5
 
-```{r, eval = FALSE}
-# Question 1
-qnorm(0.95, 100, 15, lower.tail = TRUE)
+* Question 1 - the lowest IQ score a student must have to be in the top 5% of the above distribution.
 
-# Question 2
-  pnorm(105, 100, 15, lower.tail = FALSE) -
-    pnorm(110, 100, 15, lower.tail = FALSE)
+```{r}
+qnorm(0.95, 100, 15, lower.tail = TRUE)
+```
+
+* Question 2 - calculate the probability that a given student will have an IQ between 105 and 110, on a normal distribution of mean = 100, sd = 15.
+
+```{r}
+pnorm(105, 100, 15, lower.tail = FALSE) - 
+  pnorm(110, 100, 15, lower.tail = FALSE)
 ```
 
 [Return to Task](#Ch4InClassQueT5)
+
+
+### Return of the Binomial
+
+#### Task 1
+
+```{r, eval = FALSE}
+blocks_5k <- replicate(n = 5000, 
+                       sample(0:1,
+                              size = 60, 
+                              replace = TRUE, 
+                              c(2/3,1/3)) %>% sum())
+```
+
+[Return to Task](#Ch4InClassQueBinomial)
 
 ### Assignment Solution
 
@@ -67,13 +97,18 @@ qnorm(0.95, 100, 15, lower.tail = TRUE)
 library(tidyverse)
 ```
 
+```{r seeds, echo=FALSE}
+set.seed(1409)
+```
+
+
 [Return to Task](#Ch4AssignQueLib)
 
 #### Assignment Task 1
 
 ```{r t1}
 t1 <- 3/4
-t1 <- 0.75
+t1 <- .75
 ```
 
 * The probability that the sound will not be a person is `r t1`
@@ -99,6 +134,7 @@ t3 <- 0
 ```
 
 * The probability of that sequence of sounds is `r t3`
+* The reason is that there is no replacement and as such the repeat of the `person` trial can't happen.
 
 [Return to Task](#Ch4AssignQueT3)
 
@@ -113,6 +149,8 @@ t4 <- dbinom(17, 100, 1/4)
 [Return to Task](#Ch4AssignQueT4)
 
 #### Assignment Task 5
+
+* This could have been answered using either `pbinom()` or `dbinom()`. The trick is to remember where to set the cut-off depending on the function used.
 
 ```{r t5}
 t5 <- pbinom(29, 100, 1/4, lower.tail = FALSE)
@@ -142,7 +180,7 @@ glimpse(t6)
 #### Assignment Task 7
 
 ```{r t7}
-t7 <- pnorm(90, 100, 10)
+t7 <- pnorm(90, 100, 10, lower.tail = TRUE)
 ```
 
 * The probability of a given participant having a D2 score of 90 or lower is `r t7`
