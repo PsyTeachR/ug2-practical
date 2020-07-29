@@ -72,7 +72,7 @@ dat %>%
 ```
 
 ```{r pull-part-1, echo=FALSE}
-diff_h <- dat %>%
+d_orig <- dat %>%
   group_by(group) %>%
   summarise(m = mean(Y)) %>%
   pivot_wider(names_from = "group", values_from = "m") %>%
@@ -80,7 +80,7 @@ diff_h <- dat %>%
   pull(diff)
 ```
 
-* As such $D_{orig}$ = `r round(diff_h, 2)`
+* As such $D_{orig}$ = `r round(d_orig, 2)`
 
 **Step 2.2 - setting up the `calc_diff()` function**
 ```{r calc_diff_solution}
@@ -165,6 +165,14 @@ p <- n_exceeding_orig / length(nhd)
 ```
 
 * As such the probability of finding a value of $D_{orig}$ or larger was p = `r p`
+
+To write up the sentence, with inline coding you would write:
+
+* The difference between Group A and Group B (M = `r backtick("r round(d_orig, 2)")`) was found to be have a probability of p = `r backtick("r p")`. This means that the original mean difference was significant and the null hypothesis is rejected.
+
+Which when knitted would produce:
+
+* The difference between Group A and Group B (M = `r round(d_orig, 2)`) was found to be have a probability of p = `r p`. This means that the original mean difference was significant and the null hypothesis is rejected.
 
 [Return to Task](#Ch5InClassQueT5)
 

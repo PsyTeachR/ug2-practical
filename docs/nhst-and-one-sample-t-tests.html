@@ -247,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activities-1"><i class="fa fa-check"></i><b>3.5.1</b> InClass Activities</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to"><i class="fa fa-check"></i><b>3.6.1</b> More on <code>aes()</code> - when to and when not to!</a></li>
+<li><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to">More on <code>aes()</code> - when to and when not to!</a></li>
 <li class="chapter" data-level="" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-plots-into-one-figure"><i class="fa fa-check"></i>Combining Plots into one Figure</a></li>
 </ul></li>
 </ul></li>
@@ -323,9 +323,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider"><i class="fa fa-check"></i><b>5.6.1</b> More on <code>pivot_wider()</code></a></li>
-<li class="chapter" data-level="5.6.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i><b>5.6.2</b> More on Simulating your own data</a></li>
-<li class="chapter" data-level="5.6.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations"><i class="fa fa-check"></i><b>5.6.3</b> More on Permutations</a></li>
+<li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on Simulating your own data</a></li>
+<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations"><i class="fa fa-check"></i>More on Permutations</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
@@ -1348,11 +1348,11 @@ Figure 6.2: Figure 7 from Schroeder and Epley (2015) which you should try to rep
 </p>
 </div>
 <p>Replace the <code>NULL</code>s below to create a very basic version of this figure. You did something like this for the Lab 5 assignment and again in the Lab 3 Visualisation tasks.</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1">group_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(ratings2, <span class="ot">NULL</span>, <span class="ot">NULL</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb302-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))</a>
-<a class="sourceLine" id="cb302-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb302-4" data-line-number="4"><span class="kw">ggplot</span>(group_means, <span class="kw">aes</span>(<span class="ot">NULL</span>, <span class="ot">NULL</span>, <span class="dt">fill =</span> <span class="ot">NULL</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb302-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">group_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(ratings2, <span class="ot">NULL</span>, <span class="ot">NULL</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb303-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))</a>
+<a class="sourceLine" id="cb303-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb303-4" data-line-number="4"><span class="kw">ggplot</span>(group_means, <span class="kw">aes</span>(<span class="ot">NULL</span>, <span class="ot">NULL</span>, <span class="dt">fill =</span> <span class="ot">NULL</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb303-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
 <p><strong>Improve This Figure:</strong> Discuss with others how you could improve this plot. What other <code>geom_()</code> options could you try? Are barcharts that informative or would something else be better? How would you add or change the labels of your plot? Could you change the colours in your figure?</p>
 <p>Next, have a look at the possible solution below to see a <strong>modern</strong> way of presenting this information. There are some new functions in this solution that you should play about with to understand what they do. Remember it is a layering system, so remove lines and see what happens. Note how in the solution the Figure shows the raw data points as well as the means in each condition; this gives a better impression of the true data as just showing the means can be misleading. You can continue your further exploration of visualisations by reading this paper later when you have a chance: <a href = "https://doi.org/10.1371/journal.pbio.1002128" target = "_blank">Weissberger et al., 2015, Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</a></p>
@@ -1360,19 +1360,19 @@ Figure 6.2: Figure 7 from Schroeder and Epley (2015) which you should try to rep
 <button>
 Possible Solution
 </button>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb303-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb303-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))</a>
-<a class="sourceLine" id="cb303-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb303-5" data-line-number="5"><span class="kw">ggplot</span>(ratings2, <span class="kw">aes</span>(condition, Rating, <span class="dt">color =</span> condition)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> condition), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Category) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> group_means, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Recruiters&#39; Evaluation of Candidates&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-11" data-line-number="11"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-12" data-line-number="12"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb303-13" data-line-number="13"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1">group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb304-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb304-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))</a>
+<a class="sourceLine" id="cb304-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb304-5" data-line-number="5"><span class="kw">ggplot</span>(ratings2, <span class="kw">aes</span>(condition, Rating, <span class="dt">color =</span> condition)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> condition), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Category) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> group_means, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Recruiters&#39; Evaluation of Candidates&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-11" data-line-number="11"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-12" data-line-number="12"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb304-13" data-line-number="13"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch6-fig7-possible"></span>
 <img src="06-s01-lab06c_files/figure-html/ch6-fig7-possible-1.png" alt="A possible alternative to Figure 7" width="100%" />
 <p class="caption">
@@ -1402,17 +1402,17 @@ You will need the function <code>t.test()</code> and you will use <code>broom::t
 <ol style="list-style-type: decimal">
 <li>First we calculate the group means:</li>
 </ol>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1">group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb304-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb304-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Rating), <span class="dt">sd =</span> <span class="kw">sd</span>(Rating))</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb305-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb305-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Rating), <span class="dt">sd =</span> <span class="kw">sd</span>(Rating))</a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>And we can call them and look at them by typing:</li>
 </ol>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">group_means</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">group_means</a></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Now to just look at intellect ratings we need to filter them into a new tibble:</li>
 </ol>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;intellect&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;intellect&quot;</span>)</a></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>And then we run the actual t-test and tidy it into a table.
 <ul>
@@ -1421,10 +1421,10 @@ You will need the function <code>t.test()</code> and you will use <code>broom::t
 <li><code>tidy()</code> takes information from a test and turns it into a table. Try running the t.test with and without piping into <code>tidy()</code> to see what it does differently.</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb307-2" data-line-number="2">                      intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb307-3" data-line-number="3">                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb307-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1">intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb308-2" data-line-number="2">                      intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb308-3" data-line-number="3">                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb308-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p>Now lets look at the <code>intellect_t</code>tibble we have created (assuming you piped into <code>tidy()</code>):</p>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -1720,14 +1720,14 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <ul>
 <li>In today’s assignment you will need both the <code>tidyverse</code> and <code>broom</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
 </ul>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="co">## load in the tidyverse and broom packages</span></a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="co">## load in the tidyverse and broom packages</span></a></code></pre></div>
 </div>
 <div id="Ch6AssignQueT1B" class="section level3">
 <h3><span class="header-section-number">6.5.2</span> Task 1B: Loading in the data</h3>
 <ul>
 <li>Use <code>read_csv()</code> to replace the <code>NULL</code> in the t1B code chunk below to load in the data stored in the datafile <code>CRT_Data.csv</code>. Store the data in the variable <code>crt</code>. Do not change the filename of the datafile.</li>
 </ul>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">crt &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">crt &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch6AssignQueT2" class="section level3">
 <h3><span class="header-section-number">6.5.3</span> Task 2: Selecting only relevant columns</h3>
@@ -1736,7 +1736,7 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <li>Having identified the important three columns, replace the <code>NULL</code> in the t2 code chunk below to select out only those three columns from <code>crt</code> and store them in the tibble <code>crt2</code>.</li>
 </ul>
 <p><strong>Check your work:</strong> If correct, <code>crt2</code> should be a tibble with 3 columns and 243 rows.</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">crt2 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">crt2 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p><strong>NOTE:</strong> For the remainder, of this assignment you should use <code>crt2</code> as the main source tibble and not <code>crt</code>.</p>
 </div>
 <div id="Ch6AssignQueT3" class="section level3">
@@ -1749,8 +1749,8 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <li><p>The total number of men in the sample. This should be a single value, not a tibble, and should be stored in <code>n_men</code>.</p></li>
 </ol>
 <p>You know the answer to both of these tasks already. Make sure that your code gives the correct answer!</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">cond_counts &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb311-2" data-line-number="2">n_men &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">cond_counts &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb312-2" data-line-number="2">n_men &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <ul>
 <li>Now replace the strings in the statements below, using inline R code, so that it reproduces the sentence from the paper exactly as it is shown above. In other words, in the statement below, anywhere it says <code>&quot;(your code here)&quot;</code>, replace that string (including the quotes), with inline R code. To clarify, when looking at the .Rmd file you should see R code, but when looking at the knitted file, you should see values. Look back at Lab 1 if you are unsure of how to use inline code.</li>
 </ul>
@@ -1771,9 +1771,9 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 </ul>
 <p><strong>Hint:</strong> you will need to check out <code>recode()</code> to get the labels of treatments right. Again this webpage is highly recommended: <a href="https://debruine.github.io/posts/recode/" target = "_blank">https://debruine.github.io/posts/recode/</a></p>
 <p>Don’t worry about including the error bars (unless you want to) or the line indicating significance in the plot. Do however make sure to pay attention to the labels of treatments and of the y-axis scale and label. Reposition the x-axis label to below the Figure. You can use colour if you like.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">crt_means &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb312-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb312-3" data-line-number="3"><span class="co">## </span><span class="al">TODO</span><span class="co">: add lines of code using ggplot</span></a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">crt_means &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb313-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb313-3" data-line-number="3"><span class="co">## </span><span class="al">TODO</span><span class="co">: add lines of code using ggplot</span></a></code></pre></div>
 </div>
 <div id="Ch6AssignQueT5" class="section level3">
 <h3><span class="header-section-number">6.5.6</span> Task 5: Interpreting your Figure</h3>
@@ -1784,23 +1784,23 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <li><p>The Testosterone group (M = 1.66, SD = 1.18) would appear to have fewer correct answers on average than the Placebo group (M = 2.10, SD = 1.02) on the Cognitive Reflection Test suggesting that testosterone does in fact inhibit the ability to override incorrect intuitive judgements with the correct response.</p></li>
 <li><p>The Testosterone group (M = 2.10, SD = 1.02) would appear to have more correct answers on average than the Placebo group (M = 1.66, SD = 1.18) on the Cognitive Reflection Test suggesting that testosterone does in fact inhibit the ability to override incorrect intuitive judgements with the correct response.</p></li>
 </ol>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">answer_t5 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">answer_t5 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch6AssignQueT6" class="section level3">
 <h3><span class="header-section-number">6.5.7</span> Task 6: t-test</h3>
 <p>Now that we have calculated the descriptives in our study we need to run the inferentials. In the t6 code chunk below, replace the <code>NULL</code> with a line of code to run the t-test taking care to make sure that the output table has the Placebo mean under Estimate1 (group 0) and Testosterone mean under Estimate2 (group 1). Assume variance is equal and use <code>broom::tidy()</code> to sweep and store the results into a data frame called <code>t_table</code>.</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch6AssignQueT7" class="section level3">
 <h3><span class="header-section-number">6.5.8</span> Task 7: Reporting results</h3>
 <p>In the t7A code chunk below, replace the <code>NULL</code> with a line of code to pull out the df from t_table. This must be a single value stored in <code>t_df</code>.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">t_df &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1">t_df &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p>In the t7B code chunk below, replace the <code>NULL</code> with a line of code to pull out the t-value from t_table. Round it to three decimal places. This must be a single value stored in <code>t_value</code>.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1">t_value &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1">t_value &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p>In the t7C code chunk below, replace the <code>NULL</code> with a line of code to pull out the p-value from t_table. Round it to three decimal places. This must be a single value stored in <code>p_value</code>.</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1">p_value &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1">p_value &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p>In the t7D code chunk below, replace the <code>NULL</code> with a line of code to calculate the absolute difference between the mean number of correct answers for the Testosterone group and the Placebo group. Round it to three decimal places. This must be a single value stored in <code>t_diff</code>.</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1">t_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1">t_diff &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p>If you have completed t7A to t7D accurately, then when knitted, one of these statements below will produce an accurate and coherent summary of the results. In the t7E code chunk below, replace the <code>NULL</code> with the number of the statement below that best summarises the data in this study. Store this single value in <code>answer_t7e</code></p>
 <ol style="list-style-type: decimal">
 <li>The testosterone group performed significantly better ( fewer correct answers) than the placebo group, t() = , p = .</li>
@@ -1808,7 +1808,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <li>The testosterone group performed significantly better ( more correct answers) than the placebo group, t() = , p = .</li>
 <li>The testosterone group performed significantly worse ( fewer correct answers) than the placebo group, t() = , p = .</li>
 </ol>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1">answer_t7e &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1">answer_t7e &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers, it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 <p>See you in the next lab!</p>
@@ -1822,21 +1822,21 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <h3><span class="header-section-number">6.6.1</span> PreClass Activities</h3>
 <div id="preclass-task-1-1" class="section level4">
 <h4><span class="header-section-number">6.6.1.1</span> PreClass Task 1</h4>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1">ns_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">participant =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">22</span>,</a>
-<a class="sourceLine" id="cb320-2" data-line-number="2">                  <span class="dt">valid_rt =</span> <span class="kw">c</span>(<span class="fl">631.2</span>,<span class="fl">800.8</span>,<span class="fl">595.4</span>,<span class="fl">502.6</span>,<span class="fl">604.5</span>,</a>
-<a class="sourceLine" id="cb320-3" data-line-number="3">                               <span class="fl">516.9</span>,<span class="fl">658.0</span>,<span class="fl">502.0</span>,<span class="fl">496.7</span>,<span class="fl">600.3</span>,</a>
-<a class="sourceLine" id="cb320-4" data-line-number="4">                               <span class="fl">714.6</span>,<span class="fl">623.7</span>,<span class="fl">634.5</span>,<span class="fl">724.9</span>,<span class="fl">815.7</span>,</a>
-<a class="sourceLine" id="cb320-5" data-line-number="5">                               <span class="fl">456.9</span>,<span class="fl">703.4</span>,<span class="fl">647.5</span>,<span class="fl">657.9</span>,<span class="fl">613.2</span>,</a>
-<a class="sourceLine" id="cb320-6" data-line-number="6">                               <span class="fl">585.4</span>,<span class="fl">674.1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1">ns_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">participant =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">22</span>,</a>
+<a class="sourceLine" id="cb321-2" data-line-number="2">                  <span class="dt">valid_rt =</span> <span class="kw">c</span>(<span class="fl">631.2</span>,<span class="fl">800.8</span>,<span class="fl">595.4</span>,<span class="fl">502.6</span>,<span class="fl">604.5</span>,</a>
+<a class="sourceLine" id="cb321-3" data-line-number="3">                               <span class="fl">516.9</span>,<span class="fl">658.0</span>,<span class="fl">502.0</span>,<span class="fl">496.7</span>,<span class="fl">600.3</span>,</a>
+<a class="sourceLine" id="cb321-4" data-line-number="4">                               <span class="fl">714.6</span>,<span class="fl">623.7</span>,<span class="fl">634.5</span>,<span class="fl">724.9</span>,<span class="fl">815.7</span>,</a>
+<a class="sourceLine" id="cb321-5" data-line-number="5">                               <span class="fl">456.9</span>,<span class="fl">703.4</span>,<span class="fl">647.5</span>,<span class="fl">657.9</span>,<span class="fl">613.2</span>,</a>
+<a class="sourceLine" id="cb321-6" data-line-number="6">                               <span class="fl">585.4</span>,<span class="fl">674.1</span>))</a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1">Return to Task</a></p>
 </div>
 <div id="preclass-task-2-1" class="section level4">
 <h4><span class="header-section-number">6.6.1.2</span> PreClass Task 2</h4>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1">woods_mean &lt;-<span class="st"> </span><span class="dv">590</span></a>
-<a class="sourceLine" id="cb321-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb321-3" data-line-number="3">n_participants &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb321-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(valid_rt <span class="op">&gt;</span><span class="st"> </span>woods_mean) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb321-5" data-line-number="5"><span class="st">  </span><span class="kw">nrow</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1">woods_mean &lt;-<span class="st"> </span><span class="dv">590</span></a>
+<a class="sourceLine" id="cb322-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb322-3" data-line-number="3">n_participants &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb322-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(valid_rt <span class="op">&gt;</span><span class="st"> </span>woods_mean) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb322-5" data-line-number="5"><span class="st">  </span><span class="kw">nrow</span>()</a></code></pre></div>
 <ul>
 <li>Giving an n_participants value of 16</li>
 </ul>
@@ -1847,22 +1847,22 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <ul>
 <li>You can use the density function:</li>
 </ul>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1"><span class="kw">sum</span>(<span class="kw">dbinom</span>(n_participants<span class="op">:</span><span class="kw">nrow</span>(ns_data), <span class="kw">nrow</span>(ns_data), <span class="fl">.5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="kw">sum</span>(<span class="kw">dbinom</span>(n_participants<span class="op">:</span><span class="kw">nrow</span>(ns_data), <span class="kw">nrow</span>(ns_data), <span class="fl">.5</span>))</a></code></pre></div>
 <pre><code>## [1] 0.0262394</code></pre>
 <ul>
 <li>Or, the cumulative probability function:</li>
 </ul>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="kw">pbinom</span>(n_participants <span class="op">-</span><span class="st"> </span>1L, <span class="kw">nrow</span>(ns_data), <span class="fl">.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="kw">pbinom</span>(n_participants <span class="op">-</span><span class="st"> </span>1L, <span class="kw">nrow</span>(ns_data), <span class="fl">.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0262394</code></pre>
 <ul>
 <li>Or, If you were to plug in the numbers directly into the code:</li>
 </ul>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="kw">sum</span>(<span class="kw">dbinom</span>(<span class="dv">16</span><span class="op">:</span><span class="dv">22</span>,<span class="dv">22</span>, <span class="fl">.5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1"><span class="kw">sum</span>(<span class="kw">dbinom</span>(<span class="dv">16</span><span class="op">:</span><span class="dv">22</span>,<span class="dv">22</span>, <span class="fl">.5</span>))</a></code></pre></div>
 <pre><code>## [1] 0.0262394</code></pre>
 <ul>
 <li>Or, finally, remembering we need to specify a value lower than our minimum participant number as <code>lower.tail = FALSE</code>.</li>
 </ul>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">15</span>, <span class="dv">22</span>, <span class="fl">.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">15</span>, <span class="dv">22</span>, <span class="fl">.5</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0262394</code></pre>
 <p>It is better practice to use the first two solutions, which pull the values straight from ns_data, as you run the risk of entering an error into your code if you plug in the values manually.</p>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT3">Return to Task</a></p>
@@ -1873,25 +1873,25 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <li>For <code>ns_data_mean</code> use <code>summarise()</code> to calculate the mean and then <code>pull()</code> the value.</li>
 <li>For <code>ns_data_sd</code> use <code>summarise()</code> to calculate the sd and then <code>pull()</code> the value.</li>
 </ul>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1"><span class="co"># the mean</span></a>
-<a class="sourceLine" id="cb330-2" data-line-number="2">ns_data_mean &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb330-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(valid_rt)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb330-4" data-line-number="4"><span class="st">  </span><span class="kw">pull</span>(m)  </a>
-<a class="sourceLine" id="cb330-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb330-6" data-line-number="6"><span class="co"># the sd</span></a>
-<a class="sourceLine" id="cb330-7" data-line-number="7">ns_data_sd &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb330-8" data-line-number="8"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd =</span> <span class="kw">sd</span>(valid_rt)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb330-9" data-line-number="9"><span class="st">  </span><span class="kw">pull</span>(sd)</a></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="co"># the mean</span></a>
+<a class="sourceLine" id="cb331-2" data-line-number="2">ns_data_mean &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb331-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(valid_rt)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb331-4" data-line-number="4"><span class="st">  </span><span class="kw">pull</span>(m)  </a>
+<a class="sourceLine" id="cb331-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb331-6" data-line-number="6"><span class="co"># the sd</span></a>
+<a class="sourceLine" id="cb331-7" data-line-number="7">ns_data_sd &lt;-<span class="st"> </span>ns_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb331-8" data-line-number="8"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd =</span> <span class="kw">sd</span>(valid_rt)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb331-9" data-line-number="9"><span class="st">  </span><span class="kw">pull</span>(sd)</a></code></pre></div>
 <p><strong>NOTE:</strong> You could print them out on the screen if you wanted to “” is the end of line symbol so that they print on different lines</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="kw">cat</span>(<span class="st">&quot;The mean number of hours was&quot;</span>, ns_data_mean, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
-<a class="sourceLine" id="cb331-2" data-line-number="2"><span class="kw">cat</span>(<span class="st">&quot;The standard deviation was&quot;</span>, ns_data_sd, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="kw">cat</span>(<span class="st">&quot;The mean number of hours was&quot;</span>, ns_data_mean, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb332-2" data-line-number="2"><span class="kw">cat</span>(<span class="st">&quot;The standard deviation was&quot;</span>, ns_data_sd, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
 <pre><code>## The mean number of hours was 625.4636 
 ## The standard deviation was 94.30693</code></pre>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT4">Return to Task</a></p>
 </div>
 <div id="preclass-task-5-1" class="section level4">
 <h4><span class="header-section-number">6.6.1.5</span> PreClass Task 5</h4>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1">t_obs &lt;-<span class="st"> </span>(ns_data_mean <span class="op">-</span><span class="st"> </span>woods_mean) <span class="op">/</span><span class="st"> </span>(ns_data_sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">nrow</span>(ns_data)))</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1">t_obs &lt;-<span class="st"> </span>(ns_data_mean <span class="op">-</span><span class="st"> </span>woods_mean) <span class="op">/</span><span class="st"> </span>(ns_data_sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">nrow</span>(ns_data)))</a></code></pre></div>
 <ul>
 <li>Giving a t_obs value of 1.7638067</li>
 </ul>
@@ -1900,12 +1900,12 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <div id="preclass-task-6-1" class="section level4">
 <h4><span class="header-section-number">6.6.1.6</span> PreClass Task 6</h4>
 <p>If using values straight from ns_data, and multiplying by 2 for a two-tailed test, you would do the following:</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1">pval &lt;-<span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_obs), <span class="kw">nrow</span>(ns_data) <span class="op">-</span><span class="st"> </span>1L, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="op">*</span><span class="st"> </span>2L</a></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1">pval &lt;-<span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_obs), <span class="kw">nrow</span>(ns_data) <span class="op">-</span><span class="st"> </span>1L, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="op">*</span><span class="st"> </span>2L</a></code></pre></div>
 <ul>
 <li>Giving a pval of 0.0923092</li>
 </ul>
 <p>But you can also get the same answer by plugging the values in yourself - though this method runs the risk of error and you are better off using the first calculation as those values come straight from ns_data. :</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1">pval2 &lt;-<span class="st"> </span><span class="kw">pt</span>(t_obs, <span class="dv">21</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1">pval2 &lt;-<span class="st"> </span><span class="kw">pt</span>(t_obs, <span class="dv">21</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <ul>
 <li>Giving a pval of 0.0923092</li>
 </ul>
@@ -1914,7 +1914,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <div id="preclass-task-7" class="section level4">
 <h4><span class="header-section-number">6.6.1.7</span> PreClass Task 7</h4>
 <p>The t-test would be run as follows, with the output shown below:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="kw">t.test</span>(<span class="kw">pull</span>(ns_data, valid_rt), <span class="dt">mu =</span> woods_mean)</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1"><span class="kw">t.test</span>(<span class="kw">pull</span>(ns_data, valid_rt), <span class="dt">mu =</span> woods_mean)</a></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -1938,21 +1938,21 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <h3><span class="header-section-number">6.6.2</span> InClass Activities</h3>
 <div id="inclass-task-1-2" class="section level4">
 <h4><span class="header-section-number">6.6.2.1</span> InClass Task 1</h4>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb338-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>) <span class="co"># you&#39;ll need broom::tidy() later</span></a>
-<a class="sourceLine" id="cb338-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb338-4" data-line-number="4">evaluators &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;evaluators.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb338-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb338-6" data-line-number="6">evaluators <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb338-7" data-line-number="7"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_age =</span> <span class="kw">mean</span>(age, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb338-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb338-9" data-line-number="9">evaluators <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb338-10" data-line-number="10"><span class="st">  </span><span class="kw">count</span>(sex)</a>
-<a class="sourceLine" id="cb338-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb338-12" data-line-number="12"><span class="co"># If using `recode()`:</span></a>
-<a class="sourceLine" id="cb338-13" data-line-number="13">evaluators <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb338-14" data-line-number="14"><span class="st">  </span><span class="kw">count</span>(sex) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb338-15" data-line-number="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex_names =</span> <span class="kw">recode</span>(sex, <span class="st">&quot;1&quot;</span> =<span class="st"> &quot;male&quot;</span>, <span class="st">&quot;2&quot;</span> =<span class="st"> &quot;female&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb339-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>) <span class="co"># you&#39;ll need broom::tidy() later</span></a>
+<a class="sourceLine" id="cb339-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb339-4" data-line-number="4">evaluators &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;evaluators.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb339-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb339-6" data-line-number="6">evaluators <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb339-7" data-line-number="7"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_age =</span> <span class="kw">mean</span>(age, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb339-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb339-9" data-line-number="9">evaluators <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb339-10" data-line-number="10"><span class="st">  </span><span class="kw">count</span>(sex)</a>
+<a class="sourceLine" id="cb339-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb339-12" data-line-number="12"><span class="co"># If using `recode()`:</span></a>
+<a class="sourceLine" id="cb339-13" data-line-number="13">evaluators <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb339-14" data-line-number="14"><span class="st">  </span><span class="kw">count</span>(sex) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb339-15" data-line-number="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex_names =</span> <span class="kw">recode</span>(sex, <span class="st">&quot;1&quot;</span> =<span class="st"> &quot;male&quot;</span>, <span class="st">&quot;2&quot;</span> =<span class="st"> &quot;female&quot;</span>))</a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-3" class="section level4">
@@ -1960,30 +1960,30 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <ul>
 <li>load in the data</li>
 </ul>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;ratings.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;ratings.csv&quot;</span>)</a></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>First pull out the ratings associated with intellect</li>
 </ol>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1">iratings &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb340-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;competent&quot;</span>, <span class="st">&quot;thoughtful&quot;</span>, <span class="st">&quot;intelligent&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1">iratings &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb341-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;competent&quot;</span>, <span class="st">&quot;thoughtful&quot;</span>, <span class="st">&quot;intelligent&quot;</span>))</a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Next calculate means for each evaluator</li>
 </ol>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1">imeans &lt;-<span class="st"> </span>iratings <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb341-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(eval_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb341-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))</a></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1">imeans &lt;-<span class="st"> </span>iratings <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb342-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(eval_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb342-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Rating =</span> <span class="kw">mean</span>(Rating))</a></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Mutate on the Category variable. This way we can combine with ‘impression’ and ‘hire’ into a single table which will be very useful!</li>
 </ol>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1">imeans2 &lt;-<span class="st"> </span>imeans <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb342-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Category =</span> <span class="st">&quot;intellect&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1">imeans2 &lt;-<span class="st"> </span>imeans <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb343-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Category =</span> <span class="st">&quot;intellect&quot;</span>)</a></code></pre></div>
 <p>And then combine all the information in to one single tibble.</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1">ratings2 &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb343-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;impression&quot;</span>, <span class="st">&quot;hire&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb343-3" data-line-number="3"><span class="st">  </span><span class="kw">bind_rows</span>(imeans2) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb343-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(evaluators, <span class="st">&quot;eval_id&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb343-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>age, <span class="op">-</span>sex) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb343-6" data-line-number="6"><span class="st">  </span><span class="kw">arrange</span>(eval_id, Category)</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1">ratings2 &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb344-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;impression&quot;</span>, <span class="st">&quot;hire&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb344-3" data-line-number="3"><span class="st">  </span><span class="kw">bind_rows</span>(imeans2) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb344-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(evaluators, <span class="st">&quot;eval_id&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb344-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>age, <span class="op">-</span>sex) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb344-6" data-line-number="6"><span class="st">  </span><span class="kw">arrange</span>(eval_id, Category)</a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-4-2" class="section level4">
@@ -1991,17 +1991,17 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <ol style="list-style-type: decimal">
 <li>First we calculate the group means:</li>
 </ol>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1">group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb344-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb344-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Rating), <span class="dt">sd =</span> <span class="kw">sd</span>(Rating))</a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1">group_means &lt;-<span class="st"> </span>ratings2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb345-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition, Category) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb345-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Rating), <span class="dt">sd =</span> <span class="kw">sd</span>(Rating))</a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>And we can call them and look at them by typing:</li>
 </ol>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1">group_means</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1">group_means</a></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Now to just look at intellect ratings we need to filter them into a new tibble:</li>
 </ol>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1">intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;intellect&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">intellect &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;intellect&quot;</span>)</a></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>And then we run the actual t-test and tidy it into a table.
 <ul>
@@ -2010,48 +2010,48 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <li><code>tidy()</code> takes information from a test and turns it into a table. Try running the t.test with and without piping into <code>tidy()</code> to see what it does differently.</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb347-2" data-line-number="2">                      intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb347-3" data-line-number="3">                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb347-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1">intellect_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb348-2" data-line-number="2">                      intellect <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb348-3" data-line-number="3">                      <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb348-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Now we repeat for HIRE and IMPRESSION</li>
 </ol>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1">hire &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;hire&quot;</span>)</a>
-<a class="sourceLine" id="cb348-2" data-line-number="2">hire_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(hire <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb348-3" data-line-number="3">                      hire <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb348-4" data-line-number="4">                 <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-5" data-line-number="5"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1">hire &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;hire&quot;</span>)</a>
+<a class="sourceLine" id="cb349-2" data-line-number="2">hire_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(hire <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb349-3" data-line-number="3">                      hire <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb349-4" data-line-number="4">                 <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb349-5" data-line-number="5"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>And for Impression</li>
 </ol>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1">impress &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;impression&quot;</span>)</a>
-<a class="sourceLine" id="cb349-2" data-line-number="2">impress_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(impress <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb349-3" data-line-number="3">                    impress <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
-<a class="sourceLine" id="cb349-4" data-line-number="4">                    <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb349-5" data-line-number="5"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1">impress &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings2, Category <span class="op">==</span><span class="st"> &quot;impression&quot;</span>)</a>
+<a class="sourceLine" id="cb350-2" data-line-number="2">impress_t &lt;-<span class="st"> </span><span class="kw">t.test</span>(impress <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;listened&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb350-3" data-line-number="3">                    impress <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(condition <span class="op">==</span><span class="st"> &quot;read&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Rating),</a>
+<a class="sourceLine" id="cb350-4" data-line-number="4">                    <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb350-5" data-line-number="5"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Before combining all into one table showing all three t-tests</li>
 </ol>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(<span class="st">&quot;hire&quot;</span> =<span class="st"> </span>hire_t, </a>
-<a class="sourceLine" id="cb350-2" data-line-number="2">                     <span class="st">&quot;impression&quot;</span> =<span class="st"> </span>impress_t,</a>
-<a class="sourceLine" id="cb350-3" data-line-number="3">                     <span class="st">&quot;intellect&quot;</span> =<span class="st"> </span>intellect_t, <span class="dt">.id =</span> <span class="st">&quot;id&quot;</span>)</a>
-<a class="sourceLine" id="cb350-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb350-5" data-line-number="5">results</a></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(<span class="st">&quot;hire&quot;</span> =<span class="st"> </span>hire_t, </a>
+<a class="sourceLine" id="cb351-2" data-line-number="2">                     <span class="st">&quot;impression&quot;</span> =<span class="st"> </span>impress_t,</a>
+<a class="sourceLine" id="cb351-3" data-line-number="3">                     <span class="st">&quot;intellect&quot;</span> =<span class="st"> </span>intellect_t, <span class="dt">.id =</span> <span class="st">&quot;id&quot;</span>)</a>
+<a class="sourceLine" id="cb351-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb351-5" data-line-number="5">results</a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT4">Return to Task</a></p>
 </div>
 <div id="going-further-with-your-coding" class="section level4">
 <h4><span class="header-section-number">6.6.2.4</span> Going Further with your coding</h4>
 <p><strong>An alternative solution to Task 4:</strong> There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won’t really cover in level 2. Do not worry if you can’t quite follow it though; the main thing is to understand what we covered in the lab - the outcome is the same.</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1">ratings2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb351-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Category) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb351-3" data-line-number="3"><span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb351-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ttest =</span> <span class="kw">map</span>(data, <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb351-5" data-line-number="5">    <span class="kw">t.test</span>(Rating <span class="op">~</span><span class="st"> </span>condition, x, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb351-6" data-line-number="6"><span class="st">      </span><span class="kw">tidy</span>()</a>
-<a class="sourceLine" id="cb351-7" data-line-number="7">  })) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb351-8" data-line-number="8"><span class="st">  </span><span class="kw">select</span>(Category, ttest) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb351-9" data-line-number="9"><span class="st">  </span><span class="kw">unnest</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1">ratings2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb352-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Category) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb352-3" data-line-number="3"><span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb352-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ttest =</span> <span class="kw">map</span>(data, <span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb352-5" data-line-number="5">    <span class="kw">t.test</span>(Rating <span class="op">~</span><span class="st"> </span>condition, x, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb352-6" data-line-number="6"><span class="st">      </span><span class="kw">tidy</span>()</a>
+<a class="sourceLine" id="cb352-7" data-line-number="7">  })) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb352-8" data-line-number="8"><span class="st">  </span><span class="kw">select</span>(Category, ttest) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb352-9" data-line-number="9"><span class="st">  </span><span class="kw">unnest</span>()</a></code></pre></div>
 <pre><code>## Warning: `cols` is now required.
 ## Please use `cols = c(ttest)`</code></pre>
 <pre><code>## # A tibble: 3 x 10
@@ -2069,8 +2069,8 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <h3><span class="header-section-number">6.6.3</span> Homework Activity</h3>
 <div id="assignment-task-1a-libraries" class="section level4">
 <h4><span class="header-section-number">6.6.3.1</span> Assignment Task 1A: Libraries</h4>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="kw">library</span>(broom)</a>
-<a class="sourceLine" id="cb354-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb355-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p><a href="#Ch6AssignQueT1">Return to Task</a></p>
 </div>
 <div id="assignment-task-1b-loading-in-the-data" class="section level4">
@@ -2078,8 +2078,8 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <ul>
 <li>Use <code>read_csv()</code> to read in data!</li>
 </ul>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/06-s01/homework/CRT_Data.csv&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;CRT_Data.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/06-s01/homework/CRT_Data.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1">crt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;CRT_Data.csv&quot;</span>)</a></code></pre></div>
 <p><a href="#Ch6AssignQueT1">Return to Task</a></p>
 </div>
 <div id="assignment-task-2-selecting-only-relevant-columns" class="section level4">
@@ -2091,7 +2091,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <li>CorrectAnswers</li>
 </ul>
 <p>Creating <code>crt2</code> which is a tibble with 3 columns and 243 rows.</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1">crt2 &lt;-<span class="st"> </span><span class="kw">select</span>(crt, ID, Treatment, CorrectAnswers)</a></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1">crt2 &lt;-<span class="st"> </span><span class="kw">select</span>(crt, ID, Treatment, CorrectAnswers)</a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT2">Return to Task</a></p>
 </div>
 <div id="assignment-task-3-verify-the-number-of-subjects-in-each-group" class="section level4">
@@ -2105,13 +2105,13 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 </ol>
 <p>You know the answer to both of these tasks already. Make sure that your code gives the correct answer!</p>
 <p>For <code>cond_counts</code>, you could do:</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1">cond_counts &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Treatment) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1">cond_counts &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Treatment) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>
 <p>Or alternatively</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1">cond_counts &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(Treatment)</a></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1">cond_counts &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(Treatment)</a></code></pre></div>
 <p>For <code>n_men</code>, you could do:</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1">n_men &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(n)</a></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">n_men &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(n)</a></code></pre></div>
 <p>Or alternatively</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">n_men &lt;-<span class="st"> </span><span class="kw">nrow</span>(crt2)</a></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1">n_men &lt;-<span class="st"> </span><span class="kw">nrow</span>(crt2)</a></code></pre></div>
 <p><strong>Solution:</strong></p>
 <p>When formatted with inline R code as below:</p>
 <p><strong><code>`r n_men`</code> men (mostly college students; for demographic details, see Table S1 in the Supplemental Material available online) were randomly administered a topical gel containing either testosterone (n = <code>`r cond_counts %&gt;% filter(Treatment == 1) %&gt;% pull(n)`</code>) or placebo (n = <code>`r cond_counts %&gt;% filter(Treatment == 0) %&gt;% pull(n)`</code>).</strong></p>
@@ -2122,18 +2122,18 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <div id="assignment-task-4-reproduce-figure-2a" class="section level4">
 <h4><span class="header-section-number">6.6.3.5</span> Assignment Task 4: Reproduce Figure 2A</h4>
 <p>You could produce a good representation of Figure 2A with the following approach:</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1">crt_means &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb362-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Treatment) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb362-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(CorrectAnswers), <span class="dt">sd =</span> <span class="kw">sd</span>(CorrectAnswers)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb362-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Treatment =</span> <span class="kw">recode</span>(Treatment, <span class="st">&quot;0&quot;</span> =<span class="st"> &quot;Placebo&quot;</span>, <span class="st">&quot;1&quot;</span> =<span class="st"> &quot;Testosterone Group&quot;</span>))</a>
-<a class="sourceLine" id="cb362-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb362-6" data-line-number="6"><span class="kw">ggplot</span>(crt_means, <span class="kw">aes</span>(Treatment, m, <span class="dt">fill =</span> Treatment)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb362-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb362-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb362-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;CRT&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Correct Answers&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb362-10" data-line-number="10"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb362-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#EEEEEE&quot;</span>,<span class="st">&quot;#AAAAAA&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb362-12" data-line-number="12"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">1.4</span>,<span class="fl">2.4</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1">crt_means &lt;-<span class="st"> </span>crt2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb363-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Treatment) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb363-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(CorrectAnswers), <span class="dt">sd =</span> <span class="kw">sd</span>(CorrectAnswers)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb363-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Treatment =</span> <span class="kw">recode</span>(Treatment, <span class="st">&quot;0&quot;</span> =<span class="st"> &quot;Placebo&quot;</span>, <span class="st">&quot;1&quot;</span> =<span class="st"> &quot;Testosterone Group&quot;</span>))</a>
+<a class="sourceLine" id="cb363-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb363-6" data-line-number="6"><span class="kw">ggplot</span>(crt_means, <span class="kw">aes</span>(Treatment, m, <span class="dt">fill =</span> Treatment)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb363-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb363-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb363-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;CRT&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Number of Correct Answers&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb363-10" data-line-number="10"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb363-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#EEEEEE&quot;</span>,<span class="st">&quot;#AAAAAA&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb363-12" data-line-number="12"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">1.4</span>,<span class="fl">2.4</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:t4"></span>
 <img src="06-s01-lab06e_files/figure-html/t4-1.png" alt="A representation of Figure 2A" width="100%" />
 <p class="caption">
@@ -2146,20 +2146,20 @@ Figure 6.5: A representation of Figure 2A
 <h4><span class="header-section-number">6.6.3.6</span> Assignment Task 5: Interpreting your Figure</h4>
 <p>Option 3 is the correct answer given that:</p>
 <p>The Testosterone group (M = 1.66, SD = 1.18) would appear to have fewer correct answers on average than the Placebo group (M = 2.10, SD = 1.02) on the Cognitive Reflection Test suggesting that testosterone does in fact inhibit the ability to override incorrect intuitive judgements with the correct response.</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1">answer_t5 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" data-line-number="1">answer_t5 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT5">Return to Task</a></p>
 </div>
 <div id="assignment-task-6-t-test" class="section level4">
 <h4><span class="header-section-number">6.6.3.7</span> Assignment Task 6: t-test</h4>
 <p>You need to pay attention to the order when using this first approach, making sure that the <strong>0</strong> group are entered first. This will put the Placebo groups as Estimate1 in the output. In reality it does not change the values, but the key thing is that if you were to pass this code on to someone, and they expect Placebo to be Estimate1, then you need to make sure you coded it that way.</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
-<a class="sourceLine" id="cb364-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
-<a class="sourceLine" id="cb364-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb364-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb365-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb365-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb365-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <ul>
 <li>Alternatively this formula approach would also work.</li>
 </ul>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT6">Return to Task</a></p>
 </div>
 <div id="assignment-task-7-reporting-results" class="section level4">
@@ -2167,23 +2167,23 @@ Figure 6.5: A representation of Figure 2A
 <ul>
 <li>The degrees of freedom (df) is found under <code>parameter</code></li>
 </ul>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1">t_df &lt;-<span class="st"> </span>t_table<span class="op">$</span>parameter</a></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1">t_df &lt;-<span class="st"> </span>t_table<span class="op">$</span>parameter</a></code></pre></div>
 <ul>
 <li>The t-value is found under <code>statistic</code></li>
 </ul>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1">t_value &lt;-<span class="st"> </span>t_table<span class="op">$</span>statistic <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1">t_value &lt;-<span class="st"> </span>t_table<span class="op">$</span>statistic <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</a></code></pre></div>
 <ul>
 <li>The p-value is found under <code>p.value</code></li>
 </ul>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1">p_value &lt;-<span class="st"> </span>t_table<span class="op">$</span>p.value <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1">p_value &lt;-<span class="st"> </span>t_table<span class="op">$</span>p.value <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>)</a></code></pre></div>
 <ul>
 <li>The absolute difference between the two means can be calculated as follows:</li>
 </ul>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1">t_diff &lt;-<span class="st"> </span>(t_table<span class="op">$</span>estimate1 <span class="op">-</span><span class="st"> </span>t_table<span class="op">$</span>estimate2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">abs</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1">t_diff &lt;-<span class="st"> </span>(t_table<span class="op">$</span>estimate1 <span class="op">-</span><span class="st"> </span>t_table<span class="op">$</span>estimate2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">abs</span>()</a></code></pre></div>
 <p>If you have completed t7A to t7D accurately, then when knitted, Option 4 would be stated as such</p>
 <p><strong>The testosterone group performed significantly worse (0.438 fewer correct answers) than the placebo group, t(241) = 3.074, p = 0.002</strong></p>
 <p>and would therefore be the correct answer!</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1">answer_t7e &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1">answer_t7e &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
 <p><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT7">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 

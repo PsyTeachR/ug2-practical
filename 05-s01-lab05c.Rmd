@@ -66,8 +66,8 @@ In summary:
 
 Have a look at the resulting tibble, `dat`. The columns refer to:
 
+* The column `group` is your independent variable (IV) - Group A or Group B.
 * The column `Y` is your dependent variable (DV) 
-* The column `group` is your independent variable (IV).
 * The column `subj_id` is the participant number.
 
 ```{r read-dat, echo = FALSE, message = FALSE}
@@ -84,7 +84,7 @@ We now need to write a pipeline of five functions (i.e. commands) that calculate
 
 2.1.1. Starting from `dat`, use a pipe of two `dplyr` one-table verbs (e.g. from Chapter 2) to create a tibble where each row contains the mean of one of the groups. Name the column storing the means as `m`. 
 
-2.1.2. Continue the pipe to spread your data from long to wide format, based on the names in column `group` and values in `m`. You should use `pivot_wider()`
+2.1.2. Continue the pipe to spread your data from long to wide format, based on the names in column `group` and values in `m`. You should use `pivot_wider()`.
 
 2.1.3. Now add a pipe that **creates** a new column in this wide dataset called `diff` which is the value of group A's mean minus group B's mean.   
 
@@ -165,6 +165,7 @@ is.numeric(d_orig)
 # True (is numeric) or False (is not numeric; it is a character or integer instead.)
 ```
 `r unhide()`
+<br>
 
 Great. To recap, using what we learnt in PreClass Skills 4 & 5, we now have a function called `calc_diff()` that, when we give it our data (`dat`), it returns the original difference between the groups - which we have stored in `d_orig`. 
 
@@ -193,8 +194,7 @@ Might be easier to think of these steps in reverse.
 
 **Note:** Be accurate on the spelling within the mutate() function. If your original column is called `group` then you should `sample(group)`.
 
-3. Now put that into your `permute()` function making the necessary adjustments to the code so it starts `x %>%...` instead of `dat %>%...`. Again `x` should be in the function and not `dat`.
-")
+2. Now put that into your `permute()` function making the necessary adjustments to the code so it starts `x %>%...` instead of `dat %>%...`. Again `x` should be in the function and not `dat`.
 ```
 `r unhide()`
 <br>
@@ -231,7 +231,7 @@ Think about verbalising your pipelines. In a single pipeline:
 
 The functions you have created do these steps. You just have to put them in order and pipe the data through it:
 
-* `dat %>% function1 %>% function2`
+* `dat %>% function1() %>% function2()`
 
 ```
 `r unhide()`
@@ -281,15 +281,16 @@ Right! We know $D_{orig}$ and we know all the values of the simulated distributi
 
 First, we have to decide on a false positive (Type I error) rate which is the rate at which we will falsely reject $H_0$ when it is true.  This rate is referred to by the Greek letter $\alpha$ ("alpha").  Let's just use the conventional level used in Psychology: $\alpha = .05$.
 
-So the question we must ask is, if the null hypothesis was true, what would be the probability of getting a difference in means as extreme as the one we observed in the original data? We will label this probability `p`.  
+So the question we must ask is, if the null hypothesis was true, what would be the probability of getting a difference in means as extreme as the one we observed in the original data? We will label this `p` for probability.  
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
 Take a few moments as a group to see if you can figure out how you might compute `p` from the data before we show you how. We will then show you the process in the next few, final, steps.
 
-5.1.  Replace the `NULL`s in the code below to create a logical vector which states TRUE for all values of `nhd` greater than or equal to `d_orig` regardless of sign. **Note:** A logical vector is one that returns TRUE when the expression is true and FALSE when the expression is false. 
+5.1.  Replace the `NULL`s in the code below to create a logical vector which states TRUE for all values of `nhd` greater than or equal to `d_orig` regardless of sign. 
 
-* **Hint:** You have two `NULL`s to replace and two "things" to replace them with - `d_orig` or `nhd`
+* **Note:** A logical vector is one that returns TRUE when the expression is true and FALSE when the expression is false. 
+* **Hint:** You have two `NULL`s to replace and two "things" to replace them with - `d_orig` or `nhd`.
 * **Hint:** You want `lvec` to show every where that the values in `nhd` are greater than or equal to the `d_orig` value.
 
 ```{r lvec_example, include=TRUE, eval = FALSE}
@@ -303,6 +304,7 @@ In the code above, the function `abs()` says to ignore the sign and use the abso
 The answer relates to whether you are testing in one or two tails of your distribution; the positive side, the negative side, or both. You will have heard in your lectures of one or two-tailed tests. Most people would say to run two-tailed tests. This means looking at the negative and positive tails of the distribution to see if our original value is extreme, and the simplest way to do this is to ignore the sign of the values and treat both sides equally. If you wanted to only test one-tail, say that your value is extreme to the negative side of the tail, then you would not use the `abs()` and set the expression to make sure you only find values less than your original value. To test only on the positive side of the distribution, make sure you only get values higher than the original. But for now we will mostly look at two-tailed tests.
 ```
 `r unhide()`
+<br>
 
 5.2.  Replace the NULL in the code below to `sum()` the `lvec` vector to get the total number of values equal to or greater than our original difference, `d_orig`. Fortunately, R is fine with summing TRUEs and FALSEs so you do not have to convert the data at all.
 
@@ -320,12 +322,12 @@ n_exceeding_orig <- NULL
 p <- NULL
 ```
 
-5.4.  Finally, complete the sentence below determining if the original value was extreme or not in regards to the distribution. Use inline coding, shown in Lab 1, to replace the `XXX`s. For example, when formatted without the space before the first r, ` r length(nhd)` would present as 1000.
+5.4.  Finally, complete the sentence below determining if the original value was extreme or not in regards to the distribution. Use inline coding, shown in Chapter 1, to replace the `XXX`s. For example, if you were to write, `r backtick("r length(nhd)")`, when knitted would appear as 1000.
 
 **" The difference between Group A and Group B (M = `XXX`) was found to be have a probability of p = `XXX`. This means that the original mean difference was ...... and the null hypothesis is ....." **
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done in completing this lab. Let's recap before finishing. We had two groups, A and B, that we had tested in an experiment. We calculated the mean difference between A and B and wanted to know if this was a significant difference. To test this, we created a distribution of possible differences between A and B using the premise of permutation tests and then found the probability of our original value in that permuted distribution. The more extreme the value in a distribution, the more likely that the difference is significant. And that is exactly what we found; an $\alpha < .05$. Next time we will look at using functions and inferential tests to perform this analysis but by understanding the above you now know how probability is determined and have a very good understanding of null-hypothesis significance testing (NHST); one of the main analytical approaches in Psychology.
+Well done in completing this lab. Let's recap before finishing. We had two groups, A and B, that we had tested in an experiment. We calculated the mean difference between A and B and wanted to know if this was a significant difference. To test this, we created a distribution of possible differences between A and B using the premise of permutation tests and then found the probability of our original value in that permuted distribution. The more extreme the value in a distribution, the more likely that the difference is significant. And that is exactly what we found, $p < .05$. Next time we will look at using functions and inferential tests to perform this analysis but by understanding the above you now know how probability is determined and have a very good understanding of null-hypothesis significance testing (NHST); one of the main analytical approaches in Psychology.
 
 You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.** If you have any questions, please post them on the available forums or ask a member of staff. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.
