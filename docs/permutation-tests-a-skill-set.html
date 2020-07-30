@@ -324,8 +324,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a><ul>
 <li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on Simulating your own data</a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations"><i class="fa fa-check"></i>More on Permutations</a></li>
+<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
+<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
@@ -1143,7 +1143,8 @@ B
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">pluck</span>(vec, <span class="dv">1</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pluck</span>(vec, <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 42.17438</code></pre>
 <p>And we could run it a pipeline, as below, where we still <code>pull()</code> the means column, <code>m</code>, and then <code>pluck()</code> each value in turn and subtract them from each other.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">1</span>) <span class="op">-</span><span class="st"> </span>my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">1</span>) <span class="op">-</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb237-2" data-line-number="2"><span class="st">  </span>my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 42.17438</code></pre>
 <p><strong>The <code>pivot_wider()</code>, <code>mutate()</code>, <code>pull()</code> approach</strong></p>
 <p>An alternative way to extract the difference between means which may make more intuitive sense uses the functions <code>pivot_wider()</code>, <code>mutate()</code> and <code>pull()</code>. From Chapter 2, you already know how to calculate a difference between values in the same row of a table using <code>dplyr::mutate()</code>, e.g. <code>mutate(new_column = column1 - column2)</code>. So if you can get the observations in <code>my_data_means</code> into the same row, different columns, you could then use <code>mutate()</code> to calculate the difference.</p>
@@ -1922,49 +1923,71 @@ Figure 5.1: The simulated distribution of all possible differences
 <p>Below is some additional material that might help you understand permutations a bit more and some additional ideas.</p>
 <div id="more-on-pivot_wider" class="section level3 unnumbered">
 <h3>More on <code>pivot_wider()</code></h3>
-<p>Previously you learned <code>gather()</code> to bring columns together. Well the opposite of gather is the <code>tidyr::spread()</code> function to split columns apart - as below.</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb294-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m)</a></code></pre></div>
-<p>The spread function (<code>?spread</code>) splits the data in column <code>m</code> by the information, i.e. labels, in column <code>group</code> and puts the data into separate columns. A call to <code>spread()</code> followed by a <code>mutate()</code> can be used to calculate the difference in means - see below:</p>
+<p>Much in the same way that <code>pivot_longer()</code> has become the new go-to function for gathering data, replacing the <code>gather()</code> function that many struggled with, <code>pivot_wider()</code> is likewise a new kid on the block.</p>
+<p>Prior to using <code>pivot_wider()</code>, this book used the very confusing <code>spread()</code> function to change data from long format to wide format - i.e. splitting low columns into more shorter columns. <code>spread()</code> was an interesting function that somehow always managed to confuse people and it seemed that getting it to work was largely chance - <code>pivot_wider()</code> was introduced to reduce these issues and as you saw inclass it works similar to <code>pivot_longer()</code> in that it requires clear statement of <code>names_from</code> and <code>values_from</code>.</p>
+<p><code>pivot_wider()</code> should make spreading data wider a lot easier and as such we have aimed to replace every occurrence of it in this book. However, as before, we are still human and mistakes happen. Also, you will still see it being used in codes that you find on things like StackOverflow etc, so below is a very brief example that mimics the InClass activity, showing how <code>spread()</code> works. For ease, we would always recommend using <code>pivot_wider()</code>.</p>
+<p><strong>The <code>spread()</code> function</strong></p>
+<p>This example mimics Skill 4 (Section 5.2.4) of the Preclass Activity where we are splitting the data in <code>my_data_means</code> - shown below:</p>
+<ul>
+<li>Remember the values will be different from the PreClass because we are using a function that creates a set of random numbers each time, <code>rnorm()</code></li>
+</ul>
+<pre><code>## # A tibble: 2 x 2
+##   group     m
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 A      19.6
+## 2 B     -19.8</code></pre>
+<p>In order to split the table so that we have one column for Group A and another columns for Group B, we would use the below code. The spread function (<code>?spread</code>) splits the data in column <code>m</code> by the information, i.e. labels, in column <code>group</code> and puts the data into separate columns.</p>
 <div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb295-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) </a></code></pre></div>
+<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##       A     B
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1  19.6 -19.8</code></pre>
+<p>So the <code>spread()</code> function is not that different from using <code>pivot_wider()</code> but the inclusion of <code>names_from</code> and <code>values_from</code> really does make using <code>pivot_wider()</code> a lot clearer.</p>
+<p>The rest of the actions in that step of the Activity would follow as in the PreClass Activity - adding a <code>mutate()</code> as shown below:</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb297-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) </a></code></pre></div>
 </div>
 <div id="more-on-simulating-your-own-data" class="section level3 unnumbered">
-<h3>More on Simulating your own data</h3>
-<ul>
-<li>Set the seed so that everyone in your group gets same data</li>
-</ul>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1409</span>)</a></code></pre></div>
+<h3>More on simulating your own data</h3>
+<p>Often we get asked for data to allow people to practice their hand calculations. One of the reasons for this chapter is to show people how to simulate their own data and to give them the functions to do so. We are going to use a chi-square test to show you, in a bit more concrete fashion, how you might go about this. We don’t really cover much about chi-squares in this book so it is a nice addition.</p>
+<p>So let’s say we have run an observation test with two groups (A and B) and we ask them the classic “Huey Lewis &amp; the News” question, “Do you believe in love?”, giving them three response options, Yes, No, Unsure. Let’s say that we run 50 people in each group as well. Putting that altogether we will end up with a cross-tabulation table that is 2 rows by 3 columns, with each row adding up to 50.</p>
+<p>Using everything we have learnt in this Chapter here is how we might simulate that data:</p>
 <ul>
 <li>Going to need at least tidyverse</li>
 </ul>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <ul>
-<li>Couple of decisions to make</li>
-</ul>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1">N &lt;-<span class="st"> </span><span class="dv">100</span>                  <span class="co"># Total number of participants in study</span></a>
-<a class="sourceLine" id="cb298-2" data-line-number="2">n_groups &lt;-<span class="st"> </span><span class="dv">2</span>             <span class="co"># Number of groups in your study</span></a>
-<a class="sourceLine" id="cb298-3" data-line-number="3">n_response_options &lt;-<span class="st"> </span><span class="dv">3</span>   <span class="co"># Number of Response Options in your study</span></a></code></pre></div>
+<li>The below code is how we might created a tibble (<code>my_chi_data</code>) where you have two columns:
 <ul>
-<li>Simulate some data using code from Lab 4 and 5.</li>
-<li>Names of your groups are set as <strong>A</strong> and <strong>B</strong>. You should edit appropriately and add additional names if you have more or less than 2 groups</li>
-<li>NOTE: if N/n_groups is not an integer then you will have uneven people in your groups and should edit the <code>times = ....</code> appropriately based on code in Lab 4. E.g. <code>times = c(49,51)</code></li>
+<li><code>Groups</code> showing whether participants are in Group A or B</li>
+<li><code>Responses</code> showing the simulated response for that participant</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">my_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Groups =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="co"># Names of your Groups</span></a>
-<a class="sourceLine" id="cb299-2" data-line-number="2">                               <span class="dt">times =</span> N<span class="op">/</span>n_groups), </a>
-<a class="sourceLine" id="cb299-3" data-line-number="3">                  <span class="dt">Responses =</span> <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n_response_options, </a>
-<a class="sourceLine" id="cb299-4" data-line-number="4">                                     <span class="dt">size =</span> N, </a>
-<a class="sourceLine" id="cb299-5" data-line-number="5">                                     <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<p>We won’t walk you through this code as you should know enough from Chapters 4 &amp; 5 to follow it and edit it, but if you really struggle, get in touch</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">my_chi_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Groups =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>),        <span class="co"># Names of your Groups</span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2">                               <span class="dt">times =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>)),    <span class="co"># Participants per Group</span></a>
+<a class="sourceLine" id="cb299-3" data-line-number="3">                  <span class="dt">Responses =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>,         <span class="co"># Response Options to Sample</span></a>
+<a class="sourceLine" id="cb299-4" data-line-number="4">                                       <span class="st">&quot;No&quot;</span>, </a>
+<a class="sourceLine" id="cb299-5" data-line-number="5">                                       <span class="st">&quot;Unsure&quot;</span>),     </a>
+<a class="sourceLine" id="cb299-6" data-line-number="6">                                     <span class="dt">size =</span> <span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="dv">50</span>,  <span class="co"># Total number of responses</span></a>
+<a class="sourceLine" id="cb299-7" data-line-number="7">                                     <span class="dt">replace =</span> <span class="ot">TRUE</span>)) <span class="co"># with replacement</span></a></code></pre></div>
 <ul>
-<li>If you wanted to save your data as a .csv file for later use or to send to a colleague, you could use</li>
+<li>If you wanted to save your data as a .csv file for later use or to send to a colleague, you could use:</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">write_csv</span>(my_data, <span class="st">&quot;my_data.csv&quot;</span>)</a></code></pre></div>
-<p>You can now use this simulated data, based on your designed study, to practice your hand calculations of chi-squares and practice writing it up. With a bit of wrangling, you can convert <code>my_data</code> into a cross-tabulation table that would look like:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(chi_table, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Cross-Tabulation Table of Simulated Data for learning about chi-squares&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">write_csv</span>(my_chi_data, <span class="st">&quot;my_data.csv&quot;</span>)</a></code></pre></div>
+<ul>
+<li>Or with a bit of data wrangling, you can convert <code>my_chi_data</code> into a cross-tabulation table that would look like as follows:
+<ul>
+<li>Again this wouldn’t use any new functions</li>
+<li><code>group_by() %&gt;% count() %&gt;% pivot_wider()</code></li>
+<li>group by both columns as you want to count how many times each response was used by each group.</li>
+</ul></li>
+</ul>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-3">Table 5.2: </span>Cross-Tabulation Table of Simulated Data for learning about chi-squares
+<span id="tab:unnamed-chunk-2">Table 5.2: </span>Cross-Tabulation Table of Simulated Data for learning about chi-squares
 </caption>
 <thead>
 <tr>
@@ -1972,13 +1995,16 @@ Figure 5.1: The simulated distribution of all possible differences
 Groups
 </th>
 <th style="text-align:center;">
-1
+No
 </th>
 <th style="text-align:center;">
-2
+Unsure
 </th>
 <th style="text-align:center;">
-3
+Yes
+</th>
+<th style="text-align:center;">
+Total
 </th>
 </tr>
 </thead>
@@ -1988,13 +2014,16 @@ Groups
 A
 </td>
 <td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
 14
 </td>
 <td style="text-align:center;">
-18
+15
 </td>
 <td style="text-align:center;">
-18
+50
 </td>
 </tr>
 <tr>
@@ -2002,20 +2031,46 @@ A
 B
 </td>
 <td style="text-align:center;">
-12
+14
+</td>
+<td style="text-align:center;">
+17
 </td>
 <td style="text-align:center;">
 19
 </td>
 <td style="text-align:center;">
-19
+50
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="more-on-permutations" class="section level3 unnumbered">
-<h3>More on Permutations</h3>
+<div id="more-on-permutations---a-blog" class="section level3 unnumbered">
+<h3>More on Permutations - a blog</h3>
+<p>There is a lot in this chapter and some find all the different components quite tricky. As such, this is a very paired down version of the crux of the chapter to see if removing all the blurb, keeping it to just the essential, helps.</p>
+<p>The main concept of Null Hypothesis Significance Testing (NHST) is that you are testing that there is no significant difference between two values - let’s say two means for the moment. The null hypothesis states that there is no meaningful difference between the two groups of interest. And as such, any test that you do on the difference between the means of those two groups is trying to determine the probability of finding a difference of the size you found, or larger, in your experiment, if there is actually no real difference between the two groups.</p>
+<p>In the InClass activity we have our two groups, A and B, and we calculated the difference between the means of those two groups to be <span class="math inline">\(D_{orig}\)</span> = -7.39. Putting that in terms of the Null Hypothesis (<span class="math inline">\(H_{0}\)</span>) we are asking what is the probability of finding a difference between means of -7.39 (or larger) if there is no real difference between our two groups.</p>
+<p>In order to test the above question (our null hypothesis) we need to compare our original difference against a distribution of possible differences to see how likely the original difference is in that distribution - remember, for example, extreme values are in the tails of the Normal Distribution.</p>
+<p>As we don’t know where our data comes from we don’t really know what distribution to check our <span class="math inline">\(D_{orig}\)</span> against. In that situation we can create a distribution based on the values we have already collected using the permutation test we talked about InClass. Basically, in this test, we shuffle which group people belonged to (A or B) and then calculate the difference between these shuffled groups. And we do that 1000 times or more to create a distribution.</p>
+<p>The reason we are allowed to shuffle whether people were in group A or B is because we are deliberately wanting to test if the group people were originally in drives the difference we see. If the original grouping of participants is important then the original difference (<span class="math inline">\(D_{orig}\)</span>) will be an extreme value on the distribution we create. If the group people were originally in isn’t important, then the original difference (<span class="math inline">\(D_{orig}\)</span>) will not be an extreme value in the distribution; it will be a common value.</p>
+<p>Here again is the distribution we simulated using the permutation test described InClass and above:</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">tibble</span>(<span class="dt">x =</span> nhd), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch5-additionl-perm-plot"></span>
+<img src="05-s01-lab05f_files/figure-html/ch5-additionl-perm-plot-1.png" alt="The simulated distribution of all possible differences" width="100%" />
+<p class="caption">
+Figure 5.2: The simulated distribution of all possible differences
+</p>
+</div>
+<p>Now lets highlight the areas in this distribution where the values in the distribution are equal to or larger than our <span class="math inline">\(D_{orig}\)</span> value - these are the red areas. The blue areas are those where the values in the distribution are smaller than our <span class="math inline">\(D_{orig}\)</span> value. We have changed the binwidth of the plot a little from above to help see the different areas clearly.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch5-additionl-perm-plot-2"></span>
+<img src="05-s01-lab05f_files/figure-html/ch5-additionl-perm-plot-2-1.png" alt="The simulated distribution of all possible differences. Red areas show values greater than or equal to the original difference. Blue areas show values smaller than the original difference." width="100%" />
+<p class="caption">
+Figure 5.3: The simulated distribution of all possible differences. Red areas show values greater than or equal to the original difference. Blue areas show values smaller than the original difference.
+</p>
+</div>
+<p>Going back to what we said about Null Hypothesis Significance Testing, the question is what is the probability of finding the original difference (<span class="math inline">\(D_{orig}\)</span>) if there is no real effect of being in either Group A or Group B. As you can see from the plot, there are very few areas on the distribution where the values are greater than or equal to the original difference - i.e. <span class="math inline">\(D_{orig}\)</span> is an unlikely difference to obtain if there was really no difference between the two groups. From the InClass you will recall that the probability of finding a difference greater than or equal to <span class="math inline">\(D_{orig}\)</span> if there was no difference between the two groups was p = 0.013. This is below the standard cut-off we use in Psychology, <span class="math inline">\(p &lt;= .05\)</span>. As such we would reject our null hypothesis and suggest that there is a significant difference between the two groups.</p>
+<p>Hopefully this gives a bit more insight to the InClass activities but feel free to post any questions on the forums for discussion or ask a member of staff.</p>
 
 </div>
 </div>
