@@ -247,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activities-1"><i class="fa fa-check"></i><b>3.5.1</b> InClass Activities</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to"><i class="fa fa-check"></i><b>3.6.1</b> More on <code>aes()</code> - when to and when not to!</a></li>
+<li><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to">More on <code>aes()</code> - when to and when not to!</a></li>
 <li class="chapter" data-level="" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-plots-into-one-figure"><i class="fa fa-check"></i>Combining Plots into one Figure</a></li>
 </ul></li>
 </ul></li>
@@ -321,6 +321,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#assignment-4"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
 <li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a><ul>
+<li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
+<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
@@ -1543,8 +1548,8 @@ Figure 3.13: Task 8 Alternative
 <div id="additional-material-1" class="section level2">
 <h2><span class="header-section-number">3.6</span> Additional Material</h2>
 <p>Below is some additional material that might help you understand figures a bit more and how to present them in reports</p>
-<div id="more-on-aes---when-to-and-when-not-to" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> More on <code>aes()</code> - when to and when not to!</h3>
+<div id="more-on-aes---when-to-and-when-not-to" class="section level3 unnumbered">
+<h3>More on <code>aes()</code> - when to and when not to!</h3>
 <p>The inclass activity has a short note about using the <code>aes()</code> call but we see people having issues with this so we thought a quick demonstration might help. Here is the code from the activity</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1">menrot_angle_sex &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb116-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>

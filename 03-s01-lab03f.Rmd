@@ -7,7 +7,7 @@ menrot <-read_csv("./data/03-s01/preclass/MentalRotationBehavioralData.csv")
 demog <- read_csv("./data/03-s01/preclass/demographics.csv")
 ``` 
 
-### More on `aes()` - when to and when not to!
+### More on `aes()` - when to and when not to! {-}
 
 The inclass activity has a short note about using the `aes()` call but we see people having issues with this so we thought a quick demonstration might help. Here is the code from the activity
 
