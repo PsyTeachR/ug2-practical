@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 6 NHST and One-Sample t-tests | Level 2 Research Methods and Statistics Practical Skills</title>
+  <title>Lab 6 NHST and One-sample t-tests | Level 2 Research Methods and Statistics Practical Skills</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 6 NHST and One-Sample t-tests | Level 2 Research Methods and Statistics Practical Skills" />
+  <meta property="og:title" content="Lab 6 NHST and One-sample t-tests | Level 2 Research Methods and Statistics Practical Skills" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 6 NHST and One-Sample t-tests | Level 2 Research Methods and Statistics Practical Skills" />
+  <meta name="twitter:title" content="Lab 6 NHST and One-sample t-tests | Level 2 Research Methods and Statistics Practical Skills" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
+<li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a><ul>
 <li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
@@ -365,6 +365,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activities-1"><i class="fa fa-check"></i><b>6.6.1</b> PreClass Activities</a></li>
 <li class="chapter" data-level="6.6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activities-4"><i class="fa fa-check"></i><b>6.6.2</b> InClass Activities</a></li>
 <li class="chapter" data-level="6.6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#homework-activity"><i class="fa fa-check"></i><b>6.6.3</b> Homework Activity</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.7</b> Additional Material</a><ul>
+<li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#a-short-blog-on-barplots-1"><i class="fa fa-check"></i>A short blog on Barplots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
@@ -620,15 +623,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="nhst-and-one-sample-t-tests" class="section level1">
-<h1><span class="header-section-number">Lab 6</span> NHST and One-Sample t-tests</h1>
+<h1><span class="header-section-number">Lab 6</span> NHST and One-sample t-tests</h1>
 <div id="overview-6" class="section level2">
 <h2><span class="header-section-number">6.1</span> Overview</h2>
-<p>In the previous labs, we have talked a lot about probability, comparing average values across groups, and the inference from a sample to a population. In effect, this is the essence of a lot of quantitative research. You collect a sample, calculate a summary statistic about that sample, and use probability to establish the likelihood of that statistic occurring given certain situations. To demonstrate this further, and to start introducing commonly used statistical tests, we will look at data related to a recent Posner experiment by <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a>.</p>
-<p>We will use part of the information shown in the paper to explore hypothesis testing. Through the lab 6 activities you will learn about:</p>
+<p>In the previous chapters we have talked a lot about probability, comparing values across groups, and the inference from a <a class='glossary' target='_blank' title='A subset of the population that you wish to make an inference about through your test. The sample is a smaller group obtained from your population but it is key that the sample is representative of the population' href='https://psyteachr.github.io/glossary/s#sample'>sample</a> to a <a class='glossary' target='_blank' title='All members of a group that we wish to generalise our findings to. E.g. all students taking Psychology at the University of Glasgow. We draw our testing sample from the population.' href='https://psyteachr.github.io/glossary/p#population'>population</a>. In effect this is the essence of a lot of quantitative research that uses Null Hypothesis Significance Testing (NHST). You collect a sample, calculate a summary statistic about that sample, and use probability to establish the likelihood of that statistic occurring given certain situations.</p>
+<p>However these concepts and ideas are hard to grasp at first and take playing around with data a few times to help get a better understanding of them. As such, to demonstrate these ideas further, and to start introducing commonly used tests and approaches to reproducible science, we will look at data related to sleep - a very important practice for the consolidation of learning that most of us do not get enough of! The study we will look at, to explore NHST more, is by one of our team and makes use of a well known task in Psychology, the Posner Paradigm: <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009) The clock as a focus of selective attention in those with primary insomnia: An experimental study using a modified Posner paradigm </a>.</p>
+<p>In Chapter 6, through the activities, we will:</p>
 <ol style="list-style-type: decimal">
-<li>Testing a hypothesis through null hypothesis significance testing (NHST)</li>
-<li>Binomial tests, as well as one-sample and independent t-tests</li>
-<li>Posner paradigms and attention (preclass), and the recency effect (inclass).</li>
+<li>Recap on testing a hypothesis through null hypothesis significance testing (NHST).</li>
+<li>Learn about approaches to reproducible experiments.</li>
+<li>Learn about binomial tests, as well as one-sample and independent t-tests.</li>
+<li>Learn about Posner paradigms and attention (PreClass), and the recency effect (InClass).</li>
 </ol>
 <div class="solution">
 <button>
@@ -636,10 +641,19 @@ Portfolio Point - Additional background on The Posner Paradigm
 </button>
 <div class="info">
 <p>
-You don’t need this for the actual lab but it might help it make more sense.
+You don’t need to read this to complete the activities it might help it make more sense.
 </p>
 <p>
-The Posner paradigm (Posner, 1980), or the Posner Cueing task, is an attentional shift task, often used in a variety of fields to test spatial attention and how this is impacted by disorders or injury. It works by having participants look at a fixation cross in the center of a screen. To either side is an empty box. After a short delay, a cue (e.g. an arrow, an asterisk, or some other attention grabbing image) appears in one of the boxes (e.g. the box to the left of the fixation). This stays on screen for a few hundred milliseconds and is then replaced by a second image called the target (e.g. a different shape or image). Participants then have to respond left or right depending on which side of the fixation the target appeared. The DV is the time taken to respond to the target appearing. The key thing is that most of the time the target will appear on the same side as the cue - the cue facilitates the target - and so participants will be quicker to respond. These are called valid trials. However, on some occasions the target will appear on the other side from the cue - e.g. the cue is on the left but the target appears on the right - and these are called invalid trials; participants will be slower to respond here as the cue misleads the participant. From that, you should be starting to get an idea of how a Posner paradigm can help to measure attention and how it can help determine if people have issues in shifting attention (particularly from the invalid trials).
+The Posner paradigm (Posner, 1980), or the Posner Cueing task, is an attentional shift task, often used in a variety of fields to test spatial attention and how this is impacted by disorders or injury. It works by having participants look at a fixation cross in the center of a screen. To either side is an empty box. After a short delay, a cue (e.g. an arrow, an asterisk, or some other attention grabbing image) appears in one of the boxes (e.g. the box to the left of the fixation). This stays on screen for a few hundred milliseconds and is then replaced by a second image called the target (e.g. a different shape or image). Participants then have to respond left or right depending on which side of the fixation the target appeared. The dependent variable (DV) is the time taken to respond to the target appearing.
+</p>
+<p>
+Key to the task is that in most trials the target will appear on the same side as the cue - the cue facilitates the target - and so participants will be quicker to respond. These are called valid trials. However, on some occasions the target will appear on the other side from the cue - e.g. the cue is on the left but the target appears on the right - and these are called invalid trials; participants will be slower to respond here as the cue misleads the participant.
+</p>
+<p>
+From that, you should be starting to get an idea of how a Posner paradigm can help to measure attention and how it can help determine if people have issues in shifting attention (particularly from the invalid trials).
+</p>
+<p>
+Reference:
 </p>
 <p>
 <a href="https://www.tandfonline.com/doi/abs/10.1080/00335558008248231" target = "_blank">Posner, M. (1980) Orienting of attention. Quarterly Journal of Experimental Psychology, 32(1), 3-25</a>
@@ -650,9 +664,8 @@ The Posner paradigm (Posner, 1980), or the Posner Cueing task, is an attentional
 </div>
 <div id="preclass-activity-1-2" class="section level2">
 <h2><span class="header-section-number">6.2</span> PreClass Activity 1</h2>
-<p>Woods and colleagues were interested in how the attention of people with poor sleep (Primary Insomnia - PI) was directed towards sleep related stimuli compared to people with normal sleep (NS). They hypothesised that participants with poor sleep would be more attentive to images related to a lack of sleep (i.e. an alarm clock showing 2AM) than participants with normal sleep would be. To test this, they used a modified Posner paradigm, shown in Figure 1 of the paper, where images of the alarm clock acted as the cue on both valid and invalid trials, with the symbol ( .. ) being the target. As can be seen in Figure 3 of the paper, Woods and colleagues found that there was no difference between groups on valid trials. However, Primary Insomnia participants were faster in responding to the target suggesting a slight increase in attention to the sleep related cue compared to the Normal Sleepers. In contrast, for invalid trials, there was a significant difference between groups that was consistent with the original hypothesis; poor sleepers (Primary Insomnia participants) were slower to respond to the target on invalid trials, compared to Normal Sleepers, due to the attention of the Primary Insomnia participants being drawn to the misleading cue (the alarm clock) on the invalid trials. This increased attention to the sleep related cue leads to an overall slower reponse to the target.</p>
-<p><strong>Are These Participants Normal Sleepers (NS)?</strong></p>
-<p>Psychology results tend to be more reproducible when we increase participant numbers and in turn the power of the study. However, running several hundred participants can be a significant time and financial investment. Fortunately, the idea of a “ManyLabs”&quot; project can solve this problem. In this, the same experiment is run in various locations, all using the same procedure, and then the data is collapsed together and analysed as one.</p>
+<p><strong>ManyLabs - an approach to reproducible science</strong></p>
+<p>As you will learn from reading papers around the reproduciblity crisis, findings from experiments tend to be more reproducible when we increase participant numbers as this increases the <a class='glossary' target='_blank' title='NA' href='https://psyteachr.github.io/glossary/p#power'>power</a> of the study’s design; the likelihood of an experimental design detecting an effect, of a given size, when there is an effect to detect.</p>
 <div class="solution">
 <button>
 Portfolio Point - The power of what?
@@ -676,234 +689,243 @@ the effect size - how big is the difference (measured in a number of ways).
 </li>
 </ul>
 <p>
-If you know any three of these four elements (power, alpha, effect size, n) you can calculate the fourth. We will save further discussion of power until Lab 8 but if you want to read ahead then this blog is highly recommended: <a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/" target ="_blank">The Power Dialogues</a>.
+If you know any three of these four elements (power, alpha, effect size, n) you can calculate the fourth. We will save further discussion of power until Chapter 8 but if you want to read ahead then this blog is highly recommended: <a href="https://pigee.wordpress.com/2016/09/13/the-power-dialogues/" target ="_blank">The Power Dialogues</a>.
 </p>
 </div>
 </div>
-<p><br>
-In your quest to be a collaborative researcher, you have joined a ManyLabs study replicating the findings of Woods et al. (2009). Each lab is asked to gather data from 22 participants. After gathering your data, the first key question is whether or not your participants are responding in a similar fashion to the original study. As a group you have decided that you need to do this test to assess whether you have been able to draw a sample of normal sleepers similar to the sample drawn by Woods et al. We will only look at valid trials for normal sleeping participants but in effect you could perform this test on all groups and conditions.</p>
-<p>Below you see the data you have collected from 22 participants. Their mean reaction time for valid trials is shown in the right hand column.</p>
+<p><br></p>
+<p>However, running several hundred participants in your one study can be a significant time and financial investment. Fortunately, the idea of a “ManyLabs” project can solve this problem. In this scenario the same experiment is run in various locations, all using the same procedure, and then the data is collapsed together and analysed as one. You can see a nice example of a Many Labs project in the paper <a href="" target = "_blank">Investigating Variation in Replicability (Klein et al., 2014)</a>. See how many labs and researchers are involved? Perhaps this is a better approach than lots of researchers working individually?</p>
+<p>You think this all sounds a great idea so in your quest to be a collaborative reproducible researcher, and as a high-five to #TeamScience, you have joined a ManyLabs study replicating the findings of Woods et al. (2009). And that study is the premis for today’s activities so let’s start by having a quick-run through of the background of the experiment.</p>
+<p><strong>The Background</strong></p>
+<p><a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods and colleagues (2009)</a> were interested in how the attention of people with poor sleep (Primary Insomnia - PI) was more tuned towards sleep-related stimuli than the attention of people with normal sleep (NS). Woods et al., hypothesised that participants with poor sleep would be more attentive to images related to a lack of sleep (i.e. an alarm clock showing 2AM) than participants with normal sleep would be. To test their hypothesis, the authors used a modified Posner paradigm, shown in Figure 1 of the paper, where images of an alarm clock acted as the cue on both valid and invalid trials, with the symbol <strong>( .. )</strong> being the target.</p>
+<p>As can be seen in Figure 3 of <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al.,</a> the authors found that, on valid trials, whilst Primary Insomnia participants were faster in responding to the target, suggesting a slight increase in attention to the sleep related cue compared to the Normal Sleepers, there was no difference between groups. In contrast, for invalid trials, where poor sleep participants were expected to be distracted by the cue, the authors did indeed find a significant difference between groups consistent with their alternative hypothesis <span class="math inline">\(H_{1}\)</span>. Woods et al., concluded that poor sleepers (Primary Insomnia participants) were slower to respond to the target on invalid trials, compared to Normal Sleepers, due to the attention of the Primary Insomnia participants being drawn to the misleading cue (the alarm clock) on the invalid trials. This increased attention to the sleep-related cue led to an overall slower reponse to the target on these invalid trials.</p>
+<p>As we said above, your lab is now part of a ManyLabs project that is looking to replicate this finding from Woods et al., (2009). As a <a class='glossary' target='_blank' title='NA' href='https://psyteachr.github.io/glossary/p#pilot'>pilot study</a>, to test recruitment procedures, as well as the experimental paradigm and analyses pipeline, each lab gathers data from 22 Normal Sleepers. It is common to use only the control participants in a pilot (in this cas the NS participants) as they are more plentiful in the population than the experimental group (in this case PI participants) and saves using participants from the PI group which may be harder to obtain in the long run.</p>
+<p>After gathering your data, we want to check the recruitment process and whether or not you have been able to draw a sample of normal sleepers, similar to the sample drawn by Woods et al. To keep things straightforward, allowing us to understand the analyses better, we will only look at valid trials today, in NS participants, but in effect you could perform this test on all groups and conditions.</p>
+<p><strong>Are These Participants Normal Sleepers (NS)?</strong></p>
+<p>Below is the data from the 22 participants you have collected in your pilot study. Their mean reaction time for valid trials (in milliseconds) is shown in the right hand column, <code>valid_rt</code>.</p>
 <table>
 <caption>
-<span id="tab:ch6-preclass-nsdata">Table 6.1: </span>Data for 22 Participants on Posner task
+<span id="tab:ch6-preclass-nsdata">Table 6.1: </span>Pilot Data for 22 Participants on a Sleep-Related Posner Paradigm. ID is shown in participant column and mean reaction time (ms) on valid trails is shown in valid_rt column.
 </caption>
 <thead>
 <tr>
-<th style="text-align:right;">
+<th style="text-align:center;">
 participant
 </th>
-<th style="text-align:right;">
+<th style="text-align:center;">
 valid_rt
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 1
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 631.2
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 2
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 800.8
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 3
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 595.4
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 4
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 502.6
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 5
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 604.5
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 6
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 516.9
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 7
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 658.0
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 8
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 502.0
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 9
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 496.7
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 10
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 600.3
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 11
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 714.6
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 12
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 623.7
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 13
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 634.5
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 14
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 724.9
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 15
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 815.7
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 16
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 456.9
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 17
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 703.4
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 18
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 647.5
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 19
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 657.9
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 20
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 613.2
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 21
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 585.4
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
+<td style="text-align:center;">
 22
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 674.1
 </td>
 </tr>
 </tbody>
 </table>
-<p>In <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was 590 ms with a SD = 94 ms. As above, your overall goal is to do further analyses where the new 22 participants are compared with the original 22 participants, but in order to do this you first must show that the new participants are from the same population as the original sample.</p>
-<p>To state this in terms of a hypothesis, you are testing that there is no significant difference between the new sample and the original sample based on mean reaction times to valid trials on the modified Posner experiment.</p>
-<p>We will show you how to do this through two tests. In tasks 1-3 we will use a <strong>binomial test</strong> and in tasks 4-8 we will use a <strong>one-sample t-test</strong></p>
+<p>If you look at <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was 590 ms with a SD = 94 ms. As above, as part of our pilot study, we want to confirm that the 22 participants we have gathered are indeed Normal Sleepers. We will use the mean and SD from Woods et al., to confirm this. Essentially we are asking if the participants in the pilotare from the same population as NS participants in the original study.</p>
+<p>You will know from Chapter 5 that when using Null Hypothesis Significance Testing (NHST) we are working with both a null hypothesis (<span class="math inline">\(H_{0}\)</span>) and an alternative hypothesis (<span class="math inline">\(H_{1}\)</span>). Thinking about this study it makes some logical sense to think about it in terms of the null hypothesis (<span class="math inline">\(\mu1 = \mu2\)</span>). So we could phrase our hypothesis as, “we hypothesise that there is no significant difference in mean reaction times to valid trials on the modified Posner experiment between the participants in the pilot study and the participants in the original study by Woods et al.”</p>
+<p>There is actually a few analytical ways to test our null hypothesis. Today we will show you how to do two of these. In tasks 1-3 we will use a <strong>binomial test</strong> and in tasks 4-8 we will use a <strong>one-sample t-test</strong></p>
 <div class="solution">
 <button>
 Portfolio Point - Binomial test and the one-sample t-test
 </button>
 <div class="info">
 <p>
-The Binomial test is a very simple test that converts all participants to either being above or below a cut-off point, e.g. the mean value, and looking at the probability of finding that number of participants above that cut-off.
+The Binomial test is a very simple test that converts all participants to either being above or below a cut-off point, e.g. a mean value, and looking at the probability of finding that number of participants above that cut-off.
 </p>
 <p>
-The one-sample t-test is similar in that it compares participants to a cut-off but it compares the mean and standard deviation of the collected sample to an ideal mean and standard deviation. By comparing the difference in means, divided by the variance of the difference (the standard deviation), we can determine if the sample is similar or not to the ideal mean.
+The one-sample t-test is similar in that it compares participants to a cut-off but it compares the mean and standard deviation of the collected sample to an ideal mean and standard deviation. By comparing the difference in means, divided by the standard deviation of the difference (a measure of the variance), we can determine if the sample is similar or not to the ideal mean.
 </p>
 </div>
 </div>
 <hr />
 <div id="the-binomial-test" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> The Binomial Test</h3>
-<p>The Binomial test is one of the “simplest tests”&quot; in null hypothesis testing in that it uses very little information. The binomial test is used when a study has two possible outcomes (success vs failure) and you have an idea about what the probability of success is - much like in Lab 4 and the Binomial distribution. A binomial test tests if an observed result is different from what was expected. In our case, we want to test whether our normal sleepers are the same or different from those measured by Woods et al. The following tasks will take you through the process.</p>
+<p>The Binomial test is one of the most “basic tests” in null hypothesis testing in that it uses very little information. The binomial test is used when a study has two possible outcomes (success or failure) and you have an idea about what the probability of success is. This will sound familiar from the work we did in Chapter 4 and the Binomial distribution.</p>
+<p>A binomial test tests if an observed result is different from what was expected. For example, is the number of heads in a series of coin flips different from what was expected. Or in our case for this chapter, we want to test whether our normal sleepers are giving reaction times that are the same or different from those measured by Woods et al. The following tasks will take you through the process.</p>
 </div>
 <div id="Ch6PreClassQueT1" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Task 1: Creating a Dataframe</h3>
-<p>First we need to create a dataframe with our data so that we can work with it.</p>
+<p>First we need to create a tibble with our data so that we can work with it.</p>
 <ul>
 <li>Enter the data for the 22 participants displayed above into a tibble and store it in <code>ns_data</code>. Have one column showing the participant number (called <code>participant</code>) and another column showing the mean reaction time, called <code>valid_rt</code>.
 <ul>
-<li>We saw how to enter data into tibbles in Lab 5 preclass Skill 3.</li>
+<li>We saw how to enter data into tibbles in Chapter 5 PreClass Skill 3.</li>
+<li>You could type each value out or copy and paste them from the hint below.</li>
 </ul></li>
 </ul>
 <div class="solution">
@@ -926,11 +948,16 @@ The values are: 631.2, 800.8, 595.4, 502.6, 604.5, 516.9, 658.0, 502.0, 496.7, 6
 </div>
 <div id="Ch6PreClassQueT2" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Task 2: Comparing Original and New Sample Reaction Times</h3>
-<p>Our next step is to establish how many participants from the new sample are above the mean in the original paper.</p>
+<p>Our next step is to establish how many participants from our pilot study are above the mean in the original study by Woods et al.</p>
 <ul>
-<li>In the original paper the mean reaction time for valid trials was 590 ms. Store this value in <code>woods_mean</code>.<br />
+<li>In the original study the mean reaction time for valid trials was 590 ms. Store this value in <code>woods_mean</code>.<br />
 </li>
-<li>Now write code to calculate the number of participants in the new sample (<code>ns_data</code> created in Task 1) that had a mean reaction time greater than the original paper’s mean. Store this <strong>single value</strong> in <code>n_participants</code>. The function <code>nrow()</code> may help here.</li>
+<li>Now write code to calculate the number of participants in the new sample (<code>ns_data</code> created in Task 1) that had a mean reaction time greater than the original paper’s mean. Store this <strong>single value</strong> in <code>n_participants</code>.
+<ul>
+<li>The function <code>nrow()</code> may help here.</li>
+<li><code>nrow()</code> is similar to <code>count()</code> or <code>n()</code> but <code>nrow()</code> returns the number as a single value and not in a tibble.</li>
+<li>Be sure whatever method you use you end up with a single value, not a tibble. You may need to use <code>pull()</code> or <code>pluck()</code></li>
+</ul></li>
 </ul>
 <div class="solution">
 <button>
@@ -938,10 +965,33 @@ Helpful Hint
 </button>
 <div class="info">
 <p>
+<strong>Part 1</strong>
+</p>
+<p>
 <code>woods_mean &lt;- value</code>
 </p>
 <p>
-<code>n_participants &lt;- filter(x ? y) %&gt;% nrow()</code>
+<strong>Part 2</strong>
+</p>
+<ul>
+<li>
+A few ways to achieve this. Here are a couple you could try
+</li>
+</ul>
+<p>
+<code>ns_data %&gt;% filter(x ? y) %&gt;% count() %&gt;% pull(?)</code>
+</p>
+<p>
+or
+</p>
+<p>
+<code>ns_data %&gt;% filter(x ? y) %&gt;% summarise(n = ?) %&gt;% pull(?)</code>
+</p>
+<p>
+or
+</p>
+<p>
+<code>ns_data %&gt;% filter(x ? y) %&gt;% nrow()</code>
 </p>
 <p>
 or
@@ -959,9 +1009,14 @@ or
 </div>
 <div id="Ch6PreClassQueT3" class="section level3">
 <h3><span class="header-section-number">6.2.4</span> Task 3: Calculating Probability</h3>
-<p>Our final step for the binomial test is to compare our value from Task 2, 16 participants, to our hypothetical cut-off. Let’s assume that the mean reaction time from the original paper, i.e. 590 ms, is a good estimate for the population of good sleepers (NS). If that is the case then each new participant that we have tested should have a .5 chance of being above this mean reaction time. In other words, the expected number of participants above the cut-off would be <span class="math inline">\(.5N\)</span>, where <span class="math inline">\(N\)</span> is the number of participants, or <span class="math inline">\(.5 * 22\)</span> = 11 participants.</p>
+<p>Our final step for the binomial test is to compare our value from Task 2, 16 participants, to our hypothetical cut-off. We will work under the assumption that the mean reaction time from the original paper, i.e. 590 ms, is a good estimate for the population of good sleepers (NS). If that is true then each new participant that we have tested should have a .5 chance of being above this mean reaction time (<span class="math inline">\(p = .5\)</span> for each participant).</p>
+<p>To phrase this another way, the expected number of participants above the cut-off would be <span class="math inline">\(.5 \times N\)</span>, where <span class="math inline">\(N\)</span> is the number of participants, or <span class="math inline">\(.5 \times 22\)</span> = 11 participants.</p>
 <ul>
-<li>Calculate what would be the probability of observing at least 16 participants out of your 22 participants that had a <code>valid_rt</code> greater than the Woods et al (2009) mean value.</li>
+<li>Calculate what would be the probability of observing at least 16 participants out of your 22 participants that had a <code>valid_rt</code> greater than the Woods et al (2009) mean value.
+<ul>
+<li><strong>hint:</strong> We looked at very similar questions in Chapter 4 using <code>dbinom()</code> and <code>pbinom()</code></li>
+<li><strong>hint:</strong> The key thing is that you are asking about obtaining <strong>X or more</strong> successes. You will need to think back about cut-offs and <code>lower.tails</code>.</li>
+</ul></li>
 </ul>
 <div class="solution">
 <button>
@@ -969,7 +1024,7 @@ Helpful Hint
 </button>
 <div class="info">
 <p>
-Think back to Lab 4 where we used the binomial distribution. This question can be phrased as, what is the probability of obtaining X or more succeses out of Y trials, given the chance probability of Z.
+Think back to Chapter 4 where we used the binomial distribution. This question can be phrased as, what is the probability of obtaining X or more succeses out of Y trials, given the expected probability of Z.
 </p>
 <ul>
 <li>
@@ -990,7 +1045,8 @@ You can use a dbinom() %&gt;% sum() for this or maybe a <code>pbinom()</code>
 <p><br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li>Do you think these NS participants are responding in just the same fashion as the participants in the original paper? Select the appropriate answer: <select class='solveme' data-answer='["No"]'> <option></option> <option>No</option> <option>Yes</option></select></li>
+<li>Using the Psychology standard <span class="math inline">\(\alpha = .05\)</span>, do you think these NS participants are responding in just the same fashion as the participants in the original paper? Select the appropriate answer: <select class='solveme' data-answer='["No"]'> <option></option> <option>No</option> <option>Yes</option></select></li>
+<li>According to the Binomial test would you accept or reject the null hypothesis that we set at the start of this test? <select class='solveme' data-answer='["Reject"]'> <option></option> <option>Reject</option> <option>Accept</option></select></li>
 </ul>
 <div class="solution">
 <button>
@@ -998,7 +1054,7 @@ Explain This - I don’t get this answer
 </button>
 <div class="info">
 <p>
-The probability of obtaining 16 participants with a mean reaction time greater than the cut-off of 590 ms is p = .026. This is smaller than the field norm of p = .05. As such we can say that, using the binomial test, the new sample appears to be significantly different from the old sample as there is a significantly larger number of participants above the cut-off (M = 590ms) than would be expected if the new sample and the old sample were the same.
+The probability of obtaining 16 participants with a mean reaction time greater than the cut-off of 590 ms is p = .026. This is smaller than the field norm of p = .05. As such we can say that, using the binomial test, the new sample appears to be significantly different from the old sample as there is a significantly larger number of participants above the cut-off (M = 590ms) than would be expected if the new sample and the old sample were the same. We would therefor reject our null hypothesis!
 </p>
 </div>
 </div>
@@ -2188,6 +2244,22 @@ Figure 6.5: A representation of Figure 2A
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
 </div>
+</div>
+</div>
+<div id="additional-material-3" class="section level2">
+<h2><span class="header-section-number">6.7</span> Additional Material</h2>
+<p>Below is some additional material that might help you understand the tests in this Chapter a bit more as well as some additional ideas.</p>
+<div id="a-short-blog-on-barplots-1" class="section level3 unnumbered">
+<h3>A short blog on Barplots</h3>
+<p>The data used in this preclass allows us to show you something that you might find interesting. As we mentioned back in lab 3 on visualisation, the barplot is becoming less frequently used, as summarised in this blog: <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/" target = "_blank">One simple step to improve statistical inferences</a>. The data we have used today demonstrate the point that a simple barplot can actually be somewhat misleading about the data. Have a look at the figure below. Both bars represent the data from our 22 NS participants. The column on the left, <code>hide_data</code>, is a standard representation (albeit without error bars) whereas the column on the right, <code>show_data</code>, demonstrates the issue. Looking at the column on the left, the assumption is that all the data is around the peak of the column. However, looking at the column on the right, we can see that this is not the case and there are participants both above and below the mean by approximately 100 ms. This misleading perception, when the data is hidden, was tested and shown to exist in participants viewing these figures by <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" target = "_blank">Newman and Scholl (2012)</a> which you can read up on if you like. The main thing to keep in mind is that barplots can be misleading and displaying the individual data may be more informative.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch6-preclass-blog-figure"></span>
+<img src="06-s01-lab06f_files/figure-html/ch6-preclass-blog-figure-1.png" alt="How representative are barplots of the actual spread of the data!" width="100%" />
+<p class="caption">
+Figure 6.1: How representative are barplots of the actual spread of the data!
+</p>
+</div>
+<p>That’s all there is to this short and sweet blog on showing more information than a basic barchart. The function we use to do this is called <code>geom_jitter()</code> and it gets added to a visualisation pipeline just like other <code>geom_?()</code>s that we have used. Look out for it in the coming chapters!</p>
+
 </div>
 </div>
 </div>

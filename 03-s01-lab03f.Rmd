@@ -197,3 +197,5 @@ And now we refer to top and bottom, rather than left and right.  In fact, `patch
 Remember the trick to using patchwork is to save your plots as objects first (`p1 <- ggplot(....)`) and the rest is easy. But be sure to always know if your figure is to be shown when knitted or not; more often than not, seeing the figure is more important than seeing the code.
 
 **Happy Visualising!**
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">End of Additional Material!</span>
