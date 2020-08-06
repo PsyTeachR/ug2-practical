@@ -82,6 +82,10 @@ my_chi_data <- tibble(Groups = rep(c("A","B"),        # Names of your Groups
 
 * If you wanted to save your data as a .csv file for later use or to send to a colleague, you could use:
 
+```{r data-save-real, echo=FALSE}
+write_csv(my_chi_data, "./data/05-s01/additional/my_chi_data.csv")
+```
+
 ```{r data-save, eval=FALSE}
 write_csv(my_chi_data, "my_data.csv")
 ```

@@ -1,4 +1,4 @@
-## PreClass Activity 1
+## PreClass Activity
 
 **ManyLabs - an approach to reproducible science**
 
@@ -195,22 +195,46 @@ ___
 
 ### The One-Sample t-test
 
-In Task 3 you ran a **binomial test** of the null hypothesis testing that the mean reaction time for valid trials in good sleepers has remained stable across the two studies.  However, this test did not use all the available information because each participant was simply classified as being above or below the mean of the original paper, i.e. yes or no. Information about the **magnitude** of the discrepancy from the mean was discarded. This information is really interesting and important however and if we wanted to maintain that information then we would need to use a one-sample $t$-test.
+In Task 3 you ran a **binomial test** of the null hypothesis testing that here was no significant difference in mean reaction times to valid trials on the modified Posner experiment between the participants in the pilot study and the participants in the original study by Woods et al. However, the binomial test did not use all the available information in the data because each participant was simply classified as being above or below the mean of the original paper, i.e. yes or no. Information about the **magnitude** of the discrepancy from the mean was discarded. This information is really interesting and important however and if we wanted to maintain that information then we would need to use a **one-sample $t$-test**.
 
 In a one-sample $t$-test, you test the null hypothesis $H_0: \mu = \mu_0$ where: 
 
 * $H_0$ is the symbol for the null hypothesis,
-* $\mu$ is the unobserved population mean, 
-* and $\mu_0$ is some other mean to compare against (which could be an alternative population or sample mean or a constant).  
+* $\mu$ (pronounced mu - like few with an m) is the unobserved population mean, 
+* and $\mu_0$ (mu-zero) is some other mean to compare against (which could be an alternative population or sample mean or a constant).  
+
+And we will do this by calculating the test statistic $t$ which comes from the $t$ distribution - more on that distribution below and in the lectures. The formula to calculate the observed test statistic $t$ for the one-sample $t$-test is:
+
+$t = \frac{\mu - \mu_0}{s\ / \sqrt(n)}$
+
+* $s$ is the stanard deviation of the sample collected, 
+* and $n$ is the number of participants in the sample.
+
+`r hide("Portfolio Point - The Null Hypothesis equation")`
+```{block, type ="info"}
+The eagle-eyed of you may have spotted that in Chapter 5 the null hypothesis was stated as:
+
+$H_0: \mu_1 = \mu_2$
+
+whereas in this Chapter we are stating it as:
+
+$H_0: \mu = \mu_0$
+
+What's the difference?  Conceptually there is no real difference. The null hypothesis in both situations is stating that there is no difference between the means. The only difference is that in Chapter 5 we know the actual mean of the groups of interest. In Chapter 6 we only really know the mean we want to compare against - $\mu_0$. We do not know the actual mean of the population of interest (we only know the sample we have collected) - so this is written as $\mu$.
+
+Main thing to recognise is that the null hypothesis $H_0$ always states that there is no significant difference between thw two means of interest - i.e. the two means are equivalent.
+```
+`r unhide()`
+<br>
 
 For the current problem: 
 
-* $\mu$ is the unobserved mean of the `r n_new` participants so we will substitute $\bar{X}$, the mean of the sample.  
-* $\mu_0$ is the mean of the original paper which we observed to be `r woods_mean`.  
+* $\mu$ is the unobserved true mean of all possible participants. We don't know this value. Our best guess is the mean of the sample of `r n_new` participants so we will use that mean here. As such will substitute this value into our formula, which we call $\bar{X}$ (pronounced X-bar), instead of $\mu$ 
+* $\mu_0$ is the mean to compare against. For us this is the mean of the original paper which we observed to be `r woods_mean` ms.  
 
 So in other words we are testing the null hypothesis that $H_0: \bar{X} =$ `r woods_mean`.
 
-And we will do this by calculating the test statistic $t$ which comes from the $t$ distribution - more on that distribution below and in the lectures. The formula to calculate the observed test statistic $t$ for the one-sample $t$-test is:
+As such the formula for our one-sample $t$-test becomes:
 
 $t = \frac{\bar{X} - \mu_0}{s\ / \sqrt(n)}$
 
@@ -218,11 +242,12 @@ Now we just need to fill in the numbers.
 
 ### Task 4: Calculating the Mean and Standard Deviation {#Ch6PreClassQueT4}
 
-* Calculate the mean and standard deviation of `valid_rt` for our `r n_new`  participants (i.e., for **all** participant data at the top of this lab). Store the mean in `ns_data_mean` and store the standard deviation in `ns_data_sd`. Make sure to store them both as single values!
+* Calculate the mean and standard deviation of `valid_rt` for our `r n_new`  participants (i.e., for **all** participant data at the top of this lab). 
+* Store the mean in `ns_data_mean` and store the standard deviation in `ns_data_sd`. Make sure to store them both as single values!
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
-Replace NULL with the code that would find the mean, `m`, of `ns_data`.
+In the below code, replace NULL with the code that would find the mean, `m`, of `ns_data`.
 
 `ns_data_mean <- summarise(NULL) %>% pull(NULL)` 
 
@@ -234,13 +259,15 @@ Replace NULL with the code that would find the standard deviation, `sd`, of `ns_
 
 ### Task 5: Calculating the Observed Test Statistic {#Ch6PreClassQueT5}
 
-From Task 4, you found out that $\bar{X}$, the sample mean, was `r round(ns_data_mean, 3)` ms, and $s$, the sample standard deviation, was `r round(ns_data_sd, 3)` ms. Now, keeping in mind that $n$ is the number of observations in the sample, and $\mu_0$ is the mean from Woods et al (2009):
+From Task 4, you found out that $\bar{X}$, the sample mean, was `r round(ns_data_mean, 3)` ms, and $s$, the sample standard deviation, was `r round(ns_data_sd, 3)` ms. Now, keeping in mind that $n$ is the number of observations/participants in the sample, and $\mu_0$ is the mean from Woods et al (2009):
 
-* Substitute the values into the one-sample t-test formula above to compute your observed test statistic. Store the answer in `t_obs` .
+* Use the one-sample t-test formula above to compute your observed test statistic. Store the answer in `t_obs` .
+* E.g. `t_obs <- (x - y)/(s/sqrt(n))`
 
 **Answering this question will help you in this task as you'll also need these numbers to substitute into the formula:** 
 
 * The mean from Woods et al (2009) was `r mcq(c("595",answer = "590","580","585"))`, and the number of participants in our sample is: (type in numbers) `r fitb(22, ignore_ws = TRUE, width = 3)`.
+* Remember the solutions at the end of the chapter if you are stuck. To check that you are correct without looking at the solutions though - the observed $t$-value in `t_obs`, to two decimal places, is `r mcq(c("1.66",answer = "1.76","1.86","1.96"))`
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
@@ -255,7 +282,10 @@ Remember BODMAS and/or PEDMAS when given more than one operation to calculate.
 
 Now you need to compare `t_obs` to the t-distribution to determine how likely the observation (i.e. your test statistic) is under the null hypothesis of no difference.  To do this you need to use the `pt()` function. 
 
-* Use the `pt()` function to get the $p$-value for a two-tailed test with $\alpha$ level set to .05.  The test has $n - 1$ degrees of freedom, where $n$ is the number of observations contributing to the sample mean $\bar{X}$.  Store the $p$ value in the variable `pval`.  Do you reject the null?
+* Use the `pt()` function to get the $p$-value for a `r glossary("two-tailed")` test with $\alpha$ level set to .05.  The test has $n - 1$ degrees of freedom, where $n$ is the number of observations contributing to the sample mean $\bar{X}$.  Store the $p$ value in the variable `pval`.  
+* Do you reject the null?
+* **Hint:** The `pt()` function works similar to `pbinom()` and `pnorm()`.
+* **Hint:** Because we want the p-value for a **two-tailed** test, **multiply `pt()` by two**.
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
@@ -267,7 +297,6 @@ The `pt()` function works similar to `pbinom()` and `pnorm()`:
 * Use the **absolute value** of the test statistic; i.e. ignore minus signs.
 * Remember, `df` is equal to `n-1`.
 * Use `lower.tail = FALSE` because we are wanting to know the probability of obtaining a value higher than the one we got.
-* Because we want the p-value for a **two-tailed** test, **multiply `pt()` by two**.
 * Reject the null at the field standard of  p < .05
 ```
 `r unhide()`
@@ -276,6 +305,8 @@ The `pt()` function works similar to `pbinom()` and `pnorm()`:
 ### Task 7: Comparing the Observed Test Statistic to the t-distribution using **`t.test()`** {#Ch6PreClassQueT7}
 
 Now that you have done this by hand, try using the `t.test()` function to get the same result.  Take a moment to read the documentation for this function by typing `?t.test` in the console window.  No need to store the t-test output in a dataframe but do check that the p-value matches the `pval` in Task 6.
+
+* The structure of the `t.test()` function is `t.test(column_of_data, mu = mean_to_compare_against)`
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}

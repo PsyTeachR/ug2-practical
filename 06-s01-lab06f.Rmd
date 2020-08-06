@@ -58,3 +58,20 @@ dat %>%
 
 That's all there is to this short and sweet blog on showing more information than a basic barchart. The function we use to do this is called `geom_jitter()` and it gets added to a visualisation pipeline just like other `geom_?()`s that we have used. Look out for it in the coming chapters! 
 
+### Appropriate Barplots {-}
+
+### Analysing chi-squares {-}
+
+```{r lab6-additional-chi-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
+chi_table <- read_csv("./data/05-s01/additional/my_chi_data.csv") %>%
+  group_by(Groups, Responses) %>% 
+  count() %>% 
+  pivot_wider(names_from = "Responses", values_from = "n") %>%
+  mutate(Total = No + Unsure + Yes)
+``` 
+
+```{r lab6-additional-chi-table, echo=FALSE}
+knitr::kable(chi_table, align = "c", caption = "Cross-Tabulation Table of Simulated Data from Chapter 5 Additional Materials")
+```
+
+### More on `t.test()` vectors {-}

@@ -123,7 +123,11 @@ t.test(pull(ns_data, valid_rt), mu = woods_mean)
 
 #### PreClass Task 8
 
-According to the one-sample t-test these participants are responding in the same manner as the participants from the original study, and as such, it may be safe to collapse the two sets of good sleepers together. However, according to the binomial test they are responding differently from the original sample. Which test to go with? Keep in mind that the binomial test is very rough and categorises participants into yes or no. The one-sample t-test uses much more of the available data and to some degree would give a more accurate answer. However, the fact that two tests give really different answers may give you reason to question whether or not the results are stable and potentially you should look to gather a larger sample to get a more accurate representation of the population.
+According to the one-sample t-test these participants are responding in the same manner as the participants from the original study, and as such, it may be safe to assume that the recruitment process of our pilot experiment is working well.
+
+However, according to the binomial test the participants are responding differently from the original sample. So which test result should you take as the finding? 
+
+Keep in mind that the binomial test is very rough and categorises participants into yes or no. The one-sample t-test uses much more of the available data and to some degree would give a more accurate answer. However, the fact that two tests give really different answers may give you reason to question whether or not the results are stable and potentially you should look to gather a larger sample to get a more accurate representation of the population.
 
 [Return to Task](#Ch6PreClassQueT8)
 
@@ -136,15 +140,15 @@ According to the one-sample t-test these participants are responding in the same
 ## TASK 1
 evaluators <- read_csv("data/06-s01/inclass/evaluators.csv")
 
-evaluators %>%
+e_agg <- evaluators %>%
   summarize(mean_age = mean(age, na.rm = TRUE),
             sd_age = sd(age, na.rm = TRUE))
 
-evaluators %>%
+e_count <- evaluators %>%
   count(sex)
 
 # If using `recode()`:
-evaluators %>%
+e_count <- evaluators %>%
   count(sex) %>%
   mutate(sex_names = recode(sex, "1" = "male", "2" = "female"))
 
@@ -194,6 +198,11 @@ evaluators %>%
   mutate(sex_names = recode(sex, "1" = "male", "2" = "female"))
 
 ```
+
+* The mean age of the evaluators was `r e_agg %>% pull(mean_age) %>% round(1)`
+* The standard deviatoin of the age of the evaluators was `r e_agg %>% pull(sd_age) %>% round(2)`
+* There were `r e_count %>% filter(sex_names == "male") %>% pull(n)` males and `e_count %>% filter(sex_names == "female") %>% pull(n)` females, with `r e_count %>% filter(is.na(sex_names)) %>% pull(n)` people not stating a sex.
+
 
 [Return to Task](#Ch6InClassQueT1)
 
@@ -299,7 +308,7 @@ results
 
 #### Going Further with your coding
 
-**An alternative solution to Task 4:** There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won't really cover in level 2. Do not worry if you can't quite follow it though; the main thing is to understand what we covered in the lab - the outcome is the same.
+**An alternative solution to Task 4:** There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won't really cover in this book. Do not worry if you can't quite follow it though; the main thing is to understand what we covered in the main chapter activities - the outcome is the same.
 
 ```{r going_further}
 ratings2 %>%
@@ -310,7 +319,7 @@ ratings2 %>%
       tidy()
   })) %>%
   select(Category, ttest) %>%
-  unnest()
+  unnest(cols = c(ttest))
 ```
 
 ### Homework Activity
@@ -445,7 +454,7 @@ t_table <- t.test(crt2 %>% filter(Treatment == 0) %>% pull(CorrectAnswers),
   tidy()
 ```
 
-* Alternatively this formula approach would also work.
+* Alternatively, you could use what is known as the formula approach as shown below. Here you state the `DV ~ IV` and you say the name of the tibble in `data = ...`. You just need to make sure that the columns you state as the DV and the IV are actually in the tibble!
 
 ```{r t6-option2}
 t_table <- t.test(CorrectAnswers ~ Treatment, data = crt2, var.equal = TRUE) %>% tidy()
@@ -459,6 +468,13 @@ t_table <- t.test(CorrectAnswers ~ Treatment, data = crt2, var.equal = TRUE) %>%
 ```{r t7A}
 t_df <- t_table$parameter
 ```
+
+* An alternative option for this would be as follows, using the `pull()` method. This would work for B to D as well
+
+```{r t7A-1}
+t_df <- t_table %>% pull(parameter)
+```
+
 
 * The t-value is found under `statistic`
 ```{r t7B}
