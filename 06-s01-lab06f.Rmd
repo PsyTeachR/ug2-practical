@@ -60,7 +60,7 @@ That's all there is to this short and sweet blog on showing more information tha
 
 ### Appropriate Barplots {-}
 
-### Analysing chi-squares {-}
+
 
 ```{r lab6-additional-chi-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
 chi_table <- read_csv("./data/05-s01/additional/my_chi_data.csv") %>%
@@ -73,5 +73,20 @@ chi_table <- read_csv("./data/05-s01/additional/my_chi_data.csv") %>%
 ```{r lab6-additional-chi-table, echo=FALSE}
 knitr::kable(chi_table, align = "c", caption = "Cross-Tabulation Table of Simulated Data from Chapter 5 Additional Materials")
 ```
+
+```{r}
+chi_table %>% 
+    select(-Total) %>%
+    pivot_longer(cols = No:Yes, 
+                 names_to = "Responses",
+                 values_to = "n") %>%
+  ggplot(aes(x = Responses, y = n, fill = Groups)) +
+  geom_col(position = position_dodge(.9)) +
+  scale_fill_manual(values = psyteachr_colours()) +
+  theme_classic()
+```
+
+
+### Analysing chi-squares {-}
 
 ### More on `t.test()` vectors {-}

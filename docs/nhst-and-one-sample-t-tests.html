@@ -1811,7 +1811,7 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <p>So to recap, we looked at the data from Schroeder and Epley (2015), both the descriptives and inferentials, we plotted a figure, and we confirmed that, as in the paper, there are significant differences in each of the three rating categories (hire, impression and intellect), with the listened condition receiving a higher rating than the read condition on each rating. All in, our interpretation would be that people rate you hire when they hear you speak your resume as opposed to them just reading your resume!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done for completing this inclass activity on independent samples t-tests! And now, combined with the information in the preclass activity, you are able to run a t-test on one sample data, comparing it to a standard/criterion values, and on two samples in a between-subjects design.</p>
-<p>Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! For instace</p>
+<p>Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! For instance, we haven’t really looked at the assumptions of a between-subjects t-test, just the analysis. You will have covered the assumptions in your lecture series so why not combine that information with the information you learnt here!</p>
 <p>Also, if you have more time, you might want to visit this website that will give you a better understanding of the relationship between the <span class="math inline">\(t\)</span> distribution and the normal distribution: <a href="https://gallery.shinyapps.io/tdist/" target = "_blank">gallery.shinyapps.io/tdist</a></p>
 <p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module</strong>. However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the forums.</p>
 
@@ -2334,9 +2334,6 @@ Figure 6.5: How representative are barplots of the actual spread of the data!
 </div>
 <div id="appropriate-barplots" class="section level3 unnumbered">
 <h3>Appropriate Barplots</h3>
-</div>
-<div id="analysing-chi-squares" class="section level3 unnumbered">
-<h3>Analysing chi-squares</h3>
 <table>
 <caption>
 <span id="tab:lab6-additional-chi-table">Table 6.4: </span>Cross-Tabulation Table of Simulated Data from Chapter 5 Additional Materials
@@ -2397,6 +2394,24 @@ B
 </tr>
 </tbody>
 </table>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1">chi_table <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb373-2" data-line-number="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>Total) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb373-3" data-line-number="3"><span class="st">    </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> No<span class="op">:</span>Yes, </a>
+<a class="sourceLine" id="cb373-4" data-line-number="4">                 <span class="dt">names_to =</span> <span class="st">&quot;Responses&quot;</span>,</a>
+<a class="sourceLine" id="cb373-5" data-line-number="5">                 <span class="dt">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb373-6" data-line-number="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Responses, <span class="dt">y =</span> n, <span class="dt">fill =</span> Groups)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb373-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb373-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">psyteachr_colours</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb373-9" data-line-number="9"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="06-s01-lab06f_files/figure-html/unnamed-chunk-2-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 4.11: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+</div>
+<div id="analysing-chi-squares" class="section level3 unnumbered">
+<h3>Analysing chi-squares</h3>
 </div>
 <div id="more-on-t.test-vectors" class="section level3 unnumbered">
 <h3>More on <code>t.test()</code> vectors</h3>
