@@ -625,54 +625,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 7</span> Within-Subjects t-test</h1>
 <div id="overview-7" class="section level2">
 <h2><span class="header-section-number">7.1</span> Overview</h2>
-<p>In the previous labs, we have looked at one-sample t-tests and between-samples t-tests. For today’s activities we are going to look at the remaining type of t-test; the <strong>within-subjects t-test</strong> (sometimes called the <strong>dependent sample</strong> or <strong>paired sample t-test</strong>). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations <strong>from the same participants</strong> is zero. As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis.</p>
+<p>In the previous chpaters, we have looked at one-sample t-tests and between-samples t-tests. In this chapter we will continue to look at t-tests with the PreClass Activity looking at the assumptions of variance in between-subjects t-test, and the InClass Activity looking at the remaining type of t-test; the <strong>within-subjects t-test</strong> (sometimes called the <strong>dependent sample</strong> or <strong>paired-sample t-test</strong>). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations <strong>from the same or matched participants</strong> is zero. As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis.</p>
 <ul>
-<li>The null hypothesis assumes that the true mean difference between the paired samples is zero.</li>
-<li>The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero.</li>
+<li>The null hypothesis assumes that the true mean difference between the paired samples is zero - <span class="math inline">\(H_0: \mu1 = \mu_2\)</span>.</li>
+<li>The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero - <span class="math inline">\(H_1: \mu1 \ne \mu_2\)</span>.</li>
 </ul>
-<p>Again like in all tests, and particularly parametric tests, the within-subjects t-test makes a number of assumptions:</p>
+<p>And in this chapter we are going to look at running this test, but first a little work on checks of your data that you should perform prior to analysis.</p>
+<p><strong>Assumptions of tests</strong></p>
+<p>So far we have focussed your skills on data-wrangling, visualisations and probability, and now we are moving more towards the actual analysis stage. But first, as you will know from your lectures, all tests, and particularly parametric tests, make a number of assumptions about the data that is being tested, and that you, as a responsible researcher, need to check these assumptions are “held” as any violation of the assumptions may make your results invalid.</p>
+<p>For t-tests the assumptions change for between-subjects and within-subjects designs (the one-sample and matched-pairs designs can be thought of as within-subjects designs).</p>
+<p>The assumptions of the between-subjects t-test are:</p>
+<ul>
+<li>Each data point is independent.</li>
+<li>The variance across both groups/conditions should be equal.</li>
+<li>The dependent variable must be continuous (interval/ratio).<br />
+</li>
+<li>The dependent variable should be normally distributed.</li>
+</ul>
+<p>And the assumptions of the within-subjects t-test are:</p>
 <ul>
 <li>All participants appear in both conditions/groups.</li>
 <li>The dependent variable must be continuous (interval/ratio).<br />
 </li>
 <li>The dependent variable should be normally distributed.</li>
 </ul>
-<p><strong>Before beginning any analysis it is always a good idea to check if the data deviates from these assumptions and whether it contains any outliers, in order to assess the quality of the results.</strong></p>
-<div class="solution">
-<button>
-Portfolio Point - The assumption of variance
-</button>
-<div class="info">
-<p>
-One of the main differences in the assumptions between a between-subjects t-test and a within-subjects t-test is the assumption of equal variance.
-</p>
-<p>
-The between-subjects t-test classically would have an assumption of equal variance. Or at least what is known as the Student’s t-test has the assumption of equal variance. The top half of the equation of the formula (the numerator) is the difference in means of the two samples whereas the denominator relates to the variance of both groups. As such, in the Student’s t-test, if the variances are unequal then you can get erroneous results. Modern thinking however, and this is from your preclass reading, suggests that it is always better to run a Welch’s t-test for between-subjects where the assumption is that variance is not equal. From now on, unless stated otherwise, you should run a Welch’s t-test.
-</p>
-<p>
-In practice:
-</p>
+<p>Before beginning any analysis you <strong>must</strong> check to see if the data deviates from these assumptions, and whether it contains any outliers, in order to assess the quality of the results. You can do this through your data-wrangling skills!</p>
+<p>So in this lab we will:</p>
 <ul>
-<li>
-to run a Student’s t-test you set <code>var.equal = TRUE</code>
-</li>
-<li>
-to run a Welch’s t-test you set <code>var.equal = FALSE</code>
-</li>
+<li>Understand about assumptions of t-tests in general</li>
+<li>Learn about the assumption of equal variance in between-subjects t-tests</li>
+<li>Run all assumption checks and analysis in an experiment with a within-subjects design.</li>
 </ul>
-<p>
-Conversely, there is no concern with variance in a within-subjects t-test because, as you will know from lectures, the top half of the equation of the formula (the numerator) is the mean difference between the two conditions, and so it is only one set of values and there is nothing to equate it to. This test does not have any concern with variance.
-</p>
-</div>
-</div>
 
 </div>
 <div id="preclass-activity-5" class="section level2">
 <h2><span class="header-section-number">7.2</span> PreClass Activity</h2>
-<p>A bit of a change of pace in this PreClass Activity. In order to give you a bit more of an understanding of the between-subjects t-test, and a viable alternative to the standard Student’s t-test, we ask that you read the following blog (and even the full paper if you have time) and then try out the couple of tasks below.</p>
+<p>A bit of a change of pace in this PreClass Activity. In order to give you a bit more of an understanding of the assumptions of the between-subjects t-test, and a viable alternative to the standard Student’s t-test, we ask that you read the following blog (and even the full paper if you have time) and then try out the couple of tasks below.</p>
 <div id="reading" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Reading</h3>
-<p>Read the following blog on using Welch’s t-test.</p>
+<p>Read the following blog on using <strong>Welch’s t-test</strong> for between-subjects designs.</p>
 <p><strong>Blog:</strong></p>
 <ul>
 <li><a href = "https://daniellakens.blogspot.co.uk/2015/01/always-use-welchs-t-test-instead-of.html" target = "_blank">Always use Welch’s t-test instead of Student’s t-test</a> by Daniel Lakens.</li>
@@ -686,15 +677,56 @@ Conversely, there is no concern with variance in a within-subjects t-test becaus
 <div id="task" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Task</h3>
 <ol style="list-style-type: decimal">
-<li>Copy the script within the blog into an R script and try running it to see the difference between Welch’s t-test (the recommended in the blog) and Student’s t-test (the standard in the field). <strong>Note:</strong> You will need the <strong><code>car</code></strong> package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car).</li>
+<li>Copy the script within the blog into an R script and try running it to see the difference between Welch’s t-test (the recommended test in the blog) and Student’s t-test (the standard test in the field).</li>
 </ol>
-<p>Don’t worry if you don’t yet understand all the code. It is highly commented but it is tricky. The key thing is to try and run it and to look at the figures that come out of it - particularly the third one that you see in the blog, the one with the red line on it that compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other.</p>
+<p><strong>Note:</strong> You will need the <strong><code>car</code></strong> package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car). If yuo are using your own machine then you will need to install the <strong><code>car</code></strong> package.</p>
+<p>Don’t worry if you don’t yet understand all the code. It is highly commented but it is tricky. The key thing is to try and run it and to look at the figures that come out of it - particularly the third figure that you see in the blog, the one with the red line on it that compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other.</p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Change the values for n1, n2, sd1 and sd2 at the top of the script to see what effect this has on the Type 1 Error rate (alpha = .05). Again look at the figure with the red line, comparing significance on one test versus significance on the other. This is what should change depending on the n of each sample and whether the variance is equal or not.</p></li>
+<li><p>Now change the values for n1, n2, sd1 and sd2 at the top of the script to see what effect this has on the Type 1 Error rate (alpha = .05). Again look at the figure with the red line, comparing significance on one test versus significance on the other. This is what should change depending on the n of each sample and whether the variance is equal or not.</p></li>
 <li><p>Think about the overall point of this blog and which test we should use when conducting a t-test. We will look at this more in the lectures and labs.</p></li>
 </ol>
+<p><strong>Understanding the Blog and the assumption of variance</strong></p>
+<p>What the blog and paper are trying to help us recognise is that if the two groups have equal number of participants and equal variance, then both Student’s t-test and Welch’s t-test will return the same t-value and therefor p-value. This means that you would reject the null hypothesis an equal number of times regardless of which test you used. This is what this first figure demonstrates. We have used an adapted version of the code from the blog to create this figure - the settings we have used are in the box shown and you can change your code to match them (remember to set the seed to get the same values)</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1409</span>)</a>
+<a class="sourceLine" id="cb390-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb390-3" data-line-number="3">n1 &lt;-<span class="st"> </span><span class="dv">38</span> </a>
+<a class="sourceLine" id="cb390-4" data-line-number="4">n2 &lt;-<span class="st"> </span><span class="dv">38</span> </a>
+<a class="sourceLine" id="cb390-5" data-line-number="5">sd1 &lt;-<span class="st"> </span><span class="fl">1.85</span> </a>
+<a class="sourceLine" id="cb390-6" data-line-number="6">sd2 &lt;-<span class="st"> </span><span class="fl">1.85</span> </a>
+<a class="sourceLine" id="cb390-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb390-8" data-line-number="8">nSims &lt;-<span class="st"> </span><span class="dv">500</span></a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:chpt7-match-figure"></span>
+<img src="07-s01-lab07b_files/figure-html/chpt7-match-figure-1.png" alt="Figure illustrates that with equal number of participants and equal variance, Welch's t-test and Student's t-test find the same results as significant (Orange Circles) and the same results as non-significant (Purple Circles). The horizontal and vertical black lines represent the alpha = .05 for both tests. Dots following on diagonal red line show same p-value for Welch's and Student's t-tests." width="100%" />
+<p class="caption">
+Figure 7.1: Figure illustrates that with equal number of participants and equal variance, Welch’s t-test and Student’s t-test find the same results as significant (Orange Circles) and the same results as non-significant (Purple Circles). The horizontal and vertical black lines represent the alpha = .05 for both tests. Dots following on diagonal red line show same p-value for Welch’s and Student’s t-tests.
+</p>
+</div>
+<p>However, if the two groups have unequal variance and/or unequal number of participants, the two tests start to give different results. This is shown in the below figure where results found to be significant in both tests are shown in orange, results found to be non-significant in both tests are shown in blue, and tests found to be significant in Student’s t-test but non-significant in Welch’s t-test are shown in purple. If we read the blog, especially about how p-values work when there is no actual difference between two groups, then we can come to the conclusion that Welch’s t-test is working better than the Student’s t-test in this scenario.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1409</span>)</a>
+<a class="sourceLine" id="cb391-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb391-3" data-line-number="3">n1 &lt;-<span class="st"> </span><span class="dv">38</span> </a>
+<a class="sourceLine" id="cb391-4" data-line-number="4">n2 &lt;-<span class="st"> </span><span class="dv">25</span> </a>
+<a class="sourceLine" id="cb391-5" data-line-number="5">sd1 &lt;-<span class="st"> </span><span class="fl">1.15</span> </a>
+<a class="sourceLine" id="cb391-6" data-line-number="6">sd2 &lt;-<span class="st"> </span><span class="fl">1.85</span>  </a>
+<a class="sourceLine" id="cb391-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb391-8" data-line-number="8">nSims &lt;-<span class="st"> </span><span class="dv">500</span></a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:chpt7-miss-match"></span>
+<img src="07-s01-lab07b_files/figure-html/chpt7-miss-match-1.png" alt="Figure illustrates that with unequal number of participants and/or unequal variance, Welch's t-test and Student's t-test work differently, returning conflciting findings. Results found to be significant in both tests are shown in orange, results found to be non-significant in both tests are shown in blue, and tests found to be significant in Student's t-test but non-significant in Welch's t-test are shown in purple. The horizontal and vertical black lines represent the alpha = .05 for both tests. Dots following on diagonal red line show same p-value for Welch's and Student's t-tests." width="100%" />
+<p class="caption">
+Figure 7.2: Figure illustrates that with unequal number of participants and/or unequal variance, Welch’s t-test and Student’s t-test work differently, returning conflciting findings. Results found to be significant in both tests are shown in orange, results found to be non-significant in both tests are shown in blue, and tests found to be significant in Student’s t-test but non-significant in Welch’s t-test are shown in purple. The horizontal and vertical black lines represent the alpha = .05 for both tests. Dots following on diagonal red line show same p-value for Welch’s and Student’s t-tests.
+</p>
+</div>
+<p>So what is the difference between the two tests? Essentially the assumption of variance. What is considered the common t-test, Student’s t-test, has the assumption of equal variance, whereas Welch’s t-test has no assumption of equal variace - it does however have all the other same assumptions as the Student’s t-test. What this blog shows is that if the groups have equal variance then both tests return the same finding. However if that assumption is violated then Welch’s test produce the more accurate finding, based on the data. This is important as often the final decision on whether assumptions are “held” or “violated” is subjective; i.e. it is down to the researcher to fully decide. Nearly all data will show some level of unequal variance (with perfectly equal variance across multiple conditions actually once revealing fraudulent data) so often people using Student’s t-test have to think about whether the data is “equal enough”. This blog shows that it is always better to run a Welch’s t-test for between-subjects as a) it does not have the assumption of equal variance, b) it gives more accurate results when variance is not equal, and c) performs exactly the same as the Student t-test when variance is equal.</p>
+<p>In short, Welch’s t-test takes a level of ambiguity (or what may be called a “researcher degree of freedom”) out of the analysis and makes the analysis less open to bias or subjectivity. As such, from now on, unless stated otherwise, you should run a Welch’s t-test.</p>
+<p>In practice it is very easy to run the Welch’s t-test, and you can switch between the tests as shown:</p>
+<ul>
+<li>to run a Student’s t-test you set <code>var.equal = TRUE</code></li>
+<li>to run a Welch’s t-test you set <code>var.equal = FALSE</code></li>
+</ul>
+<p>Don’t worry if you don’t yet fully understand this blog. We will have some practice on it in coming Chapters but in short Welch’s t-test is better as it does not require the assumption of equal variance.</p>
+<p>Conversely, there is no concern with variance in a within-subjects t-test because, as you will know from lectures, the top half of the equation of the formula (the numerator) is the mean difference between the two conditions, and so it is only one set of values and there is nothing to equate it to. And we are going to explore the assumptions of the within-subjects t-test in the InClass Activities!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>That’s it for today! This is a bit of a change to the PreClass activities you have done so far, and you will start to see this approach more in Semester 2 - reading blogs and chapters. Don’t forget though that it is really important to store the information in your own words, to help you really understand it, so you might want to go back and add any informative points to your Portfolio. Post any questions on the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. See you in the lab!</p>
+<p>That’s it for the PreClass Activity! This is a bit of a change to the PreClass activities you have done so far, and you will start to see this approach more in the later Chapters of this book - reading blogs, papers, and chapters from other books. Don’t forget though that it is really important to store the information in your own words, to help you really understand it, so you might want to go back and add any informative points to your Portfolio. And as always, post any questions you have on the available forums or ask a member of staff.</p>
 
 </div>
 </div>
@@ -948,18 +980,18 @@ We have embellished the figure a little in the solution that you can have a look
 <p>When dealing with a within-subejcts design, and a paired t-test, normality is actually determined based on <strong>the difference</strong> between the two conditions. That is, is the distribution of the scores of the difference between the two conditions normally distributed. We have been looking at it in terms of separate conditions, but we need to look at the normality of the difference. The code below will create a violin and boxplot visualisation of the difference between the two conditions. You should now be able to understand this code.</p>
 <p>Have a look at the output, and at the code, and think about whether the scores of the difference between the two conditions is normally distributed.</p>
 <p>Note that in the code below outliers will appear as red circles and inidividual data points will appear as blue Xs. Can you see what is controlling this?</p>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb390-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(Timepoint, GuiltRating) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb390-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> Thirteen <span class="op">-</span><span class="st"> </span>Twelve) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb390-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Evidence, <span class="dt">y =</span> diff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb390-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb390-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">width =</span> <span class="fl">.5</span>, <span class="dt">alpha =</span> <span class="fl">.1</span>, <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb390-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">width =</span> <span class="fl">.1</span>, <span class="dt">shape =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb390-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb392-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(Timepoint, GuiltRating) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb392-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> Thirteen <span class="op">-</span><span class="st"> </span>Twelve) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb392-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Evidence, <span class="dt">y =</span> diff)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">width =</span> <span class="fl">.5</span>, <span class="dt">alpha =</span> <span class="fl">.1</span>, <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">width =</span> <span class="fl">.1</span>, <span class="dt">shape =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb392-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <img src="07-s01-lab07c_files/figure-html/unnamed-chunk-6-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
-Figure 7.1: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 7.3: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
@@ -1036,8 +1068,8 @@ If you were looking to calculate a 99% Confidence Interval you would instead use
 <li>Feel free to embellish the figure as you see fit.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" data-line-number="1"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
-<a class="sourceLine" id="cb391-2" data-line-number="2">              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" data-line-number="1"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
+<a class="sourceLine" id="cb393-2" data-line-number="2">              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>)</a></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1157,32 +1189,32 @@ your <code>results</code> states degrees of freedom as <code>parameter</code>, a
 <h3><span class="header-section-number">7.5.1</span> InClass Activities</h3>
 <div id="inclass-task-1-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.1</span> InClass Task 1</h4>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1"><span class="kw">library</span>(broom)</a>
-<a class="sourceLine" id="cb392-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb392-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb392-4" data-line-number="4">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb394-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb394-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb394-4" data-line-number="4">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-4" class="section level4">
 <h4><span class="header-section-number">7.5.1.2</span> InClass Task 2</h4>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" data-line-number="1">lates &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings, Evidence <span class="op">==</span><span class="st"> &quot;Late&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb393-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb393-3" data-line-number="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb393-4" data-line-number="4"><span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve<span class="op">:</span>Thirteen)</a></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">lates &lt;-<span class="st"> </span><span class="kw">filter</span>(ratings, Evidence <span class="op">==</span><span class="st"> &quot;Late&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb395-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb395-3" data-line-number="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb395-4" data-line-number="4"><span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve<span class="op">:</span>Thirteen)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.3</span> InClass Task 3</h4>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb394-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(GuiltRating)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb394-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb394-4" data-line-number="4"><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Timepoint) <span class="op">+</span></a>
-<a class="sourceLine" id="cb394-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb394-6" data-line-number="6"><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb396-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(GuiltRating)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb396-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb396-4" data-line-number="4"><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Timepoint) <span class="op">+</span></a>
+<a class="sourceLine" id="cb396-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb396-6" data-line-number="6"><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task3"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task3-1.png" alt="Potential Solution to Task 3" width="100%" />
 <p class="caption">
-Figure 7.2: Potential Solution to Task 3
+Figure 7.4: Potential Solution to Task 3
 </p>
 </div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT3">Return to Task</a></p>
@@ -1190,16 +1222,16 @@ Figure 7.2: Potential Solution to Task 3
 <div id="inclass-task-4-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.4</span> InClass Task 4</h4>
 <p>The Task only asks for the boxplot. We have added some additional functions to tidy up the figure a bit that you might want to play with.</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb395-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Timepoint,</a>
-<a class="sourceLine" id="cb395-3" data-line-number="3">             <span class="dt">y =</span> GuiltRating)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb395-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb395-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb395-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb397-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Timepoint,</a>
+<a class="sourceLine" id="cb397-3" data-line-number="3">             <span class="dt">y =</span> GuiltRating)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb397-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb397-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb397-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task4"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task4-1.png" alt="Potential Solution to Task 4" width="100%" />
 <p class="caption">
-Figure 7.3: Potential Solution to Task 4
+Figure 7.5: Potential Solution to Task 4
 </p>
 </div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT4">Return to Task</a></p>
@@ -1207,42 +1239,42 @@ Figure 7.3: Potential Solution to Task 4
 <div id="inclass-task-5-2" class="section level4">
 <h4><span class="header-section-number">7.5.1.5</span> InClass Task 5</h4>
 <p>We have added color but that was not necessary:</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb396-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))<span class="op">+</span></a>
-<a class="sourceLine" id="cb396-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb396-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb396-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb398-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))<span class="op">+</span></a>
+<a class="sourceLine" id="cb398-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb398-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb398-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task5-1"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task5-1-1.png" alt="Potential Solution to Task 5" width="100%" />
 <p class="caption">
-Figure 7.4: Potential Solution to Task 5
+Figure 7.6: Potential Solution to Task 5
 </p>
 </div>
 <p>You could even add the <code>geom_jitter</code> to have all the data points:</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb397-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))<span class="op">+</span></a>
-<a class="sourceLine" id="cb397-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb397-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb397-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">width =</span> <span class="fl">.1</span>, <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb397-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb399-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Timepoint,<span class="dt">y=</span>GuiltRating))<span class="op">+</span></a>
+<a class="sourceLine" id="cb399-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb399-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Timepoint), <span class="dt">width =</span> <span class="fl">.1</span>, <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb399-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task5-2"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task5-2-1.png" alt="Alternative Potential Solution to Task 5" width="100%" />
 <p class="caption">
-Figure 7.5: Alternative Potential Solution to Task 5
+Figure 7.7: Alternative Potential Solution to Task 5
 </p>
 </div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT5">Return to Task</a></p>
 </div>
 <div id="inclass-task-6-1" class="section level4">
 <h4><span class="header-section-number">7.5.1.6</span> InClass Task 6</h4>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb398-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Timepoint) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb398-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb398-4" data-line-number="4">            <span class="dt">mean =</span> <span class="kw">mean</span>(GuiltRating),</a>
-<a class="sourceLine" id="cb398-5" data-line-number="5">            <span class="dt">sd =</span> <span class="kw">sd</span>(GuiltRating),</a>
-<a class="sourceLine" id="cb398-6" data-line-number="6">            <span class="dt">se =</span> sd<span class="op">/</span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb398-7" data-line-number="7">            <span class="dt">LowerCI =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se,</a>
-<a class="sourceLine" id="cb398-8" data-line-number="8">            <span class="dt">UpperCI =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se)</a></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb400-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Timepoint) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb400-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb400-4" data-line-number="4">            <span class="dt">mean =</span> <span class="kw">mean</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb400-5" data-line-number="5">            <span class="dt">sd =</span> <span class="kw">sd</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb400-6" data-line-number="6">            <span class="dt">se =</span> sd<span class="op">/</span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb400-7" data-line-number="7">            <span class="dt">LowerCI =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se,</a>
+<a class="sourceLine" id="cb400-8" data-line-number="8">            <span class="dt">UpperCI =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT6">Return to Task</a></p>
 </div>
 <div id="inclass-task-7-2" class="section level4">
@@ -1251,38 +1283,38 @@ Figure 7.5: Alternative Potential Solution to Task 5
 <li>A basic barplot with 95% Confidence Intervals.</li>
 <li>We have embellished the figure a little but you can mess around with the code to see what each bit does.</li>
 </ul>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb399-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#999000&quot;</span>, <span class="st">&quot;#000999&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
-<a class="sourceLine" id="cb399-8" data-line-number="8">                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb401-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#999000&quot;</span>, <span class="st">&quot;#000999&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
+<a class="sourceLine" id="cb401-8" data-line-number="8">                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task7-1"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task7-1-1.png" alt="Possible Solution to Task 7" width="100%" />
 <p class="caption">
-Figure 7.6: Possible Solution to Task 7
+Figure 7.8: Possible Solution to Task 7
 </p>
 </div>
 <ul>
 <li>An alternative way to display just the means and errorbars would be to use the pointrange approach. This image shows again the 95% CI</li>
 </ul>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb400-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))<span class="op">+</span></a>
-<a class="sourceLine" id="cb400-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb400-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb400-5" data-line-number="5"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb400-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb400-7" data-line-number="7"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb400-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb402-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))<span class="op">+</span></a>
+<a class="sourceLine" id="cb402-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-5" data-line-number="5"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb402-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-7" data-line-number="7"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task7-2"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task7-2-1.png" alt="Alternative Solution to Task 7" width="100%" />
 <p class="caption">
-Figure 7.7: Alternative Solution to Task 7
+Figure 7.9: Alternative Solution to Task 7
 </p>
 </div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT7">Return to Task</a></p>
@@ -1292,10 +1324,10 @@ Figure 7.7: Alternative Solution to Task 7
 <ul>
 <li>Remember to set <code>paired = TRUE</code> to run the within-subjects t-test</li>
 </ul>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(GuiltRating <span class="op">~</span><span class="st"> </span>Timepoint, </a>
-<a class="sourceLine" id="cb401-2" data-line-number="2">                  <span class="dt">data =</span> lates, </a>
-<a class="sourceLine" id="cb401-3" data-line-number="3">                  <span class="dt">paired =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb401-4" data-line-number="4">                  <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(GuiltRating <span class="op">~</span><span class="st"> </span>Timepoint, </a>
+<a class="sourceLine" id="cb403-2" data-line-number="2">                  <span class="dt">data =</span> lates, </a>
+<a class="sourceLine" id="cb403-3" data-line-number="3">                  <span class="dt">paired =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb403-4" data-line-number="4">                  <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1357,10 +1389,10 @@ two.sided
 <ul>
 <li>Alternatively, using the <code>filter()</code> and <code>pull()</code> functions to make sure that you are entering the “Thirteen” condition first</li>
 </ul>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Timepoint <span class="op">==</span><span class="st"> &quot;Thirteen&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(GuiltRating),</a>
-<a class="sourceLine" id="cb402-2" data-line-number="2">                  lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Timepoint <span class="op">==</span><span class="st"> &quot;Twelve&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(GuiltRating),</a>
-<a class="sourceLine" id="cb402-3" data-line-number="3">                  <span class="dt">paired =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb402-4" data-line-number="4">                  <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Timepoint <span class="op">==</span><span class="st"> &quot;Thirteen&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb404-2" data-line-number="2">                  lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Timepoint <span class="op">==</span><span class="st"> &quot;Twelve&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb404-3" data-line-number="3">                  <span class="dt">paired =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb404-4" data-line-number="4">                  <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1428,9 +1460,9 @@ two.sided
 <p>A potential write-up for this study would be as follows:</p>
 <p><strong>“A paired-samples t-test was ran to compare the change in guilt ratings before (M = 5.8, SD = 1.5) and after (M = 4.04, SD = 1.93) the crucial evidence was heard. A significant difference was found (t(74) = 8.23, p = 4.711340610^{-12}) with Timepoint 13 having an average rating 1.76 units lower than Timepoint 12. This tells us that the critical evidence did have an influence on the rating of guilt by jury members.”</strong></p>
 <p>When rounding off p-values that are less than .001, rounding will give you a value of 0 which is technically wrong - the probability will be very low but not 0. As such, and according to APA format, values less than .001 would normally be written as p &lt; .001. To create a reader-friendly p-value, then you could try something like the following in your code:</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1"><span class="kw">ifelse</span>(results<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">.001</span>, </a>
-<a class="sourceLine" id="cb403-2" data-line-number="2">       <span class="st">&quot;p &lt; .001&quot;</span>, </a>
-<a class="sourceLine" id="cb403-3" data-line-number="3">       <span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(results<span class="op">$</span>p.value,<span class="dv">3</span>))) </a></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">ifelse</span>(results<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">.001</span>, </a>
+<a class="sourceLine" id="cb405-2" data-line-number="2">       <span class="st">&quot;p &lt; .001&quot;</span>, </a>
+<a class="sourceLine" id="cb405-3" data-line-number="3">       <span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(results<span class="op">$</span>p.value,<span class="dv">3</span>))) </a></code></pre></div>
 <p>So instead of writing <strong>t(74) = 8.23, p = 4.711340610^{-12}</strong>, you would write <strong>t(74) = 8.23, p &lt; .001</strong></p>
 <p>The in-line coding for these options would look like:</p>
 <p>p = <code>`r results %&gt;% pull(p.value)`</code> for p = 4.711340610^{-12}</p>
