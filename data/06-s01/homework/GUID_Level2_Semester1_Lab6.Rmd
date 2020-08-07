@@ -66,9 +66,9 @@ cond_counts <- NULL
 n_men <- NULL
 ```
 
-* Now replace the strings in the statements below, using inline R code, so that it reproduces the sentence from the paper exactly as it is shown above. In other words, in the statement below, anywhere it says `"(your code here)"`, replace that string (including the quotes), with inline R code.  To clarify, when looking at the .Rmd file you should see R code; when looking at the knitted file, you should see values. See Lab 1 if you are unsure of how to use inline code.
+* Now replace the strings in the statements below, using inline R code, so that it reproduces the sentence from the paper exactly as it is shown above. In other words, in the statement below, anywhere it says `"(your code here)"`, replace that string (including the quotes), with inline R code.  To clarify, when looking at the .Rmd file you should see R code; when looking at the knitted file, you should see values. See Chapter 1 if you are unsure of how to use inline code.
 
-**Hint:** One solution is to do something with `cond_counts` similar to what we did with `filter()` and `pull()` in the in-class exercises for lab 6.
+**Hint:** One solution is to do something with `cond_counts` similar to what we did with `filter()` and `pull()` in the in-class exercises of this Chapter.
 
 **`"(your code here)"` men (mostly college students; for demographic details, see Table S1 in the Supplemental Material available online) were randomly administered a topical gel containing either testosterone (n = `"(your code here)"`) or placebo (n = `"(your code here)"`).**
 
@@ -76,7 +76,8 @@ n_men <- NULL
 
 Figure 2A from the original paper is shown on the Moodle assignment:
 
-* Write code in the t4 code chunk to reproduce a version of Figure 2a - shown on Moodle.  Before you create the plot, replace the `NULL` to make a table called `crt_means` with the mean and standard deviation of the number of `CorrectAnswers` for each group. Use `crt_means` as the source data for the plot.  
+* Write code in the t4 code chunk to reproduce a version of Figure 2a - shown on Moodle.  Before you create the plot, replace the `NULL` to make a tibble called `crt_means` with the mean and standard deviation of the number of `CorrectAnswers` for each group. 
+* Use `crt_means` as the source data for the plot.  
 
 **Hint:** you will need to check out `recode()` to get the labels of treatments right. Again this webpage is highly recommended: <a href="https://debruine.github.io/posts/recode/" target = "_blank">https://debruine.github.io/posts/recode/</a>
 
@@ -108,7 +109,7 @@ answer_t5 <- NULL
 
 ## Task 6: t-test
 
-Now that we have calculated the descriptives in our study we need to run the inferentials. In the t6  code chunk below, replace the `NULL` with a line of code to run the t-test taking care to make sure that the output table has the Placebo mean under Estimate1 (group 0) and Testosterone mean under Estimate2 (group 1). Assume variance is equal and use `broom::tidy()` to sweep and store the results into a data frame called `t_table`.
+Now that we have calculated the descriptives in our study we need to run the inferentials. In the t6  code chunk below, replace the `NULL` with a line of code to run the t-test taking care to make sure that the output table has the Placebo mean under Estimate1 (group 0) and Testosterone mean under Estimate2 (group 1). Assume variance is equal and use `broom::tidy()` to sweep and store the results into a tibble called `t_table`.
 
 ```{r t6}
 t_table <- NULL
@@ -153,6 +154,6 @@ answer_t7e <- NULL
 
 # Finished
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2019**.
+Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the available forums or ask a member of staff.
 
-See you in the next lab!
+On to the next chapter!

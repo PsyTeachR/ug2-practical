@@ -4,20 +4,23 @@
 library(kableExtra)
 ```
 
+The PreClass activity looked at the situation where you had gathered one sample of data (from one group of participants) and you want to compare that one group to a known value, e.g. a standard value. An extension of this design is where you gather data from two samples. **Two-sample** designs are very common in Psychology as often we want to know whether there is a difference between groups on a particular variable. We looked at a similar idead in Chapter 5 where we did this comparison through simulation. Today we will look at through the $t$-test analysis introduced in Chapter 6 
+
 **Comparing the Means of Two Samples**
 
-Two-sample designs are very common in Psychology as often we want to know whether there is a difference between groups on a particular variable.  There are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions).  In today's exercise we will focus on **independent samples**, which typically means that the observations in the two groups are unrelated - usually meaning different people.  In the next lab you will examine cases where the observations in the two groups are from pairs (**paired samples**) - most often the same people but could also be a matched pairs design.
+First thing to not is that there are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions).  In today's exercise we will focus on **independent samples**, which typically means that the observations in the two groups are unrelated - usually meaning different people.  In Chapter 7 you will examine cases where the observations in the two groups are from pairs (**paired samples**) - most often the same people but could also be a matched-pairs design.
 
 `r hide("Portfolio Point - All the different names for one thing!")`
 ```{block, type ="info"}
-Now that we are progressing through the semester, we will start to reduce the pointers for things that you should make a note of. By now you should have a really good idea yourself about what you need to remember.  That said, one of the really confusing things about research design is that there are many names for the same type of design.  This is definitely something you should be writing out in your own words, to remember it better, if it is something you struggle with.
+Now that we are progressing through this book, we will start to reduce the pointers for things that you should make a note of. By now you should have a really good idea yourself about what you need to remember.  That said, one of the really confusing things about research design is that there are many names for the same type of design.  This is definitely something you should be writing out in your own words, to remember it better, if it is something you struggle with.
 
-E.g.
+Here is a very brief summary:
 
-* independent and between-subjects design typically mean the same thing - different participants in different conditions
-* within-subjects, dependent, paired samples, and repeated measures tend to mean the same participants in all conditions
-* matched pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)
-* mixed design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half do ratings of trustworthiness (between). The paper we are looking at today technically uses a mixed design at times but we will use the between element to show you how to run independent t-tests.
+* independent and between-subjects design typically mean the same thing - different participants in different conditions.
+* within-subjects, dependent samples, paired samples, and repeated measures tend to mean the same participants in all conditions
+* matched-pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc). These designs are analysed as though they were a within-subjects design.
+* mixed design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half do ratings of trustworthiness (between). 
+* The paper we are looking at in this InClass activity technically uses a mixed design at times but we will use the between-subjects element to show you how to run independent t-tests.
 
 Spend some time when reading articles to really figure out the design they are using.
 ```
@@ -25,7 +28,7 @@ Spend some time when reading articles to really figure out the design they are u
 <br>
 **Background**
 
-For this lab we will be revisiting the data from Schroeder and Epley (2015), which you first encountered as part of the homework for Lab 5. You can take a look at the Psychological Science article here:
+For this lab we will be revisiting the data from Schroeder and Epley (2015), which you first encountered as part of the homework for Chapter 5. You can take a look at the Psychological Science article here:
 
 Schroeder, J. and Epley, N. (2015). <a href = "https://doi.org/10.1177/0956797615572906" target = "_blank">The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal.</a> *Psychological Science, 26, 277--891*.
 
@@ -33,21 +36,28 @@ The abstract from this article explains more about the different experiments con
 
 "**A person's mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person's intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates' pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favorable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one's intellect, it is important that one's voice, quite literally, be heard.**"
 
-To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in **wide** format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in "tidy" format which can be [downloaded from here](data/06-s01/inclass/ch6-inclass-data.zip). Likewise, if you are unsure about tidy format, refer back to the inclass activity of Lab 2.
+To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates (Masters in Business Administration) from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in **wide** format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in "tidy" format which can be [downloaded from here](data/06-s01/inclass/ch6-inclass-data.zip). I you are unsure about tidy format, refer back to the inclass activities of Chapter 2.
 
 **Today's Goal!**
 
-Our task today is to reproduce a figure and the results from the article (p. 887-888). The two packages you will need are `tidyverse`, which we have used a lot, and `broom`, which is new to you but will become your friend. One of the main functions we use in broom is `broom::tidy()` - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with, into a table that you can then use much more easily. Might that be worth making a note of? We will show you how to do this today and then ask you to use it over the coming assignments.
+The overall goal today is to learn about running a $t$-test on between-subjects data, as well as learning about analysing actual data along the way. As such, our task today is to reproduce a figure and the results from the article (p. 887-888). The two packages you will need are `tidyverse`, which we have used a lot, and `broom`, which is new to you but will become your friend. One of the main functions we use in broom is `broom::tidy()` - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with - technically called `objects` - into a tibble that you are very familiar with and that you can then use much more easily. Might that be worth making a note of? We will show you how to use this function today and then ask you to use it over the coming chapters
 
 If you are using the Boyd Orr labs, `broom` is already installed and just needs called to the `library()`. If you are using your own machine, you will need to install it one time to begin with if you have never installed it before.
 
 ### Task 1: Evaluators {#Ch6InClassQueT1}
 
-1. Open a new script and call `broom` and `tidyverse` into your library. **Note:** Order is important when calling multiple libraries - if two libraries have a function named the same thing, R will use the function from the library loaded in last.
+1. Open a new script or R Markdown file and use code to call `broom` and `tidyverse` into your library. 
 
-2. The file called `evaluators.csv` contains the demographics of the 39 raters. After downloading and unzipping the data, and of course setting the working directory, read in the information from this file and store it in a variable called `evaluators`.
+**Note:** Order is important when calling multiple libraries - if two libraries have a function named the same thing, R will use the function from the library loaded in last. We recommend calling libraries in an order that `tidyverse` is called last as the functions in that library are used most often.
 
-3.  Now, use a line of code to calculate the overall mean and standard deviation of the age of the evaluators. Next, use a separate line of code to count up how many male and how many female evaluators there were in the study. Note that there are NAs in the data so you will need to include a call to `na.rm = TRUE`.
+2. The file called `evaluators.csv` contains the demographics of the 39 raters. After downloading and unzipping the data, and of course setting the working directory, load in the information from this file and store it in a tibble called `evaluators`.
+
+3.  Now, use code to:
+    i. calculate the overall mean and standard deviation of the age of the evaluators. 
+    ii. count how many male and how many female evaluators were in the study. 
+    
+**Note:** Probably easier doing this task in seperate lines of code. Remeber the solutions are at the end of the Chapter.
+**Note:** there are NAs in the data so you will need to include a call to `na.rm = TRUE`.
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
@@ -56,7 +66,7 @@ If you are using the Boyd Orr labs, `broom` is already installed and just needs 
 * You can use `summarise()` and `count()` or a pipeline with `group_by()` to complete this task.
 * When analysing the number of male and female evaluators it isn't initially clear that '1' represents males and '2' represents females. 
 * We can use `recode()` to convert the numeric names to indicate something more meaningful. Have a look at`?recode` to see if you can work out how to use it. It'll help to use `mutate()` to create a new variable to `recode()` the numeric names for evaluators. 
-* This website is also incredibly useful and one to save for anytime you need to use recode(): https://debruine.github.io/posts/recode/.
+* This website is also incredibly useful and one to save for anytime you need to use recode(): <a href="https://debruine.github.io/posts/recode/" target = "_blank">https://debruine.github.io/posts/recode/</a>
 * For your own analysis and future reproducible analyses, it's a good idea to make these representations clearer to others. 
 ```
 `r unhide()`  
@@ -99,7 +109,7 @@ evaluators %>%
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span> 
 
-From your results:
+Fill in the below answers to check that your calculations are correct. Remember that the solutions are at the end of the chapter:
 
 * What was the mean age of the evaluators in the study? Type in your answer to one decimal place: `r fitb(m_age)`
 * What was the standard deviation of the age of the evaluators in the study? Type in your answer to two decimal places: `r fitb(m_sd)`
@@ -120,9 +130,16 @@ This is why it's important to have reproducible data analyses for others to exam
 
 ### Task 2: Ratings {#Ch6InClassQueT2}
 
-We are now going to calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
+We are now going to calculate an overall **intellect** rating given by each evaluator. To break that down a bit, we are going to calculate how intellectual the evaluators (the raters) thought candidates were overall, depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator held within `ratings.csv`. 
 
-We will then combine the overall intellect rating with the overall impression ratings and overall hire ratings for each evaluator, with the end goal of having a tibble called `ratings2` - which has the following structure:
+**Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little. You can think about it in terms of "do raters rate differently depending on whether they read or listen to a resume pitch".
+
+We will then combine the overall **intellect** rating with the overall **impression** ratings and overall **hire** ratings for each evaluator, all ready found in `ratings.csv`. In the end we will have a new tibble - let's call it `ratings2` - which has the below structure:
+
+* eval_id shows the evaluator ID. Each evaluator has a different ID. So all the 1's are the same evaluator.
+* Category shows the scale that they were rating on - intellect, hire, impression
+* Rating shows the overall rating given by that evaluator on a given scale.
+* condition shows whether that evaluater listened to (e.g. evaluators 1, 2 and 3), or read (e.g. evaluator 4) the resume.
 
 ```{r ratings_structure, echo=FALSE, message=FALSE}
 
@@ -151,15 +168,15 @@ Steps 1-3 calculate the new `intellect` rating. Steps 4 and 5 combine this ratin
 
 1. Load the data found in `ratings.csv` into a tibble called `ratings`. 
 
-2. `filter()` only the relevant variables (**thoughtful**, **competent**, **intelligent**) into a new tibble (call it what you like - we use `iratings`), and calculate a mean `Rating` for each evaluator.  
+2. `filter()` only the relevant variables (**thoughtful**, **competent**, **intelligent**) into a new tibble (call it what you like - in the solutions we use `iratings`), and calculate a mean `Rating` for each evaluator.  
 
 3. Add on a new column called `Category` where every entry is the word `intellect`. This tells us that every number in this tibble is an intellect rating.  
 
-4. Now create a new tibble called `ratings2` and filter into it just the "impression" and "hire" ratings from the original `ratings` tibble. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in `ratings2`.  
+4. Now create a new tibble called `ratings2` and filter into it just the **impression** and **hire** ratings from the original `ratings` tibble. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in `ratings2`.  
 
 5. Join `ratings2` with the `evaluator` tibble that we created in Task 1. Keep only the necessary columns as shown above and arrange by Evaluator and Category.  
 
-Don't forget to use the hints and the solution at the bottom if you are really stuck.
+Don't forget to use the hints below or the solution at the end of the Chapter if you are stuck. One thing to think about though is that the above steps don't help, again just go back to what you want to achieve and ask yourself how would you do that, and think backwards.
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
@@ -169,7 +186,7 @@ Don't forget to use the hints and the solution at the bottom if you are really s
 
 3. Use `mutate()` to create a new column.
 
-4. `bind_rows()` from Lab 2 will help you to combine these variables from two separate tibbles.
+4. `bind_rows()` from Chapter 2 will help you to combine these variables from two separate tibbles.
 
 5. Use `inner_join()` with the common column in both tibbles. `select()` and `arrange()` will help you here too.
 ```
@@ -213,7 +230,7 @@ knitr::include_graphics("images/s01-lab06/inclass/figure_7.png")
 
 ```
 
-Replace the `NULL`s below to create a very basic version of this figure. You did something like this for the Lab 5 assignment and again in the Lab 3 Visualisation tasks.
+Replace the `NULL`s below to create a very basic version of this figure. You did something like this for the Chapter 5 assignment and again in the Chapter 3 Visualisation tasks.
 
 ```{r figure-7-almost, eval = FALSE}
 group_means <- group_by(ratings2, NULL, NULL) %>%
@@ -225,7 +242,7 @@ ggplot(group_means, aes(NULL, NULL, fill = NULL)) +
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
-**Improve This Figure:** Discuss with others how you could improve this plot. What other `geom_()` options could you try? Are barcharts that informative or would something else be better? How would you add or change the labels of your plot? Could you change the colours in your figure?
+**Improve Your Figure:** Discuss with others how you could improve this plot. What other `geom_()` options could you try? Are barcharts that informative or would something else be better? How would you add or change the labels of your plot? Could you change the colours in your figure?
 
 Next, have a look at the possible solution below to see a **modern** way of presenting this information. There are some new functions in this solution that you should play about with to understand what they do. Remember it is a layering system, so remove lines and see what happens. Note how in the solution the Figure shows the raw data points as well as the means in each condition; this gives a better impression of the true data as just showing the means can be misleading. You can continue your further exploration of visualisations by reading this paper later when you have a chance: <a href = "https://doi.org/10.1371/journal.pbio.1002128" target = "_blank">Weissberger et al., 2015, Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</a>
 
@@ -237,8 +254,8 @@ group_means <- ratings2 %>%
   summarise(Rating = mean(Rating))
 
 ggplot(ratings2, aes(condition, Rating, color = condition)) +
-  geom_jitter(alpha = .2) +
-  geom_violin(aes(fill = condition), alpha = .2) +
+  geom_jitter(alpha = .4) +
+  geom_violin(aes(fill = condition), alpha = .1) +
   facet_wrap(~Category) +
   geom_point(data = group_means, size = 2) +
   labs(x = "Category", y = "Recruiters' Evaluation of Candidates") +
@@ -250,7 +267,7 @@ ggplot(ratings2, aes(condition, Rating, color = condition)) +
 
 ### Task 4: t-tests {#Ch6InClassQueT4}
 
-Brilliant! So far we have checked the descriptives and the last thing now is to check the inferential tests; the t-tests. You should still have `ratings2` stored from Task 2. From this tibble, let's reproduce the **t-test** results from the article and at the same time show you how to run a t-test. Refer back to the lectures to understand the maths behind it but essentially it is a measure between the difference in means over the variance about those means. 
+Brilliant! So far we have checked the descriptives and the visualisations, and the last thing now is to check the inferential tests; the t-tests. You should still have `ratings2` stored from Task 2. From this tibble, let's reproduce the **t-test** results from the article and at the same time show you how to run a t-test. You can refer back to the lectures to understand the maths a **between-subjects t-test** but essentially it is a measure between the difference in means over the variance about those means. 
 
 Here is a paragraph from the paper describing the results (p. 887):
 
@@ -258,13 +275,17 @@ Here is a paragraph from the paper describing the results (p. 887):
 
 We are going to run the t-tests for Intellect, Hire and Impression; each time comparing evaluators overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who **listened** to pitches give a significant higher or lower rating than evaluators that **read** pitches. 
 
+In terms of hypotheses, we could phrase the null hypothesis for this tests as there is no significant difference between overall ratings on the {insert trait} scale between evaluators who listened to resume pitches and evaluatoris who read the resume pitches ($H_0: \mu_1 = \mu2$). Alternatively, we could state it as there will be a significant difference between overall ratings on the {insert trait} scale between evaluators who listened to resume pitches and evaluatoris who read the resume pitches ($H_1: \mu_1 \ne \mu2$).
+
 `r hide("Portfolio Point - A vs B or B vs A in a t-test?")`
 ```{block, type ="info"}
 Now would be a good time to add to your notes about what is the difference between a positive and negative value as the outcome to a t-test? Remember? It just tells you which group had the bigger mean - the absolute value will be the same.  Most commonly, t-tests are reported as a positive value.
 ```
 `r unhide()`
 <br>
-You will need the function `t.test()` and you will use `broom::tidy()` to pull out the results from each t-test into a table. Below, we show you how to create the group means and then run the t-test for intellect. Run these lines and have a look at what they do.
+To clarify, we are going to run three between-subjects t-tests in total; one for intellect ratings; one for hire ratings; one for impression ratings. We will show you how to run the t-test on intellect ratings and then ask you to do the remaining two t-tests yourself. 
+
+To run this analysis on the intellect ratings you will need the function `t.test()` and you will use `broom::tidy()` to pull out the results from each t-test into a tibble Below, we show you how to create the group means and then run the t-test for intellect. Run these lines and have a look at what they do.
 
 1. First we calculate the group means:
 
@@ -275,7 +296,7 @@ group_means <- ratings2 %>%
 ```
 
 2. And we can call them and look at them by typing:
-```{r ch6-task4-steps2, echo = TRUE, eval = TRUE, results="hide"}
+```{r ch6-task4-steps2, echo = TRUE, eval = TRUE}
 group_means
 ```
 
@@ -287,12 +308,16 @@ intellect <- filter(ratings2, Category == "intellect")
 4. And then we run the actual t-test and tidy it into a table.
     * `t.test()` requires two vectors as input
     * `pull()` will pull out a single column from a tibble, e.g. Rating from intellect
-    * `tidy()` takes information from a test and turns it into a table. Try running the t.test with and without piping into `tidy()` to see what it does differently.
+    * `tidy()` takes information from a test and turns it into a tibble. Try running the t.test with and without piping into `tidy()` to see what it does differently.
  
 ```{r ch6-task4-steps4, echo = TRUE, eval = TRUE, results="hide"}
 
-intellect_t <- t.test(intellect %>% filter(condition == "listened") %>% pull(Rating),
-                      intellect %>% filter(condition == "read") %>% pull(Rating),
+intellect_t <- t.test(intellect %>% 
+                        filter(condition == "listened") %>% 
+                        pull(Rating),
+                      intellect %>% 
+                        filter(condition == "read") %>% 
+                        pull(Rating),
                       var.equal = TRUE) %>%
   tidy()
 ```
@@ -308,13 +333,15 @@ knitr::kable(intellect_t,
 ```
 <br>
 
-From the resultant tibble, `intellect_t`, you can see that you ran a Two Sample t-test (meaning between) with a two sided hypothesis test ("two.sided"). The mean for the listened condition, `estimate1`, was `r intellect_t$estimate1 %>% round(3)`, whilst the mean for the read condition, `estimate2` was `r intellect_t$estimate2 %>% round(3)`. So an overall difference of `r (intellect_t$estimate1 - intellect_t$estimate2) %>% round(3)`. The degrees of freedom, `parameter`, was `r intellect_t$parameter %>% round(3)`. The t-value, `statistic`, was `r intellect_t$statistic %>% round(3)`, and it was significant as the p-value, `p.value`, was `r intellect_t$p.value %>% round(4)` (lower than alpha ($a$) = .05 - the Type 1 error rate).  
+From the resultant tibble, `intellect_t`, you can see that you ran a Two Sample t-test (meaning between-subjects) with a two-tailed hypothesis test ("two.sided"). The mean for the listened condition, `estimate1`, was `r intellect_t$estimate1 %>% round(3)`, whilst the mean for the read condition, `estimate2` was `r intellect_t$estimate2 %>% round(3)` - compare these to the means in `group_means` as a sanity check. So an overall the was a difference between the two means of `r (intellect_t$estimate1 - intellect_t$estimate2) %>% round(3)`. The degrees of freedom for the test, `parameter`, was `r intellect_t$parameter %>% round(3)`. The observed t-value, `statistic`, was `r intellect_t$statistic %>% round(3)`, and it was significant as the p-value, `p.value`, was p = `r intellect_t$p.value %>% round(4)`, which is lower than the field standard Type 1 error rate of $\alpha = .05$. 
 
-The t-test would be written up as: t(`r intellect_t$parameter %>% round(3)`) = `r intellect_t$statistic %>% round(3)`, p = `r intellect_t$p.value %>% round(3)`.
+As you will know from your lectures, a t-test is presented as t(df) = t-value, p = p-value. As such, this t-test would be written up as: t(`r intellect_t$parameter %>% round(3)`) = `r intellect_t$statistic %>% round(3)`, p = `r intellect_t$p.value %>% round(3)`.
 
-**Now:**
+Thinking about interpretation of this finding, as the effect was significant, we can reject the null hypothesis that there is no significant difference between mean ratings of those who listened to resumes and those who read the resumes, for intellect ratings. We can go further than that and say that the overall intellect ratings for those that listened to the resume was significantly higher (mean diff = `r (intellect_t$estimate1 - intellect_t$estimate2) %>% round(3)`) than those who read the resumes, t(`r intellect_t$parameter %>% round(3)`) = `r intellect_t$statistic %>% round(3)`, p = `r intellect_t$p.value %>% round(3)`, and as such we accept the alternative hypothesis. This would suggest that hearing people speak leads evaluators to rate the candidates as more intellectual than when you merely read the words they have written.
 
-1. Run the remaining t-tests for `hire` and for `impression`. Store them in tibbles called `hire_t` and `impress_t` respectively.  
+**Now Try:**
+
+1. Running the remaining t-tests for `hire` and for `impression`. Store them in tibbles called `hire_t` and `impress_t` respectively.  
 
 2. Bind the rows of `intellect_t`, `hire_t` and `impress_t` to create a table of the three t-tests called `results`. It should look like this:
 
@@ -426,10 +453,14 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to th
 `r unhide()`  
 <br>
 
-<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
-
 So to recap, we looked at the data from Schroeder and Epley (2015), both the descriptives and inferentials, we plotted a figure, and we confirmed that, as in the paper, there are significant differences in each of the three rating categories (hire, impression and intellect), with the listened condition receiving a higher rating than the read condition on each rating. All in, our interpretation would be that people rate you hire when they hear you speak your resume as opposed to them just reading your resume!
 
-Well done for completing this inclass activity on independent samples t-tests! Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! Also, if you have more time, you might want to visit this website that will give you a better understanding of the relationship between the $t$ distribution and the normal distribution: <a href="https://gallery.shinyapps.io/tdist/" target = "_blank">gallery.shinyapps.io/tdist</a>
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
+
+Well done for completing this inclass activity on independent samples t-tests! And now, combined with the information in the preclass activity, you are able to run a t-test on one sample data, comparing it to a standard/criterion values, and on two samples in a between-subjects design.
+
+Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! For instance, we haven't really looked at the assumptions of a between-subjects t-test, just the analysis. You will have covered the assumptions in your lecture series so why not combine that information with the information you learnt here!
+
+Also, if you have more time, you might want to visit this website that will give you a better understanding of the relationship between the $t$ distribution and the normal distribution: <a href="https://gallery.shinyapps.io/tdist/" target = "_blank">gallery.shinyapps.io/tdist</a>
 
 You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module**. However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the forums.

@@ -82,6 +82,10 @@ my_chi_data <- tibble(Groups = rep(c("A","B"),        # Names of your Groups
 
 * If you wanted to save your data as a .csv file for later use or to send to a colleague, you could use:
 
+```{r data-save-real, echo=FALSE}
+write_csv(my_chi_data, "./data/05-s01/additional/my_chi_data.csv")
+```
+
 ```{r data-save, eval=FALSE}
 write_csv(my_chi_data, "my_data.csv")
 ```
@@ -164,3 +168,5 @@ ggplot(new_dat, aes(x)) +
 Going back to what we said about Null Hypothesis Significance Testing, the question is what is the probability of finding the original difference ($D_{orig}$) if there is no real effect of being in either Group A or Group B. As you can see from the plot, there are very few areas on the distribution where the values are greater than or equal to the original difference - i.e. $D_{orig}$ is an unlikely difference to obtain if there was really no difference between the two groups. From the InClass you will recall that the probability of finding a difference greater than or equal to $D_{orig}$ if there was no difference between the two groups was p = `r p`. This is below the standard cut-off we use in Psychology, $p <= .05$. As such we would reject our null hypothesis and suggest that there is a significant difference between the two groups.  
 
 Hopefully this gives a bit more insight to the InClass activities but feel free to post any questions on the forums for discussion or ask a member of staff.
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">End of Additional Material!</span>

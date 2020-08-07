@@ -43,3 +43,5 @@ ggplot(ponzo_data,
        aes(x = Mean_Age, y = ComparisonLength, color = Sex)) +
   geom_point()
 ```
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">End of Comparison!</span>
