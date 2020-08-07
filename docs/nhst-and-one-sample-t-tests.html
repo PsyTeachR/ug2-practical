@@ -364,10 +364,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#homework-activity"><i class="fa fa-check"></i><b>6.5.3</b> Homework Activity</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a><ul>
-<li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#a-short-blog-on-barplots"><i class="fa fa-check"></i>A short blog on Barplots</a></li>
-<li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#appropriate-barplots"><i class="fa fa-check"></i>Appropriate Barplots</a></li>
+<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
+<li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#misleading-and-appropriate-barplots"><i class="fa fa-check"></i>Misleading and Appropriate Barplots</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#analysing-chi-squares"><i class="fa fa-check"></i>Analysing chi-squares</a></li>
-<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test-vectors">More on <code>t.test()</code> vectors</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
@@ -2321,19 +2320,76 @@ Figure 6.4: A representation of Figure 2A
 <div id="additional-material-3" class="section level2">
 <h2><span class="header-section-number">6.6</span> Additional Material</h2>
 <p>Below is some additional material that might help you understand the tests in this Chapter a bit more as well as some additional ideas.</p>
-<div id="a-short-blog-on-barplots" class="section level3 unnumbered">
-<h3>A short blog on Barplots</h3>
-<p>The data used in this preclass allows us to show you something that you might find interesting. As we mentioned back in lab 3 on visualisation, the barplot is becoming less frequently used, as summarised in this blog: <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/" target = "_blank">One simple step to improve statistical inferences</a>. The data we have used today demonstrate the point that a simple barplot can actually be somewhat misleading about the data. Have a look at the figure below. Both bars represent the data from our 22 NS participants. The column on the left, <code>hide_data</code>, is a standard representation (albeit without error bars) whereas the column on the right, <code>show_data</code>, demonstrates the issue. Looking at the column on the left, the assumption is that all the data is around the peak of the column. However, looking at the column on the right, we can see that this is not the case and there are participants both above and below the mean by approximately 100 ms. This misleading perception, when the data is hidden, was tested and shown to exist in participants viewing these figures by <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" target = "_blank">Newman and Scholl (2012)</a> which you can read up on if you like. The main thing to keep in mind is that barplots can be misleading and displaying the individual data may be more informative.</p>
+<div id="more-on-t.test---vectors-vs.formula" class="section level3 unnumbered">
+<h3>More on <code>t.test()</code> - vectors vs. formula</h3>
+<p>A quick note on running the t-test in two different ways. In the lab we showed you how to run a t-test on a between-subjects design. The code in the lab was as follows:</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb373-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb373-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb373-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>This is sometimes referred to as the vector approach, and what the code is doing is taking each groups’ data as a vector input. For example, if you were to just look at the data for the Treatment 0 group then that line of code:</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1">crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers)</a></code></pre></div>
+<p>shows just these values:</p>
+<pre><code>##   [1] 2 2 3 3 3 2 1 0 2 0 2 1 3 2 2 3 1 3 2 3 2 0 2 3 3 3 3 2 2 2 3 0 3 3 3
+##  [36] 0 0 3 3 1 3 1 2 3 3 1 3 3 3 3 2 3 2 2 2 2 3 3 1 3 1 0 3 1 3 1 2 3 3 0
+##  [71] 2 2 2 3 1 2 3 0 3 1 1 3 3 0 1 0 3 2 2 3 1 3 3 2 3 1 3 2 3 3 3 3 3 3 2
+## [106] 3 3 2 2 0 3 0 1 2 2 3 3 3</code></pre>
+<p>And likewise the Treatment 1 line of code just gives these values:</p>
+<pre><code>##   [1] 2 0 0 1 3 0 0 2 2 3 1 3 3 1 0 2 1 0 0 3 2 0 3 0 3 3 3 0 2 0 3 3 3 1 0
+##  [36] 0 1 2 3 2 2 2 3 3 1 0 3 0 1 1 1 0 0 1 2 3 3 0 2 2 3 3 2 3 3 3 3 3 3 1
+##  [71] 2 3 1 1 2 3 3 0 2 2 1 1 2 3 0 0 3 0 1 2 0 0 0 0 3 1 3 2 2 2 1 2 3 3 0
+## [106] 3 1 0 1 2 0 2 2 2 3 2 3 3 3 0 3 0 1 2 3</code></pre>
+<p>And the <code>t.test()</code> function is just saying this is group 1’s data, this is group 2’s data, and I am comparing them. However the eagle-eyed of you will have seen in the solution an alternative code, that looks like:</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>This is the formula method and if you look at the structure of <code>crt2</code> (the first 6 rows are shown below) you get an idea of how the formula approach works:</p>
+<pre><code>## # A tibble: 6 x 3
+##      ID Treatment CorrectAnswers
+##   &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;
+## 1    11         1              2
+## 2    12         1              0
+## 3    13         1              0
+## 4    14         1              1
+## 5    15         1              3
+## 6    16         1              0</code></pre>
+<p>The formula approach works as <code>t.test(DV ~ IV, data = my_data)</code> where:</p>
+<ul>
+<li>DV is the name of the column with your responses (e.g. mean reaction time)</li>
+<li>IV is the name of the column with your groups (in categorical form - e.g. 1 vs 0)</li>
+<li><code>~</code> means “by” or “based on” or “split up by”. So test the DV based on the IV grouping</li>
+<li>and my_data is the name of your tibble.</li>
+</ul>
+<p>Whichever approach you use, the observed t-value, p-value, and df (parameter) should be the same! What might change is what the t-test considers as group 1 and what it considers group 2. And from your knowledge of the t-test formula, this will affect whether your t-test is positive or negative. For example:</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb379-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb379-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb379-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>Gives the t-value of t = 3.07, whereas if you switch the order of inputting the Treatment groups as such:</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb380-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb380-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>You get a t-value of t = -3.07. Same value (or magnitude) just one is positive and the other is negative, because the order of who is Group 1 and who is group 2 is switched. And just for comparion, the formula approach:</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>Gives a t-value of t = 3.07. So again the same magnitude but you are not controlling who is Group 1 and who is Group 2.</p>
+<p>Long story short is that both methods, if used appropriately, run the same analysis. The benefit of the vector approach is that you can dictate in your analysis who is Group 1 and who is Group 2. And that is really the only difference.</p>
+</div>
+<div id="misleading-and-appropriate-barplots" class="section level3 unnumbered">
+<h3>Misleading and Appropriate Barplots</h3>
+<p><strong>Misleading Barplots</strong></p>
+<p>The data used in the PreClass activities allows us to show you something that you might find interesting. As we mentioned back in Chapter 3 on visualisation, the barplot is becoming less frequently used, as summarised in this blog: <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/" target = "_blank">One simple step to improve statistical inferences</a>. The data we have used today demonstrate the point that a simple barplot can actually be somewhat misleading about the data. Have a look at the figure below. Both bars represent the data from our 22 Normal Sleep participants. The column on the left, <code>hide_data</code>, is a standard representation (albeit without error bars) whereas the column on the right, <code>show_data</code>, demonstrates the issue. Looking at the column on the left, the assumption is that all the data is around the peak of the column. However, looking at the column on the right, we can see that this is not the case and there are participants both above and below the mean by approximately 100 ms. This misleading perception, when the data is hidden, was tested and shown to exist in participants viewing these figures by <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" target = "_blank">Newman and Scholl (2012)</a> which you can read up on if you like.</p>
 <div class="figure" style="text-align: center"><span id="fig:ch6-preclass-blog-figure"></span>
 <img src="06-s01-lab06f_files/figure-html/ch6-preclass-blog-figure-1.png" alt="How representative are barplots of the actual spread of the data!" width="100%" />
 <p class="caption">
 Figure 6.5: How representative are barplots of the actual spread of the data!
 </p>
 </div>
-<p>That’s all there is to this short and sweet blog on showing more information than a basic barchart. The function we use to do this is called <code>geom_jitter()</code> and it gets added to a visualisation pipeline just like other <code>geom_?()</code>s that we have used. Look out for it in the coming chapters!</p>
-</div>
-<div id="appropriate-barplots" class="section level3 unnumbered">
-<h3>Appropriate Barplots</h3>
+<p>The function we use to show the data points is <code>geom_jitter()</code> and it gets added to a visualisation pipeline just like other <code>geom_?()</code>s that we have used; your code will look like something like this:</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1"><span class="kw">ggplot</span>(my_data, <span class="kw">aes</span>(<span class="dt">x =</span> my_x_variable, <span class="dt">y =</span> my_y_variable)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb382-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb382-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">.1</span>)</a></code></pre></div>
+<p>Look out for it in the coming chapters but the main thing to keep in mind is that barplots can be misleading and displaying the individual data may be more informative - particularly when the response measured creates a spread of data.</p>
+<p><strong>Appropriate Barplots</strong></p>
+<p>That said, barplots do have their place in data analysis and research methods. The best time to use a barplot is when the value is a count - i.e. when the value had no variability in it. A great example of this is in observational research using categorical data. Think about the table we simulated for the chi-squre data as part of the Additional Materials in Chapter 5. Here is that table again:</p>
 <table>
 <caption>
 <span id="tab:lab6-additional-chi-table">Table 6.4: </span>Cross-Tabulation Table of Simulated Data from Chapter 5 Additional Materials
@@ -2394,27 +2450,130 @@ B
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1">chi_table <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb373-2" data-line-number="2"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>Total) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb373-3" data-line-number="3"><span class="st">    </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> No<span class="op">:</span>Yes, </a>
-<a class="sourceLine" id="cb373-4" data-line-number="4">                 <span class="dt">names_to =</span> <span class="st">&quot;Responses&quot;</span>,</a>
-<a class="sourceLine" id="cb373-5" data-line-number="5">                 <span class="dt">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb373-6" data-line-number="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Responses, <span class="dt">y =</span> n, <span class="dt">fill =</span> Groups)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb373-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb373-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">psyteachr_colours</span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb373-9" data-line-number="9"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="06-s01-lab06f_files/figure-html/unnamed-chunk-2-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p>We have two groups with three possible responses and each participants can only give one response. What that means, for example, is that there is no variation in the number of people who in Group A said No - it is exactly 21 people. Likewise, exactly 17 people in Group B said unsure. So here a barplot actually makes sense to use as it accurately reflects the value in that group/condition and no data is hidden. The plot for the above table might look like this:</p>
+<div class="figure" style="text-align: center"><span id="fig:lab6-additional-figure"></span>
+<img src="06-s01-lab06f_files/figure-html/lab6-additional-figure-1.png" alt="A barplot works well in categorical data" width="100%" />
 <p class="caption">
-Figure 4.11: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 6.6: A barplot works well in categorical data
 </p>
 </div>
+<p>In short, the main message about any visualisation is about accurately and clearly conveying that information to your reader. If there is a spread of data within a variable then try to show that more clearly with error bars and data points, perhaps even using a violin plot instead of a barplot. If however there is no spread of data within a variable then a barplot works well.</p>
 </div>
 <div id="analysing-chi-squares" class="section level3 unnumbered">
 <h3>Analysing chi-squares</h3>
-</div>
-<div id="more-on-t.test-vectors" class="section level3 unnumbered">
-<h3>More on <code>t.test()</code> vectors</h3>
+<p>Finally, to round of this additional material, we thought it might be handy to show how to run a chi-square analysis. We cover the chi-square more in lectures but adding it here might help some people. We won’t really look at the hand calculations, but you will know that the formula for the chi-square is:</p>
+<p><span class="math inline">\(x_c^2 = \sum\frac{(O_i - E_i)^2}{E_i}\)</span></p>
+<ul>
+<li>where <span class="math inline">\(x_c^2\)</span> is the chi-square symbol - often simplified to <span class="math inline">\(x_2\)</span></li>
+<li><span class="math inline">\(O_i\)</span> is the observed value of group {i} and</li>
+<li><span class="math inline">\(E_i\)</span> is the expected value of group {i}</li>
+</ul>
+<p>And we can use the data from above to show how to quickly run the chi-square analysis on the table. First we need to tidy up the table to get rid of the <code>Groups</code> and <code>Total</code> columns, leaving us with a tibble called <code>chi_table</code> that has this structure:</p>
+<table>
+<caption>
+<span id="tab:lab6-additional-chi-table-2">Table 6.5: </span>Cross-Tabulation Table Data for analysis
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+No
+</th>
+<th style="text-align:center;">
+Unsure
+</th>
+<th style="text-align:center;">
+Yes
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+19
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now to analyse the data we use the <code>chisq.test()</code> function. There are really only two arguments you need to think about:</p>
+<ul>
+<li>your data - for us stored in <code>chi_table</code></li>
+<li>and whether to set <code>correct</code> as <strong>TRUE</strong> or <strong>FALSE</strong>. This is Yates’ Continuity Correction. The default is set as TRUE but a lot of people set it as FALSE so we will select that today.</li>
+</ul>
+<p>And we run the analysis as such:</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1">chisq_result &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(chi_table, <span class="dt">correct =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>Giving the following result:</p>
+<table>
+<caption>
+<span id="tab:lab6-additional-chi-table-red">Table 6.6: </span>Chi-Square Result
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+statistic
+</th>
+<th style="text-align:center;">
+p.value
+</th>
+<th style="text-align:center;">
+parameter
+</th>
+<th style="text-align:center;">
+method
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2.160911
+</td>
+<td style="text-align:center;">
+0.3394409
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+Pearson’s Chi-squared test
+</td>
+</tr>
+</tbody>
+</table>
+<p>And could be written up as <span class="math inline">\(x_c^2\)</span>(df = 2, N = 100) = 2.16, p = 0.34. And if you wanted to check the output and calculate the data by hand, or needed to do further analysis, you can see the expected values by doing the analysis but not tidying it, as follows:</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1">chisq_untidy &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(chi_table, <span class="dt">correct =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb384-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb384-3" data-line-number="3">chisq_untidy<span class="op">$</span>expected</a></code></pre></div>
+<pre><code>##        No Unsure Yes
+## [1,] 17.5   15.5  17
+## [2,] 17.5   15.5  17</code></pre>
+<p>And if you wanted the expected values for just one of the groups - say the second group, Group B:</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" data-line-number="1">chisq_untidy<span class="op">$</span>expected[<span class="dv">2</span>,]</a></code></pre></div>
+<pre><code>##     No Unsure    Yes 
+##   17.5   15.5   17.0</code></pre>
+<p>Or even just the observed values to check you entered the data correctly:</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1">chisq_untidy<span class="op">$</span>observed</a></code></pre></div>
+<pre><code>##      No Unsure Yes
+## [1,] 21     14  15
+## [2,] 14     17  19</code></pre>
+<p>We will leave that there but hopefully this gives you some additional insight into how to analyse a chi-square test.</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">End of Additional Material!</span></p>
 
 </div>
 </div>
