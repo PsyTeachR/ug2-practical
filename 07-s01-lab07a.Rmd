@@ -2,7 +2,7 @@
 
 ## Overview
 
-In the previous chpaters we have looked at one-sample t-tests and between-samples t-tests. In this chapter we will continue to look at t-tests in general, with the PreClass Activity looking really at the assumption of variance in a between-subjects t-test, and the InClass Activity looking at the remaining type of t-test; the **within-subjects t-test** (sometimes called the **dependent sample** or **paired-sample t-test**). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations **from the same or matched participants** is zero. 
+In the previous chapters we have looked at one-sample t-tests and between-samples t-tests. In this chapter we will continue to look at t-tests in general, with the PreClass Activity looking really at the assumption of variance in a between-subjects t-test, and the InClass Activity looking at the remaining type of t-test; the **within-subjects t-test** (sometimes called the **dependent sample** or **paired-sample t-test**). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations **from the same or matched participants** is zero. 
 
 As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis. 
 
