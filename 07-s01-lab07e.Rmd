@@ -23,11 +23,17 @@ ratings <- read_csv("GuiltJudgements.csv")
 #### InClass Task 2
 
 ```{r ch7-task2, results='asis'}
-lates <- filter(ratings, Evidence == "Late") %>% 
+lates <- ratings %>%
+  filter(Evidence == "Late") %>% 
   select(Participant, Evidence, `12`, `13`) %>% 
   rename(Twelve = `12`, Thirteen = `13`) %>%
-  gather(Timepoint, GuiltRating, Twelve:Thirteen)
+  pivot_longer(cols = Twelve:Thirteen, 
+               names_to = "Timepoint", 
+               values_to = "GuiltRating")
 ```
+
+* If you have carried this out correctly, `lates` will have `r dim(lates)[1]` rows and `r dim(lates)[2]` columns. This comes from `r dim(lates)[1]/2` participants giving two responses each - TimePoint 12 and TimePoint 13.
+
 
 [Return to Task](#Ch7InClassQueT2)
 
@@ -53,9 +59,12 @@ lates %>%
   ggplot(aes(x = Timepoint,
              y = GuiltRating)) + 
   geom_boxplot() +
-  coord_cartesian(xlim = c(1,2), ylim = c(1,9), expand = TRUE) +
+  scale_y_continuous(breaks = c(1:9)) + 
+  coord_cartesian(xlim = c(.5, 2.5), ylim = c(1,9), expand = TRUE) +
   theme_bw()
 ```
+
+You can see that there is one outlier in the `Thirteen` condition. It is represented by the the single dot far above the whiskers of that boxplot.
 
 [Return to Task](#Ch7InClassQueT4)
 
@@ -68,8 +77,12 @@ lates %>%
   ggplot(aes(x=Timepoint,y=GuiltRating))+
   geom_violin(aes(fill = Timepoint), alpha = .2) + 
   geom_boxplot(width = 0.5) +
+  scale_y_continuous(breaks = c(1:9)) + 
+  coord_cartesian(ylim = c(1,9), expand = TRUE) +
   theme_bw()
 ```
+
+* You can still see the outlier at the top of the figure as a solid black dot.
 
 You could even add the `geom_jitter` to have all the data points:
 
@@ -79,6 +92,8 @@ lates %>%
   geom_violin(aes(fill = Timepoint), alpha = .2) + 
   geom_boxplot(width = 0.5) +
   geom_jitter(aes(fill = Timepoint), width = .1, alpha = .2) + 
+  scale_y_continuous(breaks = c(1:9)) + 
+  coord_cartesian(ylim = c(1,9), expand = TRUE) +
   theme_classic()
 ```
 
@@ -95,6 +110,12 @@ descriptives <- lates %>%
             se = sd/sqrt(n),
             LowerCI = mean - 1.96*se,
             UpperCI = mean + 1.96*se)
+```
+
+This would show the following data:
+
+```{r ch7-task6-table1}
+knitr::kable(descriptives, align = "c", caption = "Descriptive data for the current study")
 ```
 
 ```{r hidden-1, include = FALSE}
@@ -127,6 +148,8 @@ ggplot(descriptives, aes(x = Timepoint, y = mean, fill = Timepoint)) +
   theme_classic()
 ```
 
+* One thing to watch out for with the above code is the `scale_y_continuous()` function which helps us set the length and tick marks (-) on the y-axis. Rather oddly, if you set the `limits = ...` to the same values as the `ylim = ...` in `coord_cartesian()` then your figure will behave oddly and may disappear. `coord_cartesian()` is a zoom function and must be set within the limits of the scale, set by `scale_y_continuous()`.
+
 * An alternative way to display just the means and errorbars would be to use the pointrange approach. This image shows again the 95% CI
 
 ```{r ch7-task7-2, results='asis', fig.cap = "Alternative Solution to Task 7"}
@@ -158,7 +181,7 @@ results <- t.test(GuiltRating ~ Timepoint,
 knitr::kable(results)
 ```
 
-* Alternatively, using the `filter()` and `pull()` functions to make sure that you are entering the "Thirteen" condition first
+* Alternatively, using the `filter()` and `pull()` functions to make force in a given condition as the first condition. Here, below, we are forcing condition `Thirteen` as the first condition and so the values match the above approach. If you forced condition `Twelve` as the first condition then the only difference would be that the t-value would change polarity (positive to negative or vice versa).
 
 ```{r ch7-task8-2, results='asis'}
 
@@ -175,6 +198,8 @@ knitr::kable(results)
 The reason that the two outputs are the same is because the formula (top) method (x ~ y) is actually doing the same process as the second approach, but you are just not sure which is the first condition. This second approach (bottom) just makes it clearer.
 `r unhide()`
 
+**Note:** The `conf.low` and `conf.high` values are the 95% Confidence Intervals for the mean difference between the two conditions. This could be written as something like, "there was a difference between the two groups (M = -1.76, 95% CI = [-2.19, -1.33])".
+
 [Return to Task](#Ch7InClassQueT8)
 
 #### InClass Task 9
@@ -182,6 +207,8 @@ The reason that the two outputs are the same is because the formula (top) method
 A potential write-up for this study would be as follows:
 
 **"A paired-samples t-test was ran to compare the change in guilt ratings before (M = `r descriptives %>% filter(Timepoint =="Twelve") %>% pull(mean)`, SD = `r descriptives %>% filter(Timepoint =="Twelve") %>% pull(sd) %>% round(2)`) and after (M = `r descriptives %>% filter(Timepoint =="Thirteen") %>% pull(mean)`, SD = `r descriptives %>% filter(Timepoint =="Thirteen") %>% pull(sd) %>% round(2)`) the crucial evidence was heard. A significant difference was found (t(`r results %>% pull(parameter)`) = `r results %>% pull(statistic) %>% round(2) %>% abs()`, p = `r results %>% pull(p.value)`) with Timepoint 13 having an average rating `r results %>% pull(estimate) %>% abs()` units lower than Timepoint 12. This tells us that the critical evidence did have an influence on the rating of guilt by jury members."**
+
+**Working with rounding p-values**
 
 When rounding off p-values that are less than .001, rounding will give you a value of 0 which is technically wrong - the probability will be very low but not 0. As such, and according to APA format, values less than .001 would normally be written as p < .001. To create a reader-friendly p-value, then you could try something like the following in your code:
 
