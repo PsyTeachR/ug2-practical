@@ -1647,21 +1647,30 @@ two.sided
 <p>Below is some additional material that might help you understand the tests in this Chapter a bit more as well as some additional ideas.</p>
 <div id="non-parametric-tests" class="section level3 unnumbered">
 <h3>Non-Parametric tests</h3>
-<p>In this chapter we have really been focussing on between-subjects and within-subjects t-tests which fall under the category of <strong>parametric tests</strong>. One of the main things you will know about these tests is that they have a fair number of assumptions that you need to check first to make sure that your results are valid. We looked at how to do this in the main body of the chapter, and you will get more practice at this as we progress, but one question you might have is, what do you do if the assumptions aren’t met (or are “violated”&quot; as it is termed)? So what options are there? Well actually you have already seen one - in Chapter 5. We could use permutation tests and bootstrapping (replication) techniques to compare two conditions. This is a nice approach as it has very few assumptions about the data - merely that the shape of the sample distribution is the shape of the population distribution. However permutation tests are a relatively new approach and require really strong analytical skills to make sure you are doing them correctly, when designs get complicated. Alternatively, there are tests known as <strong>non-parametric</strong> tests that have fewer assumptions than the parametric tests and can be run quote quickly using the same approach as we have seen with the t-tests. The non-parametric “t-tests” generally don’t require any assumption of normality and tend to work on either the medians of the data (as opposed to the mean values) or the rank order of the data - i.e. what was the highest value, the second highest, the lowest - as opposed to the actual value.</p>
+<p>In this chapter we have really been focussing on between-subjects and within-subjects t-tests which fall under the category of <strong>parametric tests</strong>. One of the main things you will know about these tests is that they have a fair number of assumptions that you need to check first to make sure that your results are valid. We looked at how to do this in the main body of the chapter, and you will get more practice at this as we progress, but one question you might have is, what do you do if the assumptions aren’t met (or are “violated”&quot; as it is termed)?</p>
+<p>So what options are there? Well actually you have already seen one - in Chapter 5. We could use permutation tests and bootstrapping (replication) techniques to compare two conditions. This is a nice approach as it has very few assumptions about the data - merely that the shape of the sample distribution is the shape of the population distribution. However permutation tests are a relatively new approach and require really thorough analytical skills to make sure you are doing them correctly when designs get complicated.</p>
+<p>Alternatively, there are tests known as <strong>non-parametric tests</strong> that have fewer assumptions than the parametric tests and can be run quite quickly using the same approach as we have seen with the t-tests. The non-parametric “t-tests” generally don’t require any assumption of normality and tend to work on either the medians of the data (as opposed to the mean values) or the rank order of the data - i.e. what was the highest value, the second highest, the lowest - as opposed to the actual value.</p>
 <p>And just like there is slightly different versions of t-tests there are different non-parametric tests for between-subjects designs and within-subjects designs as such:</p>
 <ul>
 <li>The Mann-Whitney U-test is the non-parametric equivalent of the between-subjects t-test</li>
 <li>The Wilcoxon Signed-Ranks Test is the non-parametric equivalent of the within-subjects t-test.</li>
+<li><strong>Note:</strong> Bootstrapping and permutation tests would also be considered non-parametric tests. However if you were to ask someone about a non-parametric version of a t-test they would likely think of the Mann-Whitney or the Wilcoxon Signed-Ranks Test depending on your design.</li>
+<li><strong>Note:</strong> The Mann-Whitney and the Wilcoxon Signed-Ranks tests are now a bit antiquated as they were designed to be done by hand when computer processing power was limited. However they are still used in Psychology and you will still see them in older papers, so it is worth seeing one in action at least.</li>
 </ul>
-<p>So for example, if you were concerned that your data was really far from being normally distributed, and weren’t quite sure about permutation tests, you might use one of these tests. These tests are still used in Psychology and you will still see them in older papers, however they are a bit antiquated as they were designed to be done by hand when computer processing power was limited. Still it is worth seeing one in action at least. Here we will run through a Mann-Whitney U-test and then you can try out a Wilcoxon Signed-Ranks Test in your own time as it uses the same function - it is again just a matter of saying <code>paired = TRUE</code>.</p>
+<p>So for example, if you were concerned that your data was really far from being normally distributed, and weren’t quite sure about permutation tests, you might use the Mann-Whitney or the Wilcoxon Signed-Ranks Test depending on your design. Here we will run through a Mann-Whitney U-test and then you can try out a Wilcoxon Signed-Ranks Test in your own time as it uses the same function - it is again just a matter of saying <code>paired = TRUE</code>.</p>
 <p><strong>Our Scenario</strong></p>
-<p><strong>Aim:</strong> To examine the influence of perceived reward on problem solving.</p>
-<p><strong>Procedure:</strong> 14 Participants in 2 groups (7 per group) are asked to solve a difficult lateral thinking puzzle. One group is offered a monetary reward for completing it as quick as possible. One group is offered nothing; just the internal joy of getting the task completed and correct.</p>
-<p><strong>Task:</strong> The participants are asked to solve the following puzzle. “Man walks into a bar and asks for a glass of water. The barman shoots at him with a gun. The man smiles, says thanks, and leaves. Why?”</p>
-<p><strong>IV:</strong> Reward group vs. No Reward group</p>
-<p><strong>DV:</strong> Time taken to solve puzzle measured in minutes.</p>
-<p><strong>Hypothesis:</strong> We hypothesise that participants who are given a monetary incentive for solving a puzzle will solve the puzzle significantly faster, as measured in minutes to solve the puzzle, than those that are given no incentive.</p>
-<p>Here is our data and a boxplot of the data to try and visualise what is happening in the data.</p>
+<ul>
+<li><strong>Aim:</strong> To examine the influence of perceived reward on problem solving.</li>
+<li><strong>Procedure:</strong> 14 Participants in 2 groups (7 per group) are asked to solve a difficult lateral thinking puzzle. One group is offered a monetary reward for completing it as quick as possible. One group is offered nothing; just the internal joy of getting the task completed and correct.</li>
+<li><strong>Task:</strong> The participants are asked to solve the following puzzle. “Man walks into a bar and asks for a glass of water. The barman shoots at him with a gun. The man smiles, says thanks, and leaves. Why?”</li>
+<li><strong>IV:</strong> Reward group vs. No Reward group</li>
+<li><strong>DV:</strong> Time taken to solve puzzle measured in minutes.</li>
+<li><strong>Hypothesis:</strong> We hypothesise that participants who are given a monetary incentive for solving a puzzle will solve the puzzle significantly faster, as measured in minutes to solve the puzzle, than those that are given no incentive.</li>
+</ul>
+<p><strong>Our Analysis</strong></p>
+<p>Here is our data and a boxplot of the data to try and visualise what is happening in the data.
+<br>
+<br></p>
 <table>
 <caption>
 <span id="tab:chpt7-additional-table">Table 7.3: </span>Table showing the time taken to complete the puzzle for the Reward and No Reward groups
@@ -1685,10 +1694,10 @@ Time
 1
 </td>
 <td style="text-align:center;">
-Reward
+No Reward
 </td>
 <td style="text-align:center;">
-3.25
+1.32
 </td>
 </tr>
 <tr>
@@ -1699,45 +1708,12 @@ Reward
 No Reward
 </td>
 <td style="text-align:center;">
-1.32
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-Reward
-</td>
-<td style="text-align:center;">
-5.54
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-No Reward
-</td>
-<td style="text-align:center;">
 3.56
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
-5
-</td>
-<td style="text-align:center;">
-Reward
-</td>
-<td style="text-align:center;">
-7.66
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-6
+3
 </td>
 <td style="text-align:center;">
 No Reward
@@ -1748,18 +1724,7 @@ No Reward
 </tr>
 <tr>
 <td style="text-align:center;">
-7
-</td>
-<td style="text-align:center;">
-Reward
-</td>
-<td style="text-align:center;">
-9.02
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-8
+4
 </td>
 <td style="text-align:center;">
 No Reward
@@ -1770,18 +1735,7 @@ No Reward
 </tr>
 <tr>
 <td style="text-align:center;">
-9
-</td>
-<td style="text-align:center;">
-Reward
-</td>
-<td style="text-align:center;">
-10.45
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-10
+5
 </td>
 <td style="text-align:center;">
 No Reward
@@ -1792,18 +1746,7 @@ No Reward
 </tr>
 <tr>
 <td style="text-align:center;">
-11
-</td>
-<td style="text-align:center;">
-Reward
-</td>
-<td style="text-align:center;">
-13.21
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-12
+6
 </td>
 <td style="text-align:center;">
 No Reward
@@ -1814,18 +1757,7 @@ No Reward
 </tr>
 <tr>
 <td style="text-align:center;">
-13
-</td>
-<td style="text-align:center;">
-Reward
-</td>
-<td style="text-align:center;">
-21.37
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-14
+7
 </td>
 <td style="text-align:center;">
 No Reward
@@ -1834,22 +1766,325 @@ No Reward
 15.55
 </td>
 </tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+3.25
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+5.54
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+7.66
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+9.02
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+10.45
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+13.21
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+21.37
+</td>
+</tr>
 </tbody>
 </table>
+<p><br></p>
 <div class="figure" style="text-align: center"><span id="fig:chpt7-additional-figure"></span>
 <img src="07-s01-lab07f_files/figure-html/chpt7-additional-figure-1.png" alt="Boxplots showing the time taken to solve the puzzle for the two conditions, Reward vs No Reward. Outliers are represented by solid blue dots." width="100%" />
 <p class="caption">
 Figure 7.10: Boxplots showing the time taken to solve the puzzle for the two conditions, Reward vs No Reward. Outliers are represented by solid blue dots.
 </p>
 </div>
-<p>Looking at the boxplots there is potentially some issues with skew in the data as well as both conditions having at least one outlier. As such we are not convinced our assumption of normality is held so we will run the Mann-Whitney U-test; the non-parametric equivalent of the between-subjects t-test (i.e. independent groups) as it does not require the assumption of normal data.</p>
-<p>Next, as always, we should look at the descriptives as well to make some subjective, descriptive inference about the pattern of the results. Here is a table of descriptives for this dataset an the code we used to create it.</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">ByGrp &lt;-<span class="st"> </span><span class="kw">group_by</span>(scores, Group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb407-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n_Pp =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb407-3" data-line-number="3">            <span class="dt">MedianTime =</span> <span class="kw">median</span>(Time))</a></code></pre></div>
+<p>Looking at the boxplots there is potentially some issues with skew in the data (see the No Reward group in particular) and both conditions are showing as having at least one outlier. As such we are not convinced our assumption of normality is held so we will run the Mann-Whitney U-test - the non-parametric equivalent of the between-subjects t-test (i.e. independent groups) - as it does not require the assumption of normal data.</p>
+<p><strong>The descriptives</strong></p>
+<p>Next, as always, we should look at the descriptives as well to make some subjective, descriptive inference about the pattern of the results. One thing to note is that the Mann-Whitney analysis is based on the “rank order” of the data regardless of group. In this code and table below we have put the data in order from lowest to highest and added on a rank order column. We have used the <code>rank()</code> function to create the ranks and setting the <code>ties.method = &quot;average&quot;</code>. We won’t go into why that is the case here but you can read about it through ?rank.</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">scores_rnk &lt;-<span class="st"> </span>scores <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(Time) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ranks =</span> <span class="kw">rank</span>(Time, <span class="dt">ties.method =</span> <span class="st">&quot;average&quot;</span>))</a></code></pre></div>
 <table>
 <caption>
-<span id="tab:chpt7-additional-descriptives">Table 7.4: </span>Descriptive (Medians and N) for the two groups (Reward vs No Reward) in time taken to solve the puzzle.
+<span id="tab:chpt7-additional-table-rnks">Table 7.4: </span>Table showing the time taken to complete the puzzle for the Reward and No Reward groups and the rank order of these times.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Participant
+</th>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+Time
+</th>
+<th style="text-align:center;">
+ranks
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+No Reward
+</td>
+<td style="text-align:center;">
+1.32
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+3.25
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+No Reward
+</td>
+<td style="text-align:center;">
+3.56
+</td>
+<td style="text-align:center;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+5.54
+</td>
+<td style="text-align:center;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+No Reward
+</td>
+<td style="text-align:center;">
+7.55
+</td>
+<td style="text-align:center;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+7.66
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+No Reward
+</td>
+<td style="text-align:center;">
+8.05
+</td>
+<td style="text-align:center;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+No Reward
+</td>
+<td style="text-align:center;">
+8.54
+</td>
+<td style="text-align:center;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+9.02
+</td>
+<td style="text-align:center;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+No Reward
+</td>
+<td style="text-align:center;">
+10.18
+</td>
+<td style="text-align:center;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+10.45
+</td>
+<td style="text-align:center;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+13.21
+</td>
+<td style="text-align:center;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+No Reward
+</td>
+<td style="text-align:center;">
+15.55
+</td>
+<td style="text-align:center;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+Reward
+</td>
+<td style="text-align:center;">
+21.37
+</td>
+<td style="text-align:center;">
+14
+</td>
+</tr>
+</tbody>
+</table>
+<p>Here is a table of descriptives for this dataset an the code we used to create it.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">ByGrp &lt;-<span class="st"> </span><span class="kw">group_by</span>(scores_rnk, Group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n_Pp =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb408-3" data-line-number="3">            <span class="dt">MedianTime =</span> <span class="kw">median</span>(Time),</a>
+<a class="sourceLine" id="cb408-4" data-line-number="4">            <span class="dt">MeanRank =</span> <span class="kw">mean</span>(ranks))</a></code></pre></div>
+<table>
+<caption>
+<span id="tab:chpt7-additional-descriptives">Table 7.5: </span>Descriptive (N, Medians and Mean Ranks) for the two groups (Reward vs No Reward) in time taken to solve the puzzle.
 </caption>
 <thead>
 <tr>
@@ -1861,6 +2096,9 @@ n_Pp
 </th>
 <th style="text-align:center;">
 MedianTime
+</th>
+<th style="text-align:center;">
+MeanRank
 </th>
 </tr>
 </thead>
@@ -1875,6 +2113,9 @@ No Reward
 <td style="text-align:center;">
 8.05
 </td>
+<td style="text-align:center;">
+6.714286
+</td>
 </tr>
 <tr>
 <td style="text-align:center;">
@@ -1886,20 +2127,27 @@ Reward
 <td style="text-align:center;">
 9.02
 </td>
+<td style="text-align:center;">
+8.285714
+</td>
 </tr>
 </tbody>
 </table>
-<p>Based on figure and descriptive data we can suggest that there appears to be no real difference between the two groups in terms of time taken to solve the puzzle. The group that was offered a reward have a slightly higher spread of data than the no reward group. However the medians are very comparable.</p>
-<p>We will now run the Mann-Whitney U-test to see if the difference between the two groups is significant or not. To do this, somewhat confusingly, we us the <code>wilcox.test()</code> function. The code to do the analysis on the current data (with the tibble <code>scores</code>, the DV in the column <code>Time</code>, and the IV in the column <code>Group</code>) is shown below. It works just like the <code>t-test()</code> functio in that you can use either vectors or the fomula approach. There are a couple of additional calls in this function that you can read about using the <code>?wilcox.test()</code> approach.</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">wilcox.test</span>(Time <span class="op">~</span><span class="st"> </span>Group, </a>
-<a class="sourceLine" id="cb408-2" data-line-number="2">                      <span class="dt">data =</span> scores, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
-<a class="sourceLine" id="cb408-3" data-line-number="3">            <span class="dt">exact =</span> <span class="ot">TRUE</span>, <span class="dt">correct =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb408-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>Based on figure and descriptive data we can suggest that there appears to be no real difference between the two groups in terms of time taken to solve the puzzle. The group that was offered a reward have a slightly higher spread of data than the no reward group. However the medians and mean ranks are very comparable.</p>
+<p><strong>The inferential test</strong></p>
+<p>We will now run the Mann-Whitney U-test to see if the difference between the two groups is significant or not. To do this, somewhat confusingly, we us the <code>wilcox.test()</code> function. The code to do the analysis on the current data (with the tibble <code>scores</code>, the DV in the column <code>Time</code>, and the IV in the column <code>Group</code>) is shown below. It works just like the <code>t-test()</code> functio in that you can use either vectors or the fomula approach.</p>
+<ul>
+<li><strong>Note:</strong> There are a couple of additional calls in this function that you can read about using the <code>?wilcox.test()</code> approach.</li>
+<li><strong>Note:</strong> We could just have easily used <code>scores_rnk</code> as our tibble in the <code>wilcox.test()</code> as opposed to <code>scores</code>. We are using <code>scores</code> to show you that you don’t need to put the ranks into the <code>wilcox.test()</code> function, it will create them itself when it runs the analysis. We only created them to run some descriptives.</li>
+</ul>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">wilcox.test</span>(Time <span class="op">~</span><span class="st"> </span>Group, </a>
+<a class="sourceLine" id="cb409-2" data-line-number="2">                      <span class="dt">data =</span> scores, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb409-3" data-line-number="3">            <span class="dt">exact =</span> <span class="ot">TRUE</span>, <span class="dt">correct =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p>And here is the output of the test after is has been tidied into a tibble using <code>tidy()</code></p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(result, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Output of the Mann-Whitney U-test&quot;</span>)</a></code></pre></div>
 <table>
 <caption>
-(#tab:chpt7-additional-code output)Output of the Mann-Whitney U-test
+<span id="tab:chpt7-additional-code-output">Table 7.6: </span>Output of the Mann-Whitney U-test
 </caption>
 <thead>
 <tr>
@@ -1934,19 +2182,30 @@ two.sided
 </tr>
 </tbody>
 </table>
-<p>The main statistic (the test-value) is called the U-value and is shown in the above table as <code>statistic</code>; i.e. U = 19 and you can see from the results that the difference was non-significant as p = 0.535. However, one thing to note about the U is that it is an unstandardised value - meaning that it is dependent on the values sampled and it can’t be compared to other U values to look at the magnitude of one effect versus another. The second thing to note about the U-value is that <code>wilcox.test()</code> will return a diferent U-value depending on which condition is stated as Group 1 or Group 2. Compare the outputs of these two test:</p>
+<p><br></p>
+<p>The main statistic (the test-value) of the Mann-Whitney test is called the U-value and is shown in the above table as <code>statistic</code>; i.e. U = 19 and you can see from the results that the difference was non-significant as p = 0.535.</p>
+<ul>
+<li><strong>Note:</strong> The eagle-eyed of you will spot that the test actually says it is a Wilcoxon rank sum test. That is fine. The Mann-Whitney U is calculated from the sum of the ranks (shown in the table above). The Wilcoxon rank sum test is just that, a sum of the ranks. The U-value is then created from the summed ranks.<br />
+</li>
+<li><strong>Note:</strong> Also, don’t mistake the Wilcoxon rank sum test mentioned here - for between-subjects - with the Wilcoxon Signed-Ranks test for within-subjects mentioned above. They are different tests</li>
+</ul>
+<p>However, one thing to note about the U is that it is an unstandardised value - meaning that it is dependent on the values sampled and it can’t be compared to other U values to look at the magnitude of one effect versus another. The second thing to note about the U-value is that <code>wilcox.test()</code> will return a diferent U-value depending on which condition is stated as Group 1 or Group 2.</p>
+<p>Compare the outputs of these two tests where we have switched the order of the conditions:</p>
+<p><strong>Version 1:</strong></p>
 <div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">result_v1 &lt;-<span class="st"> </span><span class="kw">wilcox.test</span>(scores <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Group <span class="op">==</span><span class="st"> &quot;Reward&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Time),</a>
 <a class="sourceLine" id="cb410-2" data-line-number="2">                         scores <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Group <span class="op">==</span><span class="st"> &quot;No Reward&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Time),</a>
 <a class="sourceLine" id="cb410-3" data-line-number="3">                         <span class="dt">data =</span> scores, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
 <a class="sourceLine" id="cb410-4" data-line-number="4">                         <span class="dt">exact =</span> <span class="ot">TRUE</span>, <span class="dt">correct =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb410-5" data-line-number="5"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p><strong>Version 2:</strong></p>
 <div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">result_v2 &lt;-<span class="st"> </span><span class="kw">wilcox.test</span>(scores <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Group <span class="op">==</span><span class="st"> &quot;No Reward&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Time),</a>
 <a class="sourceLine" id="cb411-2" data-line-number="2">                         scores <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Group <span class="op">==</span><span class="st"> &quot;Reward&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Time),</a>
 <a class="sourceLine" id="cb411-3" data-line-number="3">                         <span class="dt">data =</span> scores, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
 <a class="sourceLine" id="cb411-4" data-line-number="4">                         <span class="dt">exact =</span> <span class="ot">TRUE</span>, <span class="dt">correct =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb411-5" data-line-number="5"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
-<p>The U-value for these two tests are, for result_v1, U = 30 and for result_v2, U = 19. Strictly speaking, both those test are correct but the U-value is the smaller of the two-values given by the different outputs. It is to do with how the U-value is calculated. Both groups have a U-value and the one that is checked for significance is the smaller of the two.</p>
-<p>For those reasons when we present the Mann-Whitney U-test we usually also give a Z-statistic, which is the standardised version of the U-value. We also present an effect size, commonly r. These can be calculated as follows:</p>
+<p>The U-value for these two tests are, for Version 1, U = 30 and for Versoin 2, U = 19. This may seem odd but actually both those test are correct. However, strictly speaking the U-value is the smaller of the two-values given by the different outputs. It is to do with how the U-value is calculated. Both groups have a U-value and the one that is checked for significance is the smaller of the two.</p>
+<p>So for the reasons mentioned above, when we present the Mann-Whitney U-test we usually also give a Z-statistic, which is the standardised version of the U-value. We also present an effect size, commonly r.</p>
+<p>Z and r can be calculated as follows:</p>
 <ul>
 <li><p>Z = <span class="math inline">\(\frac{U - \frac{N1 \times N2}{2}}{\sqrt\frac{N1 \times N2 \times (N1 + N2 + 1)}{12}}\)</span></p></li>
 <li><p>r = <span class="math inline">\(\frac{Z}{\sqrt(N1 + N2)}\)</span></p></li>
@@ -1957,7 +2216,29 @@ two.sided
 <a class="sourceLine" id="cb412-3" data-line-number="3">N2 &lt;-<span class="st"> </span>ByGrp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Group <span class="op">==</span><span class="st"> &quot;No Reward&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(n_Pp)</a>
 <a class="sourceLine" id="cb412-4" data-line-number="4">Z &lt;-<span class="st"> </span>(U <span class="op">-</span><span class="st"> </span>((N1<span class="op">*</span>N2)<span class="op">/</span><span class="dv">2</span>))<span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>((N1<span class="op">*</span>N2<span class="op">*</span>(N1<span class="op">+</span>N2<span class="op">+</span><span class="dv">1</span>))<span class="op">/</span><span class="dv">12</span>)</a>
 <a class="sourceLine" id="cb412-5" data-line-number="5">r &lt;-<span class="st"> </span>Z<span class="op">/</span><span class="kw">sqrt</span>(N1<span class="op">+</span>N2)</a></code></pre></div>
-<p>And as such the write-up could be written as, the times taken to solve the problem for the Reward group (n = 7, Mdn Time = 9.02) and the no reward group (n = 7, Mdn Time = 8.05) were compared using a Mann-Whitney U-test. No significance difference was found, U = 19, Z = -0.703, p = 0.535, r = -0.188</p>
+<p>And as such the write-up could be written as:</p>
+<p>The time taken to solve the problem for the Reward group (n = 7, Mdn Time = 9.02, Mean Rank = 8.29) and the no reward group (n = 7, Mdn Time = 8.05, Mean Rank = 6.71) were compared using a Mann-Whitney U-test. No significance difference was found, U = 19, Z = -0.703, p = 0.535, r = -0.188</p>
+<p><strong>Last point on calculating U</strong></p>
+<p>In the final write-up there we know, because of our codes, that U = 19 is the smallest U-value of the test. However had you put the alternative U, U = 30, when you calculated Z you would have got Z = 0.703, as opposed to Z = -0.703. So your standardised statistic will have the same value but just the opposite polarity (either positive or negative). That is fine though as you can look at the medians and mean ranks to make sure you are interpreting the data correctly.</p>
+<p>However, what you do have to watch out for when writing up this test is that you are presenting the correct U-value - remembering that technically you should present the smallest of the two U-values (refer back to Version 1 and Version 2 of using the <code>wilcox.test()</code>) above. Fortunately you don’t have to run both analyses to figure out which is the smaller U (though you could if you wanted). There is a quicker way using the below formula:</p>
+<p><span class="math inline">\(U1 + U2 = N1 \times N2\)</span></p>
+<ul>
+<li>where U1 is the U-value from your <code>wilcox.test()</code> function</li>
+<li>N1 is the number of people in one group (technically doesnt matter which group) and N2 is the number of people in the other group</li>
+</ul>
+<p>We actually know both our U-values as we ran both tests; they are U1 = 30 and U2 = 19, and we know our two groups are N1 = 7 and N2 = 7. And if we put those numbers in the formula we get</p>
+<p><span class="math inline">\(U1 + U2 = N1 \times N2\)</span></p>
+<p>=&gt; <span class="math inline">\(30 + 19 = 7 \times 7\)</span></p>
+<p>=&gt; <span class="math inline">\(49 = 49\)</span></p>
+<p>So both sides equal 49. But say you only know one of the U-values; you of course will know both Ns. Well you can quickly figure out the other U-value based on:</p>
+<p><span class="math inline">\(U2 = (N1 \times N2) - U1\)</span></p>
+<p>for example, if you know U1 = 19, N1 = 7 and N = 7 then:</p>
+<p><span class="math inline">\(U2 = (7 \times 7) - 19\)</span></p>
+<p>=&gt; <span class="math inline">\(U2 = (49) - 19\)</span></p>
+<p>=&gt; <span class="math inline">\(U2 = 30\)</span></p>
+<p>And then you just have to present the smallest of the two U-values, in this case U = 19.</p>
+<p>That is it for this additional materials and hopefully you now have a decent understanding of the Mann-Whitney test. Remember you have the skills to simulate data to run some new examples. You could also try running a Wilcoxon Signed-Ranks Test as well though you might have to read a little on how to present those. It is similar to the Mann-Whitney though and you should be able to get there. However, if stuck, do ask!</p>
+<p>Oh, and last last point, how to remember which test is which? Is the Mann-Whitney for between-subjects or within-subjects, and what is the Wilcoxon Signed-Ranks test for? You know they do different designs but which is which? Well, as silly as this memory aid is… The other name of between-subjects designs, as you know, is independent designs. Add to that the fact that the late great singer Whitney Houston once starred in “The Bodyguard” which was about maintaining your right to freedom and independence. So whenever you get stuck on knowing which test is which, remember Whitney wanted independence in The Bodyguard and you should be ok. We did not say this was a very good memory aid!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">End of Additional Material!</span></p>
 
 </div>
