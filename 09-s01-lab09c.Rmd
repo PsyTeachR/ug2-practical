@@ -14,3 +14,5 @@
      - Even funkier visualtions using the **`ggforce`** package - check out `facet_zoom()` [@R-ggforce]
      - Many diverse fields are now using R and this is a good example: <a href = "https://learn.r-journalism.com/en/" target = "_blank">R for Journalists</a>
      - Using the `knitr::read_chunk()` function to call R script code through R Markdown [@R-knitr]
+     - The **`statcheck`** package for checking that you and others are presenting their inferential analyses accurately (in terms of df and p-value) and in APA format [@R-statcheck]
+     - A great repository of R resources for teaching, learning, writing webpages, CVs, and doing very cool things with webpages

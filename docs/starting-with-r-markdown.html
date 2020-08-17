@@ -428,6 +428,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="8.5.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#homework-activity-1"><i class="fa fa-check"></i><b>8.5.2</b> Homework Activity</a></li>
 </ul></li>
+<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a><ul>
+<li><a href="apes-alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
+<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen’s d to r</a></li>
+<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
+<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html"><i class="fa fa-check"></i><b>9</b> Reflection - Semester 1</a><ul>
 <li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
@@ -1499,6 +1505,13 @@ This may sound very obvious but you would be surprised at how many Methods secti
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">NofGroups=</span><span class="kw">n</span>(), <span class="dt">mean_length =</span> <span class="kw">mean</span>(ComparisonLength))</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">my_table</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <p><strong>Now, knit your document to see what you have produced. You should not see the above code, just the output table.</strong></p>
 </div>
 <div id="Ch1InClassQueT9" class="section level3">
@@ -1508,9 +1521,9 @@ This may sound very obvious but you would be surprised at how many Methods secti
 <li>Underneath your <code>table</code> code chunk, add a new code chunk and give it the name <code>plot</code>.</li>
 <li>Add the below code to the chunk and set the <code>include</code> rule so that both the code and the plot are included in the final report.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(ponzo_data, </a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">ggplot</span>(ponzo_data, </a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="solution">
 <button>
 Portfolio Point - to assign or to not assign
@@ -1693,14 +1706,21 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 </div>
 <div id="results" class="section level3 unnumbered">
 <h3>Results</h3>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##   Sex    NofGroups mean_length
 ##   &lt;chr&gt;      &lt;int&gt;       &lt;dbl&gt;
 ## 1 Female        15        3.57
 ## 2 Male          26        3.61</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">ggplot</span>(ponzo_data, </a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">ggplot</span>(ponzo_data, </a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:lab1-inclass-figure"></span>
 <img src="01-s01-lab01f_files/figure-html/lab1-inclass-figure-1.png" alt="You won't have a caption. We will cover that later!" width="100%" />
 <p class="caption">

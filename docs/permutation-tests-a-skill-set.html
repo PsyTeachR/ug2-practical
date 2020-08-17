@@ -428,6 +428,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="8.5.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#homework-activity-1"><i class="fa fa-check"></i><b>8.5.2</b> Homework Activity</a></li>
 </ul></li>
+<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a><ul>
+<li><a href="apes-alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
+<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen’s d to r</a></li>
+<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
+<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html"><i class="fa fa-check"></i><b>9</b> Reflection - Semester 1</a><ul>
 <li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
@@ -699,7 +705,7 @@ As you can see there is a lot of important and useful reasons to learn about sim
 </li>
 <li>Try increasing <code>n</code> to 1000.</li>
 </ul>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1"><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>##  [1]  0.4718362 -1.2382692 -1.2042214 -0.2418053 -0.6838115  0.7842449
 ##  [7] -0.9419668  1.3458579  0.9236536  1.9262364</code></pre>
 <p><br>
@@ -708,14 +714,14 @@ As you can see there is a lot of important and useful reasons to learn about sim
 <li>If you enter <code>rnorm(50, 0, 1)</code> again you will get different numbers. Why? <select class='solveme' data-answer='["The numbers are random"]'> <option></option> <option>I have made a mistake</option> <option>The numbers are random</option> <option>R has made a mistake</option> <option>Phil has made a mistake</option></select></li>
 </ul>
 <p>So far so good. One thing worth pointing out is that the default arguments to <code>rnorm()</code> for mean and sd are <code>mean = 0</code> and <code>sd = 1</code>. What that means in practice is that you don’t have to write <code>rnorm(10, 0, 1)</code> all the time if you just want to use those default mean and sd values. Instead you could just write <code>rnorm(10)</code> and it would work just as well giving you ten values from a normal distribution of mean = 0 and sd = 1. But let’s say you want to change the mean or sd, then you would need to pass (and change) the <code>mean</code> and <code>sd</code> arguments to the function as shown below.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="fl">.5</span>)</a></code></pre></div>
 <ul>
 <li>Try changing the mean and sd values a couple of times and see what happens. You get different numbers again that will be around the mean you set! Set a mean of 10, then a mean of 100, to test this.</li>
 </ul>
 <p>Great. We can now generate numbers. But finally, for this Skill, say you wanted to create a vector with two sets of 50 random numbers from two separate samples: one set of 50 with a mean of 75 (sd = 1) and the other with a mean of 90 (sd = 1) - almost like creating two groups. In this case you would concatenate (i.e. link) numbers created from two separate <code>rnorm()</code> calls together into a single vector using the <code>c()</code> function from base R.</p>
 <p>For example, you would use:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">random_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">75</span>),</a>
-<a class="sourceLine" id="cb205-2" data-line-number="2">                    <span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">90</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">random_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">75</span>),</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2">                    <span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">90</span>))</a></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
 <li>In the above example code, what is the standard deviation of the two samples you have created? <select class='solveme' data-answer='["1"]'> <option></option> <option>50</option> <option>75</option> <option>90</option> <option>1</option></select></li>
@@ -738,7 +744,7 @@ Remember you can also easily change the sd value of each <code>rnorm()</code> by
 </div>
 <p><br>
 One useful thing though, as mistakes happen, it is always good to check that your new vector of numbers has the right number of data points in it - i.e. the total of the two samples; a sanity check if you will. The new vector <code>random_numbers</code> should have 100 elements. You could verify this using the <code>length()</code> function:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">length</span>(random_numbers)</a></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1"><span class="kw">length</span>(random_numbers)</a></code></pre></div>
 <p><br>
 Which tells us that we have generated 100 numbers just as expected! Awesome. Check us out - already mastered generating random numbers!</p>
 <p><span style="font-size: 18px; font-weight: bold; color: var(--blue);">Skill 1 out of 6 Complete!</span></p>
@@ -784,14 +790,14 @@ The more values you have, the more permutations of the order you have. The numbe
 <ul>
 <li>Type <code>letters</code> into the console, as below, and press RETURN/ENTER. You will see it contains all the lowercase letters of the English alphabet. Now, I bet you are wondering what <code>LETTERS</code> does, right?</li>
 </ul>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">letters</a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">letters</a></code></pre></div>
 <pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
 ## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 <p>We can use the <code>base::sample()</code> function with <code>letters</code> to put the letters into a random order:</p>
 <ul>
 <li>Run the below line. Run it again. And again. What do you notice? And why is our output different from yours? (The answer is below)</li>
 </ul>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="kw">sample</span>(letters)</a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1"><span class="kw">sample</span>(letters)</a></code></pre></div>
 <pre><code>##  [1] &quot;d&quot; &quot;c&quot; &quot;h&quot; &quot;n&quot; &quot;k&quot; &quot;g&quot; &quot;o&quot; &quot;a&quot; &quot;i&quot; &quot;j&quot; &quot;s&quot; &quot;q&quot; &quot;x&quot; &quot;v&quot; &quot;z&quot; &quot;r&quot; &quot;w&quot;
 ## [18] &quot;m&quot; &quot;t&quot; &quot;y&quot; &quot;l&quot; &quot;u&quot; &quot;e&quot; &quot;f&quot; &quot;p&quot; &quot;b&quot;</code></pre>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
@@ -816,14 +822,14 @@ Top Tip: Remember that you can scroll up through your command history in the con
 </div>
 <p><br></p>
 <p>And thinking about Skill 1 (generate) and Skill 2 (permute) we could always combine these steps with code such as:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">random_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">75</span>),<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">90</span>))</a>
-<a class="sourceLine" id="cb211-2" data-line-number="2">random_numbers_perm &lt;-<span class="st"> </span><span class="kw">sample</span>(random_numbers)</a></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">random_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">75</span>),<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dv">90</span>))</a>
+<a class="sourceLine" id="cb213-2" data-line-number="2">random_numbers_perm &lt;-<span class="st"> </span><span class="kw">sample</span>(random_numbers)</a></code></pre></div>
 <p>The first line of code creates the <code>random_numbers</code> - two sets of five.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1">random_numbers</a></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">random_numbers</a></code></pre></div>
 <pre><code>##  [1] 74.94326 75.91390 74.97001 76.30989 74.35868 89.17160 90.91439
 ##  [8] 91.84620 88.71939 89.19206</code></pre>
 <p>And the second line permutes those numbers into a different order</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">random_numbers_perm</a></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1">random_numbers_perm</a></code></pre></div>
 <pre><code>##  [1] 88.71939 74.35868 74.97001 89.17160 76.30989 91.84620 89.19206
 ##  [8] 74.94326 90.91439 75.91390</code></pre>
 <p>Brilliant! We can now permutate values as well as generate them. The importance of this in hypothesis testing will become clearer as the chapter goes on, but as a teaser, remember that probability is the likelihood of obtaining a specific value in consideration of all possible outcomes.</p>
@@ -837,7 +843,14 @@ Top Tip: Remember that you can scroll up through your command history in the con
 <h4><span class="header-section-number">5.2.3.1</span> Entering Data into a Tibble</h4>
 <p>The <code>tibble()</code> function takes named arguments - this means that the name you give each argument within the tibble function, e.g. <code>Y = rnorm(10)</code> will be the name of the column that appears in the table, i.e. <code>Y</code>. It’s best to see how it works through an example.</p>
 <p>The below command creates a new tibble with one column named <code>Y</code>, and the values in that column are the result of a call to <code>rnorm(10)</code>: 10 randomly sampled values from a standard normal distribution (mean = 0, sd = 1), as we learnt in Skill 1.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="kw">tibble</span>(<span class="dt">Y =</span> <span class="kw">rnorm</span>(<span class="dv">10</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="kw">tibble</span>(<span class="dt">Y =</span> <span class="kw">rnorm</span>(<span class="dv">10</span>))</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 10 x 1
 ##         Y
 ##     &lt;dbl&gt;
@@ -852,8 +865,15 @@ Top Tip: Remember that you can scroll up through your command history in the con
 ##  9 -1.06 
 ## 10  1.10</code></pre>
 <p>If, however, we wanted to sample from two different populations for <code>Y</code>, we could combine two calls to <code>rnorm()</code> within the <code>c()</code> function. Again this was in Skill 1, here we are now just storing it in a tibble. See below:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="kw">tibble</span>(<span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">-10</span>), </a>
-<a class="sourceLine" id="cb218-2" data-line-number="2">             <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span>  <span class="dv">20</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">tibble</span>(<span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">-10</span>), </a>
+<a class="sourceLine" id="cb221-2" data-line-number="2">             <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span>  <span class="dv">20</span>)))</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 10 x 1
 ##         Y
 ##     &lt;dbl&gt;
@@ -873,18 +893,18 @@ Top Tip: Remember that you can scroll up through your command history in the con
 <div id="repeating-values-to-save-typing" class="section level4">
 <h4><span class="header-section-number">5.2.3.2</span> Repeating Values to Save Typing</h4>
 <p>But before finalising our tibble, and adding in the groups, it will help to learn a little about <code>rep()</code>. This function is most useful for automatically repeating conditions/values/data in order to save typing. For instance, if we wanted 20 letter “A”s in a row, we would type:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dt">times =</span> <span class="dv">20</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dt">times =</span> <span class="dv">20</span>)</a></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;
 ## [18] &quot;A&quot; &quot;A&quot; &quot;A&quot;</code></pre>
 <p>The first argument to <code>rep()</code> is the <a class='glossary' target='_blank' title='A type of data structure that is basically a list of things like T/F values, numbers, or strings.' href='https://psyteachr.github.io/glossary/v#vector'>vector</a> containing the information you want repeated, (i.e. the letter <strong>A</strong>), and the second argument, <code>times</code>, is the number of times to repeat it; in this case <strong>20</strong>.</p>
 <p>If you wanted to add more information, e.g. if the first argument has more than one element, say groups <strong>A</strong> and <strong>B</strong>, it will repeat the entire vector that number of times; A B, A B, A B, … . Note that we enclose “A” and “B” in the <code>c()</code> function, and with quotes, so that it is seen as a single argument or list that we want repeating. The quotes around A and B (i.e. “A”) are saying that these are <a class='glossary' target='_blank' title='A data type representing strings of text.' href='https://psyteachr.github.io/glossary/c#character'>character</a> data.</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">times =</span> <span class="dv">20</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">times =</span> <span class="dv">20</span>)</a></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot;
 ## [18] &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot;
 ## [35] &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot;</code></pre>
 <p>Ok that works if we want a series of A B A B etc. But sometimes we want a specific number of As followed by a specific number of Bs; A A A B B B - meaning something like everyone in Grp A and then everyone in Grp B.</p>
 <p>We can do this as well! If the <code>times</code> argument has the same number of elements as the vector given for the first argument, it will repeat each element of the first vector as many times as given by the corresponding element in the <code>times</code> vector. In other words, for example, <code>times = c(2, 4)</code> for vector <code>c(&quot;A&quot;, &quot;B&quot;)</code> will give you 2 As followed by 4 Bs.</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">times =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">times =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;</code></pre>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
@@ -898,6 +918,13 @@ Top Tip: Remember that you can scroll up through your command history in the con
 <div id="bringing-it-together-in-a-tibble" class="section level4">
 <h4><span class="header-section-number">5.2.3.3</span> Bringing it Together in a Tibble</h4>
 <p>Great. Let’s get back to creating our tibble of data. Now we know <code>rep()</code>, we can complete our tibble of simulated data by combining what we’ve learned about generating random numbers (Skill 1) and repeating values (Skill 3). We want our table to look like this:</p>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 10 x 2
 ##    group      Y
 ##    &lt;chr&gt;  &lt;dbl&gt;
@@ -915,8 +942,15 @@ Top Tip: Remember that you can scroll up through your command history in the con
 <ul>
 <li><strong>Note:</strong> We have not stated <code>times =</code> in the below code but because of how the <code>rep()</code> function works it knows that the <code>c(5,5)</code> should be read as <code>times = c(5,5)</code>. This is not magic. Again it is about defaults and order or arguments. Just like you saw with <code>rnorm()</code> and not having to state mean and sd each time.</li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>)),</a>
-<a class="sourceLine" id="cb227-2" data-line-number="2">       <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">-10</span>), <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span>  <span class="dv">20</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>)),</a>
+<a class="sourceLine" id="cb232-2" data-line-number="2">       <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">-10</span>), <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span>  <span class="dv">20</span>)))</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <ul>
 <li>Be sure to play around with the code chunk above to get used to it.
 <ul>
@@ -938,10 +972,10 @@ Don’t forget, if you wanted to store your tibble, you would just assign it to 
 <ul>
 <li><strong>Note:</strong> we are using the <code>row_number()</code> function to give everyone a unique ID.</li>
 </ul>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">my_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">ID =</span> <span class="kw">row_number</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), </a>
-<a class="sourceLine" id="cb228-2" data-line-number="2">                    <span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>)),</a>
-<a class="sourceLine" id="cb228-3" data-line-number="3">                    <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">-10</span>), <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span>  <span class="dv">20</span>)),</a>
-<a class="sourceLine" id="cb228-4" data-line-number="4">                    <span class="dt">Age =</span> <span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dv">18</span>, <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1">my_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">ID =</span> <span class="kw">row_number</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb234-2" data-line-number="2">                    <span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>)),</a>
+<a class="sourceLine" id="cb234-3" data-line-number="3">                    <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">-10</span>), <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span>  <span class="dv">20</span>)),</a>
+<a class="sourceLine" id="cb234-4" data-line-number="4">                    <span class="dt">Age =</span> <span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dv">18</span>, <span class="dv">1</span>))</a></code></pre></div>
 <p>which would give a table looking like:</p>
 <table>
 <caption>
@@ -1113,14 +1147,21 @@ B
 <div id="skill-4-computing-differences-in-group-means" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> Skill 4: Computing Differences in Group Means</h3>
 <p>OK so now that we have created some data we want to look at answering questions about that data. For example, the difference between two groups. Thinking back to Chapter 2, you have already learned how to calculate group means using <code>group_by()</code> and <code>summarise()</code>. For example, using code we have seen so far, you might want to calculate sample means for a randomly generated dataset like so:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">my_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">20</span>)),</a>
-<a class="sourceLine" id="cb229-2" data-line-number="2">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>,  <span class="dv">20</span>, <span class="dv">5</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">-20</span>, <span class="dv">5</span>)))</a>
-<a class="sourceLine" id="cb229-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb229-4" data-line-number="4">my_data_means &lt;-<span class="st"> </span>my_data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb229-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb229-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y))</a>
-<a class="sourceLine" id="cb229-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb229-8" data-line-number="8">my_data_means</a></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1">my_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">20</span>)),</a>
+<a class="sourceLine" id="cb235-2" data-line-number="2">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>,  <span class="dv">20</span>, <span class="dv">5</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">-20</span>, <span class="dv">5</span>)))</a>
+<a class="sourceLine" id="cb235-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb235-4" data-line-number="4">my_data_means &lt;-<span class="st"> </span>my_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb235-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb235-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y))</a>
+<a class="sourceLine" id="cb235-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb235-8" data-line-number="8">my_data_means</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   group     m
 ##   &lt;chr&gt; &lt;dbl&gt;
@@ -1133,23 +1174,23 @@ B
 <ul>
 <li><code>pull()</code> will extract a single column (e.g. <code>m</code>) from a tibble/dataframe (e.g. <code>my_data means</code>) and turn it into a <a class='glossary' target='_blank' title='A type of data structure that is basically a list of things like T/F values, numbers, or strings.' href='https://psyteachr.github.io/glossary/v#vector'>vector</a> (e.g. <code>vec</code>).</li>
 </ul>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">vec &lt;-<span class="st"> </span>my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb231-2" data-line-number="2"><span class="st">  </span><span class="kw">pull</span>(m)</a>
-<a class="sourceLine" id="cb231-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb231-4" data-line-number="4">vec</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">vec &lt;-<span class="st"> </span>my_data_means <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="st">  </span><span class="kw">pull</span>(m)</a>
+<a class="sourceLine" id="cb238-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb238-4" data-line-number="4">vec</a></code></pre></div>
 <pre><code>## [1]  20.03418 -22.14020</code></pre>
 <p>We have now created <code>vec</code> which is a vector containing only the group means; the rest of the information in the table has been discarded. <code>vec</code> just contains our two means and we could calculate the mean difference as below, where <code>vec</code> is our vector of the two means and <code>[1]</code> and <code>[2]</code> refer to the two means:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1">vec[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span>vec[<span class="dv">2</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">vec[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span>vec[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] 42.17438</code></pre>
 <p>But <code>pluck()</code> can also do this and is more useful.</p>
 <ul>
 <li><code>pluck()</code> allows you to pull out a single element (i.e. a value or values) from within a vector (e.g. <code>vec</code>).</li>
 </ul>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">pluck</span>(vec, <span class="dv">1</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pluck</span>(vec, <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="kw">pluck</span>(vec, <span class="dv">1</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pluck</span>(vec, <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 42.17438</code></pre>
 <p>And we could run it a pipeline, as below, where we still <code>pull()</code> the means column, <code>m</code>, and then <code>pluck()</code> each value in turn and subtract them from each other.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">1</span>) <span class="op">-</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb237-2" data-line-number="2"><span class="st">  </span>my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">1</span>) <span class="op">-</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb244-2" data-line-number="2"><span class="st">  </span>my_data_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pluck</span>(<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 42.17438</code></pre>
 <p><strong>The <code>pivot_wider()</code>, <code>mutate()</code>, <code>pull()</code> approach</strong></p>
 <p>An alternative way to extract the difference between means which may make more intuitive sense uses the functions <code>pivot_wider()</code>, <code>mutate()</code> and <code>pull()</code>. From Chapter 2, you already know how to calculate a difference between values in the same row of a table using <code>dplyr::mutate()</code>, e.g. <code>mutate(new_column = column1 - column2)</code>. So if you can get the observations in <code>my_data_means</code> into the same row, different columns, you could then use <code>mutate()</code> to calculate the difference.</p>
@@ -1162,17 +1203,31 @@ B
 <li><code>values_from</code> says which existing column to get the data from.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb239-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb246-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>)</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##       A     B
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1  20.0 -22.1</code></pre>
 <p>Now that we have spread the data, we could follow this up with a <code>mutate()</code> call to create a new column which is the difference between the means of A and B. This is shown here:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb241-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, </a>
-<a class="sourceLine" id="cb241-3" data-line-number="3">              <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb241-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) </a></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb249-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, </a>
+<a class="sourceLine" id="cb249-3" data-line-number="3">              <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb249-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) </a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 1 x 3
 ##       A     B  diff
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1185,11 +1240,11 @@ B
 <ul>
 <li><strong>Note:</strong> This would be useful if a question asked for just a specific single value as opposed to the data or value in a tibble.</li>
 </ul>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb243-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, </a>
-<a class="sourceLine" id="cb243-3" data-line-number="3">              <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb243-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb243-5" data-line-number="5"><span class="st">  </span><span class="kw">pull</span>(diff)</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb252-2" data-line-number="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, </a>
+<a class="sourceLine" id="cb252-3" data-line-number="3">              <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb252-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb252-5" data-line-number="5"><span class="st">  </span><span class="kw">pull</span>(diff)</a></code></pre></div>
 <pre><code>## [1] 42.17438</code></pre>
 <div class="solution">
 <button>
@@ -1214,10 +1269,10 @@ Often step 1 of writing code or understanding code is knowing what it is you wan
 <p>Now it would be a pain to have to type out the <code>tibble()</code> function 100 times or even to copy and paste it 100 times if we wanted to replicate our simulated data. We’d likely make an error somewhere and it would be hard to read. So, to help us, we can create a custom function that performs the action you want; in our case, creating a tibble of random data.</p>
 <p>Remember, a function is just a procedure that takes an input and gives you the same output each time - like a toaster! All the functions we have used so far have been created by others. Now we want to make our own function to create our own data.</p>
 <p>A function has the following format:</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1">name_of_function &lt;-<span class="st"> </span><span class="cf">function</span>(arg1, arg2, arg3) {</a>
-<a class="sourceLine" id="cb245-2" data-line-number="2">  <span class="co">## body of function goes between these curly brackets; i.e. what the function does for you.</span></a>
-<a class="sourceLine" id="cb245-3" data-line-number="3">  <span class="co">## Note that the last value calculated will be returned if you call the function.</span></a>
-<a class="sourceLine" id="cb245-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">name_of_function &lt;-<span class="st"> </span><span class="cf">function</span>(arg1, arg2, arg3) {</a>
+<a class="sourceLine" id="cb254-2" data-line-number="2">  <span class="co">## body of function goes between these curly brackets; i.e. what the function does for you.</span></a>
+<a class="sourceLine" id="cb254-3" data-line-number="3">  <span class="co">## Note that the last value calculated will be returned if you call the function.</span></a>
+<a class="sourceLine" id="cb254-4" data-line-number="4">}</a></code></pre></div>
 <p>Breaking down that code a bit:</p>
 <ul>
 <li>first you give your function a name (e.g. <code>name_of_function</code>) and</li>
@@ -1225,18 +1280,18 @@ Often step 1 of writing code or understanding code is knowing what it is you wan
 <li>finally, you state the calculations or actions of the function in the body of the function (the portion that appears between the curly braces).</li>
 </ul>
 <p>Looking at some functions might help. One of the most basic possible functions is one that takes no arguments and just prints a message. Here is an example below. Copy it into a script or your console window and run it to create the function.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">hello &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
-<a class="sourceLine" id="cb246-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;Hello World!&quot;</span>)</a>
-<a class="sourceLine" id="cb246-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1">hello &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb255-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;Hello World!&quot;</span>)</a>
+<a class="sourceLine" id="cb255-3" data-line-number="3">}</a></code></pre></div>
 <p>So this function is called <code>hello</code>. After you have created the function (by running the above lines), the function itself can then be used (run) by typing <code>hello()</code> in your console. If you do that you will see it gives the output of <code>Hello World!</code> every single time you run it; it has no other actions or information. Test this in the console now by typing:</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1"><span class="kw">hello</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">hello</span>()</a></code></pre></div>
 <pre><code>## [1] &quot;Hello World!&quot;</code></pre>
 <p>Awesome right? Ok, so not very exciting. Let’s make it better by adding an argument, <code>name</code>, and have it say Hello <code>name</code>. Copy the below code into your script and run it to create the function.</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">hello &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="st">&quot;World!&quot;</span>) {</a>
-<a class="sourceLine" id="cb249-2" data-line-number="2">  <span class="kw">paste</span>(<span class="st">&quot;Hello&quot;</span>, name)</a>
-<a class="sourceLine" id="cb249-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1">hello &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="st">&quot;World!&quot;</span>) {</a>
+<a class="sourceLine" id="cb258-2" data-line-number="2">  <span class="kw">paste</span>(<span class="st">&quot;Hello&quot;</span>, name)</a>
+<a class="sourceLine" id="cb258-3" data-line-number="3">}</a></code></pre></div>
 <p>This new function is again called <code>hello()</code> and replaces the one you previously created. This time however you are supplying a default argument, (i.e. <code>name = &quot;World!&quot;</code>). You have seen many default arguments before in other functions like the mean and sd in <code>rnorm()</code> in Skill 1. The new function we have created still has the same default action as the previous function of putting “Hello” and “World!” together. So if you run it you get “Hello World!”. Try it yourself!</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1"><span class="kw">hello</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="kw">hello</span>()</a></code></pre></div>
 <pre><code>## [1] &quot;Hello World!&quot;</code></pre>
 <p>Howver, the difference this time is that because you have added an argument to the input, you can change the information you give the argument and therefore change the output of the function. More flexible. More exciting.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
@@ -1247,16 +1302,16 @@ Often step 1 of writing code or understanding code is knowing what it is you wan
 <li><p>What argument would you type to get “Hello Dolly!” as the output: “<select class='solveme' data-answer='["Dolly!"]'> <option></option> <option>Dolly</option> <option>Molly</option> <option>Holly</option> <option>Dolly!</option></select>”</p></li>
 </ul>
 <p>Great. From this basic function you are beginning to understand how functions work in general. However, most of the time we want to create a function that computes a value or constructs a table. For instance, let’s create a function that returns randomly generated data from two samples, as we learned in the Skills 1-3. All we are doing is taking the tibble we created in Skill 4 and putting it in the body (between the curly brackets) of the function.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
-<a class="sourceLine" id="cb252-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">20</span>)),</a>
-<a class="sourceLine" id="cb252-3" data-line-number="3">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>,  <span class="dv">20</span>, <span class="dv">5</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">-20</span>, <span class="dv">5</span>)))</a>
-<a class="sourceLine" id="cb252-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb261-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">20</span>)),</a>
+<a class="sourceLine" id="cb261-3" data-line-number="3">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>,  <span class="dv">20</span>, <span class="dv">5</span>), <span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">-20</span>, <span class="dv">5</span>)))</a>
+<a class="sourceLine" id="cb261-4" data-line-number="4">}</a></code></pre></div>
 <p>This function is called <code>gen_data()</code> and when we run it we get a randomly generated table of two groups, each with 20 people, one with M = 20, SD = 5, the other with M = -20, sd = 5. Try running this <code>gen_data()</code> function in the console a few times; remember that as the data is random, the numbers will be different each time you run it. And just to reiterate, all we have done is take code from Skill 3 and put it into our function. Nothing more.</p>
 <p>But say we want to modify the function to allow us to get a table with smaller or larger numbers of observations per group. We can add an argument <code>n</code> and modify the code as below Create this function and run it a couple of times through <code>gen_data()</code>. The way to think about this is that every place that <code>n</code> appears in the body of the function (between the curly brackets) it will have the value of whatever you gave it in the arguments, i.e. in this case, 20.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">20</span>) {</a>
-<a class="sourceLine" id="cb253-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(n, n)),</a>
-<a class="sourceLine" id="cb253-3" data-line-number="3">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(n,  <span class="dv">20</span>, <span class="dv">5</span>), <span class="kw">rnorm</span>(n, <span class="dv">-20</span>, <span class="dv">5</span>)))</a>
-<a class="sourceLine" id="cb253-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">20</span>) {</a>
+<a class="sourceLine" id="cb262-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(n, n)),</a>
+<a class="sourceLine" id="cb262-3" data-line-number="3">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(n,  <span class="dv">20</span>, <span class="dv">5</span>), <span class="kw">rnorm</span>(n, <span class="dv">-20</span>, <span class="dv">5</span>)))</a>
+<a class="sourceLine" id="cb262-4" data-line-number="4">}</a></code></pre></div>
 <p>Ok here are some questions to see how well you understand what this function does.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
@@ -1285,23 +1340,23 @@ If you wanted 100 participants per group then really you want the tibble line to
 <button>
 Solution To Challenge Question
 </button>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">m1 =</span> <span class="dv">20</span>, <span class="dt">m2 =</span> <span class="dv">-20</span>) {</a>
-<a class="sourceLine" id="cb254-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(n, n)),</a>
-<a class="sourceLine" id="cb254-3" data-line-number="3">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(n,  m1, <span class="dv">5</span>), <span class="kw">rnorm</span>(n, m2, <span class="dv">5</span>)))</a>
-<a class="sourceLine" id="cb254-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb254-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb254-6" data-line-number="6"><span class="co"># m1 is the mean of group A</span></a>
-<a class="sourceLine" id="cb254-7" data-line-number="7"><span class="co"># m2 is mean of group B</span></a>
-<a class="sourceLine" id="cb254-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb254-9" data-line-number="9"><span class="co"># The function would be called by: gen_data(20, 20, -20)</span></a>
-<a class="sourceLine" id="cb254-10" data-line-number="10"><span class="co"># Giving 20 participants in each group, </span></a>
-<a class="sourceLine" id="cb254-11" data-line-number="11"><span class="co"># The first group having a mean of 20, </span></a>
-<a class="sourceLine" id="cb254-12" data-line-number="12"><span class="co"># The second group having a mean of -20. </span></a>
-<a class="sourceLine" id="cb254-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb254-14" data-line-number="14"><span class="co"># Likewise, a call of: gen_data(4, 10, 5)</span></a>
-<a class="sourceLine" id="cb254-15" data-line-number="15"><span class="co"># Would give two groups of 4, </span></a>
-<a class="sourceLine" id="cb254-16" data-line-number="16"><span class="co"># The first having a mean of 10, </span></a>
-<a class="sourceLine" id="cb254-17" data-line-number="17"><span class="co"># The second having a mean of 5.</span></a></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">m1 =</span> <span class="dv">20</span>, <span class="dt">m2 =</span> <span class="dv">-20</span>) {</a>
+<a class="sourceLine" id="cb263-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(n, n)),</a>
+<a class="sourceLine" id="cb263-3" data-line-number="3">                  <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(n,  m1, <span class="dv">5</span>), <span class="kw">rnorm</span>(n, m2, <span class="dv">5</span>)))</a>
+<a class="sourceLine" id="cb263-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb263-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb263-6" data-line-number="6"><span class="co"># m1 is the mean of group A</span></a>
+<a class="sourceLine" id="cb263-7" data-line-number="7"><span class="co"># m2 is mean of group B</span></a>
+<a class="sourceLine" id="cb263-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb263-9" data-line-number="9"><span class="co"># The function would be called by: gen_data(20, 20, -20)</span></a>
+<a class="sourceLine" id="cb263-10" data-line-number="10"><span class="co"># Giving 20 participants in each group, </span></a>
+<a class="sourceLine" id="cb263-11" data-line-number="11"><span class="co"># The first group having a mean of 20, </span></a>
+<a class="sourceLine" id="cb263-12" data-line-number="12"><span class="co"># The second group having a mean of -20. </span></a>
+<a class="sourceLine" id="cb263-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb263-14" data-line-number="14"><span class="co"># Likewise, a call of: gen_data(4, 10, 5)</span></a>
+<a class="sourceLine" id="cb263-15" data-line-number="15"><span class="co"># Would give two groups of 4, </span></a>
+<a class="sourceLine" id="cb263-16" data-line-number="16"><span class="co"># The first having a mean of 10, </span></a>
+<a class="sourceLine" id="cb263-17" data-line-number="17"><span class="co"># The second having a mean of 5.</span></a></code></pre></div>
 </div>
 <div class="solution">
 <button>
@@ -1332,21 +1387,21 @@ Here are two important things to understand about functions.
 <div id="skill-6-replicating-operations" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> Skill 6: Replicating Operations</h3>
 <p>The last skill (we promise it is quick) you will need for the upcoming lab is knowing how to repeat a function/action (or expression) multiple times. You saw this in Chapter 4 so we will only briefly recap here. Here, we use the base function <code>replicate()</code>. For instance, say you wanted to calculate the mean from <code>rnorm(100)</code> ten times, you could write it like this:</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="co">## bad way</span></a>
-<a class="sourceLine" id="cb255-2" data-line-number="2"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-3" data-line-number="3"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-4" data-line-number="4"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-5" data-line-number="5"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-6" data-line-number="6"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-7" data-line-number="7"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-8" data-line-number="8"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-9" data-line-number="9"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
-<a class="sourceLine" id="cb255-10" data-line-number="10"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="co">## bad way</span></a>
+<a class="sourceLine" id="cb264-2" data-line-number="2"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-3" data-line-number="3"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-4" data-line-number="4"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-5" data-line-number="5"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-6" data-line-number="6"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-7" data-line-number="7"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-8" data-line-number="8"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-9" data-line-number="9"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a>
+<a class="sourceLine" id="cb264-10" data-line-number="10"><span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>()</a></code></pre></div>
 <p>But it’s far easier and more readable to wrap the expression in the <code>replicate()</code> function where the first argument is the number of times you want to repeat the function/expression, and the second argument is the actual function/expression, i.e. <code>replicate(times, expression)</code>. Below, we replicate the mean of 100 randomly generated numbers from the normal distribution, and we do this 10 times:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1"><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1"><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>())</a></code></pre></div>
 <p>Also you’ll probably want to store the results in a variable, for example, <code>ten_samples</code>:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1">ten_samples &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>())</a>
-<a class="sourceLine" id="cb257-2" data-line-number="2">ten_samples</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1">ten_samples &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">rnorm</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mean</span>())</a>
+<a class="sourceLine" id="cb266-2" data-line-number="2">ten_samples</a></code></pre></div>
 <pre><code>##  [1]  0.141845152  0.087058350 -0.075256976  0.024925207  0.142552887
 ##  [6] -0.037144322  0.017628417 -0.007552539  0.056596720 -0.046298145</code></pre>
 <p>Each element (value) of the vector within <code>ten_samples</code> is the result of a single call to <code>rnorm(100) %&gt;% mean()</code>.</p>
@@ -1359,28 +1414,28 @@ Here are two important things to understand about functions.
 <button>
 Solution To Quickfire Question
 </button>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="co"># the function would be:</span></a>
-<a class="sourceLine" id="cb259-2" data-line-number="2">hello &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="st">&quot;World!&quot;</span>){</a>
-<a class="sourceLine" id="cb259-3" data-line-number="3">  <span class="kw">paste</span>(<span class="st">&quot;Hello&quot;</span>, name)</a>
-<a class="sourceLine" id="cb259-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb259-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb259-6" data-line-number="6"><span class="co"># and would be called by:</span></a>
-<a class="sourceLine" id="cb259-7" data-line-number="7"><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">hello</span>(<span class="st">&quot;Goodbye&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1"><span class="co"># the function would be:</span></a>
+<a class="sourceLine" id="cb268-2" data-line-number="2">hello &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="st">&quot;World!&quot;</span>){</a>
+<a class="sourceLine" id="cb268-3" data-line-number="3">  <span class="kw">paste</span>(<span class="st">&quot;Hello&quot;</span>, name)</a>
+<a class="sourceLine" id="cb268-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb268-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb268-6" data-line-number="6"><span class="co"># and would be called by:</span></a>
+<a class="sourceLine" id="cb268-7" data-line-number="7"><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">hello</span>(<span class="st">&quot;Goodbye&quot;</span>))</a></code></pre></div>
 </div>
 <p><br></p>
 <p>Excellent. And to very quickly combine all these skills together, have a look at the below code and see if you follow it. We will be creating something like this in the InClass activity so spending a few minutes to think about this will really help you.</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">m1 =</span> <span class="dv">20</span>, <span class="dt">m2 =</span> <span class="dv">-20</span>) {</a>
-<a class="sourceLine" id="cb260-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(n, n)),</a>
-<a class="sourceLine" id="cb260-3" data-line-number="3">         <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(n,  m1, <span class="dv">5</span>), <span class="kw">rnorm</span>(n, m2, <span class="dv">5</span>))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb260-4" data-line-number="4"><span class="st">    </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb260-5" data-line-number="5"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb260-6" data-line-number="6"><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>,</a>
-<a class="sourceLine" id="cb260-7" data-line-number="7">                <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb260-8" data-line-number="8"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb260-9" data-line-number="9"><span class="st">    </span><span class="kw">pull</span>(diff)</a>
-<a class="sourceLine" id="cb260-10" data-line-number="10">}</a>
-<a class="sourceLine" id="cb260-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb260-12" data-line-number="12"><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">gen_data</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1">gen_data &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">m1 =</span> <span class="dv">20</span>, <span class="dt">m2 =</span> <span class="dv">-20</span>) {</a>
+<a class="sourceLine" id="cb269-2" data-line-number="2">  <span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="kw">c</span>(n, n)),</a>
+<a class="sourceLine" id="cb269-3" data-line-number="3">         <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(n,  m1, <span class="dv">5</span>), <span class="kw">rnorm</span>(n, m2, <span class="dv">5</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb269-4" data-line-number="4"><span class="st">    </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb269-5" data-line-number="5"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb269-6" data-line-number="6"><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>,</a>
+<a class="sourceLine" id="cb269-7" data-line-number="7">                <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb269-8" data-line-number="8"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb269-9" data-line-number="9"><span class="st">    </span><span class="kw">pull</span>(diff)</a>
+<a class="sourceLine" id="cb269-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb269-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb269-12" data-line-number="12"><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">gen_data</span>())</a></code></pre></div>
 <pre><code>##  [1] 38.32468 38.58886 41.10297 38.27276 40.38041 39.46561 41.43998
 ##  [8] 39.91298 39.96558 41.15454</code></pre>
 <p>Every of the 10 values in this output is the difference between between two simulated groups of 20 participants where Group A had a mean of 20, and Group B had a mean of -20.</p>
@@ -1487,6 +1542,13 @@ If tibble already exists, just mutate on <code>row_numbers()</code>. No need for
 <li>The column <code>Y</code> is your dependent variable (DV)</li>
 <li>The column <code>subj_id</code> is the participant number.</li>
 </ul>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 100 x 3
 ##    group     Y subj_id
 ##    &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;
@@ -1544,19 +1606,19 @@ Helpful Hint
 <ul>
 <li>This function will take a single argument named <code>x</code>, where <code>x</code> is any tibble that you want to calculate group means from. As in the previous step, the function will atill return a single value which is the difference between the group means. The start of your function will look like this below:</li>
 </ul>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1">calc_diff &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb263-2" data-line-number="2">  x <span class="op">%&gt;%</span>....</a>
-<a class="sourceLine" id="cb263-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1">calc_diff &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb273-2" data-line-number="2">  x <span class="op">%&gt;%</span>....</a>
+<a class="sourceLine" id="cb273-3" data-line-number="3">}</a></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
 </button>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1">calc_diff &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb264-2" data-line-number="2">  x <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb264-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb264-4" data-line-number="4"><span class="st">    </span>the_rest_of_your_pipe... <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb264-5" data-line-number="5"><span class="st">    </span><span class="kw">pull</span>(diff)</a>
-<a class="sourceLine" id="cb264-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1">calc_diff &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb274-2" data-line-number="2">  x <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb274-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb274-4" data-line-number="4"><span class="st">    </span>the_rest_of_your_pipe... <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb274-5" data-line-number="5"><span class="st">    </span><span class="kw">pull</span>(diff)</a>
+<a class="sourceLine" id="cb274-6" data-line-number="6">}</a></code></pre></div>
 </div>
 <p><br></p>
 <p>2.3. Now call your new function where <code>x</code> = <code>dat</code> as the argument and store the result in a new variable called <code>d_orig</code>. Make sure that your function returns the same value for <span class="math inline">\(D_{orig}\)</span> as you got above and that your function returns a single value rather than a tibble.</p>
@@ -1571,17 +1633,17 @@ Helpful Hint
 <button>
 Helpful Hint
 </button>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1">d_orig &lt;-<span class="st"> </span><span class="kw">function_name</span>(<span class="dt">x =</span> data_name) </a>
-<a class="sourceLine" id="cb265-2" data-line-number="2"><span class="co"># or</span></a>
-<a class="sourceLine" id="cb265-3" data-line-number="3">d_orig &lt;-<span class="st"> </span><span class="kw">function_name</span>(data_name)</a>
-<a class="sourceLine" id="cb265-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb265-5" data-line-number="5"><span class="co"># Then type the following in the Console and look at the answer:</span></a>
-<a class="sourceLine" id="cb265-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb265-7" data-line-number="7"><span class="kw">is.tibble</span>(d_orig)</a>
-<a class="sourceLine" id="cb265-8" data-line-number="8"><span class="co"># True (is a tibble) or False (is not a tibble)</span></a>
-<a class="sourceLine" id="cb265-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb265-10" data-line-number="10"><span class="kw">is.numeric</span>(d_orig)</a>
-<a class="sourceLine" id="cb265-11" data-line-number="11"><span class="co"># True (is numeric) or False (is not numeric; it is a character or integer instead.)</span></a></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1">d_orig &lt;-<span class="st"> </span><span class="kw">function_name</span>(<span class="dt">x =</span> data_name) </a>
+<a class="sourceLine" id="cb275-2" data-line-number="2"><span class="co"># or</span></a>
+<a class="sourceLine" id="cb275-3" data-line-number="3">d_orig &lt;-<span class="st"> </span><span class="kw">function_name</span>(data_name)</a>
+<a class="sourceLine" id="cb275-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb275-5" data-line-number="5"><span class="co"># Then type the following in the Console and look at the answer:</span></a>
+<a class="sourceLine" id="cb275-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb275-7" data-line-number="7"><span class="kw">is.tibble</span>(d_orig)</a>
+<a class="sourceLine" id="cb275-8" data-line-number="8"><span class="co"># True (is a tibble) or False (is not a tibble)</span></a>
+<a class="sourceLine" id="cb275-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb275-10" data-line-number="10"><span class="kw">is.numeric</span>(d_orig)</a>
+<a class="sourceLine" id="cb275-11" data-line-number="11"><span class="co"># True (is numeric) or False (is not numeric; it is a character or integer instead.)</span></a></code></pre></div>
 </div>
 <p><br></p>
 <p>Great. To recap, using what we learnt in PreClass Skills 4 &amp; 5, we now have a function called <code>calc_diff()</code> that, when we give it our data (<code>dat</code>), it returns the original difference between the groups - which we have stored in <code>d_orig</code>.</p>
@@ -1597,9 +1659,9 @@ Helpful Hint
 <li>You have used <code>mutate()</code> twice already today and you saw how to <code>sample()</code> <strong>letters</strong> in the PreClass Activity Skill 2.</li>
 <li>Get this working outside the function first, e.g. in your console windown, and then add it to the function.</li>
 </ul>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1">permute &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb266-2" data-line-number="2">  x <span class="op">%&gt;%</span>.....</a>
-<a class="sourceLine" id="cb266-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" data-line-number="1">permute &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb276-2" data-line-number="2">  x <span class="op">%&gt;%</span>.....</a>
+<a class="sourceLine" id="cb276-3" data-line-number="3">}</a></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1698,7 +1760,7 @@ Replace <code>times</code> with how many times you want to run it the <code>expr
 <ul>
 <li>We have started the code for you but one thing to note however is that <code>nhd</code> is not a <code>tibble</code> and <code>ggplot</code> needs it to be a <code>tibble</code>. You need to convert it just like you did in Preclass Activity Skill 3. You might start by do something like:</li>
 </ul>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="kw">tibble</span>(<span class="dt">x =</span> <span class="ot">NULL</span>), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="kw">tibble</span>(<span class="dt">x =</span> <span class="ot">NULL</span>), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1729,7 +1791,7 @@ Remember that <code>ggplot</code> works as: <code>ggplot(data, aes(x)) + geom…
 <li><strong>Hint:</strong> You have two <code>NULL</code>s to replace and two “things” to replace them with - <code>d_orig</code> or <code>nhd</code>.</li>
 <li><strong>Hint:</strong> You want <code>lvec</code> to show every where that the values in <code>nhd</code> are greater than or equal to the <code>d_orig</code> value.</li>
 </ul>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1">lvec &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="ot">NULL</span>) <span class="op">&gt;=</span><span class="st"> </span><span class="kw">abs</span>(<span class="ot">NULL</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1">lvec &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="ot">NULL</span>) <span class="op">&gt;=</span><span class="st"> </span><span class="kw">abs</span>(<span class="ot">NULL</span>)</a></code></pre></div>
 <div class="solution">
 <button>
 Portfolio Point - abs and the case of one or two tails
@@ -1748,12 +1810,12 @@ The answer relates to whether you are testing in one or two tails of your distri
 <ul>
 <li><strong>Hint:</strong> This step is easier than you think. <code>sum(...)</code></li>
 </ul>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1">n_exceeding_orig &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1">n_exceeding_orig &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p>5.3. Replace the NULL in the code below to calculate the probability of finding a value of <code>d_orig</code> in our <code>nhd</code> distribution by dividing <code>n_exceeding_orig</code>, the number of values greater than or equal to your original value, by the <code>length()</code> of your whole distribution <code>nhd</code>. <strong>Note: the length of <code>nhd</code> is the same as the number of replications we ran. Using code reduces the chance of human error.</strong></p>
 <ul>
 <li><strong>Hint:</strong> We saw the <code>length()</code> function in the PreClass Activity Skill 1.</li>
 </ul>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p>5.4. Finally, complete the sentence below determining if the original value was extreme or not in regards to the distribution. Use inline coding, shown in Chapter 1, to replace the <code>XXX</code>s. For example, if you were to write, <code>`r length(nhd)`</code>, when knitted would appear as 1000.</p>
 <p><strong>&quot; The difference between Group A and Group B (M = <code>XXX</code>) was found to be have a probability of p = <code>XXX</code>. This means that the original mean difference was …… and the null hypothesis is …..&quot; </strong></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
@@ -1774,73 +1836,94 @@ The answer relates to whether you are testing in one or two tails of your distri
 <h3><span class="header-section-number">5.5.1</span> InClass Activities</h3>
 <div id="step-1" class="section level4">
 <h4><span class="header-section-number">5.5.1.1</span> Step 1</h4>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb271-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">1409</span>)</a>
-<a class="sourceLine" id="cb271-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb271-4" data-line-number="4">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;perm_data.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb271-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">subj_id =</span> <span class="kw">row_number</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb281-2" data-line-number="2"><span class="kw">set.seed</span>(<span class="dv">1409</span>)</a>
+<a class="sourceLine" id="cb281-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb281-4" data-line-number="4">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;perm_data.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb281-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">subj_id =</span> <span class="kw">row_number</span>())</a></code></pre></div>
 <p><strong>Note:</strong> The data for this activity was created in exactly the same fashion as we saw in the PreClass Activity Skill 1. If you wanted to create your own datasets this is the code we used.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb272-2" data-line-number="2">               <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">15</span>),</a>
-<a class="sourceLine" id="cb272-3" data-line-number="3">                     <span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">110</span>, <span class="dv">15</span>)))</a>
-<a class="sourceLine" id="cb272-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb272-5" data-line-number="5"><span class="kw">write_csv</span>(dat, <span class="st">&quot;perm_data.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">50</span>),</a>
+<a class="sourceLine" id="cb282-2" data-line-number="2">               <span class="dt">Y =</span> <span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">15</span>),</a>
+<a class="sourceLine" id="cb282-3" data-line-number="3">                     <span class="kw">rnorm</span>(<span class="dv">50</span>, <span class="dv">110</span>, <span class="dv">15</span>)))</a>
+<a class="sourceLine" id="cb282-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb282-5" data-line-number="5"><span class="kw">write_csv</span>(dat, <span class="st">&quot;perm_data.csv&quot;</span>)</a></code></pre></div>
 <p><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT1">Return to Task</a></p>
 </div>
 <div id="step-2" class="section level4">
 <h4><span class="header-section-number">5.5.1.2</span> Step 2</h4>
 <p><strong>Step 2.1.1 - the basic dat pipeline</strong></p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb273-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb273-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y))</a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb283-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb283-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y))</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   group     m
 ##   &lt;chr&gt; &lt;dbl&gt;
 ## 1 A      101.
 ## 2 B      109.</code></pre>
 <p><strong>Step 2.1.2 - using <code>pivot_wider()</code> to separate the groups</strong></p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb275-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb275-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb275-4" data-line-number="4"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb286-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb286-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb286-4" data-line-number="4"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>)</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##       A     B
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1  101.  109.</code></pre>
 <p><strong>Step 2.1.3 - <code>mutate()</code> the column of mean differences</strong></p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb277-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb277-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb277-4" data-line-number="4"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb277-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B)</a></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb289-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb289-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb289-4" data-line-number="4"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb289-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B)</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 1 x 3
 ##       A     B  diff
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1  101.  109. -7.39</code></pre>
 <p><strong>Step 2.1.4 - <code>pull()</code> out the difference</strong></p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb279-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb279-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb279-4" data-line-number="4"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb279-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb279-6" data-line-number="6"><span class="st">  </span><span class="kw">pull</span>(diff)</a></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1">dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb292-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb292-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb292-4" data-line-number="4"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb292-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb292-6" data-line-number="6"><span class="st">  </span><span class="kw">pull</span>(diff)</a></code></pre></div>
 <pre><code>## [1] -7.388401</code></pre>
 <ul>
 <li>As such <span class="math inline">\(D_{orig}\)</span> = -7.39</li>
 </ul>
 <p><strong>Step 2.2 - setting up the <code>calc_diff()</code> function</strong></p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1">calc_diff &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb281-2" data-line-number="2">  x <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb281-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb281-4" data-line-number="4"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb281-5" data-line-number="5"><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb281-6" data-line-number="6"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb281-7" data-line-number="7"><span class="st">    </span><span class="kw">pull</span>(diff)</a>
-<a class="sourceLine" id="cb281-8" data-line-number="8">}</a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">calc_diff &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb294-2" data-line-number="2">  x <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-4" data-line-number="4"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-5" data-line-number="5"><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;group&quot;</span>, <span class="dt">values_from =</span> <span class="st">&quot;m&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-6" data-line-number="6"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-7" data-line-number="7"><span class="st">    </span><span class="kw">pull</span>(diff)</a>
+<a class="sourceLine" id="cb294-8" data-line-number="8">}</a></code></pre></div>
 <p><strong>Step 2.3 - Calculating d_orig using calc_diff()</strong></p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1">d_orig &lt;-<span class="st"> </span><span class="kw">calc_diff</span>(dat)</a>
-<a class="sourceLine" id="cb282-2" data-line-number="2"><span class="kw">is_tibble</span>(d_orig)</a>
-<a class="sourceLine" id="cb282-3" data-line-number="3"><span class="kw">is_numeric</span>(d_orig)</a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">d_orig &lt;-<span class="st"> </span><span class="kw">calc_diff</span>(dat)</a>
+<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="kw">is_tibble</span>(d_orig)</a>
+<a class="sourceLine" id="cb295-3" data-line-number="3"><span class="kw">is_numeric</span>(d_orig)</a></code></pre></div>
 <pre><code>## Warning: Deprecated</code></pre>
 <pre><code>## [1] FALSE
 ## [1] TRUE</code></pre>
@@ -1848,12 +1931,19 @@ The answer relates to whether you are testing in one or two tails of your distri
 </div>
 <div id="step-3" class="section level4">
 <h4><span class="header-section-number">5.5.1.3</span> Step 3</h4>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">permute &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb285-2" data-line-number="2">  x <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb285-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">group =</span> <span class="kw">sample</span>(group))</a>
-<a class="sourceLine" id="cb285-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb285-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb285-6" data-line-number="6"><span class="kw">permute</span>(dat)</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1">permute &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb298-2" data-line-number="2">  x <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">group =</span> <span class="kw">sample</span>(group))</a>
+<a class="sourceLine" id="cb298-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb298-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb298-6" data-line-number="6"><span class="kw">permute</span>(dat)</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 100 x 3
 ##    group     Y subj_id
 ##    &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;
@@ -1873,12 +1963,12 @@ The answer relates to whether you are testing in one or two tails of your distri
 <div id="step-4" class="section level4">
 <h4><span class="header-section-number">5.5.1.4</span> Step 4</h4>
 <p><strong>Step 4.1 - the pipeline</strong></p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">permute</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">calc_diff</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1">dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">permute</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">calc_diff</span>()</a></code></pre></div>
 <pre><code>## [1] -1.150124</code></pre>
 <p><strong>Step 4.2 - creating nhd</strong></p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">nhd &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">permute</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">calc_diff</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">nhd &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">permute</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">calc_diff</span>())</a></code></pre></div>
 <p><strong>Step 4.3 - plotting nhd</strong></p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">tibble</span>(<span class="dt">x =</span> nhd), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">tibble</span>(<span class="dt">x =</span> nhd), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:histogram"></span>
 <img src="05-s01-lab05e_files/figure-html/histogram-1.png" alt="The simulated distribution of all possible differences" width="100%" />
 <p class="caption">
@@ -1895,17 +1985,17 @@ Figure 5.1: The simulated distribution of all possible differences
 <li>It returns all these values as TRUE and all other values as FALSE</li>
 <li><code>abs()</code> tells the code to ignore the sign of the value (i.e. assumes everything is positive)</li>
 </ul>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">lvec =<span class="st"> </span><span class="kw">abs</span>(nhd) <span class="op">&gt;=</span><span class="st"> </span><span class="kw">abs</span>(d_orig)</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">lvec =<span class="st"> </span><span class="kw">abs</span>(nhd) <span class="op">&gt;=</span><span class="st"> </span><span class="kw">abs</span>(d_orig)</a></code></pre></div>
 <p><strong>Step 5.2 - Sum up all the TRUE values</strong></p>
 <ul>
 <li>This gives the total number of values greater or equal to d_orig</li>
 </ul>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1">n_exceeding_orig &lt;-<span class="st"> </span><span class="kw">sum</span>(lvec)</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">n_exceeding_orig &lt;-<span class="st"> </span><span class="kw">sum</span>(lvec)</a></code></pre></div>
 <p><strong>Step 5.3 - Calculate the probability</strong></p>
 <ul>
 <li>The probability of obtaining d_orig or greater is calculated by the number of values equal to or greater than d_orig, divided by the full size of nhd (or in other words, its length)</li>
 </ul>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">p &lt;-<span class="st"> </span>n_exceeding_orig <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(nhd)</a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">p &lt;-<span class="st"> </span>n_exceeding_orig <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(nhd)</a></code></pre></div>
 <ul>
 <li>As such the probability of finding a value of <span class="math inline">\(D_{orig}\)</span> or larger was p = 0.021</li>
 </ul>
@@ -1936,23 +2026,37 @@ Figure 5.1: The simulated distribution of all possible differences
 <ul>
 <li>Remember the values will be different from the PreClass because we are using a function that creates a set of random numbers each time, <code>rnorm()</code></li>
 </ul>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##   group     m
 ##   &lt;chr&gt; &lt;dbl&gt;
 ## 1 A      19.6
 ## 2 B     -19.8</code></pre>
 <p>In order to split the table so that we have one column for Group A and another columns for Group B, we would use the below code. The spread function (<code>?spread</code>) splits the data in column <code>m</code> by the information, i.e. labels, in column <code>group</code> and puts the data into separate columns.</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m)</a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb310-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m)</a></code></pre></div>
+<pre><code>## Warning: `...` is not empty.
+## 
+## We detected these problematic arguments:
+## * `needs_dots`
+## 
+## These dots only exist to allow future extensions and should be empty.
+## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##       A     B
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1  19.6 -19.8</code></pre>
 <p>So the <code>spread()</code> function is not that different from using <code>pivot_wider()</code> but the inclusion of <code>names_from</code> and <code>values_from</code> really does make using <code>pivot_wider()</code> a lot clearer.</p>
 <p>The rest of the actions in that step of the Activity would follow as in the PreClass Activity - adding a <code>mutate()</code> as shown below:</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb297-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) </a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">my_data_means <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(group, m) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb313-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> A <span class="op">-</span><span class="st"> </span>B) </a></code></pre></div>
 </div>
 <div id="more-on-simulating-your-own-data" class="section level3 unnumbered">
 <h3>More on simulating your own data</h3>
@@ -1962,7 +2066,7 @@ Figure 5.1: The simulated distribution of all possible differences
 <ul>
 <li>Going to need at least tidyverse</li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <ul>
 <li>The below code is how we might created a tibble (<code>my_chi_data</code>) where you have two columns:
 <ul>
@@ -1971,17 +2075,17 @@ Figure 5.1: The simulated distribution of all possible differences
 </ul></li>
 </ul>
 <p>We won’t walk you through this code as you should know enough from Chapters 4 &amp; 5 to follow it and edit it, but if you really struggle, get in touch</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">my_chi_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Groups =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>),        <span class="co"># Names of your Groups</span></a>
-<a class="sourceLine" id="cb299-2" data-line-number="2">                               <span class="dt">times =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>)),    <span class="co"># Participants per Group</span></a>
-<a class="sourceLine" id="cb299-3" data-line-number="3">                  <span class="dt">Responses =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>,         <span class="co"># Response Options to Sample</span></a>
-<a class="sourceLine" id="cb299-4" data-line-number="4">                                       <span class="st">&quot;No&quot;</span>, </a>
-<a class="sourceLine" id="cb299-5" data-line-number="5">                                       <span class="st">&quot;Unsure&quot;</span>),     </a>
-<a class="sourceLine" id="cb299-6" data-line-number="6">                                     <span class="dt">size =</span> <span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="dv">50</span>,  <span class="co"># Total number of responses</span></a>
-<a class="sourceLine" id="cb299-7" data-line-number="7">                                     <span class="dt">replace =</span> <span class="ot">TRUE</span>)) <span class="co"># with replacement</span></a></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">my_chi_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Groups =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>),        <span class="co"># Names of your Groups</span></a>
+<a class="sourceLine" id="cb315-2" data-line-number="2">                               <span class="dt">times =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>)),    <span class="co"># Participants per Group</span></a>
+<a class="sourceLine" id="cb315-3" data-line-number="3">                  <span class="dt">Responses =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>,         <span class="co"># Response Options to Sample</span></a>
+<a class="sourceLine" id="cb315-4" data-line-number="4">                                       <span class="st">&quot;No&quot;</span>, </a>
+<a class="sourceLine" id="cb315-5" data-line-number="5">                                       <span class="st">&quot;Unsure&quot;</span>),     </a>
+<a class="sourceLine" id="cb315-6" data-line-number="6">                                     <span class="dt">size =</span> <span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="dv">50</span>,  <span class="co"># Total number of responses</span></a>
+<a class="sourceLine" id="cb315-7" data-line-number="7">                                     <span class="dt">replace =</span> <span class="ot">TRUE</span>)) <span class="co"># with replacement</span></a></code></pre></div>
 <ul>
 <li>If you wanted to save your data as a .csv file for later use or to send to a colleague, you could use:</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">write_csv</span>(my_chi_data, <span class="st">&quot;my_data.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">write_csv</span>(my_chi_data, <span class="st">&quot;my_data.csv&quot;</span>)</a></code></pre></div>
 <ul>
 <li>Or with a bit of data wrangling, you can convert <code>my_chi_data</code> into a cross-tabulation table that would look like as follows:
 <ul>
@@ -2060,7 +2164,7 @@ B
 <p>As we don’t know where our data comes from we don’t really know what distribution to check our <span class="math inline">\(D_{orig}\)</span> against. In that situation we can create a distribution based on the values we have already collected using the permutation test we talked about InClass. Basically, in this test, we shuffle which group people belonged to (A or B) and then calculate the difference between these shuffled groups. And we do that 1000 times or more to create a distribution.</p>
 <p>The reason we are allowed to shuffle whether people were in group A or B is because we are deliberately wanting to test if the group people were originally in drives the difference we see. If the original grouping of participants is important then the original difference (<span class="math inline">\(D_{orig}\)</span>) will be an extreme value on the distribution we create. If the group people were originally in isn’t important, then the original difference (<span class="math inline">\(D_{orig}\)</span>) will not be an extreme value in the distribution; it will be a common value.</p>
 <p>Here again is the distribution we simulated using the permutation test described InClass and above:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">tibble</span>(<span class="dt">x =</span> nhd), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">tibble</span>(<span class="dt">x =</span> nhd), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch5-additionl-perm-plot"></span>
 <img src="05-s01-lab05f_files/figure-html/ch5-additionl-perm-plot-1.png" alt="The simulated distribution of all possible differences" width="100%" />
 <p class="caption">
