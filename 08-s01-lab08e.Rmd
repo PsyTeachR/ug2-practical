@@ -54,14 +54,12 @@ d = (2*t)/sqrt((30-1) + (30-1))
 #### InClass Task 5
 
 ```{r Ch8InClassQueT5_sol, results='asis'}
-sample_size <- power.t.test(delta = .23,
-                          sd = 1,
+sample_size <- pwr.t.test(d = .23,
                           power = .8, 
                           sig.level = .05, 
                           alternative = "two.sided", 
                           type = "one.sample") %>%
-  tidy() %>% 
-  pull(n) %>% 
+  pluck("n") %>% 
   ceiling()
 ```
 
@@ -72,15 +70,13 @@ sample_size <- power.t.test(delta = .23,
 #### InClass Task 6
 
 ```{r Ch8InClassQueT6_sol, results='asis'}
-cohens <- power.t.test(n = 50,
+cohens <- pwr.t.test(n = 50,
                     power = .9, 
                     sig.level = .05, 
                     alternative = "two.sided", 
                     type = "two.sample") %>% 
-  tidy() %>% 
-  pull(delta) %>% 
+  pluck("d") %>% 
   round(2)
-
 ```
 
 * Giving a Cohen's d effect size of d = `r cohens`
@@ -92,13 +88,12 @@ cohens <- power.t.test(n = 50,
 **Example 1**
 
 ```{r Ch8InClassQueT71_sol, results='asis'}
-ach_d_exp1 <- power.t.test(power = .8, 
+ach_d_exp1 <- pwr.t.test(power = .8, 
                          n = 32, 
                          type = "one.sample", 
                          alternative = "two.sided", 
                          sig.level = .05) %>% 
-  tidy() %>% 
-  pull(delta) %>% 
+  pluck("d") %>% 
   round(2) 
 
 exp1_d <- 2.96/sqrt(31+1) 
@@ -111,13 +106,12 @@ This study seems ok as the authors could achieve an effect size as low as .51 an
 **Example 2**
 
 ```{r Ch8InClassQueT72_sol, results='asis'}
-ach_d_exp2 <- power.t.test(power = .8, 
+ach_d_exp2 <- pwr.t.test(power = .8, 
                          n = 32, 
                          type = "paired", 
                          alternative = "two.sided", 
                          sig.level = .05) %>% 
-  tidy() %>% 
-  pull(delta) %>% 
+  pluck("d") %>% 
   round(2) 
 
 exp2_d <- 2.42/sqrt(31+1) 
@@ -132,14 +126,12 @@ This effect might not be reliable given that the effect size found was much lowe
 Below you could calculate the actual sample size required to achieve a power of .8:
 
 ```{r Ch8InClassQueT73_sol, results='asis'}
-sample_size <- power.t.test(power = .8,
-                          delta = .4,
-                          sd = 1,
+sample_size <- pwr.t.test(power = .8,
+                          d = .4,
                           type = "paired", 
                           alternative = "two.sided", 
                           sig.level = .05) %>%
-  tidy() %>% 
-  pull(n) %>% 
+  pluck("n") %>% 
   ceiling()
 ```
 
@@ -153,7 +145,6 @@ sample_size <- power.t.test(power = .8,
 
 ```{r library, message=FALSE, warning=FALSE, eval=FALSE}
 library(pwr)
-library(broom)
 library(tidyverse)
 ```
 
@@ -190,14 +181,12 @@ effect2 <- 2.24/sqrt(43+1)
 #### Assignment Task 4
 
 ```{r T4}
-participants <- power.t.test(power = .9,
-                           delta = .5,
-                           sd = 1,
+participants <- pwr.t.test(power = .9,
+                           d = .5,
                            sig.level = 0.05,
                            type = "paired",
                            alternative = "two.sided") %>% 
-  tidy() %>% 
-  pull(n) %>% 
+  pluck("n") %>% 
   ceiling()
 ```
 
@@ -245,13 +234,12 @@ d1 <- (2*tval)/sqrt((32-1)+(32-1))
 #### Assignment Task 8
 
 ```{r T8}
-poss_d <- power.t.test(power = .8,
+poss_d <- pwr.t.test(power = .8,
                      n = 32,
                      sig.level = 0.05,
                      type = "two.sample",
                      alternative = "two.sided") %>% 
-  tidy() %>% 
-  pull(delta) %>% 
+  pluck("d") %>% 
   round(2)
 
 answer_T8 <- 4
@@ -265,13 +253,12 @@ answer_T8 <- 4
 #### Assignment Task 9
 
 ```{r T9}
-effect4 <- power.t.test(power = .8,
+effect4 <- pwr.t.test(power = .8,
                       n = 18,
                       sig.level = .01,
                       alternative = "two.sided",
                       type = "two.sample") %>% 
-  tidy() %>% 
-  pull(delta) %>% 
+  pluck("d") %>% 
   round(3)
 ```
 
