@@ -466,6 +466,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#solutions-to-questions-9"><i class="fa fa-check"></i><b>10.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="10.5.1" data-path="correlations.html"><a href="correlations.html#inclass-activity-8"><i class="fa fa-check"></i><b>10.5.1</b> InClass Activity</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="correlations.html"><a href="correlations.html#additional-material-6"><i class="fa fa-check"></i><b>10.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#checking-for-outliers-with-z-scores"><i class="fa fa-check"></i>Checking for outliers with z-scores</a></li>
+<li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#a-different-approach-to-making-a-correlation-table"><i class="fa fa-check"></i>A different approach to making a correlation table</a></li>
+<li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#comparing-correlations"><i class="fa fa-check"></i>Comparing Correlations</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
 <li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
@@ -757,15 +762,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>One-sample t-test &amp; within-subjects (paired-sample) t-test:</li>
 </ul>
-<blockquote>
-<p><span class="math inline">\(d = \frac{t}{sqrt(N)}\)</span></p>
-</blockquote>
+<p><span class="math display">\[d = \frac{t}{sqrt(N)}\]</span></p>
 <ul>
 <li>Between-subjects (Independent) t-test:</li>
 </ul>
-<blockquote>
-<p><span class="math inline">\(d = \frac{2t}{sqrt(df)}\)</span></p>
-</blockquote>
+<p><span class="math display">\[d = \frac{2t}{sqrt(df)}\]</span></p>
 <p>Let’s now try using these formulas in order to calculate the effect sizes for given scenarios; we will work up to calculating power later in the chapter.</p>
 <div id="Ch8InClassQueT1" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> Task 1: Effect size from a one-sample t-test</h3>
@@ -1469,7 +1470,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 </div>
 <div id="additional-material-5" class="section level2">
 <h2><span class="header-section-number">8.6</span> Additional Material</h2>
-<p>Below is some additional material that might help you understand permutations a bit more and some additional ideas.</p>
+<p>Below is some additional material that might help you understand APES a bit more and some additional ideas.</p>
 <div id="a-different-power-function---power.t.test" class="section level3 unnumbered">
 <h3>A different power function - <code>power.t.test()</code></h3>
 <p>First thing we wanted to mention was that you can still do this chapter if you don’t have the <code>pwr</code> library installed. You could instead use the <code>power.t.test()</code> function which is a function available in base R, meaning that it is included when you install R, so you do not need to install any additional package. This is handy to know when you are using a computer that you can’t install libraries on to. The <strong><code>pwr</code></strong> library offers more functions and is easier to follow but but for now let’s just use the base function <code>power.t.test()</code>.</p>

@@ -1,6 +1,6 @@
 ## Additional Material
 
-Below is some additional material that might help you understand permutations a bit more and some additional ideas.
+Below is some additional material that might help you understand APES a bit more and some additional ideas.
 
 ### A different power function - `power.t.test()` {-}
 
