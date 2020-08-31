@@ -466,6 +466,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#solutions-to-questions-9"><i class="fa fa-check"></i><b>10.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="10.5.1" data-path="correlations.html"><a href="correlations.html#inclass-activity-8"><i class="fa fa-check"></i><b>10.5.1</b> InClass Activity</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="correlations.html"><a href="correlations.html#additional-material-6"><i class="fa fa-check"></i><b>10.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#checking-for-outliers-with-z-scores"><i class="fa fa-check"></i>Checking for outliers with z-scores</a></li>
+<li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#a-different-approach-to-making-a-correlation-table"><i class="fa fa-check"></i>A different approach to making a correlation table</a></li>
+<li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#comparing-correlations"><i class="fa fa-check"></i>Comparing Correlations</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
 <li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
@@ -634,7 +639,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 10</span> Correlations</h1>
 <div id="overview-10" class="section level2">
 <h2><span class="header-section-number">10.1</span> Overview</h2>
-<p>As you will read in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> as part of the preclass reading, correlations are <strong>used to detect and quantify relationships among numerical variables</strong>. In short, you measure two variables and the correlation analysis tells you whether or not they are related in some manner - positively (i.e. one increases as the other increases) or negatively (i.e. one decreases as the other increases). However, unfortunately, you may have heard people say lots of negative things about correlations:</p>
+<p>As you will read in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> as part of the preclass reading, correlations are <strong>used to detect and quantify relationships among numerical variables</strong>. In short, you measure two variables and the correlation analysis tells you whether or not they are related in some manner - positively (i.e. one increases as the other increases) or negatively (i.e. one decreases as the other increases). Schematic examples of three extreme bivariate relationships (i.e. the relationship between two (bi) variables) are shown below:</p>
+<div class="figure" style="text-align: center"><span id="fig:ch10-show-figure"></span>
+<img src="10-s02-lab10a_files/figure-html/ch10-show-figure-1.png" alt="Schematic examples of extreme bivariate relationships" width="100%" />
+<p class="caption">
+Figure 10.1: Schematic examples of extreme bivariate relationships
+</p>
+</div>
+<p>However, unfortunately, you may have heard people say lots of negative things about correlations:</p>
 <ul>
 <li>they do not prove causality</li>
 <li>they suffer from the bidirectional problem (A vs B is the same as B vs A)</li>
@@ -644,16 +656,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>looking at reading ability and IQ scores such as in Miller and Haden Chapter 11, which we will also look at today;</li>
 <li>exploring personality traits in voices (see <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185651" target = "_blank">Phil McAleer’s work on Voices</a>);</li>
-<li>or traits in faces (see <a href="http://facelab.org/" target = "_blank">Lisa DeBruine’s and Ben Jones’s work</a>);</li>
-<li>brain-imaging analysis looking at activation in say the Amygdala in relation to emotion of faces (see <a href="https://psych.princeton.edu/person/alexander-todorov" target = "_blank">Alex Todorov’s work at Princeton</a>);</li>
+<li>or traits in faces (see <a href="http://facelab.org/" target = "_blank">Lisa DeBruine’s work</a>);</li>
+<li>brain-imaging analysis looking at activation in say the amygdala in relation to emotion of faces (see <a href="https://psych.princeton.edu/person/alexander-todorov" target = "_blank">Alex Todorov’s work at Princeton</a>);</li>
 <li>social attidues, both implicit and explicit, as Helena Paterson will discuss in her Social lectures this semester;</li>
 <li>or a whole variety of fields where you simply measure the variables of interest.</li>
 </ul>
-<p>To actually carry out a correlation is very simple and we will show you that today in a little while: you just need the <code>cor.test()</code> function. The harder part of correlations is really wrangling the data (which you’ve learned to do in Semester 1) and interpreting the data (which we will focus more on today). So, we are going to run a few correlations today, showing you how to do one, and asking you to peform others to give you some good practice at running and interpreting the relationships between two variables.</p>
-<p><strong>Note:</strong> When dealing with correlations it is better to refer to <strong>relationships</strong> and NOT predictions. In a correlation, X does not predict Y, that is really more regression which we will look at later on this semester. In a correlation, what we can say is that X and Y are related in some way. Try to get the correct terminology and please feel free to pull us up if we say the wrong thing in class. It is an easy slip of the tongue to make!</p>
+<p>To actually carry out a correlation is very simple and we will show you that in a little while: you can use the <code>cor.test()</code> function. The harder part of correlations is really wrangling the data (which you’ve learned to do in the first part of this book) and interpreting the data (which we will focus more on this chapter). So, we are going to run a few correlations, showing you how to do one, and asking you to peform others to give you some good practice at running and interpreting the relationships between two variables.</p>
+<p><strong>Note:</strong> When dealing with correlations it is better to refer to <strong>relationships</strong> and NOT predictions. In a correlation, X does not predict Y, that is really more regression which we will look at later on the book. In a correlation, what we can say is that X and Y are related in some way. Try to get the correct terminology and please feel free to pull us up if we say the wrong thing in class. It is an easy slip of the tongue to make!</p>
 <p>In this lab we will:</p>
 <ul>
-<li>Introduce the Miller and Haden book, which we will be using throughout the rest of the semester.</li>
+<li>Introduce the Miller and Haden book, which we will be using throughout the rest of the book</li>
 <li>Show you the thought process of a researcher running a correlational analysis.</li>
 <li>Give you practice in running and writing up a correlation.</li>
 </ul>
@@ -661,14 +673,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="preclass-activity-8" class="section level2">
 <h2><span class="header-section-number">10.2</span> PreClass Activity</h2>
-<p>The majority of the PreClass activities this semester will involve reading a chapter or two from <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> and trying out a couple of tasks. This is an excellent free textbook that we will use to introduce you to the General Linear Model, a model that underlies all the analysis you have seen and will see this year. But, for now, we will start off with some introduction to correlations. Have a read at the chapter, use the visualiser, play the game, and we will see you in the lab.</p>
+<p>The majority of the PreClass activities from now on will involve reading a chapter or two from <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> and trying out a couple of tasks. This is an excellent free textbook that we will use to introduce you to the General Linear Model, a model that underlies all the majority of analyses you have seen and will see this year - e.g. t-tests, correlations, ANOVAs (Analysis of Variance), Regression are all related and are all part of the General Linear Model (GLMs).</p>
+<p>We will start off this chapter some introduction to correlations. Have a read at the chapter, use the visualiser, play the game, and we will see you in the lab.</p>
 <div id="read" class="section level3">
 <h3><span class="header-section-number">10.2.1</span> Read</h3>
 <p><strong>Chapter</strong></p>
 <ul>
 <li>Read Chapters 10 and 11 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>.</li>
 </ul>
-<p>Both chapters are really short but give a good basis to understanding correlational analysis. Please note, in Chapter 10 you might not know some of the the terminology yet, e.g. ANOVA means Analysis of Variance and GLM means General Linear Model (Reading Chapter 1 might help). We will go into depth on these terms in the coming chapters.</p>
+<p>Both chapters are really short but give a good basis to understanding correlational analysis. Please note, in Chapter 10 you might not know some of the the terminology yet, e.g. ANOVA means Analysis of Variance and GLM means General Linear Model (Reading Chapter 1 of Miller and Haden might help). We will go into depth on these terms in the coming chapters.</p>
 </div>
 <div id="watch-1" class="section level3">
 <h3><span class="header-section-number">10.2.2</span> Watch</h3>
@@ -677,7 +690,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Have a look at this visualisation of correlations by Kristoffer Magnusson: <a href = "https://rpsychologist.com/d3/correlation/" target = "_blank">https://rpsychologist.com/d3/correlation/</a>.</li>
 </ul>
 <ol style="list-style-type: decimal">
-<li>After having read Miller and Haden Chapter 11, use this visualisation page to visually replicate the scatterplots in Figures 11.3 and 11.4 - use a sample of 100. After that, visually replicate the scatterplots in Figure 11.5. Each time you change the correlation, pay attention to the shared variance (the overlap between the two variables) and see how this changes with the changing level of association.</li>
+<li>After having read Miller and Haden Chapter 11, use this visualisation page to visually replicate the scatterplots in Figures 11.3 and 11.4 - use a sample of 100. After that, visually replicate the scatterplots in Figure 11.5. Each time you change the correlation, pay attention to the shared variance (the overlap between the two variables) and see how this changes with the changing level of relationship between the two variables. The greater the shared variance, the stronger the relationship.</li>
 <li>Also, try setting the correlation to r = .5 and then moving a sinlge dot to see how one data point, a potential outlier, can change the stated correlation value between two variables</li>
 </ol>
 </div>
@@ -685,23 +698,147 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">10.2.3</span> Play</h3>
 <p><strong>Guess the correlation</strong></p>
 <ul>
-<li>Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online game: <a href = "http://guessthecorrelation.com/" target = "_blank">http://guessthecorrelation.com/</a>.</li>
+<li>Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online app on guessing the correlation: <a href = "https://www.rossmanchance.com/applets/GuessCorrelation.html" target = "_blank">https://www.rossmanchance.com/applets/GuessCorrelation.html</a>.</li>
 </ul>
-<p>Read the instuctions on the ‘About’ tab of the menu and then play the game. Try to achieve your highest score possible before giving up - at worst, 50 points. Last year’s top score was 206; do not let us down here! Post your amazing scores on the lab forum pages. The best posted score will win a free copy of Rstudio!!! This sounds a bit of fun but being able to interpret scatterplots with a reasonable degree of accuracy can really help your understanding of a relationship.</p>
+<p>This is a very basic applet that allows you to see how good you are at recognising different correlation strengths from the scatterplots. We would recommend you click the “Track Performance” tab so you can keep an overview of your overall bias to underestimate or overestimate a correlation.</p>
+<p><strong>Is this all just a bit of fun?</strong></p>
+<p>Well, yes because stats is actually fun, and no, becuase it serves a purpose of helping you determine if there correlations you see in your own data are real, and to help you see if correlations in published research match with what you are being told. As you will from the above examples one data point can lead to a misleading relationship and even what might be considered a medium to strong relationship may actually have only limited relevance in the real world. One only needs to mention Anscombe’s Quartet to be reminded of the importance of visualising your data.</p>
+<p><br></p>
+<p>Anscombe (1973) showed that four sets of bivariate data (X,Y) that have the exact same means, medians, and relationships:</p>
+<table>
+<caption>
+<span id="tab:corr-anscombe-table">Table 10.1: </span>Four bivariate datasets that have the same means, medians, standard deviations, and relationships
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+meanX_rnd
+</th>
+<th style="text-align:center;">
+sdX_rnd
+</th>
+<th style="text-align:center;">
+meanY_rnd
+</th>
+<th style="text-align:center;">
+sdY_rnd
+</th>
+<th style="text-align:center;">
+corrs_rnd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+I
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+3.317
+</td>
+<td style="text-align:center;">
+7.501
+</td>
+<td style="text-align:center;">
+2.032
+</td>
+<td style="text-align:center;">
+0.816
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+II
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+3.317
+</td>
+<td style="text-align:center;">
+7.501
+</td>
+<td style="text-align:center;">
+2.032
+</td>
+<td style="text-align:center;">
+0.816
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+III
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+3.317
+</td>
+<td style="text-align:center;">
+7.500
+</td>
+<td style="text-align:center;">
+2.030
+</td>
+<td style="text-align:center;">
+0.816
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+IV
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+3.317
+</td>
+<td style="text-align:center;">
+7.501
+</td>
+<td style="text-align:center;">
+2.031
+</td>
+<td style="text-align:center;">
+0.817
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Can look very different when plotted:</p>
+<div class="figure" style="text-align: center"><span id="fig:corr-anscombe-figure"></span>
+<img src="10-s02-lab10b_files/figure-html/corr-anscombe-figure-1.png" alt="Though all datasets have a correlation of r = .82, when plotted the four datasets look very different. Grp I is a standard linear relationship where a pearson correlation would be suitable. Grp II would appear to be a non-linear relationship and a non-parametric analysis would be appropriate. Grp III again shows a linear relationship (approaching r = 1) where an outlier has lowered the correlation coefficient. Grp IV shows no relationship between the two variables (X, Y) but an oultier has inflated the correlation higher." width="100%" />
+<p class="caption">
+Figure 10.2: Though all datasets have a correlation of r = .82, when plotted the four datasets look very different. Grp I is a standard linear relationship where a pearson correlation would be suitable. Grp II would appear to be a non-linear relationship and a non-parametric analysis would be appropriate. Grp III again shows a linear relationship (approaching r = 1) where an outlier has lowered the correlation coefficient. Grp IV shows no relationship between the two variables (X, Y) but an oultier has inflated the correlation higher.
+</p>
+</div>
+<p><br></p>
+<p>All in this is a clear example of where you should visualise your data and not to rely on just the numbers. You can read more on Anscombe’s Quartet in your own time, with wikipedia (<a href = "https://en.wikipedia.org/wiki/Anscombe%27s_quartet" target = "_blank">https://en.wikipedia.org/wiki/Anscombe%27s_quartet</a>) offering a good primer and the data used for the above example.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 
 </div>
 </div>
 <div id="inclass-activity-7" class="section level2">
 <h2><span class="header-section-number">10.3</span> InClass Activity</h2>
-<p>We are going to jump straight into this one! To get you used to running a correlation we will use the examples in <strong>Miller and Haden (2013)</strong>, Chapter 11, looking at the <strong>relationship</strong> between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.</p>
-<p><a href="./data/10-s02/inclass/ch10-inclass-data.zip" target = "_blank">Click here to download the data for today</a> or download it from Moodle.</p>
+<p>We are going to jump straight into this one! To get you used to running a correlation we will use the examples you read about in <strong>Miller and Haden (2013)</strong>, Chapter 11, looking at the <strong>relationship</strong> between four variables: reading ability, intelligence, the number of minutes per week spent reading at home, and the number of minutes per week spent watching TV at home. This is again a great example of where a correlation works best because it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate.</p>
+<p><a href="./data/10-s02/inclass/ch10-inclass-data.zip" target = "_blank">Click here to download the data for today</a>.</p>
 <div id="Ch10InClassQueT1" class="section level3">
 <h3><span class="header-section-number">10.3.1</span> Task 1 - The Data</h3>
-<p>After downloading the data folder, unzip the folder, set your working directory appropriately, open a new script, and load in the Miller and Haden data (<code>MillerHadenData.csv</code>), storing it in a tibble called <code>mh</code>.</p>
+<p>After downloading the data folder, unzip the folder, set your working directory appropriately, open a new script, and load in the Miller and Haden data (<code>MillerHadenData.csv</code>), storing it in a tibble called <code>mh</code>. As always, the solutions are at the end of the chapter.</p>
 <ul>
 <li><strong>Note 1:</strong> Remember that in reality you could store the data under any name you like but to make it easier for a demonstrator to debug with you it is handy if we all use the same names.</li>
-<li><strong>Note 2:</strong> You will find that the instructions for tasks are sparse this semester as we want you to really push the skills you learnt in Semester 1. Don’t worry though, we are always here to help, so if you get stuck, ask!</li>
+<li><strong>Note 2:</strong> You will find that the instructions for tasks are sparser from now on, compared to earlier in the book. We want you to really push yourself and develop the skills you learnt in Semester 1. Don’t worry though, we are always here to help, so if you get stuck, ask!</li>
+<li><strong>Note 3:</strong> You will see an additional data set on vaping. We will use that later on in this chapter so you can ignore it for now.</li>
 </ul>
 <div class="solution">
 <button>
@@ -716,13 +853,13 @@ Hint 1: We are going to need the following libraries: tidyverse, broom
 Hint 2: mh &lt;- read_csv()
 </li>
 <li>
-Remember that we will always ask you to use read_csv() to load in data.
+Remember that, in this book, we will always ask you to use <code>read_csv()</code> to load in data. Avoid using other functions such as <code>read.csv()</code>. Whilst these functions are similar, they are not the same.
 </li>
 </ul>
 </div>
 </div>
 <p><br>
-Let’s look at your data - we showed you a number of ways to do this in Semester 1. As in Miller and Haden, we have 5 columns:</p>
+Let’s look at your data in <code>mh</code> - we showed you a number of ways to do this in Semester 1. As in Miller and Haden, we have 5 columns:</p>
 <ul>
 <li>the particpant (<code>Participant</code>),</li>
 <li>Reading Ability (<code>Abil</code>),</li>
@@ -730,8 +867,10 @@ Let’s look at your data - we showed you a number of ways to do this in Semeste
 <li>number of minutes spent reading at home per week (<code>Home</code>),</li>
 <li>and number of minutes spent watching TV per week (<code>TV</code>).</li>
 </ul>
-<p>For the lab we will focus on the relationship between Reading Ability and IQ but for further practice you can look at other relationships in your free time.<br />
-A probable hypothesis for today could be that as Reading Ability increases so does Intelligence (<strong>but do you see the issue with causality and direction</strong>). Or phrasing the hypothesis more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, are positively correlated. This is the hypothesis we will test today but remember that we could always state the null hypothesis that there is no relationship between reading ability and IQ. First, however, we must check some assumptions of the correlation tests. The main assumptions we need to check are:</p>
+<p>For the lab we will focus on the relationship between Reading Ability and IQ but for further practice you can look at other relationships in your free time.</p>
+<p>A probable hypothesis for today could be that as Reading Ability increases so does Intelligence (<strong>but do you see the issue with causality and direction</strong>). Or phrasing the alternative hypothesis (<span class="math inline">\(H_1\)</span>) more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, show a linear positive relationship. This is the hypothesis we will test today but remember that we could always state the null hypothesis (<span class="math inline">\(H_0\)</span>) that there is no relationship between reading ability and IQ.</p>
+<p>First, however, we must check some assumptions of the correlation tests. As we have stated that we hypothesise a linear relationship, this means that we are going to be looking at the <strong>Pearson’s product-moment correlation</strong> which is often just shortened to <strong>Pearson’s correlation</strong> and is symbolised by the letter <strong>r</strong>.</p>
+<p>The main assumptions we need to check for the Pearson’s correlation, and which we will look at in turn, are:</p>
 <ul>
 <li>Is the data interval, ratio, or ordinal?</li>
 <li>Is there a data point for each participant on both variables?</li>
@@ -739,13 +878,12 @@ A probable hypothesis for today could be that as Reading Ability increases so do
 <li>Does the relationship between variables appear linear?</li>
 <li>Does the spread have homoscedasticity?</li>
 </ul>
-<p>We will look at these in turn.</p>
 <p><strong>Assumption 1: Level of Measurement</strong></p>
 </div>
 <div id="Ch10InClassQueT2" class="section level3">
 <h3><span class="header-section-number">10.3.2</span> Task 2 - Interval or Ordinal</h3>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
-<p>If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and then answer the following question.</p>
+<p>If we are going to run a Pearson correlation then we need interval or ratio data. An alternative correlation, a non-parametric equivalent of the Pearson correlation is the Spearman correlation and it can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and then answer the following question. A discussion is in the solutions at the end of the chapter.</p>
 <ul>
 <li><strong>Check your thinking:</strong> the type of data in this analysis is most probably <select class='solveme' data-answer='["interval","ordinal"]'> <option></option> <option>ratio</option> <option>interval</option> <option>ordinal</option> <option>nominal</option></select> as the data is <select class='solveme' data-answer='["continuous"]'> <option></option> <option>continuous</option> <option>discrete</option></select> and there is unlikely to be a true zero</li>
 </ul>
@@ -766,13 +904,16 @@ is the difference between 1 and 2 on the scale equal to the difference between 2
 </div>
 <p><br>
 <strong>Assumption 2: Pairs of Data</strong></p>
-<p>All correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can’t correlate against an empty cell! So now go check that you have a data point in both columns for each participant. After that, try answering the question in Task 3</p>
+<p>All correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can’t correlate against an empty cell! Check that you have a data point in both columns for each participant. After that, try answering the question in Task 3. A discussion is in the solutions at the end of the chapter.</p>
+<p><strong>Note:</strong> You can check for missing data by visual inspection - literally using your eyes. A missing data point will show as a <strong>NA</strong>, which is short for not applicable, not available, or no answer. An alternative would be to use the <code>is.na()</code> function. This can be really handy when you have lots of data and visual inspection would just take too long. If for example you ran the following code:</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1"><span class="kw">is.na</span>(mh)</a></code></pre></div>
+<p>If you look at the output from that function, each <code>FALSE</code> tells you that there is a data-point in that cell. That is because <code>is.na()</code> asks is that cell a NA; is it empty. If the cell was empty then it would come back as <code>TRUE</code>. As all cells have data in them, they are all showing as <code>FALSE</code>. If you wanted to ask the opposite question, is their data in this cell, then you would write <code>!is.na()</code> which is read as “is not NA”. The exclamation mark <code>!</code> turns the question into the opposite.</p>
 </div>
 <div id="Ch10InClassQueT3" class="section level3">
 <h3><span class="header-section-number">10.3.3</span> Task 3 - Missing Data</h3>
 <p>It looks like everyone has data in all the columns but let’s test our skills a little whilst we are here. Answer the following questions:</p>
 <ol style="list-style-type: decimal">
-<li>How is missing data represented in a tibble? <select class='solveme' data-answer='["NA"]'> <option></option> <option>an empty cell</option> <option>NA</option> <option>a large number</option> <option>don’t know</option></select></li>
+<li>How is missing data represented in a cell of a tibble? <select class='solveme' data-answer='["NA"]'> <option></option> <option>an empty cell</option> <option>NA</option> <option>a large number</option> <option>don’t know</option></select></li>
 <li>Which code would leave you with just the participants who were missing Reading Ability data in mh:
 <select class='solveme' data-answer='["filter(mh, is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select></li>
 <li>Which code would leave you with just the participants who were not missing Reading Ability data in mh: <select class='solveme' data-answer='["filter(mh, !is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select></li>
@@ -791,11 +932,12 @@ filter(dat, is.na(variable)) versus filter(dat, !is.na(variable))
 </div>
 <p><br>
 <strong>Assumption 3: The shape of my data</strong></p>
-<p>The remaining assumptions are all best checked through visualisations. You could use histograms to check that the data (Abil and IQ) are both normally distributed, and you could use a scatterplot (scattergrams) of IQ as a function of Abil to check whether the relationship is linear, with homoscedasticity, and without outliers! You could also use z-scores to check for outliers with the cut-off usually being set at around <span class="math inline">\(\pm2.5SD\)</span>, and you can check this in your free time using the mutate function (e.g. <code>mutate(z = (X - mean(X))/SD(X))</code>), but today we will just use visual checks.</p>
+<p>The remaining assumptions are all best checked through visualisations. You could use histograms to check that the data (Abil and IQ) are both normally distributed, and you could use a scatterplot (scattergrams) of IQ as a function of Abil to check whether the relationship is linear, with homoscedasticity, and without outliers!</p>
+<p>An alternative would be to use <strong>z-scores</strong> to check for outliers with the cut-off usually being set at around <span class="math inline">\(\pm2.5SD\)</span>. You could do this using the mutate function (e.g. <code>mutate(z = (X - mean(X))/SD(X))</code>), but today we will just use visual checks.</p>
 </div>
 <div id="Ch10InClassQueT4" class="section level3">
 <h3><span class="header-section-number">10.3.4</span> Task 4 - Normality</h3>
-<p>Create the following figures and discuss the outputs with your group:</p>
+<p>Create the following figures and discuss the outputs with your group. A discussion is in the solutions at the end of the chapter.</p>
 <ul>
 <li>A histogram for Ability and a histogram for IQ.
 <ul>
@@ -824,7 +966,7 @@ ggplot(mh, aes(x = , y = )) + geom_point()
 Normality: something to keep in mind is that there are only 25 participants, so how ‘normal’ do we expect relationships to be
 </li>
 <li>
-homoscedasticity is that the spread of data points around the (imaginary) line of best fit is even on both sides along the line; as opposed to very narrow at one point and very wide at others.
+homoscedasticity is that the spread of data points around the (imaginary) line of best fit is equal on both sides along the line; as opposed to very narrow at one point and very wide at others.
 </li>
 <li>
 Remember these are all judgement calls!
@@ -839,7 +981,7 @@ Remember these are all judgement calls!
 <div id="Ch10InClassQueT5" class="section level3">
 <h3><span class="header-section-number">10.3.5</span> Task 5 - Descriptives</h3>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
-<p>Looking at the scatterplot you created in Task 4, spend a couple of minutes discussing and describing the relationship between Ability and IQ in terms of your hypothesis. Remember this is a descriptive analysis at this stage, so nothing is confirmed. Does the relationship appear to be as we predicted in our hypothesis?</p>
+<p>Looking at the scatterplot you created in Task 4, spend a couple of minutes discussing and describing the relationship between Ability and IQ in terms of your hypothesis. Remember this is a descriptive analysis at this stage, so nothing is confirmed. Does the relationship appear to be as we predicted in our hypothesis? A discussion is in the solutions at the end of the chapter.</p>
 <div class="solution">
 <button>
 Hints on discussing descriptives
@@ -865,8 +1007,8 @@ Hint 4: Can you say something about both the strength (weak, medium, strong) and
 <strong>The correlation</strong></p>
 <p>Finally we will run the correlation using the <code>cor.test()</code> function. Remember that for help on any function you can type <code>?cor.test</code> in the console window. The <code>cor.test()</code> function requires:</p>
 <ul>
-<li>the column name of Variable 1</li>
-<li>the column name of Variable 2</li>
+<li>the name of the tibble and the column name of Variable 1</li>
+<li>the name of the tibble and the column name of Variable 2</li>
 <li>the type of correlation you want to run: e.g. “pearson”, “spearman”</li>
 <li>the type of NHST tail you want to run: e.g. “one.sided”, “two.sided”</li>
 </ul>
@@ -878,7 +1020,7 @@ Hint 4: Can you say something about both the strength (weak, medium, strong) and
 </div>
 <div id="Ch10InClassQueT6" class="section level3">
 <h3><span class="header-section-number">10.3.6</span> Task 6 - Pearson or Spearman?</h3>
-<p>Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called <code>results</code> (hint: <code>broom::tidy()</code>).</p>
+<p>Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called <code>results</code> (hint: <code>broom::tidy()</code>). The solution is at the end of the chapter.</p>
 <div class="solution">
 <button>
 Hints to correlation
@@ -886,7 +1028,7 @@ Hints to correlation
 <div class="info">
 <ul>
 <li>
-Hint 1: the data looked reasonably normal and linear so method would be?
+Hint 1: the data looked reasonably normal and linear so the method would be?
 </li>
 <li>
 Hint 2: results &lt;- cor.test(mh$Abil……, method = ….., alternative….) %&gt;% tidy()
@@ -896,11 +1038,11 @@ Hint 2: results &lt;- cor.test(mh$Abil……, method = ….., alternative….) %
 </div>
 <p><br>
 <strong>Interpreting the Correlation</strong></p>
-<p>You should now have a tibble called <code>results</code> that gives you the output of the correlation between Reading Ability and IQ for the school children measured in Miller and Haden (2013) Chapter 11. All that is left to do now, is interpret the output of the correlation.</p>
+<p>You should now have a tibble called <code>results</code> that gives you the output of the correlation between Reading Ability and IQ for the school children measured in Miller and Haden (2013) Chapter 11. All that is left to do now is interpret the output of the correlation.</p>
 </div>
 <div id="Ch10InClassQueT7" class="section level3">
 <h3><span class="header-section-number">10.3.7</span> Task 7 - Interpretation</h3>
-<p>Look at <code>results</code>. Locate your correlation value, e.g. <code>results %&gt;% pull(estimate)</code> and then with your group, answer the following questions:</p>
+<p>Look at <code>results</code>. Locate your correlation value, e.g. <code>results %&gt;% pull(estimate)</code>, and then with your group, answer the following questions. Again a discussion can be found at the end of the chapter.</p>
 <ul>
 <li>The direction of the relationship between Ability and IQ is: <select class='solveme' data-answer='["positive"]'> <option></option> <option>positive</option> <option>negative</option> <option>no relationship</option></select></li>
 <li>The strength of the relationship between Ability and IQ is: <select class='solveme' data-answer='["medium"]'> <option></option> <option>strong</option> <option>medium</option> <option>weak</option></select></li>
@@ -931,26 +1073,26 @@ Hint4: Hypotheses can only be supported or not supported, never proven.
 <p><br>
 <strong>Recap so far</strong></p>
 <p>Great, so far we have set a hypothesis for a correlation, checked the assumptions, run the correlation and interpreted it appropriately. So as you can see running the correlation is the easy bit. As in a lot of analyses it is getting your data in order, checking assumptions, and interpreting your output that is the hard part.</p>
-<p>We have now walked you through one analysis but you can always go run more with the Miller and Haden dataset. There are six in total that could be run but watch out for Multiple Comparisons - where your <strong>Type 1</strong> Error rate is inflated and where <strong>the chance of finding a significant effect is inflated by simply running numerous tests.</strong> Alternatively, we have another data set below that we want you to run a correlation on yourself but first we want to show you something that can be very handy when you want to view lots of correlations at once.</p>
+<p>We have now walked you through one analysis but you can always go run more with the Miller and Haden dataset. There are six in total that could be run but watch out for Multiple Comparisons - where your <strong>False Positive Error rate</strong> (Type 1 error rate) is inflated and as such <strong>the chance of finding a significant effect is inflated by simply running numerous tests.</strong> Alternatively, we have another data set below that we want you to run a correlation on yourself but first we want to show you something that can be very handy when you want to view lots of correlations at once.</p>
 </div>
 <div id="advanced-1-matrix-of-scatterplots" class="section level3">
 <h3><span class="header-section-number">10.3.8</span> Advanced 1: Matrix of Scatterplots</h3>
 <p>Above we ran one correlation and if we wanted to do a different correlation then we would have to edit the <code>cor.test()</code> line and run it again. However, when you have lots of variables in a dataset, to get a quick overview of patterns, one thing you might want to do is run all the correlations at the same time or create a matrix of scatterplots at the one time. You can do this with functions from the <code>Hmisc</code> library - already installed in the Boyd Orr Labs. We will use the Miller and Haden data here again which you should still have in a tibble called <code>mh</code>.</p>
 <p>First, we need to get rid of the Participant column as we don’t want to correlate that with anything. It won’t tell us anything. Copy and run the below line of code</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;Hmisc&quot;</span>)</a>
-<a class="sourceLine" id="cb480-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb480-3" data-line-number="3">mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Participant)</a></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;Hmisc&quot;</span>)</a>
+<a class="sourceLine" id="cb481-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb481-3" data-line-number="3">mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Participant)</a></code></pre></div>
 <p>Now run the following line. The <code>pairs()</code> function from the <code>Hmisc</code> library creates a matrix of scatterplots which you can then use to view all the relationships at the one time.</p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1"><span class="kw">pairs</span>(mh)</a></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1"><span class="kw">pairs</span>(mh)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch10-advance-pairs"></span>
 <img src="10-s02-lab10c_files/figure-html/ch10-advance-pairs-1.png" alt="Matrix of Correlation plots of Miller and Haden (2013) data" width="100%" />
 <p class="caption">
-Figure 10.1: Matrix of Correlation plots of Miller and Haden (2013) data
+Figure 10.3: Matrix of Correlation plots of Miller and Haden (2013) data
 </p>
 </div>
 <p>And the <code>rcorr()</code> function creates a matrix of correlations and p-values. But watch out, it only accepts the data in matrix format. Run the following two lines of code.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1">mh_mx =<span class="st"> </span><span class="kw">as.matrix</span>(mh, <span class="dt">type =</span> <span class="st">&quot;pearson&quot;</span>)</a>
-<a class="sourceLine" id="cb482-2" data-line-number="2"><span class="kw">rcorr</span>(mh_mx)</a></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" data-line-number="1">mh_mx &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(mh)</a>
+<a class="sourceLine" id="cb483-2" data-line-number="2"><span class="kw">rcorr</span>(mh_mx, <span class="dt">type =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
 <pre><code>##       Abil   IQ  Home    TV
 ## Abil  1.00 0.45  0.74 -0.29
 ## IQ    0.45 1.00  0.20  0.25
@@ -969,7 +1111,7 @@ Figure 10.1: Matrix of Correlation plots of Miller and Haden (2013) data
 </div>
 <div id="Ch10InClassQueT8" class="section level3">
 <h3><span class="header-section-number">10.3.9</span> Task 8 - The Matrix</h3>
-<p>After running the above lines, spend a few minutes answering the following questions with your group. The solutions are at the end of the chapter. The first table outputted is the correlation values and the second table is the p-values.</p>
+<p>After running the above lines, spend a few minutes answering the following questions with your group. The solutions are at the end of the chapter. The first table outputted is the correlation values and the second table is the p-values. A discussion is at the end of the chapter.</p>
 <ol style="list-style-type: decimal">
 <li>Why do the tables look symmetrical around a blank diagonal?</li>
 <li>What is the strongest positive correlation?</li>
@@ -990,22 +1132,22 @@ Hint1: There is no hint, this is just a cheeky test to make sure you have read t
 </div>
 <div id="advanced-2-attitudes-towards-vaping" class="section level3">
 <h3><span class="header-section-number">10.3.10</span> Advanced 2: Attitudes towards Vaping</h3>
-<p>Great work so far! Now we really want to see what you can do yourself. In the data folder there is another file called <code>VapingData.csv</code>. This data comes from a lab we used to run looking at implicit and explicit attitudes towards vaping.</p>
+<p>Great work so far! Now we really want to see what you can do yourself. As we mentioned earlier, in the data folder there is another file called <code>VapingData.csv</code>. This data comes from a lab we used to run looking at implicit and explicit attitudes towards vaping.</p>
 <ul>
 <li><strong>Explicit attitudes</strong> were measured via a questionnaire where higher scores indicated a positive attitude towards vaping.</li>
 <li><strong>Implicit attitudes</strong> were measured through an Implicit Association Test (IAT) using images of Vaping and Kitchen utensils and associating them with positive and negative words.</li>
 </ul>
-<p>The IAT works on the principal that associations that go together (that are congruent, e.g. warm and sun) should be quicker to respond to than associations that do not go together (that are incongruent, e.g. warm and ice). You can read up more on the procedure at a later date <a href="https://nobaproject.com/modules/research-methods-in-social-psychology" target = "_blank">here on the Noba Project</a> which has a good description of the procedure under the section “Subtle/Nonsconscious Research Methods”.</p>
-<p>For today, you need to know that “Block 3” in the experiment tested reaction times and accuracy towards congruent associations, pairing positive words with Kitchen utensils and negative words with Vaping. “Block 5” in the experiment tested reaction times and accuracy towards incongruent associations, pairing positive words with Vaping and negative words with Kitchen Utensils. As such, if reaction times were longer in Block 5 than in Block 3 then people are considered to hold the view that Vaping is negative (i.e. congruent associations are quicker than incongruent associations). However, if reaction times were shorter in Block 5 than in Block 3 then people are considered to hold the view that Vaping is positive (i.e. incongruent associations were quicker than congruent associations). The difference between reaction times in Block5 and Block3 is called the participants IAT score.</p>
+<p>The IAT works on the principal that associations that go together (that are congruent, e.g. warm and sun) should be quicker to respond to than associations that do not go together (that are incongruent, e.g. warm and ice). You can read up more on the procedure at a later date on the Noba Project <a href="https://nobaproject.com/modules/research-methods-in-social-psychology" target = "_blank">https://nobaproject.com/modules/research-methods-in-social-psychology</a> which has a good description of the procedure under the section “Subtle/Nonsconscious Research Methods”.</p>
+<p>For this exercise, you need to know that “Block 3” in the experiment tested reaction times and accuracy towards congruent associations, pairing positive words with Kitchen utensils and negative words with Vaping. “Block 5” in the experiment tested reaction times and accuracy towards incongruent associations, pairing positive words with Vaping and negative words with Kitchen Utensils. As such, if reaction times were longer in Block 5 than in Block 3 then people are considered to hold the view that Vaping is negative (i.e. congruent associations are quicker than incongruent associations). However, if reaction times were quicker in Block 5 than in Block 3 then people are considered to hold the view that Vaping is positive (i.e. incongruent associations were quicker than congruent associations). The difference between reaction times in Block5 and Block3 is called the participants IAT score.</p>
 </div>
 <div id="Ch10InClassQueT9" class="section level3">
 <h3><span class="header-section-number">10.3.11</span> Task 9 - Attitudes to Vaping</h3>
-<p>Load in the data in <code>VapingData.csv</code> and analyse it to test the hypothesis that Implicit and Explicit attitudes towards Vaping are positively related. Here are some pointers, hints and tips.</p>
+<p>Load in the data in <code>VapingData.csv</code> and analyse it to test the hypothesis that Implicit and Explicit attitudes towards Vaping are positively related. Here are some pointers, hints and tips. Again, the solutions walk you through each step but it will help you to try the steps yourself first. Think through each step. Sometimes you will need to think backwards, what do I want my tibble to look like. You can do all of these steps. This is nothing new.</p>
 <ol style="list-style-type: decimal">
-<li>Start of by looking at the data. You have 8 columns. Reaction times and Accuracy scores for blocks 3 and 5. The Explicit Vaping Questionnaire Scores, Sex and Age.</li>
-<li>Accuracy is as a proportion and as such can’t go above 1. Participants entered their own data so some might have made a mistake. Get rid of everybody who had an accuracy greater than 1 in either block 3 or block 5.</li>
-<li>We also only want participants that were paying attention so best remove anybody whose average accuracy score across Blocks 3 and 5 was less than 80%. Note - this value is aribtrary and if you wanted, in your own experiment, you could use a more relaxed or strict cut-off based on other studies or guidance. Note that these decisions should be set out at the start of your research. Finally, in this instance, remember, the values are in proportions not percentages (so 80% will be .8).</li>
-<li>Now create an IAT score for participants by subtracting Block 3 reaction times (RT) away from Block 5 reaction times e.g (B5-B3). Use the paragraph above to understand how the scores relate to attitudes.</li>
+<li>After loading in the data, start by looking at the data. You have 8 columns. Reaction times and Accuracy scores for Blocks 3 and 5 as well as the Explicit Vaping Questionnaire scores, Sex and Age, for each participant.</li>
+<li>Accuracy was calculated as proportion and as such can’t go above 1. Participants entered their own data so some might have made a mistake. Remove participants who had an accuracy greater than 1 in either Block 3 or Block 5 as we are unclear on the accuracy of these values.</li>
+<li>We also only want participants that were paying attention so best remove anybody whose average accuracy score across Blocks 3 and 5 was less than 80%. Note - this value is aribtrary and if you wanted, in your own experiment, you could use a more relaxed or strict cut-off based on other studies or guidance. Note that these decisions should be set out at the start of your research as part of your pre-registration or as part of your Registered Report. Finally, in this instance, remember, the values are in proportions not percentages (so 80% will be .8).</li>
+<li>Now create an IAT score for participants by subtracting Block 3 reaction times (RT) away from Block 5 reaction times e.g <span class="math inline">\(Block5 - Block3\)</span>. Use the information above to understand how the scores relate to attitudes.</li>
 <li>Create a descriptives summary of the number of people, the mean RT and Vaping Questionnaire Score. Why might these averages be useful? Why are averages not always useful in correlations?</li>
 <li>Check your assumptions of correlations as we did above and descriptives, thinking about how it compares to the hypothesis.</li>
 <li>Run the appropriate correlation based on your assumptions and interpret the output.</li>
@@ -1050,7 +1192,7 @@ Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 <p><br>
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Excellent work, who would have thought that about Explicit and Implicit attitudes towards Vaping?!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2019. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. We won’t incorporate Portfolio points this semester as by now you should know what sort of information you need to make a note of for yourself, and the more independent you are in your learning the better it will be, but please don’t think they are no longer relevant!</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the available forums or speak to a member of the team. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. We won’t incorporate Portfolio points this semester as by now you should know what sort of information you need to make a note of for yourself, and the more independent you are in your learning the better it will be, but please don’t think they are no longer relevant!</p>
 
 </div>
 </div>
@@ -1074,9 +1216,9 @@ Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 <li>the order that libraries are read in is important. If there are any conflicts in terms of libraries then the last library that is loaded will be the functions you are using.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)</a>
-<a class="sourceLine" id="cb484-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb484-3" data-line-number="3">mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)</a>
+<a class="sourceLine" id="cb485-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb485-3" data-line-number="3">mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>)</a></code></pre></div>
 <p><a href="correlations.html#Ch10InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-6" class="section level4">
@@ -1092,7 +1234,7 @@ Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 <li><p>Missing data is represented by NA. It stands for Not Available but is a very good way of improving your Scottish accent. For example, “is that a number” can be replied with “NA!”.</p></li>
 <li><p>If you want to keep everybody from the whole dataset that has a score for Ability you would use:</p></li>
 </ul>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="op">!</span><span class="kw">is.na</span>(Abil))</a></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="op">!</span><span class="kw">is.na</span>(Abil))</a></code></pre></div>
 <pre><code>## Warning: `...` is not empty.
 ## 
 ## We detected these problematic arguments:
@@ -1117,7 +1259,7 @@ Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 <ul>
 <li>Alternatively, if you want to keep everybody from the whole dataset that does not have a score for Ability you would use:</li>
 </ul>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="kw">is.na</span>(Abil))</a></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb489-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="kw">is.na</span>(Abil))</a></code></pre></div>
 <pre><code>## Warning: `...` is not empty.
 ## 
 ## We detected these problematic arguments:
@@ -1136,34 +1278,39 @@ Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 <ul>
 <li>Reading ability data appears as normal as expected for 25 participants. Hard to say how close to normality something should look when there are so few participants.</li>
 </ul>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb491-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb492-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb492-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-1"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-1-1.png" alt="Histogram showing the distribution of Reading Ability Scores from Miller and Haden (2013)" width="100%" />
 <p class="caption">
-Figure 10.2: Histogram showing the distribution of Reading Ability Scores from Miller and Haden (2013)
+Figure 10.4: Histogram showing the distribution of Reading Ability Scores from Miller and Haden (2013)
 </p>
 </div>
 <ul>
 <li>IQ data appears as normal as expected for 25 participants</li>
 </ul>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb492-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb493-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb493-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-2"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-2-1.png" alt="Histogram showing the distribution of IQ Scores from Miller and Haden (2013)" width="100%" />
 <p class="caption">
-Figure 10.3: Histogram showing the distribution of IQ Scores from Miller and Haden (2013)
+Figure 10.5: Histogram showing the distribution of IQ Scores from Miller and Haden (2013)
 </p>
 </div>
 <ul>
 <li>The relationship between reading ability and IQ scores appears appears linear and with no clear outliers. Data also appears homeoscedastic.</li>
+<li>We have added the <code>geom_smooth()</code> function to help clarify the line of best fit (also know as the regression line or the slope).</li>
 </ul>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil, <span class="dt">y =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb493-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil, <span class="dt">y =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb494-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb494-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-3"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-3-1.png" alt="Scatterplot of IQ scores as a function of Reading Ability from Miller and Haden (2013) data" width="100%" />
 <p class="caption">
-Figure 10.4: Scatterplot of IQ scores as a function of Reading Ability from Miller and Haden (2013) data
+Figure 10.6: Scatterplot of IQ scores as a function of Reading Ability from Miller and Haden (2013) data
 </p>
 </div>
 <p><a href="correlations.html#Ch10InClassQueT4">Return to Task</a></p>
@@ -1179,18 +1326,18 @@ Figure 10.4: Scatterplot of IQ scores as a function of Reading Ability from Mill
 <li>We are going to run a pearson correlation as we would argue the data is interval and the relationship is linear.</li>
 <li>The correlation would be run as follows - tidying it into a nice and useable table.</li>
 </ul>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(mh<span class="op">$</span>Abil, </a>
-<a class="sourceLine" id="cb494-2" data-line-number="2">                    mh<span class="op">$</span>IQ, </a>
-<a class="sourceLine" id="cb494-3" data-line-number="3">                    <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, </a>
-<a class="sourceLine" id="cb494-4" data-line-number="4">                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb494-5" data-line-number="5"><span class="st">  </span>tidy</a></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(mh<span class="op">$</span>Abil, </a>
+<a class="sourceLine" id="cb495-2" data-line-number="2">                    mh<span class="op">$</span>IQ, </a>
+<a class="sourceLine" id="cb495-3" data-line-number="3">                    <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, </a>
+<a class="sourceLine" id="cb495-4" data-line-number="4">                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb495-5" data-line-number="5"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <ul>
 <li>The output of the table would look as follows:</li>
 </ul>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:ch10InClassSolT6-tab">Table 10.1: </span>The correlation output of the Reading Ability and IQ relationship.
+<span id="tab:ch10InClassSolT6-tab">Table 10.2: </span>The correlation output of the Reading Ability and IQ relationship.
 </caption>
 <thead>
 <tr>
@@ -1259,18 +1406,19 @@ two.sided
 <li>The correlation value (r) is stored in <code>estimate</code></li>
 <li>The degrees of freedom (N-2) is stored in <code>parameter</code></li>
 <li>The p-value is stored in <code>p.value</code></li>
-<li>And <code>statistic</code> is the t-value associated with this analysis as correlations use the t-distribution (same as in Semester 1) to determine probability of an outcome.</li>
+<li>And <code>statistic</code> is the t-value associated with this analysis as correlations use the t-distribution (same as in Chapters 6, 7 and 8) to determine probability of an outcome.</li>
+<li>Remember that we can use the <code>pull()</code> function to get individual values as shown here.</li>
 </ul>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" data-line-number="1">pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb495-2" data-line-number="2"><span class="st">  </span><span class="kw">pull</span>(p.value) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb495-3" data-line-number="3"><span class="st">  </span><span class="kw">round</span>(<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb495-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb495-5" data-line-number="5">df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb495-6" data-line-number="6"><span class="st">  </span><span class="kw">pull</span>(parameter)</a>
-<a class="sourceLine" id="cb495-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb495-8" data-line-number="8">correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb495-9" data-line-number="9"><span class="st">  </span><span class="kw">pull</span>(estimate) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb495-10" data-line-number="10"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" data-line-number="1">pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb496-2" data-line-number="2"><span class="st">  </span><span class="kw">pull</span>(p.value) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb496-3" data-line-number="3"><span class="st">  </span><span class="kw">round</span>(<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb496-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb496-5" data-line-number="5">df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb496-6" data-line-number="6"><span class="st">  </span><span class="kw">pull</span>(parameter)</a>
+<a class="sourceLine" id="cb496-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb496-8" data-line-number="8">correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb496-9" data-line-number="9"><span class="st">  </span><span class="kw">pull</span>(estimate) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb496-10" data-line-number="10"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
 <p>And we can use that information to write-up the following using inline coding for accuracy:</p>
 <ul>
 <li>A pearson correlation found reading ability and intelligence to be positively correlated with a medium to strong relationship, (r(<code>`r df`</code>) = <code>`r correlation`</code>, p = <code>`r pvalue`</code>). As such we can say that our hypothesis is supported and that there appears to be a relationship between reading ability and IQ in that as reading ability increases so does intelligence.</li>
@@ -1296,17 +1444,17 @@ two.sided
 <ul>
 <li>Reading in the Vaping Data using <code>read_csv()</code></li>
 </ul>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;VapingData.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;VapingData.csv&quot;</span>)</a></code></pre></div>
 <p><strong>Steps 2 to 4</strong></p>
 <ul>
 <li>The main wrangle of parts 2 to 4</li>
 </ul>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb497-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK3_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb497-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK5_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb497-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_ACC =</span> (IAT_BLOCK3_Acc <span class="op">+</span><span class="st"> </span>IAT_BLOCK5_Acc)<span class="op">/</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb497-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(IAT_ACC <span class="op">&gt;</span><span class="st"> </span><span class="fl">.8</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb497-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_RT =</span> IAT_BLOCK5_RT <span class="op">-</span><span class="st"> </span>IAT_BLOCK3_RT)</a></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" data-line-number="1">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb498-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK3_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb498-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK5_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb498-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_ACC =</span> (IAT_BLOCK3_Acc <span class="op">+</span><span class="st"> </span>IAT_BLOCK5_Acc)<span class="op">/</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb498-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(IAT_ACC <span class="op">&gt;</span><span class="st"> </span><span class="fl">.8</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb498-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_RT =</span> IAT_BLOCK5_RT <span class="op">-</span><span class="st"> </span>IAT_BLOCK3_RT)</a></code></pre></div>
 <p><strong>Step 5</strong></p>
 <ul>
 <li>It is always worth thinking about which averages are informative and which are not.
@@ -1315,30 +1463,32 @@ two.sided
 <li>In contrast, if you are using an ordinal scale and people use the whole of the scale then the average may just tell you the middle of the scale you are using - which you already know and really isnt that informative. So it is always worth thinking about what your descriptives are calculating.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb498-2" data-line-number="2">                          <span class="dt">mean_IAT_ACC =</span> <span class="kw">mean</span>(IAT_ACC),</a>
-<a class="sourceLine" id="cb498-3" data-line-number="3">                          <span class="dt">mean_IAT_RT =</span> <span class="kw">mean</span>(IAT_RT),</a>
-<a class="sourceLine" id="cb498-4" data-line-number="4">                          <span class="dt">mean_VPQ =</span> <span class="kw">mean</span>(VapingQuestionnaireScore, </a>
-<a class="sourceLine" id="cb498-5" data-line-number="5">                                          <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb499-2" data-line-number="2">                          <span class="dt">mean_IAT_ACC =</span> <span class="kw">mean</span>(IAT_ACC),</a>
+<a class="sourceLine" id="cb499-3" data-line-number="3">                          <span class="dt">mean_IAT_RT =</span> <span class="kw">mean</span>(IAT_RT),</a>
+<a class="sourceLine" id="cb499-4" data-line-number="4">                          <span class="dt">mean_VPQ =</span> <span class="kw">mean</span>(VapingQuestionnaireScore, </a>
+<a class="sourceLine" id="cb499-5" data-line-number="5">                                          <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 <p><strong>Step 6</strong></p>
 <ul>
 <li>A couple of visual checks of normality through histograms</li>
 </ul>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb499-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb500-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb500-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb500-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 11 rows containing non-finite values (stat_bin).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-1"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-1-1.png" alt="Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)" width="100%" />
 <p class="caption">
-Figure 10.5: Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)
+Figure 10.7: Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)
 </p>
 </div>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb501-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb501-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb502-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb502-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-2"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-2-1.png" alt="Histogram showing the distribution of IAT Reaction Times (Implicit)" width="100%" />
 <p class="caption">
-Figure 10.6: Histogram showing the distribution of IAT Reaction Times (Implicit)
+Figure 10.8: Histogram showing the distribution of IAT Reaction Times (Implicit)
 </p>
 </div>
 <ul>
@@ -1346,43 +1496,336 @@ Figure 10.6: Histogram showing the distribution of IAT Reaction Times (Implicit)
 <li>Remember that, often, the scatterplot is considered the descriptive of the correlation, hence why you see them including in journal articles to support the stated relationship.</li>
 <li>The scatterplot can be used to make descriptive claims about the direction of the relationship, the strength of the relationship, whether it is linear or not, and to check for outliers and homeoscedasticity.</li>
 </ul>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT, <span class="dt">y =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb502-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb502-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT, <span class="dt">y =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb503-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb503-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-3"></span>
 <img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-3-1.png" alt="A scatterplot showing the relationship between implicit IAT reaction times (x) and explicit Vaping Questionnaire Scores (y)" width="100%" />
 <p class="caption">
-Figure 10.7: A scatterplot showing the relationship between implicit IAT reaction times (x) and explicit Vaping Questionnaire Scores (y)
+Figure 10.9: A scatterplot showing the relationship between implicit IAT reaction times (x) and explicit Vaping Questionnaire Scores (y)
 </p>
 </div>
 <ul>
 <li>A quick look at the data reveals some people do not have a Vaping Questionnaire score and some don’t have an IAT score. The correlation only works when people have a score on both factors so we remove all those that only have a score on one of the factors.</li>
 </ul>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb504-1" data-line-number="1">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb504-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(VapingQuestionnaireScore)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb504-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(IAT_RT))</a></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb505-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(VapingQuestionnaireScore)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb505-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(IAT_RT))</a></code></pre></div>
 <p><strong>Step 7</strong></p>
 <ul>
-<li>The analysis and the write-up.</li>
+<li>The analysis:</li>
 </ul>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(dat<span class="op">$</span>VapingQuestionnaireScore, dat<span class="op">$</span>IAT_RT, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" data-line-number="1">correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(estimate)</a>
-<a class="sourceLine" id="cb506-2" data-line-number="2">df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(parameter)</a>
-<a class="sourceLine" id="cb506-3" data-line-number="3">pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(p.value)</a></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(dat<span class="op">$</span>VapingQuestionnaireScore, </a>
+<a class="sourceLine" id="cb506-2" data-line-number="2">                    dat<span class="op">$</span>IAT_RT, </a>
+<a class="sourceLine" id="cb506-3" data-line-number="3">                    <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb506-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<ul>
+<li>And extracting the values:</li>
+</ul>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" data-line-number="1">correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb507-2" data-line-number="2"><span class="st">  </span><span class="kw">pull</span>(estimate)</a>
+<a class="sourceLine" id="cb507-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb507-4" data-line-number="4">df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb507-5" data-line-number="5"><span class="st">  </span><span class="kw">pull</span>(parameter)</a>
+<a class="sourceLine" id="cb507-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb507-7" data-line-number="7">pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb507-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(p.value)</a></code></pre></div>
 <ul>
 <li>With inline coding:</li>
 </ul>
-<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(<code>`r df`</code>) = <code>`r correlation`</code>, p = <code>`r pvalue`</code>. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.</p>
+<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(<code>`r df`</code>) = <code>`r correlation`</code>, p = <code>`r pvalue`</code>. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported; we cannot rejet the null hypothesis.</p>
 <ul>
 <li>and appears as when knitted:</li>
 </ul>
-<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(143) = -0.1043797, p = 0.2115059. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.</p>
+<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(143) = -0.1043797, p = 0.2115059. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported; we cannot rejet the null hypothesis.</p>
 <p><strong>Remember though that r-values and p-values are often rounded to three decimal places, so a more appropriate write up would be:</strong></p>
-<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(143) = -.104, p = .212. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.</p>
+<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(143) = -.104, p = .212. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported; we cannot rejet the null hypothesis.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
 </div>
+</div>
+</div>
+<div id="additional-material-6" class="section level2">
+<h2><span class="header-section-number">10.6</span> Additional Material</h2>
+<p>Below is some additional material that might help you understand correlations a bit more and some additional ideas.</p>
+<div id="checking-for-outliers-with-z-scores" class="section level3 unnumbered">
+<h3>Checking for outliers with z-scores</h3>
+<p>We briefly mentioned in the inclass activities that you could use z-scores to check for outliers, instead of visual inspection. We have covered this in lectures and it works for any interval or ratio dataset, and not just ones for correlations, but we will demonstrate it here using the IQ data from Miller and Haden. First, lets get just the IQ data.</p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" data-line-number="1">mh_IQ &lt;-<span class="st"> </span>mh <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb508-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(IQ)</a></code></pre></div>
+<p>A z-score is just a standardised value based on the mean (<span class="math inline">\(\mu\)</span>) and standard deviation (SD or <span class="math inline">\(\sigma\)</span>, proonounced “sigma”) of the sample it comes from. The formula for a z-score is:
+<br></p>
+<p><span class="math display">\[z = \frac{x - \mu}{\sigma}\]</span></p>
+<p>Using z-scores is away of effectively converting your data onto the Normal Distribution. As such, because of known cut-offs from the Normal Distribution (e.g. 68% of data between <span class="math inline">\(\pm1SD\)</span>, etc - See Chapter 4), we can use that information to determine a value as an outlier. To do it, you convert all the data within your variable into their respective z-score and if any of the values fall above or below your cut-off then they are considered an outlier.</p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" data-line-number="1">mh_IQ_z &lt;-<span class="st"> </span>mh_IQ <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb509-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">z_scores =</span> (IQ <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(IQ))<span class="op">/</span><span class="kw">sd</span>(IQ))</a></code></pre></div>
+<p>Which will give us the following data (showing only the first 6 rows):</p>
+<table>
+<caption>
+<span id="tab:zscore-iq-table">Table 10.3: </span>Raw IQ data and z-scored IQ data from Miller and Haden
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+IQ
+</th>
+<th style="text-align:center;">
+z_scores
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+107
+</td>
+<td style="text-align:center;">
+0.7695895
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+109
+</td>
+<td style="text-align:center;">
+0.9907359
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+81
+</td>
+<td style="text-align:center;">
+-2.1053138
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+-0.0044229
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+92
+</td>
+<td style="text-align:center;">
+-0.8890086
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+105
+</td>
+<td style="text-align:center;">
+0.5484431
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+92
+</td>
+<td style="text-align:center;">
+-0.8890086
+</td>
+</tr>
+</tbody>
+</table>
+<p>And if you run through the data you will see a whole range of z-scores ranging from -2.1053138 to 1.9858948. During the class we said that we would use a cut-off of <span class="math inline">\(\pm2.5SD\)</span> and you can see from the range of the IQ z-scores that there is no value above that, so we have no outliers. Which you could confirm with the following code:</p>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" data-line-number="1">mh_IQ_z <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">abs</span>(z_scores) <span class="op">&gt;</span><span class="st"> </span><span class="fl">2.5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(n)</a></code></pre></div>
+<p>Which if you run that code, you can see we have 0 outliers. This also demonstrates however why you must stipulate your cut-offs in advance - otherwise you might fall foul of adjusting your data to fit your own predictions and hiding your decision making in the numerous researcher degrees of freedom that exist. For example, say you run the above analysis and see no outliers but don’t find the result you want/expect/believe should be there. A questionable research practice would be now to start adjusting your z-score cut-off to different values to see what difference that makes. For instance, had we said the cut-off was more stringent at <span class="math inline">\(\pm2SD\)</span> we would have found 1 outlier.</p>
+<p>So the two take-aways from this are:</p>
+<ol style="list-style-type: decimal">
+<li>How to spot outliers using z-scores.</li>
+<li>You must set your exclusion criteria in advance of running your analysis.</li>
+</ol>
+</div>
+<div id="a-different-approach-to-making-a-correlation-table" class="section level3 unnumbered">
+<h3>A different approach to making a correlation table</h3>
+<p>In the inclass activities, Task 8, we looked at making a table of correlation functions. It was a bit messy and there is actually an alternative approach that we can use, with some useful additional functions. This makes use of the <strong><code>corrr</code></strong> package which you may need to install onto your laptop if you want to follow along.</p>
+<p>Here is the code below that you can try out and explore yourself. The main functions are <code>correlate()</code>, <code>shave()</code>, and <code>fashion()</code>:</p>
+<ul>
+<li><code>correlate()</code> runs the correlations and can be changed between pearson, spearman, etc. The <code>quiet</code> argument just removes some information reminders that we dont really need. Switch it to <code>FALSE</code> to see what happens. A nice aspect of this function is that the default is to only use complete rows but you can alter that.</li>
+<li><code>shave()</code> can be used to convert one set of correlation values that are showing the same test to NAs. For example, the bottom half of the table just reflects the top half of the table so we can convert one half. The default is to convert the upper half of the table.</li>
+<li><code>fashion()</code> can be used to tidy up the table in terms of removing NAs, leading zeros, and for setting the number of decimal places.</li>
+</ul>
+<p>The code would look like this:</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1"><span class="kw">library</span>(corrr)</a>
+<a class="sourceLine" id="cb511-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb511-3" data-line-number="3">mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb511-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb511-5" data-line-number="5">mh <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb511-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Participant) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb511-7" data-line-number="7"><span class="st">  </span><span class="kw">correlate</span>(<span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">quiet =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb511-8" data-line-number="8"><span class="st">  </span><span class="kw">shave</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb511-9" data-line-number="9"><span class="st">  </span><span class="kw">fashion</span>(<span class="dt">decimals =</span> <span class="dv">3</span>, <span class="dt">leading_zeros =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p>Which if you then look at the ouput you get this nice clean correlation matrix table shown below.</p>
+<pre><code>##   rowname  Abil    IQ  Home TV
+## 1    Abil                     
+## 2      IQ  .451               
+## 3    Home  .744  .202         
+## 4      TV -.288  .246 -.648</code></pre>
+<p>So that is a bit of a nicer approach than the one shown in the lab, and gives you more control over the output of your correlation matrix table. However, the downside of this approach, and the reason we didn’t use it in the lab is because this approach does not show you the p-values that easily. In fact, it doesn’t show you them at all and you need to do a bit more work. You can read more about using the <strong><code>corrr</code></strong> package in this webpage by the author of the package: <a href = "https://drsimonj.svbtle.com/exploring-correlations-in-r-with-corrr" target = "_blank">https://drsimonj.svbtle.com/exploring-correlations-in-r-with-corrr</a></p>
+</div>
+<div id="comparing-correlations" class="section level3 unnumbered">
+<h3>Comparing Correlations</h3>
+<p>One step that is often overlooked when working with correlations and a data set with numerous variables, is to compare whether the correlations are significantly different from each other. For example, say you are looking at whether there is a relationship between height and attractiveness in males and in females. You run the two correlations and find one is a stronger relationship than the other. Many would try to conclude that that means there is a significantly stronger relationship in one sex than the other. However that has not been tested. It can be tested though. We will quickly show you how, but this paper will also help the discussion: Diedenhofen and Musch (2015) cocor: A Comprehensive Solution for the Statistical Comparison of Correlations. PLOS ONE 10(6): e0131499. <a href = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0121945" target = "_blank">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0121945</a></p>
+<p>As always we need the libraries first. You will need to install the <strong><code>cocor</code></strong> package on to your laptop.</p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1"><span class="kw">library</span>(cocor)</a>
+<a class="sourceLine" id="cb513-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>Now we are going to walk through three different examples just to show you how it would work in different experimental designs. You will need to match the values in the code with the values in the text to make full sense of these examples. We will use examples from work on faces, voices and personality traits that you will encounter later in this book.</p>
+<p><strong>Comparing correlation of between-subjects designs (i.e. independent-samples)</strong></p>
+<p>Given the scenario of males voice pitch and height (r(28) = .89) and female voice pitch and height (r(28) = .75) can you say that the difference between these correlations is significant?</p>
+<p>As these correlations come from two different groups - male voices and female voices - we used the <code>cocor.indep.groups()</code> function.</p>
+<p><strong>Note:</strong> As the df of both groups is 28, this means that the N is 30 of both groups (based on N = df-2)</p>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb514-1" data-line-number="1">compare1 &lt;-<span class="st"> </span><span class="kw">cocor.indep.groups</span>(<span class="dt">r1.jk =</span> <span class="fl">.89</span>, </a>
+<a class="sourceLine" id="cb514-2" data-line-number="2">                               <span class="dt">r2.hm =</span> <span class="fl">.75</span>, </a>
+<a class="sourceLine" id="cb514-3" data-line-number="3">                               <span class="dt">n1 =</span> <span class="dv">30</span>, </a>
+<a class="sourceLine" id="cb514-4" data-line-number="4">                               <span class="dt">n2 =</span> <span class="dv">30</span>)</a></code></pre></div>
+<p>Gives the output of:</p>
+<pre><code>## 
+##   Results of a comparison of two correlations based on independent groups
+## 
+## Comparison between r1.jk = 0.89 and r2.hm = 0.75
+## Difference: r1.jk - r2.hm = 0.14
+## Group sizes: n1 = 30, n2 = 30
+## Null hypothesis: r1.jk is equal to r2.hm
+## Alternative hypothesis: r1.jk is not equal to r2.hm (two-sided)
+## Alpha: 0.05
+## 
+## fisher1925: Fisher&#39;s z (1925)
+##   z = 1.6496, p-value = 0.0990
+##   Null hypothesis retained
+## 
+## zou2007: Zou&#39;s (2007) confidence interval
+##   95% confidence interval for r1.jk - r2.hm: -0.0260 0.3633
+##   Null hypothesis retained (Interval includes 0)</code></pre>
+<p>You actually get two test outputs with this function: Fisher’s Z and Zou’s Confidence Interval. The one most commonly used is Fisher’s Z so we will look at that one. As the p-value of the comparison between the two correlations, p = .1, is greater than p = .05, then this tells us that we have cannot reject the null hypothesis that there is no significant difference between these two correlations and they are of similar magnitude - i.e. the correlation is similar in both groups.</p>
+<p>You would report this outcome along the lines of, “despite the correlation between male voice pitch and height was found to be stronger than the same relationship in female voices, Fisher’s Z suggested that this was not a significant difference (Z = 1.65, p = .1)”</p>
+<p><strong>Within-Subjects (i.e. Dependendent Samples) with common variable</strong></p>
+<p>What about the scenario where you have 30 participants rating faces on the scales of trust, warmth and likeability, and we want to know if the relationship between trust and warmth (r = .89) is significantly different than the relationship between trust and likeability (r = .8).</p>
+<p>As this data comes from the same participants, and there is crossover/overlap in traits - i.e. one trait appears in both correlations of interest - then we will use the <code>cocor.dep.groups.overlap()</code>. To do this comparison we also need to know the relationship between the remaining correlation of warmth and likeability (r = .91).</p>
+<p><strong>Note:</strong> The order of input of correlations matters. See <code>?cocor.dep.groups.overlap()</code> for help.</p>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb516-1" data-line-number="1">compare2 &lt;-<span class="st"> </span><span class="kw">cocor.dep.groups.overlap</span>(<span class="dt">r.jk =</span> <span class="fl">.89</span>, </a>
+<a class="sourceLine" id="cb516-2" data-line-number="2">                                     <span class="dt">r.jh =</span> <span class="fl">.8</span>, </a>
+<a class="sourceLine" id="cb516-3" data-line-number="3">                                     <span class="dt">r.kh =</span> <span class="fl">.91</span>, </a>
+<a class="sourceLine" id="cb516-4" data-line-number="4">                                     <span class="dt">n =</span> <span class="dv">30</span>)</a></code></pre></div>
+<p>Gives the output of:</p>
+<pre><code>## 
+##   Results of a comparison of two overlapping correlations based on dependent groups
+## 
+## Comparison between r.jk = 0.89 and r.jh = 0.8
+## Difference: r.jk - r.jh = 0.09
+## Related correlation: r.kh = 0.91
+## Group size: n = 30
+## Null hypothesis: r.jk is equal to r.jh
+## Alternative hypothesis: r.jk is not equal to r.jh (two-sided)
+## Alpha: 0.05
+## 
+## pearson1898: Pearson and Filon&#39;s z (1898)
+##   z = 1.9800, p-value = 0.0477
+##   Null hypothesis rejected
+## 
+## hotelling1940: Hotelling&#39;s t (1940)
+##   t = 2.4208, df = 27, p-value = 0.0225
+##   Null hypothesis rejected
+## 
+## williams1959: Williams&#39; t (1959)
+##   t = 2.4126, df = 27, p-value = 0.0229
+##   Null hypothesis rejected
+## 
+## olkin1967: Olkin&#39;s z (1967)
+##   z = 1.9800, p-value = 0.0477
+##   Null hypothesis rejected
+## 
+## dunn1969: Dunn and Clark&#39;s z (1969)
+##   z = 2.3319, p-value = 0.0197
+##   Null hypothesis rejected
+## 
+## hendrickson1970: Hendrickson, Stanley, and Hills&#39; (1970) modification of Williams&#39; t (1959)
+##   t = 2.4208, df = 27, p-value = 0.0225
+##   Null hypothesis rejected
+## 
+## steiger1980: Steiger&#39;s (1980) modification of Dunn and Clark&#39;s z (1969) using average correlations
+##   z = 2.2476, p-value = 0.0246
+##   Null hypothesis rejected
+## 
+## meng1992: Meng, Rosenthal, and Rubin&#39;s z (1992)
+##   z = 2.2410, p-value = 0.0250
+##   Null hypothesis rejected
+##   95% confidence interval for r.jk - r.jh: 0.0405 0.6061
+##   Null hypothesis rejected (Interval does not include 0)
+## 
+## hittner2003: Hittner, May, and Silver&#39;s (2003) modification of Dunn and Clark&#39;s z (1969) using a backtransformed average Fisher&#39;s (1921) Z procedure
+##   z = 2.2137, p-value = 0.0268
+##   Null hypothesis rejected
+## 
+## zou2007: Zou&#39;s (2007) confidence interval
+##   95% confidence interval for r.jk - r.jh: 0.0135 0.2353
+##   Null hypothesis rejected (Interval does not include 0)</code></pre>
+<p>So this test actually produces the output of a lot of tests; many of which we probably don’t know whether to use or not. However, what you can do is run the analysis and choose just a specific test by adding the argument to the function: <code>test = steiger1980</code> or <code>test = pearson1898</code> for example. These are probably the two most common.</p>
+<p>Let’s run the analysis again using just Pearson’s Z (1898)</p>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb518-1" data-line-number="1">compare3 &lt;-<span class="st"> </span><span class="kw">cocor.dep.groups.overlap</span>(<span class="dt">r.jk =</span> <span class="fl">.89</span>, </a>
+<a class="sourceLine" id="cb518-2" data-line-number="2">                                     <span class="dt">r.jh =</span> <span class="fl">.8</span>, </a>
+<a class="sourceLine" id="cb518-3" data-line-number="3">                                     <span class="dt">r.kh =</span> <span class="fl">.91</span>, </a>
+<a class="sourceLine" id="cb518-4" data-line-number="4">                                     <span class="dt">n =</span> <span class="dv">30</span>,</a>
+<a class="sourceLine" id="cb518-5" data-line-number="5">                                     <span class="dt">test =</span> <span class="st">&quot;pearson1898&quot;</span>)</a></code></pre></div>
+<p>Gives the output of:</p>
+<pre><code>## 
+##   Results of a comparison of two overlapping correlations based on dependent groups
+## 
+## Comparison between r.jk = 0.89 and r.jh = 0.8
+## Difference: r.jk - r.jh = 0.09
+## Related correlation: r.kh = 0.91
+## Group size: n = 30
+## Null hypothesis: r.jk is equal to r.jh
+## Alternative hypothesis: r.jk is not equal to r.jh (two-sided)
+## Alpha: 0.05
+## 
+## pearson1898: Pearson and Filon&#39;s z (1898)
+##   z = 1.9800, p-value = 0.0477
+##   Null hypothesis rejected</code></pre>
+<p>As you can see from the output, this test is significant (p = .047) suggesting that there is a significant difference between the correlation of trust and warmth (r = .89) and the correlation of trust and likeability (r = .8).</p>
+<p><strong>Within-Subjects (i.e. Dependendent Samples) with no common variable</strong></p>
+<p>Ok last scenario. You have 30 participants rating faces on the scales of trust, warmth, likeability, and attractiveness, and we want to know if the relationship between trust and warmth (r = .89) is significantly different than the relationship between likeability and attractiveness (r = .93).</p>
+<p>As the correlations of interest have no crossover in variables but do come from the same participants, in this example we use the <code>cocor.dep.groups.nonoverlap()</code>.</p>
+<p><strong>Note:</strong> In order to do this we need the correlations of all other comparisons:</p>
+<ul>
+<li>trust and likeability (.88)</li>
+<li>trust and attractiveness (.91)</li>
+<li>warmth and likeability (.87)</li>
+<li>warmth and attractiveness (.92)</li>
+</ul>
+<p><strong>Note:</strong> The order of input of correlations matters. See <code>?cocor.dep.groups.nonoverlap()</code> for help.</p>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb520-1" data-line-number="1">compare5 &lt;-<span class="st"> </span><span class="kw">cocor.dep.groups.nonoverlap</span>(<span class="dt">r.jk =</span> <span class="fl">.89</span>, </a>
+<a class="sourceLine" id="cb520-2" data-line-number="2">                                        <span class="dt">r.hm =</span> <span class="fl">.93</span>, </a>
+<a class="sourceLine" id="cb520-3" data-line-number="3">                                        <span class="dt">r.jh =</span> <span class="fl">.88</span>, </a>
+<a class="sourceLine" id="cb520-4" data-line-number="4">                                        <span class="dt">r.jm =</span> <span class="fl">.91</span>, </a>
+<a class="sourceLine" id="cb520-5" data-line-number="5">                                        <span class="dt">r.kh =</span> <span class="fl">.87</span>, </a>
+<a class="sourceLine" id="cb520-6" data-line-number="6">                                        <span class="dt">r.km =</span> <span class="fl">.92</span>, </a>
+<a class="sourceLine" id="cb520-7" data-line-number="7">                                        <span class="dt">n =</span> <span class="dv">30</span>,</a>
+<a class="sourceLine" id="cb520-8" data-line-number="8">                                        <span class="dt">test =</span> <span class="st">&quot;pearson1898&quot;</span>)</a></code></pre></div>
+<p>Gives the output of:</p>
+<pre><code>## 
+##   Results of a comparison of two nonoverlapping correlations based on dependent groups
+## 
+## Comparison between r.jk = 0.89 and r.hm = 0.93
+## Difference: r.jk - r.hm = -0.04
+## Related correlations: r.jh = 0.88, r.jm = 0.91, r.kh = 0.87, r.km = 0.92
+## Group size: n = 30
+## Null hypothesis: r.jk is equal to r.hm
+## Alternative hypothesis: r.jk is not equal to r.hm (two-sided)
+## Alpha: 0.05
+## 
+## pearson1898: Pearson and Filon&#39;s z (1898)
+##   z = -1.1424, p-value = 0.2533
+##   Null hypothesis retained</code></pre>
+<p>As you can see from the output, this test is non-significant (p = .253) suggesting that there is no significant difference between the correlation of trust and warmth (r = .89) and the correlation of likeability and attractiveness (r = .8).</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">End of Additional Material!</span></p>
+
 </div>
 </div>
 </div>

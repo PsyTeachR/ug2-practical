@@ -56,20 +56,25 @@ Remember that you would need to store the output of this step, so really it woul
 
 ```{r ch10InClassSolT4-1, fig.cap='Histogram showing the distribution of Reading Ability Scores from Miller and Haden (2013)'}
 ggplot(mh, aes(x = Abil)) + 
-  geom_histogram(binwidth = 5)
+  geom_histogram(binwidth = 5) +
+  theme_bw()
 ```
 
 * IQ data appears as normal as expected for 25 participants
 ```{r ch10InClassSolT4-2, fig.cap='Histogram showing the distribution of IQ Scores from Miller and Haden (2013)'}
 ggplot(mh, aes(x = IQ)) + 
-  geom_histogram(binwidth = 5)
+  geom_histogram(binwidth = 5) +
+  theme_bw()
 ```
 
 * The relationship between reading ability and IQ scores appears appears linear and with no clear outliers. Data also appears homeoscedastic.
+* We have added the `geom_smooth()` function to help clarify the line of best fit (also know as the regression line or the slope).
 
 ```{r ch10InClassSolT4-3, fig.cap='Scatterplot of IQ scores as a function of Reading Ability from Miller and Haden (2013) data'}
 ggplot(mh, aes(x = Abil, y = IQ)) + 
-  geom_point()
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_bw()
 ```
 
 [Return to Task](#Ch10InClassQueT4)
@@ -90,7 +95,7 @@ results <- cor.test(mh$Abil,
                     mh$IQ, 
                     method = "pearson", 
                     alternative = "two.sided") %>% 
-  tidy
+  tidy()
 ```
 
 * The output of the table would look as follows:
@@ -112,7 +117,8 @@ In the Task 6 output:
 * The correlation value (r) is stored in `estimate`
 * The degrees of freedom (N-2) is stored in `parameter`
 * The p-value is stored in `p.value`
-* And `statistic` is the t-value associated with this analysis as correlations use the t-distribution (same as in Semester 1) to determine probability of an outcome.
+* And `statistic` is the t-value associated with this analysis as correlations use the t-distribution (same as in Chapters 6, 7 and 8) to determine probability of an outcome.
+* Remember that we can use the `pull()` function to get individual values as shown here.
 
 ```{r ch10InClassSolT7}
 pvalue <- results %>% 
@@ -188,12 +194,14 @@ descriptives <- dat %>% summarise(n = n(),
 
 ```{r ch10InClassSolT9-6-1, fig.cap= 'Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)'}
 ggplot(dat, aes(x = VapingQuestionnaireScore)) + 
-  geom_histogram(binwidth = 10)
+  geom_histogram(binwidth = 10) +
+  theme_bw()
 ```
 
 ```{r ch10InClassSolT9-6-2, fig.cap= 'Histogram showing the distribution of IAT Reaction Times (Implicit)'}
 ggplot(dat, aes(x = IAT_RT)) + 
-  geom_histogram(binwidth = 10)
+  geom_histogram(binwidth = 10) +
+  theme_bw()
 ```
 
 * A check of the relationship between reaction times on the IAT and scores on the Vaping Questionnaire
@@ -216,28 +224,38 @@ dat <- dat %>%
 
 **Step 7**
 
-* The analysis and the write-up.
+* The analysis:
 
 ```{r ch10InClassSolT9-7-1}
-results <- cor.test(dat$VapingQuestionnaireScore, dat$IAT_RT, method = "pearson") %>% tidy()
+results <- cor.test(dat$VapingQuestionnaireScore, 
+                    dat$IAT_RT, 
+                    method = "pearson") %>% 
+  tidy()
 ```
 
+* And extracting the values:
+
 ```{r ch10InClassSolT9-7-2}
-correlation <- results %>% pull(estimate)
-df <- results %>% pull(parameter)
-pvalue <- results %>% pull(p.value)
+correlation <- results %>% 
+  pull(estimate)
+
+df <- results %>% 
+  pull(parameter)
+
+pvalue <- results %>% 
+  pull(p.value)
 ```
 
 * With inline coding:
 
-Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(`r backtick("r df")`) = `r backtick("r correlation")`, p = `r backtick("r pvalue")`. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.
+Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(`r backtick("r df")`) = `r backtick("r correlation")`, p = `r backtick("r pvalue")`. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported; we cannot rejet the null hypothesis.
 
 * and appears as when knitted:
 
-Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(`r df`) = `r correlation`, p = `r pvalue`. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.
+Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(`r df`) = `r correlation`, p = `r pvalue`. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported; we cannot rejet the null hypothesis.
 
 **Remember though that r-values and p-values are often rounded to three decimal places, so a more appropriate write up would be:**
 
-Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(143) = -.104, p = .212. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.
+Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(143) = -.104, p = .212. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported; we cannot rejet the null hypothesis.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>
