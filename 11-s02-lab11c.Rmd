@@ -1,20 +1,22 @@
 ## InClass Activity
 
+We are going to start with a step-by-step example of building a decomposition matrix for an ANOVA (Analysis of Variance) and then ask you to perform the steps yourself on a different dataset. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.
+
 **One-factor ANOVA: Worked example**
 
-Today we are going to start with a step-by-step example of building a model for an ANOVA (Analysis of Variance). After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.
+An ANOVA is a method of analysis for analysing data where you have two or more conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally have two conditions (levels) with one independent variable (factor), right? Well an ANOVA is just an extension of that. For example, in the classic Professor Priming experiments you may have read about, instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA); though one might argue that the latter two conditions (levels) are one and the same. Actually, an experiment that has one factor with two levels can actually be analysed with a t-test or an ANOVA. They are both based on the General Linear Model (GLM).
 
-**NOTE:** We assume from the preclass reading that you are now at least familiar with the terms **estimation equations**, **decomposition matrices**, and **sums of squares**, though perhaps you don't quite fully understand them. This activity will help.
+So let's assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions (Grp1, Grp2, Grp3)). To make this example concrete, let's pretend you are studying how consuming food before an exam affects student performance.  You randomly assign 12 participants to three separate conditions (four participants per group) (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you'd need **far more** than 12 participants to make this worthwhile). The three conditions are as follow: 
 
-An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally only have two conditions (levels), right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA); though one might argue that the latter two conditions (levels) are one and the same.
+1. no food, glass of water only (Control) 
+2. all-you-can-eat buffet (Buffet); 
+3. side salad (Salad). 
 
-Let's assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let's pretend you are studying how consuming food before an exam affects student performance.  You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you'd need **far more** than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).
+For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group). And just in case you aren't sure, this would be called a **one-factor design** because there is a single factor, which we might call "pre-exam consumption". And this factor has three different levels: water, buffet, and salad. It is a **between-subjects design** because there are different people in each group (4 per group). In textbooks you might see this referred to as a one-way between-subjects ANOVA. Yes stats does have numerous names for the same thing - that is why making notes is really important. Depending on training someone might use a different word from you but mean the same thing. You can bridge that gap by knowing the alternative names.
 
-This is called a **one-factor design** because there is a single factor, which we might call "pre-exam consumption", that has three different levels: water, buffet, and salad. It is a **between-subjects design** because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.
+And finally, for our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won't complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.
 
-For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won't complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.
-
-Here's how the exam performance looks like for each of the three groups:
+Here's how the exam performance looks like for each of the three groups with each value representing an individual participant's score:
 
 ```{r ch11-setup, echo=FALSE}
 RNGversion("3.5")
@@ -39,7 +41,7 @@ err_vec <- function(n, sd) {
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-To make sure you understand, answer the following questions about the above experiment:
+To make sure you understand the design of this study try to answer the following questions. All the answers are in the information above:
 
 1. Factor is another name for a `r mcq(c("level","condition","control", answer = "variable"))` of the experiment
 2. Level is another name for a `r mcq(c("factor", answer = "condition","control", "variable"))` of the experiment
@@ -49,19 +51,19 @@ To make sure you understand, answer the following questions about the above expe
 
 **Estimating model components**
 
-Great so we understand our experiment! Now, the General Linear Model (GLM) that we will fit to these data is:
+Great so we understand our experiment! Now, and based on your reading, the General Linear Model (GLM) that we will fit to our data is:
 
-$Y_{ij} = \mu + A_i + S(A)_{ij}$
+$$Y_{ij} = \mu + A_i + S(A)_{ij}$$
 
 Where:
 
-- $Y_{ij}$ is the observed value for observation $j$ of group $i$ - i.e. a given participant's score in a given group;
-- $\mu$ (pronounced "mu") is the population grand mean (estimated by the sample grand mean);
-- $A_i$ is the deviation of the population mean of group $i$ from the population grand mean;
-- $S(A)_{ij}$ is the error or residual, defined as the observed value ($Y_{ij}$) minus the model prediction ($\hat{Y}_{ij}$), or the actual value minus the predicted value.
-- Finally, the sum of $\mu$ + $A_i$ is known as the fitted value or the typical value or the predicted value of a participant in a condition and is written as: $\hat{Y}_{ij}$. The "party hat" that ${Y}_{ij}$ is wearing in this part, i.e. $\hat{Y}_{ij}$, is there to remind us that it is not the actual score of your participant (in a given condition), but an **estimate** of that value. So, when we are working in predicted values (values we haven't actually collected, just predicted) then we stick the "party hat" on the symbol. If we are working in real values (that we have collected) then no party hat!
+- $Y_{ij}$ is the observed value for observation $j$ of group $i$ - i.e. a given participant's score ($j$) in a given group ($i$);
+- $\mu$ (pronounced "mu") is the population grand mean (estimated by the sample grand mean) - grand just means overall;
+- $A_i$ is the deviation of the population mean of group $i$ from the population grand mean - i.e. how much different a group's mean is from the overall population mean;
+- the sum of $\mu + A_i$ is known as the fitted value or the typical value or the predicted value of a participant in a condition and is written as: $\hat{Y}_{ij}$. The "party hat" that ${Y}_{ij}$ is wearing in this part, i.e. $\hat{Y}_{ij}$, is there to remind us that it is not the actual score of your participant (in a given condition), but an **estimate** of that value. So, when we are working in predicted values (values we haven't actually collected, just predicted) then we stick the "party hat" on the symbol. If we are working in real values (that we have collected) then no party hat!
+- Finally, $S(A)_{ij}$ is the error or residual, defined as the observed value ($Y_{ij}$) minus the model prediction ($\hat{Y}_{ij}$), or the actual value minus the predicted value. This can be thought of as how different an indivual observation/participant is from their condition mean.
 
-We begin by applying the **estimation equations**. Our estimate of the population grand mean $\mu$, will be based on the grand mean of the sample. We will call this $\hat{\mu}$ (notice once again, the "party hat").
+Now the joy of an analysis such as this is that it can be hard to understand just from the words but makes much more sense when you start to run the numbers - which we will now do. We begin by applying the **estimation equations**. Our estimate of the population grand mean $\mu$, will be based on the grand mean of the sample. We will call this $\hat{\mu}$ (notice once again, the "party hat").
 
 The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:
 
@@ -73,7 +75,7 @@ The estimation equations for our model (seen in Table 3.3 on page 18 of Miller a
 
 where
 
-- $Y_{..}$ is the mean of all 12 observations in the sample a.k.a. the baseline 
+- $Y_{..}$ is the mean of all 12 observations in the sample a.k.a. the overall mean or the baseline 
 
 - $Y_{i.}$ is the mean of the 4 observations in group $i$.
 
@@ -87,7 +89,9 @@ Applying these estimation equations to the data above yields the following decom
 .dmx <- tibble(i = rep(1:3, each = 4),
        j = rep(1:4, times = 3),
        Yij = .Y, mu = .mu, Ai = rep(.meal_eff, each = 4),
-       err = .err)
+       err = .err) %>%
+  mutate(ID = row_number()) %>%
+  select(ID, everything())
 ```
 
 ```{r ch11-dmx-show, echo=FALSE, results = 'asis'}
@@ -100,6 +104,7 @@ knitr::kable(.dmx,
 <br>
 In the above table: 
 
+* the column `ID` can be used to locate individual rows,
 * the column `mu` represents the value of $\hat{\mu}$, 
 * the columns `Ai` represents the value of $\hat{A}_i$, 
 * and the column `err` represents the value of $\widehat{S(A)}_{ij}$.  
@@ -165,7 +170,7 @@ This value appears in column `err`, where `i` equals 3 and `j` equals 2. This ca
 `r unhide()`
 <br>
 
-6. What is the model's prediction for a 'typical' participant in the "Salad" group? (hint: ($\hat{Y}_{ij}$ = mu + Ai)
+6. What is the model's prediction for a 'typical' participant in the **Salad** group ($\hat{A}_3$)? (hint: ($\hat{Y}_{ij}$ = mu + Ai)
 <br>
 `r hide("Answer")`
 

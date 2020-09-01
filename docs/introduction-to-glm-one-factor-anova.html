@@ -639,47 +639,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 11</span> Introduction to GLM: One-factor ANOVA</h1>
 <div id="overview-11" class="section level2">
 <h2><span class="header-section-number">11.1</span> Overview</h2>
-<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. In this chapter we will introduce you to the General Linear Model (GLM) and you will read about this approach in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass. This is a common approach in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this semester as we will spend some of the next few lessons looking at it and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to.</p>
-<p>One of the best ways to learn about linear models is to do things “by hand” on a “toy” dataset. As such, the goals of this inclass assignment are:</p>
+<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. In this chapter we will introduce you to the General Linear Model (GLM) and you will read about this approach in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass. This is a common approach in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this book as we will spend some of the next few lessons looking at the GLM and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to. Basically, the General Linear Model (GLM) is the foundation of a lot of that statistical tests we use and that is what we will introduce it here and build on it as we progress through Psychology. And, one of the best ways to learn about linear models is to do things “by hand” on a simulated dataset.</p>
+<p>You will also notice a slight change in the assignments for the next few chapters in that you are required to do a little more computation than before. Keep in mind though that all the skills you need will of course be shown to you or you already have them. The previous chapters have been aimed at developing your general practical data skills and now we want to develop your understanding of the analysis and data you are working with, in the framework of the GLM, by working through the models by hand before running the functions. We did a little of this approach already with the t-test in Chapter 6 and 7. This time we will focus on looking at the General Linear Model (GLM) as this one modelling approach covers a number of different analyses, including t-tests as we mentioend.</p>
+<p>As such, the goals of this chapter are:</p>
 <ul>
-<li>to recap and practice entering data into a “tibble” (tidyverse data frame - as in Semester 1 Lab 5);</li>
+<li>to recap and practice entering data into a tibble (tidyverse data frame - as introduced Chapter 5);</li>
 <li>to learn how to estimate model parameters from a dataset;</li>
-<li>to learn how to derive a <strong>decomposition matrix</strong> that expresses each observation as a linear sum of model components and error.</li>
+<li>to learn how to derive/generate a <strong>decomposition matrix</strong> that expresses each observation/participant as a linear sum of model components and error.</li>
 </ul>
-<p>These terms will become more familiar to you over the labs and from reading Miller and Haden, but remember to make notes for yourself to help your solidify your learning.</p>
-<p><strong>Note:</strong> You will notice a slight change in the assignments this semester in that you are required to do a little more computation than before, but all the skills you need will of course be shown to you or you already have them. Last semester we developed your general practical data skills and now this semester we want to up your understanding of the analysis and data you are working with by working through the models by hand before running the functions. We did a little of this with the t-test but this time we will focus on the General Linear Model (GLM) as this one modelling approach covers a number of different analyses. As always ask as many questions as you like!</p>
+<p>These terms will become more familiar to you over the following chapters and from reading Miller and Haden, but remember to make notes for yourself to help your solidify your learnin and, as always, ask as many questions as you like!</p>
 
 </div>
 <div id="preclass-activity-9" class="section level2">
 <h2><span class="header-section-number">11.2</span> PreClass Activity</h2>
-<p>The PreClass Activity for this Chapter is just reading. It is quite a bit of reading but don’t worry if you don’t understand it all first time round. The best way to look at it will be to read through as prep, get the gist, then use it to support the class activity and re-read to consolidate knowledge for the assessment.</p>
+<p>The PreClass Activity for this Chapter is just reading. It is quite a bit of reading but don’t worry if you don’t understand it all first time round. The best way to look at it will be to read through as prep, get the gist, then use it to support the activities and re-read to consolidate knowledge for the assessment.</p>
 <div id="read-1" class="section level3">
 <h3><span class="header-section-number">11.2.1</span> Read</h3>
 <p><strong>Chapters</strong></p>
 <ul>
-<li>As preparation, please read chapters 1 to 3 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. In this week’s InClass activity we will be working up to the concept of Sums of Squares which is around Section 3.4 of Miller and Haden (2013)</li>
+<li>As preparation for the inclass activities, please read chapters 1 to 3 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. In this chapter’s activities we will be working up to and including the concept of Sums of Squares which is around Section 3.4 of Miller and Haden (2013).</li>
 </ul>
+<p>When reading this chapter it might help to remember that:</p>
+<ul>
+<li>Factor is another name for Variable</li>
+<li>Level is another name for Condition</li>
+<li>E.g. a between-subjects experiment with one independent variable (sleep quality) and two conditions (Good vs Poor) can be said to have one factor with two levels.</li>
+</ul>
+<p>The key terms we want you to be becoming familiar with from these chapters, though perhaps you don’t quite fully understand them, are:</p>
+<ul>
+<li><strong>ANOVA</strong> - short for Analysis of Variance. A statistical test used to compare the spread of the variance across two or more conditions and/or two or more factors.</li>
+<li><strong>estimation equations</strong> - formulas (or equations) that we use to determine our best guess (estimates) at parameters (values) of a population of interest from our sample parameters (values)</li>
+<li><strong>decomposition matrices</strong> - a table (matrix) that breaks down information into individual components. In this instance, the decomposition matrix breaks down how each individual observation/participant is fitted into the estimation equations.</li>
+<li><strong>sums of squares</strong> - an estimate of the total spread of the data around a parameter (such as the mean). We have seen these before in lectures as the top part of the variance equation:</li>
+</ul>
+<p><span class="math display">\[\sum(x - \bar{x})^2\]</span></p>
+<p>The activities we will look at next will help you understand these terms better. In short, we will show you how to take data from a simulated experiment and apply the estimation equations to create a decomposition matrix summarising this data. This decomposition matrix will show how each participant and condition is fitted to the equations. From that matrix we will calculate the relevant sums of squares for each condition, which we will then use in our ANOVA calculation to determine if there is a significant difference between conditions. It is going to be a lot more fun than it sounds!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 
 </div>
 </div>
 <div id="inclass-activity-9" class="section level2">
 <h2><span class="header-section-number">11.3</span> InClass Activity</h2>
+<p>We are going to start with a step-by-step example of building a decomposition matrix for an ANOVA (Analysis of Variance) and then ask you to perform the steps yourself on a different dataset. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.</p>
 <p><strong>One-factor ANOVA: Worked example</strong></p>
-<p>Today we are going to start with a step-by-step example of building a model for an ANOVA (Analysis of Variance). After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.</p>
-<p><strong>NOTE:</strong> We assume from the preclass reading that you are now at least familiar with the terms <strong>estimation equations</strong>, <strong>decomposition matrices</strong>, and <strong>sums of squares</strong>, though perhaps you don’t quite fully understand them. This activity will help.</p>
-<p>An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally only have two conditions (levels), right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA); though one might argue that the latter two conditions (levels) are one and the same.</p>
-<p>Let’s assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let’s pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you’d need <strong>far more</strong> than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).</p>
-<p>This is called a <strong>one-factor design</strong> because there is a single factor, which we might call “pre-exam consumption”, that has three different levels: water, buffet, and salad. It is a <strong>between-subjects design</strong> because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.</p>
-<p>For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won’t complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.</p>
-<p>Here’s how the exam performance looks like for each of the three groups:</p>
+<p>An ANOVA is a method of analysis for analysing data where you have two or more conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally have two conditions (levels) with one independent variable (factor), right? Well an ANOVA is just an extension of that. For example, in the classic Professor Priming experiments you may have read about, instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA); though one might argue that the latter two conditions (levels) are one and the same. Actually, an experiment that has one factor with two levels can actually be analysed with a t-test or an ANOVA. They are both based on the General Linear Model (GLM).</p>
+<p>So let’s assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions (Grp1, Grp2, Grp3)). To make this example concrete, let’s pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate conditions (four participants per group) (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you’d need <strong>far more</strong> than 12 participants to make this worthwhile). The three conditions are as follow:</p>
+<ol style="list-style-type: decimal">
+<li>no food, glass of water only (Control)</li>
+<li>all-you-can-eat buffet (Buffet);</li>
+<li>side salad (Salad).</li>
+</ol>
+<p>For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group). And just in case you aren’t sure, this would be called a <strong>one-factor design</strong> because there is a single factor, which we might call “pre-exam consumption”. And this factor has three different levels: water, buffet, and salad. It is a <strong>between-subjects design</strong> because there are different people in each group (4 per group). In textbooks you might see this referred to as a one-way between-subjects ANOVA. Yes stats does have numerous names for the same thing - that is why making notes is really important. Depending on training someone might use a different word from you but mean the same thing. You can bridge that gap by knowing the alternative names.</p>
+<p>And finally, for our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won’t complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.</p>
+<p>Here’s how the exam performance looks like for each of the three groups with each value representing an individual participant’s score:</p>
 <ul>
 <li><strong>Control</strong>: 37, 80, 64, 51</li>
 <li><strong>Buffet</strong>: 33, 47, 55, 41</li>
 <li><strong>Salad</strong>: 59, 23, 50, 60</li>
 </ul>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>To make sure you understand, answer the following questions about the above experiment:</p>
+<p>To make sure you understand the design of this study try to answer the following questions. All the answers are in the information above:</p>
 <ol style="list-style-type: decimal">
 <li>Factor is another name for a <select class='solveme' data-answer='["variable"]'> <option></option> <option>level</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
 <li>Level is another name for a <select class='solveme' data-answer='["condition"]'> <option></option> <option>factor</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
@@ -688,17 +707,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The fourth participant in the Control condition scored <select class='solveme' data-answer='["51"]'> <option></option> <option>60</option> <option>41</option> <option>51</option> <option>64</option></select> on the exam</li>
 </ol>
 <p><strong>Estimating model components</strong></p>
-<p>Great so we understand our experiment! Now, the General Linear Model (GLM) that we will fit to these data is:</p>
-<p><span class="math inline">\(Y_{ij} = \mu + A_i + S(A)_{ij}\)</span></p>
+<p>Great so we understand our experiment! Now, and based on your reading, the General Linear Model (GLM) that we will fit to our data is:</p>
+<p><span class="math display">\[Y_{ij} = \mu + A_i + S(A)_{ij}\]</span></p>
 <p>Where:</p>
 <ul>
-<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant’s score in a given group;</li>
-<li><span class="math inline">\(\mu\)</span> (pronounced “mu”) is the population grand mean (estimated by the sample grand mean);</li>
-<li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean;</li>
-<li><span class="math inline">\(S(A)_{ij}\)</span> is the error or residual, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value.</li>
-<li>Finally, the sum of <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span> is known as the fitted value or the typical value or the predicted value of a participant in a condition and is written as: <span class="math inline">\(\hat{Y}_{ij}\)</span>. The “party hat” that <span class="math inline">\({Y}_{ij}\)</span> is wearing in this part, i.e. <span class="math inline">\(\hat{Y}_{ij}\)</span>, is there to remind us that it is not the actual score of your participant (in a given condition), but an <strong>estimate</strong> of that value. So, when we are working in predicted values (values we haven’t actually collected, just predicted) then we stick the “party hat” on the symbol. If we are working in real values (that we have collected) then no party hat!</li>
+<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant’s score (<span class="math inline">\(j\)</span>) in a given group (<span class="math inline">\(i\)</span>);</li>
+<li><span class="math inline">\(\mu\)</span> (pronounced “mu”) is the population grand mean (estimated by the sample grand mean) - grand just means overall;</li>
+<li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean - i.e. how much different a group’s mean is from the overall population mean;</li>
+<li>the sum of <span class="math inline">\(\mu + A_i\)</span> is known as the fitted value or the typical value or the predicted value of a participant in a condition and is written as: <span class="math inline">\(\hat{Y}_{ij}\)</span>. The “party hat” that <span class="math inline">\({Y}_{ij}\)</span> is wearing in this part, i.e. <span class="math inline">\(\hat{Y}_{ij}\)</span>, is there to remind us that it is not the actual score of your participant (in a given condition), but an <strong>estimate</strong> of that value. So, when we are working in predicted values (values we haven’t actually collected, just predicted) then we stick the “party hat” on the symbol. If we are working in real values (that we have collected) then no party hat!</li>
+<li>Finally, <span class="math inline">\(S(A)_{ij}\)</span> is the error or residual, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value. This can be thought of as how different an indivual observation/participant is from their condition mean.</li>
 </ul>
-<p>We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span> (notice once again, the “party hat”).</p>
+<p>Now the joy of an analysis such as this is that it can be hard to understand just from the words but makes much more sense when you start to run the numbers - which we will now do. We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span> (notice once again, the “party hat”).</p>
 <p>The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:</p>
 <ul>
 <li><p><span class="math inline">\(\hat{\mu} = Y_{..}\)</span></p></li>
@@ -707,7 +726,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>where</p>
 <ul>
-<li><p><span class="math inline">\(Y_{..}\)</span> is the mean of all 12 observations in the sample a.k.a. the baseline</p></li>
+<li><p><span class="math inline">\(Y_{..}\)</span> is the mean of all 12 observations in the sample a.k.a. the overall mean or the baseline</p></li>
 <li><p><span class="math inline">\(Y_{i.}\)</span> is the mean of the 4 observations in group <span class="math inline">\(i\)</span>.</p></li>
 <li><p><span class="math inline">\(\hat{A}_i\)</span> is the respective group mean minus the sample mean a.k.a. between-subjects variance</p></li>
 <li><p><span class="math inline">\(\widehat{S(A)}_{ij}\)</span> is the individual error term for a given participant, or how much they deviate from the group contribution.</p></li>
@@ -720,6 +739,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </caption>
 <thead>
 <tr>
+<th style="text-align:right;">
+ID
+</th>
 <th style="text-align:right;">
 i
 </th>
@@ -749,6 +771,9 @@ err
 1
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 37
 </td>
 <td style="text-align:right;">
@@ -762,6 +787,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+2
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -783,6 +811,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
@@ -802,6 +833,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+4
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -823,6 +857,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -842,6 +879,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+6
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -863,6 +903,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -882,6 +925,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+8
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -903,6 +949,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -922,6 +971,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+10
+</td>
 <td style="text-align:right;">
 3
 </td>
@@ -943,6 +995,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -962,6 +1017,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+12
+</td>
 <td style="text-align:right;">
 3
 </td>
@@ -987,6 +1045,7 @@ err
 <p><br>
 In the above table:</p>
 <ul>
+<li>the column <code>ID</code> can be used to locate individual rows,</li>
 <li>the column <code>mu</code> represents the value of <span class="math inline">\(\hat{\mu}\)</span>,</li>
 <li>the columns <code>Ai</code> represents the value of <span class="math inline">\(\hat{A}_i\)</span>,</li>
 <li>and the column <code>err</code> represents the value of <span class="math inline">\(\widehat{S(A)}_{ij}\)</span>.</li>
@@ -1074,7 +1133,7 @@ This value appears in column <code>err</code>, where <code>i</code> equals 3 and
 </div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
-<li>What is the model’s prediction for a ‘typical’ participant in the “Salad” group? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)
+<li>What is the model’s prediction for a ‘typical’ participant in the <strong>Salad</strong> group (<span class="math inline">\(\hat{A}_3\)</span>)? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)
 <br></li>
 </ol>
 <div class="solution">
@@ -1119,6 +1178,9 @@ These are the called the “residuals” (<span class="math inline"><span class=
 <thead>
 <tr>
 <th style="text-align:right;">
+ID
+</th>
+<th style="text-align:right;">
 i
 </th>
 <th style="text-align:right;">
@@ -1147,6 +1209,9 @@ err
 1
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 37
 </td>
 <td style="text-align:right;">
@@ -1160,6 +1225,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+2
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -1181,6 +1249,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
@@ -1200,6 +1271,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+4
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -1221,6 +1295,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -1240,6 +1317,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+6
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -1261,6 +1341,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -1280,6 +1363,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+8
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -1301,6 +1387,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -1320,6 +1409,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+10
+</td>
 <td style="text-align:right;">
 3
 </td>
@@ -1341,6 +1433,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -1360,6 +1455,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+12
+</td>
 <td style="text-align:right;">
 3
 </td>
