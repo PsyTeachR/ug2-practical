@@ -22,7 +22,7 @@ Consider the following description of a study.
 
 Which of the models shown below would be the the general linear model corresponding to this study?
 
-1. $Y_{ij} = \mu + A_{ij} + S(A)_{ij}$
+1. $Y_{ij} = \mu + A_{i} + S(A)_{ij}$
 2. $Y_{ijkm} = \mu + A_{i} + B_{j} + C_{k} + D_{m} + S_{ijkm}$
 3. $Y_{ij} = \beta_0 + \beta_1 X_1 + e_{ij}$
 4. $Y_{ijkm} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + e_{ijkm}$
@@ -183,17 +183,8 @@ In the code chunk below, flesh out the values in `dsetup` to create a decomposit
 dmx <- NULL 
 ```
 
-```{r dmx_warning, echo = FALSE}
-# Don't change anything in this code chunk; it is just here to help you check  that you've defined a table called `dmx` correctly. Pay attention to any warnings  that appear when you run this chunk. When the warning has gone away, that  means that the structure of `dmx` is correct (although it doesn't mean that the values are correct!)
-
-if (!identical(names(dmx), names(dsetup)) || 
-    !identical(dim(dmx), dim(dsetup))) {
-  warning("If this warning appears in the output, you have not yet defined 'dmx' properly. Check column names (including capitalization), column data types, and table structure.")
-}
-```
-
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solutions which can be found at the end of this Chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2019**.
+Well done, you are finshed! Now you should go check your answers against the solutions which can be found at the end of this Chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the available forums or speak to a member of the team.
 
-See you in the next lab!
+On to the next chapter!

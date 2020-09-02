@@ -511,11 +511,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT1"><i class="fa fa-check"></i><b>12.3.1</b> Task 1 - Quick Checks</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT2"><i class="fa fa-check"></i><b>12.3.2</b> Task 2 - Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3"><i class="fa fa-check"></i><b>12.3.3</b> Task 3 - F-ratios</a></li>
-<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using ez::ezANOVA()</a></li>
+<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using afex::aov_ez()</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#assignment-11"><i class="fa fa-check"></i><b>12.4</b> Assignment</a></li>
 <li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="12.5.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activities-8"><i class="fa fa-check"></i><b>12.5.1</b> InClass Activities</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
@@ -642,8 +645,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the previous chapters we have looked at one-sample t-tests and between-samples t-tests. In this chapter we will continue to look at t-tests in general, with the PreClass Activity looking really at the assumption of variance in a between-subjects t-test, and the InClass Activity looking at the remaining type of t-test; the <strong>within-subjects t-test</strong> (sometimes called the <strong>dependent sample</strong> or <strong>paired-sample t-test</strong>). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations <strong>from the same or matched participants</strong> is zero.</p>
 <p>As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis.</p>
 <ul>
-<li>The null hypothesis assumes that the true mean difference between the paired samples is zero - <span class="math inline">\(H_0: \mu1 = \mu_2\)</span>.</li>
-<li>The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero - <span class="math inline">\(H_1: \mu1 \ne \mu_2\)</span>.</li>
+<li>The null hypothesis assumes that the true mean difference between the paired samples is zero: <span class="math display">\[H_0: \mu1 = \mu_2\]</span>.</li>
+<li>The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero: <span class="math display">\[H_1: \mu1 \ne \mu_2\]</span>.</li>
 </ul>
 <p>In this chapter we are going to look at running the within-subjects t-test but to begin with we will do a little work on the checks of your data that you need to perform prior to analysis.</p>
 <p><strong>Assumptions of tests</strong></p>
@@ -694,8 +697,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Copy the script within the blog into an R script and try running it to see the difference between Welch’s t-test (the recommended test in the blog) and Student’s t-test (the standard test in the field).</li>
 </ol>
-<p><strong>Note:</strong> You will need the <strong><code>car</code></strong> package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car). If yuo are using your own machine then you will need to install the <strong><code>car</code></strong> package.
-<strong>Note:</strong> The code will take a minute or two to run as there is a stage of simulating data (just like we did in Chapter 5) that will take a little time to run.</p>
+<ul>
+<li><strong>Note:</strong> You will need the <strong><code>car</code></strong> package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car). If yuo are using your own machine then you will need to install the <strong><code>car</code></strong> package.</li>
+<li><strong>Note:</strong> The code will take a minute or two to run as there is a stage of simulating data (just like we did in Chapter 5) that will take a little time to run.</li>
+</ul>
 <p>Don’t worry if you don’t yet understand all the code. It is highly commented, with each line stating what it does, but it is tricky. The key thing is to try and run it and to look at the figures that come out of it - particularly the third figure that you see in the blog, the one with the red line on it that compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other. We give an explanation of the blog below but it is worth trying it out yourself first.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Now try changing the values for n1, n2, sd1 and sd2 at the top of the script to see what effect this has on the Type 1 Error rate (alpha = .05). Again look at the figure with the red line, comparing significance on one test versus significance on the other. This is what should change depending on the n of each sample and whether the variance is equal or not.</p></li>
@@ -1013,10 +1018,10 @@ We have embellished the figure a little in the solution that you can have a look
 <a class="sourceLine" id="cb414-11" data-line-number="11">              <span class="dt">width =</span> <span class="fl">.1</span>, </a>
 <a class="sourceLine" id="cb414-12" data-line-number="12">              <span class="dt">shape =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb414-13" data-line-number="13"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
-<img src="07-s01-lab07c_files/figure-html/unnamed-chunk-6-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="figure" style="text-align: center"><span id="fig:ch7-plot-vilplot"></span>
+<img src="07-s01-lab07c_files/figure-html/ch7-plot-vilplot-1.png" alt="A violin and boxplot showing the distribution of the scores of the difference between the Thirteen and Twelve conditions. Individual participant data show as blue stars. Positive values would indicate that the rating in the Thirteen condition is higher than the rating in the Twelve condition. Oultiers will show as red circles." width="100%" />
 <p class="caption">
-Figure 7.3: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 7.3: A violin and boxplot showing the distribution of the scores of the difference between the Thirteen and Twelve conditions. Individual participant data show as blue stars. Positive values would indicate that the rating in the Thirteen condition is higher than the rating in the Twelve condition. Oultiers will show as red circles.
 </p>
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>

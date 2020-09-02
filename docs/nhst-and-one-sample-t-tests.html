@@ -511,11 +511,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT1"><i class="fa fa-check"></i><b>12.3.1</b> Task 1 - Quick Checks</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT2"><i class="fa fa-check"></i><b>12.3.2</b> Task 2 - Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3"><i class="fa fa-check"></i><b>12.3.3</b> Task 3 - F-ratios</a></li>
-<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using ez::ezANOVA()</a></li>
+<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using afex::aov_ez()</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#assignment-11"><i class="fa fa-check"></i><b>12.4</b> Assignment</a></li>
 <li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="12.5.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activities-8"><i class="fa fa-check"></i><b>12.5.1</b> InClass Activities</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
@@ -1083,7 +1086,7 @@ The probability of obtaining 16 participants with a mean reaction time greater t
 <li>and <span class="math inline">\(\mu_0\)</span> (mu-zero) is some other mean to compare against (which could be an alternative population or sample mean or a constant).</li>
 </ul>
 <p>And we will do this by calculating the test statistic <span class="math inline">\(t\)</span> which comes from the <span class="math inline">\(t\)</span> distribution - more on that distribution below and in the lectures. The formula to calculate the observed test statistic <span class="math inline">\(t\)</span> for the one-sample <span class="math inline">\(t\)</span>-test is:</p>
-<p><span class="math inline">\(t = \frac{\mu - \mu_0}{s\ / \sqrt(n)}\)</span></p>
+<p><span class="math display">\[t = \frac{\mu - \mu_0}{s\ / \sqrt(n)}\]</span></p>
 <ul>
 <li><span class="math inline">\(s\)</span> is the stanard deviation of the sample collected,</li>
 <li>and <span class="math inline">\(n\)</span> is the number of participants in the sample.</li>
@@ -1097,13 +1100,13 @@ Portfolio Point - The Null Hypothesis equation
 The eagle-eyed of you may have spotted that in Chapter 5 the null hypothesis was stated as:
 </p>
 <p>
-<span class="math inline"><span class="math inline">\(H_0: \mu_1 = \mu_2\)</span></span>
+<span class="math display"><span class="math display">\[H_0: \mu_1 = \mu_2\]</span></span>
 </p>
 <p>
 whereas in this Chapter we are stating it as:
 </p>
 <p>
-<span class="math inline"><span class="math inline">\(H_0: \mu = \mu_0\)</span></span>
+<span class="math inline"><span class="math inline">\(S\)</span></span>H_0: = _0$$
 </p>
 <p>
 What’s the difference? Conceptually there is no real difference. The null hypothesis in both situations is stating that there is no difference between the means. The only difference is that in Chapter 5 we know the actual mean of the groups of interest. In Chapter 6 we only really know the mean we want to compare against - <span class="math inline"><span class="math inline">\(\mu_0\)</span></span>. We do not know the actual mean of the population of interest (we only know the sample we have collected) - so this is written as <span class="math inline"><span class="math inline">\(\mu\)</span></span>.
@@ -1121,7 +1124,7 @@ Main thing to recognise is that the null hypothesis <span class="math inline"><s
 </ul>
 <p>So in other words we are testing the null hypothesis that <span class="math inline">\(H_0: \bar{X} =\)</span> 590.</p>
 <p>As such the formula for our one-sample <span class="math inline">\(t\)</span>-test becomes:</p>
-<p><span class="math inline">\(t = \frac{\bar{X} - \mu_0}{s\ / \sqrt(n)}\)</span></p>
+<p><span class="math display">\[t = \frac{\bar{X} - \mu_0}{s\ / \sqrt(n)}\]</span></p>
 <p>Now we just need to fill in the numbers.</p>
 </div>
 <div id="Ch6PreClassQueT4" class="section level3">

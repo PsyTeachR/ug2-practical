@@ -6,8 +6,8 @@ In the previous chapters we have looked at one-sample t-tests and between-sample
 
 As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis. 
 
-* The null hypothesis assumes that the true mean difference between the paired samples is zero - $H_0: \mu1 = \mu_2$. 
-* The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero - $H_1: \mu1 \ne \mu_2$.
+* The null hypothesis assumes that the true mean difference between the paired samples is zero: $$H_0: \mu1 = \mu_2$$. 
+* The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero: $$H_1: \mu1 \ne \mu_2$$.
 
 In this chapter we are going to look at running the within-subjects t-test but to begin with we will do a little work on the checks of your data that you need to perform prior to analysis.
 

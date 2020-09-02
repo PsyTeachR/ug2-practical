@@ -148,7 +148,7 @@ Have a look at the output, and at the code, and think about whether the scores o
 
 Note that in the code below outliers will appear as red circles and inidividual data points will appear as blue Xs. Can you see what is controlling this? Why is this an important step? We will say why in a second but it is worth thinking about yourself for a minute or two.
 
-```{r}
+```{r ch7-plot-vilplot, fig.cap="A violin and boxplot showing the distribution of the scores of the difference between the Thirteen and Twelve conditions. Individual participant data show as blue stars. Positive values would indicate that the rating in the Thirteen condition is higher than the rating in the Twelve condition. Oultiers will show as red circles."}
 lates %>% 
   spread(Timepoint, GuiltRating) %>%
   mutate(diff = Thirteen - Twelve) %>%

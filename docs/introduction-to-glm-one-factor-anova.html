@@ -511,11 +511,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT1"><i class="fa fa-check"></i><b>12.3.1</b> Task 1 - Quick Checks</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT2"><i class="fa fa-check"></i><b>12.3.2</b> Task 2 - Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3"><i class="fa fa-check"></i><b>12.3.3</b> Task 3 - F-ratios</a></li>
-<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using ez::ezANOVA()</a></li>
+<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using afex::aov_ez()</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#assignment-11"><i class="fa fa-check"></i><b>12.4</b> Assignment</a></li>
 <li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="12.5.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activities-8"><i class="fa fa-check"></i><b>12.5.1</b> InClass Activities</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
@@ -639,47 +642,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 11</span> Introduction to GLM: One-factor ANOVA</h1>
 <div id="overview-11" class="section level2">
 <h2><span class="header-section-number">11.1</span> Overview</h2>
-<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. In this chapter we will introduce you to the General Linear Model (GLM) and you will read about this approach in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass. This is a common approach in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this semester as we will spend some of the next few lessons looking at it and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to.</p>
-<p>One of the best ways to learn about linear models is to do things “by hand” on a “toy” dataset. As such, the goals of this inclass assignment are:</p>
+<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. You are actually already familiar with this approach but it just hasn’t been phrased as such - this is what t-test, correlations, etc, do. In this chapter we will formalise this approach and introduce you to the General Linear Model (GLM) which you will read about in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass.</p>
+<p>The GLM is a very common model in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this book as we will spend some of the next few lessons looking at the GLM and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to. Basically, the General Linear Model (GLM) is the foundation of a lot of that statistical tests we use. Over the next few chapters, and building for future years of study, we will introduce the GLM here, through working with the model “by hand” on a simulated dataset, as this one of the best ways to learn about linear models.</p>
+<p>You will also notice a slight change in the assignments for the next few chapters in that you are required to do a little more computation than before. Keep in mind though that all the skills you need will of course be shown to you first or you have already learnt them. The previous chapters have been aimed at developing your general practical data skills and now we want to develop your understanding of the analysis and data you are working with.</p>
+<p>As such, the goals of this chapter are:</p>
 <ul>
-<li>to recap and practice entering data into a “tibble” (tidyverse data frame - as in Semester 1 Lab 5);</li>
+<li>to recap and practice entering data into a tibble (tidyverse data frame - as introduced Chapter 5);</li>
 <li>to learn how to estimate model parameters from a dataset;</li>
-<li>to learn how to derive a <strong>decomposition matrix</strong> that expresses each observation as a linear sum of model components and error.</li>
+<li>to learn how to derive/generate a <strong>decomposition matrix</strong> that expresses each observation/participant as a linear sum of model components and error.</li>
 </ul>
-<p>These terms will become more familiar to you over the labs and from reading Miller and Haden, but remember to make notes for yourself to help your solidify your learning.</p>
-<p><strong>Note:</strong> You will notice a slight change in the assignments this semester in that you are required to do a little more computation than before, but all the skills you need will of course be shown to you or you already have them. Last semester we developed your general practical data skills and now this semester we want to up your understanding of the analysis and data you are working with by working through the models by hand before running the functions. We did a little of this with the t-test but this time we will focus on the General Linear Model (GLM) as this one modelling approach covers a number of different analyses. As always ask as many questions as you like!</p>
+<p>These terms will become more familiar to you over the following chapters and from reading Miller and Haden, but remember to make notes for yourself to help your solidify your learnin and, as always, ask as many questions as you like!</p>
 
 </div>
 <div id="preclass-activity-9" class="section level2">
 <h2><span class="header-section-number">11.2</span> PreClass Activity</h2>
-<p>The PreClass Activity for this Chapter is just reading. It is quite a bit of reading but don’t worry if you don’t understand it all first time round. The best way to look at it will be to read through as prep, get the gist, then use it to support the class activity and re-read to consolidate knowledge for the assessment.</p>
+<p>The PreClass Activity for this chapter is reading. It is quite a bit of reading but don’t worry if you don’t understand it all the first time round. The best way to deal with this is to read through the information as prep, get the gist, then use it to support the activities, and then re-read to consolidate knowledge for the assessment. And ask questions. This will seem difficult at first but by working with the ideas and examples, you can understand the concepts introduced here.</p>
 <div id="read-1" class="section level3">
 <h3><span class="header-section-number">11.2.1</span> Read</h3>
 <p><strong>Chapters</strong></p>
 <ul>
-<li>As preparation, please read chapters 1 to 3 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. In this week’s InClass activity we will be working up to the concept of Sums of Squares which is around Section 3.4 of Miller and Haden (2013)</li>
+<li>As preparation for the inclass activities, please read Chapters 1 to 3 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. The inclass activities will be working up to and including the concept of Sums of Squares which is around Section 3.4 of Miller and Haden (2013), so at least read up to and including that section.</li>
 </ul>
+<p>When reading Miller and Haden it will help to remember that:</p>
+<ul>
+<li><strong>Factor</strong> is another name for <strong>Variable</strong></li>
+<li><strong>Level</strong> is another name for <strong>Condition</strong></li>
+<li>E.g. a between-subjects experiment with one independent variable (sleep quality) and two conditions (Good vs Poor) can be said to have one factor with two levels.</li>
+</ul>
+<p>The key terms we want you to be becoming familiar with from these chapters, though perhaps you don’t quite fully understand them, are:</p>
+<ul>
+<li><strong>ANOVA</strong> - short for Analysis of Variance. A statistical test used to compare the spread of the variance across two or more conditions and/or two or more factors.</li>
+<li><strong>estimation equations</strong> - formulas (or equations) that we use to determine our best guess (estimates) at parameters (values) of a population of interest from our sample parameters (values)</li>
+<li><strong>decomposition matrices</strong> - a table (matrix) that breaks down information into individual components. In this instance, the decomposition matrix breaks down how each individual observation/participant is fitted into the GLM based on the estimation equations.</li>
+<li><strong>sums of squares</strong> - an estimate of the total spread of the data around a parameter (such as the mean). We have seen sums of squares before in lectures, as the top part of the variance equation for example:</li>
+</ul>
+<p><span class="math display">\[\sum(x - \bar{x})^2\]</span></p>
+<p>The activities we will look at next will help you understand these terms better. In short, over the next two chapters, we will show you how to take data from a simulated experiment and apply the estimation equations to create a decomposition matrix summarising this data. This decomposition matrix will show how each participant and condition is fitted to the General Linear Model. Then, from that matrix, we will calculate the relevant sums of squares for each condition, which will in turn be used in our ANOVA calculation to determine if there is a significant difference between conditions. It is going to be a lot more fun than it sounds!</p>
+<p>If you want to get ahead, you should try the next activities. The first part reiterates and expands on the Miller and Haden information.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 
 </div>
 </div>
 <div id="inclass-activity-9" class="section level2">
 <h2><span class="header-section-number">11.3</span> InClass Activity</h2>
+<p>We are going to start with a step-by-step example of building a decomposition matrix for an ANOVA (Analysis of Variance) and then ask you to perform the steps yourself on a different dataset. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim worked example and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.</p>
 <p><strong>One-factor ANOVA: Worked example</strong></p>
-<p>Today we are going to start with a step-by-step example of building a model for an ANOVA (Analysis of Variance). After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.</p>
-<p><strong>NOTE:</strong> We assume from the preclass reading that you are now at least familiar with the terms <strong>estimation equations</strong>, <strong>decomposition matrices</strong>, and <strong>sums of squares</strong>, though perhaps you don’t quite fully understand them. This activity will help.</p>
-<p>An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally only have two conditions (levels), right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA); though one might argue that the latter two conditions (levels) are one and the same.</p>
-<p>Let’s assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let’s pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you’d need <strong>far more</strong> than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).</p>
-<p>This is called a <strong>one-factor design</strong> because there is a single factor, which we might call “pre-exam consumption”, that has three different levels: water, buffet, and salad. It is a <strong>between-subjects design</strong> because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.</p>
-<p>For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won’t complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.</p>
-<p>Here’s how the exam performance looks like for each of the three groups:</p>
+<p>An ANOVA is a method of analysis for analysing data where you have two or more conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally have two conditions (levels) with one independent variable (factor), right? Well an ANOVA is just an extension of that. For example, in the classic Professor Priming experiments you may have read about, instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA). Actually, an experiment that has one factor with two levels can be analysed with a t-test or an ANOVA as they are both based on the General Linear Model (GLM).</p>
+<p>So let’s assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions (Grp1, Grp2, Grp3)). To make this example concrete, let’s pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate conditions (four participants per group) (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you’d need <strong>far more</strong> than 12 participants to make this worthwhile). The three conditions are as follow:</p>
+<ol style="list-style-type: decimal">
+<li>no food, glass of water only (Control)</li>
+<li>all-you-can-eat buffet (Buffet);</li>
+<li>side salad (Salad).</li>
+</ol>
+<p>Your dependent variable is operationalised as the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group). And just in case you aren’t sure, this would be a <strong>one-factor design</strong> because there is a single factor, which we might call “pre-exam consumption”. And this factor has three different levels: water, buffet, and salad. It is a <strong>between-subjects design</strong> because there are different people in each group (4 per group). In textbooks you might see this referred to as a one-way between-subjects ANOVA. Yes stats does have numerous names for the same thing - that is why making notes is really important. Depending on training someone might use a different word from you but mean the same thing. You can bridge that gap by knowing the alternative names.</p>
+<p>And finally, for our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won’t complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.</p>
+<p>Here’s how the exam performance looks like for each of the three groups with each value representing an individual participant’s score:</p>
 <ul>
 <li><strong>Control</strong>: 37, 80, 64, 51</li>
 <li><strong>Buffet</strong>: 33, 47, 55, 41</li>
 <li><strong>Salad</strong>: 59, 23, 50, 60</li>
 </ul>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>To make sure you understand, answer the following questions about the above experiment:</p>
+<p>To make sure you understand the design of this study try to answer the following questions. All the answers are in the information above:</p>
 <ol style="list-style-type: decimal">
 <li>Factor is another name for a <select class='solveme' data-answer='["variable"]'> <option></option> <option>level</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
 <li>Level is another name for a <select class='solveme' data-answer='["condition"]'> <option></option> <option>factor</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
@@ -688,17 +712,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The fourth participant in the Control condition scored <select class='solveme' data-answer='["51"]'> <option></option> <option>60</option> <option>41</option> <option>51</option> <option>64</option></select> on the exam</li>
 </ol>
 <p><strong>Estimating model components</strong></p>
-<p>Great so we understand our experiment! Now, the General Linear Model (GLM) that we will fit to these data is:</p>
-<p><span class="math inline">\(Y_{ij} = \mu + A_i + S(A)_{ij}\)</span></p>
+<p>Great so we understand our experiment! Now, and based on your reading, the General Linear Model (GLM) that we will fit to our data is:</p>
+<p><span class="math display">\[Y_{ij} = \mu + A_i + S(A)_{ij}\]</span></p>
 <p>Where:</p>
 <ul>
-<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant’s score in a given group;</li>
-<li><span class="math inline">\(\mu\)</span> (pronounced “mu”) is the population grand mean (estimated by the sample grand mean);</li>
-<li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean;</li>
-<li><span class="math inline">\(S(A)_{ij}\)</span> is the error or residual, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value.</li>
-<li>Finally, the sum of <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span> is known as the fitted value or the typical value or the predicted value of a participant in a condition and is written as: <span class="math inline">\(\hat{Y}_{ij}\)</span>. The “party hat” that <span class="math inline">\({Y}_{ij}\)</span> is wearing in this part, i.e. <span class="math inline">\(\hat{Y}_{ij}\)</span>, is there to remind us that it is not the actual score of your participant (in a given condition), but an <strong>estimate</strong> of that value. So, when we are working in predicted values (values we haven’t actually collected, just predicted) then we stick the “party hat” on the symbol. If we are working in real values (that we have collected) then no party hat!</li>
+<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant’s score (<span class="math inline">\(j\)</span>) in a given group (<span class="math inline">\(i\)</span>);</li>
+<li><span class="math inline">\(\mu\)</span> (pronounced “mu”) is the population grand mean (estimated by the sample grand mean) - grand just means overall;</li>
+<li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean - i.e. how different a group’s mean is from the overall population mean;</li>
+<li>Now before the last part of the formula, you need to know that the sum of <span class="math inline">\(\mu + A_i\)</span> is known as the <strong>fitted value</strong> or the <strong>typical value</strong> or the <strong>predicted value</strong> of a participant in a condition and is written as: <span class="math inline">\(\hat{Y}_{ij}\)</span>. So:</li>
 </ul>
-<p>We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span> (notice once again, the “party hat”).</p>
+<p><span class="math display">\[\hat{Y}_{ij} = \mu + A_i\]</span></p>
+<ul>
+<li>The “party hat” that <span class="math inline">\({Y}_{ij}\)</span> is wearing in this part, i.e. <span class="math inline">\(\hat{Y}_{ij}\)</span>, is there to remind us that it is not the actual score of your participant (in a given condition), but an <strong>estimate</strong> of that value. So, when we are working in predicted values (values we haven’t actually collected, just predicted) then we stick the “party hat” on the symbol. If we are working in real values (that we have collected) then no party hat!</li>
+<li>Finally, back to the GLM equation, <span class="math inline">\(S(A)_{ij}\)</span> is the error or residual, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value. This can be thought of as how different an indivual observation/participant is from their condition mean. So:</li>
+</ul>
+<p><span class="math display">\[S(A)_{ij} = \hat{Y}_{ij} - {Y}_{ij}\]</span></p>
+<p>Now the joy of an analysis such as this is that it can be hard to understand just from the words but makes much more sense when you start to run the numbers - which we will now do. We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span> (notice once again, the “party hat”).</p>
 <p>The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:</p>
 <ul>
 <li><p><span class="math inline">\(\hat{\mu} = Y_{..}\)</span></p></li>
@@ -707,7 +736,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>where</p>
 <ul>
-<li><p><span class="math inline">\(Y_{..}\)</span> is the mean of all 12 observations in the sample a.k.a. the baseline</p></li>
+<li><p><span class="math inline">\(Y_{..}\)</span> is the mean of all 12 observations in the sample a.k.a. the overall mean or the baseline</p></li>
 <li><p><span class="math inline">\(Y_{i.}\)</span> is the mean of the 4 observations in group <span class="math inline">\(i\)</span>.</p></li>
 <li><p><span class="math inline">\(\hat{A}_i\)</span> is the respective group mean minus the sample mean a.k.a. between-subjects variance</p></li>
 <li><p><span class="math inline">\(\widehat{S(A)}_{ij}\)</span> is the individual error term for a given participant, or how much they deviate from the group contribution.</p></li>
@@ -720,6 +749,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </caption>
 <thead>
 <tr>
+<th style="text-align:right;">
+ID
+</th>
 <th style="text-align:right;">
 i
 </th>
@@ -749,6 +781,9 @@ err
 1
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 37
 </td>
 <td style="text-align:right;">
@@ -762,6 +797,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+2
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -783,6 +821,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
@@ -802,6 +843,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+4
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -823,6 +867,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -842,6 +889,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+6
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -863,6 +913,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -882,6 +935,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+8
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -903,6 +959,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -922,6 +981,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+10
+</td>
 <td style="text-align:right;">
 3
 </td>
@@ -943,6 +1005,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -962,6 +1027,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+12
+</td>
 <td style="text-align:right;">
 3
 </td>
@@ -987,6 +1055,7 @@ err
 <p><br>
 In the above table:</p>
 <ul>
+<li>the column <code>ID</code> can be used to locate individual rows,</li>
 <li>the column <code>mu</code> represents the value of <span class="math inline">\(\hat{\mu}\)</span>,</li>
 <li>the columns <code>Ai</code> represents the value of <span class="math inline">\(\hat{A}_i\)</span>,</li>
 <li>and the column <code>err</code> represents the value of <span class="math inline">\(\widehat{S(A)}_{ij}\)</span>.</li>
@@ -998,6 +1067,7 @@ In the above table:</p>
 <li><span class="math inline">\(Y_{ij} = mu + Ai + err\)</span></li>
 <li><span class="math inline">\(37 = 50 + 8 + -21\)</span></li>
 </ul>
+<p>Meaning that the overall mean of the whole sample is <strong>50</strong>. The unique contribution of the control group is <strong><span class="math inline">\(+8\)</span></strong>, so the predicted value of a member of the control group would be <strong>58</strong>. However the first participant has an error of <strong><span class="math inline">\(-21\)</span></strong> from the predicted as there actual score is <strong>37</strong>. We will start to understand how the difference (the variance) between conditions and within conditions leads to our analysis later but hopefully you are beginning to understand some of the above.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>To make sure you understand the above equations before going on to calculate your own, answer the following questions about the above table which expresses the GLM decomposition matrix, and then check your answers.</p>
 <ol style="list-style-type: decimal">
@@ -1052,7 +1122,7 @@ Answer
 <p><strong>The value would be 8</strong></p>
 <div class="info">
 <p>
-This value appears in column <code>Ai</code>, rows 1-4, where <code>i</code> equals 1. This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the <strong>typical</strong> participant in that group - as opposed to an individual participant in that group. Note that, conceptually this gives you the effect of your manipulation (food consumption style) and the different <code>i_s</code> allow you do so for each of the different styles you look at.
+This value appears in column <code>Ai</code>, rows 1-4, where <code>i</code> equals 1. This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the <strong>typical</strong> participant in that group - as opposed to an individual participant in that group. Note that, conceptually this gives you the effect of your manipulation (food consumption style) and the different <code>i</code> allow you do so for each of the different styles you look at.
 </p>
 </div>
 </div>
@@ -1074,7 +1144,7 @@ This value appears in column <code>err</code>, where <code>i</code> equals 3 and
 </div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
-<li>What is the model’s prediction for a ‘typical’ participant in the “Salad” group? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)
+<li>What is the model’s prediction for a ‘typical’ participant in the <strong>Salad</strong> group (<span class="math inline">\(\hat{A}_3\)</span>)? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)
 <br></li>
 </ol>
 <div class="solution">
@@ -1104,7 +1174,7 @@ Answer
 </button>
 <div class="info">
 <p>
-These are the called the “residuals” (<span class="math inline"><span class="math inline">\(\widehat{S(A)}_{ij}\)</span></span>s) and are found in the <code>err</code> column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.
+These are the called the “residuals” (<span class="math inline"><span class="math inline">\(\widehat{S(A)}_{ij}\)</span></span>) and are found in the <code>err</code> column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.
 </p>
 </div>
 </div>
@@ -1118,6 +1188,9 @@ These are the called the “residuals” (<span class="math inline"><span class=
 </caption>
 <thead>
 <tr>
+<th style="text-align:right;">
+ID
+</th>
 <th style="text-align:right;">
 i
 </th>
@@ -1147,6 +1220,9 @@ err
 1
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 37
 </td>
 <td style="text-align:right;">
@@ -1160,6 +1236,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+2
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -1181,6 +1260,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
@@ -1200,6 +1282,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+4
+</td>
 <td style="text-align:right;">
 1
 </td>
@@ -1221,6 +1306,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -1240,6 +1328,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+6
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -1261,6 +1352,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
@@ -1280,6 +1374,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+8
+</td>
 <td style="text-align:right;">
 2
 </td>
@@ -1301,6 +1398,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -1320,6 +1420,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+10
+</td>
 <td style="text-align:right;">
 3
 </td>
@@ -1341,6 +1444,9 @@ err
 </tr>
 <tr>
 <td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
@@ -1360,6 +1466,9 @@ err
 </td>
 </tr>
 <tr>
+<td style="text-align:right;">
+12
+</td>
 <td style="text-align:right;">
 3
 </td>
@@ -1382,13 +1491,14 @@ err
 </tbody>
 </table>
 </div>
-<p>You will do this by typing the observed values into a tibble, and then writing code to add columns with estimates of the individual components. At the end, your table should look exactly like the one above. You already know how to do all the data-wrangling elements, so today really try to focus on understanding what the values mean.</p>
+<p><br></p>
+<p>You will do this by typing the observed values into a tibble, and then writing code to add columns with estimates of the individual components. At the end, your table should look exactly like the one above. You already know how to do all the data-wrangling elements, so today really try to focus on understanding what the values mean. And remember that for each step there is a solution at the end of the chapter.</p>
 </div>
 <div id="Ch11InClassQueT1" class="section level3">
 <h3><span class="header-section-number">11.3.2</span> Step 1: Create the basic tibble</h3>
 <ul>
 <li>Create a tibble named <code>dmx</code> (short for decomposition matrix). It will eventually contain all of the columns in the one above, but for now, just create the columns <code>i</code>, <code>j</code>, and <code>Yij</code> as they appear above.</li>
-<li>You already know how to create a tibble (don’t forget to load the tidyverse package first). In case you need to refresh your memory, see <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf" target = "_blank">page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Lab 5 Semester 1.</li>
+<li>You already know how to create a tibble (don’t forget to load the tidyverse package first). In case you need to refresh your memory, see <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf" target = "_blank">page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Chapter 5.</li>
 <li>You should just type in the values for <code>Yij</code> but try to use the rep() function for columns <code>i</code> (the group) and <code>j</code> (the participant).</li>
 </ul>
 <div class="solution">
@@ -1417,7 +1527,8 @@ When typing in numbers the c() function will allow you to put in numbers such as
 <h3><span class="header-section-number">11.3.3</span> Step 2: Estimate the Grand Mean <span class="math inline">\(\hat{\mu}\)</span></h3>
 <p>Great, we have our group numbers <span class="math inline">\(i\)</span>, our participant numbers <span class="math inline">\(j\)</span>, and our participant scores <span class="math inline">\(Yij\)</span>. Now we need to start expanding out <code>dmx</code>. First thing we need is the grand mean: <span class="math inline">\(\hat{\mu}\)</span></p>
 <ul>
-<li>Add a column to the table, called <code>mu</code> representing <span class="math inline">\(\hat{\mu}\)</span>. Call the resulting table <code>dmx2</code>. Remember that you can add a column to a table using <code>mutate()</code>.</li>
+<li>In a new tibble called <code>dmx2</code>, add a column to the <code>dmx</code> tibble, called <code>mu</code> representing <span class="math inline">\(\hat{\mu}\)</span>. Remember that you can add a column to a table using <code>mutate()</code>.</li>
+<li><span class="math inline">\(\hat{\mu}\)</span> is the <code>mean()</code> of all participants.</li>
 </ul>
 <div class="solution">
 <button>
@@ -1439,7 +1550,7 @@ When calculating <code>mu</code> keep in mind that each value of <code>mu</code>
 <h3><span class="header-section-number">11.3.4</span> Step 3: Entering the estimates <span class="math inline">\(\hat{A}_1\)</span>, <span class="math inline">\(\hat{A}_2\)</span>, <span class="math inline">\(\hat{A}_3\)</span></h3>
 <p>Good! Now we need to add on a column showing the typical effect of being a member of a particular group; the <code>Ai</code> column.</p>
 <ul>
-<li>Add a column to the table <code>dmx2</code> called <code>Ai</code>, with the three estimates for <span class="math inline">\(\hat{A}_i\)</span>. Store the resulting tibble in <code>dmx3</code>.</li>
+<li>In a new tibble called <code>dmx3</code>, add a column to the tibble <code>dmx2</code> called <code>Ai</code>, with the three estimates for <span class="math inline">\(\hat{A}_i\)</span>. Store the resulting tibble in <code>dmx3</code>.</li>
 <li><span class="math inline">\(\hat{A}_i\)</span> is the difference between the grand mean <span class="math inline">\(\hat{\mu}\)</span> and the mean of individual groups. This means that you will need to group people by the group they belong to.</li>
 <li>Add the <code>ungroup()</code> function to the end of your pipeline as you won’t need this grouping after.</li>
 </ul>
@@ -1454,7 +1565,7 @@ To calculate the column <span class="math inline"><span class="math inline">\(\h
 </li>
 </ul>
 <p>
-dmx3 &lt;- dmx2 %&gt;% group_by() %&gt;% mutate(Ai = something - something) %&gt;% ungroup()
+dmx3 &lt;- dmx2 %&gt;% group_by(something) %&gt;% mutate(Ai = something - something) %&gt;% ungroup()
 </p>
 </div>
 </div>
@@ -1463,7 +1574,7 @@ dmx3 &lt;- dmx2 %&gt;% group_by() %&gt;% mutate(Ai = something - something) %&gt
 <h3><span class="header-section-number">11.3.5</span> Step 4: Calculate Residuals <span class="math inline">\(\widehat{S(A)}_{ij}\)</span></h3>
 <p>Well done, you’re almost there! We just need to add on the final column, <code>err</code>, which is called the <strong>residuals</strong> or in other words, the difference between the score of a typical participant for that group (<code>mu</code> + <code>Ai</code>) and a given individual participant’ score (<code>Yij</code>).</p>
 <ul>
-<li>Add a column called <code>err</code> to <code>dmx3</code> and store the result in <code>dmx4</code>. The column <code>err</code> should contain the residuals - the difference between the observed (Yij) and fitted (typical) values.</li>
+<li>In a new tibble called <code>dmx4</code> add a column to the <code>dmx3</code> tibble called <code>err</code> that contain the residuals - the difference between the observed (Yij) and fitted (typical) values.</li>
 </ul>
 <div class="solution">
 <button>
@@ -1487,20 +1598,74 @@ where:
 </div>
 <div id="Ch11InClassQueT5" class="section level3">
 <h3><span class="header-section-number">11.3.6</span> Step 5: Sums of squares</h3>
-<p>Once you have your dmx, you can start performing the calculations. Sums of squares are used in calculations for performing tests on model components, which we will learn more about soon, but you can practice them for now as shown in Section 3.4 of Miller and Haden (2013).</p>
+<p>Great! Last step for today. Once you have your final dmx, <code>dmx4</code>, you can start calculating the sums of squars. Sums of squares are used in calculations for performing tests on model components, which we will learn more about soon, but you can practice them for now as shown in Section 3.4 of Miller and Haden (2013). The steps are as follows:</p>
 <ul>
-<li>Square all the individual values in the columns <code>Yij</code>, <code>mu</code>, <code>Ai</code>, and <code>err</code> in <code>dmx4</code>,</li>
-<li>Now sum up the squared values for each of these columns.<br />
+<li>Step1 - Square all the individual values in the columns <code>Yij</code>, <code>mu</code>, <code>Ai</code>, and <code>err</code> in <code>dmx4</code>,</li>
+<li>Step2 - Now sum up the squared values for each of these columns.<br />
 </li>
-<li>Save these in a variable called <code>sstbl</code>.</li>
+<li>Step3 - Save these in a variable called <code>sstbl</code>.</li>
 </ul>
-<p>Here is an example of how you would square a value <code>x</code>: <code>x^2</code>. The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you’re unsure). It also works for columns!</p>
+<p>The simplest way to square a column, for example called <code>x</code>, would be:</p>
+<p><code>mutate(squared_x = x^2)</code></p>
+<p>The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you’re unsure). It also works for columns! Give that a go. If you have done it correctly you should see the below table:</p>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb522-1" data-line-number="1">.dmx <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb522-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb522-3" data-line-number="3">         <span class="dt">mu2 =</span> mu<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb522-4" data-line-number="4">         <span class="dt">Ai2 =</span> Ai<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb522-5" data-line-number="5">         <span class="dt">err2 =</span> err<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb522-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb522-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ss_Y =</span> <span class="kw">sum</span>(Yij2),</a>
+<a class="sourceLine" id="cb522-8" data-line-number="8">            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu2),</a>
+<a class="sourceLine" id="cb522-9" data-line-number="9">            <span class="dt">ss_Ai =</span> <span class="kw">sum</span>(Ai2),</a>
+<a class="sourceLine" id="cb522-10" data-line-number="10">            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb522-11" data-line-number="11"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">align =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">caption =</span><span class="st">&quot;Sums of Squares for this analysis&quot;</span>)</a></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-12">Table 11.3: </span>Sums of Squares for this analysis
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+ss_Y
+</th>
+<th style="text-align:center;">
+ss_mu
+</th>
+<th style="text-align:center;">
+ss_Ai
+</th>
+<th style="text-align:center;">
+ss_err
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+32580
+</td>
+<td style="text-align:center;">
+30000
+</td>
+<td style="text-align:center;">
+416
+</td>
+<td style="text-align:center;">
+2164
+</td>
+</tr>
+</tbody>
+</table>
+<p>Where:</p>
 <ul>
-<li>the Sums of Squares of <code>Yij</code> is called the Sums of Squares total or <span class="math inline">\(SS_{total}\)</span>.</li>
-<li>the Sums of Squares of <code>mu</code> is called the Sums of Squares of the grand mean or <span class="math inline">\(SS_{\mu}\)</span> and sometimes called the intercept.</li>
-<li>the Sums of Squares of <code>Ai</code> is called the Sums of Squares of A or <span class="math inline">\(SS_{A}\)</span> and sometimes called <span class="math inline">\(SS_{between}\)</span>.</li>
-<li>the Sums of Squares of <code>err</code> is called the Sums of Squares error or <span class="math inline">\(SS_{error}\)</span> and sometimes called <span class="math inline">\(SS_{within}\)</span>.</li>
+<li><code>ss_Y</code> represents the Sums of Squares of <code>Yij</code>. This is referred to as the Sums of Squares total or <span class="math inline">\(SS_{total}\)</span>.</li>
+<li><code>ss_mu</code> represents the Sums of Squares of <code>mu</code>. This is referred to as the Sums of Squares of the grand mean or <span class="math inline">\(SS_{\mu}\)</span> and sometimes called the intercept.</li>
+<li><code>ss_Ai</code> represents the Sums of Squares of <code>Ai</code>. This is referred to as the Sums of Squares of A or <span class="math inline">\(SS_{A}\)</span> and sometimes called <span class="math inline">\(SS_{between}\)</span>.</li>
+<li><code>ss_err</code> represents the Sums of Squares of <code>err</code>. This is referred to as the Sums of Squares error or <span class="math inline">\(SS_{error}\)</span> and sometimes called <span class="math inline">\(SS_{within}\)</span>.</li>
+<li>And the following statement is true:</li>
 </ul>
+<p><span class="math display">\[SS_{total} = SS_{\mu} + SS_{A} + SS_{error}\]</span>
+<br></p>
 <div class="solution">
 <button>
 Step 5 Hints
@@ -1526,9 +1691,9 @@ And sum up using:
 </div>
 <p><br>
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done! Display <code>dmx4</code> in the console and compare it to the table above. How did you do? If the values in your <code>dmx4</code> do not match the table above then you need to go back and look at where it has gone wrong. Alternatively you should look at the solutions at the end of the chapter.</p>
-<p>To recap, what we are doing here is setting up the ANOVA to compare the three groups to see if there is a significant difference between each group. Doing it this way allows us to get an understanding of where the numbers come from, and it highlights that the analysis is about comparing variance within groups and variance between groups. <strong>If the variance between groups is larger than the variance within groups then it is likely that your experimental manipulation has had an effect. Conversely, if the variance within groups is larger than the variance between groups then there is likely to be no effect of your experimental manipulation.</strong></p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel <strong>#level2_2019</strong></p>
+<p>Well done! How did you do? If the values in your <code>dmx4</code> do not match the table above then you need to go back and look at where it has gone wrong. Alternatively you should look at the solutions at the end of the chapter.</p>
+<p>To recap, what we are doing here is setting up the ANOVA to compare the three groups to see if there is a significant difference between each group. Doing it this way allows us to get an understanding of where the numbers come from, and it highlights that the analysis is about comparing variance within groups and variance between groups. We will cover this in the next chapter but in short, <strong>if the variance between groups <span class="math inline">\(SS_{A}\)</span> is larger than the variance within groups <span class="math inline">\(SS_{error}\)</span> then it is likely that your experimental manipulation has had an effect. Conversely, if the variance within groups is larger than the variance between groups then there is likely to be no effect of your experimental manipulation.</strong></p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the available forums or ask a member of the team.</p>
 
 </div>
 </div>
@@ -1551,13 +1716,13 @@ And sum up using:
 </blockquote>
 <p>Which of the models shown below would be the the general linear model corresponding to this study?</p>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(Y_{ij} = \mu + A_{ij} + S(A)_{ij}\)</span></li>
+<li><span class="math inline">\(Y_{ij} = \mu + A_{i} + S(A)_{ij}\)</span></li>
 <li><span class="math inline">\(Y_{ijkm} = \mu + A_{i} + B_{j} + C_{k} + D_{m} + S_{ijkm}\)</span></li>
 <li><span class="math inline">\(Y_{ij} = \beta_0 + \beta_1 X_1 + e_{ij}\)</span></li>
 <li><span class="math inline">\(Y_{ijkm} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + e_{ijkm}\)</span></li>
 </ol>
 <p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb522-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <hr />
 <p>For the next few questions consider the decomposition matrix for a one-factor design with three groups, shown below .</p>
 <table>
@@ -1633,7 +1798,7 @@ And sum up using:
 <li>can’t answer; not observed</li>
 </ol>
 <p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb524-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT3" class="section level3">
 <h3><span class="header-section-number">11.4.3</span> Question 3</h3>
@@ -1645,14 +1810,14 @@ And sum up using:
 <li>can’t answer; not observed</li>
 </ol>
 <p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb524-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT4" class="section level3">
 <h3><span class="header-section-number">11.4.4</span> Question 4</h3>
 <p>According to the above decomposition matrix, the predicted value for a participant in group 1 is what?</p>
 <p><strong>Hint</strong>: this is the “fitted” or “typical” for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
 <p>Replace the NULL in the Q4 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb526-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT5" class="section level3">
 <h3><span class="header-section-number">11.4.5</span> Question 5</h3>
@@ -1664,19 +1829,19 @@ And sum up using:
 <li><span class="math inline">\(Y_{31}\)</span> and <span class="math inline">\(Y_{32}\)</span></li>
 </ol>
 <p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb526-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT6" class="section level3">
 <h3><span class="header-section-number">11.4.6</span> Question 6</h3>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{total}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q6 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT7" class="section level3">
 <h3><span class="header-section-number">11.4.7</span> Question 7</h3>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{error}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q7 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" data-line-number="1">Q7 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" data-line-number="1">Q7 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT8" class="section level3">
 <h3><span class="header-section-number">11.4.8</span> Question 8</h3>
@@ -1689,22 +1854,22 @@ And sum up using:
 <p>Given those values, what is the value of <span class="math inline">\(SS_{A}\)</span>?</p>
 <p><strong>hint:</strong> <span class="math inline">\(SS_{total}\)</span> = <span class="math inline">\(SS_{\mu}\)</span> + <span class="math inline">\(SS_{A}\)</span> + <span class="math inline">\(SS_{error}\)</span></p>
 <p>Replace the NULL in the Q8 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT9" class="section level3">
 <h3><span class="header-section-number">11.4.9</span> Question 9: Create your own decomposition matrix</h3>
 <p>Finally, this last task tests your ability to set up a decomposition matrix as shown inclass. The code chunk below creates the basic table structure you will need to complete this task. Run the code and have a look at the table, but DO NOT CHANGE IT!</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" data-line-number="1"><span class="co">## run this block, have a look at the structure of dsetup,</span></a>
-<a class="sourceLine" id="cb530-2" data-line-number="2"><span class="co">## but don&#39;t change anything</span></a>
-<a class="sourceLine" id="cb530-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb530-4" data-line-number="4"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb530-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb530-6" data-line-number="6">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb530-7" data-line-number="7">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb530-8" data-line-number="8">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb530-9" data-line-number="9">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb530-10" data-line-number="10">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb530-11" data-line-number="11">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" data-line-number="1"><span class="co">## run this block, have a look at the structure of dsetup,</span></a>
+<a class="sourceLine" id="cb531-2" data-line-number="2"><span class="co">## but don&#39;t change anything</span></a>
+<a class="sourceLine" id="cb531-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb531-4" data-line-number="4"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb531-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb531-6" data-line-number="6">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb531-7" data-line-number="7">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb531-8" data-line-number="8">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb531-9" data-line-number="9">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb531-10" data-line-number="10">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb531-11" data-line-number="11">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a></code></pre></div>
 <p>In the code chunk below, flesh out the values in <code>dsetup</code> to create a decomposition matrix for the data shown below (a one-factor design with four levels), but with the actual numeric values replacing the NA values.</p>
 <ul>
 <li>Group 1: 84, 86, 61</li>
@@ -1719,17 +1884,14 @@ And sum up using:
 <li><strong>DO NOT</strong> change the column names, the column ordering, and make sure it has the right number of rows and columns. You should have 12 rows by 6 columns.</li>
 <li>Make sure your code runs without error in a fresh R session, and make sure no warnings are generated by the code chunk named <code>dmx_warning</code>, which validates your response.</li>
 </ul>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" data-line-number="1"><span class="co"># </span><span class="al">TODO</span><span class="co">: DO STUFF WITH dsetup</span></a>
-<a class="sourceLine" id="cb531-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb531-3" data-line-number="3"><span class="co"># you can change or remove the line below,</span></a>
-<a class="sourceLine" id="cb531-4" data-line-number="4"><span class="co"># but make sure your final table is called dmx</span></a>
-<a class="sourceLine" id="cb531-5" data-line-number="5">dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
-<pre><code>## Warning: If this warning appears in the output, you have not yet defined
-## &#39;dmx&#39; properly. Check column names (including capitalization), column data
-## types, and table structure.</code></pre>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" data-line-number="1"><span class="co"># </span><span class="al">TODO</span><span class="co">: DO STUFF WITH dsetup</span></a>
+<a class="sourceLine" id="cb532-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb532-3" data-line-number="3"><span class="co"># you can change or remove the line below,</span></a>
+<a class="sourceLine" id="cb532-4" data-line-number="4"><span class="co"># but make sure your final table is called dmx</span></a>
+<a class="sourceLine" id="cb532-5" data-line-number="5">dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solutions which can be found at the end of this Chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2019</strong>.</p>
-<p>See you in the next lab!</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solutions which can be found at the end of this Chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the available forums or speak to a member of the team.</p>
+<p>On to the next chapter!</p>
 
 </div>
 </div>
@@ -1766,7 +1928,7 @@ And sum up using:
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:ch11InClass-s2-answer-show">Table 11.3: </span>Decomposition Matrix with Grand Mean added
+<span id="tab:ch11InClass-s2-answer-show">Table 11.4: </span>Decomposition Matrix with Grand Mean added
 </caption>
 <thead>
 <tr>
@@ -1974,7 +2136,7 @@ mu
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:ch11InClass-s3-answer-show">Table 11.4: </span>Decomposition Matrix with Group Estimates added
+<span id="tab:ch11InClass-s3-answer-show">Table 11.5: </span>Decomposition Matrix with Group Estimates added
 </caption>
 <thead>
 <tr>
@@ -2218,7 +2380,7 @@ Ai
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:ch11InClass-s4-answer-show">Table 11.5: </span>Decomposition Matrix with Residuals added
+<span id="tab:ch11InClass-s4-answer-show">Table 11.6: </span>Decomposition Matrix with Residuals added
 </caption>
 <thead>
 <tr>
@@ -2509,7 +2671,7 @@ err
 <div id="inclass-step-5-version-2" class="section level4">
 <h4><span class="header-section-number">11.5.1.6</span> InClass Step 5 (version 2)</h4>
 <ul>
-<li><p>There is an alternative way to do the above in a supercool, superquick, two lines of code using dplyr’s “scoping” technique. Have a look at ?dplyr::scoped and ?dplyr::summarise_all.</p></li>
+<li><p>There is an alternative way to do the above in a supercool, superquick, two lines of code using dplyr’s “scoping” technique. Have a look at <code>?dplyr::scoped</code> and <code>?dplyr::summarise_all</code>.</p></li>
 <li><p>Don’t worry if you don’t understand this yet, as it is pretty advanced, but as you can see it gives the same output as we created in class.</p></li>
 </ul>
 <div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb538-1" data-line-number="1">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span></a>
@@ -2526,7 +2688,7 @@ err
 <li>The correct model for this scenario would be:</li>
 </ul>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(Y_{ij} = \mu + A_{ij} + S(A)_{ij}\)</span></li>
+<li><span class="math inline">\(Y_{ij} = \mu + A_{i} + S(A)_{ij}\)</span></li>
 </ol>
 <ul>
 <li>As such the correct answer is:</li>
@@ -2554,7 +2716,7 @@ err
 </div>
 <div id="assignment-question-4" class="section level4">
 <h4><span class="header-section-number">11.5.2.4</span> Assignment Question 4</h4>
-<p>The “fitted” or “typical” value for a participant in Group 1 would be <span class="math inline">\(\hat{Y}_{ij}\)</span> = <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span>..</p>
+<p>The “fitted” or “typical” value for a participant in Group 1 would be <span class="math inline">\(\hat{Y}_{ij}\)</span> = <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span></p>
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
@@ -2596,9 +2758,17 @@ err
 <li><span class="math inline">\(SS_{\mu} = 40\)</span>,</li>
 <li><span class="math inline">\(SS_{error} = 60\)</span>.<br />
 </li>
-<li><span class="math inline">\(SS_{total}\)</span> = <span class="math inline">\(SS_{\mu}\)</span> + <span class="math inline">\(SS_{A}\)</span> + <span class="math inline">\(SS_{error}\)</span></li>
+<li><span class="math inline">\(SS_{total} = SS_{\mu} + SS_{A} + SS_{error}\)</span></li>
 </ul>
-<p>Given the above values and formula the value of <span class="math inline">\(SS_{A}\)</span> would be <span class="math inline">\(SS_{A}\)</span> = 180</p>
+<p>And so:</p>
+<ul>
+<li><span class="math inline">\(SS_{A} = SS_{total} - (SS_{\mu} + SS_{error})\)</span></li>
+</ul>
+<p>Or, in other words:</p>
+<ul>
+<li><span class="math inline">\(SS_{A} = SS_{total} - SS_{\mu} - SS_{error}\)</span></li>
+</ul>
+<p>As such, given the above values and formula the value of <span class="math inline">\(SS_{A}\)</span> would be <span class="math inline">\(SS_{A}\)</span> = 180</p>
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
@@ -2636,7 +2806,7 @@ err
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:ch11-decomp-mx-output">Table 11.6: </span>Decomposition Matrix of Ch11 Assignment Task 9
+<span id="tab:ch11-decomp-mx-output">Table 11.7: </span>Decomposition Matrix of Ch11 Assignment Task 9
 </caption>
 <thead>
 <tr>
@@ -2904,6 +3074,16 @@ err
 </tbody>
 </table>
 </div>
+<p>If you have set-up <code>dmx</code> correctly then you will see the below message at the bottom of your knitted html file.</p>
+<p><strong>The tibble ‘dmx’ has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.</strong></p>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb548-1" data-line-number="1"><span class="co"># Don&#39;t change anything in this code chunk; it is just here to help you check  that you&#39;ve defined a table called `dmx` correctly. Pay attention to any warnings  that appear when you run this chunk. When the warning has gone away, that  means that the structure of `dmx` is correct (although it doesn&#39;t mean that the values are correct!)</span></a>
+<a class="sourceLine" id="cb548-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb548-3" data-line-number="3"><span class="cf">if</span> (<span class="kw">identical</span>(<span class="kw">names</span>(dmx), <span class="kw">names</span>(dsetup)) <span class="op">&amp;&amp;</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb548-4" data-line-number="4"><span class="st">    </span><span class="kw">identical</span>(<span class="kw">dim</span>(dmx), <span class="kw">dim</span>(dsetup))) {</a>
+<a class="sourceLine" id="cb548-5" data-line-number="5">  <span class="kw">warning</span>(<span class="st">&quot;The tibble &#39;dmx&#39; has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.&quot;</span>)</a>
+<a class="sourceLine" id="cb548-6" data-line-number="6">}</a></code></pre></div>
+<p>If however you see the below, then you need to look again at the structure of <code>dmx</code></p>
+<p><strong>You have not yet defined the tibble ‘dmx’ properly, and in future assignments this may affect your overall grade. Check column names (including capitalization), column data types, and table structure.</strong></p>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
