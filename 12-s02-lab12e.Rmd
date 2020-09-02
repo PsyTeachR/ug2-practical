@@ -124,36 +124,29 @@ Which would give a p-value of p = `r pf(f_obs, 2, 6, lower.tail = FALSE) %>% rou
 
 #### InClass Task 4
 
-```{r ez, warning = FALSE}
+```{r afex-input, warning = FALSE}
 dat <- select(dmx, sub_id, typos, sound)
 
-results <- ez::ezANOVA(dat,
-                       dv = typos,
-                       wid = sub_id,
-                       between = sound)
-```
-
-You didn't need to store the output but we have done so out of habit, as often we want to do something with the results.  And remember we said that you get two tables in this output.  One of the tables is Levene's Test for Homogeneity of Variance and it looks like:
-
-```{r ez-output1, echo=FALSE, results='asis'}
-knitr::kable(results$`Levene's Test for Homogeneity of Variance`,
-             digits = 3,
-             caption = "Levene's test for Homogeneity of Variance")%>%
-  kable_styling() %>%
-  scroll_box(width = "100%", box_css = "border: 0px;")
+results <- afex::aov_ez(data = dat,
+                         dv = "typos",
+                         id = "sub_id",
+                         type = 3,
+                         between = "sound")
 ```
 <br>
-The other table is the main ANOVA output. Make sure you can locate both individual tables and you know which is which.
+And when we look at the output table see:
 
-```{r ez-output2, warning = FALSE, echo=FALSE}
-knitr::kable(results$ANOVA,
+```{r afex-output2, warning = FALSE, echo=FALSE}
+tabs <- results$Anova
+tabs[is.na(tabs)] <- " "
+
+knitr::kable(tabs,
              digits = 3,
-             caption = "ANOVA output")%>%
-  kable_styling() %>%
-  scroll_box(width = "100%", box_css = "border: 0px;")
+             caption = "ANOVA output")
 ```
 <br>
-From your lectures, remember that Levene's test relates to an assumption of equal variance across conditions in a between-subjects design. A non-significant finding in Levene's suggests equal variance across conditions as required by the assumptions of the ANOVA. The ANOVA is the actual output of the test and will match closely with the values you have found in Task 3. 
+
+From this we can see that the numbers we calculated match up exactly with the values that the function produced - F(2, 6) = 1.41, p = .31. You can also see that there is no significant effect and as sucj we cannot reject the null hypothesis. 
 
 [Return to Task](#Ch12InClassQueT4)
 

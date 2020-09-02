@@ -511,11 +511,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT1"><i class="fa fa-check"></i><b>12.3.1</b> Task 1 - Quick Checks</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT2"><i class="fa fa-check"></i><b>12.3.2</b> Task 2 - Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3"><i class="fa fa-check"></i><b>12.3.3</b> Task 3 - F-ratios</a></li>
-<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using ez::ezANOVA()</a></li>
+<li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using afex::aov_ez()</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#assignment-11"><i class="fa fa-check"></i><b>12.4</b> Assignment</a></li>
 <li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="12.5.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activities-8"><i class="fa fa-check"></i><b>12.5.1</b> InClass Activities</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
@@ -3072,10 +3075,13 @@ err
 </table>
 </div>
 <p>If you have set-up <code>dmx</code> correctly then you will see the below message at the bottom of your knitted html file.</p>
-<pre><code>## Warning: The tibble &#39;dmx&#39; has been defined properly meaning that the column
-## names (including capitalization), column data types, and tibble structure
-## are as expected. However this does not guarantee that the values are
-## correct and you should check these against the solution.</code></pre>
+<p><strong>The tibble ‘dmx’ has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.</strong></p>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb548-1" data-line-number="1"><span class="co"># Don&#39;t change anything in this code chunk; it is just here to help you check  that you&#39;ve defined a table called `dmx` correctly. Pay attention to any warnings  that appear when you run this chunk. When the warning has gone away, that  means that the structure of `dmx` is correct (although it doesn&#39;t mean that the values are correct!)</span></a>
+<a class="sourceLine" id="cb548-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb548-3" data-line-number="3"><span class="cf">if</span> (<span class="kw">identical</span>(<span class="kw">names</span>(dmx), <span class="kw">names</span>(dsetup)) <span class="op">&amp;&amp;</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb548-4" data-line-number="4"><span class="st">    </span><span class="kw">identical</span>(<span class="kw">dim</span>(dmx), <span class="kw">dim</span>(dsetup))) {</a>
+<a class="sourceLine" id="cb548-5" data-line-number="5">  <span class="kw">warning</span>(<span class="st">&quot;The tibble &#39;dmx&#39; has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.&quot;</span>)</a>
+<a class="sourceLine" id="cb548-6" data-line-number="6">}</a></code></pre></div>
 <p>If however you see the below, then you need to look again at the structure of <code>dmx</code></p>
 <p><strong>You have not yet defined the tibble ‘dmx’ properly, and in future assignments this may affect your overall grade. Check column names (including capitalization), column data types, and table structure.</strong></p>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT9">Return to Task</a></p>
