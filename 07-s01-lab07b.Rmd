@@ -20,8 +20,8 @@ For further reading you can look at the paper that resulted from this blog:
 
 1. Copy the script within the blog into an R script and try running it to see the difference between Welch's t-test (the recommended test in the blog) and Student's t-test (the standard test in the field). 
 
-**Note:** You will need the **`car`** package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car). If yuo are using your own machine then you will need to install the **`car`** package.
-**Note:** The code will take a minute or two to run as there is a stage of simulating data (just like we did in Chapter 5) that will take a little time to run.
+* **Note:** You will need the **`car`** package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car). If yuo are using your own machine then you will need to install the **`car`** package.
+* **Note:** The code will take a minute or two to run as there is a stage of simulating data (just like we did in Chapter 5) that will take a little time to run.
 
 Don't worry if you don't yet understand all the code. It is highly commented, with each line stating what it does, but it is tricky.  The key thing is to try and run it and to look at the figures that come out of it - particularly the third figure that you see in the blog, the one with the red line on it that compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other. We give an explanation of the blog below but it is worth trying it out yourself first.
 

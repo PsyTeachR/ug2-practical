@@ -649,10 +649,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Sums of Squares (SS)</strong> - an estimate of the total spread of the data (variance) around a parameter (such as the mean). We saw these in Chapter 11</li>
 <li><strong>degrees of freedom (df)</strong> - the number of observations that are free to vary to produce a known output. Again we have seen these before in all previous tests. The df impacts on the distribution that is used to compare against for probability</li>
 <li><strong>Mean Square (MS)</strong> - an average estimate of the spread of the data (variance) calculated by <span class="math inline">\(MS = \frac{SS}{df}\)</span></li>
-<li><strong>F-ratio </strong>- the test statistic of the ANOVA from the F-distribution. Calculated as <span class="math inline">\(F = \frac{MS_{between}}{MS_{within}}\)</span>. Also written as <span class="math inline">\(F = \frac{MS_{A}}{MS_{err}}\)</span>.</li>
+<li><strong>F-ratio </strong>- the test statistic of the ANOVA from the F-distribution. Calculated as <span class="math inline">\(F = \frac{MS_{between}}{MS_{within}}\)</span> or <span class="math inline">\(F = \frac{MS_{A}}{MS_{err}}\)</span>.</li>
 </ul>
 <p>Again, these terms will become more familiar as we work through this Chapter so don’t worry if you don’t understand them yet. The main thing to understand is that we go from the indivual data to the decomposition matrix to the Sums of Squares to the Mean Squares to the F-ratio. But in summary this is what we are doing:</p>
-<p><span class="math display">\[ANOVA \space Path: Data \to Decomp. Matrix \to SS \to MS \to F\]</span></p>
+<p><strong>ANOVA PATH:</strong> <span class="math inline">\(Data \to Decomp. Matrix \to SS \to MS \to F\)</span></p>
 <p>As such, the goals of this chapter are to:</p>
 <ul>
 <li>to demonstrate how Sums of Squares leads to an F-value, finishing off the decomposition matrix</li>
@@ -1097,24 +1097,22 @@ ss_err
 <p>With all that in mind, and it may take a couple of readings, try to answer the following questions (consulting Miller &amp; Haden Ch. 3 and your lecture slides where needed). The solutions are at the end of the chapter.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">QuickFire Questions</span></p>
 <ol style="list-style-type: decimal">
-<li><p>Stated in terms of <span class="math inline">\(\mu_{jazz}\)</span>, <span class="math inline">\(\mu_{cafe}\)</span>, and <span class="math inline">\(\mu_{silence}\)</span>, what is the null hypothesis for this specific study of the effects of sound on typographic errors? You may need to look back to Chapters 6 and 7 to think about this.</p>
-<ul>
-<li><strong>hint:</strong> the alternative hypothesis for a two condition experiment would be <span class="math inline">\(\mu_{1} \ne \mu_{2}\)</span></li>
-</ul></li>
+<li>Stated in terms of <span class="math inline">\(\mu_{jazz}\)</span>, <span class="math inline">\(\mu_{cafe}\)</span>, and <span class="math inline">\(\mu_{silence}\)</span>, what is the null hypothesis for this specific study of the effects of sound on typographic errors? You may need to look back to Chapters 6 and 7 to think about this.</li>
+</ol>
+<p><strong>Hint:</strong> the alternative hypothesis for a two condition experiment would be <span class="math inline">\(\mu_{1} \ne \mu_{2}\)</span></p>
+<ol start="2" style="list-style-type: decimal">
 <li><p>How many degrees of freedom are there for <span class="math inline">\(A_{i}\)</span>, the main effect of <strong>sound</strong>, if <span class="math inline">\(dfA_{i}\)</span> = k - 1?</p></li>
-<li><p>How many degrees of freedom are there for <span class="math inline">\(S(A)_{ij}\)</span>, the error term, if <span class="math inline">\(dfS(A)_{ij}\)</span> = N - <span class="math inline">\(dfA_{i}\)</span> - 1?</p>
-<ul>
-<li><strong>hint:</strong> You can also call <span class="math inline">\(dfS(A)_{ij}\)</span> as <span class="math inline">\(df_{error}\)</span></li>
-</ul></li>
-<li><p>Calculate <span class="math inline">\(MS_{A}\)</span>, where <span class="math inline">\(A\)</span> is the factor <strong>sound</strong>.</p></li>
+<li><p>How many degrees of freedom are there for <span class="math inline">\(S(A)_{ij}\)</span>, the error term, if <span class="math inline">\(dfS(A)_{ij}\)</span> = N - <span class="math inline">\(dfA_{i}\)</span> - 1?</p></li>
+</ol>
+<p><strong>Hint:</strong> You can also refer to <span class="math inline">\(dfS(A)_{ij}\)</span> as <span class="math inline">\(df_{error}\)</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Calculate <span class="math inline">\(MS_{A}\)</span>, where <span class="math inline">\(A\)</span> is the factor <strong>sound</strong>.</li>
 </ol>
 <p><strong>Note:</strong> You can access individual columns in a table using double square brackets <code>[[]]</code>; for instance dat_ss[[“ss_mu”]] gives you the column <code>ss_mu</code> from <code>dat_ss</code>. This is an alternative to <code>$</code> that some may know; e.g. <code>dat_ss$mu</code>.</p>
 <ol start="5" style="list-style-type: decimal">
-<li><p>Calculate <span class="math inline">\(MS_{S(A)}\)</span>.</p>
-<ul>
-<li><strong>hint:</strong> You can also call <span class="math inline">\(MS_{S(A)}\)</span> as <span class="math inline">\(MS_{error}\)</span></li>
-</ul></li>
+<li>Calculate <span class="math inline">\(MS_{S(A)}\)</span>.</li>
 </ol>
+<p><strong>Hint:</strong> You can also refer to <span class="math inline">\(MS_{S(A)}\)</span> as <span class="math inline">\(MS_{error}\)</span></p>
 <div class="solution">
 <button>
 Hints for Task 2
@@ -1145,7 +1143,7 @@ N is the total number of participants
 <p>Last step, calculating the F-value. As above, if the null hypothesis is true (<span class="math inline">\(\mu_{1} = \mu_{2} = \mu_{3}\)</span>), then both estimates of the population variance (<span class="math inline">\(MS_{between}\)</span> and <span class="math inline">\(MS_{within}\)</span>) should be equal, and the <span class="math inline">\(F\)</span>-ratio should approach 1 (because <span class="math inline">\(\frac{x}{x} = 1\)</span>). Now, we can’t expect these two estimates to be <strong>exactly</strong> equal because of sampling bias, so to see how <strong>un</strong>likely our observed F-ratio is under the null hypothesis, we have to compare it to the F-distribution.</p>
 <p>To learn a bit about the F-distribution we have created a shiny app to play with, which you can see below. Shiny Apps are interactive webpages and applications made through R.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
-<iframe src="http://shiny.psy.gla.ac.uk/Dale/fdist/" width="100%" height="900px">
+<iframe src="http://shiny.psy.gla.ac.uk/Dale/fdist/" width="100%" height="1050px">
 </iframe>
 <p class="caption">
 Figure 4.12: F-distribution app
@@ -1224,12 +1222,20 @@ lower.tail? What is the probability of obtaining an F_obs higher than your value
 ## Residuals     1070  6                       
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>And if you ran the following code:</p>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" data-line-number="1"><span class="kw">print</span>(results<span class="op">$</span>anova_table)</a></code></pre></div>
+<p>Then you would be able to see the effect size for this ANOVA in the form of generalised eta-squared (ges) - <span class="math inline">\(\eta_G^2 = .32\)</span>:</p>
+<pre><code>## Anova Table (Type 3 tests)
+## 
+## Response: typos
+##       num Df den Df    MSE      F    ges Pr(&gt;F)
+## sound      2      6 178.33 1.4131 0.3202 0.3142</code></pre>
 <ul>
-<li>Do you see how the numbers match up with what we calculated above? You can ignore the intercept for now (though the Sums of Squares will be familiar). This table doesn’t show the Mean Squares but it does show the Sums of Squares and the F-value.</li>
+<li>Looking at the ANOVA ouput, do you see how the numbers match up with what we calculated above? You can ignore the intercept for now (though the Sums of Squares will be familiar). This table doesn’t show the Mean Squares but it does show the Sums of Squares and the F-value.</li>
 <li>What do you conclude about the effects of ambient noise on concentration?</li>
 </ul>
 <p><strong>Conclusion</strong></p>
-<p>Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 6) = 1.413, p = .31, ges = .32. However, before you go off and publish this highly underpowered study we should probably look to replicate it with a larger sample (which you could calculate using your skills from Chapter 8).</p>
+<p>Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 6) = 1.413, p = .31, ges = 0.32. However, before you go off and publish this highly underpowered study we should probably look to replicate it with a larger sample (which you could calculate using your skills from Chapter 8).</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Excellent work today! And super interesting as well, huh? Quick, everyone to the cafe and don’t worry about the typos!!!! Only joking, we are all going to the cafe to replicate!</p>
 <p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the avaialble forums or speak to a member of the team. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
@@ -1287,7 +1293,7 @@ lower.tail? What is the probability of obtaining an F_obs higher than your value
 <ul>
 <li>The factor df = 2</li>
 </ul>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" data-line-number="1">ms_a &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_sound&quot;</span>]] <span class="op">/</span><span class="st"> </span>2L</a></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb556-1" data-line-number="1">ms_a &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_sound&quot;</span>]] <span class="op">/</span><span class="st"> </span>2L</a></code></pre></div>
 <ul>
 <li>Giving <span class="math inline">\(MS_{A}\)</span> = 252</li>
 </ul>
@@ -1295,7 +1301,7 @@ lower.tail? What is the probability of obtaining an F_obs higher than your value
 <ul>
 <li>The residual df = 6</li>
 </ul>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb555-1" data-line-number="1">ms_err &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_err&quot;</span>]] <span class="op">/</span><span class="st"> </span>6L</a></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" data-line-number="1">ms_err &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_err&quot;</span>]] <span class="op">/</span><span class="st"> </span>6L</a></code></pre></div>
 <ul>
 <li>Giving <span class="math inline">\(MS_{S(A)}\)</span> = 178.3333333</li>
 </ul>
@@ -1304,7 +1310,7 @@ lower.tail? What is the probability of obtaining an F_obs higher than your value
 <div id="inclass-task-3-6" class="section level4">
 <h4><span class="header-section-number">12.5.1.3</span> InClass Task 3</h4>
 <p><strong>Question 1</strong></p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb556-1" data-line-number="1">f_obs &lt;-<span class="st"> </span>ms_a <span class="op">/</span><span class="st"> </span>ms_err</a></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb558-1" data-line-number="1">f_obs &lt;-<span class="st"> </span>ms_a <span class="op">/</span><span class="st"> </span>ms_err</a></code></pre></div>
 <ul>
 <li>Giving a F-value of F = 1.413 when rounded to three decimal places.</li>
 </ul>
@@ -1316,19 +1322,19 @@ lower.tail? What is the probability of obtaining an F_obs higher than your value
 <p>As <span class="math inline">\(p\)</span> &gt; <span class="math inline">\(\alpha\)</span> we would retain the null hypothesis that there is no significant effect of group in this study</p>
 <p><strong>Question 5</strong></p>
 <p>This could alternatively calculated using coding as such:</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" data-line-number="1"><span class="kw">pf</span>(f_obs, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" data-line-number="1"><span class="kw">pf</span>(f_obs, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>Which would give a p-value of p = 0.314 and again could be written up as F(2, 6) = 1.413, p = 0.314, suggesting no significant effect of ambiance or location on concentration as measured through the number of typos.</p>
 <p><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-4-6" class="section level4">
 <h4><span class="header-section-number">12.5.1.4</span> InClass Task 4</h4>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb558-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">select</span>(dmx, sub_id, typos, sound)</a>
-<a class="sourceLine" id="cb558-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb558-3" data-line-number="3">results &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(<span class="dt">data =</span> dat,</a>
-<a class="sourceLine" id="cb558-4" data-line-number="4">                         <span class="dt">dv =</span> <span class="st">&quot;typos&quot;</span>,</a>
-<a class="sourceLine" id="cb558-5" data-line-number="5">                         <span class="dt">id =</span> <span class="st">&quot;sub_id&quot;</span>,</a>
-<a class="sourceLine" id="cb558-6" data-line-number="6">                         <span class="dt">type =</span> <span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb558-7" data-line-number="7">                         <span class="dt">between =</span> <span class="st">&quot;sound&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb560-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">select</span>(dmx, sub_id, typos, sound)</a>
+<a class="sourceLine" id="cb560-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb560-3" data-line-number="3">results &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(<span class="dt">data =</span> dat,</a>
+<a class="sourceLine" id="cb560-4" data-line-number="4">                         <span class="dt">dv =</span> <span class="st">&quot;typos&quot;</span>,</a>
+<a class="sourceLine" id="cb560-5" data-line-number="5">                         <span class="dt">id =</span> <span class="st">&quot;sub_id&quot;</span>,</a>
+<a class="sourceLine" id="cb560-6" data-line-number="6">                         <span class="dt">type =</span> <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb560-7" data-line-number="7">                         <span class="dt">between =</span> <span class="st">&quot;sound&quot;</span>)</a></code></pre></div>
 <pre><code>## Converting to factor: sound</code></pre>
 <pre><code>## Contrasts set to contr.sum for the following variables: sound</code></pre>
 <p><br>
@@ -1347,10 +1353,10 @@ Sum Sq
 <th style="text-align:right;">
 Df
 </th>
-<th style="text-align:left;">
+<th style="text-align:right;">
 F value
 </th>
-<th style="text-align:left;">
+<th style="text-align:right;">
 Pr(&gt;F)
 </th>
 </tr>
@@ -1366,11 +1372,11 @@ Pr(&gt;F)
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:left;">
-504.672897196262
+<td style="text-align:right;">
+504.673
 </td>
-<td style="text-align:left;">
-5.09094215774606e-07
+<td style="text-align:right;">
+0.000
 </td>
 </tr>
 <tr>
@@ -1383,11 +1389,11 @@ sound
 <td style="text-align:right;">
 2
 </td>
-<td style="text-align:left;">
-1.41308411214953
+<td style="text-align:right;">
+1.413
 </td>
-<td style="text-align:left;">
-0.314150061438005
+<td style="text-align:right;">
+0.314
 </td>
 </tr>
 <tr>
@@ -1400,11 +1406,9 @@ Residuals
 <td style="text-align:right;">
 6
 </td>
-<td style="text-align:left;">
-XX
+<td style="text-align:right;">
 </td>
-<td style="text-align:left;">
-XX
+<td style="text-align:right;">
 </td>
 </tr>
 </tbody>
@@ -1437,6 +1441,7 @@ Conversely, the alternative hypothesis states that there is a difference in vari
 <p>So a non-significant finding in Levene’s test would suggests equal variance across conditions as required by the assumptions of the ANOVA, whereas a significant finding for Levene’s Test would suggest unequal variance and you may need to think about the assumptions of your data.</p>
 <p><strong>Running the test</strong></p>
 So here is our data again from the main activities, which we have stored in a tibble called <code>dmx</code>:
+<br>
 <br>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -1709,19 +1714,18 @@ silence
 </tbody>
 </table>
 </div>
-<p>Let’s run a quick visual inspection of the variance in each condition using a boxplot as such:</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" data-line-number="1">dmx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sound, <span class="dt">y =</span> typos)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb561-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb561-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb561-4" data-line-number="4"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150</span>))</a></code></pre></div>
+<p><br></p>
+Let’s run a quick visual inspection of the variance in each condition using a boxplot as such:
+<br>
 <div class="figure" style="text-align: center"><span id="fig:boxplot-hide"></span>
 <img src="12-s02-lab12f_files/figure-html/boxplot-hide-1.png" alt="A boxplot of our data to check for homogeneity of variance" width="100%" />
 <p class="caption">
 Figure 12.1: A boxplot of our data to check for homogeneity of variance
 </p>
 </div>
-<p>And as you can see it does not look like there is equal variance. However, maybe we don’t really trust our eyes and as such we want to run the Levene’s Test. To do that we use the below code:</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb562-1" data-line-number="1">car<span class="op">::</span><span class="kw">leveneTest</span>(typos <span class="op">~</span><span class="st"> </span>sound, <span class="dt">data =</span> dmx, <span class="dt">center =</span> median)</a></code></pre></div>
+<p><br>
+And as you can see it does not look like there is equal variance. However, maybe we don’t really trust our eyes and as such we want to run the Levene’s Test. To do that we use the below code:</p>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb563-1" data-line-number="1">car<span class="op">::</span><span class="kw">leveneTest</span>(typos <span class="op">~</span><span class="st"> </span>sound, <span class="dt">data =</span> dmx, <span class="dt">center =</span> median)</a></code></pre></div>
 <pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
 ## factor.</code></pre>
 <p>Where we are:</p>
@@ -1730,9 +1734,9 @@ Figure 12.1: A boxplot of our data to check for homogeneity of variance
 <li>using the <strong>formula</strong> approach that we saw in t-test where we are saying effectively DV “by” IV - typos ~ sound, where <code>~</code> stands for “by”.<br />
 </li>
 <li>saying the data is in the tibble <code>dmx</code></li>
-<li>and we are telling the code to run based on the medians of the distribution. This is a bit of a judgement call and you could use the mean instead of the median, but this paper would seem to suggest the median is optimal: <a href="https://www.sciencedirect.com/science/article/abs/pii/0167715285900161">Carroll &amp; Schnieder (1985) A note on levene’s tests for equality of variances</a>{target = &quot;_blank&quot;}</li>
+<li>and we are telling the code to run based on the medians of the distribution. This is a bit of a judgement call and you could use the mean instead of the median, but this paper would seem to suggest the median is optimal: <a href="https://www.sciencedirect.com/science/article/abs/pii/0167715285900161" target="_blank">Carroll &amp; Schnieder (1985) A note on levene’s tests for equality of variances</a></li>
 </ul>
-<p>And if we run that code we get the following output:</p>
+<p>If we run the <code>leveneTest()</code> code we get the following output:</p>
 <pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
 ## factor.</code></pre>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
@@ -1741,27 +1745,28 @@ Figure 12.1: A boxplot of our data to check for homogeneity of variance
 ##        6</code></pre>
 <p>And now with your knowledge of understanding F-values and ANOVA tables (see Levene’s is really just a sort of ANOVA) you can determine that, F(2, 6) = 0.517, p = .621. This tells us that there is no significant difference between the variance across the different conditions. Which, if you look at the boxplot, is completely the opposite of what we expected! Why is that? Most likely, that is because we have such small numbers of participants in our samples and you will remember from Chapter 8, small samples mean low power and unreliable findings. This is actually a good example why people often use visual inspection as well as some analytical tests to make checks on assumptions and they pull information together to make a judgement. The boxplot would say that variance is unequal. Levene’s test would say variance is equal. Here, I would probably suggest taking a cautious approach and run a lot more participants before I consider running my analysis.</p>
 <p><strong>Using <code>afex</code> to run Levene’s</strong></p>
-<p>One issue with the above example is that it requires another package - <strong><code>car</code></strong>. This isn’t a major issue but say you only had the <strong><code>afex</code></strong> package to use. Well fortunately that package also has a function that can check Levene’s Test - <code>afex::test_levene()</code>. And it works as follows:</p>
+<p>One issue with the above example is that it requires another package - <strong><code>car</code></strong>. This isn’t a major problem but say you only had the <strong><code>afex</code></strong> package to use. Well fortunately that package also has a function that can check Levene’s Test - <code>afex::test_levene()</code>. And it works as follows:</p>
 <ol style="list-style-type: decimal">
 <li>First run the ANOVA as shown in the chapter and store the output</li>
 </ol>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" data-line-number="1">results &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(<span class="dt">data =</span> dmx,</a>
-<a class="sourceLine" id="cb566-2" data-line-number="2">                         <span class="dt">dv =</span> <span class="st">&quot;typos&quot;</span>,</a>
-<a class="sourceLine" id="cb566-3" data-line-number="3">                         <span class="dt">id =</span> <span class="st">&quot;sub_id&quot;</span>,</a>
-<a class="sourceLine" id="cb566-4" data-line-number="4">                         <span class="dt">type =</span> <span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb566-5" data-line-number="5">                         <span class="dt">between =</span> <span class="st">&quot;sound&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb567-1" data-line-number="1">results &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(<span class="dt">data =</span> dmx,</a>
+<a class="sourceLine" id="cb567-2" data-line-number="2">                         <span class="dt">dv =</span> <span class="st">&quot;typos&quot;</span>,</a>
+<a class="sourceLine" id="cb567-3" data-line-number="3">                         <span class="dt">id =</span> <span class="st">&quot;sub_id&quot;</span>,</a>
+<a class="sourceLine" id="cb567-4" data-line-number="4">                         <span class="dt">type =</span> <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb567-5" data-line-number="5">                         <span class="dt">between =</span> <span class="st">&quot;sound&quot;</span>)</a></code></pre></div>
 <pre><code>## Converting to factor: sound</code></pre>
 <pre><code>## Contrasts set to contr.sum for the following variables: sound</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Now use the output of the ANOVA, in this instance <code>results</code>, as the input for the Levene’s Test, and again center on the median</li>
 </ol>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb570-1" data-line-number="1">afex<span class="op">::</span><span class="kw">test_levene</span>(results, <span class="dt">center =</span> median)</a></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = center)
 ##       Df F value Pr(&gt;F)
 ## group  2  0.5166 0.6209
 ##        6</code></pre>
 <p>And if we look at that output we see the exact same finding as we did using <code>car::leveneTest()</code>- F(2, 6) = 0.517, p = .621. So the positives of this approach is that you only use one package and it gives the same results as using two packages. The downside is that you have to run the ANOVA first - see how we use the ANOVA output as an input for <code>test_levene()</code> - which is a bit of an odd way of treating this assumption. Normally you would run the assumption check first and then the test.</p>
-<p><strong>Help I have unequal variance</strong></p>
-<p>Right, so you have found that your variance is not equal and you are now worried about what to do in regards your assumptions. Well, there is much debate on how robust the ANOVA is, where robust would mean that your False Positive rate does not necessarily inflate if the assumptions are not held. Some say that the ANOVA is not robust and you should use a non-parametric style of analysis instead in this instance, or break the ANOVA down into a series of Welch’s t-tests (assuming unequal variance) and control the False Positive rate through Bonferroni corrections. Some however say that the ANOVA is actually pretty robust. We would recommend reading this paper <a href="https://link.springer.com/article/10.3758/s13428-017-0918-2">Blanca et al. (2018) Effect of variance ratio on ANOVA robustness: Might 1.5 be the limit?</a>{target = &quot;_blank“} which suggests that some degree of unequal variance is acceptable. Alternatively, just as there is a Welch’s t-test that does not assume equal variance there is also a Welch’s ANOVA that does not assume equal variance. This paper <a href="https://psyarxiv.com/wnezg/">Delacre et al., (preprint) Taking Parametric Assumptions Seriously Arguments for the Use of Welch’s F-test instead of the Classical F-test in One-way ANOVA</a>{target =”_blank&quot;} goes into great detail about why using Welch’s ANOVA is always advisable. You may be wondering how do you run a Welch’s ANOVA in R, yeah? That is a very good question that you should ask Phil to write about one day after he figures it out himself.</p>
+<p><strong>Help I have unequal variance!</strong></p>
+<p>Right, so you have found that your variance is not equal and you are now worried about what to do in regards your assumptions. Well, there is much debate on how robust the ANOVA is, where robust would mean that your False Positive rate does not necessarily inflate if the assumptions are not held. Some say that the ANOVA is not robust and you should use a non-parametric style of analysis instead in this instance, or break the ANOVA down into a series of Welch’s t-tests (assuming unequal variance) and control the False Positive rate through Bonferroni corrections. Some however say that the ANOVA is actually pretty robust. We would recommend reading this paper <a href="https://link.springer.com/article/10.3758/s13428-017-0918-2" target="_blank">Blanca et al. (2018) Effect of variance ratio on ANOVA robustness: Might 1.5 be the limit?</a> which suggests that some degree of unequal variance is acceptable. Alternatively, just as there is a Welch’s t-test that does not assume equal variance there is also a Welch’s ANOVA that does not assume equal variance. This paper <a href="https://psyarxiv.com/wnezg/" target="_blank">Delacre et al., (preprint) Taking Parametric Assumptions Seriously Arguments for the Use of Welch’s F-test instead of the Classical F-test in One-way ANOVA</a> goes into great detail about why using Welch’s ANOVA is always advisable. You may be wondering how do you run a Welch’s ANOVA in R, yeah? That is a very good question that you should ask Phil to write about one day after he figures it out himself.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">End of Additional Material!</span></p>
 
 </div>

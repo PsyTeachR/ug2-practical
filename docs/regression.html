@@ -1069,7 +1069,7 @@ lm(dv ~ iv1 + iv2, data = my_data) for multiple linear regression
 <div id="Ch14InClassQueT8" class="section level3">
 <h3><span class="header-section-number">14.3.8</span> Task 8: Making interpretations</h3>
 <p>Let’s look at the <code>mod_pitch</code> model together.</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1139,11 +1139,11 @@ tibble(Pitch = Value, Dispersion = Value)
 <h3><span class="header-section-number">14.5.1</span> InClass Ativities</h3>
 <div id="task-1-1" class="section level4">
 <h4><span class="header-section-number">14.5.1.1</span> Task 1</h4>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb605-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)</a>
-<a class="sourceLine" id="cb605-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb605-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb605-4" data-line-number="4">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb605-5" data-line-number="5">acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)</a>
+<a class="sourceLine" id="cb607-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb607-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb607-4" data-line-number="4">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb607-5" data-line-number="5">acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT1">Return to Task</a></p>
 </div>
 <div id="task-2" class="section level4">
@@ -1151,20 +1151,20 @@ tibble(Pitch = Value, Dispersion = Value)
 <ul>
 <li>We are calling the new tibble <code>ratings_tidy</code>. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on, the tibble names might not match up so, you may need to do a little bit of backtracking to see where tibbles were created.</li>
 </ul>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" data-line-number="1">ratings_tidy &lt;-<span class="st"> </span><span class="kw">gather</span>(ratings, participant, rating, P1<span class="op">:</span>P28)</a></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1">ratings_tidy &lt;-<span class="st"> </span><span class="kw">gather</span>(ratings, participant, rating, P1<span class="op">:</span>P28)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT2">Return to Task</a></p>
 </div>
 </div>
 <div id="task-3" class="section level3">
 <h3><span class="header-section-number">14.5.2</span> Task 3</h3>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1">ratings_mean &lt;-<span class="st"> </span>ratings_tidy <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb607-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(VoiceID) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb607-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_rating =</span> <span class="kw">mean</span>(rating))</a></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1">ratings_mean &lt;-<span class="st"> </span>ratings_tidy <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb609-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(VoiceID) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb609-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_rating =</span> <span class="kw">mean</span>(rating))</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT3">Return to Task</a></p>
 </div>
 <div id="task-4" class="section level3">
 <h3><span class="header-section-number">14.5.3</span> Task 4</h3>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1">joined &lt;-<span class="st"> </span><span class="kw">inner_join</span>(ratings_mean, acoustics, <span class="st">&quot;VoiceID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" data-line-number="1">joined &lt;-<span class="st"> </span><span class="kw">inner_join</span>(ratings_mean, acoustics, <span class="st">&quot;VoiceID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT4">Return to Task</a></p>
 </div>
 <div id="task-5" class="section level3">
@@ -1183,16 +1183,16 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 <li><code>spread()</code> often catches people out. It is a bit like the reverse of <code>gather()</code></li>
 <li>It takes in the data and you tell it which values you want spread and by which column - though in the order of data, column, value. Makes sense huh!</li>
 </ul>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1">joined_wide &lt;-<span class="st"> </span>joined <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(measures, value)</a></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1">joined_wide &lt;-<span class="st"> </span>joined <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(measures, value)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT6">Return to Task</a></p>
 </div>
 <div id="task-7" class="section level3">
 <h3><span class="header-section-number">14.5.6</span> Task 7</h3>
 <p><strong>Simple Linear Regression - Pitch</strong></p>
 <p>The pitch model would be written as such:</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" data-line-number="1">mod_pitch &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch, joined_wide)</a></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb612-1" data-line-number="1">mod_pitch &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch, joined_wide)</a></code></pre></div>
 <p>And give the following output:</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1213,9 +1213,9 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 ## F-statistic: 14.83 on 1 and 30 DF,  p-value: 0.0005732</code></pre>
 <p><strong>Simple Linear Regression - Dispersion</strong></p>
 <p>The Dispersion model would be written as such:</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" data-line-number="1">mod_disp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" data-line-number="1">mod_disp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
 <p>And give the following output:</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb614-1" data-line-number="1"><span class="kw">summary</span>(mod_disp)</a></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb616-1" data-line-number="1"><span class="kw">summary</span>(mod_disp)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Dispersion, data = joined_wide)
@@ -1234,9 +1234,9 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 ## F-statistic:  1.98 on 1 and 30 DF,  p-value: 0.1697</code></pre>
 <p><strong>Multiple Linear Regression - Pitch + Dispersion</strong></p>
 <p>The model with both Pitch and Dispersion as predictors would be written as such:</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb616-1" data-line-number="1">mod_pitchdisp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch <span class="op">+</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb618-1" data-line-number="1">mod_pitchdisp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch <span class="op">+</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
 <p>And give the following output:</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" data-line-number="1"><span class="kw">summary</span>(mod_pitchdisp)</a></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" data-line-number="1"><span class="kw">summary</span>(mod_pitchdisp)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch + Dispersion, data = joined_wide)
@@ -1266,13 +1266,13 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 <div id="task-9" class="section level4">
 <h4><span class="header-section-number">14.5.7.1</span> Task 9</h4>
 <p><strong>Solution Version 1</strong></p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" data-line-number="1">newdata &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, <span class="dt">Dispersion =</span> <span class="dv">1100</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb620-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, newdata)</a></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" data-line-number="1">newdata &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, <span class="dt">Dispersion =</span> <span class="dv">1100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb622-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, newdata)</a></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 2</strong></p>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb622-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
-<a class="sourceLine" id="cb622-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb624-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
+<a class="sourceLine" id="cb624-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>))</a></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 3</strong></p>
@@ -1280,8 +1280,8 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 <li>And if you want to bring it out as a single value, say for a write-up, you could do the following</li>
 <li>This does pop out a warning about a <code>deprecated</code> function meaning that this won’t work in future updates but for now it is ok to use.</li>
 </ul>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb624-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
-<a class="sourceLine" id="cb624-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb626-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
+<a class="sourceLine" id="cb626-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## Warning: &#39;tidy.numeric&#39; is deprecated.
 ## See help(&quot;Deprecated&quot;)</code></pre>
 <pre><code>## Warning: `data_frame()` is deprecated as of tibble 1.1.0.

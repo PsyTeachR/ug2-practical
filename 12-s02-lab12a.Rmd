@@ -11,12 +11,11 @@ Some key terms from this chapter are:
 * **Sums of Squares (SS)** - an estimate of the total spread of the data (variance) around a parameter (such as the mean). We saw these in Chapter 11
 * **degrees of freedom (df)** - the number of observations that are free to vary to produce a known output. Again we have seen these before in all previous tests. The df impacts on the distribution that is used to compare against for probability
 * **Mean Square (MS)** - an average estimate of the spread of the data (variance) calculated by $MS = \frac{SS}{df}$
-* **F-ratio **- the test statistic of the ANOVA from the F-distribution. Calculated as $F = \frac{MS_{between}}{MS_{within}}$. Also written as $F = \frac{MS_{A}}{MS_{err}}$.
+* **F-ratio **- the test statistic of the ANOVA from the F-distribution. Calculated as $F = \frac{MS_{between}}{MS_{within}}$ or $F = \frac{MS_{A}}{MS_{err}}$.
 
 Again, these terms will become more familiar as we work through this Chapter so don't worry if you don't understand them yet.  The main thing to understand is that we go from the indivual data to the decomposition matrix to the Sums of Squares to the Mean Squares to the F-ratio. But in summary this is what we are doing:
 
-$$ANOVA \space Path: Data \to Decomp. Matrix \to SS \to MS \to F$$
-
+**ANOVA PATH:** $Data \to Decomp. Matrix \to SS \to MS \to F$
 
 As such, the goals of this chapter are to:
 
