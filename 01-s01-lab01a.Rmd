@@ -37,7 +37,7 @@ For any of the practical data assignments, one check to run before submitting is
 
 2. R code can be put directly into an R Markdown report so it is not necessary to keep your writing (e.g. a Word document) and your analysis (e.g. your R script) separate.  
 
-3. Including the R code directly lets others see how you did your analysis - this is a good thing for science! It is Reproducible and Transparen, key components of Open Science!  
+3. Including the R code directly lets others see how you did your analysis - this is a good thing for science! It is both reproducible and transparent, key components of Open Science!  
 
 4. You write your report in plain text, a non software-specific format that is easy to share, so it's not necessary to learn any new coding such as HTM, but can create various outputs depending on what you need. 
 
