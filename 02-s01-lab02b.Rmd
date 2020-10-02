@@ -391,11 +391,11 @@ pong_data2_group <- group_by(pong_data2, BackgroundColor, PaddleLength)
 
 # And then we summarise it, storing the answer in `total_hits`
 pong_data2_hits <- summarise(pong_data2_group, total_hits = sum(HitOrMiss))
-pong_data2_hits_m <- summarise(pong_data2_group, total_hits = mean(HitOrMiss))
+pong_data2_hits_m <- summarise(pong_data2_group, mean_hits = mean(HitOrMiss))
 
 # And then for fun we can filter just the red, small paddle hits
 pong_data2_hits_red_small <- filter(pong_data2_hits, BackgroundColor == "red", PaddleLength == 50)
-pong_data2_hits_red_small_m <- filter(pong_data2_hits, BackgroundColor == "red", PaddleLength == 50)
+pong_data2_hits_red_small_m <- filter(pong_data2_hits_m, BackgroundColor == "red", PaddleLength == 50)
 ```
 
 Which would leave us with:
@@ -422,7 +422,7 @@ knitr::kable(pong_data2_hits_red_small, align = "c", caption = "Summarising with
 
 **Task 6: Summarising Data with summarise()**
 
-* Use the lines of code above to calculate the mean number of hits made with the small paddle (50) and the red color background. Enter that value in this box: `r fitb(pong_data2_hits_red_small_m %>% pull(total_hits))`
+* Use the lines of code above to calculate the mean number of hits made with the small paddle (50) and the red color background. Enter that value in this box to two decimal places - (e.g. 0.12): `r fitb(pong_data2_hits_red_small_m %>% pull(mean_hits) %>% round(2), num = TRUE)`
 
 **A quick point on the `ungroup()` function**
 
