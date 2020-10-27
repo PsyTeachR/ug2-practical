@@ -1,7 +1,7 @@
 
 --- 
 title: "Level 2 Research Methods and Statistics Practical Skills"
-date: "Last Update: 2020-10-02"
+date: "Last Update: 2020-10-27"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

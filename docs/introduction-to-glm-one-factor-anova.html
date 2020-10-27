@@ -1608,17 +1608,17 @@ where:
 <p>The simplest way to square a column, for example called <code>x</code>, would be:</p>
 <p><code>mutate(squared_x = x^2)</code></p>
 <p>The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you’re unsure). It also works for columns! Give that a go. If you have done it correctly you should see the below table:</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb522-1" data-line-number="1">.dmx <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb522-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb522-3" data-line-number="3">         <span class="dt">mu2 =</span> mu<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb522-4" data-line-number="4">         <span class="dt">Ai2 =</span> Ai<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb522-5" data-line-number="5">         <span class="dt">err2 =</span> err<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb522-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb522-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ss_Y =</span> <span class="kw">sum</span>(Yij2),</a>
-<a class="sourceLine" id="cb522-8" data-line-number="8">            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu2),</a>
-<a class="sourceLine" id="cb522-9" data-line-number="9">            <span class="dt">ss_Ai =</span> <span class="kw">sum</span>(Ai2),</a>
-<a class="sourceLine" id="cb522-10" data-line-number="10">            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb522-11" data-line-number="11"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">align =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">caption =</span><span class="st">&quot;Sums of Squares for this analysis&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" data-line-number="1">.dmx <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb510-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb510-3" data-line-number="3">         <span class="dt">mu2 =</span> mu<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb510-4" data-line-number="4">         <span class="dt">Ai2 =</span> Ai<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb510-5" data-line-number="5">         <span class="dt">err2 =</span> err<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb510-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb510-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ss_Y =</span> <span class="kw">sum</span>(Yij2),</a>
+<a class="sourceLine" id="cb510-8" data-line-number="8">            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu2),</a>
+<a class="sourceLine" id="cb510-9" data-line-number="9">            <span class="dt">ss_Ai =</span> <span class="kw">sum</span>(Ai2),</a>
+<a class="sourceLine" id="cb510-10" data-line-number="10">            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb510-11" data-line-number="11"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">align =</span> <span class="st">&quot;c&quot;</span>, <span class="dt">caption =</span><span class="st">&quot;Sums of Squares for this analysis&quot;</span>)</a></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-12">Table 11.3: </span>Sums of Squares for this analysis
@@ -1722,7 +1722,7 @@ And sum up using:
 <li><span class="math inline">\(Y_{ijkm} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + e_{ijkm}\)</span></li>
 </ol>
 <p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <hr />
 <p>For the next few questions consider the decomposition matrix for a one-factor design with three groups, shown below .</p>
 <table>
@@ -1798,7 +1798,7 @@ And sum up using:
 <li>can’t answer; not observed</li>
 </ol>
 <p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb524-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb512-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT3" class="section level3">
 <h3><span class="header-section-number">11.4.3</span> Question 3</h3>
@@ -1810,14 +1810,14 @@ And sum up using:
 <li>can’t answer; not observed</li>
 </ol>
 <p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT4" class="section level3">
 <h3><span class="header-section-number">11.4.4</span> Question 4</h3>
 <p>According to the above decomposition matrix, the predicted value for a participant in group 1 is what?</p>
 <p><strong>Hint</strong>: this is the “fitted” or “typical” for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
 <p>Replace the NULL in the Q4 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb526-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb514-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT5" class="section level3">
 <h3><span class="header-section-number">11.4.5</span> Question 5</h3>
@@ -1829,19 +1829,19 @@ And sum up using:
 <li><span class="math inline">\(Y_{31}\)</span> and <span class="math inline">\(Y_{32}\)</span></li>
 </ol>
 <p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT6" class="section level3">
 <h3><span class="header-section-number">11.4.6</span> Question 6</h3>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{total}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q6 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb516-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT7" class="section level3">
 <h3><span class="header-section-number">11.4.7</span> Question 7</h3>
 <p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{error}\)</span> be for this model?</p>
 <p>Replace the NULL in the Q7 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" data-line-number="1">Q7 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" data-line-number="1">Q7 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT8" class="section level3">
 <h3><span class="header-section-number">11.4.8</span> Question 8</h3>
@@ -1854,22 +1854,22 @@ And sum up using:
 <p>Given those values, what is the value of <span class="math inline">\(SS_{A}\)</span>?</p>
 <p><strong>hint:</strong> <span class="math inline">\(SS_{total}\)</span> = <span class="math inline">\(SS_{\mu}\)</span> + <span class="math inline">\(SS_{A}\)</span> + <span class="math inline">\(SS_{error}\)</span></p>
 <p>Replace the NULL in the Q8 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb518-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
 </div>
 <div id="Ch11AssignQueT9" class="section level3">
 <h3><span class="header-section-number">11.4.9</span> Question 9: Create your own decomposition matrix</h3>
 <p>Finally, this last task tests your ability to set up a decomposition matrix as shown inclass. The code chunk below creates the basic table structure you will need to complete this task. Run the code and have a look at the table, but DO NOT CHANGE IT!</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" data-line-number="1"><span class="co">## run this block, have a look at the structure of dsetup,</span></a>
-<a class="sourceLine" id="cb531-2" data-line-number="2"><span class="co">## but don&#39;t change anything</span></a>
-<a class="sourceLine" id="cb531-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb531-4" data-line-number="4"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb531-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb531-6" data-line-number="6">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb531-7" data-line-number="7">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb531-8" data-line-number="8">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb531-9" data-line-number="9">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb531-10" data-line-number="10">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb531-11" data-line-number="11">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" data-line-number="1"><span class="co">## run this block, have a look at the structure of dsetup,</span></a>
+<a class="sourceLine" id="cb519-2" data-line-number="2"><span class="co">## but don&#39;t change anything</span></a>
+<a class="sourceLine" id="cb519-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb519-4" data-line-number="4"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb519-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb519-6" data-line-number="6">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb519-7" data-line-number="7">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb519-8" data-line-number="8">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb519-9" data-line-number="9">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb519-10" data-line-number="10">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb519-11" data-line-number="11">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a></code></pre></div>
 <p>In the code chunk below, flesh out the values in <code>dsetup</code> to create a decomposition matrix for the data shown below (a one-factor design with four levels), but with the actual numeric values replacing the NA values.</p>
 <ul>
 <li>Group 1: 84, 86, 61</li>
@@ -1884,11 +1884,11 @@ And sum up using:
 <li><strong>DO NOT</strong> change the column names, the column ordering, and make sure it has the right number of rows and columns. You should have 12 rows by 6 columns.</li>
 <li>Make sure your code runs without error in a fresh R session, and make sure no warnings are generated by the code chunk named <code>dmx_warning</code>, which validates your response.</li>
 </ul>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" data-line-number="1"><span class="co"># </span><span class="al">TODO</span><span class="co">: DO STUFF WITH dsetup</span></a>
-<a class="sourceLine" id="cb532-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb532-3" data-line-number="3"><span class="co"># you can change or remove the line below,</span></a>
-<a class="sourceLine" id="cb532-4" data-line-number="4"><span class="co"># but make sure your final table is called dmx</span></a>
-<a class="sourceLine" id="cb532-5" data-line-number="5">dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb520-1" data-line-number="1"><span class="co"># </span><span class="al">TODO</span><span class="co">: DO STUFF WITH dsetup</span></a>
+<a class="sourceLine" id="cb520-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb520-3" data-line-number="3"><span class="co"># you can change or remove the line below,</span></a>
+<a class="sourceLine" id="cb520-4" data-line-number="4"><span class="co"># but make sure your final table is called dmx</span></a>
+<a class="sourceLine" id="cb520-5" data-line-number="5">dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done, you are finshed! Now you should go check your answers against the solutions which can be found at the end of this Chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the available forums or speak to a member of the team.</p>
 <p>On to the next chapter!</p>
@@ -1906,13 +1906,13 @@ And sum up using:
 <li>The basic tibble would be created as follows.</li>
 <li>When it comes to <span class="math inline">\(Y_{ij}\)</span>, simply typing in the values in order was what was needed.</li>
 </ul>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb533-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb533-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb533-3" data-line-number="3">dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">4</span>), </a>
-<a class="sourceLine" id="cb533-4" data-line-number="4">              <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb533-5" data-line-number="5">              <span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">37</span>, <span class="dv">80</span>, <span class="dv">64</span>, <span class="dv">51</span>,</a>
-<a class="sourceLine" id="cb533-6" data-line-number="6">                    <span class="dv">33</span>, <span class="dv">47</span>, <span class="dv">55</span>, <span class="dv">41</span>,</a>
-<a class="sourceLine" id="cb533-7" data-line-number="7">                    <span class="dv">59</span>, <span class="dv">23</span>, <span class="dv">50</span>, <span class="dv">60</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb521-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb521-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb521-3" data-line-number="3">dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb521-4" data-line-number="4">              <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times =</span> <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb521-5" data-line-number="5">              <span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">37</span>, <span class="dv">80</span>, <span class="dv">64</span>, <span class="dv">51</span>,</a>
+<a class="sourceLine" id="cb521-6" data-line-number="6">                    <span class="dv">33</span>, <span class="dv">47</span>, <span class="dv">55</span>, <span class="dv">41</span>,</a>
+<a class="sourceLine" id="cb521-7" data-line-number="7">                    <span class="dv">59</span>, <span class="dv">23</span>, <span class="dv">50</span>, <span class="dv">60</span>))</a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-step-2" class="section level4">
@@ -1920,8 +1920,8 @@ And sum up using:
 <ul>
 <li>The Grand Mean can be added as follows:</li>
 </ul>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" data-line-number="1">dmx2 &lt;-<span class="st"> </span>dmx <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb534-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mu =</span> <span class="kw">mean</span>(Yij))</a></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb522-1" data-line-number="1">dmx2 &lt;-<span class="st"> </span>dmx <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb522-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mu =</span> <span class="kw">mean</span>(Yij))</a></code></pre></div>
 <ul>
 <li>And would appear as:</li>
 </ul>
@@ -2126,10 +2126,10 @@ mu
 <li>The estimates <span class="math inline">\(\hat{A}_1\)</span>, <span class="math inline">\(\hat{A}_2\)</span>, <span class="math inline">\(\hat{A}_3\)</span>, or in other words the unique contribution of each group, are calculated as follows.</li>
 <li>The key point is grouping by <code>i</code> so that each group is accounted for individually.</li>
 </ul>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb535-1" data-line-number="1">dmx3 &lt;-<span class="st"> </span>dmx2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb535-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb535-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb535-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" data-line-number="1">dmx3 &lt;-<span class="st"> </span>dmx2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb523-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb523-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb523-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>()</a></code></pre></div>
 <ul>
 <li>And would appear as:</li>
 </ul>
@@ -2372,8 +2372,8 @@ Ai
 <ul>
 <li>The residuals are calculated as follows:</li>
 </ul>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb536-1" data-line-number="1">dmx4 &lt;-<span class="st"> </span>dmx3 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb536-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))</a></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb524-1" data-line-number="1">dmx4 &lt;-<span class="st"> </span>dmx3 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb524-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))</a></code></pre></div>
 <ul>
 <li>And would appear as:</li>
 </ul>
@@ -2657,16 +2657,16 @@ err
 <li><code>select()</code> only those columns</li>
 <li><code>summarise(sum)</code> those columns</li>
 </ul>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb537-1" data-line-number="1">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb537-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb537-3" data-line-number="3">         <span class="dt">mu2 =</span> mu<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb537-4" data-line-number="4">         <span class="dt">Ai2 =</span> Ai<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb537-5" data-line-number="5">         <span class="dt">err2 =</span> err<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb537-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb537-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ss_Y =</span> <span class="kw">sum</span>(Yij2),</a>
-<a class="sourceLine" id="cb537-8" data-line-number="8">            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu2),</a>
-<a class="sourceLine" id="cb537-9" data-line-number="9">            <span class="dt">ss_Ai =</span> <span class="kw">sum</span>(Ai2),</a>
-<a class="sourceLine" id="cb537-10" data-line-number="10">            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2))</a></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" data-line-number="1">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb525-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb525-3" data-line-number="3">         <span class="dt">mu2 =</span> mu<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb525-4" data-line-number="4">         <span class="dt">Ai2 =</span> Ai<span class="op">^</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb525-5" data-line-number="5">         <span class="dt">err2 =</span> err<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb525-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb525-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ss_Y =</span> <span class="kw">sum</span>(Yij2),</a>
+<a class="sourceLine" id="cb525-8" data-line-number="8">            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu2),</a>
+<a class="sourceLine" id="cb525-9" data-line-number="9">            <span class="dt">ss_Ai =</span> <span class="kw">sum</span>(Ai2),</a>
+<a class="sourceLine" id="cb525-10" data-line-number="10">            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2))</a></code></pre></div>
 </div>
 <div id="inclass-step-5-version-2" class="section level4">
 <h4><span class="header-section-number">11.5.1.6</span> InClass Step 5 (version 2)</h4>
@@ -2674,9 +2674,9 @@ err
 <li><p>There is an alternative way to do the above in a supercool, superquick, two lines of code using dplyr’s “scoping” technique. Have a look at <code>?dplyr::scoped</code> and <code>?dplyr::summarise_all</code>.</p></li>
 <li><p>Don’t worry if you don’t understand this yet, as it is pretty advanced, but as you can see it gives the same output as we created in class.</p></li>
 </ul>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb538-1" data-line-number="1">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb538-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Yij<span class="op">:</span>err) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb538-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise_all</span>(<span class="kw">list</span>(<span class="dt">name =</span> <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.<span class="op">^</span><span class="dv">2</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb526-1" data-line-number="1">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb526-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Yij<span class="op">:</span>err) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb526-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise_all</span>(<span class="kw">list</span>(<span class="dt">name =</span> <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.<span class="op">^</span><span class="dv">2</span>)))</a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT5">Return to Task</a></p>
 </div>
 </div>
@@ -2693,7 +2693,7 @@ err
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb539-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT1">Return to Task</a></p>
 </div>
 <div id="assignment-question-2" class="section level4">
@@ -2702,7 +2702,7 @@ err
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb540-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT2">Return to Task</a></p>
 </div>
 <div id="assignment-question-3" class="section level4">
@@ -2711,7 +2711,7 @@ err
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT3">Return to Task</a></p>
 </div>
 <div id="assignment-question-4" class="section level4">
@@ -2720,7 +2720,7 @@ err
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb542-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT4">Return to Task</a></p>
 </div>
 <div id="assignment-question-5" class="section level4">
@@ -2729,13 +2729,13 @@ err
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT5">Return to Task</a></p>
 </div>
 <div id="assignment-question-6" class="section level4">
 <h4><span class="header-section-number">11.5.2.6</span> Assignment Question 6</h4>
 <p>The <span class="math inline">\(SS_{total}\)</span> for this model would be calculated as:</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb544-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">6</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">8</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">12</span><span class="op">^</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">6</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">8</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">12</span><span class="op">^</span><span class="dv">2</span></a></code></pre></div>
 <ul>
 <li>As such giving a <span class="math inline">\(SS_{total}\)</span> of 280</li>
 </ul>
@@ -2744,7 +2744,7 @@ err
 <div id="assignment-question-7" class="section level4">
 <h4><span class="header-section-number">11.5.2.7</span> Assignment Question 7</h4>
 <p>The <span class="math inline">\(SS_{error}\)</span> for this model would be calculated as:</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" data-line-number="1">Q7 &lt;-<span class="st"> </span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span><span class="op">^</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb533-1" data-line-number="1">Q7 &lt;-<span class="st"> </span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span><span class="op">^</span><span class="dv">2</span></a></code></pre></div>
 <ul>
 <li>As such giving a <span class="math inline">\(SS_{error}\)</span> of 60</li>
 </ul>
@@ -2772,7 +2772,7 @@ err
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb546-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="dv">180</span></a></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="dv">180</span></a></code></pre></div>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT8">Return to Task</a></p>
 </div>
 <div id="assignment-question-9" class="section level4">
@@ -2785,23 +2785,23 @@ err
 <li>Group 4: 68, 76, 93</li>
 </ul>
 <p><code>dmx</code> can be created as shown:</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" data-line-number="1">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb547-2" data-line-number="2">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb547-3" data-line-number="3">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb547-4" data-line-number="4">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb547-5" data-line-number="5">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb547-6" data-line-number="6">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb547-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb547-8" data-line-number="8">dmx &lt;-<span class="st"> </span>dsetup <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb547-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">86</span>, <span class="dv">61</span>,</a>
-<a class="sourceLine" id="cb547-10" data-line-number="10">                 <span class="dv">83</span>, <span class="dv">71</span>, <span class="dv">95</span>,</a>
-<a class="sourceLine" id="cb547-11" data-line-number="11">                 <span class="dv">56</span>, <span class="dv">95</span>, <span class="dv">92</span>,</a>
-<a class="sourceLine" id="cb547-12" data-line-number="12">                 <span class="dv">68</span>, <span class="dv">76</span>, <span class="dv">93</span>),</a>
-<a class="sourceLine" id="cb547-13" data-line-number="13">         <span class="dt">mu =</span> <span class="kw">mean</span>(Yij)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb547-14" data-line-number="14"><span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb547-15" data-line-number="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb547-16" data-line-number="16"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb547-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))</a></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb535-1" data-line-number="1">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb535-2" data-line-number="2">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb535-3" data-line-number="3">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb535-4" data-line-number="4">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb535-5" data-line-number="5">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb535-6" data-line-number="6">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb535-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb535-8" data-line-number="8">dmx &lt;-<span class="st"> </span>dsetup <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb535-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">86</span>, <span class="dv">61</span>,</a>
+<a class="sourceLine" id="cb535-10" data-line-number="10">                 <span class="dv">83</span>, <span class="dv">71</span>, <span class="dv">95</span>,</a>
+<a class="sourceLine" id="cb535-11" data-line-number="11">                 <span class="dv">56</span>, <span class="dv">95</span>, <span class="dv">92</span>,</a>
+<a class="sourceLine" id="cb535-12" data-line-number="12">                 <span class="dv">68</span>, <span class="dv">76</span>, <span class="dv">93</span>),</a>
+<a class="sourceLine" id="cb535-13" data-line-number="13">         <span class="dt">mu =</span> <span class="kw">mean</span>(Yij)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb535-14" data-line-number="14"><span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb535-15" data-line-number="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb535-16" data-line-number="16"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb535-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))</a></code></pre></div>
 <p>Producing the following output:</p>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -3076,12 +3076,12 @@ err
 </div>
 <p>If you have set-up <code>dmx</code> correctly then you will see the below message at the bottom of your knitted html file.</p>
 <p><strong>The tibble ‘dmx’ has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.</strong></p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb548-1" data-line-number="1"><span class="co"># Don&#39;t change anything in this code chunk; it is just here to help you check  that you&#39;ve defined a table called `dmx` correctly. Pay attention to any warnings  that appear when you run this chunk. When the warning has gone away, that  means that the structure of `dmx` is correct (although it doesn&#39;t mean that the values are correct!)</span></a>
-<a class="sourceLine" id="cb548-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb548-3" data-line-number="3"><span class="cf">if</span> (<span class="kw">identical</span>(<span class="kw">names</span>(dmx), <span class="kw">names</span>(dsetup)) <span class="op">&amp;&amp;</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb548-4" data-line-number="4"><span class="st">    </span><span class="kw">identical</span>(<span class="kw">dim</span>(dmx), <span class="kw">dim</span>(dsetup))) {</a>
-<a class="sourceLine" id="cb548-5" data-line-number="5">  <span class="kw">warning</span>(<span class="st">&quot;The tibble &#39;dmx&#39; has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.&quot;</span>)</a>
-<a class="sourceLine" id="cb548-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb536-1" data-line-number="1"><span class="co"># Don&#39;t change anything in this code chunk; it is just here to help you check  that you&#39;ve defined a table called `dmx` correctly. Pay attention to any warnings  that appear when you run this chunk. When the warning has gone away, that  means that the structure of `dmx` is correct (although it doesn&#39;t mean that the values are correct!)</span></a>
+<a class="sourceLine" id="cb536-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb536-3" data-line-number="3"><span class="cf">if</span> (<span class="kw">identical</span>(<span class="kw">names</span>(dmx), <span class="kw">names</span>(dsetup)) <span class="op">&amp;&amp;</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb536-4" data-line-number="4"><span class="st">    </span><span class="kw">identical</span>(<span class="kw">dim</span>(dmx), <span class="kw">dim</span>(dsetup))) {</a>
+<a class="sourceLine" id="cb536-5" data-line-number="5">  <span class="kw">warning</span>(<span class="st">&quot;The tibble &#39;dmx&#39; has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.&quot;</span>)</a>
+<a class="sourceLine" id="cb536-6" data-line-number="6">}</a></code></pre></div>
 <p>If however you see the below, then you need to look again at the structure of <code>dmx</code></p>
 <p><strong>You have not yet defined the tibble ‘dmx’ properly, and in future assignments this may affect your overall grade. Check column names (including capitalization), column data types, and table structure.</strong></p>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT9">Return to Task</a></p>
