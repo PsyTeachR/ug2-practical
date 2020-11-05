@@ -246,9 +246,22 @@ ggplot(group_means, aes(NULL, NULL, fill = NULL)) +
 
 Next, have a look at the possible solution below to see a **modern** way of presenting this information. There are some new functions in this solution that you should play about with to understand what they do. Remember it is a layering system, so remove lines and see what happens. Note how in the solution the Figure shows the raw data points as well as the means in each condition; this gives a better impression of the true data as just showing the means can be misleading. You can continue your further exploration of visualisations by reading this paper later when you have a chance: <a href = "https://doi.org/10.1371/journal.pbio.1002128" target = "_blank">Weissberger et al., 2015, Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</a>
 
-`r hide("Possible Solution")`
-```{r ch6-fig7-possible, results='asis', fig.cap='A possible alternative to Figure 7'}
+`r hide("Solution and Possible Alternative")`
 
+Filling in the code as below will create a basic figure as shown:
+
+```{r ch6-fig7-solution, results='asis', fig.cap='A basic solution to Figure 7'}
+group_means <- ratings2 %>%
+  group_by(condition, Category) %>%
+  summarise(Rating = mean(Rating))
+
+ggplot(group_means, aes(Category, Rating, fill = condition)) + 
+  geom_col(position = "dodge")
+```
+
+Or alternatively, for a more modern presentation of the data:
+
+```{r ch6-fig7-possible, results='asis', fig.cap='A possible alternative to Figure 7'}
 group_means <- ratings2 %>%
   group_by(condition, Category) %>%
   summarise(Rating = mean(Rating))
