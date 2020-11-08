@@ -2069,9 +2069,145 @@ musical_means &lt;- summarise(screening_groups_new, mean_score = mean(Total_QHC)
 </div>
 <div id="assignment-solution" class="section level3">
 <h3><span class="header-section-number">2.5.3</span> Assignment Solution</h3>
-<p>Solutions to the Assignment will appear here after Friday 30th October 2020. In the meantime please speak to Phil McAleer if you have any questions.</p>
+<div id="assignment-task-1---oldest-participant" class="section level4">
+<h4><span class="header-section-number">2.5.3.1</span> Assignment Task 1 - Oldest Participant</h4>
+<ul>
+<li>Whether you coded this answer or just read from the data, the Participant with ID Number 3 is the oldest.</li>
+</ul>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">oldest_participant &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<p>This could also be answered with code. We haven’t quite shown you how yet but it would look like this:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">oldest_participant_code &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(AGE)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="st">  </span><span class="kw">pull</span>(ID)</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1">Return to Task</a></p>
+</div>
+<div id="assignment-task-2---arranging-d-span" class="section level4">
+<h4><span class="header-section-number">2.5.3.2</span> Assignment Task 2 - Arranging D-SPAN</h4>
+<ul>
+<li><code>arrange()</code> is the main function here</li>
+<li>You also needed to use <code>desc()</code> to sort from high to low</li>
+</ul>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">cogtest_sort &lt;-<span class="st"> </span><span class="kw">arrange</span>(screening, <span class="kw">desc</span>(DSPAN))</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2">Return to Task</a></p>
+</div>
+<div id="assignment-task-3---foreign-language-speakers" class="section level4">
+<h4><span class="header-section-number">2.5.3.3</span> Assignment Task 3 - Foreign Language Speakers</h4>
+<ol style="list-style-type: decimal">
+<li>First group the screening data by FLANG using <code>group_by()</code></li>
+<li>Next, summarise, paying attention to use the variable names as instructed</li>
+<li><code>n()</code> is a function that we use within <code>summarise()</code> to count how many observations we have. It works like <code>count()</code> but you can’t use <code>count()</code> within <code>summarise()</code></li>
+<li><code>median()</code> is the function that we use within <code>summarise()</code> to calculate the median. Much like we do with <code>sum()</code> or <code>mean()</code> or <code>sd()</code>, etc.</li>
+</ol>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">screen_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(screening, FLANG) </a>
+<a class="sourceLine" id="cb79-2" data-line-number="2">descriptives &lt;-<span class="st"> </span><span class="kw">summarise</span>(screen_groups, </a>
+<a class="sourceLine" id="cb79-3" data-line-number="3">                          <span class="dt">n =</span> <span class="kw">n</span>(), </a>
+<a class="sourceLine" id="cb79-4" data-line-number="4">                          <span class="dt">median_age =</span> <span class="kw">median</span>(AGE))</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT3">Return to Task</a></p>
+</div>
+<div id="assignment-task-4---creating-percentage-moca-scores" class="section level4">
+<h4><span class="header-section-number">2.5.3.4</span> Assignment Task 4 - Creating Percentage MOCA scores</h4>
+<ul>
+<li><code>mutate()</code> is the function to add a new column to data</li>
+<li>Here we are mutating/adding on a column called <code>MOCA_Perc</code> which shows a participant’s MOCA score divided by 30 and multiplied by 100.</li>
+</ul>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">mutate</span>(screening, <span class="dt">MOCA_Perc =</span> (MOCA <span class="op">/</span><span class="st"> </span><span class="dv">30</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT4">Return to Task</a></p>
+</div>
+<div id="assignment-task-5---remove-the-moca-column" class="section level4">
+<h4><span class="header-section-number">2.5.3.5</span> Assignment Task 5 - Remove the MOCA column</h4>
+<ul>
+<li><code>select()</code> is the key function to keep and remove certain columns.</li>
+<li>Two options here; both would give the same dataframe.</li>
+<li>The first option shows how to deselect a column and keep everything else.</li>
+<li>The second option shows how to select all the columns you want.</li>
+<li>Remember that order is very important and you should select the columns in the order you want.</li>
+</ul>
+<p>Option 1:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, <span class="op">-</span>MOCA)</a></code></pre></div>
+<p>Option 2:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">screening &lt;-<span class="st"> </span><span class="kw">select</span>(screening, ID, AGE, SEX, HANDEDNESS, EDUCATION, MUSICAL, FLANG, DSPAN, D2, MOCA_Perc)</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT5">Return to Task</a></p>
+</div>
+<div id="assignment-task-6---gather-the-responses-together" class="section level4">
+<h4><span class="header-section-number">2.5.3.6</span> Assignment Task 6 - Gather the Responses together</h4>
+<ul>
+<li><code>pivot_longer()</code> is the function to use here.</li>
+<li>People take a while to understand this function but spend some time looking at the example below and it will start to make some sense.</li>
+<li>The first argument is the data. In this case <code>responses</code>.</li>
+<li>The second argument is the name of the columns you want to gather. Here we are gathering all columns between the Q1 column and the Q15 column. Remember that the colon (:) says “from … to …”
+<ul>
+<li>You do not actually need to write <code>cols =</code> but it makes things clearer.</li>
+<li>“Gathering” of columns is based on position in the tibble. If the order of columns in the tibble was Q1 then Q15, the above code would only gather those two columns. As it is, in our tibble, the order, is Q1, Q2, Q3, … Q15, and therefore the code gathers all the columns between Q1 and Q15.<br />
+</li>
+<li>Colum names are not put in quotes because they exist already in the tibble <code>responses</code>.</li>
+</ul></li>
+<li>The third and fourth arguments are the names of the new columns we are creating;
+<ul>
+<li>the first will store the question numbers, <code>Question</code>. I.e. put the question names (<code>names_to = ...</code>) in a column called “Question”.</li>
+<li>the second will store the values/responses, <code>Response</code>. I.e. put the values/responses to the questions (<code>values_to = ...</code>) in a column called “Response”.</li>
+<li>These new column names are put in quotes because they do not already exist in the tibble. This is not always the case but is the case for this function.</li>
+<li>Note that these names could have been anything but by using these names the code makes more sense.</li>
+<li>Lastly, you do need to write <code>names_to = ...</code> and <code>values_to = ...</code> otherwise the columns won’t be created correctly.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">responses_long &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(responses, </a>
+<a class="sourceLine" id="cb83-2" data-line-number="2">                         <span class="dt">cols =</span> Q1<span class="op">:</span>Q15, </a>
+<a class="sourceLine" id="cb83-3" data-line-number="3">                         <span class="dt">names_to =</span> <span class="st">&quot;Question&quot;</span>, </a>
+<a class="sourceLine" id="cb83-4" data-line-number="4">                         <span class="dt">values_to =</span> <span class="st">&quot;RESPONSE&quot;</span>)</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT6">Return to Task</a></p>
+</div>
+<div id="assignment-task-7---joining-the-data" class="section level4">
+<h4><span class="header-section-number">2.5.3.7</span> Assignment Task 7 - Joining the data</h4>
+<ul>
+<li><code>inner_join()</code> will combine all common information in two sets of data by a common column or columns.</li>
+<li>Here we are joining the data in <code>responses_long</code> with the data in <code>scoring</code> by the common column <code>RESPONSE</code>.</li>
+<li>Keep in mind that <code>inner_join()</code> keeps only the rows that have data in both datasets. It will remove rows that only have data in one dataset.</li>
+<li>When joining two datasets, join by <strong>ALL</strong> common columns when there is more than one column in common.</li>
+</ul>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">responses_points &lt;-<span class="st"> </span><span class="kw">inner_join</span>(responses_long, scoring, <span class="st">&quot;RESPONSE&quot;</span>)</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT7">Return to Task</a></p>
+</div>
+<div id="assignment-task-8---working-the-pipes" class="section level4">
+<h4><span class="header-section-number">2.5.3.8</span> Assignment Task 8 - Working the Pipes</h4>
+<ul>
+<li>This is the code we started with.</li>
+</ul>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">participant_groups &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID)</a>
+<a class="sourceLine" id="cb85-2" data-line-number="2">participant_scores &lt;-<span class="st"> </span><span class="kw">summarise</span>(participant_groups, <span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE))</a>
+<a class="sourceLine" id="cb85-3" data-line-number="3">participant_screening &lt;-<span class="st"> </span><span class="kw">inner_join</span>(participant_scores, screening, <span class="st">&quot;ID&quot;</span>)</a>
+<a class="sourceLine" id="cb85-4" data-line-number="4">screening_groups_new &lt;-<span class="st"> </span><span class="kw">group_by</span>(participant_screening, MUSICAL)</a>
+<a class="sourceLine" id="cb85-5" data-line-number="5">musical_means &lt;-<span class="st"> </span><span class="kw">summarise</span>(screening_groups_new, <span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<ul>
+<li>Below is how to transcribe the above series of functions into a pipeline.</li>
+<li>Remember, when using pipes, the output of the previous function is the input of the subsequent function</li>
+</ul>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-4" data-line-number="4"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-5" data-line-number="5"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT8">Return to Task</a></p>
+</div>
+<div id="assignment-task-9---difference-in-musical-means" class="section level4">
+<h4><span class="header-section-number">2.5.3.9</span> Assignment Task 9 - Difference in Musical Means</h4>
+<ul>
+<li>People who play music have a QHC score that is 1.53 units higher than people who don’t play music.</li>
+<li>You can do this by looking in <code>musical_means</code>, reading the values, and doing some quick maths.</li>
+<li>A second option is through code. Code is always better as it can reduce error and is reproducible!</li>
+</ul>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="co"># Option 1</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2">QHC_diff &lt;-<span class="st"> </span><span class="fl">1.53</span></a>
+<a class="sourceLine" id="cb87-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb87-4" data-line-number="4"><span class="co"># Option 2</span></a>
+<a class="sourceLine" id="cb87-5" data-line-number="5"><span class="co"># You will soon learn the functions to do this by code but here is how you could do it.</span></a>
+<a class="sourceLine" id="cb87-6" data-line-number="6">QHC_diff_code &lt;-<span class="st"> </span><span class="kw">spread</span>(musical_means, MUSICAL, mean_score) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> YES <span class="op">-</span><span class="st"> </span>NO) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(diff) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-9" data-line-number="9"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
+<p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
+</div>
 </div>
 </div>
 <div id="additional-material" class="section level2">
@@ -2080,12 +2216,12 @@ musical_means &lt;- summarise(screening_groups_new, mean_score = mean(Total_QHC)
 <div id="more-on-read_csv" class="section level3 unnumbered">
 <h3>More on read_csv()</h3>
 <p>In the preclass activity we used the following code to load in our data:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">pong_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>)</a></code></pre></div>
 <p>This is a totally acceptable approach and it is the one we will use 99% of the time. Now one thing to note that the <code>read_csv()</code> function by default always loads any number as <strong>double</strong>, meaning that it can take a decimal. As shown here by the <dbl> at the start of each variable. The one column that is not a double is the BackgroundColor column, which is of course “characters” <chr>.</p>
 <ul>
 <li><strong>Note:</strong> we can use <code>glimpse()</code> from <code>dplyr</code> to check our data types.</li>
 </ul>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data)</a></code></pre></div>
 <pre><code>## Rows: 4,608
 ## Columns: 8
 ## $ Participant     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
@@ -2097,10 +2233,10 @@ musical_means &lt;- summarise(screening_groups_new, mean_score = mean(Total_QHC)
 ## $ HitOrMiss       &lt;dbl&gt; 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0...
 ## $ BlockNumber     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...</code></pre>
 <p>However you might not always want this default and might want to stipulate the data-type to load the data in as. Particularly if you already know the data-type you should have. Let’s look at this first and then talk about it.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">pong_data3 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>,</a>
-<a class="sourceLine" id="cb79-2" data-line-number="2">                      <span class="dt">col_types =</span> <span class="st">&quot;iiiiicii&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">pong_data3 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PongBlueRedBack 1-16 Codebook.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb91-2" data-line-number="2">                      <span class="dt">col_types =</span> <span class="st">&quot;iiiiicii&quot;</span>)</a></code></pre></div>
 <p>Which if we look at again, we now see that the numerical data are <strong>integers</strong> <int> instead of <strong>double</strong> <dbl>.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data3)</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">glimpse</span>(pong_data3)</a></code></pre></div>
 <pre><code>## Rows: 4,608
 ## Columns: 8
 ## $ Participant     &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
@@ -2119,20 +2255,20 @@ musical_means &lt;- summarise(screening_groups_new, mean_score = mean(Total_QHC)
 <div id="more-on-code-layout" class="section level3 unnumbered">
 <h3>More on Code Layout</h3>
 <p>One issue we see a lot is people not being able to debug their code quickly (i.e. find issues) because of the way the code is laid out. Pipes (%&gt;%) helps with that, but so does taking new lines for different parts of your code. After a comma (,) or a pipe (%&gt;%), you can take a new line to continue your code to make it easier to read and follow. For example, both of the following will work, but the second is easiest to read.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb83-4" data-line-number="4"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb83-5" data-line-number="5"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, ID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb95-3" data-line-number="3"><span class="st">                  </span><span class="kw">inner_join</span>(screening, <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb95-4" data-line-number="4"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb95-5" data-line-number="5"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
 <p>And you could even expand this second option further to make it clearer on the <code>group_by()</code> and <code>inner_join()</code> what are the different inputs:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, </a>
-<a class="sourceLine" id="cb84-2" data-line-number="2">                          ID) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb84-4" data-line-number="4"><span class="st">                  </span><span class="kw">inner_join</span>(screening, </a>
-<a class="sourceLine" id="cb84-5" data-line-number="5">                             <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb84-6" data-line-number="6"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb84-7" data-line-number="7"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">musical_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(responses_points, </a>
+<a class="sourceLine" id="cb96-2" data-line-number="2">                          ID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb96-3" data-line-number="3"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Total_QHC =</span> <span class="kw">sum</span>(SCORE)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb96-4" data-line-number="4"><span class="st">                  </span><span class="kw">inner_join</span>(screening, </a>
+<a class="sourceLine" id="cb96-5" data-line-number="5">                             <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb96-6" data-line-number="6"><span class="st">                  </span><span class="kw">group_by</span>(MUSICAL) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb96-7" data-line-number="7"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">mean_score =</span> <span class="kw">mean</span>(Total_QHC))</a></code></pre></div>
 <p>Remember, <strong>Tidy Code and Tidy Data Make Wrangling Fun!</strong> OK, that is not catchy, but true!</p>
 <hr />
 </div>
@@ -2145,7 +2281,7 @@ musical_means &lt;- summarise(screening_groups_new, mean_score = mean(Total_QHC)
 </ul>
 <p><strong>An example with gather()</strong></p>
 <p>In the example in class, Task 5, we have all the data we need loaded in, but in order to make it easier for us to get the AQ score for each participant, we need to change the layout of the <code>responses</code> tibble. In class we use the <code>pivot_longer()</code> function but you could have done it with the <code>gather()</code> function as follows</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, Response, Q1<span class="op">:</span>Q10)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(responses, Question, Response, Q1<span class="op">:</span>Q10)</a></code></pre></div>
 <ul>
 <li>The first argument given to the <code>gather()</code> function is the dataset which holds the data we want to wrangle, <code>responses</code>.</li>
 <li>The second and third arguments are the names we want to give the columns we are creating;
@@ -2338,7 +2474,7 @@ Dogs
 </tbody>
 </table>
 <p>Because these two tables have no overlapping information about participants but have a similar tibble structure (i.e. number and names of columns) then the way we can combine the tibbles is by putting one tibble below the other using <code>bind_rows()</code></p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">all_animals &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(cats, dogs)</a></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">all_animals &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(cats, dogs)</a></code></pre></div>
 <p>Which would give us:</p>
 <table>
 <caption>
@@ -2471,7 +2607,7 @@ Dogs
 </tbody>
 </table>
 <p>And say now we want to tack on the age information from each participant. Because <code>all_animals</code> and <code>ages</code> have overlapping information that we can use to link the information, we can put the new information at the side of the tibble as a new column using <code>inner_join()</code>.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">all_animals_ages &lt;-<span class="st"> </span><span class="kw">inner_join</span>(all_animals, ages, <span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Animal&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">all_animals_ages &lt;-<span class="st"> </span><span class="kw">inner_join</span>(all_animals, ages, <span class="kw">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Animal&quot;</span>))</a></code></pre></div>
 <p>Which would give us:</p>
 <table>
 <caption>
