@@ -167,7 +167,7 @@ Last step, calculating the F-value.  As above, if the null hypothesis is true ($
 To learn a bit about the F-distribution we have created a shiny app to play with, which you can see below.  Shiny Apps are interactive webpages and applications made through R.  
 
 ```{r, echo = FALSE, fig.cap="F-distribution app"}
-knitr::include_url("http://shiny.psy.gla.ac.uk/Dale/fdist/",
+knitr::include_url("https://shiny.psy.gla.ac.uk/Dale/fdist/",
                    height = "1050px")
 ```
 
