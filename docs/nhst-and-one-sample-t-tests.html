@@ -2406,10 +2406,10 @@ Figure 6.5: A representation of Figure 2A
 <p>Below is some additional material that might help you understand the tests in this Chapter a bit more as well as some additional ideas.</p>
 <div id="more-on-t.test---vectors-vs.formula" class="section level3 unnumbered">
 <h3>More on <code>t.test()</code> - vectors vs. formula</h3>
-<p>A quick note on running the t-test in two different ways. In the lab we showed you how to run a t-test on a between-subjects design. The code in the lab was as follows:</p>
+<p>A quick note on running the t-test in two different ways. In the lab we showed you how to run a t-test on a between-subjects design. This is the Welch’s t-test version of the code from the lab:</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
 <a class="sourceLine" id="cb395-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
-<a class="sourceLine" id="cb395-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb395-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb395-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p>This is sometimes referred to as the vector approach, and what the code is doing is taking each groups’ data as a vector input. For example, if you were to just look at the data for the Treatment 0 group then that line of code:</p>
 <div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1">crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers)</a></code></pre></div>
@@ -2424,15 +2424,8 @@ Figure 6.5: A representation of Figure 2A
 ##  [71] 2 3 1 1 2 3 3 0 2 2 1 1 2 3 0 0 3 0 1 2 0 0 0 0 3 1 3 2 2 2 1 2 3 3 0
 ## [106] 3 1 0 1 2 0 2 2 2 3 2 3 3 3 0 3 0 1 2 3</code></pre>
 <p>And the <code>t.test()</code> function is just saying this is group 1’s data, this is group 2’s data, and I am comparing them. However the eagle-eyed of you will have seen in the solution an alternative code, that looks like:</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p>This is the formula method and if you look at the structure of <code>crt2</code> (the first 6 rows are shown below) you get an idea of how the formula approach works:</p>
-<pre><code>## Warning: `...` is not empty.
-## 
-## We detected these problematic arguments:
-## * `needs_dots`
-## 
-## These dots only exist to allow future extensions and should be empty.
-## Did you misspecify an argument?</code></pre>
 <pre><code>## # A tibble: 6 x 3
 ##      ID Treatment CorrectAnswers
 ##   &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;
@@ -2450,18 +2443,18 @@ Figure 6.5: A representation of Figure 2A
 <li>and my_data is the name of your tibble.</li>
 </ul>
 <p>Whichever approach you use, the observed t-value, p-value, and df (parameter) should be the same! What might change is what the t-test considers as group 1 and what it considers group 2. And from your knowledge of the t-test formula, this will affect whether your t-test is positive or negative. For example:</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
-<a class="sourceLine" id="cb402-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
-<a class="sourceLine" id="cb402-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb401-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb401-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb401-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>Gives the t-value of t = 3.09, whereas if you switch the order of inputting the Treatment groups as such:</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb402-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
+<a class="sourceLine" id="cb402-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb402-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
-<p>Gives the t-value of t = 3.07, whereas if you switch the order of inputting the Treatment groups as such:</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
-<a class="sourceLine" id="cb403-2" data-line-number="2">                  crt2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(CorrectAnswers),</a>
-<a class="sourceLine" id="cb403-3" data-line-number="3">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb403-4" data-line-number="4"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
-<p>You get a t-value of t = -3.07. Same value (or magnitude) just one is positive and the other is negative, because the order of who is Group 1 and who is group 2 is switched. And just for comparion, the formula approach:</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
-<p>Gives a t-value of t = 3.07. So again the same magnitude but you are not controlling who is Group 1 and who is Group 2.</p>
+<p>You get a t-value of t = -3.09. Same value (or magnitude) just one is positive and the other is negative, because the order of who is Group 1 and who is group 2 is switched. And just for comparion, the formula approach:</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1">t_table &lt;-<span class="st"> </span><span class="kw">t.test</span>(CorrectAnswers <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> crt2, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<p>Gives a t-value of t = 3.09. So again the same magnitude but you are not controlling who is Group 1 and who is Group 2.</p>
 <p>Long story short is that both methods, if used appropriately, run the same analysis. The benefit of the vector approach is that you can dictate in your analysis who is Group 1 and who is Group 2. And that is really the only difference.</p>
 </div>
 <div id="misleading-and-appropriate-barplots" class="section level3 unnumbered">
@@ -2475,9 +2468,9 @@ Figure 6.6: How representative are barplots of the actual spread of the data!
 </p>
 </div>
 <p>The function we use to show the data points is <code>geom_jitter()</code> and it gets added to a visualisation pipeline just like other <code>geom_?()</code>s that we have used; your code will look like something like this:</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">ggplot</span>(my_data, <span class="kw">aes</span>(<span class="dt">x =</span> my_x_variable, <span class="dt">y =</span> my_y_variable)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1"><span class="kw">ggplot</span>(my_data, <span class="kw">aes</span>(<span class="dt">x =</span> my_x_variable, <span class="dt">y =</span> my_y_variable)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">.1</span>)</a></code></pre></div>
 <p>Look out for it in the coming chapters but the main thing to keep in mind is that barplots can be misleading and displaying the individual data may be more informative - particularly when the response measured creates a spread of data.</p>
 <p><strong>Appropriate Barplots</strong></p>
 <p>That said, barplots do have their place in data analysis and research methods. The best time to use a barplot is when the value is a count - i.e. when the value had no variability in it. A great example of this is in observational research using categorical data. Think about the table we simulated for the chi-squre data as part of the Additional Materials in Chapter 5. Here is that table again:</p>
@@ -2608,7 +2601,7 @@ Yes
 <li>and whether to set <code>correct</code> as <strong>TRUE</strong> or <strong>FALSE</strong>. This is Yates’ Continuity Correction. The default is set as TRUE but a lot of people set it as FALSE so we will select that today.</li>
 </ul>
 <p>And we run the analysis as such:</p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1">chisq_result &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(chi_table, <span class="dt">correct =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1">chisq_result &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(chi_table, <span class="dt">correct =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p>Giving the following result:</p>
 <table>
 <caption>
@@ -2648,18 +2641,18 @@ Pearson’s Chi-squared test
 </tbody>
 </table>
 <p>And could be written up as <span class="math inline">\(x_c^2\)</span>(df = 2, N = 100) = 2.16, p = 0.34. And if you wanted to check the output and calculate the data by hand, or needed to do further analysis, you can see the expected values by doing the analysis but not tidying it, as follows:</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">chisq_untidy &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(chi_table, <span class="dt">correct =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb407-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb407-3" data-line-number="3">chisq_untidy<span class="op">$</span>expected</a></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1">chisq_untidy &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(chi_table, <span class="dt">correct =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb406-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb406-3" data-line-number="3">chisq_untidy<span class="op">$</span>expected</a></code></pre></div>
 <pre><code>##        No Unsure Yes
 ## [1,] 17.5   15.5  17
 ## [2,] 17.5   15.5  17</code></pre>
 <p>And if you wanted the expected values for just one of the groups - say the second group, Group B:</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">chisq_untidy<span class="op">$</span>expected[<span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">chisq_untidy<span class="op">$</span>expected[<span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##     No Unsure    Yes 
 ##   17.5   15.5   17.0</code></pre>
 <p>Or even just the observed values to check you entered the data correctly:</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">chisq_untidy<span class="op">$</span>observed</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">chisq_untidy<span class="op">$</span>observed</a></code></pre></div>
 <pre><code>##      No Unsure Yes
 ## [1,] 21     14  15
 ## [2,] 14     17  19</code></pre>

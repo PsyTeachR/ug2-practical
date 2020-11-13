@@ -37,7 +37,7 @@ ttest <- t.test(pull(ns_data, valid_rt), mu = woods_mean)
 
 ### More on `t.test()` - vectors vs. formula {-}
 
-A quick note on running the t-test in two different ways. In the lab we showed you how to run a t-test on a between-subjects design. The code in the lab was as follows:
+A quick note on running the t-test in two different ways. In the lab we showed you how to run a t-test on a between-subjects design. This is the Welch's t-test version of the code from the lab:
 
 ```{r chpt6-additional-1, echo=FALSE, message=FALSE, warning=FALSE}
 crt <- read_csv("data/06-s01/homework/CRT_Data.csv")
@@ -47,7 +47,7 @@ crt2 <- select(crt, ID, Treatment, CorrectAnswers)
 ```{r chpt6-additional-2}
 t_table <- t.test(crt2 %>% filter(Treatment == 0) %>% pull(CorrectAnswers),
                   crt2 %>% filter(Treatment == 1) %>% pull(CorrectAnswers),
-                  var.equal = TRUE) %>%
+                  var.equal = FALSE) %>%
   tidy()
 ```
 
@@ -72,12 +72,12 @@ crt2 %>% filter(Treatment == 1) %>% pull(CorrectAnswers)
 And the `t.test()` function is just saying this is group 1's data, this is group 2's data, and I am comparing them. However the eagle-eyed of you will have seen in the solution an alternative code, that looks like:
 
 ```{r chpt6-additional-6}
-t_table <- t.test(CorrectAnswers ~ Treatment, data = crt2, var.equal = TRUE) %>% tidy()
+t_table <- t.test(CorrectAnswers ~ Treatment, data = crt2, var.equal = FALSE) %>% tidy()
 ```
 
 This is the formula method and if you look at the structure of `crt2` (the first 6 rows are shown below) you get an idea of how the formula approach works:
 
-```{r chpt6-additional-7, echo=FALSE}
+```{r chpt6-additional-7, echo=FALSE, warning=FALSE}
 head(crt2)
 ```
 
@@ -93,7 +93,7 @@ Whichever approach you use, the observed t-value, p-value, and df (parameter) sh
 ```{r chpt6-additional-8}
 t_table <- t.test(crt2 %>% filter(Treatment == 0) %>% pull(CorrectAnswers),
                   crt2 %>% filter(Treatment == 1) %>% pull(CorrectAnswers),
-                  var.equal = TRUE) %>%
+                  var.equal = FALSE) %>%
   tidy()
 ```
 
@@ -102,14 +102,14 @@ Gives the t-value of t = `r t_table$statistic %>% round(2)`, whereas if you swit
 ```{r chpt6-additional-9}
 t_table <- t.test(crt2 %>% filter(Treatment == 1) %>% pull(CorrectAnswers),
                   crt2 %>% filter(Treatment == 0) %>% pull(CorrectAnswers),
-                  var.equal = TRUE) %>%
+                  var.equal = FALSE) %>%
   tidy()
 ```
 
 You get a t-value of t = `r t_table$statistic %>% round(2)`. Same value (or magnitude) just one is positive and the other is negative, because the order of who is Group 1 and who is group 2 is switched.  And just for comparion, the formula approach:
 
 ```{r chpt6-additional-10}
-t_table <- t.test(CorrectAnswers ~ Treatment, data = crt2, var.equal = TRUE) %>% tidy()
+t_table <- t.test(CorrectAnswers ~ Treatment, data = crt2, var.equal = FALSE) %>% tidy()
 ```
 
 Gives a t-value of t = `r t_table$statistic %>% round(2)`. So again the same magnitude but you are not controlling who is Group 1 and who is Group 2.
