@@ -168,6 +168,33 @@ In practice it is very easy to run the Welch's t-test, and you can switch betwee
 * to run a Student's t-test you set `var.equal = TRUE`
 * to run a Welch's t-test you set `var.equal = FALSE`
 
+For example, if we created some simulated data of two groups (A vs B) with twenty data points in each group:
+
+```{r sim_data}
+my_data <- tibble(my_iv = rep(c("A", "B"), each = 20),
+                  my_dv = c(rnorm(20,0,1),rnorm(20,0,1)))
+```
+
+
+This would run a Student's t-test:
+
+```{r studentsexp, warning=FALSE}
+t.test(my_dv ~ my_iv, data = my_data, var.equal = TRUE)
+```
+
+This would run the Welch's test:
+
+```{r welchsexp, warning = FALSE}
+t.test(my_dv ~ my_iv, data = my_data, var.equal = FALSE)
+```
+
+And two ways to know that you have run the Welch's t-test are:
+
+1. The output says you ran the **Welch Two Sample t-test**
+2. The df is likely to have decimal places in the Welch's t-test whereas it will be a whole number in the Student's t-test.
+
+Always run the Welch's test in a between-subjects design when using R!
+
 Don't worry if you don't yet fully understand this blog. We will have some practice on it in coming chapters but in short Welch's t-test is better as it does not require the assumption of equal variance.
 
 Conversely, there is no concern with variance in a within-subjects t-test because, as you will know from lectures, the top half of the equation of the formula (the numerator) is the mean difference between the two conditions, and so it is only one set of values and there is nothing to equate it to. We are going to explore the assumptions of the within-subjects t-test in much more depth next in the InClass Activities!
