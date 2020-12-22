@@ -533,7 +533,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT3"><i class="fa fa-check"></i><b>13.3.3</b> Understanding the two-factor decomposition matrix</a></li>
 <li class="chapter" data-level="13.3.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT4"><i class="fa fa-check"></i><b>13.3.4</b> Get your data ready for analysis</a></li>
 <li class="chapter" data-level="13.3.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT5"><i class="fa fa-check"></i><b>13.3.5</b> Visualizing 2x2 designs: The interaction plot</a></li>
-<li class="chapter" data-level="13.3.6" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT6"><i class="fa fa-check"></i><b>13.3.6</b> Running a 2x2 between-subjects ANOVA with ezANOVA</a></li>
+<li class="chapter" data-level="13.3.6" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT6"><i class="fa fa-check"></i><b>13.3.6</b> Running a 2x2 between-subjects ANOVA with aov_ez</a></li>
 <li class="chapter" data-level="13.3.7" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.7</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#assignment-12"><i class="fa fa-check"></i><b>13.4</b> Assignment</a><ul>
@@ -2200,10 +2200,12 @@ musical_means &lt;- summarise(screening_groups_new, mean_score = mean(Total_QHC)
 <a class="sourceLine" id="cb87-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb87-4" data-line-number="4"><span class="co"># Option 2</span></a>
 <a class="sourceLine" id="cb87-5" data-line-number="5"><span class="co"># You will soon learn the functions to do this by code but here is how you could do it.</span></a>
-<a class="sourceLine" id="cb87-6" data-line-number="6">QHC_diff_code &lt;-<span class="st"> </span><span class="kw">spread</span>(musical_means, MUSICAL, mean_score) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb87-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> YES <span class="op">-</span><span class="st"> </span>NO) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(diff) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb87-9" data-line-number="9"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb87-6" data-line-number="6">QHC_diff_code &lt;-<span class="st"> </span><span class="kw">pivot_wider</span>(musical_means, </a>
+<a class="sourceLine" id="cb87-7" data-line-number="7">                             <span class="dt">names_from =</span> <span class="st">&quot;MUSICAL&quot;</span>, </a>
+<a class="sourceLine" id="cb87-8" data-line-number="8">                             <span class="dt">values_from =</span> <span class="st">&quot;mean_score&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> YES <span class="op">-</span><span class="st"> </span>NO) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-10" data-line-number="10"><span class="st">  </span><span class="kw">pull</span>(diff) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-11" data-line-number="11"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
 <p><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 

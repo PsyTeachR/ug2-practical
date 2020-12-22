@@ -533,7 +533,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT3"><i class="fa fa-check"></i><b>13.3.3</b> Understanding the two-factor decomposition matrix</a></li>
 <li class="chapter" data-level="13.3.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT4"><i class="fa fa-check"></i><b>13.3.4</b> Get your data ready for analysis</a></li>
 <li class="chapter" data-level="13.3.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT5"><i class="fa fa-check"></i><b>13.3.5</b> Visualizing 2x2 designs: The interaction plot</a></li>
-<li class="chapter" data-level="13.3.6" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT6"><i class="fa fa-check"></i><b>13.3.6</b> Running a 2x2 between-subjects ANOVA with ezANOVA</a></li>
+<li class="chapter" data-level="13.3.6" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT6"><i class="fa fa-check"></i><b>13.3.6</b> Running a 2x2 between-subjects ANOVA with aov_ez</a></li>
 <li class="chapter" data-level="13.3.7" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.7</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#assignment-12"><i class="fa fa-check"></i><b>13.4</b> Assignment</a><ul>
@@ -1688,7 +1688,7 @@ Figure 13.1: Interaction plot
 </div>
 </div>
 <div id="Ch13InClassQueT6" class="section level3">
-<h3><span class="header-section-number">13.3.6</span> Running a 2x2 between-subjects ANOVA with ezANOVA</h3>
+<h3><span class="header-section-number">13.3.6</span> Running a 2x2 between-subjects ANOVA with aov_ez</h3>
 <p>Excellent! So we have a figure now! In reality, you would want to embellish this figure to make it look more professional, add some error bars, make sure the whole of the y-axis is shown, give proper names to the factors and levels, but it will do for now. You also want to look at the figure and think about what it is telling you. Do you think there will be:</p>
 <ol style="list-style-type: lower-alpha">
 <li>A main effect of Factor A?</li>
@@ -1701,12 +1701,13 @@ Figure 13.1: Interaction plot
 <li>Are the means of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> different, disregarding the effect of Factor A?</li>
 <li>Are the means of <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> influenced by the effect of Factor B? What do non-parallel (or crossing lines) suggest about an interaction?</li>
 </ol>
-<p>Looking at the figure you might suggest, no main effect of A, no main effect of B, but that there is an interaction between A and B. Let’s test this using the <code>ez:ezANOVA()</code> function!</p>
+<p>Looking at the figure you might suggest, no main effect of A, no main effect of B, but that there is an interaction between A and B. Let’s test this using the <code>afex::aov_ez()</code> function!</p>
 <ul>
 <li>Perform the 2x2 ANOVA on <code>dat</code> and store the output in <code>result</code>.
 <ul>
-<li>Try not to look at the solution until you have tried the <code>?ezANOVA</code> to see how to add more than one condition of the same design.</li>
+<li>Try not to look at the solution until you have tried the <code>?aov_ez</code> to see how to add more than one condition of the same design.</li>
 <li>a second hint is that both factors are “between”, so you want to focus on adding a second “between” condition</li>
+<li>set <code>type = 3</code></li>
 </ul></li>
 </ul>
 <p>We have also placed a short summary of the output of the ANOVA below to give you an idea of the outcome. Think about the outcome for a moment or two before having a go at writing one out and then look at the summary to compare.</p>
@@ -2060,13 +2061,14 @@ Figure 13.3: Replicate this Figure
 </div>
 <div id="Ch13AssignQueT9" class="section level3">
 <h3><span class="header-section-number">13.4.10</span> Task 9: Running the factorial ANOVA</h3>
-<p>Great, so we have looked at our descriptives and thought about what effects there might be. What we need to do now is run the ANOVA using the <code>ezANOVA()</code> function. The ANOVA we are going to run is a two-way between-subjects ANOVA because both conditions are between-subjects variables. You may need to refer back to the lab or to have a look at the help on <code>ezANOVA()</code> to see how to add a second variable/factor.</p>
+<p>Great, so we have looked at our descriptives and thought about what effects there might be. What we need to do now is run the ANOVA using the <code>aov_ez()</code> function. The ANOVA we are going to run is a two-way between-subjects ANOVA because both conditions are between-subjects variables. You may need to refer back to the lab or to have a look at the help on <code>aov_ez()</code> to see how to add a second variable/factor.</p>
 <ul>
 <li>Replace the NULL in the <code>t9</code> code chunk below to run this two-way between-subjects ANOVA.
 <ul>
 <li>Look at the inclass for guidance. You need the data, the dv, the two between condition, and the participant id.</li>
+<li>Set the type to <code>type = 3</code></li>
 <li>Do not <code>tidy()</code> the output. Do nothing to the output other than store it in the variable named <code>mod</code> (note: technically it will store as a list).</li>
-<li>You will see in red in the output that the code will convert the condition and participant ids to factors automatically. This is fine.</li>
+<li>You will see in red in the output that the code will convert the conditions to factors automatically, and set the contrasts. This is fine.</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb586-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
@@ -2092,7 +2094,7 @@ Figure 13.3: Replicate this Figure
 <p>Write your summary between the two green lines shown in the Assignment file.</p>
 <!-- end of results: don't delete this line -->
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done, you are finished! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2019</strong>.</p>
+<p>Well done, you are finished! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the forums</p>
 <p>See you in the next lab!</p>
 
 </div>
@@ -2210,29 +2212,30 @@ Figure 13.5: A nice figure example
 </div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT5">Return to Task</a></p>
 </div>
-<div id="anova-using-ez" class="section level4">
-<h4><span class="header-section-number">13.5.1.6</span> ANOVA Using Ez</h4>
+<div id="anova-using-aov_ez" class="section level4">
+<h4><span class="header-section-number">13.5.1.6</span> ANOVA Using aov_ez</h4>
 <p><strong>The code</strong></p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb594-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, </a>
-<a class="sourceLine" id="cb594-2" data-line-number="2">                  <span class="dt">dv =</span> Y_ijk, </a>
-<a class="sourceLine" id="cb594-3" data-line-number="3">                  <span class="dt">wid =</span> id, </a>
-<a class="sourceLine" id="cb594-4" data-line-number="4">                  <span class="dt">between =</span> .(A, B),</a>
-<a class="sourceLine" id="cb594-5" data-line-number="5">                  <span class="dt">detailed =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb594-6" data-line-number="6"><span class="st">                  </span><span class="kw">print</span>()</a></code></pre></div>
-<pre><code>## Coefficient covariances computed by hccm()</code></pre>
-<pre><code>## $ANOVA
-##   Effect DFn DFd SSn SSd          F          p p&lt;.05        ges
-## 1      A   1   8  12 140  0.6857143 0.43163404       0.07894737
-## 2      B   1   8 108 140  6.1714286 0.03786084     * 0.43548387
-## 3    A:B   1   8 192 140 10.9714286 0.01066139     * 0.57831325
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb594-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">aov_ez</span>(<span class="dt">data =</span> dat, </a>
+<a class="sourceLine" id="cb594-2" data-line-number="2">                  <span class="dt">dv =</span> <span class="st">&quot;Y_ijk&quot;</span>, </a>
+<a class="sourceLine" id="cb594-3" data-line-number="3">                  <span class="dt">id =</span> <span class="st">&quot;id&quot;</span>,</a>
+<a class="sourceLine" id="cb594-4" data-line-number="4">                  <span class="dt">type =</span> <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb594-5" data-line-number="5">                  <span class="dt">between =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>))</a></code></pre></div>
+<pre><code>## Converting to factor: A, B</code></pre>
+<pre><code>## Contrasts set to contr.sum for the following variables: A, B</code></pre>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" data-line-number="1">result<span class="op">$</span>anova_table</a></code></pre></div>
+<pre><code>## Anova Table (Type 3 tests)
 ## 
-## $`Levene&#39;s Test for Homogeneity of Variance`
-##   DFn DFd   SSn      SSd         F        p p&lt;.05
-## 1   3   8 14.25 82.66667 0.4596774 0.718037</code></pre>
-<ul>
-<li>Including the <code>detailed = TRUE</code> will give us the sums of squares information</li>
-</ul>
+## Response: Y_ijk
+##     num Df den Df  MSE       F     ges  Pr(&gt;F)  
+## A        1      8 17.5  0.6857 0.07895 0.43163  
+## B        1      8 17.5  6.1714 0.43548 0.03786 *
+## A:B      1      8 17.5 10.9714 0.57831 0.01066 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p><strong>The output</strong></p>
+<ul>
+<li>Using the <code>anova_table</code> within the output, i.e. <code>result$anova_table</code>, would show us:</li>
+</ul>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -2241,31 +2244,24 @@ Figure 13.5: A nice figure example
 <thead>
 <tr>
 <th style="text-align:left;">
-Effect
 </th>
 <th style="text-align:right;">
-DFn
+num Df
 </th>
 <th style="text-align:right;">
-DFd
+den Df
 </th>
 <th style="text-align:right;">
-SSn
-</th>
-<th style="text-align:right;">
-SSd
+MSE
 </th>
 <th style="text-align:right;">
 F
 </th>
 <th style="text-align:right;">
-p
-</th>
-<th style="text-align:left;">
-p&lt;.05
+ges
 </th>
 <th style="text-align:right;">
-ges
+Pr(&gt;F)
 </th>
 </tr>
 </thead>
@@ -2281,21 +2277,16 @@ A
 8
 </td>
 <td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-140
+17.5
 </td>
 <td style="text-align:right;">
 0.686
 </td>
 <td style="text-align:right;">
-0.432
-</td>
-<td style="text-align:left;">
+0.079
 </td>
 <td style="text-align:right;">
-0.079
+0.432
 </td>
 </tr>
 <tr>
@@ -2309,22 +2300,16 @@ B
 8
 </td>
 <td style="text-align:right;">
-108
-</td>
-<td style="text-align:right;">
-140
+17.5
 </td>
 <td style="text-align:right;">
 6.171
 </td>
 <td style="text-align:right;">
-0.038
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:right;">
 0.435
+</td>
+<td style="text-align:right;">
+0.038
 </td>
 </tr>
 <tr>
@@ -2338,10 +2323,108 @@ A:B
 8
 </td>
 <td style="text-align:right;">
+17.5
+</td>
+<td style="text-align:right;">
+10.971
+</td>
+<td style="text-align:right;">
+0.578
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Alternatively, using the <code>Anova</code> within the output, i.e. <code>result$Anova</code>, would show us the Sums of Squares as well:</li>
+</ul>
+<div style="border: 0px;overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ch13-inclass-t6-sol-3">Table 13.6: </span>The ANOVA output
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Sum Sq
+</th>
+<th style="text-align:right;">
+Df
+</th>
+<th style="text-align:right;">
+F value
+</th>
+<th style="text-align:right;">
+Pr(&gt;F)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+62208
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3554.743
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.686
+</td>
+<td style="text-align:right;">
+0.432
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6.171
+</td>
+<td style="text-align:right;">
+0.038
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A:B
+</td>
+<td style="text-align:right;">
 192
 </td>
 <td style="text-align:right;">
-140
+1
 </td>
 <td style="text-align:right;">
 10.971
@@ -2349,18 +2432,27 @@ A:B
 <td style="text-align:right;">
 0.011
 </td>
+</tr>
+<tr>
 <td style="text-align:left;">
-<ul>
-<li></td>
+Residuals
+</td>
 <td style="text-align:right;">
-0.578
+140
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 </tbody>
 </table>
-</div></li>
-</ul></li>
-</ul>
+</div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT6">Return to Task</a></p>
 </div>
 </div>
@@ -2371,8 +2463,8 @@ A:B
 <ul>
 <li>In today’s assignment you will need both the <strong><code>tidyverse</code></strong> and <strong><code>ez</code></strong> packages.</li>
 </ul>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" data-line-number="1"><span class="kw">library</span>(ez)</a>
-<a class="sourceLine" id="cb597-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" data-line-number="1"><span class="kw">library</span>(afex)</a>
+<a class="sourceLine" id="cb599-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1A">Return to Task</a></p>
 </div>
 <div id="task-1b-loading-in-the-data" class="section level4">
@@ -2380,7 +2472,7 @@ A:B
 <ul>
 <li>Remember to use <code>read_csv()</code> to load in the data.</li>
 </ul>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb598-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;keysar_lin_barr_2003.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb600-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;keysar_lin_barr_2003.csv&quot;</span>)</a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1B">Return to Task</a></p>
 </div>
 <div id="task-2-calculate-cell-means-for-the-cell-means." class="section level4">
@@ -2388,9 +2480,9 @@ A:B
 <ul>
 <li>The code below will give the table shown.</li>
 </ul>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" data-line-number="1">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb599-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex, condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb599-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" data-line-number="1">cell_means &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb601-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex, condition) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb601-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2474,9 +2566,9 @@ ignorance
 <ul>
 <li>The code below will give the table shown for the marginal means of sex.</li>
 </ul>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb600-1" data-line-number="1">marg_sex &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb600-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb600-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" data-line-number="1">marg_sex &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb602-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb602-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2523,9 +2615,9 @@ male
 <ul>
 <li>The code below will give the table shown for the marginal means of condition.</li>
 </ul>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" data-line-number="1">marg_cond &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb601-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb601-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" data-line-number="1">marg_cond &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb603-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(condition) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb603-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(looktime), <span class="dt">sd =</span> <span class="kw">sd</span>(looktime))</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2572,12 +2664,12 @@ ignorance
 <ul>
 <li>The code below will produce the shown figure.</li>
 </ul>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" data-line-number="1"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(condition, m, <span class="dt">shape =</span> sex, <span class="dt">group =</span> sex, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb602-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb602-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb602-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;mean looking time (msecs)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb602-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb602-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" data-line-number="1"><span class="kw">ggplot</span>(cell_means, <span class="kw">aes</span>(condition, m, <span class="dt">shape =</span> sex, <span class="dt">group =</span> sex, <span class="dt">color =</span> sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb604-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb604-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb604-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;mean looking time (msecs)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb604-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb604-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:t5"></span>
 <img src="13-s02-lab13e_files/figure-html/t5-1.png" alt="You should have produced a similar figure" width="100%" />
 <p class="caption">
@@ -2591,7 +2683,7 @@ Figure 13.6: You should have produced a similar figure
 <p>We want the alternative, not the null hypothesis here. So, an acceptable hypothesis for the interaction effect of sex and condition would be:</p>
 <p><strong>We hypothesised that there would be a significant interaction between condition and sex of participant on egocentric interference (mean looking time (msecs)).</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" data-line-number="1">answer_t6 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb605-1" data-line-number="1">answer_t6 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT6">Return to Task</a></p>
 </div>
 <div id="task-7-recap-question-2" class="section level4">
@@ -2599,7 +2691,7 @@ Figure 13.6: You should have produced a similar figure
 <p>A good description of the marginal means for sex would be:</p>
 <p><strong>The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex.</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" data-line-number="1">answer_t7 &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" data-line-number="1">answer_t7 &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT7">Return to Task</a></p>
 </div>
 <div id="task-8-recap-question-3" class="section level4">
@@ -2607,7 +2699,7 @@ Figure 13.6: You should have produced a similar figure
 <p>A good description of the marginal means for condition would be:</p>
 <p><strong>The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of condition.</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb605-1" data-line-number="1">answer_t8 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1">answer_t8 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT8">Return to Task</a></p>
 </div>
 <div id="task-9-running-the-factorial-anova" class="section level4">
@@ -2615,32 +2707,34 @@ Figure 13.6: You should have produced a similar figure
 <ul>
 <li>The code below will produce the shown ANOVA output</li>
 </ul>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(dat, <span class="dt">dv =</span> looktime, <span class="dt">wid =</span> subject,</a>
-<a class="sourceLine" id="cb606-2" data-line-number="2">               <span class="dt">between =</span> .(condition, sex))</a></code></pre></div>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(mod<span class="op">$</span>ANOVA)</a></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">aov_ez</span>(<span class="dt">data =</span> dat,</a>
+<a class="sourceLine" id="cb608-2" data-line-number="2">                   <span class="dt">dv =</span> <span class="st">&quot;looktime&quot;</span>, </a>
+<a class="sourceLine" id="cb608-3" data-line-number="3">                   <span class="dt">id =</span> <span class="st">&quot;subject&quot;</span>,</a>
+<a class="sourceLine" id="cb608-4" data-line-number="4">                   <span class="dt">type =</span> <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb608-5" data-line-number="5">                   <span class="dt">between =</span> <span class="kw">c</span>(<span class="st">&quot;condition&quot;</span>, <span class="st">&quot;sex&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(mod<span class="op">$</span>anova_table)</a></code></pre></div>
 <table>
 <thead>
 <tr>
 <th style="text-align:left;">
-Effect
 </th>
 <th style="text-align:right;">
-DFn
+num Df
 </th>
 <th style="text-align:right;">
-DFd
+den Df
+</th>
+<th style="text-align:right;">
+MSE
 </th>
 <th style="text-align:right;">
 F
 </th>
 <th style="text-align:right;">
-p
-</th>
-<th style="text-align:left;">
-p&lt;.05
+ges
 </th>
 <th style="text-align:right;">
-ges
+Pr(&gt;F)
 </th>
 </tr>
 </thead>
@@ -2656,15 +2750,16 @@ condition
 36
 </td>
 <td style="text-align:right;">
-0.7913759
+692778.4
 </td>
 <td style="text-align:right;">
-0.3795907
-</td>
-<td style="text-align:left;">
+0.7487009
 </td>
 <td style="text-align:right;">
-0.0215098
+0.0203735
+</td>
+<td style="text-align:right;">
+0.3926176
 </td>
 </tr>
 <tr>
@@ -2678,15 +2773,16 @@ sex
 36
 </td>
 <td style="text-align:right;">
-0.6405277
+692778.4
 </td>
 <td style="text-align:right;">
-0.4287699
-</td>
-<td style="text-align:left;">
+0.6442294
 </td>
 <td style="text-align:right;">
-0.0174814
+0.0175807
+</td>
+<td style="text-align:right;">
+0.4274507
 </td>
 </tr>
 <tr>
@@ -2700,15 +2796,16 @@ condition:sex
 36
 </td>
 <td style="text-align:right;">
+692778.4
+</td>
+<td style="text-align:right;">
 0.2130405
 </td>
 <td style="text-align:right;">
-0.6471716
-</td>
-<td style="text-align:left;">
+0.0058830
 </td>
 <td style="text-align:right;">
-0.0058830
+0.6471716
 </td>
 </tr>
 </tbody>
@@ -2720,7 +2817,7 @@ condition:sex
 <p>A good summary of the outcome ANOVA would be:</p>
 <p><strong>There is no significant main effect of sex or condition and there is no significant interaction between condition and sex.</strong></p>
 <p>As such the correct answer is:</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <p><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT10">Return to Task</a></p>
 </div>
 <div id="task-11-report-your-results" class="section level4">
