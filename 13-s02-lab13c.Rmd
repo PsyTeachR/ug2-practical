@@ -8,7 +8,7 @@ library("ez")
 
 ### Estimation equations and decomposition matrix {#Ch13InClassQueT1}
 
-We will start today by working with a decomposition matrix for a two-way between-subjects ANOVA and then finish by using the `ez::ezANOVA()` function to show you how you might practically carry out this analysis.
+We will start today by working with a decomposition matrix for a two-way between-subjects ANOVA and then finish by using the `afex::aov_ez()` function to show you how you might practically carry out this analysis.
 
 ```{r lab13-inclass-additionalsetup, include = FALSE}
 make_resids <- function(nper, sd) {
@@ -180,7 +180,7 @@ knitr::kable(dat,
   scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 <br>
-We will need the `id` column (a unique value for each participant) for when we run `ezANOVA()` later.
+We will need the `id` column (a unique value for each participant) for when we run `afex::aov_ez()` later.
 
 Again the code to convert `decomp` into this table (named `dat`) is in the solutions at the end of the chapter and you can use it if you like, but if you want to practice your skills first and convert the table yourself, that is also fine.  Don't spend too long on it though as it is more the output we want to look at. So if you are stuck, copy the code and run it in your session. We'll be working with the new table `dat` for the remaining exercises.
 

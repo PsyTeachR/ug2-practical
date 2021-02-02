@@ -683,7 +683,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">13.3</span> InClass Activity</h2>
 <div id="Ch13InClassQueT1" class="section level3">
 <h3><span class="header-section-number">13.3.1</span> Estimation equations and decomposition matrix</h3>
-<p>We will start today by working with a decomposition matrix for a two-way between-subjects ANOVA and then finish by using the <code>ez::ezANOVA()</code> function to show you how you might practically carry out this analysis.</p>
+<p>We will start today by working with a decomposition matrix for a two-way between-subjects ANOVA and then finish by using the <code>afex::aov_ez()</code> function to show you how you might practically carry out this analysis.</p>
 <p>Consider the data below from a 2x2 between-subjects design with 3 observations per cell. Keep in mind that each cell is a particular combination of levels of A and B, and each value in a cell, in this instance, is a unique participant.</p>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -1669,7 +1669,7 @@ B2
 </table>
 </div>
 <p><br>
-We will need the <code>id</code> column (a unique value for each participant) for when we run <code>ezANOVA()</code> later.</p>
+We will need the <code>id</code> column (a unique value for each participant) for when we run <code>afex::aov_ez()</code> later.</p>
 <p>Again the code to convert <code>decomp</code> into this table (named <code>dat</code>) is in the solutions at the end of the chapter and you can use it if you like, but if you want to practice your skills first and convert the table yourself, that is also fine. Don’t spend too long on it though as it is more the output we want to look at. So if you are stuck, copy the code and run it in your session. We’ll be working with the new table <code>dat</code> for the remaining exercises.</p>
 </div>
 <div id="Ch13InClassQueT5" class="section level3">
