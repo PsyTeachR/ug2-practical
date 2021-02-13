@@ -50,7 +50,11 @@ Next we need to calculate a mean rating score for each voice. We are analysing t
 Recall the difference between **wide** and **long** data. In wide data, each row represents an individual case, with observations for that case in separate columns; in long data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the `VoiceID` variable). Before we calculate means, what you need to do is to restructure the ratings data into the appropriate "tidy" format; i.e., so that it looks like the table below.
 
 ```{r ratings-wide, echo = FALSE}
-ratings_hide <- gather(ratings, participant, rating, P1:P28)
+ratings_hide <- pivot_longer(ratings, 
+                              names_to = "participant", 
+                              values_to = "rating", 
+                              cols = "P1":"P28")
+
 knitr::kable(ratings_hide[1:6,], align = "c", caption = "Gather the data into Tidy format")
 ```
 
@@ -58,12 +62,16 @@ knitr::kable(ratings_hide[1:6,], align = "c", caption = "Gather the data into Ti
 
 `r hide("Hint for Task 2")`
 ```{block, type = "info"}
-* gather(data, new_column_name, new_column_name, first-column:last-column)
+* pivot_longer(data, new_column_name, new_column_name, first-column:last-column)
+* don't forget the quotation marks
 ```
 `r unhide()`
 
 ```{r reshape, echo = FALSE}
-ratings_tidy <- gather(ratings, participant, rating, P1:P28)
+ratings_tidy <- pivot_longer(ratings, 
+                              names_to = "participant", 
+                              values_to = "rating", 
+                              cols = "P1":"P28")
 ```
 
 ### Task 3: Calculate mean trustworthiness rating for each voice {#Ch14InClassQueT3}
@@ -124,11 +132,12 @@ ggplot(joined, aes(value, mean_rating)) +
 
 `r hide("Hint for Task 5")`
 ```{block, type = "info"}
-* ggplot()
+* ggplot() + geom_point()
 * geom_smooth(method = "lm")
 * coord_cartesian or scale_y_continuous
 * facet_wrap(scales = "free")
 * did you know also that you can control the number of columns and rows in a facet_wrap by adding nrow and ncol?
+* for example, facet_wrap(~variable, nrow = 1, ncol = 2)
 ```
 `r unhide()`
 
@@ -140,17 +149,19 @@ Ok so we are starting to get an understanding of our data and we want to start t
 
 `r hide("Hint for Task 6")`
 ```{block, type = "info"}
-* spread() needs the data, name of the categorical column to spread, and the name of the data to spread
+* pivot_wider() needs the data, name of the categorical column to spread, and the name of the data to spread
+* pivot_wider(data, names_from = "column_name", values_from = "column_name")
 ```
 `r unhide()`
 
 ```{r data-spread, echo = FALSE}
-joined_wide <- joined %>% spread(measures, value)
+joined_wide <- joined %>% pivot_wider(names_from = "measures",
+                                      values_from = "value")
 ```
 
 ### Task 7: The Regressions {#Ch14InClassQueT7}
 
-Excellent, we are now in a position to regress away.  Oh hang on, we should probably check the correlation between Pitch and Dispersion as remember the issue of **collinearity**.  Calculate the correlation between Pitch and Dispersion and fill in this statement. 
+Excellent, we are now in a position to regress away.  Oh hang on, we should probably check the correlation between Pitch and Dispersion as remember the issue of **multicollinearity**.  Calculate the correlation between Pitch and Dispersion and fill in this statement. 
 
 * The correlation between Pitch and Dispersion is `r mcq(c(answer = "rho = .239", "rho = -.239", "rho = .186", "rho = -.186"))` which would suggest that we have no issues with collinearity as our two predictors are only slightly correlated and the correlation here is not significant.
 

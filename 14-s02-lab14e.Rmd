@@ -9,7 +9,7 @@ Below you will find the solutions to the questions for the Activities in this ch
 
 ### InClass Ativities
 
-#### Task 1
+### Task 1
 
 ```{r ch14-t1-load, eval = FALSE}
 library("broom")
@@ -21,12 +21,15 @@ acoustics <- read_csv("voice_acoustics.csv")
 
 [Return to Task](#Ch14InClassQueT1)
 
-#### Task 2
+### Task 2
 
 * We are calling the new tibble `ratings_tidy`. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on, the tibble names might not match up so, you may need to do a little bit of backtracking to see where tibbles were created.
 
 ```{r ch14-t2-reshape}
-ratings_tidy <- gather(ratings, participant, rating, P1:P28)
+ratings_tidy <- pivot_longer(ratings, 
+                              names_to = "participant", 
+                              values_to = "rating", 
+                              cols = "P1":"P28")
 ```
 
 [Return to Task](#Ch14InClassQueT2)
@@ -44,12 +47,28 @@ ratings_mean <- ratings_tidy %>%
 ### Task 4
 
 ```{r ch14-t4-joined}
-joined <- inner_join(ratings_mean, acoustics, "VoiceID") %>% filter(sex == "M")
+joined <- inner_join(ratings_mean, 
+                     acoustics, 
+                     "VoiceID") %>% 
+  filter(sex == "M")
 ```
 
 [Return to Task](#Ch14InClassQueT4)
 
 ### Task 5
+
+The following code: 
+
+```{r ch14-t5-scatter-hidden, eval = FALSE}
+ggplot(joined, aes(value, mean_rating)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_y_continuous(breaks = c(1:7), limits = c(1,7)) +
+  facet_wrap(~measures, nrow = 1, ncol = 2, scales = "free") +
+  theme_classic()
+```
+
+Will gives the below figure:
 
 ```{r ch14-t5-scatter-sol, echo = FALSE, fig.cap='Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating'}
 ggplot(joined, aes(value, mean_rating)) +
@@ -64,11 +83,13 @@ ggplot(joined, aes(value, mean_rating)) +
 
 ### Task 6
 
-* `spread()` often catches people out.  It is a bit like the reverse of `gather()`
-* It takes in the data and you tell it which values you want spread and by which column - though in the order of data, column, value. Makes sense huh!
+* `pivot_wider()` is the reverse of `pivot_longer()`
+* It takes in the data and you tell it which values you want to spread and by which column
+* Order is normally, data, names_from, values_from.
 
 ```{r ch14-t6-data-spread}
-joined_wide <- joined %>% spread(measures, value)
+joined_wide <- joined %>% pivot_wider(names_from = "measures",
+                                      values_from = "value")
 ```
 
 [Return to Task](#Ch14InClassQueT6)
@@ -127,7 +148,7 @@ From the models you can see that the Dispersion only model is not actually signi
 
 [Return to Task](#Ch14InClassQueT8)
 
-#### Task 9
+### Task 9
 
 **Solution Version 1**
 
