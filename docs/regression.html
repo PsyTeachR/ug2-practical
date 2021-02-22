@@ -566,9 +566,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3.3" data-path="regression.html"><a href="regression.html#Ch14InClassQueT3"><i class="fa fa-check"></i><b>14.3.3</b> Task 3: Calculate mean trustworthiness rating for each voice</a></li>
 <li class="chapter" data-level="14.3.4" data-path="regression.html"><a href="regression.html#Ch14InClassQueT4"><i class="fa fa-check"></i><b>14.3.4</b> Task 4: Joining the Data together</a></li>
 <li class="chapter" data-level="14.3.5" data-path="regression.html"><a href="regression.html#Ch14InClassQueT5"><i class="fa fa-check"></i><b>14.3.5</b> Task 5: Scatterplot</a></li>
-<li class="chapter" data-level="14.3.6" data-path="regression.html"><a href="regression.html#Ch14InClassQueT6"><i class="fa fa-check"></i><b>14.3.6</b> Task 6: Spreading the data</a></li>
+<li class="chapter" data-level="14.3.6" data-path="regression.html"><a href="regression.html#Ch14InClassQueT6"><i class="fa fa-check"></i><b>14.3.6</b> Task 6: Spreading the data with <code>pivot_wider()</code></a></li>
 <li class="chapter" data-level="14.3.7" data-path="regression.html"><a href="regression.html#Ch14InClassQueT7"><i class="fa fa-check"></i><b>14.3.7</b> Task 7: The Regressions</a></li>
-<li class="chapter" data-level="14.3.8" data-path="regression.html"><a href="regression.html#Ch14InClassQueT8"><i class="fa fa-check"></i><b>14.3.8</b> Task 8: Making interpretations</a></li>
+<li class="chapter" data-level="14.3.8" data-path="regression.html"><a href="regression.html#Ch14InClassQueT8"><i class="fa fa-check"></i><b>14.3.8</b> Task 8: Model interpretations</a></li>
 <li class="chapter" data-level="14.3.9" data-path="regression.html"><a href="regression.html#Ch14InClassQueT9"><i class="fa fa-check"></i><b>14.3.9</b> Task 9: Making predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="14.4" data-path="regression.html"><a href="regression.html#assignment-13"><i class="fa fa-check"></i><b>14.4</b> Assignment</a></li>
@@ -676,28 +676,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>More recently, work has focussed on what the sound of your voice suggests about your personality. <a href = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090779" target = "_blank">McAleer, Todorov and Belin (2014)</a> suggested that vocal acoustics give a perception of your trustworthiness and dominance to others, regardless of whether or not it is accurate. One extension of this is that trust may be driven by malleable aspects of your voice (e.g. your pitch) but not so much by static aspects of your voice (e.g. your formant dispersion). Pitch is considered malleable because you can control the air being pushed through your vocal chords (though you have no conscious control of your vocal chords), whereas dispersion may be controlled by the structure of your throat which is much more rigid due to muscle, bone, and other things that keep your head attached. This idea of certain traits being driven by malleable features and others by static features was previously suggested by <a href = "https://www.pnas.org/content/105/32/11087" target = "_blank">Oosterhof and Todorov (2008)</a> and has been tested with some validation by <a href = "https://link.springer.com/article/10.1007/s10919-015-0214-8" target = "_blank">Rezlescu, Penton, Walsh, Tsujimura, Scott and Banissy (2015)</a>.</p>
 <p>So the research question today is: can vocal acoustics, namely pitch and formant dispersion, predict perceived trustworthiness from a person’s voice? We will only look at male voices today, but you have the data for female voices as well should you wish to practice (note that in the field, tendency is to analyse male and female voices separately as they are effectively sexually dimorphic). As such, we hypothesise that <strong>a linear combination of pitch and dispersion will predict perceived vocal trustworthiness in male voices</strong>. This is what we will analyse.</p>
 <p><strong>Let’s begin.</strong></p>
-<p>First, to run this analysis you will need to download the data from Moodle or <a href="data/14-s02/inclass/ch14-inclass-data.zip">from here</a>. You will see in this folder that there are two datafiles:</p>
+<p>First, to run this analysis you will need to download the data <a href="data/14-s02/inclass/ch14-inclass-data.zip">from here</a>. You will see in this folder that there are two datafiles:</p>
 <ul>
-<li>voice_acoustics.csv - shows the VoiceID, the sex of voice, and the pitch and dispersion values</li>
-<li>voice_ratings.csv - shows the VoiceID and the ratings of each voice by 28 participants on a scale of 1 to 9 where 9 was extremely trustworthy and 1 was extremely untrustworthy</li>
+<li><strong>voice_acoustics.csv</strong> - shows the VoiceID, the sex of voice, and the pitch and dispersion values</li>
+<li><strong>voice_ratings.csv</strong> - shows the VoiceID and the ratings of each voice by 28 participants on a scale of 1 to 9 where 9 was extremely trustworthy and 1 was extremely untrustworthy</li>
 </ul>
 <p>Have a look at the layout of the data and familiarise yourself with it. The ratings data is rather messy and in a different layout to the acoustics but can you tell what is what?</p>
 <ul>
 <li>Looking at the layout of the acoustics data it appears to be in <select class='solveme' data-answer='["tidy"]'> <option></option> <option>long</option> <option>wide</option> <option>tidy</option></select></li>
 <li>Looking at the layout of the ratings data it appears to be in <select class='solveme' data-answer='["wide"]'> <option></option> <option>long</option> <option>wide</option></select></li>
 </ul>
-<p>We are going to need to do some data-wrangling before we do any analysis!!!</p>
+<p>It may help to refer back to <a href="https://psyteachr.github.io/ug2-practical/data-wrangling-a-key-skill.html#inclass-activity" target="_blank">Chapter 2</a> of the book on different layouts of data if you are still not quite sure what is the difference between long and tidy.</p>
 <div id="Ch14InClassQueT1" class="section level3">
 <h3><span class="header-section-number">14.3.1</span> Task 1: Setup</h3>
-<p>Open a new script or Rmd (depending on how you like to work) and load in the tidyverse, broom, and the two CSV datasets into tibbles called <code>ratings</code> and <code>acoustics</code>. Probably best if the ratings are in <code>ratings</code> and the acoustics in <code>acoustics</code>.</p>
+<p>We are going to need to do some data-wrangling before we do any analysis, so let’s crack on with that!</p>
+<p>Start by opening a new script or Rmd (depending on how you like to work) and load in the tidyverse, broom, and the two CSV datasets into tibbles called <code>ratings</code> and <code>acoustics</code>. Probably best if the ratings are in <code>ratings</code> and the acoustics in <code>acoustics</code>.</p>
+<ul>
+<li><strong>Note:</strong> Remember that order of packages matter and we recommend pulling in tidyverse last.</li>
+</ul>
 </div>
 <div id="Ch14InClassQueT2" class="section level3">
 <h3><span class="header-section-number">14.3.2</span> Task 2: Restructuring the ratings</h3>
 <p>Next we need to calculate a mean rating score for each voice. We are analysing the voices and not specifically what each participant rated each voice as (that is for another year) so we need to average across all participants, their ratings for each individual voice and get a mean rating for each voice. You will see in your data that the voices are identified in the VoiceID column.</p>
-<p>Recall the difference between <strong>wide</strong> and <strong>long</strong> data. In wide data, each row represents an individual case, with observations for that case in separate columns; in long data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the <code>VoiceID</code> variable). Before we calculate means, what you need to do is to restructure the ratings data into the appropriate “tidy” format; i.e., so that it looks like the table below.</p>
+<p>Recall the difference between <strong>tidy</strong>, <strong>wide</strong> and <strong>long</strong> data. In wide data, each row represents an individual case, with different observations for that case in separate columns; in long data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the <code>VoiceID</code> variable). Tidy is a bit like a mix of these ideas but is generally closer to long format, with the main difference being that you are likely to have more than one row relating to a given observation.</p>
+<p>Before we calculate means, what you need to do is to restructure the ratings data into the appropriate “tidy” format; i.e., so that it looks like the table below.</p>
 <table>
 <caption>
-<span id="tab:ratings-wide">Table 14.1: </span>Gather the data into Tidy format
+<span id="tab:ratings-wide">Table 14.1: </span>Using <code>pivot_longer()</code>, Gather the data into Tidy format
 </caption>
 <thead>
 <tr>
@@ -782,7 +787,9 @@ P6
 </tbody>
 </table>
 <ul>
-<li>Write code to restructure the ratings data as above and store the resulting table as <code>ratings_tidy</code>. Only the first six rows are shown. In the table above you see the first 6 voices all rated by Participant 1.</li>
+<li>Write code using <code>pivot_longer()</code> to restructure the ratings data as above and store the resulting tibble as <code>ratings_tidy</code>.<br />
+</li>
+<li>Only the first six rows are shown but your tibble will have all the data. In the table above you see the first six ratings of Voice 1, with each rating coming from a different Participant.</li>
 </ul>
 <div class="solution">
 <button>
@@ -802,7 +809,10 @@ don’t forget the quotation marks
 </div>
 <div id="Ch14InClassQueT3" class="section level3">
 <h3><span class="header-section-number">14.3.3</span> Task 3: Calculate mean trustworthiness rating for each voice</h3>
-<p>Now that you’ve gotten your ratings data into a more tidy format, the next step is to calculate the mean rating (<code>mean_rating</code>) for each voice. Remember that each voice is identified by the <code>VoiceID</code> variable. Store the resulting table in a variable named <code>ratings_mean</code>.</p>
+<p>Now that you’ve gotten your ratings data into a more tidy format, the next step is to calculate the mean rating (<code>mean_rating</code>) for each voice. Remember that each voice is identified by the <code>VoiceID</code> variable. Store the resulting tibble in a variable named <code>ratings_mean</code>.</p>
+<ul>
+<li>The reason you need the mean rating for each voice is because you have to think what goes into the regression - what is actually being analysed. The analysis requires one trustworthiness rating for each voice, so that means we need to average across all the ratings for each voice. Otherwise we would have far too much data!</li>
+</ul>
 <div class="solution">
 <button>
 Hint for Task 3
@@ -821,13 +831,14 @@ remember if there are any NAs then na.rm = TRUE would help
 </div>
 <div id="Ch14InClassQueT4" class="section level3">
 <h3><span class="header-section-number">14.3.4</span> Task 4: Joining the Data together</h3>
-<p>Great! We are so hot at wrangling now we are like hot wrangling irons! Ok but, before we get ahead of ourselves, in order to perform the regression analysis we need to combine the data from <code>ratings_mean</code> (the mean ratings) with <code>acoustics</code> (the pitch and dispersion ratings). Also, as we said, we only want to analyse Male voices today.</p>
+<p>Great! We are so hot at wrangling now we are like hot wrangling irons! Ok but, before we get ahead of ourselves, in order to perform the regression analysis we need to combine the data from <code>ratings_mean</code> (the mean ratings; our Dependent Variable - what we want to predict) with <code>acoustics</code> (the pitch and dispersion ratings; our Predictors). Also, as we said, we only want to analyse Male voices today.</p>
 <ul>
-<li>Go ahead and join the two tibbles and filter out the Female voices to keep the Male voices only. Call the resulting tibble <code>joined</code>. The first few rows should look like this:</li>
+<li>Go ahead and join the two tibbles (<code>ratings_mean</code> and <code>acoustics</code>) and filter out the Female voices to keep only the Male voices. Call the resulting tibble <code>joined</code>. The first few rows should look as shown below.</li>
+<li>If you are not quite sure which join you need then it might be worth having a quick look at the <a href="https://psyteachr.github.io/ug2-practical/data-wrangling-a-key-skill.html#more-on-binding-and-joining" target="_blank">join summary at the end of Chapter 2</a></li>
 </ul>
 <table>
 <caption>
-<span id="tab:combine-ex">Table 14.2: </span>Only the Male Voices
+<span id="tab:combine-ex">Table 14.2: </span>The <code>joined</code> tibble showing the mean trustworthiness rating and the pitch and dispersion value for each voice
 </caption>
 <thead>
 <tr>
@@ -974,6 +985,8 @@ filter to keep just Male voices
 <p>As always, where possible, it is a good idea to visualise your data. Now that we have all of the variables in one place, reproduce the scatterplot shown below and then try to answer the following questions.</p>
 <ul>
 <li>According to the scatterplot, there appears to be a <select class='solveme' data-answer='["positive relationship"]'> <option></option> <option>negative relationship</option> <option>positive relationship</option></select> between both pitch and trustworthiness and dispersion and trustworthiness though the relationship with <select class='solveme' data-answer='["pitch"]'> <option></option> <option>dispersion</option> <option>pitch</option></select> seems stronger.</li>
+<li>Your first version of the figure might look a bit odd as the Hz values of pitch and dispersion are rather different. Remember you can look up the help of different functions to see how to set different axes in facets by using <code>?facet_wrap</code> but we have also given a hint below.</li>
+<li>The code for this figure is in the solution. It would be worth taking a few minutes to try it out as it also shows how to change the layout of <code>facet_wrap()</code> using <code>nrow</code> and <code>ncol</code>.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:scatter"></span>
 <img src="14-s02-lab14c_files/figure-html/scatter-1.png" alt="Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating" width="100%" />
@@ -1010,10 +1023,11 @@ for example, facet_wrap(~variable, nrow = 1, ncol = 2)
 </div>
 </div>
 <div id="Ch14InClassQueT6" class="section level3">
-<h3><span class="header-section-number">14.3.6</span> Task 6: Spreading the data</h3>
-<p>Ok so we are starting to get an understanding of our data and we want to start thinking about the regression. However, the regression would be easier to work with if Pitch and Dispersion were in separate columns.</p>
+<h3><span class="header-section-number">14.3.6</span> Task 6: Spreading the data with <code>pivot_wider()</code></h3>
+<p>Ok so we are starting to get an understanding of our data and we want to start thinking about the regression. However, the regression would be easier to work with if Pitch and Dispersion were in separate columns. Ok, so I know we just joined them to create the figure and now we are unjoining them to do the analyse - there are ways around this that you will develop in future years but when learning it can help just to keep everything systematic and really highly processed. So sometimes you will see funny moves like this. But remember, if the code works, then the only bad code is no code</p>
 <ul>
-<li>Create a new tibble where Pitch and Dispersion data have been split into two columns called <code>Pitch</code> and <code>Dispersion</code> respectively.</li>
+<li>Using the <code>pivot_wider()</code> function, create a new tibble where Pitch and Dispersion data have been split into two columns called <code>Pitch</code> and <code>Dispersion</code> respectively.</li>
+<li>We used <code>pivot_wider()</code> to spread data in Chapter 5 when creating the difference of two groups so maybe refer back then to see how to input the columns, but there is also information in the hint below.</li>
 </ul>
 <div class="solution">
 <button>
@@ -1033,11 +1047,17 @@ pivot_wider(data, names_from = “column_name”, values_from = “column_name�
 </div>
 <div id="Ch14InClassQueT7" class="section level3">
 <h3><span class="header-section-number">14.3.7</span> Task 7: The Regressions</h3>
-<p>Excellent, we are now in a position to regress away. Oh hang on, we should probably check the correlation between Pitch and Dispersion as remember the issue of <strong>multicollinearity</strong>. Calculate the correlation between Pitch and Dispersion and fill in this statement.</p>
+<p>Ok we are almost at the point when we need to do the regression. We should always think about assumptions but as that is covered in the lecture series, we will leave mostly that there for now. That said, one we can quickly look at is the correlation between Pitch and Dispersion as remember the issue of <strong>multicollinearity</strong> - if predictors are highly correlated (r &gt; .8 for example then it is impossible to tease apart their unique contributions). So now, run a code using <code>cor.test()</code> to calculate the correlation between Pitch and Dispersion and fill in this statement.</p>
 <ul>
-<li>The correlation between Pitch and Dispersion is <select class='solveme' data-answer='["rho = .239"]'> <option></option> <option>rho = .239</option> <option>rho = -.239</option> <option>rho = .186</option> <option>rho = -.186</option></select> which would suggest that we have no issues with collinearity as our two predictors are only slightly correlated and the correlation here is not significant.</li>
+<li>The correlation between Pitch and Dispersion is <select class='solveme' data-answer='["rho = .239"]'> <option></option> <option>rho = .239</option> <option>rho = -.239</option> <option>rho = .186</option> <option>rho = -.186</option></select> which would suggest that we have no issues with multicollinearity as our two predictors are only slightly correlated. So nothing to worry about there.</li>
 </ul>
-<p>Ok, let’s do some regression. The <code>lm()</code> function in R is the main function we will use to estimate a <strong>L</strong>inear <strong>M</strong>odel (hence the function name <code>lm</code>). Use the <code>lm()</code> function to run the following three regression models.</p>
+<p>Right, now let’s do some regression analysis. We will first do two simple linear regressions (one for each predictor), and then we will do a multiple linear regression using both predictors.</p>
+<p>The <code>lm()</code> function in R is the main function we will use to estimate a <strong>L</strong>inear <strong>M</strong>odel (hence the function name <code>lm</code>). The function takes the format of:</p>
+<ul>
+<li><code>lm(dv ~ iv, data = my_data)</code> for simple linear regression</li>
+<li><code>lm(dv ~ iv1 + iv2, data = my_data)</code> for multiple linear regression</li>
+</ul>
+<p>Now, use the <code>lm()</code> function to run the following three regression models.</p>
 <p><strong>Simple Linear Regression</strong></p>
 <ul>
 <li>Run the simple linear regression of predicting trustworthiness mean ratings from Pitch, and store the model in <code>mod_pitch</code></li>
@@ -1047,7 +1067,6 @@ pivot_wider(data, names_from = “column_name”, values_from = “column_name�
 <ul>
 <li>Run the multiple linear regression of predicting trustworthiness mean ratings from Pitch and Dispersion, and store the model in <code>mod_pitchdisp</code></li>
 </ul>
-<p>Now look at the results of each one in turn, and try to interpret them, using the function <code>summary()</code>, e.g. <code>summary(mod_pitch)</code>.</p>
 <div class="solution">
 <button>
 Hint for Task 7
@@ -1058,7 +1077,7 @@ Hint for Task 7
 </p>
 <ul>
 <li>
-You should probably use a Spearman correlation for the correlation between Pitch and Dispersion because the scales are very different although measured both in (Hz)
+You should probably use a Spearman correlation for the correlation between Pitch and Dispersion because the scales are very different although measured both in (Hz), though it would not be wrong to use Pearson here either as it is still the same scale.
 </li>
 <li>
 You may need to refer back to Chapter 10 on correlations to remember how to use <code>cor.test()</code>.
@@ -1069,18 +1088,19 @@ You may need to refer back to Chapter 10 on correlations to remember how to use 
 </p>
 <ul>
 <li>
-lm(dv ~ iv, data = my_data) for simple linear regression
+lm(trust_column ~ pitch_column, data = my_data) for simple linear regression
 </li>
 <li>
-lm(dv ~ iv1 + iv2, data = my_data) for multiple linear regression
+lm(trust_column ~ pitch_column + dispersion_column, data = my_data) for multiple linear regression
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div id="Ch14InClassQueT8" class="section level3">
-<h3><span class="header-section-number">14.3.8</span> Task 8: Making interpretations</h3>
-<p>Let’s look at the <code>mod_pitch</code> model together.</p>
+<h3><span class="header-section-number">14.3.8</span> Task 8: Model interpretations</h3>
+<p>Now look at the results of each model in turn, using the function <code>summary()</code>, e.g. <code>summary(mod_pitch)</code>, and try to interpret them based on what you already know about regression outputs from the lectures.</p>
+<p>Let’s start by looking at the <code>mod_pitch</code> model together.</p>
 <div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -1100,19 +1120,20 @@ lm(dv ~ iv1 + iv2, data = my_data) for multiple linear regression
 ## Residual standard error: 0.6279 on 30 degrees of freedom
 ## Multiple R-squared:  0.3309, Adjusted R-squared:  0.3086 
 ## F-statistic: 14.83 on 1 and 30 DF,  p-value: 0.0005732</code></pre>
-<p>From the output we can see that this model, when relating to the population, would predict approximately 30.8% of the variance in trustworthiness ratings (Adjusted-R^2 = .3086). We could also say that a linear regression model revealed that pitch significantly predicted perceived trustworthiness scores in male voices in that as pitch increased so does perceived trustworthiness (b = .0156, t(30) = 3.852, p &lt; .001). (Remember that these are unstandardised coefficients so the “Estimate” would mean that a one unit change in pitch would result in a .0156 unit change in perceived trust, a rather small change.)</p>
-<p>Overall we have a model of small to medium prediction but it is better than no model - or just using mean values as a prediction - as shown by the F-test being significant. Worth also pointing out here that in a simple linear regression the F-test and the t-value for the predictor are the same based on t^2 = F, as seen in Semester 2 Lab 3.</p>
+<p>From the output we can see that this model, when relating to the population, would predict approximately 30.86% of the variance in trustworthiness ratings (Adjusted-R^2 = 0.3086). We could also say that a linear regression model revealed that pitch significantly predicted perceived trustworthiness scores in male voices in that as pitch increased so does perceived trustworthiness (b = .0156, t(30) = 3.852, p &lt; .001). (Remember that these are unstandardised coefficients so the “Estimate” would mean that a one unit change in pitch would result in a .0156 unit change in perceived trust, a rather small change.)</p>
+<p>Overall we have a regression model of small to medium prediction but it is significantly better than using the mean values as a prediction - as shown by the F-test being significant. Remember from the lectures that the default model is where every predicted value of Y is the mean of Y; we called this the mean model. So our new model is better than using that.</p>
+<p>Worth also pointing out here that in a simple linear regression the F-test and the t-value for the predictor are the same based on t^2 = F, as seen earlier in this book.</p>
 <p>Ok, based on that knowledge, answer the following questions about the two remaining models.</p>
 <ul>
-<li>The dispersion as a predictor by itself model would explain approximately <select class='solveme' data-answer='["3%"]'> <option></option> <option>3%</option> <option>13%</option> <option>31%</option> <option>33%</option></select></li>
-<li>In fact, the dispersion by itself model is <select class='solveme' data-answer='["not significant"]'> <option></option> <option>not significant</option> <option>significant</option></select> and therefor <select class='solveme' data-answer='["no use"]'> <option></option> <option>no use</option> <option>very useful</option></select> as a model</li>
+<li>The model of just dispersion as a predictor would explain approximately <select class='solveme' data-answer='["3%"]'> <option></option> <option>3%</option> <option>13%</option> <option>31%</option> <option>33%</option></select></li>
+<li>In fact, the model of just dispersion is <select class='solveme' data-answer='["not significant"]'> <option></option> <option>not significant</option> <option>significant</option></select> and therefor <select class='solveme' data-answer='["no use"]'> <option></option> <option>no use</option> <option>very useful</option></select> as a model</li>
 <li>Looking at the multiple linear regression model, the explained variance is <select class='solveme' data-answer='["30.5%"]'> <option></option> <option>3.05%</option> <option>13.5%</option> <option>30.5%</option> <option>33.5%</option></select>and as such explains <select class='solveme' data-answer='["less"]'> <option></option> <option>less</option> <option>more</option></select> variance than the pitch only model.</li>
 </ul>
-<p>What the above should remind you is that it is not the case that simply putting all the possible predictors into a model will make it a better model. For every predictor you add there is a penalty associated with the Adjusted-R^2 and if the explained variance attributable to the new predictor is not greater than the penalty to overall explained variance then you may actually end up with a worse model despite having more predictors. We will look at model comparison more in the coming months and years but it is always good to keep the rule of parsimony in mind!</p>
+<p>What the above should remind you is that it is not the case that simply putting all the possible predictors into a model will make it a better model. For every predictor you add there is a penalty associated with the Adjusted-R^2 and if the explained variance attributable to the new predictor is not greater than the penalty to overall explained variance then you may actually end up with a worse model despite having more predictors. We touch briefly in the lecture on using the <code>anova(model1, model2)</code> approach to compare models and we will look at model comparison more in the coming months and years but it is always good to keep the rule of parsimony in mind! The simpler the better.</p>
 </div>
 <div id="Ch14InClassQueT9" class="section level3">
 <h3><span class="header-section-number">14.3.9</span> Task 9: Making predictions</h3>
-<p>Congratulations! You have successfully constructed a linear model relating trustworthiness to pitch and dispersion and you can think about applying this knowledge to other challenges - perhaps go look at female voices? However, one last thing you might want to do that we will quickly show you is how to make a prediction using the <code>predict()</code> function. One way you use this, though see solutions, is:</p>
+<p>Congratulations! You have successfully constructed a linear model relating trustworthiness to pitch and dispersion and you can think about applying this knowledge to other challenges - perhaps go look at female voices? However, one last thing you might want to do that we will quickly show you is how to make a prediction using the <code>predict()</code> function. One way you use this, though see the solution to the chapter for alternatives, is:</p>
 <pre><code>predict(mod, newdata)</code></pre>
 <p>where <code>newdata</code> is a tibble with new observations on X (e.g. <code>pitch</code> or <code>dispersion</code>) for which you want to predict the corresponding Y values (<code>mean_rating</code>).</p>
 <ul>
