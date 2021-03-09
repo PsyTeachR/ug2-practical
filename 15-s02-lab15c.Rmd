@@ -6,13 +6,14 @@ wellbeing <- read_csv("data/15-s02/inclass/wellbeing.csv")
 screen <- read_csv("data/15-s02/inclass/screen_time.csv")
 
 wemwbs <- wellbeing %>%
-  gather("var", "score", -Serial) %>%
+  pivot_longer(names_to = "var", values_to = "score", cols = -Serial) %>%
   group_by(Serial) %>%
   summarise(tot_wellbeing = sum(score))
 
 screen_long <- screen %>%
-  gather("var", "hours", -Serial) %>%
+  pivot_longer(names_to = "var", values_to = "hours", cols = -Serial) %>%
   separate(var, c("variable", "day"), "_")
+
 
 screen2 <- screen_long %>%
   mutate(variable = recode(variable,
