@@ -31,9 +31,18 @@ screen <- read_csv("screen_time.csv")
 
 * bit quicker in terms of coding and reduces chance of error by perhaps forgetting to include a specific column 
 
-```{r ch15-sol-wemwbs}
+```{r ch15-sol-wemwbs-v1}
 wemwbs <- wellbeing %>%
-  gather("var", "score", -Serial) %>%
+  pivot_longer(names_to = "var", values_to = "score", cols = -Serial) %>%
+  group_by(Serial) %>%
+  summarise(tot_wellbeing = sum(score))
+```
+
+* This is how you would do the same above with the `gather()` function in case there are still some `gather()` in this chapter by mistake. It does the same task but just slightly different input and can create a slightly different output because it has a different sorting function within it compared to `pivot_longer()`
+
+```{r ch15-sol-wemwbs-v2}
+wemwbs <- wellbeing %>%
+  gather(key = "var", value = "score", -Serial) %>%
   group_by(Serial) %>%
   summarise(tot_wellbeing = sum(score))
 ```
@@ -58,8 +67,9 @@ wemwbs <- wellbeing %>%
 
 ```{r ch15-sol-st-plot-sol, fig.cap = 'Count of the hours of usage of different types of social media at Weekdays and Weekends'}
 ## screen time
+
 screen_long <- screen %>%
-  gather("var", "hours", -Serial) %>%
+  pivot_longer(names_to = "var", values_to = "hours", cols = -Serial) %>%
   separate(var, c("variable", "day"), "_")
 
 screen2 <- screen_long %>%
@@ -76,6 +86,15 @@ ggplot(screen2, aes(hours)) +
   geom_bar() +
   facet_grid(day ~ variable)
 ```
+
+* This is how you would do the first step above with the `gather()` function in case there are still some `gather()` in this chapter by mistake. It does the same task but just slightly different input and can create a slightly different output because it has a different sorting function within it compared to `pivot_longer()`
+
+```{r ch15-sol-st-plot-sol-hide, eval = FALSE}
+screen_long <- screen %>%
+  gather("var", "hours", -Serial) %>%
+  separate(var, c("variable", "day"), "_")
+```
+
 
 [Return to Task](#Ch15PreClassQueT3)
 

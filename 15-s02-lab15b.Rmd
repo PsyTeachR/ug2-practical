@@ -71,15 +71,21 @@ Ok, our data is in and we need to create a well-being score for each participant
 
 `r hide("Hint to compute scores")`
 ```{block, type ="info"}
-- Step 1: reshape table from wide to long
-- Step 2: `group_by()`; `summarise(tot_wellbeing = ...)`
+
+**Step 1:** 
+
+- reshape table from wide to long using `pivot_longer()`. We suggest creating a new column called `var` with the labels and a new column called `score` and gathering all the columns except Serial (e.g. `cols = -Serial`)
+
+**Step 2:** 
+
+- `group_by()`; `summarise(tot_wellbeing = ...)`
 - Alternatively, mutate on the sum of all columns, then select the two needed.
 ```
 `r unhide()`
 
 ```{r wemwbs, echo=FALSE}
 wemwbs <- wellbeing %>%
-  gather("var", "score", -Serial) %>%
+  pivot_longer(names_to = "var", values_to = "score", cols = -Serial) %>%
   group_by(Serial) %>%
   summarise(tot_wellbeing = sum(score))
 ```
@@ -90,7 +96,7 @@ Great, so we have the well-being scores sorted out, we now need to think about t
 
 * Try recreating this figure based on the data in `screen`. Note that this will require some tidying of the data in `screen`:
 
-1. You'll first need to gather the `screen` tibble into long format and then break apart the column names into **two** separate columns, one for the name of the variable (`Watch`, `Comp`, `Comph`, and `Smart`) and the other for part of the week (`wk` and `we`). This is going to take using the `separate()` function which we haven't used yet but we think you can manage.
+1. You'll first need to gather the `screen` tibble into long format and then break apart the column names into **two** separate columns, one for the name of the variable (`Watch`, `Comp`, `Comph`, and `Smart`) and the other for part of the week (`wk` and `we`). This is going to take using the `separate()` function which we haven't used yet but we think you can manage using the hints below.
 
 2. Next, you'll need to alter the values of the variables to reflect the more descriptive text that appears in the plot (e.g., `"Watch"` becomes `"Watching TV"`; `"wk"` becomes `"Weekday"`). This is a `recode()` issue which you have done a number of times.
 
@@ -99,7 +105,7 @@ This is quite a tricky bit of wrangling which we think you are capable of but, d
 ```{r ch15-st-plot, echo = FALSE, fig.cap = 'Count of the hours of usage of different types of social media at Weekdays and Weekends'}
 ## screen time
 screen_long <- screen %>%
-  gather("var", "hours", -Serial) %>%
+  pivot_longer(names_to = "var", values_to = "hours", cols = -Serial) %>%
   separate(var, c("variable", "day"), "_")
 
 screen2 <- screen_long %>%
@@ -121,10 +127,10 @@ ggplot(screen2, aes(hours)) +
 ```{block, type ="info"}
 **Step 1**
 
-- `gather()` the data in `screen` into three columns: Serial, var, hours
+- `pivot_longer()` the data in `screen` into three columns: Serial, var, hours. Do this by gathering all the columns together except Serial (e.g. `cols = -Serial`) and creating the new columns of `var` with the label names and `hours` with the values in it.
 - `?separate()` in the console
 - `seperate(data, column_name_containing_variables_to_split, c("column_1_to_create","column_2_to_create"), "character_to_split_by")`
-- each variable (category) has an underscore in its name. Use that to split it. I.e. `Comph_we` will get split into `Comph` and `we`
+- each variable (category) has an underscore in its name. Use that to split it. I.e. `Comph_we` will get split into `Comph` and `we` if you split by `_`
     
 **Step 2**
 
