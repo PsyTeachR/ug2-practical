@@ -1,1 +1,7 @@
 # (APPENDIX) Appendices {-} 
+
+# Stats by Hand
+
+There is an accompanying workbook in development that looks at calculating statistics by hand. If you are interested in it (though it is in development stages so is rough) you can see it here: [The Handy Workbook for Stats by Hand](https://psyteachr.github.io/handyworkbook/){target="_blank"}
+
+# References
