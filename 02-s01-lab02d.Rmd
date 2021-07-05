@@ -1,6 +1,6 @@
-## Assignment
+## Test Yourself
 
-This is a formative assignment but we strongly encourage you to do the assignment as the knowledge gained from the practical activities in this lab will be super important to your future-self!
+This is a **formative** assignment meaning that it is purely for you to test your own knowledge, skill development, and learning, and does not count towards an overall grade. However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. You will be instructed by the Course Lead on Moodle as to when you should attempt this assignment. Please check the information and schedule on the Level 2 Moodle page.
 
 One thing to keep in mind in all assignments is that spelling it really important when learning about being reproducible. Remember that `Mycolumn` is a different column to `mycolumn` and when being reproducible only one is correct. Likewise, `Mydata` and `mydata` are two different tibbles, and `read_csv()` and `read.csv()` are two different functions. Check the instructions and check your work! 
 

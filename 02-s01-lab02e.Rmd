@@ -158,7 +158,7 @@ aq_scores2 <- responses %>%
 
 [Return to Task](#Ch2InClassQueT8)
 
-### Assignment Solution
+### Test Yourself Activities
 
 ```{r lab2-assignment-solutions-data, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE}
 # assignment

@@ -248,7 +248,7 @@ knitr::kable(result$Anova,
 
 [Return to Task](#Ch13InClassQueT6)
 
-### Homework Activities
+### Test Yourself Activities
 
 ```{r lab13-solutions-setup-homework, echo = FALSE, message=FALSE, warning=FALSE}
 dat <- read_csv("data/13-s02/homework/keysar_lin_barr_2003.csv")

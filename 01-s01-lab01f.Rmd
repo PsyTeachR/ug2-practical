@@ -34,7 +34,7 @@ The data in this report was obtained from within the original paper, [Lebowitz a
 ![PonzoIllusion](https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg)
 
 ### Results {-}
-```{r lab1-inclass-table, echo=FALSE}
+```{r lab1-inclass-table, echo=FALSE, warning = FALSE}
 group_by(ponzo_data, Sex) %>% summarise(NofGroups=n(), mean_length = mean(ComparisonLength))
 ```
 

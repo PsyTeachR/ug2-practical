@@ -139,7 +139,7 @@ sample_size <- pwr.t.test(power = .8,
 
 [Return to Task](#Ch8InClassQueT7)
 
-### Homework Activity
+### Test Yourself Activities
 
 **Libraries**
 

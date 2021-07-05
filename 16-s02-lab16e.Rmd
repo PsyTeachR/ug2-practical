@@ -1,3 +1,3 @@
-## Solutions to Questions
+## In The End!
 
-Solutions to the tasks in the final assignment will be added here soon but please do ask the team if you need them quicker and want to check something.
+Excellent! That is it. That is all we wanted you to achieve before the end of Level 2! Congratulations on all that you have achieved over the course of this book! As we said before, you are now highly competent, and hopefully confident, at data-wrangling, visualisation, and analysis, as well as interpreting a whole host of different analyses. You are now more than ready for Level 3! Thanks for all your hard work. You have been amazing!

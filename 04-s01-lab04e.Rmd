@@ -89,7 +89,7 @@ blocks_5k <- replicate(n = 5000,
 
 [Return to Task](#Ch4InClassQueBinomial)
 
-### Assignment Solution
+### Test Yourself Activities
 
 #### Load in the Library
 

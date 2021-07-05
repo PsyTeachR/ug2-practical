@@ -5,6 +5,9 @@
 pinfo <- read_csv("data/15-s02/inclass/participant_info.csv")
 wellbeing <- read_csv("data/15-s02/inclass/wellbeing.csv")
 screen <- read_csv("data/15-s02/inclass/screen_time.csv")
+
+# test yourself data
+dat <- read_csv("data/15-s02/homework/Han_OSF_HGSandVoiceData.csv")
 ```
 
 Below you will find the solutions to the questions for the PreClass and InClass activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
@@ -212,5 +215,202 @@ As such, given the model of `Y = intercept + (slope * X)`  where Y is wellbeing 
 And finally, the most reasonable interpretation of these results is that smartphone use was more negatively associated with wellbeing for girls than for boys.
 
 [Return to Task](#Ch15InClassQueT4)
+
+### Test Yourself Activities
+
+#### Task 1A: Load add-on packages 
+
+The `tidyverse` would be loaded in as shown below.
+
+```{r T1A, echo = TRUE, eval = FALSE}
+
+library(tidyverse)
+```
+
+[Return to task](#Ch15AssignQueT1A)
+
+#### Task 1B: Load the data 
+
+The data would be read in as follows.
+
+```{r T1B, echo = TRUE, eval = FALSE}
+dat <- read_csv("Han_OSF_HGSandVoiceData.csv")
+```
+
+* Remember to check that you have used `read_csv()`
+* Double check the spelling of the data file.
+* Be sure to have a look at your data through the viewer or by using commands in your console only, not in your code.
+
+[Return to task](#Ch15AssignQueT1B)
+
+#### Task 2: Demographics
+
+This would be carried out using a `group_by()` and `summarise()` combination as shown. As always be sure to pay attention to the spelling of variables
+
+```{r T2}
+demogs <- dat %>% group_by(sex) %>%
+  summarise(n = n(),
+            mean_age = mean(age),
+            sd_age = sd(age))
+```
+
+[Return to task](#Ch15AssignQueT2)
+
+#### Task 3: Plotting the general relationship of F0 and HGS
+
+The below figure would be appropriate here:
+
+```{r T3-hide, echo = FALSE, eval = TRUE, fig.cap='The relationship between fundamental frequency (Hz) and hand grip strength'}
+
+ggplot(dat, aes(F0, HGS)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") +
+  labs(x = "Fundamental Frequency (Hz)", y = "Hand Grip Strength") +
+  coord_cartesian(ylim = c(0,100)) +
+  theme_classic()
+```
+
+And would be created with the following code:
+
+```{r T3-show, echo = TRUE, eval = FALSE}
+ggplot(dat, aes(F0, HGS)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") +
+  labs(x = "Fundamental Frequency (Hz)", y = "Hand Grip Strength") +
+  coord_cartesian(ylim = c(0,100)) +
+  theme_classic()
+```
+
+[Return to task](#Ch15AssignQueT3)
+
+
+#### Task 4: Analysing the general relationship of F0 and HGS
+
+The appropriate way to run this analysis would be as shown below:
+
+* `HGS` is the dependent variable (or the outcome variable)
+* `F0` is the independent variable (or the predictor variables
+* The data is stored in `dat`
+
+```{r T4}
+mod1 <- lm(HGS ~ F0, dat)
+```
+
+**Note:** Be sure to watch spelling and capitalisation of the variables. For example, F0_C is pronounced as "F Zero" and the F is capitalised.
+
+[Return to task](#Ch15AssignQueT4)
+
+#### Task 5: Interpreting the general relationship of F0 and HGS
+
+An appropriate summary would be:
+
+**As illustrated in the scatterplot of Task 4, the model revealed that fundamental frequency does predict hand grip strength, explaining approximately 56.7% of the population variance. The model would suggest that there is a negative relationship between F0 and HGS (b = -.145) supporting the basic hypothesis that as pitch increases, hand grip strength decreases (Adjusted R-squared = .567, F(1, 219) = 289.3, p < .001.**
+
+As such the answer is:
+
+```{r T5}
+answer_t5 <- 3
+```
+
+[Return to task](#Ch15AssignQueT5)
+
+#### Task 6: Plotting the modulation of voice/strength relationship by sex
+
+The below figure would be sufficient for this task: 
+
+```{r T6-hide, echo = FALSE, eval = TRUE, fig.cap='The relationship between fundamental frequency and hand grip strength by sex'}
+
+
+ggplot(dat, aes(F0, HGS, group = sex)) +
+  geom_point() + 
+  geom_smooth(method = "lm") +
+  labs(x = "Fundamental Frequency (Hz)", y = "Hand Grip Strength") +
+  coord_cartesian(ylim = c(0,100)) +
+  theme_classic()
+```
+
+And would be created as follows.
+
+```{r T6-show, echo = TRUE, eval = FALSE}
+ggplot(dat, aes(F0, HGS, group = sex)) +
+  geom_point() + 
+  geom_smooth(method = "lm") +
+  labs(x = "Fundamental Frequency (Hz)", y = "Hand Grip Strength") +
+  coord_cartesian(ylim = c(0,100)) +
+  theme_classic()
+```
+
+[Return to task](#Ch15AssignQueT6)
+
+#### Task 7: Mean centering and Dummy coding the variables.
+
+One way to complete this task using a `mutate()` function as shown below. Be sure however to keep an eye on spelling and capitalisation of variables. For example, F0_C is pronounced as "F Zero underscore C" and the F and C are both capitalised.
+
+```{r T7}
+dat_dummy <- dat %>%
+  mutate(F0_C = F0 - mean(F0),
+         sex_C = ifelse(sex == "female", -.5, .5))
+```
+
+[Return to task](#Ch15AssignQueT7)
+
+#### Task 8: Estimate the modulation of voice/strength relationship by sex
+
+The appropriate way to run this analysis would be as shown below:
+
+* `HGS` is the dependent variable (or the outcome variable)
+* `F0_C` and `sex_C` are the independent variables (or the predictor variables)
+* The data is stored in `dat_dummy`
+
+```{r T8}
+mod2 <- lm(HGS ~ F0_C * sex_C, dat_dummy)
+```
+
+**Note:** Be sure to watch spelling and capitalisation of the variables. For example, F0_C is pronounced as "F Zero underscore C" and the F and C are both capitalised.
+
+[Return to task](#Ch15AssignQueT8)
+
+#### Task 9: Interpreting the output 1
+
+The appropriate synopsis would be:
+
+
+**The beta coeffecient of fundamental frequency (b = -.033) and the interaction (-.016) are not significant but the coeffecient of sex is significant (b = 13.182).**
+
+As such the correct answer is:
+
+```{r T9}
+answer_t9 <- 4
+```
+
+[Return to task](#Ch15AssignQueT9)
+
+#### Task 10: Interpreting the output 2
+
+The appropriate synopsis would be:
+
+**The slope of the male regression line (slope = -.042) is marginally more negative than the slope of the female regression line (slope = -.025).**
+
+As such the correct answer is:
+
+```{r T10}
+answer_t10 <- 1
+```
+
+[Return to task](#Ch15AssignQueT10)
+
+#### Task 11: Interpreting the output 3
+
+A good summary of the analysis would be as follows:
+
+**An analysis involving 221 participants (female: N = 110, Mean Age = 22.93, SD Age = 3.35; male: N = 111, Mean Age = 23.87, SD Age = 5.14) was conducted to test the hypothesis that there was a negative relationship between fundamental frequency and hand grip strength in males but not in females. A simple linear regression suggested that there was a significant negative relationship between F0 and HGS, when not controlling for sex. However, after controlling for participant sex, there appears to be no significant relationship between fundamental frequency and grip strength. The only significant effect suggests that there is a difference in hand grip strength between males and females but this is not related to fundamental frequency.**
+
+As such the correct answer is: 
+
+```{r T11}
+answer_t11 <- 4
+```
+
+[Return to task](#Ch15AssignQueT11)
 
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

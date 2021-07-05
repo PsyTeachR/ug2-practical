@@ -120,7 +120,7 @@ sstbl <- dmx4 %>%
 
 [Return to Task](#Ch11InClassQueT5)
 
-### Homework Activities
+### Test Yourself Activities
 
 #### Assignment Question 1
 
