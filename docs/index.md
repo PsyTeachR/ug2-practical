@@ -27,3 +27,5 @@ Materials for the University of Glasgow School of Psychology Year 2 Research Met
 **R Version:** This book has been written with R version 3.5.1 (2018-07-02)
 
 **Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
+
+**Cite as:** McAleer, P., & Paterson, H. M. (2021, July 5). Year 2 Research Methods and Statistics Practical Skills (Version 1.0.0). Zenodo. <a href = "http://doi.org/10.5281/zenodo.5070319" target = "_blank">http://doi.org/10.5281/zenodo.5070319</a>
