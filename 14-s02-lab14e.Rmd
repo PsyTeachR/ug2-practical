@@ -7,7 +7,7 @@ acoustics <- read_csv("data/14-s02/inclass/voice_acoustics.csv")
 
 Below you will find the solutions to the questions for the Activities in this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
 
-### InClass Ativities
+### InClass Activities
 
 ### Task 1
 

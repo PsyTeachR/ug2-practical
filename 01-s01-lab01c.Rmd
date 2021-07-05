@@ -244,7 +244,7 @@ Another benefit of R Markdown is that you can insert tables of results directly 
 2. Add a new code chunk and give it the name `table`, and include the code shown below. The first part of the code `my_table <- group_by %>% summarise` creates the table and stores it in `my_table`.  The second part of the code `my_table` calls the table. Calls means `to display or to show me` in this sense.
 3. Add an `echo` rule so that the code **IS NOT** included in the final document but the ouput table **is** included. 
 
-```{r Ch1InClassT8, results='hide'}
+```{r Ch1InClassT8, results='hide', warning = FALSE}
 my_table <- group_by(ponzo_data, Sex) %>% 
   summarise(NofGroups=n(), mean_length = mean(ComparisonLength))
 

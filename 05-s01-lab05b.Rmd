@@ -156,13 +156,13 @@ The `tibble()` function takes named arguments - this means that the name you giv
 
 The below command creates a new tibble with one column named `Y`, and the values in that column are the result of a call to `rnorm(10)`: 10 randomly sampled values from a standard normal distribution (mean = 0, sd = 1), as we learnt in Skill 1.
 
-```{r tibble-base}
+```{r tibble-base, warning = FALSE}
 tibble(Y = rnorm(10))
 ```
 
 If, however, we wanted to sample from two different populations for `Y`, we could combine two calls to `rnorm()` within the `c()` function. Again this was in Skill 1, here we are now just storing it in a tibble. See below:
 
-```{r tibble1}
+```{r tibble1, warning = FALSE}
 tibble(Y = c(rnorm(5, mean = -10), 
              rnorm(5, mean =  20)))
 ```
@@ -207,7 +207,7 @@ rep(c("A", "B"), times = c(2, 4))
 
 Great. Let's get back to creating our tibble of data. Now we know `rep()`, we can complete our tibble of simulated data by combining what we've learned about generating random numbers (Skill 1) and repeating values (Skill 3). We want our table to look like this:
 
-```{r tibble2, echo = FALSE}
+```{r tibble2, echo = FALSE, warning = FALSE}
 tibble(group = rep(c("A", "B"), c(5, 5)),
        Y = c(rnorm(5, mean = -10), rnorm(5, mean =  20)))
 ```
@@ -216,7 +216,7 @@ You now know how to create this table. Have a look at the code below and make su
 
 * **Note:** We have not stated `times = ` in the below code but because of how the `rep()` function works it knows that the `c(5,5)` should be read as `times = c(5,5)`. This is not magic. Again it is about defaults and order or arguments. Just like you saw with `rnorm()` and not having to state mean and sd each time. 
 
-```{r tibble3, results = "hide"}
+```{r tibble3, results = "hide", warning = FALSE}
 tibble(group = rep(c("A", "B"), c(5, 5)),
        Y = c(rnorm(5, mean = -10), rnorm(5, mean =  20)))
 ```
@@ -255,7 +255,7 @@ Fabulous! We are really starting to bring these skills together!
 
 OK so now that we have created some data we want to look at answering questions about that data. For example, the difference between two groups. Thinking back to Chapter 2, you have already learned how to calculate group means using `group_by()` and `summarise()`. For example, using code we have seen so far, you might want to calculate sample means for a randomly generated dataset like so:
 
-```{r tibble-long}
+```{r tibble-long, warning = FALSE}
 my_data <- tibble(group = rep(c("A", "B"), c(20, 20)),
                   Y = c(rnorm(20,  20, 5), rnorm(20, -20, 5)))
 
@@ -299,7 +299,7 @@ pluck(vec, 1) - pluck(vec, 2)
 
 And we could run it a pipeline, as below, where we still `pull()` the means column, `m`, and then `pluck()` each value in turn and subtract them from each other.
 
-```{r pull-pluck-pipe}
+```{r pull-pluck-pipe, warning = FALSE}
 my_data_means %>% pull(m) %>% pluck(1) - 
   my_data_means %>% pull(m) %>% pluck(2)
 ```
@@ -315,14 +315,14 @@ First you need to spread the data out. In Chapter 2 you learned the function `pi
     * `names_from` says which existing column to get the new columns names from.
     * `values_from` says which existing column to get the data from.
 
-```{r diff_spread}
+```{r diff_spread, warning = FALSE}
 my_data_means %>%
   pivot_wider(names_from = "group", values_from = "m")
 ```
 
 Now that we have spread the data, we could follow this up with a `mutate()` call to create a new column which is the difference between the means of A and B. This is shown here:
   
-```{r spread_mutate}
+```{r spread_mutate, warning = FALSE}
 my_data_means %>%
   pivot_wider(names_from = "group", 
               values_from = "m") %>%

@@ -1,10 +1,6 @@
 # Starting with R Markdown
 
-<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Level 2 Practical Lab Series</span>
-
 ## Overview
-
-Over the course of this year's practical lab sessions we will help you learn a whole host of skills and methods based around being a Psychologist, starting right now! If you have completed Book 1 in the **PsyTeachR** series (<a href="https://psyteachr.github.io/" target = "_blank">https://psyteachr.github.io/</a>) then the first few labs will be familiar to you, with some additions. This is deliberate in order to refresh your skills before we approach new skills covered later in this book.
 
 A key goal of any researcher is to carry out an experiment and to tell others about it. One of the main ways we as Psychologists do this is through publication of a journal article. There are numerous ways that people combine different software to create a journal article, but a more recent innovation in the field that we want you to know about is creating reports and articles through R Markdown. If you like, you can see an example from a research team in our school in this <a href ="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185093" target = "_blank">recent PLOS article</a>. A link within the article methods section (this one - <a href="https://osf.io/eb9dq/" target = "_blank">https://osf.io/eb9dq/</a>) allows you to see the one file that creates the whole manuscript. Obviously you won't be writing full journal articles just yet but you will use R Markdown throughout this lab series to do assignments. You could also use it in other subjects to write reports, or to make yourself a portfolio of hints, tips, and study aids as we suggest throughout the labs. 
 

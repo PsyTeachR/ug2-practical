@@ -1,10 +1,10 @@
 {
-    "description": "The 2019-2020 version of the course book for the Year 2 Research Methods and Statistics Practical Course at the School of Psychology University of Glasgow", 
+    "description": "The 2020-2021 version of the course book for the Year 2 Research Methods and Statistics Practical Course at the School of Psychology University of Glasgow", 
     "license": "cc-by-sa", 
     "title": "Year 2 Research Methods and Statistics Practical Skills", 
-    "version": "0.0.9001",
+    "version": "1.0.0",
     "upload_type": "software", 
-    "publication_date": "2020-05-12", 
+    "publication_date": "2021-07-05", 
     "creators": [
         {
             "name": "Phil McAleer",

@@ -70,7 +70,7 @@ Have a look at the resulting tibble, `dat`. The columns refer to:
 * The column `Y` is your dependent variable (DV) 
 * The column `subj_id` is the participant number.
 
-```{r read-dat, echo = FALSE, message = FALSE}
+```{r read-dat, echo = FALSE, message = FALSE, warning = FALSE}
 library("tidyverse")
 set.seed(1409)
 dat <- read_csv("data/05-s01/inclass/perm_data.csv") %>%

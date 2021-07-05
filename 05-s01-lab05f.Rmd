@@ -22,7 +22,7 @@ This example mimics Skill 4 (Section 5.2.4) of the Preclass Activity where we ar
   
   * Remember the values will be different from the PreClass because we are using a function that creates a set of random numbers each time, `rnorm()`
 
-```{r ch5-additional-data, echo = FALSE}
+```{r ch5-additional-data, echo = FALSE, warning = FALSE}
 my_data <- tibble(group = rep(c("A", "B"), c(20, 20)),
                   Y = c(rnorm(20,  20, 5), rnorm(20, -20, 5)))
 
@@ -35,7 +35,7 @@ my_data_means
 
 In order to split the table so that we have one column for Group A and another columns for Group B, we would use the below code. The spread function (`?spread`) splits the data in column `m` by the information, i.e. labels, in column `group` and puts the data into separate columns.
 
-```{r ch5-additional-spread}
+```{r ch5-additional-spread, warning = FALSE}
 my_data_means %>%
   spread(group, m)
 ```

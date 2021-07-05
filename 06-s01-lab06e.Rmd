@@ -256,7 +256,7 @@ group_means <- ratings2 %>%
 ```
 
 2. And we can call them and look at them by typing:
-```{r ch6-task4-steps2_sol, echo = TRUE, eval = TRUE, results="hide"}
+```{r ch6-task4-steps2_sol, echo = TRUE, eval = TRUE, results="hide", warning = FALSE}
 group_means
 ```
 
@@ -296,7 +296,7 @@ impress_t <- t.test(impress %>% filter(condition == "listened") %>% pull(Rating)
 ```
 
 7. Before combining all into one table showing all three t-tests
-```{r ch6-task4-steps7_sol, echo = TRUE, eval = TRUE, results="hide"}
+```{r ch6-task4-steps7_sol, echo = TRUE, eval = TRUE, results="hide", warning = FALSE}
 results <- bind_rows("hire" = hire_t, 
                      "impression" = impress_t,
                      "intellect" = intellect_t, .id = "id")
@@ -310,7 +310,7 @@ results
 
 **An alternative solution to Task 4:** There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won't really cover in this book. Do not worry if you can't quite follow it though; the main thing is to understand what we covered in the main chapter activities - the outcome is the same.
 
-```{r going_further}
+```{r going_further, warning = FALSE}
 ratings2 %>%
   group_by(Category) %>%
   nest() %>%
@@ -322,7 +322,7 @@ ratings2 %>%
   unnest(cols = c(ttest))
 ```
 
-### Homework Activity
+### Test Yourself Activities
 
 #### Assignment Task 1A: Libraries
 

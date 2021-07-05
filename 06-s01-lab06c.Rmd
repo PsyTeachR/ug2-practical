@@ -141,7 +141,7 @@ We will then combine the overall **intellect** rating with the overall **impress
 * Rating shows the overall rating given by that evaluator on a given scale.
 * condition shows whether that evaluater listened to (e.g. evaluators 1, 2 and 3), or read (e.g. evaluator 4) the resume.
 
-```{r ratings_structure, echo=FALSE, message=FALSE}
+```{r ratings_structure, echo=FALSE, message=FALSE, warning = FALSE}
 
 ratings2 <- read_csv("data/06-s01/inclass/ratings.csv") %>%
   filter(Category %in% c("competent", "thoughtful", "intelligent")) %>%
@@ -309,7 +309,7 @@ group_means <- ratings2 %>%
 ```
 
 2. And we can call them and look at them by typing:
-```{r ch6-task4-steps2, echo = TRUE, eval = TRUE}
+```{r ch6-task4-steps2, echo = TRUE, eval = TRUE, warning = FALSE}
 group_means
 ```
 

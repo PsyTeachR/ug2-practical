@@ -7,7 +7,7 @@ dat <- read_csv("data/10-s02/inclass/VapingData.csv")
 
 Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
 
-### InClass Activity
+### InClass Activities
 
 #### InClass Task 1
 
@@ -36,13 +36,13 @@ mh <- read_csv("MillerHadenData.csv")
 
 * If you want to keep everybody from the whole dataset that has a score for Ability you would use:
 
-```{r ch10InClassSolT3-1}
+```{r ch10InClassSolT3-1, warning = FALSE}
 filter(mh, !is.na(Abil))
 ```
 
 * Alternatively, if you want to keep everybody from the whole dataset that does not have a score for Ability you would use:
 
-```{r ch10InClassSolT3-2}
+```{r ch10InClassSolT3-2, warning = FALSE}
 filter(mh, is.na(Abil))
 ```
 
