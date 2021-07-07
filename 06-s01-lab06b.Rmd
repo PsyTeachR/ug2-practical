@@ -64,7 +64,7 @@ ttest <- t.test(pull(ns_data, valid_rt), mu = woods_mean)
 
 As we said above, your lab is now part of a ManyLabs project that is looking to replicate this finding from Woods et al., (2009). As a `r glossary("pilot", display = "pilot study")`, to test recruitment procedures, as well as the experimental paradigm and analyses pipeline, each lab gathers data from `r n_new` Normal Sleepers. It is common to use only the control participants in a pilot (in this cas the NS participants) as they are more plentiful in the population than the experimental group (in this case PI participants) and saves using participants from the PI group which may be harder to obtain in the long run.
 
-After gathering your data, we want to check the recruitment process and whether or not you have been able to draw a sample of normal sleepers, similar to the sample drawn by Woods et al. To keep things straightforward, allowing us to understand the analyses better, we will only look at valid trials today, in NS participants, but in effect you could perform this test on all groups and conditions.
+After gathering your data, we want to check the recruitment process and whether or not you have been able to draw a sample of normal sleepers similar to the sample drawn by Woods et al. To keep things straightforward, allowing us to understand the analyses better, we will only look at valid trials today, in NS participants, but in effect you could perform this test on all groups and conditions.
 
 **Are These Participants Normal Sleepers (NS)?**
 
@@ -76,7 +76,7 @@ knitr::kable(ns_data,
              caption = "Pilot Data for 22 Participants on a Sleep-Related Posner Paradigm. ID is shown in participant column and mean reaction time (ms) on valid trails is shown in valid_rt column.")
 ```
 
-If you look at <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was `r orig_mean` ms with a SD = `r orig_sd` ms. As above, as part of our pilot study, we want to confirm that the 22 participants we have gathered are indeed Normal Sleepers. We will use the mean and SD from Woods et al., to confirm this. Essentially we are asking if the participants in the pilotare from the same population as NS participants in the original study.
+If you look at <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was `r orig_mean` ms with a SD = `r orig_sd` ms. As above, as part of our pilot study, we want to confirm that the 22 participants we have gathered are indeed Normal Sleepers. We will use the mean and SD from Woods et al., to confirm this. Essentially we are asking if the participants in the pilot are responding in a similar fashion as NS participants in the original study.
 
 You will know from Chapter 5 that when using Null Hypothesis Significance Testing (NHST) we are working with both a null hypothesis ($H_{0}$) and an alternative hypothesis ($H_{1}$). Thinking about this study it makes some logical sense to think about it in terms of the null hypothesis ($\mu1 = \mu2$). So we could phrase our hypothesis as, "we hypothesise that there is no significant difference in mean reaction times to valid trials on the modified Posner experiment between the participants in the pilot study and the participants in the original study by Woods et al."
 
@@ -182,12 +182,12 @@ Think back to Chapter 4 where we used the binomial distribution. This question c
 <br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
-* Using the Psychology standard $\alpha = .05$, do you think these NS participants are responding in just the same fashion as the participants in the original paper? Select the appropriate answer: `r mcq(c(answer = "No", "Yes"))`
+* Using the Psychology standard $\alpha = .05$, do you think these NS participants are responding in a similar fashion as the participants in the original paper? Select the appropriate answer: `r mcq(c(answer = "No", "Yes"))`
 * According to the Binomial test would you accept or reject the null hypothesis that we set at the start of this test? `r mcq(c(answer = "Reject", "Accept"))`
 
 `r hide("Explain This - I don't get this answer")`
 ```{block, type ="info"}
-The probability of obtaining 16 participants with a mean reaction time greater than the cut-off of 590 ms is p = .026. This is smaller than the field norm of p = .05. As such we can say that, using the binomial test, the new sample appears to be significantly different from the old sample as there is a significantly larger number of participants above the cut-off (M = 590ms) than would be expected if the new sample and the old sample were the same. We would therefor reject our null hypothesis!
+The probability of obtaining 16 participants with a mean reaction time greater than the cut-off of 590 ms is p = .026. This is smaller than the field norm of p = .05. As such we can say that, using the binomial test, the new sample appears to be significantly different from the old sample as there is a significantly larger number of participants above the cut-off (M = 590ms) than would be expected if the new sample and the old sample were responding in a similar fashion. We would therefore reject our null hypothesis!
 ```
 `r unhide()`
 
