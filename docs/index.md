@@ -1,7 +1,7 @@
 
 --- 
 title: "Level 2 Research Methods and Statistics Practical Skills"
-date: "Last Update: 2021-07-07"
+date: "Last Update: 2021-07-14"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -18,7 +18,7 @@ description: ug2-practical-materials
 
 Materials for the University of Glasgow School of Psychology Year 2 Research Methods and Statistics Practical Course. 
 
-**Authors:** Phil McAleer & Helena M. Paterson
+**Authors:** Phil McAleer, Carolina Kuepper-Tetzel & Helena M. Paterson
 
 **Aim:** This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as permutation tests, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. Semester 2 focusses on correlations and the general linear model.
 
@@ -28,4 +28,4 @@ Materials for the University of Glasgow School of Psychology Year 2 Research Met
 
 **Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
 
-**Cite as:** McAleer, P., & Paterson, H. M. (2021, July 5). Year 2 Research Methods and Statistics Practical Skills (Version 1.0.0). Zenodo. <a href = "http://doi.org/10.5281/zenodo.5070319" target = "_blank">http://doi.org/10.5281/zenodo.5070319</a>
+**Cite as:** McAleer, P., Kuepper-Tetzel, C., & Paterson, H. M. (2021, July 14). Year 2 Research Methods and Statistics Practical Skills (Version 1.0.9001). Zenodo. <a href = "http://doi.org/10.5281/zenodo.3822464" target = "_blank">http://doi.org/10.5281/zenodo.3822464</a>
