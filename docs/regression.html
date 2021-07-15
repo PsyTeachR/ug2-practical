@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 14 Regression | Level 2 Research Methods and Statistics Practical Skills</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 14 Regression | Level 2 Research Methods and Statistics Practical Skills" />
   <meta property="og:type" content="book" />
@@ -31,6 +31,7 @@
   
 <link rel="prev" href="continuing-the-glm-two-factor-designs.html"/>
 <link rel="next" href="combining-anova-and-regression-e-g-ancovas.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,7 +49,10 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <meta property="og:title" content="psyTeachR Level 2 Research Methods and Statistics Practical Skills">
 <meta property="og:description" content="This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as permutation tests, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. Semester 2 focusses on correlations and the general linear model.">
 <meta property="og:image" content="https://psyteachr.github.io/images/twitter/L2.png">
@@ -60,25 +64,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -87,9 +93,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -122,8 +128,32 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include\style.css" type="text/css" />
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
 </head>
 
 <body>
@@ -142,14 +172,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
-<li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a><ul>
-<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#what-is-r-markdown"><i class="fa fa-check"></i><b>1.1.1</b> What is R Markdown?</a></li>
 <li class="chapter" data-level="1.1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#advantages-of-using-r-markdown"><i class="fa fa-check"></i><b>1.1.2</b> Advantages of using R Markdown</a></li>
 <li class="chapter" data-level="1.1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#creating-an-r-markdown-.rmd-file"><i class="fa fa-check"></i><b>1.1.3</b> Creating an R Markdown (.Rmd) File</a></li>
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
+<li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
@@ -157,7 +190,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-inline-code"><i class="fa fa-check"></i><b>1.2.5</b> Adding Inline Code</a></li>
 <li class="chapter" data-level="1.2.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#formatting-the-r-markdown-file"><i class="fa fa-check"></i><b>1.2.6</b> Formatting the R Markdown File</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activiy"><i class="fa fa-check"></i><b>1.3</b> InClass Activiy</a><ul>
+<li class="chapter" data-level="1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activiy"><i class="fa fa-check"></i><b>1.3</b> InClass Activiy</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#r-markdown-and-the-experimental-design-portfolio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and The Experimental Design Portfolio</a></li>
 <li class="chapter" data-level="1.3.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#the-ponzo-illusion-and-age"><i class="fa fa-check"></i><b>1.3.2</b> The Ponzo Illusion and Age</a></li>
 <li class="chapter" data-level="1.3.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#Ch1InClassQueT1"><i class="fa fa-check"></i><b>1.3.3</b> Task 1: Setting up Your R Markdown Portfolio</a></li>
@@ -171,19 +205,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.11" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#Ch1InClassQueT9"><i class="fa fa-check"></i><b>1.3.11</b> Task 9: Adding a Figure to your Results</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#assignment"><i class="fa fa-check"></i><b>1.4</b> Assignment</a></li>
-<li class="chapter" data-level="1.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#solutions-to-questions"><i class="fa fa-check"></i><b>1.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="1.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#solutions-to-questions"><i class="fa fa-check"></i><b>1.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="1.5.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activities"><i class="fa fa-check"></i><b>1.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="1.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-comparison"><i class="fa fa-check"></i><b>1.6</b> InClass Comparison</a><ul>
+<li class="chapter" data-level="1.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-comparison"><i class="fa fa-check"></i><b>1.6</b> InClass Comparison</a>
+<ul>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lab-1---the-magnitude-of-the-ponzo-illusion-varies-as-a-function-of-age"><i class="fa fa-check"></i>Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</a></li>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#methods"><i class="fa fa-check"></i>Methods</a></li>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#results"><i class="fa fa-check"></i>Results</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
+<li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
-<li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#revisiting-the-wickham-six"><i class="fa fa-check"></i><b>2.2.1</b> Revisiting the Wickham Six</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fa fa-check"></i><b>2.2.2</b> Learning to Wrangle: Is there a Chastity Belt on Perception</a></li>
 <li class="chapter" data-level="2.2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT1"><i class="fa fa-check"></i><b>2.2.3</b> The <strong><code>select()</code></strong> Function - to keep only specific columns</a></li>
@@ -195,7 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.9" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#two-other-useful-functions"><i class="fa fa-check"></i><b>2.2.9</b> Two Other Useful Functions</a></li>
 <li class="chapter" data-level="2.2.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#last-but-not-least---pipes-to-make-your-code-efficient"><i class="fa fa-check"></i><b>2.2.10</b> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-1-open-a-script"><i class="fa fa-check"></i><b>2.3.1</b> Task 1: Open a Script</a></li>
 <li class="chapter" data-level="2.3.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT2"><i class="fa fa-check"></i><b>2.3.2</b> Task 2: Bring in Your Library</a></li>
 <li class="chapter" data-level="2.3.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT3"><i class="fa fa-check"></i><b>2.3.3</b> Task 3: Load in the Data</a></li>
@@ -205,7 +244,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT7"><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself"><i class="fa fa-check"></i><b>2.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself"><i class="fa fa-check"></i><b>2.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
@@ -218,28 +258,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT8"><i class="fa fa-check"></i><b>2.4.10</b> Task 8 - Working the Pipes</a></li>
 <li class="chapter" data-level="2.4.11" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT9"><i class="fa fa-check"></i><b>2.4.11</b> Task 9 - Difference in Musical Means</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#solutions-to-questions-1"><i class="fa fa-check"></i><b>2.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="2.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#solutions-to-questions-1"><i class="fa fa-check"></i><b>2.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activities"><i class="fa fa-check"></i><b>2.5.1</b> PreClass Activities</a></li>
 <li class="chapter" data-level="2.5.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-actitivies"><i class="fa fa-check"></i><b>2.5.2</b> InClass Actitivies</a></li>
 <li class="chapter" data-level="2.5.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself-activities"><i class="fa fa-check"></i><b>2.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#additional-material"><i class="fa fa-check"></i><b>2.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="2.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#additional-material"><i class="fa fa-check"></i><b>2.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-read_csv"><i class="fa fa-check"></i>More on read_csv()</a></li>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-code-layout"><i class="fa fa-check"></i>More on Code Layout</a></li>
 <li><a href="data-wrangling-a-key-skill.html#more-on-gathering-data---pivot_longer-and-gather">More on gathering data - <code>pivot_longer()</code> and <code>gather()</code></a></li>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-binding-and-joining"><i class="fa fa-check"></i>More on binding and joining</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
+<li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#scatterplots---geom_point"><i class="fa fa-check"></i><b>3.2.1</b> Scatterplots - <code>geom_point()</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#histograms---geom_histogram"><i class="fa fa-check"></i><b>3.2.2</b> Histograms - geom_histogram()</a></li>
 <li class="chapter" data-level="3.2.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#boxplots---geom_boxplot"><i class="fa fa-check"></i><b>3.2.3</b> Boxplots - geom_boxplot()</a></li>
 <li class="chapter" data-level="3.2.4" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#barplots---geom_bar-or-geom_col"><i class="fa fa-check"></i><b>3.2.4</b> Barplots - geom_bar() or geom_col()</a></li>
 <li class="chapter" data-level="3.2.5" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#themes-labels-guides-and-facet_wraps"><i class="fa fa-check"></i><b>3.2.5</b> Themes, Labels, Guides, and <strong><code>facet_wraps()</code></strong></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activity-1"><i class="fa fa-check"></i><b>3.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="3.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activity-1"><i class="fa fa-check"></i><b>3.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#mental-rotation-angle-and-reaction-time"><i class="fa fa-check"></i><b>3.3.1</b> Mental Rotation: Angle and Reaction Time</a></li>
 <li class="chapter" data-level="3.3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#Ch3InClassQueT1"><i class="fa fa-check"></i><b>3.3.2</b> Task 1: Loading and Viewing the Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#Ch3InClassQueT2"><i class="fa fa-check"></i><b>3.3.3</b> Task 2: Recreating the Figure</a></li>
@@ -252,19 +297,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.10" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-considerations-briefly"><i class="fa fa-check"></i><b>3.3.10</b> Additional Considerations (briefly!)</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#assignment-1"><i class="fa fa-check"></i><b>3.4</b> Assignment</a></li>
-<li class="chapter" data-level="3.5" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#solutions-to-questions-2"><i class="fa fa-check"></i><b>3.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="3.5" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#solutions-to-questions-2"><i class="fa fa-check"></i><b>3.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activities-1"><i class="fa fa-check"></i><b>3.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a>
+<ul>
 <li><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to">More on <code>aes()</code> - when to and when not to!</a></li>
 <li class="chapter" data-level="" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-plots-into-one-figure"><i class="fa fa-check"></i>Combining Plots into one Figure</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
-<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>4.1.1</b> Discrete or Continuous Datasets</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a><ul>
+<li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#general-probability-calculations"><i class="fa fa-check"></i><b>4.2.1</b> General Probability Calculations</a></li>
 <li class="chapter" data-level="4.2.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#creating-a-simple-probability-distribution"><i class="fa fa-check"></i><b>4.2.2</b> Creating a Simple Probability Distribution</a></li>
 <li class="chapter" data-level="4.2.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#the-binomial-distribution---creating-a-discrete-distribution"><i class="fa fa-check"></i><b>4.2.3</b> The Binomial Distribution - Creating a Discrete Distribution</a></li>
@@ -272,24 +322,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#pbinom---the-cumulative-probability-function"><i class="fa fa-check"></i><b>4.2.5</b> <strong><code>pbinom()</code></strong> - The Cumulative Probability Function</a></li>
 <li class="chapter" data-level="4.2.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#qbinom---the-quantile-function"><i class="fa fa-check"></i><b>4.2.6</b> <strong><code>qbinom()</code></strong> - The Quantile Function</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-2"><i class="fa fa-check"></i><b>4.3</b> PreClass Activity 2</a><ul>
+<li class="chapter" data-level="4.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-2"><i class="fa fa-check"></i><b>4.3</b> PreClass Activity 2</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#continuous-data---brief-recap-on-the-normal-distribution"><i class="fa fa-check"></i><b>4.3.1</b> Continuous Data - Brief Recap on The Normal Distribution</a></li>
 <li class="chapter" data-level="4.3.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#properties-of-the-normal-distribution"><i class="fa fa-check"></i><b>4.3.2</b> Properties of the Normal distribution:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-1-1"><i class="fa fa-check"></i><b>4.4</b> InClass Activity 1</a><ul>
+<li class="chapter" data-level="4.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-1-1"><i class="fa fa-check"></i><b>4.4</b> InClass Activity 1</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#continuous-data-and-the-normal-distribution"><i class="fa fa-check"></i><b>4.4.1</b> Continuous Data and the Normal Distribution</a></li>
 <li class="chapter" data-level="4.4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#estimating-from-the-normal-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Estimating from the Normal Distribution</a></li>
 <li class="chapter" data-level="4.4.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#dnorm---the-density-function-for-the-normal-distribution"><i class="fa fa-check"></i><b>4.4.3</b> <strong><code>dnorm()</code></strong> - The Density Function for the Normal Distribution</a></li>
 <li class="chapter" data-level="4.4.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#pnorm---the-cumulative-probability-function"><i class="fa fa-check"></i><b>4.4.4</b> <strong><code>pnorm()</code></strong> - The Cumulative Probability function</a></li>
 <li class="chapter" data-level="4.4.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#qnorm---the-quantile-function"><i class="fa fa-check"></i><b>4.4.5</b> <strong><code>qnorm()</code></strong> - The Quantile Function</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-2-additional"><i class="fa fa-check"></i><b>4.5</b> InClass Activity 2 (Additional)</a><ul>
+<li class="chapter" data-level="4.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-2-additional"><i class="fa fa-check"></i><b>4.5</b> InClass Activity 2 (Additional)</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#return-of-the-binomial-ch4inclassquebinomial"><i class="fa fa-check"></i><b>4.5.1</b> Return of the Binomial {Ch4InClassQueBinomial}</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-3-additional"><i class="fa fa-check"></i><b>4.6</b> InClass Activity 3 (Additional)</a><ul>
+<li class="chapter" data-level="4.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-3-additional"><i class="fa fa-check"></i><b>4.6</b> InClass Activity 3 (Additional)</a>
+<ul>
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-1"><i class="fa fa-check"></i><b>4.7</b> Test Yourself</a><ul>
+<li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-1"><i class="fa fa-check"></i><b>4.7</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
@@ -303,15 +358,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7.11" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT9"><i class="fa fa-check"></i><b>4.7.11</b> Assignment Task 9</a></li>
 <li class="chapter" data-level="4.7.12" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT10"><i class="fa fa-check"></i><b>4.7.12</b> Assignment Task 10</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#solutions-to-questions-3"><i class="fa fa-check"></i><b>4.8</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="4.8" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#solutions-to-questions-3"><i class="fa fa-check"></i><b>4.8</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="4.8.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activities-2"><i class="fa fa-check"></i><b>4.8.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="4.8.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#return-of-the-binomial"><i class="fa fa-check"></i><b>4.8.2</b> Return of the Binomial</a></li>
 <li class="chapter" data-level="4.8.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-activities-1"><i class="fa fa-check"></i><b>4.8.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
+<li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
 <li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
 <li class="chapter" data-level="5.2.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
@@ -319,7 +377,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
 <li class="chapter" data-level="5.2.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
 <li class="chapter" data-level="5.3.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
 <li class="chapter" data-level="5.3.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
@@ -328,18 +387,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
-<li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
+<ul>
 <li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
 <li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
 <li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a><ul>
+<li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
-<li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-4"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-4"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
 <li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT2"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
@@ -351,13 +414,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT7"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
 <li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT8"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT1"><i class="fa fa-check"></i><b>6.3.1</b> Task 1: Evaluators</a></li>
 <li class="chapter" data-level="6.3.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT2"><i class="fa fa-check"></i><b>6.3.2</b> Task 2: Ratings</a></li>
 <li class="chapter" data-level="6.3.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT3"><i class="fa fa-check"></i><b>6.3.3</b> Task 3: Creating a Figure</a></li>
 <li class="chapter" data-level="6.3.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT4"><i class="fa fa-check"></i><b>6.3.4</b> Task 4: t-tests</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#test-yourself-2"><i class="fa fa-check"></i><b>6.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#test-yourself-2"><i class="fa fa-check"></i><b>6.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT1A"><i class="fa fa-check"></i><b>6.4.1</b> Task 1A: Libraries</a></li>
 <li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT1B"><i class="fa fa-check"></i><b>6.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT2"><i class="fa fa-check"></i><b>6.4.3</b> Task 2: Selecting only relevant columns</a></li>
@@ -367,24 +432,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT6"><i class="fa fa-check"></i><b>6.4.7</b> Task 6: t-test</a></li>
 <li class="chapter" data-level="6.4.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT7"><i class="fa fa-check"></i><b>6.4.8</b> Task 7: Reporting results</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#solutions-to-questions-5"><i class="fa fa-check"></i><b>6.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#solutions-to-questions-5"><i class="fa fa-check"></i><b>6.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activities-1"><i class="fa fa-check"></i><b>6.5.1</b> PreClass Activities</a></li>
 <li class="chapter" data-level="6.5.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activities-4"><i class="fa fa-check"></i><b>6.5.2</b> InClass Activities</a></li>
 <li class="chapter" data-level="6.5.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#test-yourself-activities-2"><i class="fa fa-check"></i><b>6.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a><ul>
-<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
+<li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a>
+<ul>
+<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#misleading-and-appropriate-barplots"><i class="fa fa-check"></i>Misleading and Appropriate Barplots</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#analysing-chi-squares"><i class="fa fa-check"></i>Analysing chi-squares</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
+<li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
-<li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-5"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-5"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#reading"><i class="fa fa-check"></i><b>7.2.1</b> Reading</a></li>
 <li class="chapter" data-level="7.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#task"><i class="fa fa-check"></i><b>7.2.2</b> Task</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT1"><i class="fa fa-check"></i><b>7.3.1</b> Task 1: Load the Data</a></li>
 <li class="chapter" data-level="7.3.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT2"><i class="fa fa-check"></i><b>7.3.2</b> Task 2: Wrangle the Data</a></li>
 <li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histogram for Normality</a></li>
@@ -396,21 +466,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.9" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT9"><i class="fa fa-check"></i><b>7.3.9</b> Task 9: The Write-up</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#assignment-3"><i class="fa fa-check"></i><b>7.4</b> Assignment</a></li>
-<li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activities-5"><i class="fa fa-check"></i><b>7.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#additional-material-4"><i class="fa fa-check"></i><b>7.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="7.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#additional-material-4"><i class="fa fa-check"></i><b>7.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#non-parametric-tests"><i class="fa fa-check"></i>Non-Parametric tests</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a><ul>
+<li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
-<li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 <li class="chapter" data-level="8.2.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -419,7 +494,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
 <li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
@@ -433,32 +509,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.11" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
 <li class="chapter" data-level="8.4.12" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="8.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="8.5.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="8.5.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
+<ul>
 <li><a href="apes-alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
 <li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen’s d to r</a></li>
 <li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
 <li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a><ul>
+<li class="chapter" data-level="9" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="9.3" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="9.4" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
 <li class="chapter" data-level="9.5" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a><ul>
+<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
-<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-8"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-8"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="correlations.html"><a href="correlations.html#read"><i class="fa fa-check"></i><b>10.2.1</b> Read</a></li>
 <li class="chapter" data-level="10.2.2" data-path="correlations.html"><a href="correlations.html#watch-1"><i class="fa fa-check"></i><b>10.2.2</b> Watch</a></li>
 <li class="chapter" data-level="10.2.3" data-path="correlations.html"><a href="correlations.html#play"><i class="fa fa-check"></i><b>10.2.3</b> Play</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#inclass-activity-7"><i class="fa fa-check"></i><b>10.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#inclass-activity-7"><i class="fa fa-check"></i><b>10.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT1"><i class="fa fa-check"></i><b>10.3.1</b> Task 1 - The Data</a></li>
 <li class="chapter" data-level="10.3.2" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT2"><i class="fa fa-check"></i><b>10.3.2</b> Task 2 - Interval or Ordinal</a></li>
 <li class="chapter" data-level="10.3.3" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT3"><i class="fa fa-check"></i><b>10.3.3</b> Task 3 - Missing Data</a></li>
@@ -472,21 +554,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.11" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT9"><i class="fa fa-check"></i><b>10.3.11</b> Task 9 - Attitudes to Vaping</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="correlations.html"><a href="correlations.html#assignment-5"><i class="fa fa-check"></i><b>10.4</b> Assignment</a></li>
-<li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#solutions-to-questions-9"><i class="fa fa-check"></i><b>10.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#solutions-to-questions-9"><i class="fa fa-check"></i><b>10.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="correlations.html"><a href="correlations.html#inclass-activities-7"><i class="fa fa-check"></i><b>10.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="correlations.html"><a href="correlations.html#additional-material-6"><i class="fa fa-check"></i><b>10.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="10.6" data-path="correlations.html"><a href="correlations.html#additional-material-6"><i class="fa fa-check"></i><b>10.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#checking-for-outliers-with-z-scores"><i class="fa fa-check"></i>Checking for outliers with z-scores</a></li>
 <li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#a-different-approach-to-making-a-correlation-table"><i class="fa fa-check"></i>A different approach to making a correlation table</a></li>
 <li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#comparing-correlations"><i class="fa fa-check"></i>Comparing Correlations</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
+<li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
-<li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#read-1"><i class="fa fa-check"></i><b>11.2.1</b> Read</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#inclass-activity-8"><i class="fa fa-check"></i><b>11.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="11.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#inclass-activity-8"><i class="fa fa-check"></i><b>11.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="11.3.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#recreate-decomposition-matrix-from-the-raw-data"><i class="fa fa-check"></i><b>11.3.1</b> Recreate decomposition matrix from the raw data</a></li>
 <li class="chapter" data-level="11.3.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT1"><i class="fa fa-check"></i><b>11.3.2</b> Step 1: Create the basic tibble</a></li>
 <li class="chapter" data-level="11.3.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT2"><i class="fa fa-check"></i><b>11.3.3</b> Step 2: Estimate the Grand Mean <span class="math inline">\(\hat{\mu}\)</span></a></li>
@@ -494,7 +581,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.3.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT4"><i class="fa fa-check"></i><b>11.3.5</b> Step 4: Calculate Residuals <span class="math inline">\(\widehat{S(A)}_{ij}\)</span></a></li>
 <li class="chapter" data-level="11.3.6" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT5"><i class="fa fa-check"></i><b>11.3.6</b> Step 5: Sums of squares</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#test-yourself-4"><i class="fa fa-check"></i><b>11.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="11.4" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#test-yourself-4"><i class="fa fa-check"></i><b>11.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="11.4.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT1"><i class="fa fa-check"></i><b>11.4.1</b> Question 1</a></li>
 <li class="chapter" data-level="11.4.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT2"><i class="fa fa-check"></i><b>11.4.2</b> Question 2</a></li>
 <li class="chapter" data-level="11.4.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT3"><i class="fa fa-check"></i><b>11.4.3</b> Question 3</a></li>
@@ -505,38 +593,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.4.8" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT8"><i class="fa fa-check"></i><b>11.4.8</b> Question 8</a></li>
 <li class="chapter" data-level="11.4.9" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT9"><i class="fa fa-check"></i><b>11.4.9</b> Question 9: Create your own decomposition matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#solutions-to-questions-10"><i class="fa fa-check"></i><b>11.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="11.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#solutions-to-questions-10"><i class="fa fa-check"></i><b>11.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="11.5.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#inclass-activities-8"><i class="fa fa-check"></i><b>11.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="11.5.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#test-yourself-activities-4"><i class="fa fa-check"></i><b>11.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a><ul>
+<li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-12"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
-<li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-10"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-10"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="12.2.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#read-2"><i class="fa fa-check"></i><b>12.2.1</b> Read</a></li>
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activity-9"><i class="fa fa-check"></i><b>12.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="12.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activity-9"><i class="fa fa-check"></i><b>12.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT1"><i class="fa fa-check"></i><b>12.3.1</b> Task 1 - Quick Checks</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT2"><i class="fa fa-check"></i><b>12.3.2</b> Task 2 - Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3"><i class="fa fa-check"></i><b>12.3.3</b> Task 3 - F-ratios</a></li>
 <li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using afex::aov_ez()</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#assignment-6"><i class="fa fa-check"></i><b>12.4</b> Assignment</a></li>
-<li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="12.5.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activities-9"><i class="fa fa-check"></i><b>12.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
+<li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-13"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
-<li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-11"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-11"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#read-3"><i class="fa fa-check"></i><b>13.2.1</b> Read</a></li>
 <li class="chapter" data-level="13.2.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#try-1"><i class="fa fa-check"></i><b>13.2.2</b> TRY</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#inclass-activity-10"><i class="fa fa-check"></i><b>13.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="13.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#inclass-activity-10"><i class="fa fa-check"></i><b>13.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT1"><i class="fa fa-check"></i><b>13.3.1</b> Estimation equations and decomposition matrix</a></li>
 <li class="chapter" data-level="13.3.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT2"><i class="fa fa-check"></i><b>13.3.2</b> Adding the missing columns</a></li>
 <li class="chapter" data-level="13.3.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT3"><i class="fa fa-check"></i><b>13.3.3</b> Understanding the two-factor decomposition matrix</a></li>
@@ -545,7 +642,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3.6" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT6"><i class="fa fa-check"></i><b>13.3.6</b> Running a 2x2 between-subjects ANOVA with aov_ez</a></li>
 <li class="chapter" data-level="13.3.7" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.7</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#test-yourself-5"><i class="fa fa-check"></i><b>13.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#test-yourself-5"><i class="fa fa-check"></i><b>13.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1A"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
 <li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1B"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="13.4.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT2"><i class="fa fa-check"></i><b>13.4.3</b> Task 2: Calculate cell means</a></li>
@@ -559,17 +657,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4.11" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT10"><i class="fa fa-check"></i><b>13.4.11</b> Task 10: Interpreting the ANOVA output Question</a></li>
 <li class="chapter" data-level="13.4.12" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT11"><i class="fa fa-check"></i><b>13.4.12</b> Task 11: Report your results</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#solutions-to-questions-12"><i class="fa fa-check"></i><b>13.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="13.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#solutions-to-questions-12"><i class="fa fa-check"></i><b>13.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="13.5.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#inclass-activities-10"><i class="fa fa-check"></i><b>13.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="13.5.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#test-yourself-activities-5"><i class="fa fa-check"></i><b>13.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a><ul>
+<li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-14"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
-<li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="14.2.1" data-path="regression.html"><a href="regression.html#read-4"><i class="fa fa-check"></i><b>14.2.1</b> Read</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="regression.html"><a href="regression.html#inclass-activity-11"><i class="fa fa-check"></i><b>14.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="14.3" data-path="regression.html"><a href="regression.html#inclass-activity-11"><i class="fa fa-check"></i><b>14.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="14.3.1" data-path="regression.html"><a href="regression.html#Ch14InClassQueT1"><i class="fa fa-check"></i><b>14.3.1</b> Task 1: Setup</a></li>
 <li class="chapter" data-level="14.3.2" data-path="regression.html"><a href="regression.html#Ch14InClassQueT2"><i class="fa fa-check"></i><b>14.3.2</b> Task 2: Restructuring the ratings</a></li>
 <li class="chapter" data-level="14.3.3" data-path="regression.html"><a href="regression.html#Ch14InClassQueT3"><i class="fa fa-check"></i><b>14.3.3</b> Task 3: Calculate mean trustworthiness rating for each voice</a></li>
@@ -581,7 +683,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3.9" data-path="regression.html"><a href="regression.html#Ch14InClassQueT9"><i class="fa fa-check"></i><b>14.3.9</b> Task 9: Making predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="14.4" data-path="regression.html"><a href="regression.html#assignment-7"><i class="fa fa-check"></i><b>14.4</b> Assignment</a></li>
-<li class="chapter" data-level="14.5" data-path="regression.html"><a href="regression.html#solutions-to-questions-13"><i class="fa fa-check"></i><b>14.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="14.5" data-path="regression.html"><a href="regression.html#solutions-to-questions-13"><i class="fa fa-check"></i><b>14.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="14.5.1" data-path="regression.html"><a href="regression.html#inclass-activities-11"><i class="fa fa-check"></i><b>14.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-1-1"><i class="fa fa-check"></i><b>14.5.2</b> Task 1</a></li>
 <li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-2"><i class="fa fa-check"></i><b>14.5.3</b> Task 2</a></li>
@@ -594,9 +697,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.5.10" data-path="regression.html"><a href="regression.html#task-9"><i class="fa fa-check"></i><b>14.5.10</b> Task 9</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a><ul>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
 <li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
 <li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
@@ -604,14 +709,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
 <li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
 <li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
 <li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
 <li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
 <li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
 <li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
 <li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
@@ -625,13 +732,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
 <li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
 <li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
 <li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a><ul>
+<li class="chapter" data-level="16" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
 <li class="chapter" data-level="16.2" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="16.3" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
@@ -666,9 +775,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regression" class="section level1">
+<div id="regression" class="section level1" number="14">
 <h1><span class="header-section-number">Lab 14</span> Regression</h1>
-<div id="overview-14" class="section level2">
+<div id="overview-14" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> Overview</h2>
 <p>For the past few weeks we have been looking at designs where you have categorical factors/variables and where you want to see whether there is an effect of a given factor or an interaction between two factors on a continuous DV. And we have looked at this through decomposition matrices and through the <strong><code>afex</code></strong> package and the <code>aov_ez()</code> function. We also briefly mentioned how this approach can be extrapolated into designs with more than two factors such as three-way ANOVAs (three factors) and larger, but also into within-subject designs where every participant sees every stimuli, and mixed-designs where you have at least one between and one within factor. We will look in-depth at these different types of designs next year.</p>
 <p>Today, however, we want to start looking at predicting relationships from continuous variables through regression. You will already be familiar with many of the terms here from your lecture series. In addition, by looking at a practical example (relating to voice research) in the lab, and by reading about regression in Miller and Haden (2013) in the PreClass, it should start to become more concrete for you. Regression is still part of the GLM and eventually the goal will be to show you how to analyse designs that has both categorical and continuous variables as much of real data is made up like that. But for now we will just look at simple linear regression and multitple linear regression to make you more comfortable with carrying out and interpreting these analyses.</p>
@@ -680,10 +789,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 </div>
-<div id="preclass-activity-12" class="section level2">
+<div id="preclass-activity-12" class="section level2" number="14.2">
 <h2><span class="header-section-number">14.2</span> PreClass Activity</h2>
 <p>As in previous chapters, the PreClass activity is to read the following chapter from Miller and Haden (2013). You may also want to try reading Chapter 14 as well on Multiple Regression but really more to add to your understanding of the general goal, as opposed to the underlying computations. Finally, reviewing your lecture on Simple Linear and Multiple Linear Regression will really help your understanding of this lab.</p>
-<div id="read-4" class="section level3">
+<div id="read-4" class="section level3" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> Read</h3>
 <p><strong>Chapter</strong></p>
 <p>Read Chapter 12 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> and try to understand the how the GLM applies to regression. The concept of regression will be familiar to you based on the stats lectures of this semester so some of the terms will just be recapping. Some will be an expansion of your understanding and basing the analysis in terms of the GLM.</p>
@@ -693,7 +802,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-<div id="inclass-activity-11" class="section level2">
+<div id="inclass-activity-11" class="section level2" number="14.3">
 <h2><span class="header-section-number">14.3</span> InClass Activity</h2>
 <p>You have been reading about regression in Miller and Haden (2013) and have been looking at it in the lectures. Today, to help get a practical understanding of regression, you will be working with real data and using regression to explore the question of whether there is a relationship between voice acoustics and ratings of perceived trustworthiness.</p>
 <p><strong>The Voice</strong></p>
@@ -708,18 +817,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Have a look at the layout of the data and familiarise yourself with it. The ratings data is rather messy and in a different layout to the acoustics but can you tell what is what?</p>
 <ul>
-<li>Looking at the layout of the acoustics data it appears to be in <select class='solveme' data-answer='["tidy"]'> <option></option> <option>long</option> <option>wide</option> <option>tidy</option></select></li>
-<li>Looking at the layout of the ratings data it appears to be in <select class='solveme' data-answer='["wide"]'> <option></option> <option>long</option> <option>wide</option></select></li>
+<li>Looking at the layout of the acoustics data it appears to be in <select class='webex-solveme' data-answer='["tidy"]'> <option></option> <option>long</option> <option>wide</option> <option>tidy</option></select></li>
+<li>Looking at the layout of the ratings data it appears to be in <select class='webex-solveme' data-answer='["wide"]'> <option></option> <option>long</option> <option>wide</option></select></li>
 </ul>
 <p>It may help to refer back to <a href="https://psyteachr.github.io/ug2-practical/data-wrangling-a-key-skill.html#inclass-activity" target="_blank">Chapter 2</a> of the book on different layouts of data if you are still not quite sure what is the difference between long and tidy. But in terms of today, we are going to need to do some data-wrangling before we do any analysis, so let’s crack on with that!</p>
-<div id="Ch14InClassQueT1" class="section level3">
+<div id="Ch14InClassQueT1" class="section level3" number="14.3.1">
 <h3><span class="header-section-number">14.3.1</span> Task 1: Setup</h3>
 <p>Start by opening a new script or .Rmd (depending on how you like to work) and load in the <strong><code>tidyverse</code></strong>, <strong><code>broom</code></strong>, and the two CSV datasets into tibbles called <code>ratings</code> and <code>acoustics</code>. Probably best if the ratings are in <code>ratings</code> and the acoustics in <code>acoustics</code>.</p>
 <ul>
 <li><strong>Note:</strong> Remember that order of packages matter and we recommend always loading in tidyverse last.</li>
 </ul>
 </div>
-<div id="Ch14InClassQueT2" class="section level3">
+<div id="Ch14InClassQueT2" class="section level3" number="14.3.2">
 <h3><span class="header-section-number">14.3.2</span> Task 2: Restructuring the ratings</h3>
 <p>Next we need to calculate a mean rating score for each voice. We are analysing the voices and not specifically what each participant rated each voice as (that is for another year) so we need to average across all participants, their ratings for each individual voice and get a mean rating for each voice. You will see in your data that the voices are identified in the VoiceID column.</p>
 <p>Recall the difference between <strong>tidy</strong>, <strong>wide</strong> and <strong>long</strong> data. In wide data, each row represents an individual case, with different observations for that case in separate columns; in long data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the <code>VoiceID</code> variable). Tidy is a bit like a mix of these ideas but is generally closer to long format, with the main difference being that you are likely to have more than one row relating to a given observation.</p>
@@ -816,7 +925,7 @@ P6
 </li>
 <li>Only the first six rows are shown but your tibble will have all the data. In the table above you see the first six ratings of Voice 1, with each rating coming from a different participant.</li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Hint for Task 2
 </button>
@@ -832,13 +941,13 @@ don’t forget the quotation marks
 </div>
 </div>
 </div>
-<div id="Ch14InClassQueT3" class="section level3">
+<div id="Ch14InClassQueT3" class="section level3" number="14.3.3">
 <h3><span class="header-section-number">14.3.3</span> Task 3: Calculate mean trustworthiness rating for each voice</h3>
 <p>Now that you’ve gotten your ratings data into a more tidy format, the next step is to calculate the mean rating (<code>mean_rating</code>) for each voice. Remember that each voice is identified by the <code>VoiceID</code> variable. Store the resulting tibble in a variable named <code>ratings_mean</code>.</p>
 <ul>
 <li>The reason you need the mean rating for each voice is because you have to think what goes into the regression - what is actually being analysed. The analysis requires one trustworthiness rating for each voice, so that means we need to average across all the ratings for each voice. Otherwise we would have far too much data!</li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Hint for Task 3
 </button>
@@ -854,7 +963,7 @@ remember if there are any NAs then na.rm = TRUE would help
 </div>
 </div>
 </div>
-<div id="Ch14InClassQueT4" class="section level3">
+<div id="Ch14InClassQueT4" class="section level3" number="14.3.4">
 <h3><span class="header-section-number">14.3.4</span> Task 4: Joining the Data together</h3>
 <p>Great! We are so hot at wrangling now we are like hot wrangling irons! But before we get ahead of ourselves, in order to perform the regression analysis, we need to combine the data from <code>ratings_mean</code> (the mean ratings; our Dependent Variable - what we want to predict) with <code>acoustics</code> (the pitch and dispersion ratings; our Predictors). Also, as we said, we only want to analyse Male voices today.</p>
 <ul>
@@ -989,7 +1098,7 @@ Dispersion
 </tr>
 </tbody>
 </table>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Hint for Task 4
 </button>
@@ -1005,7 +1114,7 @@ filter to keep just Male voices
 </div>
 </div>
 </div>
-<div id="Ch14InClassQueT5" class="section level3">
+<div id="Ch14InClassQueT5" class="section level3" number="14.3.5">
 <h3><span class="header-section-number">14.3.5</span> Task 5: Scatterplot</h3>
 <p>As always, where possible, it is a good idea to visualise your data. Now that we have all of the variables in one place, reproduce the scatterplot shown below and then try to answer the below questions.</p>
 <ul>
@@ -1022,9 +1131,9 @@ Figure 14.1: Scatterplot showing the relationship between the voice measures of 
 <p><br><br></p>
 <p><strong>Answer me:</strong></p>
 <ul>
-<li>According to the scatterplot, there appears to be a <select class='solveme' data-answer='["positive relationship"]'> <option></option> <option>negative relationship</option> <option>positive relationship</option></select> between both pitch and trustworthiness and dispersion and trustworthiness though the relationship with <select class='solveme' data-answer='["pitch"]'> <option></option> <option>dispersion</option> <option>pitch</option></select> seems stronger.</li>
+<li>According to the scatterplot, there appears to be a <select class='webex-solveme' data-answer='["positive relationship"]'> <option></option> <option>negative relationship</option> <option>positive relationship</option></select> between both pitch and trustworthiness and dispersion and trustworthiness though the relationship with <select class='webex-solveme' data-answer='["pitch"]'> <option></option> <option>dispersion</option> <option>pitch</option></select> seems stronger.</li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Hint for Task 5
 </button>
@@ -1066,14 +1175,14 @@ The second consideration is strength: strong, medium or weak.
 </div>
 </div>
 </div>
-<div id="Ch14InClassQueT6" class="section level3">
+<div id="Ch14InClassQueT6" class="section level3" number="14.3.6">
 <h3><span class="header-section-number">14.3.6</span> Task 6: Spreading the data with <code>pivot_wider()</code></h3>
 <p>Ok so we are starting to get an understanding of our data and we want to start thinking about the regression. However, the regression would be easier to work with if Pitch and Dispersion were in separate columns. So I know we just joined the columns together to create the figure and now we are splitting them to do the analyse and that might seem odd. There are ways around this that you will develop in future years but when learning it can help just to keep everything systematic and really highly processed. So sometimes you will see funny moves like this. But remember, if the code works and does what you need, then the only bad code is no code</p>
 <ul>
 <li>Using the <code>pivot_wider()</code> function, create a new tibble where Pitch and Dispersion data have been split into two columns called <code>Pitch</code> and <code>Dispersion</code> respectively.</li>
 <li>We used <code>pivot_wider()</code> to spread data in Chapter 5 when creating the difference of two groups so maybe refer back then to see how to input the columns, but there is also information in the hint below.</li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Hint for Task 6
 </button>
@@ -1083,17 +1192,17 @@ Hint for Task 6
 pivot_wider() needs the data, name of the categorical column to spread, and the name of the data to spread
 </li>
 <li>
-pivot_wider(data, names_from = “column_name”, values_from = “column_name”)
+pivot_wider(data, names_from = “column_name,” values_from = “column_name”)
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div id="Ch14InClassQueT7" class="section level3">
+<div id="Ch14InClassQueT7" class="section level3" number="14.3.7">
 <h3><span class="header-section-number">14.3.7</span> Task 7: The Regressions</h3>
 <p>Ok we are almost at the point when we need to do the regression. We should always think about assumptions but as that is covered in the lecture series we will mostly leave that there for now. That said, one assumption we can roughly and quickly look at is the correlation between Pitch and Dispersion, remembering the issue of <strong>multicollinearity</strong> - if predictors are highly correlated (r &gt; .8 for example then it is impossible to tease apart their unique contributions). So, now, run a code using <code>cor.test()</code> to calculate the correlation between Pitch and Dispersion and then fill in this statement.</p>
 <ul>
-<li>The correlation between Pitch and Dispersion is <select class='solveme' data-answer='["rho = .239"]'> <option></option> <option>rho = .239</option> <option>rho = -.239</option> <option>rho = .186</option> <option>rho = -.186</option></select> which would suggest that we have no issues with multicollinearity as our two predictors are only slightly correlated. So nothing to worry about there.</li>
+<li>The correlation between Pitch and Dispersion is <select class='webex-solveme' data-answer='["rho = .239"]'> <option></option> <option>rho = .239</option> <option>rho = -.239</option> <option>rho = .186</option> <option>rho = -.186</option></select> which would suggest that we have no issues with multicollinearity as our two predictors are only slightly correlated. So nothing to worry about there.</li>
 </ul>
 <p>Right, now let’s do some regression analysis. We will first do two simple linear regressions (one for each predictor), and then we will do a multiple linear regression using both predictors.</p>
 <p>The <code>lm()</code> function in R is the main function we will use to estimate a <strong>L</strong>inear <strong>M</strong>odel (hence the function name <code>lm</code>). The function takes the format of:</p>
@@ -1111,7 +1220,7 @@ pivot_wider(data, names_from = “column_name”, values_from = “column_name�
 <ul>
 <li>Run the multiple linear regression of predicting trustworthiness mean ratings from Pitch and Dispersion, and store the model in <code>mod_pitchdisp</code></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Hint for Task 7
 </button>
@@ -1144,11 +1253,11 @@ lm(trust_column ~ pitch_column + dispersion_column, data = my_data) for multiple
 </div>
 </div>
 </div>
-<div id="Ch14InClassQueT8" class="section level3">
+<div id="Ch14InClassQueT8" class="section level3" number="14.3.8">
 <h3><span class="header-section-number">14.3.8</span> Task 8: Model interpretations</h3>
-<p>Now let’s look at the results of each model in turn, using the function <code>summary()</code>, e.g. <code>summary(mod_pitch)</code>, and try to interpret them based on what you already know about regression outputs from the lectures.</p>
+<p>Now let’s look at the results of each model in turn, using the function <code>summary()</code>, e.g. <code>summary(mod_pitch)</code>, and try to interpret them based on what you already know about regression outputs from the lectures.</p>
 <p>Let’s start by looking at the <code>mod_pitch</code> model together.</p>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb591-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="regression.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitch)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1172,28 +1281,89 @@ lm(trust_column ~ pitch_column + dispersion_column, data = my_data) for multiple
 <p>Worth also pointing out here that in a simple linear regression the F-test and the t-value for the predictor are the same based on t^2 = F, as seen earlier in this book. For example, looking at the values above, we see that 3.852 <span class="math inline">\(\times\)</span> 3.852 = 14.83. Just again goes to show that there is a link between the tests we have been looking at.</p>
 <p>Ok, based on that knowledge, answer the following questions about the two remaining models.</p>
 <ul>
-<li>The model of just dispersion as a predictor would explain approximately <select class='solveme' data-answer='["3%"]'> <option></option> <option>3%</option> <option>13%</option> <option>31%</option> <option>33%</option></select></li>
-<li>In fact, the model of just dispersion is <select class='solveme' data-answer='["not significant"]'> <option></option> <option>not significant</option> <option>significant</option></select> and therefor <select class='solveme' data-answer='["no use"]'> <option></option> <option>no use</option> <option>very useful</option></select> as a model</li>
-<li>Looking at the multiple linear regression model, the explained variance is <select class='solveme' data-answer='["30.5%"]'> <option></option> <option>3.05%</option> <option>13.5%</option> <option>30.5%</option> <option>33.5%</option></select>and as such explains <select class='solveme' data-answer='["less"]'> <option></option> <option>less</option> <option>more</option></select> variance than the pitch only model.</li>
+<li>The model of just dispersion as a predictor would explain approximately <select class='webex-solveme' data-answer='["3%"]'> <option></option> <option>3%</option> <option>13%</option> <option>31%</option> <option>33%</option></select></li>
+<li>In fact, the model of just dispersion is <select class='webex-solveme' data-answer='["not significant"]'> <option></option> <option>not significant</option> <option>significant</option></select> and therefor <select class='webex-solveme' data-answer='["no use"]'> <option></option> <option>no use</option> <option>very useful</option></select> as a model</li>
+<li>Looking at the multiple linear regression model, the explained variance is <select class='webex-solveme' data-answer='["30.5%"]'> <option></option> <option>3.05%</option> <option>13.5%</option> <option>30.5%</option> <option>33.5%</option></select>and as such explains <select class='webex-solveme' data-answer='["less"]'> <option></option> <option>less</option> <option>more</option></select> variance than the pitch only model.</li>
 </ul>
 <p>We have added a brief interpretation of the models in the solution to this task as well so it might be worth reading that to make sure you are understanding the outputs.</p>
 <p>What the above should remind you is that it is not the case that simply putting all the possible predictors into a model will make it a better model. For every predictor you add there is a penalty associated with the Adjusted-R^2 and if the explained variance attributable to the new predictor is not greater than the penalty to overall explained variance then you may actually end up with a worse model despite having more predictors. We touched briefly in the lecture on using the <code>anova(model1, model2)</code> approach to compare models; something like this:</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb593-1" data-line-number="1"><span class="kw">anova</span>(mod_pitch, mod_pitchdisp)</a></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="regression.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_pitch, mod_pitchdisp)</span></code></pre></div>
 <p>Which gives the following output:</p>
-<pre><code>## Analysis of Variance Table
-## 
-## Model 1: mean_rating ~ Pitch
-## Model 2: mean_rating ~ Pitch + Dispersion
-##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
-## 1     30 11.827                           
-## 2     29 11.486  1   0.34065 0.8601 0.3614</code></pre>
+<div class="kable-table">
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Res.Df
+</th>
+<th style="text-align:right;">
+RSS
+</th>
+<th style="text-align:right;">
+Df
+</th>
+<th style="text-align:right;">
+Sum of Sq
+</th>
+<th style="text-align:right;">
+F
+</th>
+<th style="text-align:right;">
+Pr(&gt;F)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+11.82665
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+11.48600
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.3406532
+</td>
+<td style="text-align:right;">
+0.8600855
+</td>
+<td style="text-align:right;">
+0.3613695
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>And shows no significant difference between these two models. We will look at model comparison more in the coming months and years but it is always good to keep the rule of parsimony in mind! The simpler the better.</p>
 </div>
-<div id="Ch14InClassQueT9" class="section level3">
+<div id="Ch14InClassQueT9" class="section level3" number="14.3.9">
 <h3><span class="header-section-number">14.3.9</span> Task 9: Making predictions</h3>
 <p>Congratulations! You have successfully constructed a linear model relating trustworthiness to pitch and dispersion and you can think about applying this knowledge to other challenges - perhaps go look at female voices? However, one last thing you might want to do that we will quickly show you is how to make a prediction using the <code>predict()</code> function. One way you use this, though see the solution to the chapter for alternatives, is:</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb595-1" data-line-number="1"><span class="kw">predict</span>(model, newdata)</a></code></pre></div>
-<p>where <code>newdata</code> is a tibble with new observations/values of X (e.g. <code>pitch</code> and/or <code>dispersion</code>) for which you want to predict the corresponding Y values (<code>mean_rating</code>). So let’s try that out now.</p>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="regression.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model, newdata)</span></code></pre></div>
+<p>where <code>newdata</code> is a tibble with new observations/values of X (e.g. <code>pitch</code> and/or <code>dispersion</code>) for which you want to predict the corresponding Y values (<code>mean_rating</code>). So let’s try that out now.</p>
 <ul>
 <li>Make a tibble with two columns, one called <code>Pitch</code> and one called <code>Dispersion</code> - exactly as spelt in the model. Give <code>Pitch</code> a value of 150 Hz (quite a high voice) and give <code>Dispersion</code> a value of 1100 Hz - somewhere in the middle. We saw how to create tibbles in Chapter 5 using the <code>tibble()</code> function so you might need to refer back to that.<br />
 </li>
@@ -1201,9 +1371,9 @@ lm(trust_column ~ pitch_column + dispersion_column, data = my_data) for multiple
 </ul>
 <p>Now, based on the output try to answer this question:</p>
 <ul>
-<li>To one decimal place, what is the predicted trustworthiness rating of a person with 150 Hz Pitch and 1100 Hz Dispersion - <input class='solveme nospaces' size='4' data-answer='["5.3"]'/></li>
+<li>To one decimal place, what is the predicted trustworthiness rating of a person with 150 Hz Pitch and 1100 Hz Dispersion - <input class='webex-solveme nospaces' size='4' data-answer='["5.3"]'/></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Hint for Task 9
 </button>
@@ -1230,61 +1400,61 @@ predict(mod_pitchdisp, newdata)
 
 </div>
 </div>
-<div id="assignment-7" class="section level2">
+<div id="assignment-7" class="section level2" number="14.4">
 <h2><span class="header-section-number">14.4</span> Assignment</h2>
 <p>This is a <strong>summative</strong> assignment and as such, as well as testing your knowledge, skills, and learning, this assignment contributes to your overall grade for this semester. You will be instructed by the Course Lead on Moodle as to when you will receive this assignment, as well as given full instructions as to how to access and submit the assignment. Please check the information and schedule on the Level 2 Moodle page.</p>
 
 </div>
-<div id="solutions-to-questions-13" class="section level2">
+<div id="solutions-to-questions-13" class="section level2" number="14.5">
 <h2><span class="header-section-number">14.5</span> Solutions to Questions</h2>
 <p>Below you will find the solutions to the questions for the Activities in this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
-<div id="inclass-activities-11" class="section level3">
+<div id="inclass-activities-11" class="section level3" number="14.5.1">
 <h3><span class="header-section-number">14.5.1</span> InClass Activities</h3>
 </div>
-<div id="task-1-1" class="section level3">
+<div id="task-1-1" class="section level3" number="14.5.2">
 <h3><span class="header-section-number">14.5.2</span> Task 1</h3>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb596-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)</a>
-<a class="sourceLine" id="cb596-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb596-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb596-4" data-line-number="4">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb596-5" data-line-number="5">acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="regression.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;broom&quot;</span>)</span>
+<span id="cb608-2"><a href="regression.html#cb608-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb608-3"><a href="regression.html#cb608-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb608-4"><a href="regression.html#cb608-4" aria-hidden="true" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)</span>
+<span id="cb608-5"><a href="regression.html#cb608-5" aria-hidden="true" tabindex="-1"></a>acoustics <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT1">Return to Task</a></p>
 </div>
-<div id="task-2" class="section level3">
+<div id="task-2" class="section level3" number="14.5.3">
 <h3><span class="header-section-number">14.5.3</span> Task 2</h3>
 <ul>
 <li>We are calling the new tibble <code>ratings_tidy</code>. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on, the tibble names might not match up so, you may need to do a little bit of backtracking to see where tibbles were created.</li>
 </ul>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" data-line-number="1">ratings_tidy &lt;-<span class="st"> </span><span class="kw">pivot_longer</span>(ratings, </a>
-<a class="sourceLine" id="cb597-2" data-line-number="2">                              <span class="dt">names_to =</span> <span class="st">&quot;participant&quot;</span>, </a>
-<a class="sourceLine" id="cb597-3" data-line-number="3">                              <span class="dt">values_to =</span> <span class="st">&quot;rating&quot;</span>, </a>
-<a class="sourceLine" id="cb597-4" data-line-number="4">                              <span class="dt">cols =</span> <span class="st">&quot;P1&quot;</span><span class="op">:</span><span class="st">&quot;P28&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="regression.html#cb609-1" aria-hidden="true" tabindex="-1"></a>ratings_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(ratings, </span>
+<span id="cb609-2"><a href="regression.html#cb609-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_to =</span> <span class="st">&quot;participant&quot;</span>, </span>
+<span id="cb609-3"><a href="regression.html#cb609-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">values_to =</span> <span class="st">&quot;rating&quot;</span>, </span>
+<span id="cb609-4"><a href="regression.html#cb609-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">cols =</span> <span class="st">&quot;P1&quot;</span><span class="sc">:</span><span class="st">&quot;P28&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT2">Return to Task</a></p>
 </div>
-<div id="task-3" class="section level3">
+<div id="task-3" class="section level3" number="14.5.4">
 <h3><span class="header-section-number">14.5.4</span> Task 3</h3>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb598-1" data-line-number="1">ratings_mean &lt;-<span class="st"> </span>ratings_tidy <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb598-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(VoiceID) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb598-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_rating =</span> <span class="kw">mean</span>(rating))</a></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="regression.html#cb610-1" aria-hidden="true" tabindex="-1"></a>ratings_mean <span class="ot">&lt;-</span> ratings_tidy <span class="sc">%&gt;%</span> </span>
+<span id="cb610-2"><a href="regression.html#cb610-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VoiceID) <span class="sc">%&gt;%</span> </span>
+<span id="cb610-3"><a href="regression.html#cb610-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(rating))</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT3">Return to Task</a></p>
 </div>
-<div id="task-4" class="section level3">
+<div id="task-4" class="section level3" number="14.5.5">
 <h3><span class="header-section-number">14.5.5</span> Task 4</h3>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" data-line-number="1">joined &lt;-<span class="st"> </span><span class="kw">inner_join</span>(ratings_mean, </a>
-<a class="sourceLine" id="cb599-2" data-line-number="2">                     acoustics, </a>
-<a class="sourceLine" id="cb599-3" data-line-number="3">                     <span class="st">&quot;VoiceID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb599-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="regression.html#cb611-1" aria-hidden="true" tabindex="-1"></a>joined <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(ratings_mean, </span>
+<span id="cb611-2"><a href="regression.html#cb611-2" aria-hidden="true" tabindex="-1"></a>                     acoustics, </span>
+<span id="cb611-3"><a href="regression.html#cb611-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;VoiceID&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb611-4"><a href="regression.html#cb611-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT4">Return to Task</a></p>
 </div>
-<div id="task-5" class="section level3">
+<div id="task-5" class="section level3" number="14.5.6">
 <h3><span class="header-section-number">14.5.6</span> Task 5</h3>
 <p>The following code:</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb600-1" data-line-number="1"><span class="kw">ggplot</span>(joined, <span class="kw">aes</span>(value, mean_rating)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb600-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb600-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb600-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">7</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb600-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>measures, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb600-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="regression.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(joined, <span class="fu">aes</span>(value, mean_rating)) <span class="sc">+</span></span>
+<span id="cb612-2"><a href="regression.html#cb612-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb612-3"><a href="regression.html#cb612-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
+<span id="cb612-4"><a href="regression.html#cb612-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb612-5"><a href="regression.html#cb612-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>measures, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span></span>
+<span id="cb612-6"><a href="regression.html#cb612-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p>Will gives the below figure:</p>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:ch14-t5-scatter-sol"></span>
@@ -1295,24 +1465,24 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 </div>
 <p><a href="regression.html#Ch14InClassQueT5">Return to Task</a></p>
 </div>
-<div id="task-6" class="section level3">
+<div id="task-6" class="section level3" number="14.5.7">
 <h3><span class="header-section-number">14.5.7</span> Task 6</h3>
 <ul>
 <li><code>pivot_wider()</code> is the reverse of <code>pivot_longer()</code></li>
 <li>It takes in the data and you tell it which values you want to spread and by which column</li>
 <li>Order is normally, data, names_from, values_from.</li>
 </ul>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" data-line-number="1">joined_wide &lt;-<span class="st"> </span>joined <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> <span class="st">&quot;measures&quot;</span>,</a>
-<a class="sourceLine" id="cb602-2" data-line-number="2">                                      <span class="dt">values_from =</span> <span class="st">&quot;value&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="regression.html#cb614-1" aria-hidden="true" tabindex="-1"></a>joined_wide <span class="ot">&lt;-</span> joined <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&quot;measures&quot;</span>,</span>
+<span id="cb614-2"><a href="regression.html#cb614-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">values_from =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT6">Return to Task</a></p>
 </div>
-<div id="task-7" class="section level3">
+<div id="task-7" class="section level3" number="14.5.8">
 <h3><span class="header-section-number">14.5.8</span> Task 7</h3>
 <p><strong>Simple Linear Regression - Pitch</strong></p>
 <p>The pitch model would be written as such:</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" data-line-number="1">mod_pitch &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch, joined_wide)</a></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="regression.html#cb615-1" aria-hidden="true" tabindex="-1"></a>mod_pitch <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Pitch, joined_wide)</span></code></pre></div>
 <p>And gives the following output:</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="regression.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitch)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1333,9 +1503,9 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 ## F-statistic: 14.83 on 1 and 30 DF,  p-value: 0.0005732</code></pre>
 <p><strong>Simple Linear Regression - Dispersion</strong></p>
 <p>The Dispersion model would be written as such:</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" data-line-number="1">mod_disp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="regression.html#cb618-1" aria-hidden="true" tabindex="-1"></a>mod_disp <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Dispersion, joined_wide)</span></code></pre></div>
 <p>And gives the following output:</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1"><span class="kw">summary</span>(mod_disp)</a></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="regression.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_disp)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Dispersion, data = joined_wide)
@@ -1354,9 +1524,9 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 ## F-statistic:  1.98 on 1 and 30 DF,  p-value: 0.1697</code></pre>
 <p><strong>Multiple Linear Regression - Pitch + Dispersion</strong></p>
 <p>The model with both Pitch and Dispersion as predictors would be written as such:</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1">mod_pitchdisp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch <span class="op">+</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="regression.html#cb621-1" aria-hidden="true" tabindex="-1"></a>mod_pitchdisp <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Pitch <span class="sc">+</span> Dispersion, joined_wide)</span></code></pre></div>
 <p>And gives the following output:</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" data-line-number="1"><span class="kw">summary</span>(mod_pitchdisp)</a></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="regression.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitchdisp)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch + Dispersion, data = joined_wide)
@@ -1378,22 +1548,22 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 ## F-statistic: 7.813 on 2 and 29 DF,  p-value: 0.001931</code></pre>
 <p><a href="regression.html#Ch14InClassQueT7">Return to Task</a></p>
 </div>
-<div id="task-8" class="section level3">
+<div id="task-8" class="section level3" number="14.5.9">
 <h3><span class="header-section-number">14.5.9</span> Task 8</h3>
 <p><strong>A brief explanation:</strong></p>
 <p>From the models you can see that the Dispersion only model is not actually significant (F(1,30) = 1.98, p = .17) meaning that it is not actually any better than using the model that just predicts the mean values. This is backed up by it only explaining around 3% of the variance. Looking at the multiple linear regression model which contains both pitch and dispersion we can see that it is a significant model ((F(2,29) = 7.81, p = .002) explaining 30.5% of the variance). However looking at the p-values of the coefficients, in the column labelled Pr(&gt;|t|), only pitch is a significant predictor in this model (noting that the p-value for pitch (p = .001) is less than <span class="math inline">\(\alpha\)</span> = .05, but the p-value for dispersion is not, (p = .361)). In addition, we see that actually the multiple regression model has smaller predictive ability than the pitch alone model. As such, there is an arguement to be made that the pitch alone model is the best model in the current analysis but in future you might want to actually compare the models using the <code>anova(model1, model2)</code> approach.</p>
 <p><a href="regression.html#Ch14InClassQueT8">Return to Task</a></p>
 </div>
-<div id="task-9" class="section level3">
+<div id="task-9" class="section level3" number="14.5.10">
 <h3><span class="header-section-number">14.5.10</span> Task 9</h3>
 <p><strong>Solution Version 1</strong></p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb612-1" data-line-number="1">newdata &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, <span class="dt">Dispersion =</span> <span class="dv">1100</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, newdata)</a></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="regression.html#cb624-1" aria-hidden="true" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, <span class="at">Dispersion =</span> <span class="dv">1100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="regression.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, newdata)</span></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 2</strong></p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
-<a class="sourceLine" id="cb615-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="regression.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
+<span id="cb627-2"><a href="regression.html#cb627-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>))</span></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 3</strong></p>
@@ -1401,23 +1571,21 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 <li>And if you want to bring it out as a single value, say for a write-up, you could do the following</li>
 <li>This approach may give out a warning about a <code>deprecated</code> function meaning that this won’t work in future updates but for now it is ok to use.</li>
 </ul>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
-<a class="sourceLine" id="cb617-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb617-3" data-line-number="3"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb617-4" data-line-number="4"><span class="st">  </span><span class="kw">pull</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb617-5" data-line-number="5"><span class="st">  </span><span class="kw">round</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="regression.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
+<span id="cb629-2"><a href="regression.html#cb629-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb629-3"><a href="regression.html#cb629-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb629-4"><a href="regression.html#cb629-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb629-5"><a href="regression.html#cb629-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning: &#39;tidy.numeric&#39; is deprecated.
 ## See help(&quot;Deprecated&quot;)</code></pre>
-<pre><code>## Warning: `data_frame()` is deprecated as of tibble 1.1.0.
-## Please use `tibble()` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## Warning: `data_frame()` was deprecated in tibble 1.1.0.
+## Please use `tibble()` instead.</code></pre>
 <pre><code>## [1] 5.3</code></pre>
 <p>or even just:</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
-<a class="sourceLine" id="cb621-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb621-3" data-line-number="3"><span class="st">  </span><span class="kw">pluck</span>(<span class="st">&quot;1&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb621-4" data-line-number="4"><span class="st">  </span><span class="kw">round</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="regression.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
+<span id="cb633-2"><a href="regression.html#cb633-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb633-3"><a href="regression.html#cb633-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;1&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb633-4"><a href="regression.html#cb633-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 5.3</code></pre>
 <p><a href="regression.html#Ch14InClassQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
@@ -1430,16 +1598,16 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 </div>
 <script>
 
-/* update total correct if #total_correct exists */
+/* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
-  if (t = document.getElementById("total_correct")) {
+  if (t = document.getElementById("webex-total_correct")) {
     t.innerHTML =
-      document.getElementsByClassName("correct").length + " of " +
-      document.getElementsByClassName("solveme").length + " correct";
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
   }
 }
 
-/* solution button toggling function */
+/* webex-solution button toggling function */
 b_func = function() {
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
@@ -1458,14 +1626,34 @@ solveme_func = function(e) {
     my_answer = my_answer.toLowerCase();
   }
   if (cl.contains("nospaces")) {
-    my_answer = my_answer.replace(/ /g, "");
+    my_answer = my_answer.replace(/ /g, "")
   }
   
   if (my_answer !== "" & real_answers.includes(my_answer)) {
-    cl.add("correct");
+    cl.add("webex-correct");
   } else {
-    cl.remove("correct");
+    cl.remove("webex-correct");
   }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }  
+  }
+  
   update_total_correct();
 }
 
@@ -1474,13 +1662,13 @@ window.onload = function() {
   var buttons = document.getElementsByTagName("button");
 
   for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i].parentElement.classList.contains('solution')) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
       buttons[i].onclick = b_func;
     }
   }
   
-  /* set up solveme inputs */
-  var solveme = document.getElementsByClassName("solveme");
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
 
   for (var i = 0; i < solveme.length; i++) {
     /* make sure input boxes don't auto-anything */
@@ -1535,12 +1723,13 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
 },
 "fontsettings": {
 "theme": "white",
@@ -1552,6 +1741,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

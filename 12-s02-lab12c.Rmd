@@ -20,7 +20,7 @@ Here we are copying what we did in the last chapter in both the inclass and assi
 
 **Note** that we have also included a column called `sub_id` with a unique identifier for each participant. This is not that important for the decomposition matrix but we will definitely need it later for running the ANOVA using the `afex::aov_ez()` function, so let's just include it now so we don't forget.
 
-<div class="solution"><button>Reveal DMX code</button>
+`r hide("Reveal DMX code")`
 ```{r dmx}
 dmx <- tibble(sub_id = 1:9,
               i = rep(1:3, each = 3),
@@ -35,8 +35,9 @@ dmx <- tibble(sub_id = 1:9,
   ungroup() %>%
   mutate(err = typos - (mu + Ai))
 ```
-</div>
-<br>
+`r unhide()`
+
+
 ```{r dmx-show, echo = FALSE, results='asis'}
 knitr::kable(dmx, 
              align = "c",
@@ -45,7 +46,8 @@ knitr::kable(dmx,
   kable_styling() %>%
   scroll_box(width = "100%", box_css = "border: 0px;")
 ```
-<br>
+
+
 We finished off last week by calculating the Sums of Squares for the different columns - a measure of the variance attributable to that part of the model (or that column). Remember that to calculate the Sums of Squares (or often shortend to $SS$) we square all the values in a column and sum them up. So for example:
 
 $$SS_{\mu} = \sum\mu^2 = (\mu_{11} \times \mu_{11}) + (\mu_{12} \times \mu_{12}) + \space ... \space (\mu_{33} \times \mu_{33})$$
@@ -56,7 +58,8 @@ $$SS_{total} = SS_{\mu} + SS_{A} + SS_{error}$$
 
 * Have a go at calculating the SS of the above decomposition matrix (`dmx`) using the code we showed you towards the end of the inclass activity in the last chapter. If unsure, then the code can be revealed below:
 
-<div class="solution"><button>Show how to calculate Sums of Squares</button>
+`r hide("Show how to calculate Sums of Squares")`
+
 ```{r dat_ss}
 dat_ss <- dmx %>% 
   summarise(total = sum(typos^2),
@@ -75,7 +78,7 @@ knitr::kable(dat_ss,
   kable_styling() %>%
   scroll_box(width = "100%", box_css = "border: 0px;")
 ```
-<br>
+
 
 We can then check that we have calculated everything correctly by using the following relationship:
 
@@ -86,8 +89,7 @@ then:
 $$`r as.integer(dat_ss[["total"]])` = `r as.integer(dat_ss[["ss_mu"]])` + `r dat_ss[["ss_sound"]]` + `r dat_ss[["ss_err"]]`$$
 
 
-</div>
-<br>
+`r unhide()`
 
 
 

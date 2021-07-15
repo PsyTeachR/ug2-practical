@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 1 Starting with R Markdown | Level 2 Research Methods and Statistics Practical Skills</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 1 Starting with R Markdown | Level 2 Research Methods and Statistics Practical Skills" />
   <meta property="og:type" content="book" />
@@ -31,6 +31,7 @@
   
 <link rel="prev" href="foreword.html"/>
 <link rel="next" href="data-wrangling-a-key-skill.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,7 +49,10 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <meta property="og:title" content="psyTeachR Level 2 Research Methods and Statistics Practical Skills">
 <meta property="og:description" content="This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as permutation tests, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. Semester 2 focusses on correlations and the general linear model.">
 <meta property="og:image" content="https://psyteachr.github.io/images/twitter/L2.png">
@@ -60,25 +64,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -87,9 +93,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -122,8 +128,32 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include\style.css" type="text/css" />
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
 </head>
 
 <body>
@@ -142,14 +172,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
-<li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a><ul>
-<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#what-is-r-markdown"><i class="fa fa-check"></i><b>1.1.1</b> What is R Markdown?</a></li>
 <li class="chapter" data-level="1.1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#advantages-of-using-r-markdown"><i class="fa fa-check"></i><b>1.1.2</b> Advantages of using R Markdown</a></li>
 <li class="chapter" data-level="1.1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#creating-an-r-markdown-.rmd-file"><i class="fa fa-check"></i><b>1.1.3</b> Creating an R Markdown (.Rmd) File</a></li>
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
+<li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
@@ -157,7 +190,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-inline-code"><i class="fa fa-check"></i><b>1.2.5</b> Adding Inline Code</a></li>
 <li class="chapter" data-level="1.2.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#formatting-the-r-markdown-file"><i class="fa fa-check"></i><b>1.2.6</b> Formatting the R Markdown File</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activiy"><i class="fa fa-check"></i><b>1.3</b> InClass Activiy</a><ul>
+<li class="chapter" data-level="1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activiy"><i class="fa fa-check"></i><b>1.3</b> InClass Activiy</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#r-markdown-and-the-experimental-design-portfolio"><i class="fa fa-check"></i><b>1.3.1</b> R Markdown and The Experimental Design Portfolio</a></li>
 <li class="chapter" data-level="1.3.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#the-ponzo-illusion-and-age"><i class="fa fa-check"></i><b>1.3.2</b> The Ponzo Illusion and Age</a></li>
 <li class="chapter" data-level="1.3.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#Ch1InClassQueT1"><i class="fa fa-check"></i><b>1.3.3</b> Task 1: Setting up Your R Markdown Portfolio</a></li>
@@ -171,19 +205,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.11" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#Ch1InClassQueT9"><i class="fa fa-check"></i><b>1.3.11</b> Task 9: Adding a Figure to your Results</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#assignment"><i class="fa fa-check"></i><b>1.4</b> Assignment</a></li>
-<li class="chapter" data-level="1.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#solutions-to-questions"><i class="fa fa-check"></i><b>1.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="1.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#solutions-to-questions"><i class="fa fa-check"></i><b>1.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="1.5.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activities"><i class="fa fa-check"></i><b>1.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="1.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-comparison"><i class="fa fa-check"></i><b>1.6</b> InClass Comparison</a><ul>
+<li class="chapter" data-level="1.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-comparison"><i class="fa fa-check"></i><b>1.6</b> InClass Comparison</a>
+<ul>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lab-1---the-magnitude-of-the-ponzo-illusion-varies-as-a-function-of-age"><i class="fa fa-check"></i>Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</a></li>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#methods"><i class="fa fa-check"></i>Methods</a></li>
 <li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#results"><i class="fa fa-check"></i>Results</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
+<li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
-<li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#revisiting-the-wickham-six"><i class="fa fa-check"></i><b>2.2.1</b> Revisiting the Wickham Six</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fa fa-check"></i><b>2.2.2</b> Learning to Wrangle: Is there a Chastity Belt on Perception</a></li>
 <li class="chapter" data-level="2.2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2PreClassQueT1"><i class="fa fa-check"></i><b>2.2.3</b> The <strong><code>select()</code></strong> Function - to keep only specific columns</a></li>
@@ -195,7 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.9" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#two-other-useful-functions"><i class="fa fa-check"></i><b>2.2.9</b> Two Other Useful Functions</a></li>
 <li class="chapter" data-level="2.2.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#last-but-not-least---pipes-to-make-your-code-efficient"><i class="fa fa-check"></i><b>2.2.10</b> Last but not least - Pipes (<strong><code>%&gt;%</code></strong>) to make your code efficient</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="2.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-activity"><i class="fa fa-check"></i><b>2.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#task-1-open-a-script"><i class="fa fa-check"></i><b>2.3.1</b> Task 1: Open a Script</a></li>
 <li class="chapter" data-level="2.3.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT2"><i class="fa fa-check"></i><b>2.3.2</b> Task 2: Bring in Your Library</a></li>
 <li class="chapter" data-level="2.3.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT3"><i class="fa fa-check"></i><b>2.3.3</b> Task 3: Load in the Data</a></li>
@@ -205,7 +244,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.7" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT7"><i class="fa fa-check"></i><b>2.3.7</b> Task 7: Calculating the AQ Scores.</a></li>
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself"><i class="fa fa-check"></i><b>2.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself"><i class="fa fa-check"></i><b>2.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
@@ -218,28 +258,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.10" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT8"><i class="fa fa-check"></i><b>2.4.10</b> Task 8 - Working the Pipes</a></li>
 <li class="chapter" data-level="2.4.11" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT9"><i class="fa fa-check"></i><b>2.4.11</b> Task 9 - Difference in Musical Means</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#solutions-to-questions-1"><i class="fa fa-check"></i><b>2.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="2.5" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#solutions-to-questions-1"><i class="fa fa-check"></i><b>2.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activities"><i class="fa fa-check"></i><b>2.5.1</b> PreClass Activities</a></li>
 <li class="chapter" data-level="2.5.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-actitivies"><i class="fa fa-check"></i><b>2.5.2</b> InClass Actitivies</a></li>
 <li class="chapter" data-level="2.5.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself-activities"><i class="fa fa-check"></i><b>2.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#additional-material"><i class="fa fa-check"></i><b>2.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="2.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#additional-material"><i class="fa fa-check"></i><b>2.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-read_csv"><i class="fa fa-check"></i>More on read_csv()</a></li>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-code-layout"><i class="fa fa-check"></i>More on Code Layout</a></li>
 <li><a href="data-wrangling-a-key-skill.html#more-on-gathering-data---pivot_longer-and-gather">More on gathering data - <code>pivot_longer()</code> and <code>gather()</code></a></li>
 <li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-binding-and-joining"><i class="fa fa-check"></i>More on binding and joining</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
+<li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
-<li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#scatterplots---geom_point"><i class="fa fa-check"></i><b>3.2.1</b> Scatterplots - <code>geom_point()</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#histograms---geom_histogram"><i class="fa fa-check"></i><b>3.2.2</b> Histograms - geom_histogram()</a></li>
 <li class="chapter" data-level="3.2.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#boxplots---geom_boxplot"><i class="fa fa-check"></i><b>3.2.3</b> Boxplots - geom_boxplot()</a></li>
 <li class="chapter" data-level="3.2.4" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#barplots---geom_bar-or-geom_col"><i class="fa fa-check"></i><b>3.2.4</b> Barplots - geom_bar() or geom_col()</a></li>
 <li class="chapter" data-level="3.2.5" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#themes-labels-guides-and-facet_wraps"><i class="fa fa-check"></i><b>3.2.5</b> Themes, Labels, Guides, and <strong><code>facet_wraps()</code></strong></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activity-1"><i class="fa fa-check"></i><b>3.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="3.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activity-1"><i class="fa fa-check"></i><b>3.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#mental-rotation-angle-and-reaction-time"><i class="fa fa-check"></i><b>3.3.1</b> Mental Rotation: Angle and Reaction Time</a></li>
 <li class="chapter" data-level="3.3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#Ch3InClassQueT1"><i class="fa fa-check"></i><b>3.3.2</b> Task 1: Loading and Viewing the Data</a></li>
 <li class="chapter" data-level="3.3.3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#Ch3InClassQueT2"><i class="fa fa-check"></i><b>3.3.3</b> Task 2: Recreating the Figure</a></li>
@@ -252,19 +297,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.10" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-considerations-briefly"><i class="fa fa-check"></i><b>3.3.10</b> Additional Considerations (briefly!)</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#assignment-1"><i class="fa fa-check"></i><b>3.4</b> Assignment</a></li>
-<li class="chapter" data-level="3.5" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#solutions-to-questions-2"><i class="fa fa-check"></i><b>3.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="3.5" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#solutions-to-questions-2"><i class="fa fa-check"></i><b>3.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#inclass-activities-1"><i class="fa fa-check"></i><b>3.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="3.6" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#additional-material-1"><i class="fa fa-check"></i><b>3.6</b> Additional Material</a>
+<ul>
 <li><a href="visualisation-through-ggplot2.html#more-on-aes---when-to-and-when-not-to">More on <code>aes()</code> - when to and when not to!</a></li>
 <li class="chapter" data-level="" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#combining-plots-into-one-figure"><i class="fa fa-check"></i>Combining Plots into one Figure</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
-<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>4.1.1</b> Discrete or Continuous Datasets</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a><ul>
+<li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#general-probability-calculations"><i class="fa fa-check"></i><b>4.2.1</b> General Probability Calculations</a></li>
 <li class="chapter" data-level="4.2.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#creating-a-simple-probability-distribution"><i class="fa fa-check"></i><b>4.2.2</b> Creating a Simple Probability Distribution</a></li>
 <li class="chapter" data-level="4.2.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#the-binomial-distribution---creating-a-discrete-distribution"><i class="fa fa-check"></i><b>4.2.3</b> The Binomial Distribution - Creating a Discrete Distribution</a></li>
@@ -272,24 +322,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#pbinom---the-cumulative-probability-function"><i class="fa fa-check"></i><b>4.2.5</b> <strong><code>pbinom()</code></strong> - The Cumulative Probability Function</a></li>
 <li class="chapter" data-level="4.2.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#qbinom---the-quantile-function"><i class="fa fa-check"></i><b>4.2.6</b> <strong><code>qbinom()</code></strong> - The Quantile Function</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-2"><i class="fa fa-check"></i><b>4.3</b> PreClass Activity 2</a><ul>
+<li class="chapter" data-level="4.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-2"><i class="fa fa-check"></i><b>4.3</b> PreClass Activity 2</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#continuous-data---brief-recap-on-the-normal-distribution"><i class="fa fa-check"></i><b>4.3.1</b> Continuous Data - Brief Recap on The Normal Distribution</a></li>
 <li class="chapter" data-level="4.3.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#properties-of-the-normal-distribution"><i class="fa fa-check"></i><b>4.3.2</b> Properties of the Normal distribution:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-1-1"><i class="fa fa-check"></i><b>4.4</b> InClass Activity 1</a><ul>
+<li class="chapter" data-level="4.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-1-1"><i class="fa fa-check"></i><b>4.4</b> InClass Activity 1</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#continuous-data-and-the-normal-distribution"><i class="fa fa-check"></i><b>4.4.1</b> Continuous Data and the Normal Distribution</a></li>
 <li class="chapter" data-level="4.4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#estimating-from-the-normal-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Estimating from the Normal Distribution</a></li>
 <li class="chapter" data-level="4.4.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#dnorm---the-density-function-for-the-normal-distribution"><i class="fa fa-check"></i><b>4.4.3</b> <strong><code>dnorm()</code></strong> - The Density Function for the Normal Distribution</a></li>
 <li class="chapter" data-level="4.4.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#pnorm---the-cumulative-probability-function"><i class="fa fa-check"></i><b>4.4.4</b> <strong><code>pnorm()</code></strong> - The Cumulative Probability function</a></li>
 <li class="chapter" data-level="4.4.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#qnorm---the-quantile-function"><i class="fa fa-check"></i><b>4.4.5</b> <strong><code>qnorm()</code></strong> - The Quantile Function</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-2-additional"><i class="fa fa-check"></i><b>4.5</b> InClass Activity 2 (Additional)</a><ul>
+<li class="chapter" data-level="4.5" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-2-additional"><i class="fa fa-check"></i><b>4.5</b> InClass Activity 2 (Additional)</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#return-of-the-binomial-ch4inclassquebinomial"><i class="fa fa-check"></i><b>4.5.1</b> Return of the Binomial {Ch4InClassQueBinomial}</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-3-additional"><i class="fa fa-check"></i><b>4.6</b> InClass Activity 3 (Additional)</a><ul>
+<li class="chapter" data-level="4.6" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activity-3-additional"><i class="fa fa-check"></i><b>4.6</b> InClass Activity 3 (Additional)</a>
+<ul>
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-1"><i class="fa fa-check"></i><b>4.7</b> Test Yourself</a><ul>
+<li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-1"><i class="fa fa-check"></i><b>4.7</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
@@ -303,15 +358,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7.11" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT9"><i class="fa fa-check"></i><b>4.7.11</b> Assignment Task 9</a></li>
 <li class="chapter" data-level="4.7.12" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT10"><i class="fa fa-check"></i><b>4.7.12</b> Assignment Task 10</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#solutions-to-questions-3"><i class="fa fa-check"></i><b>4.8</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="4.8" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#solutions-to-questions-3"><i class="fa fa-check"></i><b>4.8</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="4.8.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#inclass-activities-2"><i class="fa fa-check"></i><b>4.8.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="4.8.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#return-of-the-binomial"><i class="fa fa-check"></i><b>4.8.2</b> Return of the Binomial</a></li>
 <li class="chapter" data-level="4.8.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-activities-1"><i class="fa fa-check"></i><b>4.8.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
+<li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
 <li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
 <li class="chapter" data-level="5.2.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
@@ -319,7 +377,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
 <li class="chapter" data-level="5.2.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
 <li class="chapter" data-level="5.3.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
 <li class="chapter" data-level="5.3.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
@@ -328,18 +387,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
-<li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
+<ul>
 <li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
 <li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
 <li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a><ul>
+<li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
-<li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-4"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-4"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
 <li class="chapter" data-level="6.2.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT2"><i class="fa fa-check"></i><b>6.2.3</b> Task 2: Comparing Original and New Sample Reaction Times</a></li>
@@ -351,13 +414,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.9" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT7"><i class="fa fa-check"></i><b>6.2.9</b> Task 7: Comparing the Observed Test Statistic to the t-distribution using <strong><code>t.test()</code></strong></a></li>
 <li class="chapter" data-level="6.2.10" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT8"><i class="fa fa-check"></i><b>6.2.10</b> Task 8: Drawing Conclusions about the new data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="6.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activity-3"><i class="fa fa-check"></i><b>6.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT1"><i class="fa fa-check"></i><b>6.3.1</b> Task 1: Evaluators</a></li>
 <li class="chapter" data-level="6.3.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT2"><i class="fa fa-check"></i><b>6.3.2</b> Task 2: Ratings</a></li>
 <li class="chapter" data-level="6.3.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT3"><i class="fa fa-check"></i><b>6.3.3</b> Task 3: Creating a Figure</a></li>
 <li class="chapter" data-level="6.3.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6InClassQueT4"><i class="fa fa-check"></i><b>6.3.4</b> Task 4: t-tests</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#test-yourself-2"><i class="fa fa-check"></i><b>6.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="6.4" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#test-yourself-2"><i class="fa fa-check"></i><b>6.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT1A"><i class="fa fa-check"></i><b>6.4.1</b> Task 1A: Libraries</a></li>
 <li class="chapter" data-level="6.4.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT1B"><i class="fa fa-check"></i><b>6.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="6.4.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT2"><i class="fa fa-check"></i><b>6.4.3</b> Task 2: Selecting only relevant columns</a></li>
@@ -367,24 +432,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.7" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT6"><i class="fa fa-check"></i><b>6.4.7</b> Task 6: t-test</a></li>
 <li class="chapter" data-level="6.4.8" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6AssignQueT7"><i class="fa fa-check"></i><b>6.4.8</b> Task 7: Reporting results</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#solutions-to-questions-5"><i class="fa fa-check"></i><b>6.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="6.5" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#solutions-to-questions-5"><i class="fa fa-check"></i><b>6.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activities-1"><i class="fa fa-check"></i><b>6.5.1</b> PreClass Activities</a></li>
 <li class="chapter" data-level="6.5.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#inclass-activities-4"><i class="fa fa-check"></i><b>6.5.2</b> InClass Activities</a></li>
 <li class="chapter" data-level="6.5.3" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#test-yourself-activities-2"><i class="fa fa-check"></i><b>6.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a><ul>
-<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
+<li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a>
+<ul>
+<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#misleading-and-appropriate-barplots"><i class="fa fa-check"></i>Misleading and Appropriate Barplots</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#analysing-chi-squares"><i class="fa fa-check"></i>Analysing chi-squares</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
+<li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
-<li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-5"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-5"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#reading"><i class="fa fa-check"></i><b>7.2.1</b> Reading</a></li>
 <li class="chapter" data-level="7.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#task"><i class="fa fa-check"></i><b>7.2.2</b> Task</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="7.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activity-4"><i class="fa fa-check"></i><b>7.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT1"><i class="fa fa-check"></i><b>7.3.1</b> Task 1: Load the Data</a></li>
 <li class="chapter" data-level="7.3.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT2"><i class="fa fa-check"></i><b>7.3.2</b> Task 2: Wrangle the Data</a></li>
 <li class="chapter" data-level="7.3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT3"><i class="fa fa-check"></i><b>7.3.3</b> Task 3: Look at the Histogram for Normality</a></li>
@@ -396,21 +466,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.9" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#Ch7InClassQueT9"><i class="fa fa-check"></i><b>7.3.9</b> Task 9: The Write-up</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#assignment-3"><i class="fa fa-check"></i><b>7.4</b> Assignment</a></li>
-<li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="7.5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#solutions-to-questions-6"><i class="fa fa-check"></i><b>7.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#inclass-activities-5"><i class="fa fa-check"></i><b>7.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#additional-material-4"><i class="fa fa-check"></i><b>7.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="7.6" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#additional-material-4"><i class="fa fa-check"></i><b>7.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#non-parametric-tests"><i class="fa fa-check"></i>Non-Parametric tests</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a><ul>
+<li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
-<li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
 <li class="chapter" data-level="8.2.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
 <li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
@@ -419,7 +494,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
 <li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
 <li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
@@ -433,32 +509,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.11" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
 <li class="chapter" data-level="8.4.12" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="8.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="8.5.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="8.5.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
+<ul>
 <li><a href="apes-alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
 <li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen’s d to r</a></li>
 <li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
 <li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a><ul>
+<li class="chapter" data-level="9" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="9.3" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="9.4" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
 <li class="chapter" data-level="9.5" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a><ul>
+<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
-<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-8"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-8"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="correlations.html"><a href="correlations.html#read"><i class="fa fa-check"></i><b>10.2.1</b> Read</a></li>
 <li class="chapter" data-level="10.2.2" data-path="correlations.html"><a href="correlations.html#watch-1"><i class="fa fa-check"></i><b>10.2.2</b> Watch</a></li>
 <li class="chapter" data-level="10.2.3" data-path="correlations.html"><a href="correlations.html#play"><i class="fa fa-check"></i><b>10.2.3</b> Play</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#inclass-activity-7"><i class="fa fa-check"></i><b>10.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#inclass-activity-7"><i class="fa fa-check"></i><b>10.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT1"><i class="fa fa-check"></i><b>10.3.1</b> Task 1 - The Data</a></li>
 <li class="chapter" data-level="10.3.2" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT2"><i class="fa fa-check"></i><b>10.3.2</b> Task 2 - Interval or Ordinal</a></li>
 <li class="chapter" data-level="10.3.3" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT3"><i class="fa fa-check"></i><b>10.3.3</b> Task 3 - Missing Data</a></li>
@@ -472,21 +554,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.11" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT9"><i class="fa fa-check"></i><b>10.3.11</b> Task 9 - Attitudes to Vaping</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="correlations.html"><a href="correlations.html#assignment-5"><i class="fa fa-check"></i><b>10.4</b> Assignment</a></li>
-<li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#solutions-to-questions-9"><i class="fa fa-check"></i><b>10.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#solutions-to-questions-9"><i class="fa fa-check"></i><b>10.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="correlations.html"><a href="correlations.html#inclass-activities-7"><i class="fa fa-check"></i><b>10.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="correlations.html"><a href="correlations.html#additional-material-6"><i class="fa fa-check"></i><b>10.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="10.6" data-path="correlations.html"><a href="correlations.html#additional-material-6"><i class="fa fa-check"></i><b>10.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#checking-for-outliers-with-z-scores"><i class="fa fa-check"></i>Checking for outliers with z-scores</a></li>
 <li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#a-different-approach-to-making-a-correlation-table"><i class="fa fa-check"></i>A different approach to making a correlation table</a></li>
 <li class="chapter" data-level="" data-path="correlations.html"><a href="correlations.html#comparing-correlations"><i class="fa fa-check"></i>Comparing Correlations</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
+<li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
-<li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#read-1"><i class="fa fa-check"></i><b>11.2.1</b> Read</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#inclass-activity-8"><i class="fa fa-check"></i><b>11.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="11.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#inclass-activity-8"><i class="fa fa-check"></i><b>11.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="11.3.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#recreate-decomposition-matrix-from-the-raw-data"><i class="fa fa-check"></i><b>11.3.1</b> Recreate decomposition matrix from the raw data</a></li>
 <li class="chapter" data-level="11.3.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT1"><i class="fa fa-check"></i><b>11.3.2</b> Step 1: Create the basic tibble</a></li>
 <li class="chapter" data-level="11.3.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT2"><i class="fa fa-check"></i><b>11.3.3</b> Step 2: Estimate the Grand Mean <span class="math inline">\(\hat{\mu}\)</span></a></li>
@@ -494,7 +581,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.3.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT4"><i class="fa fa-check"></i><b>11.3.5</b> Step 4: Calculate Residuals <span class="math inline">\(\widehat{S(A)}_{ij}\)</span></a></li>
 <li class="chapter" data-level="11.3.6" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT5"><i class="fa fa-check"></i><b>11.3.6</b> Step 5: Sums of squares</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#test-yourself-4"><i class="fa fa-check"></i><b>11.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="11.4" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#test-yourself-4"><i class="fa fa-check"></i><b>11.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="11.4.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT1"><i class="fa fa-check"></i><b>11.4.1</b> Question 1</a></li>
 <li class="chapter" data-level="11.4.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT2"><i class="fa fa-check"></i><b>11.4.2</b> Question 2</a></li>
 <li class="chapter" data-level="11.4.3" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT3"><i class="fa fa-check"></i><b>11.4.3</b> Question 3</a></li>
@@ -505,38 +593,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.4.8" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT8"><i class="fa fa-check"></i><b>11.4.8</b> Question 8</a></li>
 <li class="chapter" data-level="11.4.9" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT9"><i class="fa fa-check"></i><b>11.4.9</b> Question 9: Create your own decomposition matrix</a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#solutions-to-questions-10"><i class="fa fa-check"></i><b>11.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="11.5" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#solutions-to-questions-10"><i class="fa fa-check"></i><b>11.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="11.5.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#inclass-activities-8"><i class="fa fa-check"></i><b>11.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="11.5.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#test-yourself-activities-4"><i class="fa fa-check"></i><b>11.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a><ul>
+<li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-12"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
-<li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-10"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-10"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="12.2.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#read-2"><i class="fa fa-check"></i><b>12.2.1</b> Read</a></li>
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activity-9"><i class="fa fa-check"></i><b>12.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="12.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activity-9"><i class="fa fa-check"></i><b>12.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="12.3.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT1"><i class="fa fa-check"></i><b>12.3.1</b> Task 1 - Quick Checks</a></li>
 <li class="chapter" data-level="12.3.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT2"><i class="fa fa-check"></i><b>12.3.2</b> Task 2 - Mean squares and degrees of freedom</a></li>
 <li class="chapter" data-level="12.3.3" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3"><i class="fa fa-check"></i><b>12.3.3</b> Task 3 - F-ratios</a></li>
 <li class="chapter" data-level="12.3.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4"><i class="fa fa-check"></i><b>12.3.4</b> Task 4 - Using afex::aov_ez()</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#assignment-6"><i class="fa fa-check"></i><b>12.4</b> Assignment</a></li>
-<li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="12.5" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#solutions-to-questions-11"><i class="fa fa-check"></i><b>12.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="12.5.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#inclass-activities-9"><i class="fa fa-check"></i><b>12.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a>
+<ul>
 <li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
+<li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-13"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
-<li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-11"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-11"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#read-3"><i class="fa fa-check"></i><b>13.2.1</b> Read</a></li>
 <li class="chapter" data-level="13.2.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#try-1"><i class="fa fa-check"></i><b>13.2.2</b> TRY</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#inclass-activity-10"><i class="fa fa-check"></i><b>13.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="13.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#inclass-activity-10"><i class="fa fa-check"></i><b>13.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT1"><i class="fa fa-check"></i><b>13.3.1</b> Estimation equations and decomposition matrix</a></li>
 <li class="chapter" data-level="13.3.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT2"><i class="fa fa-check"></i><b>13.3.2</b> Adding the missing columns</a></li>
 <li class="chapter" data-level="13.3.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT3"><i class="fa fa-check"></i><b>13.3.3</b> Understanding the two-factor decomposition matrix</a></li>
@@ -545,7 +642,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.3.6" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13InClassQueT6"><i class="fa fa-check"></i><b>13.3.6</b> Running a 2x2 between-subjects ANOVA with aov_ez</a></li>
 <li class="chapter" data-level="13.3.7" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#app-understanding-main-effects-and-interactions"><i class="fa fa-check"></i><b>13.3.7</b> App: Understanding main effects and interactions</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#test-yourself-5"><i class="fa fa-check"></i><b>13.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="13.4" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#test-yourself-5"><i class="fa fa-check"></i><b>13.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="13.4.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1A"><i class="fa fa-check"></i><b>13.4.1</b> Task 1A: Libraries</a></li>
 <li class="chapter" data-level="13.4.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT1B"><i class="fa fa-check"></i><b>13.4.2</b> Task 1B: Loading in the data</a></li>
 <li class="chapter" data-level="13.4.3" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT2"><i class="fa fa-check"></i><b>13.4.3</b> Task 2: Calculate cell means</a></li>
@@ -559,17 +657,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4.11" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT10"><i class="fa fa-check"></i><b>13.4.11</b> Task 10: Interpreting the ANOVA output Question</a></li>
 <li class="chapter" data-level="13.4.12" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#Ch13AssignQueT11"><i class="fa fa-check"></i><b>13.4.12</b> Task 11: Report your results</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#solutions-to-questions-12"><i class="fa fa-check"></i><b>13.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="13.5" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#solutions-to-questions-12"><i class="fa fa-check"></i><b>13.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="13.5.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#inclass-activities-10"><i class="fa fa-check"></i><b>13.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="13.5.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#test-yourself-activities-5"><i class="fa fa-check"></i><b>13.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a><ul>
+<li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-14"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
-<li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="14.2.1" data-path="regression.html"><a href="regression.html#read-4"><i class="fa fa-check"></i><b>14.2.1</b> Read</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="regression.html"><a href="regression.html#inclass-activity-11"><i class="fa fa-check"></i><b>14.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="14.3" data-path="regression.html"><a href="regression.html#inclass-activity-11"><i class="fa fa-check"></i><b>14.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="14.3.1" data-path="regression.html"><a href="regression.html#Ch14InClassQueT1"><i class="fa fa-check"></i><b>14.3.1</b> Task 1: Setup</a></li>
 <li class="chapter" data-level="14.3.2" data-path="regression.html"><a href="regression.html#Ch14InClassQueT2"><i class="fa fa-check"></i><b>14.3.2</b> Task 2: Restructuring the ratings</a></li>
 <li class="chapter" data-level="14.3.3" data-path="regression.html"><a href="regression.html#Ch14InClassQueT3"><i class="fa fa-check"></i><b>14.3.3</b> Task 3: Calculate mean trustworthiness rating for each voice</a></li>
@@ -581,7 +683,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3.9" data-path="regression.html"><a href="regression.html#Ch14InClassQueT9"><i class="fa fa-check"></i><b>14.3.9</b> Task 9: Making predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="14.4" data-path="regression.html"><a href="regression.html#assignment-7"><i class="fa fa-check"></i><b>14.4</b> Assignment</a></li>
-<li class="chapter" data-level="14.5" data-path="regression.html"><a href="regression.html#solutions-to-questions-13"><i class="fa fa-check"></i><b>14.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="14.5" data-path="regression.html"><a href="regression.html#solutions-to-questions-13"><i class="fa fa-check"></i><b>14.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="14.5.1" data-path="regression.html"><a href="regression.html#inclass-activities-11"><i class="fa fa-check"></i><b>14.5.1</b> InClass Activities</a></li>
 <li class="chapter" data-level="14.5.2" data-path="regression.html"><a href="regression.html#task-1-1"><i class="fa fa-check"></i><b>14.5.2</b> Task 1</a></li>
 <li class="chapter" data-level="14.5.3" data-path="regression.html"><a href="regression.html#task-2"><i class="fa fa-check"></i><b>14.5.3</b> Task 2</a></li>
@@ -594,9 +697,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.5.10" data-path="regression.html"><a href="regression.html#task-9"><i class="fa fa-check"></i><b>14.5.10</b> Task 9</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a><ul>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
+<ul>
 <li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
 <li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
 <li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
@@ -604,14 +709,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
 <li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
+<ul>
 <li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
 <li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
 <li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
 <li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
 <li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a><ul>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
+<ul>
 <li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
 <li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
 <li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
@@ -625,13 +732,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
 <li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
+<ul>
 <li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
 <li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
 <li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a><ul>
+<li class="chapter" data-level="16" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
 <li class="chapter" data-level="16.2" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="16.3" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
@@ -666,9 +775,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="starting-with-r-markdown" class="section level1">
+<div id="starting-with-r-markdown" class="section level1" number="1">
 <h1><span class="header-section-number">Lab 1</span> Starting with R Markdown</h1>
-<div id="overview-1" class="section level2">
+<div id="overview-1" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Overview</h2>
 <p>A key goal of any researcher is to carry out an experiment and to tell others about it. One of the main ways we as Psychologists do this is through publication of a journal article. There are numerous ways that people combine different software to create a journal article, but a more recent innovation in the field that we want you to know about is creating reports and articles through R Markdown. If you like, you can see an example from a research team in our school in this <a href ="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185093" target = "_blank">recent PLOS article</a>. A link within the article methods section (this one - <a href="https://osf.io/eb9dq/" target = "_blank">https://osf.io/eb9dq/</a>) allows you to see the one file that creates the whole manuscript. Obviously you won’t be writing full journal articles just yet but you will use R Markdown throughout this lab series to do assignments. You could also use it in other subjects to write reports, or to make yourself a portfolio of hints, tips, and study aids as we suggest throughout the labs.</p>
 <p>Today, we will start by showing you some of skills in using R Markdown efficiently.</p>
@@ -679,10 +788,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>How to add code and edit rules in your R Markdown file.</li>
 <li>How to format your text.</li>
 </ol>
-<div id="what-is-r-markdown" class="section level3">
+<div id="what-is-r-markdown" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> What is R Markdown?</h3>
 <p>R Markdown (abbreviated as Rmd) is a great way to create dynamic documents through embedded chunks of code. These documents are self-contained and fully reproducible which makes it very easy to share. For more information about R Markdown feel free to have a look at their main webpage sometime: <a href="http://rmarkdown.rstudio.com" target = "_blank">The R Markdown Webpage</a>. The key advantage of R Markdown is that it allows you to write code into a document, along with regular text, and then <strong>knit</strong> it using the package <code>knitr()</code> to create your document as either a webpage (HTML), a PDF, or Word document (.docx).</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - We Knit what?
 </button>
@@ -691,7 +800,7 @@ Explain This - We Knit what?
 Throughout the labs you will see little tabs that give more information, answers to quick questions, helpful hints, solutions to tasks, or suggestions for information you want to note down somewhere. You do not have to read them all and you will find they get less as the course progresses, but they might help you if you are stuck on something.
 </p>
 <p>
-Knit is what we say when we want to turn our R Markdown file into either a webpage, PDF, or a Word document. Often in the labs you will hear someone say, “Have you tried knitting it?” or “What happens when you knit it?”. This simply means what happens when you try turning your file into a pdf or webpage.
+Knit is what we say when we want to turn our R Markdown file into either a webpage, PDF, or a Word document. Often in the labs you will hear someone say, “Have you tried knitting it?” or “What happens when you knit it?” This simply means what happens when you try turning your file into a pdf or webpage.
 </p>
 <p>
 For any of the practical data assignments, one check to run before submitting is to knit your code to an html (webpage) file and then see if you can open that file in your browser. This doesn’t check that your code is correct. It does however confirm that your code runs and has no critical issues in it that would stop your code from running. A very valuable check.
@@ -699,7 +808,7 @@ For any of the practical data assignments, one check to run before submitting is
 </div>
 </div>
 </div>
-<div id="advantages-of-using-r-markdown" class="section level3">
+<div id="advantages-of-using-r-markdown" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Advantages of using R Markdown</h3>
 <ol style="list-style-type: decimal">
 <li><p>The output is one file that includes figures, text and citations. No additional files are needed so it’s easy to keep all your work in one place.</p></li>
@@ -708,7 +817,7 @@ For any of the practical data assignments, one check to run before submitting is
 <li><p>You write your report in plain text, a non software-specific format that is easy to share, so it’s not necessary to learn any new coding such as HTM, but can create various outputs depending on what you need.</p></li>
 </ol>
 </div>
-<div id="creating-an-r-markdown-.rmd-file" class="section level3">
+<div id="creating-an-r-markdown-.rmd-file" class="section level3" number="1.1.3">
 <h3><span class="header-section-number">1.1.3</span> Creating an R Markdown (.Rmd) File</h3>
 <p>In this lab you’re going to create your own R Markdown document. Knowing how to do this will:</p>
 <ol style="list-style-type: lower-alpha">
@@ -719,9 +828,9 @@ For any of the practical data assignments, one check to run before submitting is
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>We have put questions throughout to help you test your knowledge. When you type in or choose the correct answer, the dashed box will change color and become solid.</p>
 <ul>
-<li>From the following options, why are we creating an R Markdown document instead of simply using an R script? <select class='solveme' data-answer='["R Markdown can combine report writing and analysis","Reproducible Science!"]'> <option></option> <option>R Markdown can combine report writing and analysis</option> <option>R Scripts can’t run code</option> <option>Reproducible Science!</option></select></li>
+<li>From the following options, why are we creating an R Markdown document instead of simply using an R script? <select class='webex-solveme' data-answer='["R Markdown can combine report writing and analysis","Reproducible Science!"]'> <option></option> <option>R Markdown can combine report writing and analysis</option> <option>R Scripts can't run code</option> <option>Reproducible Science!</option></select></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This Answer!
 </button>
@@ -732,16 +841,16 @@ So there’s more than one answer to this question! R Markdown can combine repor
 </div>
 </div>
 </div>
-<div id="one-last-thing-before-beginning" class="section level3">
+<div id="one-last-thing-before-beginning" class="section level3" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> One last thing before beginning!</h3>
 <p>Before working through the rest of this Lab you may want to watch the short videos on the Moodle pages and the <a href = "https://psyteachr.github.io/ug1-practical/" target = "_blank">Level 1 PsyTeachR Grassroots book</a> reminding you about the skills we want you have already learnt through using R and RStudio, and the various file formats you will be working with.</p>
 
 </div>
 </div>
-<div id="preclass-activiy" class="section level2">
+<div id="preclass-activiy" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> PreClass Activiy</h2>
 <p>Having read the Overview for this lab, and the reason behind using R, we are now going work on making a reproducible code. If you have a laptop, it is best to install R and Rstudio on that for you to use. The videos on Moodle and in the Grassroots book gives a reminder of how to install R and Rstudio. If you don’t have it installed yet you can just read along today and try it out when you have access to a machine in the labs or online through a cloud, server or remote access.</p>
-<div id="lets-begin" class="section level3">
+<div id="lets-begin" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Let’s Begin</h3>
 <ul>
 <li>Create a new R Markdown file (.Rmd) by opening Rstudio, and then on the top menu, selecting <strong><code>File &gt;&gt; New File &gt;&gt; R Markdown...</code></strong>. You should now see the following dialog box:</li>
@@ -772,7 +881,7 @@ Figure 1.2: An Rmd yaml header
 <strong>BUT WAIT</strong>!! What if you spelt your name wrong? How would you change this?
 </p>
 </div>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - I spelt my name wrong!
 </button>
@@ -783,7 +892,7 @@ The long way would be to close the file and start again. The shorter way would b
 </div>
 </div>
 </div>
-<div id="code-chunks" class="section level3">
+<div id="code-chunks" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Code Chunks</h3>
 <p>Immediately below the header information you will see the default setup <strong>code chunk</strong> as shown in Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>. Most of the time, in this lab series, you will not edit the information in this <a class='glossary' target='_blank' title='A section of code in an R Markdown file' href='https://psyteachr.github.io/glossary/c#chunk'>chunk</a>. Instead, you will add information, text, code, and chunks, below this chunk.</p>
 <div class="figure" style="text-align: center"><span id="fig:img-setup-chunk"></span>
@@ -805,11 +914,11 @@ Figure 1.3: The defualt setup code chunk
 <p>The next code chunk in your file will look a bit like this:</p>
 <div class="verbatim">
 <p><code>```{r cars}</code></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">summary</span>(cars)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="starting-with-r-markdown.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div>
 <code>```</code>
 </div>
 <p>Within the curly brackets, on the first line of the chunk, the word <code>cars</code> is included after the letter <code>r</code>. This is simply the <strong>name</strong> or the <strong>label</strong> for the code chunk and it really could have been called anything. For example, you could have called this code chunk <code>cars1</code> and a later chunk <code>cars2</code> to show it was the first and second chunk relating to cars. Whilst it is always advisable you name your code chunks, you do not need to name them. However, if you do put in names for the chunks <strong>do not use the same name twice</strong> as this will cause your script to crash when you knit it, e.g. Do not use <code>data</code> and <code>data</code>; instead maybe use <code>personality_data</code> and <code>participant_info</code> or whatever makes sense to what you are doing in the chunk. OK? Different names for different chunks! They are all individual.</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - You can crash whilst knitting?
 </button>
@@ -822,7 +931,7 @@ Remember knitting just means converting or rendering your file as a pdf, webpage
 <p><br>
 The second line in the above <strong>code chunk</strong> is the R code we have written: <code>summary(cars)</code>. In this case, we are just asking for a <code>summary()</code> of the inbuilt dataset <code>cars</code>. R has a lot of inbuilt datasets for you to practice on; <code>cars</code> is one of these.</p>
 <p>The third line closes off the code chunk, again with the three backwards apostrophes. This means that whatever is contained between the first and third lines will be the code that is run.</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Helpful Hint - Be sure to close the chunk
 </button>
@@ -835,9 +944,9 @@ When people are first starting out using R Markdown, a common issue is code not 
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li>From the following options what was the name, or label, of the <strong>default setup code chunk</strong> (i.e. the first code chunk in an R Markdown file)? <select class='solveme' data-answer='["setup"]'> <option></option> <option>include</option> <option>r</option> <option>setup</option> <option>FALSE</option></select></li>
+<li>From the following options what was the name, or label, of the <strong>default setup code chunk</strong> (i.e. the first code chunk in an R Markdown file)? <select class='webex-solveme' data-answer='["setup"]'> <option></option> <option>include</option> <option>r</option> <option>setup</option> <option>FALSE</option></select></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This Answer
 </button>
@@ -848,7 +957,7 @@ If you look at the default setup code chunk you can see the code chunk has the n
 </div>
 </div>
 </div>
-<div id="knitting-code" class="section level3">
+<div id="knitting-code" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> Knitting Code</h3>
 <p>Now would be a good time to try knitting your file to see what the code chunks do. You can do this using the <strong>Knit button</strong> at the top of the RStudio screen:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-the-knit-button"></span>
@@ -858,7 +967,7 @@ Figure 1.4: The knit button. Clicking this will knit your file.
 </p>
 </div>
 <p>When you click <code>Knit</code> it will ask you to save the file as an .Rmd file. Call the file <code>L2Psych_Lab1_Preclass.Rmd</code> and save it in a folder where you will keep all the information for this lab. When working in the Psychology labs or the University Library you need to save in a location or drive space that you have full access to and can save files to. The best one on campus is your <code>M:</code> drive. If using your own device then anywhere you can save the file should work. However, having a good folder structure will help you navigate the labs better.</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Helpful Hint - One folder for all your work
 </button>
@@ -877,7 +986,7 @@ Couple of tips:
 Avoid spaces in file names and folder names. It can make life really complicated and is a bad habit to start with. Use underscores between words in filenames and folder names.
 </li>
 <li>
-Never call your folder “R”. This will crash your R and potentially lead you to having to reinstall both R and Rstudio. When Rstudio opens it looks for a folder called R which it expects to contain the software and libraries. If they aren’t there because it is now looking in a different folder with the same name, things go wrong. Sort of like the Sally-Anne False Belief task, but not as exciting.
+Never call your folder “R.” This will crash your R and potentially lead you to having to reinstall both R and Rstudio. When Rstudio opens it looks for a folder called R which it expects to contain the software and libraries. If they aren’t there because it is now looking in a different folder with the same name, things go wrong. Sort of like the Sally-Anne False Belief task, but not as exciting.
 </li>
 </ul>
 </div>
@@ -891,10 +1000,10 @@ Figure 1.5: The knitted summary output
 </p>
 </div>
 </div>
-<div id="adding-code-chunk-rules-and-options" class="section level3">
+<div id="adding-code-chunk-rules-and-options" class="section level3" number="1.2.4">
 <h3><span class="header-section-number">1.2.4</span> Adding Code Chunk Rules and Options</h3>
 <p>It can often be a good idea or even necessary to show the data or the outcome of a test in your report, for example if you were writing a report and wanted to include a table of results. But what if your code displayed a table that was 10,000 lines long? In that case we might want to not show the output and only show the code. You can do this by including a rule within the first line of your code chunk - your ```{r name, rule = option} line. You have already seen a rule before in the standard default chunk, the <code>include</code> rule, but there are a number of others. Let’s look at some now:</p>
-<p>First, let’s look at how to <strong>hide the output but show the code</strong>. Here, we use the <code>results = &quot;hide&quot;</code> rule:</p>
+<p>First, let’s look at how to <strong>hide the output but show the code</strong>. Here, we use the <code>results = "hide"</code> rule:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-results-hide"></span>
 <img src="images/s01-lab01/preclass/rmd_hide.png" alt="The results Rule" width="100%" />
 <p class="caption">
@@ -902,7 +1011,7 @@ Figure 1.6: The results Rule
 </p>
 </div>
 <p><br>
-<strong>Add this rule into your example code chunk, as shown above, and knit the file again. What happens?</strong> Note that there is a comma separating the name of the chunk and the rule. You should now see the code only and not the data. A key thing to note here is that your code is still “running”, it just isn’t showing an output. For example, say your code said <code>x &lt;- 2 + 2</code>. With the <code>results = &quot;hide&quot;</code> rule, you would still be running that line of code, x being assigned as 4, but you just don’t see the output.
+<strong>Add this rule into your example code chunk, as shown above, and knit the file again. What happens?</strong> Note that there is a comma separating the name of the chunk and the rule. You should now see the code only and not the data. A key thing to note here is that your code is still “running,” it just isn’t showing an output. For example, say your code said <code>x &lt;- 2 + 2</code>. With the <code>results = "hide"</code> rule, you would still be running that line of code, x being assigned as 4, but you just don’t see the output.
 <br><br>
 Alternatively, we can <strong>hide the code, but show the ouput</strong> by using the <code>echo = FALSE</code> rule:</p>
 <div class="figure" style="text-align: center"><span id="fig:img-echo-hide"></span>
@@ -913,7 +1022,7 @@ Figure 1.7: The echo Rule
 </div>
 <p><br>
 In your template Rmd file, the rule echo is set to <code>FALSE</code> meaning to show the figure and not the code. <strong>Change the rule in your code to <code>echo</code> and set it as <code>TRUE</code>, then knit the file again</strong>. What happens?</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - Why would I hide my code?
 </button>
@@ -1041,7 +1150,7 @@ NO
 </table>
 <p><br></p>
 <p>You can also mix and match rules to get the code/output to display as you want. It takes a little getting used to at first but if in doubt, just ask.</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Portfolio Point - autocompletes
 </button>
@@ -1058,10 +1167,10 @@ Autocomplete also works for a lot of functions you can’t quite remember how to
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>You’ve got a large dataset of thousands of participants’ personality and happiness scores that you want to analyse and present in RMarkdown.</p>
 <ul>
-<li><p>You want to show the code you are running in your analysis but not show the output as this would be too much to display. Note that you want the code to run. Type in the box (e.g. <code>rule = set</code>) how you would set the <code>results</code> rule to do this? <input class='solveme nospaces' size='20' data-answer='["results = \"hide\""]'/></p></li>
-<li><p>You create a plot of happiness versus neuroticism scores but you want to hide the code and only show the output. How can you do this? <select class='solveme' data-answer='["echo = FALSE"]'> <option></option> <option>echo = TRUE</option> <option>include = FALSE</option> <option>code = HIDE</option> <option>echo = FALSE</option></select></p></li>
+<li><p>You want to show the code you are running in your analysis but not show the output as this would be too much to display. Note that you want the code to run. Type in the box (e.g. <code>rule = set</code>) how you would set the <code>results</code> rule to do this? <input class='webex-solveme nospaces' size='20' data-answer='["results = \"hide\""]'/></p></li>
+<li><p>You create a plot of happiness versus neuroticism scores but you want to hide the code and only show the output. How can you do this? <select class='webex-solveme' data-answer='["echo = FALSE"]'> <option></option> <option>echo = TRUE</option> <option>include = FALSE</option> <option>code = HIDE</option> <option>echo = FALSE</option></select></p></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - I don’t understand these answers
 </button>
@@ -1079,9 +1188,9 @@ Remember, the aim of these questions aren’t to help you memorise these codes (
 </div>
 <p><br></p>
 <ul>
-<li>True or False, writing <code>echo = TRUE</code> has the same effect on the output of a code chunk as if you had no echo rule at all: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
+<li>True or False, writing <code>echo = TRUE</code> has the same effect on the output of a code chunk as if you had no echo rule at all: <select class='webex-solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - Echo True or Not at all
 </button>
@@ -1093,9 +1202,9 @@ All of the code chunk rules have a default option. For example, <code>echo</code
 </div>
 <p><br></p>
 <ul>
-<li>True or False, there is no difference between setting <code>results = &quot;hide&quot;</code> and <code>eval = FALSE</code> as they both hide the output: <select class='solveme' data-answer='["FALSE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
+<li>True or False, there is no difference between setting <code>results = "hide"</code> and <code>eval = FALSE</code> as they both hide the output: <select class='webex-solveme' data-answer='["FALSE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - What’s the difference?
 </button>
@@ -1106,22 +1215,22 @@ With setting <code>results = “hide”</code>, the code is evaluated and result
 </div>
 </div>
 </div>
-<div id="adding-inline-code" class="section level3">
+<div id="adding-inline-code" class="section level3" number="1.2.5">
 <h3><span class="header-section-number">1.2.5</span> Adding Inline Code</h3>
 <p>An alternative way to add code to a report is through what is called using <strong>inline code</strong>. With inline code you don’t use a code chunk. Instead the code appears <strong>inline</strong> with the text. Inline code can be inserted using a back-tick, then the letter <code>r</code>, followed by a space, then the code you want to include, then finally another back-tick. For example, writing <code>`r 2 + 2`</code> would return the answer <strong>4</strong> when you knit the file instead of showing the code. Remember, you do not do this inside a code chunk, you do this in line with your text, e.g.:
 <br><br>
-<strong>“We ran <code>`r 2+2`</code> people”.</strong>
+<strong>“We ran <code>`r 2+2`</code> people.”</strong>
 <br><br>
 Which when knitted becomes:
 <br><br>
-<strong>“We ran 4 people”.</strong></p>
+<strong>“We ran 4 people.”</strong></p>
 <p>So inline coding is really useful if you want to do calculations <strong>within your text</strong> or insert values into text, say from a dataframe, to make an informative sentence. We will look at more complex examples later in the labs but again this is a really useful tool for writing manuscripts through R Markdown the more comfortable you get with it.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li><p>You need <select class='solveme' data-answer='["Three"]'> <option></option> <option>Two</option> <option>One</option> <option>Three</option></select> back tick(s) to insert <strong>code chunks</strong></p></li>
-<li><p>Why is this inline code, <code>`{r} 6 * 8`</code> , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='solveme' data-answer='["Curly brackets around the r are only needed for code chunks"]'> <option></option> <option>You need a space between each back tick and the code</option> <option>Inline code cannot complete calcuations</option> <option>Curly brackets around the r are only needed for code chunks</option></select></p></li>
+<li><p>You need <select class='webex-solveme' data-answer='["Three"]'> <option></option> <option>Two</option> <option>One</option> <option>Three</option></select> back tick(s) to insert <strong>code chunks</strong></p></li>
+<li><p>Why is this inline code, <code>`{r} 6 * 8`</code> , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. <select class='webex-solveme' data-answer='["Curly brackets around the r are only needed for code chunks"]'> <option></option> <option>You need a space between each back tick and the code</option> <option>Inline code cannot complete calcuations</option> <option>Curly brackets around the r are only needed for code chunks</option></select></p></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - Why are these answers correct?
 </button>
@@ -1146,7 +1255,7 @@ All you need for inline coding is a back-tick, r, space, code, and a final back-
 </div>
 </div>
 </div>
-<div id="formatting-the-r-markdown-file" class="section level3">
+<div id="formatting-the-r-markdown-file" class="section level3" number="1.2.6">
 <h3><span class="header-section-number">1.2.6</span> Formatting the R Markdown File</h3>
 <p>The last thing we want to show you in this preclass activity is how to format your text.</p>
 <p>When you’re not writing in code chunks you can format your document in lots of different ways just like you would in a Word document (or other expensive license-based software). The <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">R Markdown cheatsheet</a> provides lots of information about how to do this but we will show you a couple of things that you might want to try out.</p>
@@ -1155,7 +1264,7 @@ All you need for inline coding is a back-tick, r, space, code, and a final back-
 “We ran **4 people**.
 <br><br>
 Which when knitted becomes:
-<br><br>”We ran <strong>4 people</strong>&quot;.
+<br><br>”We ran <strong>4 people</strong>".
 <br><br>
 <strong>Now write some text in your Rmd file and put it in bold.</strong> Knit the file to check it worked.</p>
 <p>You could also try using italics by putting a single * (asterisk) at the start and end of the word or sentence. <strong>Try this now.</strong> Here is an example to help.
@@ -1163,7 +1272,7 @@ Which when knitted becomes:
 “We ran *4 people*.
 <br><br>
 Which when knitted becomes:
-<br><br>”We ran <em>4 people</em>&quot;.
+<br><br>”We ran <em>4 people</em>".
 <br><br></p>
 <p><strong>Note:</strong> italics can be difficult to read for many people and as such we have tried to avoid using it in this book. If you find some italics, where it is not necessary, please let us know and claim your reward of a packet of minstrels. Yes, a whole packet!</p>
 <p>Finally, you might want to add headings and sub-headings to your file. For example, maybe you are writing a Psychology journal article and want to put in a header for the Introduction, Methods, Results, or Discussion sections. We do this using the # (hashtag) symbol as shown in Figure <a href="starting-with-r-markdown.html#fig:img-header-levels">1.10</a>.</p>
@@ -1175,20 +1284,20 @@ Figure 1.10: Inputting different Header levels using #s
 </div>
 <p><br>
 <strong>Now, type the four main sections found in a Psychology journal article in your R Markdown file, typing each one in a separate line</strong>. These are mentioned above. Knit the file. What do these look like?</p>
-<p><strong>Now add a different number of #’s before each heading</strong>, with a space between the heading and the hashtag (e.g. # Introduction) and knit the file again. What do you notice about the different number of hashtags?</p>
+<p><strong>Now add a different number of #’s before each heading</strong>, with a space between the heading and the hashtag (e.g. # Introduction) and knit the file again. What do you notice about the different number of hashtags?</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li><p>If * puts words into italics, and ** puts words into bold, type in the box what might you put before (and technically after) a word to put it into italics with bold? <input class='solveme nospaces' size='3' data-answer='["***"]'/></p></li>
-<li><p>True or False: The <strong>more</strong> ’#’s you include, the <strong>smaller</strong> the header is: <select class='solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></p></li>
-<li><p>From the options, the most common order of headings found in a Psychology Journal are: <select class='solveme' data-answer='["Introduction, Methods, Results, Discussion"]'> <option></option> <option>Discussion, Introduction, Methods, Results</option> <option>Discussion, Results, Methods, Introduction</option> <option>Introduction, Methods, Results, Discussion</option> <option>Introduction, Results, Methods, Discussion</option></select></p></li>
+<li><p>If * puts words into italics, and ** puts words into bold, type in the box what might you put before (and technically after) a word to put it into italics with bold? <input class='webex-solveme nospaces' size='3' data-answer='["***"]'/></p></li>
+<li><p>True or False: The <strong>more</strong> ’#’s you include, the <strong>smaller</strong> the header is: <select class='webex-solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></p></li>
+<li><p>From the options, the most common order of headings found in a Psychology Journal are: <select class='webex-solveme' data-answer='["Introduction, Methods, Results, Discussion"]'> <option></option> <option>Discussion, Introduction, Methods, Results</option> <option>Discussion, Results, Methods, Introduction</option> <option>Introduction, Methods, Results, Discussion</option> <option>Introduction, Results, Methods, Discussion</option></select></p></li>
 </ul>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - I don’t get these answers
 </button>
 <div class="info">
 <p>
-If * at the start and end of the word puts it in italics (e.g. <em>italics</em>) and ** puts it in bold (e.g. <strong>bold</strong>), then putting three *** at the start and end will put it in italics with bold (e.g. <strong><em>italics-bold</em></strong>).
+If * at the start and end of the word puts it in italics (e.g. <em>italics</em>) and ** puts it in bold (e.g. <strong>bold</strong>), then putting three *** at the start and end will put it in italics with bold (e.g. <strong><em>italics-bold</em></strong>).
 </p>
 <p>
 It is true that the more #’s you use, the smaller the heading is. Word and other document writers use different headings as well. Here, # gives the biggest heading, and it gets smaller and smaller with every extra #.
@@ -1204,14 +1313,14 @@ Finally, in Psychology, the vast majority of journal articles are written in the
 
 </div>
 </div>
-<div id="inclass-activiy" class="section level2">
+<div id="inclass-activiy" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> InClass Activiy</h2>
 <p><span style="font-size: 16px; font-weight: bold; color: var(--green);">For all the inclass activities, you will need to have completed the PreClass Activities. You may also need some cheatsheets such as <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target = "_blank">The R Markdown Cheatsheet</a>. Everything you need to complete this inclass activity can be found in those documents. We will tell you which additional material might help where we think it is appropriate.</span></p>
-<div id="r-markdown-and-the-experimental-design-portfolio" class="section level3">
+<div id="r-markdown-and-the-experimental-design-portfolio" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> R Markdown and The Experimental Design Portfolio</h3>
-<p>In the preclass activity, we asked you to start playing about with R Markdown. Now, in the lab, we are going to continue learning about R Markdown as creating your own files from scratch is a great start to creating reproducible science! We will also start you off in creating your own <strong>Experimental Design and Analysis Portfolio</strong> through R Markdown. The aim of this portfolio is to consolidate your learning in experimental design and analysis, allowing you to reflect back on how your learning has progressed. You should add to it whenever you think “Oh that is a good tip!” or “That is something I want to remember!”. Do this after a lab or a lecture, when you are collating all your notes together. Your portfolio is for you, unless you choose to share it of course, and will not be assessed or marked in anyway. It is your learning aid to help you develop your understanding of research methods and analysis in Psychology.</p>
+<p>In the preclass activity, we asked you to start playing about with R Markdown. Now, in the lab, we are going to continue learning about R Markdown as creating your own files from scratch is a great start to creating reproducible science! We will also start you off in creating your own <strong>Experimental Design and Analysis Portfolio</strong> through R Markdown. The aim of this portfolio is to consolidate your learning in experimental design and analysis, allowing you to reflect back on how your learning has progressed. You should add to it whenever you think “Oh that is a good tip!” or “That is something I want to remember!” Do this after a lab or a lecture, when you are collating all your notes together. Your portfolio is for you, unless you choose to share it of course, and will not be assessed or marked in anyway. It is your learning aid to help you develop your understanding of research methods and analysis in Psychology.</p>
 <p>By the end of these labs you should be able to use your portfolio for exam revision, particularly if you incorporate lecture material, so it’s worth maintaining a clear structure to your portfolio! In this first lab, <strong>across 9 tasks</strong>, we will help you to understand how to structure and format R Markdown files; you can then apply what you learn here to your portfolio in your own time. We suggest having your portfolio open in every lab so you can add to it as you go along. Let’s begin!</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Portfolio Point - Things you could include
 </button>
@@ -1260,10 +1369,10 @@ Reflection Points on what you have learned in your labs each week.
 </div>
 </div>
 </div>
-<div id="the-ponzo-illusion-and-age" class="section level3">
+<div id="the-ponzo-illusion-and-age" class="section level3" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> The Ponzo Illusion and Age</h3>
 <p>The activities in this lab will make use of an <strong>open dataset</strong>.</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Explain This - What is an open dataset?
 </button>
@@ -1287,16 +1396,16 @@ The data we will use today is from a paper looking at the <strong>Ponzo illusion
 <li>The Mean Length of the left vertical line</li>
 </ul>
 </div>
-<div id="Ch1InClassQueT1" class="section level3">
+<div id="Ch1InClassQueT1" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> Task 1: Setting up Your R Markdown Portfolio</h3>
 <p>As above our overall goal is to make a reproducible “report” summarising the data in the Leibowitz and Judisch (1967) paper. As we go along, remember to refer back to the PreClass activity and cheatsheets to help you. Let’s begin!</p>
 <ol style="list-style-type: decimal">
 <li>Create a new R Markdown document.</li>
-<li>Give it a title, e.g. <strong>My Psychology Research Methods Portfolio</strong></li>
+<li>Give it a title, e.g. <strong>My Psychology Research Methods Portfolio</strong></li>
 <li>Enter your <strong>GUID</strong> or name as the author</li>
 <li>Set the output as <strong>HTML</strong>.</li>
 </ol>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Helpful Hint
 </button>
@@ -1314,7 +1423,7 @@ If you don’t see the document header, then you’ve probably created an R Scri
 </div>
 <p><br>
 You can now remove the parts of the generic R Markdown code that we do not need; anything <strong>after</strong> the <code>setup</code> code chunk can be removed (see Figure <a href="starting-with-r-markdown.html#fig:img-setup-chunk">1.3</a>). So anything after line 11 can be removed. Leave the first code chunk however - lines 8 to 10 - as these lines make R Markdown show code chunks unless otherwise specified - note the <code>echo =  TRUE</code>.</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Portfolio Point - Code Chunk Reminders
 </button>
@@ -1325,14 +1434,14 @@ After the lab it might be handy to write a reminder somewhere in your portfolio 
 </div>
 </div>
 </div>
-<div id="Ch1InClassQueT2" class="section level3">
+<div id="Ch1InClassQueT2" class="section level3" number="1.3.4">
 <h3><span class="header-section-number">1.3.4</span> Task 2: Give your Report a Heading</h3>
 <p>We are going to start off your portfolio with creating a brief report on Leibowitz and Judisch (1967), so we should give it a heading.</p>
 <ol style="list-style-type: decimal">
-<li>After the <code>setup</code> code chunk, give your report a heading, e.g. <strong>Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</strong>.</li>
+<li>After the <code>setup</code> code chunk, give your report a heading, e.g. <strong>Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</strong>.</li>
 <li>Using hashtags, give this heading a <strong>Header 1</strong> size.</li>
 </ol>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Helpful Hint - hashtags are not just for social media
 </button>
@@ -1343,13 +1452,13 @@ Remember that the fewer the number of hashtags the larger the heading size.
 </div>
 </div>
 </div>
-<div id="Ch1InClassQueT3" class="section level3">
+<div id="Ch1InClassQueT3" class="section level3" number="1.3.5">
 <h3><span class="header-section-number">1.3.5</span> Task 3: Creating a Code Chunk</h3>
 <p>We are going to need the data soon so best to bring it in at the start of our code.</p>
 <ol style="list-style-type: decimal">
 <li>Set your working directory: <strong><code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></strong></li>
 </ol>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Portfolio Point - Set Working Directory
 </button>
@@ -1368,11 +1477,11 @@ Avoid using code to set your working directory as often this will only work on y
 <li>Copy and paste the code below into your code chunk. Spend a couple of minutes with a partner reminding yourself what the code does. The answer is in the hint below.</li>
 <li>Now, add or change the <code>echo</code> rule in your code chunk so that when you knit the file, the code <strong>will not be included</strong> in the final document.</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">ponzo_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;PonzoAgeData.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="starting-with-r-markdown.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb2-2"><a href="starting-with-r-markdown.html#cb2-2" aria-hidden="true" tabindex="-1"></a>ponzo_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;PonzoAgeData.csv&quot;</span>)</span></code></pre></div>
 <p><strong>Knit the document now and see what the output looks like. It will ask you to save the file somewhere. Remember that on the Boyd Orr Lab PCs this is best done on your M: drive, given available space.</strong></p>
 <p><strong>Important</strong>: There is a good chance that, on the webpage that you have knitted, you will see either some warnings or messages. You can suppress these using the <code>message</code> and <code>warning</code> rules within the code chunks as well. Try this now - the PreClass Activities and the R-Markdown cheatsheet will help.</p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Helpful Hint - what was all that?
 </button>
@@ -1393,7 +1502,7 @@ Remember to separate rules in the code chunk with commas. E.g. {r, rule1 = FALSE
 </p>
 <ol style="list-style-type: decimal">
 <li>
-Line 1 loads the <code>tidyverse</code> packages and all associated packages e.g. <code>dplyr</code>, <code>readr</code> and <code>ggplot2</code>. You have used these in Level 1 Grassroots book - we will recap a lot of that in the coming labs.<br />
+Line 1 loads the <code>tidyverse</code> packages and all associated packages e.g. <code>dplyr</code>, <code>readr</code> and <code>ggplot2</code>. You have used these in Level 1 Grassroots book - we will recap a lot of that in the coming labs.<br />
 </li>
 <li>
 Line 2 loads in the data using the <code>read_csv()</code> function and stores it in <code>ponzo_data</code>.
@@ -1416,7 +1525,7 @@ remember <code>&lt;-</code> essentially means <code>assign this to that</code>. 
 </div>
 </div>
 </div>
-<div id="Ch1InClassQueT4" class="section level3">
+<div id="Ch1InClassQueT4" class="section level3" number="1.3.6">
 <h3><span class="header-section-number">1.3.6</span> Task 4: Writing your Report</h3>
 <p>Let’s start giving this brief report some information and structure as we would a full report.</p>
 <ol style="list-style-type: decimal">
@@ -1425,7 +1534,7 @@ remember <code>&lt;-</code> essentially means <code>assign this to that</code>. 
 <li>Finally, copy the text in the box below into your report and finish the text by putting the names of two hypotheses behind the illusion below the sentence in an <strong>ordered list</strong> style; i.e. 1… 2…, etc. The two hypotheses are <strong>The Framing hypothesis</strong> and <strong>The Perspective hypothesis</strong>.</li>
 </ol>
 <pre><code>&quot;There are two underlying hypotheses that may explain the Ponzo Illusion. These are: ...&quot;</code></pre>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Helpful Hint - Lists
 </button>
@@ -1438,7 +1547,7 @@ Lists can be tricky to begin with but are very straightforward once you know the
 The list begins after a blank line after any text. If you start the list without leaving a blank line at the top it won’t work.
 </li>
 <li>
-Each point starts with an asterisk (*) or by an integer and full-stop (e.g. <code>1.</code>)
+Each point starts with an asterisk (*) or by an integer and full-stop (e.g. <code>1.</code>)
 </li>
 <li>
 You must have a space after the * or 1. before writing your point.
@@ -1457,16 +1566,16 @@ To stagger points on a list (i.e. indent), leave 4 blank spaces (two tabs) and 
 <p>Here are a couple of questions to try out in your group to remind you about using citations:</p>
 <p>When writing a report, how would you cite:</p>
 <ul>
-<li>Papers with <strong>five</strong> authors on the <strong>first</strong> mention? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
-<li>Papers with <strong>five</strong> authors on the <strong>second</strong> mention? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
-<li>Papers with <strong>seven</strong> authors on the <strong>first</strong> mention? <select class='solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7</option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7, Year</option> <option>Author 1 et al., Year</option></select></li>
-<li>Papers with <strong>two</strong> authors in a citation? <select class='solveme' data-answer='["(Author 1 & Author 2)"]'> <option></option> <option>(Author 1 &amp; Author 2)</option> <option>(Author 1 et al., Year)</option></select></li>
-<li><strong>Two</strong> papers in <strong>one</strong> paretheses? <select class='solveme' data-answer='["Order alphabetically according to first author surname, separated by a semi-colon"]'> <option></option> <option>Order chronologically according to year, separated by a semi-colon</option> <option>Order alphabetically according to first author surname, separated by a semi-colon</option></select></li>
-<li><strong>Two</strong> papers of the <strong>same</strong> author? <select class='solveme' data-answer='["Order chronologically according to year, separated by a comma"]'> <option></option> <option>Order chronologically according to year, separated by a semi-colon</option> <option>Order chronologically according to year, separated by a comma</option> <option>Order alphabetically by adding a letter to each year</option></select></li>
+<li>Papers with <strong>five</strong> authors on the <strong>first</strong> mention? <select class='webex-solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
+<li>Papers with <strong>five</strong> authors on the <strong>second</strong> mention? <select class='webex-solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5</option> <option>Author 1, Author 2, Author 3, Author 4, &amp; Author 5, Year</option> <option>Author 1 et al., Year</option></select></li>
+<li>Papers with <strong>seven</strong> authors on the <strong>first</strong> mention? <select class='webex-solveme' data-answer='["Author 1 et al., Year"]'> <option></option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7</option> <option>Author 1, Author 2, Author 3, Author 4, Author 5, Author 6, &amp; Author 7, Year</option> <option>Author 1 et al., Year</option></select></li>
+<li>Papers with <strong>two</strong> authors in a citation? <select class='webex-solveme' data-answer='["(Author 1 & Author 2)"]'> <option></option> <option>(Author 1 &amp; Author 2)</option> <option>(Author 1 et al., Year)</option></select></li>
+<li><strong>Two</strong> papers in <strong>one</strong> paretheses? <select class='webex-solveme' data-answer='["Order alphabetically according to first author surname, separated by a semi-colon"]'> <option></option> <option>Order chronologically according to year, separated by a semi-colon</option> <option>Order alphabetically according to first author surname, separated by a semi-colon</option></select></li>
+<li><strong>Two</strong> papers of the <strong>same</strong> author? <select class='webex-solveme' data-answer='["Order chronologically according to year, separated by a comma"]'> <option></option> <option>Order chronologically according to year, separated by a semi-colon</option> <option>Order chronologically according to year, separated by a comma</option> <option>Order alphabetically by adding a letter to each year</option></select></li>
 </ul>
 <p>Those questions about citations may throw you a little. In late 2019, the APA Style Guide 7th edition was released. One of the biggest changes here was that for papers of three or more authors, the citation would only show the first author and the year, as opposed to listing all authors on first citation. Two author papers and single author papers still always show all authors. For more information on how to format citations, you can look at the highly recommended <a href = "https://apastyle.apa.org/style-grammar-guidelines/citations/basic-principles/author-date" target = "_blank">APA Style blog</a>.</p>
 </div>
-<div id="Ch1InClassQueT5" class="section level3">
+<div id="Ch1InClassQueT5" class="section level3" number="1.3.7">
 <h3><span class="header-section-number">1.3.7</span> Task 5: Making Text Bold or Italicized</h3>
 <p>Sometimes we want to add some emphasis to text.</p>
 <ol style="list-style-type: decimal">
@@ -1474,11 +1583,11 @@ To stagger points on a list (i.e. indent), leave 4 blank spaces (two tabs) and 
 </ol>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Question</span></p>
 <ul>
-<li>Bold text and italicized text are created similarly, how do you create italicized text? <select class='solveme' data-answer='["* (before and after text)"]'> <option></option> <option>* (before text)</option> <option>** (before and after text)</option> <option>* (before and after text)</option> <option>** (before text)</option></select></li>
+<li>Bold text and italicized text are created similarly, how do you create italicized text? <select class='webex-solveme' data-answer='["* (before and after text)"]'> <option></option> <option>* (before text)</option> <option>** (before and after text)</option> <option>* (before and after text)</option> <option>** (before text)</option></select></li>
 </ul>
 <p><strong>It’s a good idea to <code>knit</code> the file at this point to make sure the codes are all working correctly.</strong></p>
 </div>
-<div id="Ch1InClassQueT6" class="section level3">
+<div id="Ch1InClassQueT6" class="section level3" number="1.3.8">
 <h3><span class="header-section-number">1.3.8</span> Task 6: Adding Links to the Data in your Methods</h3>
 <p>Good practice in a Report is to include information about where we got the data from.</p>
 <ol style="list-style-type: decimal">
@@ -1490,7 +1599,7 @@ To stagger points on a list (i.e. indent), leave 4 blank spaces (two tabs) and 
 <p>“The data in this report was obtained from within the original paper, (Lebowitz and Judisch, 2016).”</p>
 </blockquote>
 <p><strong>Now knit your document again to make sure your formatting is working. Titles should be bigger than normal text and the list should be indented and have numbers at the start of each line.</strong></p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Helpful Hint - adding links?
 </button>
@@ -1504,7 +1613,7 @@ Use the R Markdown cheatsheet to see how to insert links. It has something to do
 </div>
 </div>
 </div>
-<div id="Ch1InClassQueT7" class="section level3">
+<div id="Ch1InClassQueT7" class="section level3" number="1.3.9">
 <h3><span class="header-section-number">1.3.9</span> Task 7: Adding an Image to your Methods</h3>
 <p>For certain studies, you may want to add an image to the Methods section, either of the stimuli, of the materials, or of the procedure. If you look at the R Markdown cheatsheet you’ll see that adding an image is very similar to adding a link, the only difference is the exclamation mark, <code>!</code>, beforehand. Surprising, I know!</p>
 <p>For now we will just add an image of the illusion taken from the internet to illustrate how to add images to our documents.</p>
@@ -1513,7 +1622,7 @@ Use the R Markdown cheatsheet to see how to insert links. It has something to do
 <li>Below the <strong>Stimuli</strong> heading, insert the image at the following web address:</li>
 </ol>
 <pre><code>https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg</code></pre>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Portfolio Point - A good methods section
 </button>
@@ -1527,7 +1636,7 @@ This may sound very obvious but you would be surprised at how many Methods secti
 </div>
 </div>
 </div>
-<div id="Ch1InClassQueT8" class="section level3">
+<div id="Ch1InClassQueT8" class="section level3" number="1.3.10">
 <h3><span class="header-section-number">1.3.10</span> Task 8: Adding a Table to your Results</h3>
 <p>Another benefit of R Markdown is that you can insert tables of results directly into your report without having to format them - though for aesthetics you will want to learn how to format tables eventually. But for now…</p>
 <ol style="list-style-type: decimal">
@@ -1535,23 +1644,23 @@ This may sound very obvious but you would be surprised at how many Methods secti
 <li>Add a new code chunk and give it the name <code>table</code>, and include the code shown below. The first part of the code <code>my_table &lt;- group_by %&gt;% summarise</code> creates the table and stores it in <code>my_table</code>. The second part of the code <code>my_table</code> calls the table. Calls means <code>to display or to show me</code> in this sense.</li>
 <li>Add an <code>echo</code> rule so that the code <strong>IS NOT</strong> included in the final document but the ouput table <strong>is</strong> included.</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">my_table &lt;-<span class="st"> </span><span class="kw">group_by</span>(ponzo_data, Sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">NofGroups=</span><span class="kw">n</span>(), <span class="dt">mean_length =</span> <span class="kw">mean</span>(ComparisonLength))</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">my_table</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="starting-with-r-markdown.html#cb5-1" aria-hidden="true" tabindex="-1"></a>my_table <span class="ot">&lt;-</span> <span class="fu">group_by</span>(ponzo_data, Sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="starting-with-r-markdown.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">NofGroups=</span><span class="fu">n</span>(), <span class="at">mean_length =</span> <span class="fu">mean</span>(ComparisonLength))</span>
+<span id="cb5-3"><a href="starting-with-r-markdown.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="starting-with-r-markdown.html#cb5-4" aria-hidden="true" tabindex="-1"></a>my_table</span></code></pre></div>
 <p><strong>Now, knit your document to see what you have produced. You should not see the above code, just the output table.</strong></p>
 </div>
-<div id="Ch1InClassQueT9" class="section level3">
+<div id="Ch1InClassQueT9" class="section level3" number="1.3.11">
 <h3><span class="header-section-number">1.3.11</span> Task 9: Adding a Figure to your Results</h3>
 <p>Nearly all research reports have a figure so we will want to add one as well.</p>
 <ol style="list-style-type: decimal">
 <li>Underneath your <code>table</code> code chunk, add a new code chunk and give it the name <code>plot</code>.</li>
 <li>Add the below code to the chunk and set the <code>include</code> rule so that both the code and the plot are included in the final report.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(ponzo_data, </a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<div class="solution">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="starting-with-r-markdown.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ponzo_data, </span>
+<span id="cb6-2"><a href="starting-with-r-markdown.html#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Mean_Age, <span class="at">y =</span> ComparisonLength, <span class="at">color =</span> Sex)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="starting-with-r-markdown.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="webex-solution">
 <button>
 Portfolio Point - to assign or to not assign
 </button>
@@ -1571,8 +1680,8 @@ Again this is not a hard and fast rule and often we will assign figures but it j
 <p><strong>Again, knit your document to make sure it is working correctly. Below your table you should now have the ggplot code followed by the nice scatterplot.</strong></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);"> <strong>Group Discussion Point</strong> </span></p>
 <p>In your group, have a brief discussion about the figure to answer the following question.</p>
-<p>“Based on the distibrution of the data, shown in the above Figure, …” <select class='solveme' data-answer='["as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line"]'> <option></option> <option>as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line</option> <option>as age increases, people perceive a longer vertical line to be of same length as the standard vertical linge</option> <option>There is no relationship between Age and the Ponzo illusion</option> <option>This figure tells me nothing about the relationship between Age and the Ponzo illusion</option></select></p>
-<div class="solution">
+<p>“Based on the distibrution of the data, shown in the above Figure, …” <select class='webex-solveme' data-answer='["as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line"]'> <option></option> <option>as age increases, people perceive a shorter vertical line to be of same length as the standard vertical line</option> <option>as age increases, people perceive a longer vertical line to be of same length as the standard vertical linge</option> <option>There is no relationship between Age and the Ponzo illusion</option> <option>This figure tells me nothing about the relationship between Age and the Ponzo illusion</option></select></p>
+<div class="webex-solution">
 <button>
 Helpful Hint
 </button>
@@ -1584,7 +1693,7 @@ What does each dot represent in the Figure, and what is the pattern of the dots?
 </div>
 <p><br></p>
 <p>We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report! Compare your report to the one we have created to see if they match, which can be found at the end of this chapter using menu on the left (i.e. InClass Comparison) or <a href="data/01-s01/inclass/ProducedPonzoTemplate.zip">click here to download the .Rmd file in a zip folder</a>. <strong>Fix anything that is not formatted as in our template.</strong></p>
-<div class="solution">
+<div class="webex-solution">
 <button>
 Portfolio Point - The Power of R Markdown and the ggplot Package
 </button>
@@ -1604,17 +1713,17 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 
 </div>
 </div>
-<div id="assignment" class="section level2">
+<div id="assignment" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Assignment</h2>
 <p>This is a formative assignment. Instructions as to how to access this assignment will be made available on Moodle during the course. Please note though that this assignment will not be graded and does not count towards obtaining course credit or your overall grade.</p>
 
 </div>
-<div id="solutions-to-questions" class="section level2">
+<div id="solutions-to-questions" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Solutions to Questions</h2>
 <p>Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
-<div id="inclass-activities" class="section level3">
+<div id="inclass-activities" class="section level3" number="1.5.1">
 <h3><span class="header-section-number">1.5.1</span> InClass Activities</h3>
-<div id="task-2-give-your-report-a-heading" class="section level4">
+<div id="task-2-give-your-report-a-heading" class="section level4" number="1.5.1.1">
 <h4><span class="header-section-number">1.5.1.1</span> Task 2: Give your Report a Heading</h4>
 <ol style="list-style-type: decimal">
 <li>You should have used only one hashtag to give the biggest heading size.</li>
@@ -1622,7 +1731,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 <p><code># Lab 1 - The magnitude of the Ponzo Illusion varies as a function of Age</code></p>
 <p><a href="starting-with-r-markdown.html#Ch1InClassQueT2">Return to Task</a></p>
 </div>
-<div id="task-3-creating-a-code-chunk" class="section level4">
+<div id="task-3-creating-a-code-chunk" class="section level4" number="1.5.1.2">
 <h4><span class="header-section-number">1.5.1.2</span> Task 3: Creating a Code Chunk</h4>
 <ol style="list-style-type: decimal">
 <li>The <code>echo</code> rule, <code>warning</code> rule and <code>message</code> rule should all be set to <code>FALSE</code>. As such, the start of the code chunk should look like:</li>
@@ -1632,7 +1741,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 </div>
 <p><a href="starting-with-r-markdown.html#Ch1InClassQueT3">Return to Task</a></p>
 </div>
-<div id="task-4-writing-your-report" class="section level4">
+<div id="task-4-writing-your-report" class="section level4" number="1.5.1.3">
 <h4><span class="header-section-number">1.5.1.3</span> Task 4: Writing your Report</h4>
 <ol style="list-style-type: decimal">
 <li>Task 4 is about setting a title to <code>Header 2</code> style. This is done via two <code>##</code> at the start of the line - before the word Introduction in this case but don’t forget the space.</li>
@@ -1646,7 +1755,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 2. The Framing Hypothesis</code></pre>
 <p><a href="starting-with-r-markdown.html#Ch1InClassQueT4">Return to Task</a></p>
 </div>
-<div id="task-5-making-text-bold-or-italicized" class="section level4">
+<div id="task-5-making-text-bold-or-italicized" class="section level4" number="1.5.1.4">
 <h4><span class="header-section-number">1.5.1.4</span> Task 5: Making Text Bold or Italicized</h4>
 <ol style="list-style-type: decimal">
 <li>To turn text to bold you need to put two <code>**</code> at the start and end of the word or sentence you want as bold, e.g.</li>
@@ -1654,7 +1763,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 <pre><code>**make me bold**</code></pre>
 <p><a href="starting-with-r-markdown.html#Ch1InClassQueT5">Return to Task</a></p>
 </div>
-<div id="task-6-adding-links-to-the-data-in-your-methods" class="section level4">
+<div id="task-6-adding-links-to-the-data-in-your-methods" class="section level4" number="1.5.1.5">
 <h4><span class="header-section-number">1.5.1.5</span> Task 6: Adding Links to the Data in your Methods</h4>
 <ol style="list-style-type: decimal">
 <li>To set a header as <code>Header 2</code> style use <code>##</code> at the start of the line.</li>
@@ -1663,7 +1772,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 </ol>
 <pre><code>[Lebowitz and Judisch (2016)](https://www.jstor.org/stable/1420548?seq=1#page_scan_tab_contents)</code></pre>
 </div>
-<div id="task-7-adding-an-image-to-your-methods" class="section level4">
+<div id="task-7-adding-an-image-to-your-methods" class="section level4" number="1.5.1.6">
 <h4><span class="header-section-number">1.5.1.6</span> Task 7: Adding an Image to your Methods</h4>
 <ol style="list-style-type: decimal">
 <li>To set a header as <code>Header 3</code> style use <code>###</code> at the start of the line.</li>
@@ -1674,7 +1783,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 <pre><code>![The Ponzo Illusion](https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg)</code></pre>
 <p><a href="starting-with-r-markdown.html#Ch1InClassQueT7">Return to Task</a></p>
 </div>
-<div id="task-8-adding-a-table-to-your-results" class="section level4">
+<div id="task-8-adding-a-table-to-your-results" class="section level4" number="1.5.1.7">
 <h4><span class="header-section-number">1.5.1.7</span> Task 8: Adding a Table to your Results</h4>
 <ol style="list-style-type: decimal">
 <li><p>To set a header as <code>Header 2</code> style use <code>##</code> at the start of the line.</p></li>
@@ -1685,7 +1794,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 </div>
 <p><a href="starting-with-r-markdown.html#Ch1InClassQueT8">Return to Task</a></p>
 </div>
-<div id="task-9-adding-a-figure-to-your-results" class="section level4">
+<div id="task-9-adding-a-figure-to-your-results" class="section level4" number="1.5.1.8">
 <h4><span class="header-section-number">1.5.1.8</span> Task 9: Adding a Figure to your Results</h4>
 <ol style="list-style-type: decimal">
 <li>The code chunk heading should read as follows:</li>
@@ -1699,7 +1808,7 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 </div>
 </div>
 </div>
-<div id="inclass-comparison" class="section level2">
+<div id="inclass-comparison" class="section level2" number="1.6">
 <h2><span class="header-section-number">1.6</span> InClass Comparison</h2>
 <p>This section shows the output that would be expected if you were to follow the inclass activities correctly.</p>
 <ul>
@@ -1726,21 +1835,57 @@ The code above uses the <code>ggplot2</code> package you used in Level 1. This i
 <div id="stimuli" class="section level4 unnumbered">
 <h4>Stimuli</h4>
 <div class="figure">
-<img src="https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg" alt="PonzoIllusion" />
+<img src="https://upload.wikimedia.org/wikipedia/en/8/89/Ponzo_Illusion.jpg" alt="" />
 <p class="caption">PonzoIllusion</p>
 </div>
 </div>
 </div>
 <div id="results" class="section level3 unnumbered">
 <h3>Results</h3>
-<pre><code>## # A tibble: 2 x 3
-##   Sex    NofGroups mean_length
-##   &lt;chr&gt;      &lt;int&gt;       &lt;dbl&gt;
-## 1 Female        15        3.57
-## 2 Male          26        3.61</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">ggplot</span>(ponzo_data, </a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Age, <span class="dt">y =</span> ComparisonLength, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:right;">
+NofGroups
+</th>
+<th style="text-align:right;">
+mean_length
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+3.574667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+3.606923
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="starting-with-r-markdown.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ponzo_data, </span>
+<span id="cb12-2"><a href="starting-with-r-markdown.html#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Mean_Age, <span class="at">y =</span> ComparisonLength, <span class="at">color =</span> Sex)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="starting-with-r-markdown.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:lab1-inclass-figure"></span>
 <img src="01-s01-lab01f_files/figure-html/lab1-inclass-figure-1.png" alt="You won't have a caption. We will cover that later!" width="100%" />
 <p class="caption">
@@ -1757,16 +1902,16 @@ Figure 1.11: You won’t have a caption. We will cover that later!
 </div>
 <script>
 
-/* update total correct if #total_correct exists */
+/* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
-  if (t = document.getElementById("total_correct")) {
+  if (t = document.getElementById("webex-total_correct")) {
     t.innerHTML =
-      document.getElementsByClassName("correct").length + " of " +
-      document.getElementsByClassName("solveme").length + " correct";
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
   }
 }
 
-/* solution button toggling function */
+/* webex-solution button toggling function */
 b_func = function() {
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
@@ -1785,14 +1930,34 @@ solveme_func = function(e) {
     my_answer = my_answer.toLowerCase();
   }
   if (cl.contains("nospaces")) {
-    my_answer = my_answer.replace(/ /g, "");
+    my_answer = my_answer.replace(/ /g, "")
   }
   
   if (my_answer !== "" & real_answers.includes(my_answer)) {
-    cl.add("correct");
+    cl.add("webex-correct");
   } else {
-    cl.remove("correct");
+    cl.remove("webex-correct");
   }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }  
+  }
+  
   update_total_correct();
 }
 
@@ -1801,13 +1966,13 @@ window.onload = function() {
   var buttons = document.getElementsByTagName("button");
 
   for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i].parentElement.classList.contains('solution')) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
       buttons[i].onclick = b_func;
     }
   }
   
-  /* set up solveme inputs */
-  var solveme = document.getElementsByClassName("solveme");
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
 
   for (var i = 0; i < solveme.length; i++) {
     /* make sure input boxes don't auto-anything */
@@ -1862,12 +2027,13 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
 },
 "fontsettings": {
 "theme": "white",
@@ -1879,6 +2045,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
