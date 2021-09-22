@@ -1,6 +1,6 @@
 bookdown::gitbook: 
   default: true
-  smart: false
+  md_extensions: -smart
   df_print: kable
   includes:
     in_header: include/header.html
@@ -12,6 +12,7 @@ bookdown::gitbook:
       scroll_highlight: yes
       before: |
         <li><a href="./">Level 2 Practical</a></li>
+        <li><a href="https://psyteachr.github.io/analysis/" style="color: red;">Access the most up-to-date version</a></li>
         <li><a href="https://zenodo.org/badge/latestdoi/166541567"><img src="https://zenodo.org/badge/166541567.svg" alt="DOI"></a></li>
       after: |
         <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 

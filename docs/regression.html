@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 14 Regression | Level 2 Research Methods and Statistics Practical Skills</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 14 Regression | Level 2 Research Methods and Statistics Practical Skills" />
   <meta property="og:type" content="book" />
@@ -30,9 +30,9 @@
   
   
 <link rel="prev" href="continuing-the-glm-two-factor-designs.html"/>
-<link rel="next" href="combining-anova-and-regression-e-g-ancovas.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="combining-anova-and-regression-e.g.-ancovas.html"/>
+<script src="libs/header-attrs-2.10.6/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -61,6 +61,16 @@
 
 
 <link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6NP3MF25W3');
+</script>
 
 
 <style type="text/css">
@@ -167,6 +177,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li><a href="./">Level 2 Practical</a></li>
+<li><a href="https://psyteachr.github.io/analysis/" style="color: red;">Access the most up-to-date version</a></li>
 <li><a href="https://zenodo.org/badge/latestdoi/166541567"><img src="https://zenodo.org/badge/166541567.svg" alt="DOI"></a></li>
 
 <li class="divider"></li>
@@ -183,7 +194,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-rules-and-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Rules and Options</a></li>
@@ -246,7 +257,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself"><i class="fa fa-check"></i><b>2.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -345,7 +356,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-1"><i class="fa fa-check"></i><b>4.7</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -365,37 +376,37 @@ div.csl-indent {
 <li class="chapter" data-level="4.8.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-activities-1"><i class="fa fa-check"></i><b>4.8.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
+<li class="chapter" data-level="5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
+<li class="chapter" data-level="5.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
-<li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
-<li class="chapter" data-level="5.2.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
-<li class="chapter" data-level="5.2.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-4-computing-differences-in-group-means"><i class="fa fa-check"></i><b>5.2.4</b> Skill 4: Computing Differences in Group Means</a></li>
-<li class="chapter" data-level="5.2.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
-<li class="chapter" data-level="5.2.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
+<li class="chapter" data-level="5.2.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
+<li class="chapter" data-level="5.2.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
+<li class="chapter" data-level="5.2.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
+<li class="chapter" data-level="5.2.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-4-computing-differences-in-group-means"><i class="fa fa-check"></i><b>5.2.4</b> Skill 4: Computing Differences in Group Means</a></li>
+<li class="chapter" data-level="5.2.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
+<li class="chapter" data-level="5.2.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
+<li class="chapter" data-level="5.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
-<li class="chapter" data-level="5.3.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
-<li class="chapter" data-level="5.3.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
-<li class="chapter" data-level="5.3.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT3"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
-<li class="chapter" data-level="5.3.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT4"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
-<li class="chapter" data-level="5.3.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
+<li class="chapter" data-level="5.3.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
+<li class="chapter" data-level="5.3.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT3"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
+<li class="chapter" data-level="5.3.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT4"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
+<li class="chapter" data-level="5.3.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
-<li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="5.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
+<li class="chapter" data-level="5.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
+<li class="chapter" data-level="5.5.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
+<li class="chapter" data-level="5.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
 <ul>
-<li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
+<li><a href="permutation-tests---a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
+<li class="chapter" data-level="" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a>
@@ -440,7 +451,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a>
 <ul>
-<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
+<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#misleading-and-appropriate-barplots"><i class="fa fa-check"></i>Misleading and Appropriate Barplots</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#analysing-chi-squares"><i class="fa fa-check"></i>Analysing chi-squares</a></li>
 </ul></li>
@@ -475,60 +486,60 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#non-parametric-tests"><i class="fa fa-check"></i>Non-Parametric tests</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
+<li class="chapter" data-level="8" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
-<li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
+<li class="chapter" data-level="8.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
-<li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
-<li class="chapter" data-level="8.2.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
+<li class="chapter" data-level="8.2.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
+<li class="chapter" data-level="8.2.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
+<li class="chapter" data-level="8.2.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
+<li class="chapter" data-level="8.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
-<li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
-<li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
-<li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT4"><i class="fa fa-check"></i><b>8.3.4</b> Task 4: t-value and effect size for a between-subjects Experiment</a></li>
-<li class="chapter" data-level="8.3.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT5"><i class="fa fa-check"></i><b>8.3.5</b> Task 5: Sample size for standard power one-sample t-test</a></li>
-<li class="chapter" data-level="8.3.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
-<li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
+<li class="chapter" data-level="8.3.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
+<li class="chapter" data-level="8.3.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
+<li class="chapter" data-level="8.3.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT4"><i class="fa fa-check"></i><b>8.3.4</b> Task 4: t-value and effect size for a between-subjects Experiment</a></li>
+<li class="chapter" data-level="8.3.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT5"><i class="fa fa-check"></i><b>8.3.5</b> Task 5: Sample size for standard power one-sample t-test</a></li>
+<li class="chapter" data-level="8.3.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
+<li class="chapter" data-level="8.3.7" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
+<li class="chapter" data-level="8.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
-<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
-<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
-<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT4"><i class="fa fa-check"></i><b>8.4.4</b> Assignment Task 4</a></li>
-<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT5"><i class="fa fa-check"></i><b>8.4.5</b> Assignment Task 5</a></li>
-<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT6"><i class="fa fa-check"></i><b>8.4.6</b> Assignment Task 6</a></li>
-<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT7"><i class="fa fa-check"></i><b>8.4.7</b> Assignment Task 7</a></li>
-<li class="chapter" data-level="8.4.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT8"><i class="fa fa-check"></i><b>8.4.8</b> Assignment Task 8</a></li>
-<li class="chapter" data-level="8.4.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT9"><i class="fa fa-check"></i><b>8.4.9</b> Assignment Task 9</a></li>
-<li class="chapter" data-level="8.4.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT10"><i class="fa fa-check"></i><b>8.4.10</b> Assignment Task 10</a></li>
-<li class="chapter" data-level="8.4.11" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
-<li class="chapter" data-level="8.4.12" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
+<li class="chapter" data-level="8.4.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
+<li class="chapter" data-level="8.4.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
+<li class="chapter" data-level="8.4.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
+<li class="chapter" data-level="8.4.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT4"><i class="fa fa-check"></i><b>8.4.4</b> Assignment Task 4</a></li>
+<li class="chapter" data-level="8.4.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT5"><i class="fa fa-check"></i><b>8.4.5</b> Assignment Task 5</a></li>
+<li class="chapter" data-level="8.4.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT6"><i class="fa fa-check"></i><b>8.4.6</b> Assignment Task 6</a></li>
+<li class="chapter" data-level="8.4.7" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT7"><i class="fa fa-check"></i><b>8.4.7</b> Assignment Task 7</a></li>
+<li class="chapter" data-level="8.4.8" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT8"><i class="fa fa-check"></i><b>8.4.8</b> Assignment Task 8</a></li>
+<li class="chapter" data-level="8.4.9" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT9"><i class="fa fa-check"></i><b>8.4.9</b> Assignment Task 9</a></li>
+<li class="chapter" data-level="8.4.10" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT10"><i class="fa fa-check"></i><b>8.4.10</b> Assignment Task 10</a></li>
+<li class="chapter" data-level="8.4.11" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
+<li class="chapter" data-level="8.4.12" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="8.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="8.5.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
-<li class="chapter" data-level="8.5.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
+<li class="chapter" data-level="8.5.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
+<li class="chapter" data-level="8.5.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
+<li class="chapter" data-level="8.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
 <ul>
-<li><a href="apes-alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen’s d to r</a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
+<li><a href="apes---alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen's d to r</a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
+<li class="chapter" data-level="9" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
-<li class="chapter" data-level="9.2" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
-<li class="chapter" data-level="9.3" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
-<li class="chapter" data-level="9.4" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
-<li class="chapter" data-level="9.5" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.2" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
+<li class="chapter" data-level="9.3" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
+<li class="chapter" data-level="9.4" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
+<li class="chapter" data-level="9.5" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a>
 <ul>
@@ -621,7 +632,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
+<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene's Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a>
@@ -697,55 +708,55 @@ div.csl-indent {
 <li class="chapter" data-level="14.5.10" data-path="regression.html"><a href="regression.html#task-9"><i class="fa fa-check"></i><b>14.5.10</b> Task 9</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
-<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
-<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
-<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
-<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
-<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
+<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
+<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
+<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
+<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
+<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
-<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
-<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
-<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
-<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
+<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
+<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
+<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
+<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
+<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
-<li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
-<li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
-<li class="chapter" data-level="15.4.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT3"><i class="fa fa-check"></i><b>15.4.4</b> Task 3: Plotting the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT4"><i class="fa fa-check"></i><b>15.4.5</b> Task 4: Analysing the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT5"><i class="fa fa-check"></i><b>15.4.6</b> Task 5: Interpreting the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.7" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT6"><i class="fa fa-check"></i><b>15.4.7</b> Task 6: Plotting the modulation of voice/strength relationship by sex</a></li>
-<li class="chapter" data-level="15.4.8" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT7"><i class="fa fa-check"></i><b>15.4.8</b> Task 7: Mean centering and Deviation coding the variables.</a></li>
-<li class="chapter" data-level="15.4.9" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT8"><i class="fa fa-check"></i><b>15.4.9</b> Task 8: Estimate the modulation of voice/strength relationship by sex</a></li>
-<li class="chapter" data-level="15.4.10" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT9"><i class="fa fa-check"></i><b>15.4.10</b> Task 9: Interpreting the output 1</a></li>
-<li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
-<li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
+<li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
+<li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
+<li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
+<li class="chapter" data-level="15.4.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT3"><i class="fa fa-check"></i><b>15.4.4</b> Task 3: Plotting the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT4"><i class="fa fa-check"></i><b>15.4.5</b> Task 4: Analysing the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.6" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT5"><i class="fa fa-check"></i><b>15.4.6</b> Task 5: Interpreting the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.7" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT6"><i class="fa fa-check"></i><b>15.4.7</b> Task 6: Plotting the modulation of voice/strength relationship by sex</a></li>
+<li class="chapter" data-level="15.4.8" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT7"><i class="fa fa-check"></i><b>15.4.8</b> Task 7: Mean centering and Deviation coding the variables.</a></li>
+<li class="chapter" data-level="15.4.9" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT8"><i class="fa fa-check"></i><b>15.4.9</b> Task 8: Estimate the modulation of voice/strength relationship by sex</a></li>
+<li class="chapter" data-level="15.4.10" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT9"><i class="fa fa-check"></i><b>15.4.10</b> Task 9: Interpreting the output 1</a></li>
+<li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
+<li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
-<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
-<li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
+<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
+<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
+<li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
+<li class="chapter" data-level="16" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
-<li class="chapter" data-level="16.2" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
-<li class="chapter" data-level="16.3" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
-<li class="chapter" data-level="16.4" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#update-your-notes"><i class="fa fa-check"></i><b>16.4</b> Update Your Notes</a></li>
-<li class="chapter" data-level="16.5" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#in-the-end"><i class="fa fa-check"></i><b>16.5</b> In The End!</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.2" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
+<li class="chapter" data-level="16.3" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
+<li class="chapter" data-level="16.4" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#update-your-notes"><i class="fa fa-check"></i><b>16.4</b> Update Your Notes</a></li>
+<li class="chapter" data-level="16.5" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#in-the-end"><i class="fa fa-check"></i><b>16.5</b> In The End!</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="chapter" data-level="" data-path="acknolwedgements.html"><a href="acknolwedgements.html"><i class="fa fa-check"></i>Acknolwedgements</a></li>
@@ -806,10 +817,10 @@ div.csl-indent {
 <h2><span class="header-section-number">14.3</span> InClass Activity</h2>
 <p>You have been reading about regression in Miller and Haden (2013) and have been looking at it in the lectures. Today, to help get a practical understanding of regression, you will be working with real data and using regression to explore the question of whether there is a relationship between voice acoustics and ratings of perceived trustworthiness.</p>
 <p><strong>The Voice</strong></p>
-<p>The prominent theory of voice production is the <strong>source-filter theory</strong> (Fant, 1960) which suggests that vocalisation is a two step process: air is pushed through the larynx (vocal chords) creating a vibration, i.e. the source, and this is then shaped and moulded into words and utterances as it passes through the neck, mouth and nose, and depending on the shape of those structures at any given time you produce different sounds, i.e. the filter. One common measure of the source is pitch (otherwise called Fundamental Frequency or F0 (pronounced “F-zero”)) (Titze, 1994), which is a measure of the vibration of the vocal chords, in Hertz (Hz); males have on average a lower pitch than females for example. Likewise, one measure of the filter is called formant dispersion (measured again in Hz), and is effectively a measure of the length of someone’s vocal tract (or neck). Height and neck length are suggested to be negatively correlated with formant dispersion, so tall people tend to have smaller formant dispersion. So all in, the sound of your voice is thought to give some indication of what you look like.</p>
-<p>More recently, work has focussed on what the sound of your voice suggests about your personality. <a href = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090779" target = "_blank">McAleer, Todorov and Belin (2014)</a> suggested that vocal acoustics give a perception of your trustworthiness and dominance to others, regardless of whether or not it is accurate. One extension of this is that trust may be driven by malleable aspects of your voice (e.g. your pitch) but not so much by static aspects of your voice (e.g. your formant dispersion). Pitch is considered malleable because you can control the air being pushed through your vocal chords (though you have no conscious control of your vocal chords), whereas dispersion may be controlled by the structure of your throat which is much more rigid due to muscle, bone, and other things that keep your head attached. This idea of certain traits being driven by malleable features and others by static features was previously suggested by <a href = "https://www.pnas.org/content/105/32/11087" target = "_blank">Oosterhof and Todorov (2008)</a> and has been tested with some validation by <a href = "https://link.springer.com/article/10.1007/s10919-015-0214-8" target = "_blank">Rezlescu, Penton, Walsh, Tsujimura, Scott and Banissy (2015)</a>.</p>
-<p>So the research question today is: can vocal acoustics, namely pitch and formant dispersion, predict perceived trustworthiness from a person’s voice? We will only look at male voices today, but you have the data for female voices as well should you wish to practice (note that in the field, tendency is to analyse male and female voices separately as they are effectively sexually dimorphic). As such, we hypothesise that <strong>a linear combination of pitch and dispersion will predict perceived vocal trustworthiness in male voices</strong>. This is what we will analyse.</p>
-<p><strong>Let’s begin.</strong></p>
+<p>The prominent theory of voice production is the <strong>source-filter theory</strong> (Fant, 1960) which suggests that vocalisation is a two step process: air is pushed through the larynx (vocal chords) creating a vibration, i.e. the source, and this is then shaped and moulded into words and utterances as it passes through the neck, mouth and nose, and depending on the shape of those structures at any given time you produce different sounds, i.e. the filter. One common measure of the source is pitch (otherwise called Fundamental Frequency or F0 (pronounced "F-zero")) (Titze, 1994), which is a measure of the vibration of the vocal chords, in Hertz (Hz); males have on average a lower pitch than females for example. Likewise, one measure of the filter is called formant dispersion (measured again in Hz), and is effectively a measure of the length of someone's vocal tract (or neck). Height and neck length are suggested to be negatively correlated with formant dispersion, so tall people tend to have smaller formant dispersion. So all in, the sound of your voice is thought to give some indication of what you look like.</p>
+<p>More recently, work has focussed on what the sound of your voice suggests about your personality. <a href = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090779" target = "_blank">McAleer, Todorov and Belin (2014)</a> suggested that vocal acoustics give a perception of your trustworthiness and dominance to others, regardless of whether or not it is accurate. One extension of this is that trust may be driven by malleable aspects of your voice (e.g. your pitch) but not so much by static aspects of your voice (e.g. your formant dispersion). Pitch is considered malleable because you can control the air being pushed through your vocal chords (though you have no conscious control of your vocal chords), whereas dispersion may be controlled by the structure of your throat which is much more rigid due to muscle, bone, and other things that keep your head attached. This idea of certain traits being driven by malleable features and others by static features was previously suggested by <a href = "https://www.pnas.org/content/105/32/11087" target = "_blank">Oosterhof and Todorov (2008)</a> and has been tested with some validation by <a href = "https://link.springer.com/article/10.1007/s10919-015-0214-8" target = "_blank">Rezlescu, Penton, Walsh, Tsujimura, Scott and Banissy (2015)</a>.</p>
+<p>So the research question today is: can vocal acoustics, namely pitch and formant dispersion, predict perceived trustworthiness from a person's voice? We will only look at male voices today, but you have the data for female voices as well should you wish to practice (note that in the field, tendency is to analyse male and female voices separately as they are effectively sexually dimorphic). As such, we hypothesise that <strong>a linear combination of pitch and dispersion will predict perceived vocal trustworthiness in male voices</strong>. This is what we will analyse.</p>
+<p><strong>Let's begin.</strong></p>
 <p>First, to run this analysis you will need to download the data <a href="data/14-s02/inclass/ch14-inclass-data.zip">from here</a>. You will see in this folder that there are two datafiles:</p>
 <ul>
 <li><strong>voice_acoustics.csv</strong> - shows the VoiceID, the sex of voice, and the pitch and dispersion values</li>
@@ -817,10 +828,10 @@ div.csl-indent {
 </ul>
 <p>Have a look at the layout of the data and familiarise yourself with it. The ratings data is rather messy and in a different layout to the acoustics but can you tell what is what?</p>
 <ul>
-<li>Looking at the layout of the acoustics data it appears to be in <select class='webex-solveme' data-answer='["tidy"]'> <option></option> <option>long</option> <option>wide</option> <option>tidy</option></select></li>
-<li>Looking at the layout of the ratings data it appears to be in <select class='webex-solveme' data-answer='["wide"]'> <option></option> <option>long</option> <option>wide</option></select></li>
+<li>Looking at the layout of the acoustics data it appears to be in <select class='webex-select'><option value='blank'></option><option value=''>long</option><option value=''>wide</option><option value='answer'>tidy</option></select></li>
+<li>Looking at the layout of the ratings data it appears to be in <select class='webex-select'><option value='blank'></option><option value=''>long</option><option value='answer'>wide</option></select></li>
 </ul>
-<p>It may help to refer back to <a href="https://psyteachr.github.io/ug2-practical/data-wrangling-a-key-skill.html#inclass-activity" target="_blank">Chapter 2</a> of the book on different layouts of data if you are still not quite sure what is the difference between long and tidy. But in terms of today, we are going to need to do some data-wrangling before we do any analysis, so let’s crack on with that!</p>
+<p>It may help to refer back to <a href="https://psyteachr.github.io/ug2-practical/data-wrangling-a-key-skill.html#inclass-activity" target="_blank">Chapter 2</a> of the book on different layouts of data if you are still not quite sure what is the difference between long and tidy. But in terms of today, we are going to need to do some data-wrangling before we do any analysis, so let's crack on with that!</p>
 <div id="Ch14InClassQueT1" class="section level3" number="14.3.1">
 <h3><span class="header-section-number">14.3.1</span> Task 1: Setup</h3>
 <p>Start by opening a new script or .Rmd (depending on how you like to work) and load in the <strong><code>tidyverse</code></strong>, <strong><code>broom</code></strong>, and the two CSV datasets into tibbles called <code>ratings</code> and <code>acoustics</code>. Probably best if the ratings are in <code>ratings</code> and the acoustics in <code>acoustics</code>.</p>
@@ -832,7 +843,7 @@ div.csl-indent {
 <h3><span class="header-section-number">14.3.2</span> Task 2: Restructuring the ratings</h3>
 <p>Next we need to calculate a mean rating score for each voice. We are analysing the voices and not specifically what each participant rated each voice as (that is for another year) so we need to average across all participants, their ratings for each individual voice and get a mean rating for each voice. You will see in your data that the voices are identified in the VoiceID column.</p>
 <p>Recall the difference between <strong>tidy</strong>, <strong>wide</strong> and <strong>long</strong> data. In wide data, each row represents an individual case, with different observations for that case in separate columns; in long data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the <code>VoiceID</code> variable). Tidy is a bit like a mix of these ideas but is generally closer to long format, with the main difference being that you are likely to have more than one row relating to a given observation.</p>
-<p>Before we calculate means, what you need to do is to restructure the ratings data into the appropriate “tidy” format; i.e., so that it looks like the table below.</p>
+<p>Before we calculate means, what you need to do is to restructure the ratings data into the appropriate "tidy" format; i.e., so that it looks like the table below.</p>
 <table>
 <caption>
 <span id="tab:ratings-wide">Table 14.1: </span>Using <code>pivot_longer()</code>, gather the data into tidy format
@@ -935,7 +946,7 @@ Hint for Task 2
 pivot_longer(data, new_column_name, new_column_name, first-column:last-column)
 </li>
 <li>
-don’t forget the quotation marks
+don't forget the quotation marks
 </li>
 </ul>
 </div>
@@ -943,7 +954,7 @@ don’t forget the quotation marks
 </div>
 <div id="Ch14InClassQueT3" class="section level3" number="14.3.3">
 <h3><span class="header-section-number">14.3.3</span> Task 3: Calculate mean trustworthiness rating for each voice</h3>
-<p>Now that you’ve gotten your ratings data into a more tidy format, the next step is to calculate the mean rating (<code>mean_rating</code>) for each voice. Remember that each voice is identified by the <code>VoiceID</code> variable. Store the resulting tibble in a variable named <code>ratings_mean</code>.</p>
+<p>Now that you've gotten your ratings data into a more tidy format, the next step is to calculate the mean rating (<code>mean_rating</code>) for each voice. Remember that each voice is identified by the <code>VoiceID</code> variable. Store the resulting tibble in a variable named <code>ratings_mean</code>.</p>
 <ul>
 <li>The reason you need the mean rating for each voice is because you have to think what goes into the regression - what is actually being analysed. The analysis requires one trustworthiness rating for each voice, so that means we need to average across all the ratings for each voice. Otherwise we would have far too much data!</li>
 </ul>
@@ -1122,7 +1133,7 @@ filter to keep just Male voices
 <li>The code for this figure is in the solution. It would be worth taking a few minutes to try it out as it also shows how to change the layout of <code>facet_wrap()</code> using <code>nrow</code> and <code>ncol</code>.</li>
 </ul>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:scatter"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatter"></span>
 <img src="14-s02-lab14c_files/figure-html/scatter-1.png" alt="Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating" width="100%" />
 <p class="caption">
 Figure 14.1: Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating
@@ -1131,7 +1142,7 @@ Figure 14.1: Scatterplot showing the relationship between the voice measures of 
 <p><br><br></p>
 <p><strong>Answer me:</strong></p>
 <ul>
-<li>According to the scatterplot, there appears to be a <select class='webex-solveme' data-answer='["positive relationship"]'> <option></option> <option>negative relationship</option> <option>positive relationship</option></select> between both pitch and trustworthiness and dispersion and trustworthiness though the relationship with <select class='webex-solveme' data-answer='["pitch"]'> <option></option> <option>dispersion</option> <option>pitch</option></select> seems stronger.</li>
+<li>According to the scatterplot, there appears to be a <select class='webex-select'><option value='blank'></option><option value=''>negative relationship</option><option value='answer'>positive relationship</option></select> between both pitch and trustworthiness and dispersion and trustworthiness though the relationship with <select class='webex-select'><option value='blank'></option><option value=''>dispersion</option><option value='answer'>pitch</option></select> seems stronger.</li>
 </ul>
 <div class="webex-solution">
 <button>
@@ -1146,13 +1157,13 @@ Hint for Task 5
 ggplot() + geom_point()
 </li>
 <li>
-geom_smooth(method = “lm”)
+geom_smooth(method = "lm")
 </li>
 <li>
 coord_cartesian or scale_y_continuous
 </li>
 <li>
-facet_wrap(scales = “free”)
+facet_wrap(scales = "free")
 </li>
 <li>
 did you know also that you can control the number of columns and rows in a facet_wrap by adding nrow and ncol?
@@ -1192,7 +1203,7 @@ Hint for Task 6
 pivot_wider() needs the data, name of the categorical column to spread, and the name of the data to spread
 </li>
 <li>
-pivot_wider(data, names_from = “column_name,” values_from = “column_name”)
+pivot_wider(data, names_from = "column_name", values_from = "column_name")
 </li>
 </ul>
 </div>
@@ -1202,9 +1213,9 @@ pivot_wider(data, names_from = “column_name,” values_from = “column_name�
 <h3><span class="header-section-number">14.3.7</span> Task 7: The Regressions</h3>
 <p>Ok we are almost at the point when we need to do the regression. We should always think about assumptions but as that is covered in the lecture series we will mostly leave that there for now. That said, one assumption we can roughly and quickly look at is the correlation between Pitch and Dispersion, remembering the issue of <strong>multicollinearity</strong> - if predictors are highly correlated (r &gt; .8 for example then it is impossible to tease apart their unique contributions). So, now, run a code using <code>cor.test()</code> to calculate the correlation between Pitch and Dispersion and then fill in this statement.</p>
 <ul>
-<li>The correlation between Pitch and Dispersion is <select class='webex-solveme' data-answer='["rho = .239"]'> <option></option> <option>rho = .239</option> <option>rho = -.239</option> <option>rho = .186</option> <option>rho = -.186</option></select> which would suggest that we have no issues with multicollinearity as our two predictors are only slightly correlated. So nothing to worry about there.</li>
+<li>The correlation between Pitch and Dispersion is <select class='webex-select'><option value='blank'></option><option value='answer'>rho = .239</option><option value=''>rho = -.239</option><option value=''>rho = .186</option><option value=''>rho = -.186</option></select> which would suggest that we have no issues with multicollinearity as our two predictors are only slightly correlated. So nothing to worry about there.</li>
 </ul>
-<p>Right, now let’s do some regression analysis. We will first do two simple linear regressions (one for each predictor), and then we will do a multiple linear regression using both predictors.</p>
+<p>Right, now let's do some regression analysis. We will first do two simple linear regressions (one for each predictor), and then we will do a multiple linear regression using both predictors.</p>
 <p>The <code>lm()</code> function in R is the main function we will use to estimate a <strong>L</strong>inear <strong>M</strong>odel (hence the function name <code>lm</code>). The function takes the format of:</p>
 <ul>
 <li><code>lm(dv ~ iv, data = my_data)</code> for simple linear regression</li>
@@ -1255,9 +1266,9 @@ lm(trust_column ~ pitch_column + dispersion_column, data = my_data) for multiple
 </div>
 <div id="Ch14InClassQueT8" class="section level3" number="14.3.8">
 <h3><span class="header-section-number">14.3.8</span> Task 8: Model interpretations</h3>
-<p>Now let’s look at the results of each model in turn, using the function <code>summary()</code>, e.g. <code>summary(mod_pitch)</code>, and try to interpret them based on what you already know about regression outputs from the lectures.</p>
-<p>Let’s start by looking at the <code>mod_pitch</code> model together.</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="regression.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitch)</span></code></pre></div>
+<p>Now let's look at the results of each model in turn, using the function <code>summary()</code>, e.g. <code>summary(mod_pitch)</code>, and try to interpret them based on what you already know about regression outputs from the lectures.</p>
+<p>Let's start by looking at the <code>mod_pitch</code> model together.</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="regression.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitch)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1276,18 +1287,18 @@ lm(trust_column ~ pitch_column + dispersion_column, data = my_data) for multiple
 ## Residual standard error: 0.6279 on 30 degrees of freedom
 ## Multiple R-squared:  0.3309, Adjusted R-squared:  0.3086 
 ## F-statistic: 14.83 on 1 and 30 DF,  p-value: 0.0005732</code></pre>
-<p>From the output we can see that this model, when relating to the population, would predict approximately 30.86% of the variance in trustworthiness ratings (Adjusted-R^2 = 0.3086). We could also say that a linear regression model revealed that pitch significantly predicted perceived trustworthiness scores in male voices in that as pitch increased so does perceived trustworthiness (<span class="math inline">\(b\)</span> = 0.0156, t(30) = 3.852, p &lt; .001). (Remember that these are unstandardised coefficients so the “Estimate” would mean that a one unit change in pitch would result in a 0.0156 unit change in perceived trust, a rather small change.)</p>
-<p>Overall, looking at this model with just Pitch as a predictor, we have a regression model of small to medium prediction (i.e. explained variance) but it is significantly better than a model using the mean value of trust ratings as a prediction - as shown by the F-test being significant. Remember from the lectures that the default model is where every predicted value of Y is the mean of Y; we called this the mean model. So our new model is better than using that model based on the mean.</p>
+<p>From the output we can see that this model, when relating to the population, would predict approximately 30.86% of the variance in trustworthiness ratings (Adjusted-R^2 = 0.3086). We could also say that a linear regression model revealed that pitch significantly predicted perceived trustworthiness scores in male voices in that as pitch increased so does perceived trustworthiness (<span class="math inline">\(b\)</span> = 0.0156, t(30) = 3.852, p &lt; .001). (Remember that these are unstandardised coefficients so the "Estimate" would mean that a one unit change in pitch would result in a 0.0156 unit change in perceived trust, a rather small change.)</p>
+<p>Overall, looking at this model with just Pitch as a predictor, we have a regression model of small to medium prediction (i.e. explained variance) but it is significantly better than a model using the mean value of trust ratings as a prediction - as shown by the F-test being significant. Remember from the lectures that the default model is where every predicted value of Y is the mean of Y; we called this the mean model. So our new model is better than using that model based on the mean.</p>
 <p>Worth also pointing out here that in a simple linear regression the F-test and the t-value for the predictor are the same based on t^2 = F, as seen earlier in this book. For example, looking at the values above, we see that 3.852 <span class="math inline">\(\times\)</span> 3.852 = 14.83. Just again goes to show that there is a link between the tests we have been looking at.</p>
 <p>Ok, based on that knowledge, answer the following questions about the two remaining models.</p>
 <ul>
-<li>The model of just dispersion as a predictor would explain approximately <select class='webex-solveme' data-answer='["3%"]'> <option></option> <option>3%</option> <option>13%</option> <option>31%</option> <option>33%</option></select></li>
-<li>In fact, the model of just dispersion is <select class='webex-solveme' data-answer='["not significant"]'> <option></option> <option>not significant</option> <option>significant</option></select> and therefor <select class='webex-solveme' data-answer='["no use"]'> <option></option> <option>no use</option> <option>very useful</option></select> as a model</li>
-<li>Looking at the multiple linear regression model, the explained variance is <select class='webex-solveme' data-answer='["30.5%"]'> <option></option> <option>3.05%</option> <option>13.5%</option> <option>30.5%</option> <option>33.5%</option></select>and as such explains <select class='webex-solveme' data-answer='["less"]'> <option></option> <option>less</option> <option>more</option></select> variance than the pitch only model.</li>
+<li>The model of just dispersion as a predictor would explain approximately <select class='webex-select'><option value='blank'></option><option value='answer'>3%</option><option value=''>13%</option><option value=''>31%</option><option value=''>33%</option></select></li>
+<li>In fact, the model of just dispersion is <select class='webex-select'><option value='blank'></option><option value='answer'>not significant</option><option value=''>significant</option></select> and therefor <select class='webex-select'><option value='blank'></option><option value='answer'>no use</option><option value=''>very useful</option></select> as a model</li>
+<li>Looking at the multiple linear regression model, the explained variance is <select class='webex-select'><option value='blank'></option><option value=''>3.05%</option><option value=''>13.5%</option><option value='answer'>30.5%</option><option value=''>33.5%</option></select>and as such explains <select class='webex-select'><option value='blank'></option><option value='answer'>less</option><option value=''>more</option></select> variance than the pitch only model.</li>
 </ul>
 <p>We have added a brief interpretation of the models in the solution to this task as well so it might be worth reading that to make sure you are understanding the outputs.</p>
 <p>What the above should remind you is that it is not the case that simply putting all the possible predictors into a model will make it a better model. For every predictor you add there is a penalty associated with the Adjusted-R^2 and if the explained variance attributable to the new predictor is not greater than the penalty to overall explained variance then you may actually end up with a worse model despite having more predictors. We touched briefly in the lecture on using the <code>anova(model1, model2)</code> approach to compare models; something like this:</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="regression.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_pitch, mod_pitchdisp)</span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="regression.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_pitch, mod_pitchdisp)</span></code></pre></div>
 <p>Which gives the following output:</p>
 <div class="kable-table">
 <table>
@@ -1362,8 +1373,8 @@ NA
 <div id="Ch14InClassQueT9" class="section level3" number="14.3.9">
 <h3><span class="header-section-number">14.3.9</span> Task 9: Making predictions</h3>
 <p>Congratulations! You have successfully constructed a linear model relating trustworthiness to pitch and dispersion and you can think about applying this knowledge to other challenges - perhaps go look at female voices? However, one last thing you might want to do that we will quickly show you is how to make a prediction using the <code>predict()</code> function. One way you use this, though see the solution to the chapter for alternatives, is:</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="regression.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model, newdata)</span></code></pre></div>
-<p>where <code>newdata</code> is a tibble with new observations/values of X (e.g. <code>pitch</code> and/or <code>dispersion</code>) for which you want to predict the corresponding Y values (<code>mean_rating</code>). So let’s try that out now.</p>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="regression.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model, newdata)</span></code></pre></div>
+<p>where <code>newdata</code> is a tibble with new observations/values of X (e.g. <code>pitch</code> and/or <code>dispersion</code>) for which you want to predict the corresponding Y values (<code>mean_rating</code>). So let's try that out now.</p>
 <ul>
 <li>Make a tibble with two columns, one called <code>Pitch</code> and one called <code>Dispersion</code> - exactly as spelt in the model. Give <code>Pitch</code> a value of 150 Hz (quite a high voice) and give <code>Dispersion</code> a value of 1100 Hz - somewhere in the middle. We saw how to create tibbles in Chapter 5 using the <code>tibble()</code> function so you might need to refer back to that.<br />
 </li>
@@ -1392,11 +1403,11 @@ predict(mod_pitchdisp, newdata)
 </div>
 </div>
 <p><br></p>
-<p><strong>WAIT!</strong> - Didn’t we just say that the <code>mod_pitchdisp</code> model is not as good as <code>mod_pitch</code>. Yep. We did and that is actually what the model comparison shows above as well, but we wanted to show you how to enter different predictors into the <code>predict()</code> function. So whilst this is a good teaching aid, you are 100% correct in thinking that in reality we would be better making predictions with just the <code>mod_pitch</code> model as it explains more variance overall. Well done for spotting that!</p>
+<p><strong>WAIT!</strong> - Didn't we just say that the <code>mod_pitchdisp</code> model is not as good as <code>mod_pitch</code>. Yep. We did and that is actually what the model comparison shows above as well, but we wanted to show you how to enter different predictors into the <code>predict()</code> function. So whilst this is a good teaching aid, you are 100% correct in thinking that in reality we would be better making predictions with just the <code>mod_pitch</code> model as it explains more variance overall. Well done for spotting that!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Great! Now you know how to make predictions why not try a few more. Choose some pitch values see what you get! Go record your voice. Extract the pitch using something like <a href = "http://www.fon.hum.uva.nl/praat/" target = "_blank">PRAAT</a>. Put it in the <code>predict()</code> function. Get a rating of trustworthiness for your voice. Go run a study that has your voice rated for trustworthiness and see how close the model was. Given the explained variance is not great it probably won’t be that close but you start to see how, in principle, the idea of regression and prediction of relationships works. The greater the explained variance of your predictors, the better your prediction will be for a novel participant/observation/event!</p>
+<p>Great! Now you know how to make predictions why not try a few more. Choose some pitch values see what you get! Go record your voice. Extract the pitch using something like <a href = "http://www.fon.hum.uva.nl/praat/" target = "_blank">PRAAT</a>. Put it in the <code>predict()</code> function. Get a rating of trustworthiness for your voice. Go run a study that has your voice rated for trustworthiness and see how close the model was. Given the explained variance is not great it probably won't be that close but you start to see how, in principle, the idea of regression and prediction of relationships works. The greater the explained variance of your predictors, the better your prediction will be for a novel participant/observation/event!</p>
 <p><strong>One last thing:</strong></p>
-<p>Before ending this section, if you have any questions, please post them on the available forums or speak to a member of the team. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. Remember the more you work with knowledge and skills the easier they become.</p>
+<p>Before ending this section, if you have any questions, please post them on the available forums or speak to a member of the team. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. Remember the more you work with knowledge and skills the easier they become.</p>
 
 </div>
 </div>
@@ -1413,11 +1424,11 @@ predict(mod_pitchdisp, newdata)
 </div>
 <div id="task-1-1" class="section level3" number="14.5.2">
 <h3><span class="header-section-number">14.5.2</span> Task 1</h3>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="regression.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;broom&quot;</span>)</span>
-<span id="cb608-2"><a href="regression.html#cb608-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
-<span id="cb608-3"><a href="regression.html#cb608-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb608-4"><a href="regression.html#cb608-4" aria-hidden="true" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)</span>
-<span id="cb608-5"><a href="regression.html#cb608-5" aria-hidden="true" tabindex="-1"></a>acoustics <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="regression.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;broom&quot;</span>)</span>
+<span id="cb610-2"><a href="regression.html#cb610-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb610-3"><a href="regression.html#cb610-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb610-4"><a href="regression.html#cb610-4" aria-hidden="true" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)</span>
+<span id="cb610-5"><a href="regression.html#cb610-5" aria-hidden="true" tabindex="-1"></a>acoustics <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT1">Return to Task</a></p>
 </div>
 <div id="task-2" class="section level3" number="14.5.3">
@@ -1425,39 +1436,39 @@ predict(mod_pitchdisp, newdata)
 <ul>
 <li>We are calling the new tibble <code>ratings_tidy</code>. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on, the tibble names might not match up so, you may need to do a little bit of backtracking to see where tibbles were created.</li>
 </ul>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="regression.html#cb609-1" aria-hidden="true" tabindex="-1"></a>ratings_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(ratings, </span>
-<span id="cb609-2"><a href="regression.html#cb609-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_to =</span> <span class="st">&quot;participant&quot;</span>, </span>
-<span id="cb609-3"><a href="regression.html#cb609-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">values_to =</span> <span class="st">&quot;rating&quot;</span>, </span>
-<span id="cb609-4"><a href="regression.html#cb609-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">cols =</span> <span class="st">&quot;P1&quot;</span><span class="sc">:</span><span class="st">&quot;P28&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="regression.html#cb611-1" aria-hidden="true" tabindex="-1"></a>ratings_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(ratings, </span>
+<span id="cb611-2"><a href="regression.html#cb611-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_to =</span> <span class="st">&quot;participant&quot;</span>, </span>
+<span id="cb611-3"><a href="regression.html#cb611-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">values_to =</span> <span class="st">&quot;rating&quot;</span>, </span>
+<span id="cb611-4"><a href="regression.html#cb611-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">cols =</span> <span class="st">&quot;P1&quot;</span><span class="sc">:</span><span class="st">&quot;P28&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT2">Return to Task</a></p>
 </div>
 <div id="task-3" class="section level3" number="14.5.4">
 <h3><span class="header-section-number">14.5.4</span> Task 3</h3>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="regression.html#cb610-1" aria-hidden="true" tabindex="-1"></a>ratings_mean <span class="ot">&lt;-</span> ratings_tidy <span class="sc">%&gt;%</span> </span>
-<span id="cb610-2"><a href="regression.html#cb610-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VoiceID) <span class="sc">%&gt;%</span> </span>
-<span id="cb610-3"><a href="regression.html#cb610-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(rating))</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="regression.html#cb612-1" aria-hidden="true" tabindex="-1"></a>ratings_mean <span class="ot">&lt;-</span> ratings_tidy <span class="sc">%&gt;%</span> </span>
+<span id="cb612-2"><a href="regression.html#cb612-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VoiceID) <span class="sc">%&gt;%</span> </span>
+<span id="cb612-3"><a href="regression.html#cb612-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(rating))</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT3">Return to Task</a></p>
 </div>
 <div id="task-4" class="section level3" number="14.5.5">
 <h3><span class="header-section-number">14.5.5</span> Task 4</h3>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="regression.html#cb611-1" aria-hidden="true" tabindex="-1"></a>joined <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(ratings_mean, </span>
-<span id="cb611-2"><a href="regression.html#cb611-2" aria-hidden="true" tabindex="-1"></a>                     acoustics, </span>
-<span id="cb611-3"><a href="regression.html#cb611-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;VoiceID&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb611-4"><a href="regression.html#cb611-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="regression.html#cb613-1" aria-hidden="true" tabindex="-1"></a>joined <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(ratings_mean, </span>
+<span id="cb613-2"><a href="regression.html#cb613-2" aria-hidden="true" tabindex="-1"></a>                     acoustics, </span>
+<span id="cb613-3"><a href="regression.html#cb613-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;VoiceID&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb613-4"><a href="regression.html#cb613-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT4">Return to Task</a></p>
 </div>
 <div id="task-5" class="section level3" number="14.5.6">
 <h3><span class="header-section-number">14.5.6</span> Task 5</h3>
 <p>The following code:</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="regression.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(joined, <span class="fu">aes</span>(value, mean_rating)) <span class="sc">+</span></span>
-<span id="cb612-2"><a href="regression.html#cb612-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb612-3"><a href="regression.html#cb612-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
-<span id="cb612-4"><a href="regression.html#cb612-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>)) <span class="sc">+</span></span>
-<span id="cb612-5"><a href="regression.html#cb612-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>measures, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span></span>
-<span id="cb612-6"><a href="regression.html#cb612-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="regression.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(joined, <span class="fu">aes</span>(value, mean_rating)) <span class="sc">+</span></span>
+<span id="cb614-2"><a href="regression.html#cb614-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb614-3"><a href="regression.html#cb614-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
+<span id="cb614-4"><a href="regression.html#cb614-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb614-5"><a href="regression.html#cb614-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>measures, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span></span>
+<span id="cb614-6"><a href="regression.html#cb614-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p>Will gives the below figure:</p>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:ch14-t5-scatter-sol"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch14-t5-scatter-sol"></span>
 <img src="14-s02-lab14e_files/figure-html/ch14-t5-scatter-sol-1.png" alt="Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating" width="100%" />
 <p class="caption">
 Figure 14.2: Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating
@@ -1472,17 +1483,17 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 <li>It takes in the data and you tell it which values you want to spread and by which column</li>
 <li>Order is normally, data, names_from, values_from.</li>
 </ul>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="regression.html#cb614-1" aria-hidden="true" tabindex="-1"></a>joined_wide <span class="ot">&lt;-</span> joined <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&quot;measures&quot;</span>,</span>
-<span id="cb614-2"><a href="regression.html#cb614-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">values_from =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="regression.html#cb616-1" aria-hidden="true" tabindex="-1"></a>joined_wide <span class="ot">&lt;-</span> joined <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&quot;measures&quot;</span>,</span>
+<span id="cb616-2"><a href="regression.html#cb616-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">values_from =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT6">Return to Task</a></p>
 </div>
 <div id="task-7" class="section level3" number="14.5.8">
 <h3><span class="header-section-number">14.5.8</span> Task 7</h3>
 <p><strong>Simple Linear Regression - Pitch</strong></p>
 <p>The pitch model would be written as such:</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="regression.html#cb615-1" aria-hidden="true" tabindex="-1"></a>mod_pitch <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Pitch, joined_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="regression.html#cb617-1" aria-hidden="true" tabindex="-1"></a>mod_pitch <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Pitch, joined_wide)</span></code></pre></div>
 <p>And gives the following output:</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="regression.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitch)</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="regression.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitch)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1503,9 +1514,9 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 ## F-statistic: 14.83 on 1 and 30 DF,  p-value: 0.0005732</code></pre>
 <p><strong>Simple Linear Regression - Dispersion</strong></p>
 <p>The Dispersion model would be written as such:</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="regression.html#cb618-1" aria-hidden="true" tabindex="-1"></a>mod_disp <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Dispersion, joined_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="regression.html#cb620-1" aria-hidden="true" tabindex="-1"></a>mod_disp <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Dispersion, joined_wide)</span></code></pre></div>
 <p>And gives the following output:</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="regression.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_disp)</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="regression.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_disp)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Dispersion, data = joined_wide)
@@ -1524,9 +1535,9 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 ## F-statistic:  1.98 on 1 and 30 DF,  p-value: 0.1697</code></pre>
 <p><strong>Multiple Linear Regression - Pitch + Dispersion</strong></p>
 <p>The model with both Pitch and Dispersion as predictors would be written as such:</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="regression.html#cb621-1" aria-hidden="true" tabindex="-1"></a>mod_pitchdisp <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Pitch <span class="sc">+</span> Dispersion, joined_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="regression.html#cb623-1" aria-hidden="true" tabindex="-1"></a>mod_pitchdisp <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_rating <span class="sc">~</span> Pitch <span class="sc">+</span> Dispersion, joined_wide)</span></code></pre></div>
 <p>And gives the following output:</p>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="regression.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitchdisp)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="regression.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_pitchdisp)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch + Dispersion, data = joined_wide)
@@ -1557,35 +1568,37 @@ Figure 14.2: Scatterplot showing the relationship between the voice measures of 
 <div id="task-9" class="section level3" number="14.5.10">
 <h3><span class="header-section-number">14.5.10</span> Task 9</h3>
 <p><strong>Solution Version 1</strong></p>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="regression.html#cb624-1" aria-hidden="true" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, <span class="at">Dispersion =</span> <span class="dv">1100</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="regression.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, newdata)</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="regression.html#cb626-1" aria-hidden="true" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, <span class="at">Dispersion =</span> <span class="dv">1100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="regression.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, newdata)</span></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 2</strong></p>
-<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="regression.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
-<span id="cb627-2"><a href="regression.html#cb627-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="regression.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
+<span id="cb629-2"><a href="regression.html#cb629-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>))</span></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 3</strong></p>
 <ul>
 <li>And if you want to bring it out as a single value, say for a write-up, you could do the following</li>
-<li>This approach may give out a warning about a <code>deprecated</code> function meaning that this won’t work in future updates but for now it is ok to use.</li>
+<li>This approach may give out a warning about a <code>deprecated</code> function meaning that this won't work in future updates but for now it is ok to use.</li>
 </ul>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="regression.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
-<span id="cb629-2"><a href="regression.html#cb629-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb629-3"><a href="regression.html#cb629-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb629-4"><a href="regression.html#cb629-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb629-5"><a href="regression.html#cb629-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="regression.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
+<span id="cb631-2"><a href="regression.html#cb631-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb631-3"><a href="regression.html#cb631-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb631-4"><a href="regression.html#cb631-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb631-5"><a href="regression.html#cb631-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning: &#39;tidy.numeric&#39; is deprecated.
 ## See help(&quot;Deprecated&quot;)</code></pre>
 <pre><code>## Warning: `data_frame()` was deprecated in tibble 1.1.0.
-## Please use `tibble()` instead.</code></pre>
+## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
 <pre><code>## [1] 5.3</code></pre>
 <p>or even just:</p>
-<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="regression.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
-<span id="cb633-2"><a href="regression.html#cb633-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb633-3"><a href="regression.html#cb633-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;1&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb633-4"><a href="regression.html#cb633-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="regression.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mod_pitchdisp, <span class="fu">tibble</span>(<span class="at">Pitch =</span> <span class="dv">150</span>, </span>
+<span id="cb635-2"><a href="regression.html#cb635-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Dispersion =</span> <span class="dv">1100</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb635-3"><a href="regression.html#cb635-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;1&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb635-4"><a href="regression.html#cb635-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 5.3</code></pre>
 <p><a href="regression.html#Ch14InClassQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
@@ -1704,7 +1717,7 @@ window.onload = function() {
         </div>
       </div>
 <a href="continuing-the-glm-two-factor-designs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="combining-anova-and-regression-e-g-ancovas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="combining-anova-and-regression-e.g.-ancovas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1749,6 +1762,10 @@ gitbook.start({
 "text": null
 },
 "download": {},
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

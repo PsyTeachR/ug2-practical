@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 6 NHST and One-sample t-tests | Level 2 Research Methods and Statistics Practical Skills</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 6 NHST and One-sample t-tests | Level 2 Research Methods and Statistics Practical Skills" />
   <meta property="og:type" content="book" />
@@ -29,10 +29,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="permutation-tests-a-skill-set.html"/>
+<link rel="prev" href="permutation-tests---a-skill-set.html"/>
 <link rel="next" href="within-subjects-t-test.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10.6/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -61,6 +61,16 @@
 
 
 <link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6NP3MF25W3');
+</script>
 
 
 <style type="text/css">
@@ -167,6 +177,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li><a href="./">Level 2 Practical</a></li>
+<li><a href="https://psyteachr.github.io/analysis/" style="color: red;">Access the most up-to-date version</a></li>
 <li><a href="https://zenodo.org/badge/latestdoi/166541567"><img src="https://zenodo.org/badge/166541567.svg" alt="DOI"></a></li>
 
 <li class="divider"></li>
@@ -183,7 +194,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-rules-and-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Rules and Options</a></li>
@@ -246,7 +257,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself"><i class="fa fa-check"></i><b>2.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -345,7 +356,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-1"><i class="fa fa-check"></i><b>4.7</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -365,37 +376,37 @@ div.csl-indent {
 <li class="chapter" data-level="4.8.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-activities-1"><i class="fa fa-check"></i><b>4.8.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
+<li class="chapter" data-level="5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
+<li class="chapter" data-level="5.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
-<li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
-<li class="chapter" data-level="5.2.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
-<li class="chapter" data-level="5.2.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-4-computing-differences-in-group-means"><i class="fa fa-check"></i><b>5.2.4</b> Skill 4: Computing Differences in Group Means</a></li>
-<li class="chapter" data-level="5.2.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
-<li class="chapter" data-level="5.2.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
+<li class="chapter" data-level="5.2.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
+<li class="chapter" data-level="5.2.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
+<li class="chapter" data-level="5.2.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
+<li class="chapter" data-level="5.2.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-4-computing-differences-in-group-means"><i class="fa fa-check"></i><b>5.2.4</b> Skill 4: Computing Differences in Group Means</a></li>
+<li class="chapter" data-level="5.2.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
+<li class="chapter" data-level="5.2.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
+<li class="chapter" data-level="5.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
-<li class="chapter" data-level="5.3.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
-<li class="chapter" data-level="5.3.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
-<li class="chapter" data-level="5.3.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT3"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
-<li class="chapter" data-level="5.3.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT4"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
-<li class="chapter" data-level="5.3.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
+<li class="chapter" data-level="5.3.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
+<li class="chapter" data-level="5.3.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT3"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
+<li class="chapter" data-level="5.3.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT4"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
+<li class="chapter" data-level="5.3.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
-<li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="5.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
+<li class="chapter" data-level="5.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
+<li class="chapter" data-level="5.5.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
+<li class="chapter" data-level="5.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
 <ul>
-<li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
+<li><a href="permutation-tests---a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
+<li class="chapter" data-level="" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a>
@@ -440,7 +451,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a>
 <ul>
-<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
+<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#misleading-and-appropriate-barplots"><i class="fa fa-check"></i>Misleading and Appropriate Barplots</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#analysing-chi-squares"><i class="fa fa-check"></i>Analysing chi-squares</a></li>
 </ul></li>
@@ -475,60 +486,60 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#non-parametric-tests"><i class="fa fa-check"></i>Non-Parametric tests</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
+<li class="chapter" data-level="8" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
-<li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
+<li class="chapter" data-level="8.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
-<li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
-<li class="chapter" data-level="8.2.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
+<li class="chapter" data-level="8.2.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
+<li class="chapter" data-level="8.2.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
+<li class="chapter" data-level="8.2.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
+<li class="chapter" data-level="8.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
-<li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
-<li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
-<li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT4"><i class="fa fa-check"></i><b>8.3.4</b> Task 4: t-value and effect size for a between-subjects Experiment</a></li>
-<li class="chapter" data-level="8.3.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT5"><i class="fa fa-check"></i><b>8.3.5</b> Task 5: Sample size for standard power one-sample t-test</a></li>
-<li class="chapter" data-level="8.3.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
-<li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
+<li class="chapter" data-level="8.3.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
+<li class="chapter" data-level="8.3.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
+<li class="chapter" data-level="8.3.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT4"><i class="fa fa-check"></i><b>8.3.4</b> Task 4: t-value and effect size for a between-subjects Experiment</a></li>
+<li class="chapter" data-level="8.3.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT5"><i class="fa fa-check"></i><b>8.3.5</b> Task 5: Sample size for standard power one-sample t-test</a></li>
+<li class="chapter" data-level="8.3.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
+<li class="chapter" data-level="8.3.7" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
+<li class="chapter" data-level="8.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
-<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
-<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
-<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT4"><i class="fa fa-check"></i><b>8.4.4</b> Assignment Task 4</a></li>
-<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT5"><i class="fa fa-check"></i><b>8.4.5</b> Assignment Task 5</a></li>
-<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT6"><i class="fa fa-check"></i><b>8.4.6</b> Assignment Task 6</a></li>
-<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT7"><i class="fa fa-check"></i><b>8.4.7</b> Assignment Task 7</a></li>
-<li class="chapter" data-level="8.4.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT8"><i class="fa fa-check"></i><b>8.4.8</b> Assignment Task 8</a></li>
-<li class="chapter" data-level="8.4.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT9"><i class="fa fa-check"></i><b>8.4.9</b> Assignment Task 9</a></li>
-<li class="chapter" data-level="8.4.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT10"><i class="fa fa-check"></i><b>8.4.10</b> Assignment Task 10</a></li>
-<li class="chapter" data-level="8.4.11" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
-<li class="chapter" data-level="8.4.12" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
+<li class="chapter" data-level="8.4.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
+<li class="chapter" data-level="8.4.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
+<li class="chapter" data-level="8.4.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
+<li class="chapter" data-level="8.4.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT4"><i class="fa fa-check"></i><b>8.4.4</b> Assignment Task 4</a></li>
+<li class="chapter" data-level="8.4.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT5"><i class="fa fa-check"></i><b>8.4.5</b> Assignment Task 5</a></li>
+<li class="chapter" data-level="8.4.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT6"><i class="fa fa-check"></i><b>8.4.6</b> Assignment Task 6</a></li>
+<li class="chapter" data-level="8.4.7" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT7"><i class="fa fa-check"></i><b>8.4.7</b> Assignment Task 7</a></li>
+<li class="chapter" data-level="8.4.8" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT8"><i class="fa fa-check"></i><b>8.4.8</b> Assignment Task 8</a></li>
+<li class="chapter" data-level="8.4.9" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT9"><i class="fa fa-check"></i><b>8.4.9</b> Assignment Task 9</a></li>
+<li class="chapter" data-level="8.4.10" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT10"><i class="fa fa-check"></i><b>8.4.10</b> Assignment Task 10</a></li>
+<li class="chapter" data-level="8.4.11" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
+<li class="chapter" data-level="8.4.12" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="8.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="8.5.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
-<li class="chapter" data-level="8.5.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
+<li class="chapter" data-level="8.5.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
+<li class="chapter" data-level="8.5.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
+<li class="chapter" data-level="8.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
 <ul>
-<li><a href="apes-alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen’s d to r</a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
+<li><a href="apes---alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen's d to r</a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
+<li class="chapter" data-level="9" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
-<li class="chapter" data-level="9.2" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
-<li class="chapter" data-level="9.3" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
-<li class="chapter" data-level="9.4" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
-<li class="chapter" data-level="9.5" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.2" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
+<li class="chapter" data-level="9.3" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
+<li class="chapter" data-level="9.4" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
+<li class="chapter" data-level="9.5" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a>
 <ul>
@@ -621,7 +632,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
+<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene's Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a>
@@ -697,55 +708,55 @@ div.csl-indent {
 <li class="chapter" data-level="14.5.10" data-path="regression.html"><a href="regression.html#task-9"><i class="fa fa-check"></i><b>14.5.10</b> Task 9</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
-<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
-<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
-<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
-<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
-<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
+<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
+<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
+<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
+<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
+<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
-<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
-<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
-<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
-<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
+<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
+<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
+<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
+<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
+<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
-<li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
-<li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
-<li class="chapter" data-level="15.4.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT3"><i class="fa fa-check"></i><b>15.4.4</b> Task 3: Plotting the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT4"><i class="fa fa-check"></i><b>15.4.5</b> Task 4: Analysing the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT5"><i class="fa fa-check"></i><b>15.4.6</b> Task 5: Interpreting the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.7" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT6"><i class="fa fa-check"></i><b>15.4.7</b> Task 6: Plotting the modulation of voice/strength relationship by sex</a></li>
-<li class="chapter" data-level="15.4.8" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT7"><i class="fa fa-check"></i><b>15.4.8</b> Task 7: Mean centering and Deviation coding the variables.</a></li>
-<li class="chapter" data-level="15.4.9" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT8"><i class="fa fa-check"></i><b>15.4.9</b> Task 8: Estimate the modulation of voice/strength relationship by sex</a></li>
-<li class="chapter" data-level="15.4.10" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT9"><i class="fa fa-check"></i><b>15.4.10</b> Task 9: Interpreting the output 1</a></li>
-<li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
-<li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
+<li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
+<li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
+<li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
+<li class="chapter" data-level="15.4.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT3"><i class="fa fa-check"></i><b>15.4.4</b> Task 3: Plotting the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT4"><i class="fa fa-check"></i><b>15.4.5</b> Task 4: Analysing the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.6" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT5"><i class="fa fa-check"></i><b>15.4.6</b> Task 5: Interpreting the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.7" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT6"><i class="fa fa-check"></i><b>15.4.7</b> Task 6: Plotting the modulation of voice/strength relationship by sex</a></li>
+<li class="chapter" data-level="15.4.8" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT7"><i class="fa fa-check"></i><b>15.4.8</b> Task 7: Mean centering and Deviation coding the variables.</a></li>
+<li class="chapter" data-level="15.4.9" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT8"><i class="fa fa-check"></i><b>15.4.9</b> Task 8: Estimate the modulation of voice/strength relationship by sex</a></li>
+<li class="chapter" data-level="15.4.10" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT9"><i class="fa fa-check"></i><b>15.4.10</b> Task 9: Interpreting the output 1</a></li>
+<li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
+<li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
-<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
-<li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
+<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
+<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
+<li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
+<li class="chapter" data-level="16" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
-<li class="chapter" data-level="16.2" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
-<li class="chapter" data-level="16.3" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
-<li class="chapter" data-level="16.4" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#update-your-notes"><i class="fa fa-check"></i><b>16.4</b> Update Your Notes</a></li>
-<li class="chapter" data-level="16.5" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#in-the-end"><i class="fa fa-check"></i><b>16.5</b> In The End!</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.2" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
+<li class="chapter" data-level="16.3" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
+<li class="chapter" data-level="16.4" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#update-your-notes"><i class="fa fa-check"></i><b>16.4</b> Update Your Notes</a></li>
+<li class="chapter" data-level="16.5" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#in-the-end"><i class="fa fa-check"></i><b>16.5</b> In The End!</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="chapter" data-level="" data-path="acknolwedgements.html"><a href="acknolwedgements.html"><i class="fa fa-check"></i>Acknolwedgements</a></li>
@@ -794,13 +805,13 @@ Portfolio Point - Additional background on The Posner Paradigm
 </button>
 <div class="info">
 <p>
-You don’t need to read this to complete the activities it might help it make more sense.
+You don't need to read this to complete the activities it might help it make more sense.
 </p>
 <p>
-The Posner paradigm (Posner, 1980), or the Posner Cueing task, is an attentional shift task, often used in a variety of fields to test spatial attention and how this is impacted by disorders or injury. It works by having participants look at a fixation cross in the center of a screen. To either side is an empty box. After a short delay, a cue (e.g. an arrow, an asterisk, or some other attention grabbing image) appears in one of the boxes (e.g. the box to the left of the fixation). This stays on screen for a few hundred milliseconds and is then replaced by a second image called the target (e.g. a different shape or image). Participants then have to respond left or right depending on which side of the fixation the target appeared. The dependent variable (DV) is the time taken to respond to the target appearing.
+The Posner paradigm (Posner, 1980), or the Posner Cueing task, is an attentional shift task, often used in a variety of fields to test spatial attention and how this is impacted by disorders or injury. It works by having participants look at a fixation cross in the center of a screen. To either side is an empty box. After a short delay, a cue (e.g. an arrow, an asterisk, or some other attention grabbing image) appears in one of the boxes (e.g. the box to the left of the fixation). This stays on screen for a few hundred milliseconds and is then replaced by a second image called the target (e.g. a different shape or image). Participants then have to respond left or right depending on which side of the fixation the target appeared. The dependent variable (DV) is the time taken to respond to the target appearing.
 </p>
 <p>
-Key to the task is that in most trials the target will appear on the same side as the cue - the cue facilitates the target - and so participants will be quicker to respond. These are called valid trials. However, on some occasions the target will appear on the other side from the cue - e.g. the cue is on the left but the target appears on the right - and these are called invalid trials; participants will be slower to respond here as the cue misleads the participant.
+Key to the task is that in most trials the target will appear on the same side as the cue - the cue facilitates the target - and so participants will be quicker to respond. These are called valid trials. However, on some occasions the target will appear on the other side from the cue - e.g. the cue is on the left but the target appears on the right - and these are called invalid trials; participants will be slower to respond here as the cue misleads the participant.
 </p>
 <p>
 From that, you should be starting to get an idea of how a Posner paradigm can help to measure attention and how it can help determine if people have issues in shifting attention (particularly from the invalid trials).
@@ -818,7 +829,7 @@ Reference:
 <div id="preclass-activity-4" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> PreClass Activity</h2>
 <p><strong>ManyLabs - an approach to reproducible science</strong></p>
-<p>As you will learn from reading papers around the reproduciblity crisis, findings from experiments tend to be more reproducible when we increase participant numbers as this increases the <a class='glossary' target='_blank' title='The probability of rejecting the null hypothesis when it is false.' href='https://psyteachr.github.io/glossary/p#power'>power</a> of the study’s design; the likelihood of an experimental design detecting an effect, of a given size, when there is an effect to detect.</p>
+<p>As you will learn from reading papers around the reproduciblity crisis, findings from experiments tend to be more reproducible when we increase participant numbers as this increases the <a class='glossary' target='_blank' title='The probability of rejecting the null hypothesis when it is false.' href='https://psyteachr.github.io/glossary/p#power'>power</a> of the study's design; the likelihood of an experimental design detecting an effect, of a given size, when there is an effect to detect.</p>
 <div class="webex-solution">
 <button>
 Portfolio Point - The power of what?
@@ -847,13 +858,13 @@ If you know any three of these four elements (power, alpha, effect size, n) you 
 </div>
 </div>
 <p><br></p>
-<p>However, running several hundred participants in your one study can be a significant time and financial investment. Fortunately, the idea of a “ManyLabs” project can solve this problem. In this scenario the same experiment is run in various locations, all using the same procedure, and then the data is collapsed together and analysed as one. You can see a nice example of a Many Labs project in the paper <a href="" target = "_blank">Investigating Variation in Replicability (Klein et al., 2014)</a>. See how many labs and researchers are involved? Perhaps this is a better approach than lots of researchers working individually?</p>
-<p>You think this all sounds a great idea so in your quest to be a collaborative reproducible researcher, and as a high-five to #TeamScience, you have joined a ManyLabs study replicating the findings of Woods et al. (2009). And that study is the premis for today’s activities so let’s start by having a quick-run through of the background of the experiment.</p>
+<p>However, running several hundred participants in your one study can be a significant time and financial investment. Fortunately, the idea of a "ManyLabs" project can solve this problem. In this scenario the same experiment is run in various locations, all using the same procedure, and then the data is collapsed together and analysed as one. You can see a nice example of a Many Labs project in the paper <a href="" target = "_blank">Investigating Variation in Replicability (Klein et al., 2014)</a>. See how many labs and researchers are involved? Perhaps this is a better approach than lots of researchers working individually?</p>
+<p>You think this all sounds a great idea so in your quest to be a collaborative reproducible researcher, and as a high-five to #TeamScience, you have joined a ManyLabs study replicating the findings of Woods et al. (2009). And that study is the premis for today's activities so let's start by having a quick-run through of the background of the experiment.</p>
 <p><strong>The Background</strong></p>
-<p><a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods and colleagues (2009)</a> were interested in how the attention of people with poor sleep (Primary Insomnia - PI) was more tuned towards sleep-related stimuli than the attention of people with normal sleep (NS). Woods et al., hypothesised that participants with poor sleep would be more attentive to images related to a lack of sleep (i.e. an alarm clock showing 2AM) than participants with normal sleep would be. To test their hypothesis, the authors used a modified Posner paradigm, shown in Figure 1 of the paper, where images of an alarm clock acted as the cue on both valid and invalid trials, with the symbol <strong>( .. )</strong> being the target.</p>
+<p><a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods and colleagues (2009)</a> were interested in how the attention of people with poor sleep (Primary Insomnia - PI) was more tuned towards sleep-related stimuli than the attention of people with normal sleep (NS). Woods et al., hypothesised that participants with poor sleep would be more attentive to images related to a lack of sleep (i.e. an alarm clock showing 2AM) than participants with normal sleep would be. To test their hypothesis, the authors used a modified Posner paradigm, shown in Figure 1 of the paper, where images of an alarm clock acted as the cue on both valid and invalid trials, with the symbol <strong>( .. )</strong> being the target.</p>
 <p>As can be seen in Figure 3 of <a href = "https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al.,</a> the authors found that, on valid trials, whilst Primary Insomnia participants were faster in responding to the target, suggesting a slight increase in attention to the sleep related cue compared to the Normal Sleepers, there was no difference between groups. In contrast, for invalid trials, where poor sleep participants were expected to be distracted by the cue, the authors did indeed find a significant difference between groups consistent with their alternative hypothesis <span class="math inline">\(H_{1}\)</span>. Woods et al., concluded that poor sleepers (Primary Insomnia participants) were slower to respond to the target on invalid trials, compared to Normal Sleepers, due to the attention of the Primary Insomnia participants being drawn to the misleading cue (the alarm clock) on the invalid trials. This increased attention to the sleep-related cue led to an overall slower reponse to the target on these invalid trials.</p>
 <p>As we said above, your lab is now part of a ManyLabs project that is looking to replicate this finding from Woods et al., (2009). As a <a class='glossary' target='_blank' title='NA' href='https://psyteachr.github.io/glossary/p#pilot'>pilot study</a>, to test recruitment procedures, as well as the experimental paradigm and analyses pipeline, each lab gathers data from 22 Normal Sleepers. It is common to use only the control participants in a pilot (in this cas the NS participants) as they are more plentiful in the population than the experimental group (in this case PI participants) and saves using participants from the PI group which may be harder to obtain in the long run.</p>
-<p>After gathering your data, we want to check the recruitment process and whether or not you have been able to draw a sample of normal sleepers similar to the sample drawn by Woods et al. To keep things straightforward, allowing us to understand the analyses better, we will only look at valid trials today, in NS participants, but in effect you could perform this test on all groups and conditions.</p>
+<p>After gathering your data, we want to check the recruitment process and whether or not you have been able to draw a sample of normal sleepers similar to the sample drawn by Woods et al. To keep things straightforward, allowing us to understand the analyses better, we will only look at valid trials today, in NS participants, but in effect you could perform this test on all groups and conditions.</p>
 <p><strong>Are These Participants Normal Sleepers (NS)?</strong></p>
 <p>Below is the data from the 22 participants you have collected in your pilot study. Their mean reaction time for valid trials (in milliseconds) is shown in the right hand column, <code>valid_rt</code>.</p>
 <table>
@@ -1050,7 +1061,7 @@ valid_rt
 </tbody>
 </table>
 <p>If you look at <a href="https://www.sciencedirect.com/science/article/pii/S0005796708002738" target = "_blank">Woods et al (2009)</a> Figure 3 you will see that, on valid trials, the mean reaction time for NS participants was 590 ms with a SD = 94 ms. As above, as part of our pilot study, we want to confirm that the 22 participants we have gathered are indeed Normal Sleepers. We will use the mean and SD from Woods et al., to confirm this. Essentially we are asking if the participants in the pilot are responding in a similar fashion as NS participants in the original study.</p>
-<p>You will know from Chapter 5 that when using Null Hypothesis Significance Testing (NHST) we are working with both a null hypothesis (<span class="math inline">\(H_{0}\)</span>) and an alternative hypothesis (<span class="math inline">\(H_{1}\)</span>). Thinking about this study it makes some logical sense to think about it in terms of the null hypothesis (<span class="math inline">\(\mu1 = \mu2\)</span>). So we could phrase our hypothesis as, “we hypothesise that there is no significant difference in mean reaction times to valid trials on the modified Posner experiment between the participants in the pilot study and the participants in the original study by Woods et al.”</p>
+<p>You will know from Chapter 5 that when using Null Hypothesis Significance Testing (NHST) we are working with both a null hypothesis (<span class="math inline">\(H_{0}\)</span>) and an alternative hypothesis (<span class="math inline">\(H_{1}\)</span>). Thinking about this study it makes some logical sense to think about it in terms of the null hypothesis (<span class="math inline">\(\mu1 = \mu2\)</span>). So we could phrase our hypothesis as, "we hypothesise that there is no significant difference in mean reaction times to valid trials on the modified Posner experiment between the participants in the pilot study and the participants in the original study by Woods et al."</p>
 <p>There is actually a few analytical ways to test our null hypothesis. Today we will show you how to do two of these. In tasks 1-3 we will use a <strong>binomial test</strong> and in tasks 4-8 we will use a <strong>one-sample t-test</strong></p>
 <div class="webex-solution">
 <button>
@@ -1058,7 +1069,7 @@ Portfolio Point - Binomial test and the one-sample t-test
 </button>
 <div class="info">
 <p>
-The Binomial test is a very simple test that converts all participants to either being above or below a cut-off point, e.g. a mean value, and looking at the probability of finding that number of participants above that cut-off.
+The Binomial test is a very simple test that converts all participants to either being above or below a cut-off point, e.g. a mean value, and looking at the probability of finding that number of participants above that cut-off.
 </p>
 <p>
 The one-sample t-test is similar in that it compares participants to a cut-off but it compares the mean and standard deviation of the collected sample to an ideal mean and standard deviation. By comparing the difference in means, divided by the standard deviation of the difference (a measure of the variance), we can determine if the sample is similar or not to the ideal mean.
@@ -1068,8 +1079,8 @@ The one-sample t-test is similar in that it compares participants to a cut-off b
 <hr />
 <div id="the-binomial-test" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> The Binomial Test</h3>
-<p>The Binomial test is one of the most “basic tests” in null hypothesis testing in that it uses very little information. The binomial test is used when a study has two possible outcomes (success or failure) and you have an idea about what the probability of success is. This will sound familiar from the work we did in Chapter 4 and the Binomial distribution.</p>
-<p>A binomial test tests if an observed result is different from what was expected. For example, is the number of heads in a series of coin flips different from what was expected. Or in our case for this chapter, we want to test whether our normal sleepers are giving reaction times that are the same or different from those measured by Woods et al. The following tasks will take you through the process.</p>
+<p>The Binomial test is one of the most "basic tests" in null hypothesis testing in that it uses very little information. The binomial test is used when a study has two possible outcomes (success or failure) and you have an idea about what the probability of success is. This will sound familiar from the work we did in Chapter 4 and the Binomial distribution.</p>
+<p>A binomial test tests if an observed result is different from what was expected. For example, is the number of heads in a series of coin flips different from what was expected. Or in our case for this chapter, we want to test whether our normal sleepers are giving reaction times that are the same or different from those measured by Woods et al. The following tasks will take you through the process.</p>
 </div>
 <div id="Ch6PreClassQueT1" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Task 1: Creating a Dataframe</h3>
@@ -1090,7 +1101,7 @@ Helpful Hint
 You can use this code structure and replace the NULL values:
 </p>
 <p>
-<code>ns_data &lt;- tibble(participant = c(NULL,NULL,…), valid_rt = c(NULL,NULL,…))</code>
+<code>ns_data &lt;- tibble(participant = c(NULL,NULL,...), valid_rt = c(NULL,NULL,...))</code>
 </p>
 <p>
 The values are: 631.2, 800.8, 595.4, 502.6, 604.5, 516.9, 658.0, 502.0, 496.7, 600.3, 714.6, 623.7, 634.5, 724.9, 815.7, 456.9, 703.4, 647.5, 657.9, 613.2, 585.4, 674.1
@@ -1101,11 +1112,11 @@ The values are: 631.2, 800.8, 595.4, 502.6, 604.5, 516.9, 658.0, 502.0, 496.7, 6
 </div>
 <div id="Ch6PreClassQueT2" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Task 2: Comparing Original and New Sample Reaction Times</h3>
-<p>Our next step is to establish how many participants from our pilot study are above the mean in the original study by Woods et al. </p>
+<p>Our next step is to establish how many participants from our pilot study are above the mean in the original study by Woods et al.</p>
 <ul>
 <li>In the original study the mean reaction time for valid trials was 590 ms. Store this value in <code>woods_mean</code>.<br />
 </li>
-<li>Now write code to calculate the number of participants in the new sample (<code>ns_data</code> created in Task 1) that had a mean reaction time greater than the original paper’s mean. Store this <strong>single value</strong> in <code>n_participants</code>.
+<li>Now write code to calculate the number of participants in the new sample (<code>ns_data</code> created in Task 1) that had a mean reaction time greater than the original paper's mean. Store this <strong>single value</strong> in <code>n_participants</code>.
 <ul>
 <li>The function <code>nrow()</code> may help here.</li>
 <li><code>nrow()</code> is similar to <code>count()</code> or <code>n()</code> but <code>nrow()</code> returns the number as a single value and not in a tibble.</li>
@@ -1157,12 +1168,12 @@ or
 <p><br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li>The number of participants that have a mean reaction time for valid trials greater than that of the original paper is: <select class='webex-solveme' data-answer='["16"]'> <option></option> <option>6</option> <option>10</option> <option>16</option> <option>17</option></select></li>
+<li>The number of participants that have a mean reaction time for valid trials greater than that of the original paper is: <select class='webex-select'><option value='blank'></option><option value=''>6</option><option value=''>10</option><option value='answer'>16</option><option value=''>17</option></select></li>
 </ul>
 </div>
 <div id="Ch6PreClassQueT3" class="section level3" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Task 3: Calculating Probability</h3>
-<p>Our final step for the binomial test is to compare our value from Task 2, 16 participants, to our hypothetical cut-off. We will work under the assumption that the mean reaction time from the original paper, i.e. 590 ms, is a good estimate for the population of good sleepers (NS). If that is true then each new participant that we have tested should have a .5 chance of being above this mean reaction time (<span class="math inline">\(p = .5\)</span> for each participant).</p>
+<p>Our final step for the binomial test is to compare our value from Task 2, 16 participants, to our hypothetical cut-off. We will work under the assumption that the mean reaction time from the original paper, i.e. 590 ms, is a good estimate for the population of good sleepers (NS). If that is true then each new participant that we have tested should have a .5 chance of being above this mean reaction time (<span class="math inline">\(p = .5\)</span> for each participant).</p>
 <p>To phrase this another way, the expected number of participants above the cut-off would be <span class="math inline">\(.5 \times N\)</span>, where <span class="math inline">\(N\)</span> is the number of participants, or <span class="math inline">\(.5 \times 22\)</span> = 11 participants.</p>
 <ul>
 <li>Calculate what would be the probability of observing at least 16 participants out of your 22 participants that had a <code>valid_rt</code> greater than the Woods et al (2009) mean value.
@@ -1198,12 +1209,12 @@ You can use a dbinom() %&gt;% sum() for this or maybe a <code>pbinom()</code>
 <p><br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <ul>
-<li>Using the Psychology standard <span class="math inline">\(\alpha = .05\)</span>, do you think these NS participants are responding in a similar fashion as the participants in the original paper? Select the appropriate answer: <select class='webex-solveme' data-answer='["No"]'> <option></option> <option>No</option> <option>Yes</option></select></li>
-<li>According to the Binomial test would you accept or reject the null hypothesis that we set at the start of this test? <select class='webex-solveme' data-answer='["Reject"]'> <option></option> <option>Reject</option> <option>Accept</option></select></li>
+<li>Using the Psychology standard <span class="math inline">\(\alpha = .05\)</span>, do you think these NS participants are responding in a similar fashion as the participants in the original paper? Select the appropriate answer: <select class='webex-select'><option value='blank'></option><option value='answer'>No</option><option value=''>Yes</option></select></li>
+<li>According to the Binomial test would you accept or reject the null hypothesis that we set at the start of this test? <select class='webex-select'><option value='blank'></option><option value='answer'>Reject</option><option value=''>Accept</option></select></li>
 </ul>
 <div class="webex-solution">
 <button>
-Explain This - I don’t get this answer
+Explain This - I don't get this answer
 </button>
 <div class="info">
 <p>
@@ -1215,7 +1226,7 @@ The probability of obtaining 16 participants with a mean reaction time greater t
 </div>
 <div id="the-one-sample-t-test" class="section level3" number="6.2.5">
 <h3><span class="header-section-number">6.2.5</span> The One-Sample t-test</h3>
-<p>In Task 3 you ran a <strong>binomial test</strong> of the null hypothesis testing that here was no significant difference in mean reaction times to valid trials on the modified Posner experiment between the participants in the pilot study and the participants in the original study by Woods et al. However, the binomial test did not use all the available information in the data because each participant was simply classified as being above or below the mean of the original paper, i.e. yes or no. Information about the <strong>magnitude</strong> of the discrepancy from the mean was discarded. This information is really interesting and important however and if we wanted to maintain that information then we would need to use a <strong>one-sample <span class="math inline">\(t\)</span>-test</strong>.</p>
+<p>In Task 3 you ran a <strong>binomial test</strong> of the null hypothesis testing that here was no significant difference in mean reaction times to valid trials on the modified Posner experiment between the participants in the pilot study and the participants in the original study by Woods et al. However, the binomial test did not use all the available information in the data because each participant was simply classified as being above or below the mean of the original paper, i.e. yes or no. Information about the <strong>magnitude</strong> of the discrepancy from the mean was discarded. This information is really interesting and important however and if we wanted to maintain that information then we would need to use a <strong>one-sample <span class="math inline">\(t\)</span>-test</strong>.</p>
 <p>In a one-sample <span class="math inline">\(t\)</span>-test, you test the null hypothesis <span class="math inline">\(H_0: \mu = \mu_0\)</span> where:</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span> is the symbol for the null hypothesis,</li>
@@ -1246,17 +1257,17 @@ whereas in this Chapter we are stating it as:
 <span class="math inline"><span class="math inline">\(S\)</span></span>H_0: = _0$$
 </p>
 <p>
-What’s the difference? Conceptually there is no real difference. The null hypothesis in both situations is stating that there is no difference between the means. The only difference is that in Chapter 5 we know the actual mean of the groups of interest. In Chapter 6 we only really know the mean we want to compare against - <span class="math inline"><span class="math inline">\(\mu_0\)</span></span>. We do not know the actual mean of the population of interest (we only know the sample we have collected) - so this is written as <span class="math inline"><span class="math inline">\(\mu\)</span></span>.
+What's the difference? Conceptually there is no real difference. The null hypothesis in both situations is stating that there is no difference between the means. The only difference is that in Chapter 5 we know the actual mean of the groups of interest. In Chapter 6 we only really know the mean we want to compare against - <span class="math inline"><span class="math inline">\(\mu_0\)</span></span>. We do not know the actual mean of the population of interest (we only know the sample we have collected) - so this is written as <span class="math inline"><span class="math inline">\(\mu\)</span></span>.
 </p>
 <p>
-Main thing to recognise is that the null hypothesis <span class="math inline"><span class="math inline">\(H_0\)</span></span> always states that there is no significant difference between thw two means of interest - i.e. the two means are equivalent.
+Main thing to recognise is that the null hypothesis <span class="math inline"><span class="math inline">\(H_0\)</span></span> always states that there is no significant difference between thw two means of interest - i.e. the two means are equivalent.
 </p>
 </div>
 </div>
 <p><br></p>
 <p>For the current problem:</p>
 <ul>
-<li><span class="math inline">\(\mu\)</span> is the unobserved true mean of all possible participants. We don’t know this value. Our best guess is the mean of the sample of 22 participants so we will use that mean here. As such will substitute this value into our formula, which we call <span class="math inline">\(\bar{X}\)</span> (pronounced X-bar), instead of <span class="math inline">\(\mu\)</span></li>
+<li><span class="math inline">\(\mu\)</span> is the unobserved true mean of all possible participants. We don't know this value. Our best guess is the mean of the sample of 22 participants so we will use that mean here. As such will substitute this value into our formula, which we call <span class="math inline">\(\bar{X}\)</span> (pronounced X-bar), instead of <span class="math inline">\(\mu\)</span></li>
 <li><span class="math inline">\(\mu_0\)</span> is the mean to compare against. For us this is the mean of the original paper which we observed to be 590 ms.</li>
 </ul>
 <p>So in other words we are testing the null hypothesis that <span class="math inline">\(H_0: \bar{X} =\)</span> 590.</p>
@@ -1297,10 +1308,10 @@ Replace NULL with the code that would find the standard deviation, <code>sd</cod
 <li>Use the one-sample t-test formula above to compute your observed test statistic. Store the answer in <code>t_obs</code> .</li>
 <li>E.g. <code>t_obs &lt;- (x - y)/(s/sqrt(n))</code></li>
 </ul>
-<p><strong>Answering this question will help you in this task as you’ll also need these numbers to substitute into the formula:</strong></p>
+<p><strong>Answering this question will help you in this task as you'll also need these numbers to substitute into the formula:</strong></p>
 <ul>
-<li>The mean from Woods et al (2009) was <select class='webex-solveme' data-answer='["590"]'> <option></option> <option>595</option> <option>590</option> <option>580</option> <option>585</option></select>, and the number of participants in our sample is: (type in numbers) <input class='webex-solveme nospaces' size='3' data-answer='["22"]'/>.</li>
-<li>Remember the solutions at the end of the chapter if you are stuck. To check that you are correct without looking at the solutions though - the observed <span class="math inline">\(t\)</span>-value in <code>t_obs</code>, to two decimal places, is <select class='webex-solveme' data-answer='["1.76"]'> <option></option> <option>1.66</option> <option>1.76</option> <option>1.86</option> <option>1.96</option></select></li>
+<li>The mean from Woods et al (2009) was <select class='webex-select'><option value='blank'></option><option value=''>595</option><option value='answer'>590</option><option value=''>580</option><option value=''>585</option></select>, and the number of participants in our sample is: (type in numbers) <input class='webex-solveme nospaces' size='3' data-answer='["22"]'/>.</li>
+<li>Remember the solutions at the end of the chapter if you are stuck. To check that you are correct without looking at the solutions though - the observed <span class="math inline">\(t\)</span>-value in <code>t_obs</code>, to two decimal places, is <select class='webex-select'><option value='blank'></option><option value=''>1.66</option><option value='answer'>1.76</option><option value=''>1.86</option><option value=''>1.96</option></select></li>
 </ul>
 <div class="webex-solution">
 <button>
@@ -1308,7 +1319,7 @@ Helpful Hint
 </button>
 <div class="info">
 <p>
-Remember BODMAS and/or PEDMAS when given more than one operation to calculate. (i.e. Brackets/Parenthesis, Orders/Exponents, Division, Multiplication, Addition, Subtraction)
+Remember BODMAS and/or PEDMAS when given more than one operation to calculate. (i.e. Brackets/Parenthesis, Orders/Exponents, Division, Multiplication, Addition, Subtraction)
 </p>
 <p>
 <code>t_obs &lt;- (sample mean - woods mean) / (sample standard deviation / square root of n)</code>
@@ -1318,7 +1329,7 @@ Remember BODMAS and/or PEDMAS when given more than one operation to calculate. (
 </div>
 <div id="Ch6PreClassQueT6" class="section level3" number="6.2.8">
 <h3><span class="header-section-number">6.2.8</span> Task 6: Comparing the Observed Test Statistic to the t-distribution using <strong><code>pt()</code></strong></h3>
-<p>Now you need to compare <code>t_obs</code> to the t-distribution to determine how likely the observation (i.e. your test statistic) is under the null hypothesis of no difference. To do this you need to use the <code>pt()</code> function.</p>
+<p>Now you need to compare <code>t_obs</code> to the t-distribution to determine how likely the observation (i.e. your test statistic) is under the null hypothesis of no difference. To do this you need to use the <code>pt()</code> function.</p>
 <ul>
 <li>Use the <code>pt()</code> function to get the <span class="math inline">\(p\)</span>-value for a <a class='glossary' target='_blank' title='A statistical test for which the critical region consists of all values of the test statistic greater than a given value plus all values less than another given value.' href='https://psyteachr.github.io/glossary/t#two-tailed'>two-tailed</a> test with <span class="math inline">\(\alpha\)</span> level set to .05. The test has <span class="math inline">\(n - 1\)</span> degrees of freedom, where <span class="math inline">\(n\)</span> is the number of observations contributing to the sample mean <span class="math inline">\(\bar{X}\)</span>. Store the <span class="math inline">\(p\)</span> value in the variable <code>pval</code>.<br />
 </li>
@@ -1342,7 +1353,7 @@ The <code>pt()</code> function works similar to <code>pbinom()</code> and <code>
 <code>pval &lt;- pt(test statistic, df, lower.tail = FALSE) * 2</code>
 </li>
 <li>
-Use the <strong>absolute value</strong> of the test statistic; i.e. ignore minus signs.
+Use the <strong>absolute value</strong> of the test statistic; i.e. ignore minus signs.
 </li>
 <li>
 Remember, <code>df</code> is equal to <code>n-1</code>.
@@ -1382,8 +1393,8 @@ You also need to include <code>mu</code> in the <code>t.test()</code>, where <co
 <p>To make sure you are understanding the output of the t-test, try to answer the following questions.</p>
 <ol style="list-style-type: decimal">
 <li><p>To three decimal places, type in the p value for the t-test in Task 7 <input class='webex-solveme nospaces' size='6' data-answer='["0.092",".092"]'/></p></li>
-<li><p>As such this one sample t-test is <select class='webex-solveme' data-answer='["not significant"]'> <option></option> <option>significant</option> <option>not significant</option></select></p></li>
-<li><p>The outcome of the binomial test and the one sample t-test produce <select class='webex-solveme' data-answer='["a different"]'> <option></option> <option>the same</option> <option>a different</option></select> answer</p></li>
+<li><p>As such this one sample t-test is <select class='webex-select'><option value='blank'></option><option value=''>significant</option><option value='answer'>not significant</option></select></p></li>
+<li><p>The outcome of the binomial test and the one sample t-test produce <select class='webex-select'><option value='blank'></option><option value=''>the same</option><option value='answer'>a different</option></select> answer</p></li>
 </ol>
 </div>
 <div id="Ch6PreClassQueT8" class="section level3" number="6.2.10">
@@ -1395,15 +1406,15 @@ You also need to include <code>mu</code> in the <code>t.test()</code>, where <co
 </ul>
 <p>We have given some of our thoughts at the end of the chapter.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>That’s all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the forums</p>
+<p>That's all! There is quite a bit in this lab in terms of theory of Null Hypothesis Significance Testing (NHST) so you might want to go back and add any informative points to your Portfolio. Post any questions on the forums</p>
 
 </div>
 </div>
 <div id="inclass-activity-3" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> InClass Activity</h2>
-<p>The PreClass activity looked at the situation where you had gathered one sample of data (from one group of participants) and you want to compare that one group to a known value, e.g. a standard value. An extension of this design is where you gather data from two samples. <strong>Two-sample</strong> designs are very common in Psychology as often we want to know whether there is a difference between groups on a particular variable. We looked at a similar idead in Chapter 5 where we did this comparison through simulation. Today we will look at through the <span class="math inline">\(t\)</span>-test analysis introduced in Chapter 6</p>
+<p>The PreClass activity looked at the situation where you had gathered one sample of data (from one group of participants) and you want to compare that one group to a known value, e.g. a standard value. An extension of this design is where you gather data from two samples. <strong>Two-sample</strong> designs are very common in Psychology as often we want to know whether there is a difference between groups on a particular variable. We looked at a similar idead in Chapter 5 where we did this comparison through simulation. Today we will look at through the <span class="math inline">\(t\)</span>-test analysis introduced in Chapter 6</p>
 <p><strong>Comparing the Means of Two Samples</strong></p>
-<p>First thing to not is that there are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions). In today’s exercise we will focus on <strong>independent samples</strong>, which typically means that the observations in the two groups are unrelated - usually meaning different people. In Chapter 7 you will examine cases where the observations in the two groups are from pairs (<strong>paired samples</strong>) - most often the same people but could also be a matched-pairs design.</p>
+<p>First thing to not is that there are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions). In today's exercise we will focus on <strong>independent samples</strong>, which typically means that the observations in the two groups are unrelated - usually meaning different people. In Chapter 7 you will examine cases where the observations in the two groups are from pairs (<strong>paired samples</strong>) - most often the same people but could also be a matched-pairs design.</p>
 <div class="webex-solution">
 <button>
 Portfolio Point - All the different names for one thing!
@@ -1423,7 +1434,7 @@ independent and between-subjects design typically mean the same thing - differen
 within-subjects, dependent samples, paired samples, and repeated measures tend to mean the same participants in all conditions
 </li>
 <li>
-matched-pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc). These designs are analysed as though they were a within-subjects design.
+matched-pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc). These designs are analysed as though they were a within-subjects design.
 </li>
 <li>
 mixed design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half do ratings of trustworthiness (between).
@@ -1440,12 +1451,12 @@ Spend some time when reading articles to really figure out the design they are u
 <p><br>
 <strong>Background</strong></p>
 <p>For this lab we will be revisiting the data from Schroeder and Epley (2015), which you first encountered as part of the homework for Chapter 5. You can take a look at the Psychological Science article here:</p>
-<p>Schroeder, J. and Epley, N. (2015). <a href = "https://doi.org/10.1177/0956797615572906" target = "_blank">The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate’s appeal.</a> <em>Psychological Science, 26, 277–891</em>.</p>
+<p>Schroeder, J. and Epley, N. (2015). <a href = "https://doi.org/10.1177/0956797615572906" target = "_blank">The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal.</a> <em>Psychological Science, 26, 277--891</em>.</p>
 <p>The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the <a href = "https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Open Stats Lab</a>):</p>
-<p>“<strong>A person’s mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person’s intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates’ pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favorable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one’s intellect, it is important that one’s voice, quite literally, be heard.</strong>”</p>
-<p>To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates (Masters in Business Administration) from the University of Chicago Booth School of Business. The methods and results appear on pages 887–889 of the article if you want to look at them specifically for more details. The original data, in <strong>wide</strong> format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in “tidy” format which can be <a href="data/06-s01/inclass/ch6-inclass-data.zip">downloaded from here</a>. I you are unsure about tidy format, refer back to the inclass activities of Chapter 2.</p>
-<p><strong>Today’s Goal!</strong></p>
-<p>The overall goal today is to learn about running a <span class="math inline">\(t\)</span>-test on between-subjects data, as well as learning about analysing actual data along the way. As such, our task today is to reproduce a figure and the results from the article (p. 887-888). The two packages you will need are <code>tidyverse</code>, which we have used a lot, and <code>broom</code>, which is new to you but will become your friend. One of the main functions we use in broom is <code>broom::tidy()</code> - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with - technically called <code>objects</code> - into a tibble that you are very familiar with and that you can then use much more easily. Might that be worth making a note of? We will show you how to use this function today and then ask you to use it over the coming chapters</p>
+<p>"<strong>A person's mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person's intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates' pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favorable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one's intellect, it is important that one's voice, quite literally, be heard.</strong>"</p>
+<p>To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates (Masters in Business Administration) from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in <strong>wide</strong> format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in "tidy" format which can be <a href="data/06-s01/inclass/ch6-inclass-data.zip">downloaded from here</a>. I you are unsure about tidy format, refer back to the inclass activities of Chapter 2.</p>
+<p><strong>Today's Goal!</strong></p>
+<p>The overall goal today is to learn about running a <span class="math inline">\(t\)</span>-test on between-subjects data, as well as learning about analysing actual data along the way. As such, our task today is to reproduce a figure and the results from the article (p. 887-888). The two packages you will need are <code>tidyverse</code>, which we have used a lot, and <code>broom</code>, which is new to you but will become your friend. One of the main functions we use in broom is <code>broom::tidy()</code> - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with - technically called <code>objects</code> - into a tibble that you are very familiar with and that you can then use much more easily. Might that be worth making a note of? We will show you how to use this function today and then ask you to use it over the coming chapters</p>
 <p>If you are using the Boyd Orr labs, <code>broom</code> is already installed and just needs called to the <code>library()</code>. If you are using your own machine, you will need to install it one time to begin with if you have never installed it before.</p>
 <div id="Ch6InClassQueT1" class="section level3" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Task 1: Evaluators</h3>
@@ -1473,22 +1484,22 @@ Helpful Hint
 Remember to load the libraries you need!
 </li>
 <li>
-Also make sure you’ve downloaded and saved the data in the folder you’re working from.
+Also make sure you've downloaded and saved the data in the folder you're working from.
 </li>
 <li>
 You can use <code>summarise()</code> and <code>count()</code> or a pipeline with <code>group_by()</code> to complete this task.
 </li>
 <li>
-When analysing the number of male and female evaluators it isn’t initially clear that ‘1’ represents males and ‘2’ represents females.
+When analysing the number of male and female evaluators it isn't initially clear that '1' represents males and '2' represents females.
 </li>
 <li>
-We can use <code>recode()</code> to convert the numeric names to indicate something more meaningful. Have a look at<code>?recode</code> to see if you can work out how to use it. It’ll help to use <code>mutate()</code> to create a new variable to <code>recode()</code> the numeric names for evaluators.
+We can use <code>recode()</code> to convert the numeric names to indicate something more meaningful. Have a look at<code>?recode</code> to see if you can work out how to use it. It'll help to use <code>mutate()</code> to create a new variable to <code>recode()</code> the numeric names for evaluators.
 </li>
 <li>
 This website is also incredibly useful and one to save for anytime you need to use recode(): <a href="https://debruine.github.io/posts/recode/" target = "_blank">https://debruine.github.io/posts/recode/</a>
 </li>
 <li>
-For your own analysis and future reproducible analyses, it’s a good idea to make these representations clearer to others.
+For your own analysis and future reproducible analyses, it's a good idea to make these representations clearer to others.
 </li>
 </ul>
 </div>
@@ -1513,21 +1524,21 @@ Explain This - Why is there a discrepancy?
 This paper claimed there were 9 males, however looking at your results you can see only 4 males, with 5 NA entries making up the rest of the participant count. It looks like the NA and male entries have been combined! That information might not be clear to a person re-analysing the data.
 </p>
 <p>
-This is why it’s important to have reproducible data analyses for others to examine. Having another pair of eyes examining your data can be very beneficial in spotting any discrepancies - this allows for critical evaluation of analyses and results and improves the quality of research being published. All the more reason to emphasize the importance of conducting replication studies! #ReproducibleScience
+This is why it's important to have reproducible data analyses for others to examine. Having another pair of eyes examining your data can be very beneficial in spotting any discrepancies - this allows for critical evaluation of analyses and results and improves the quality of research being published. All the more reason to emphasize the importance of conducting replication studies! #ReproducibleScience
 </p>
 </div>
 </div>
 </div>
 <div id="Ch6InClassQueT2" class="section level3" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> Task 2: Ratings</h3>
-<p>We are now going to calculate an overall <strong>intellect</strong> rating given by each evaluator. To break that down a bit, we are going to calculate how intellectual the evaluators (the raters) thought candidates were overall, depending on whether or not the evaluators <strong>read</strong> or <strong>listened</strong> to the candidates’ resume pitches. This is calculated by averaging the ratings of <code>competent</code>, <code>thoughtful</code> and <code>intelligent</code> for each evaluator held within <code>ratings.csv</code>.</p>
-<p><strong>Note:</strong> we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little. You can think about it in terms of “do raters rate differently depending on whether they read or listen to a resume pitch.”</p>
-<p>We will then combine the overall <strong>intellect</strong> rating with the overall <strong>impression</strong> ratings and overall <strong>hire</strong> ratings for each evaluator, all ready found in <code>ratings.csv</code>. In the end we will have a new tibble - let’s call it <code>ratings2</code> - which has the below structure:</p>
+<p>We are now going to calculate an overall <strong>intellect</strong> rating given by each evaluator. To break that down a bit, we are going to calculate how intellectual the evaluators (the raters) thought candidates were overall, depending on whether or not the evaluators <strong>read</strong> or <strong>listened</strong> to the candidates' resume pitches. This is calculated by averaging the ratings of <code>competent</code>, <code>thoughtful</code> and <code>intelligent</code> for each evaluator held within <code>ratings.csv</code>.</p>
+<p><strong>Note:</strong> we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little. You can think about it in terms of "do raters rate differently depending on whether they read or listen to a resume pitch".</p>
+<p>We will then combine the overall <strong>intellect</strong> rating with the overall <strong>impression</strong> ratings and overall <strong>hire</strong> ratings for each evaluator, all ready found in <code>ratings.csv</code>. In the end we will have a new tibble - let's call it <code>ratings2</code> - which has the below structure:</p>
 <ul>
-<li>eval_id shows the evaluator ID. Each evaluator has a different ID. So all the 1’s are the same evaluator.</li>
+<li>eval_id shows the evaluator ID. Each evaluator has a different ID. So all the 1's are the same evaluator.</li>
 <li>Category shows the scale that they were rating on - intellect, hire, impression</li>
 <li>Rating shows the overall rating given by that evaluator on a given scale.</li>
-<li>condition shows whether that evaluater listened to (e.g. evaluators 1, 2 and 3), or read (e.g. evaluator 4) the resume.</li>
+<li>condition shows whether that evaluater listened to (e.g. evaluators 1, 2 and 3), or read (e.g. evaluator 4) the resume.</li>
 </ul>
 <div class="kable-table">
 <table>
@@ -1728,7 +1739,7 @@ read
 <li><p>Now create a new tibble called <code>ratings2</code> and filter into it just the <strong>impression</strong> and <strong>hire</strong> ratings from the original <code>ratings</code> tibble. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in <code>ratings2</code>.</p></li>
 <li><p>Join <code>ratings2</code> with the <code>evaluator</code> tibble that we created in Task 1. Keep only the necessary columns as shown above and arrange by Evaluator and Category.</p></li>
 </ol>
-<p>Don’t forget to use the hints below or the solution at the end of the Chapter if you are stuck. One thing to think about though is that the above steps don’t help, again just go back to what you want to achieve and ask yourself how would you do that, and think backwards.</p>
+<p>Don't forget to use the hints below or the solution at the end of the Chapter if you are stuck. One thing to think about though is that the above steps don't help, again just go back to what you want to achieve and ask yourself how would you do that, and think backwards.</p>
 <div class="webex-solution">
 <button>
 Helpful Hint
@@ -1737,7 +1748,7 @@ Helpful Hint
 <ol style="list-style-type: decimal">
 <li>
 <p>
-Make sure you’ve downloaded and saved the data into the folder you’re working from.
+Make sure you've downloaded and saved the data into the folder you're working from.
 </p>
 </li>
 <li>
@@ -1768,7 +1779,7 @@ Use <code>inner_join()</code> with the common column in both tibbles. <code>sele
 <div id="Ch6InClassQueT3" class="section level3" number="6.3.3">
 <h3><span class="header-section-number">6.3.3</span> Task 3: Creating a Figure</h3>
 <p>To recap, we now have <code>ratings2</code> which contains an overall <code>Rating</code> score for each evaluator on the three <code>Category</code> (within: hire, impression, intellect) depending on which <code>condition</code> that evaluator was in (between: listened or read). Great! Now we have all the information we need to replicate Figure 7 in the article (page 888), shown here:</p>
-<div class="figure" style="text-align: center"><span id="fig:img-lab6-figure7"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-lab6-figure7"></span>
 <img src="images/s01-lab06/inclass/figure_7.png" alt="Figure 7 from Schroeder and Epley (2015) which you should try to replicate." width="50%" />
 <p class="caption">
 Figure 6.1: Figure 7 from Schroeder and Epley (2015) which you should try to replicate.
@@ -1794,7 +1805,7 @@ Solution and Possible Alternative
 <pre><code>## `summarise()` has grouped output by &#39;condition&#39;. You can override using the `.groups` argument.</code></pre>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="nhst-and-one-sample-t-tests.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(group_means, <span class="fu">aes</span>(Category, Rating, <span class="at">fill =</span> condition)) <span class="sc">+</span> </span>
 <span id="cb314-2"><a href="nhst-and-one-sample-t-tests.html#cb314-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ch6-fig7-solution"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch6-fig7-solution"></span>
 <img src="06-s01-lab06c_files/figure-html/ch6-fig7-solution-1.png" alt="A basic solution to Figure 7" width="100%" />
 <p class="caption">
 Figure 6.2: A basic solution to Figure 7
@@ -1814,7 +1825,7 @@ Figure 6.2: A basic solution to Figure 7
 <span id="cb317-7"><a href="nhst-and-one-sample-t-tests.html#cb317-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb317-8"><a href="nhst-and-one-sample-t-tests.html#cb317-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">&quot;none&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
 <span id="cb317-9"><a href="nhst-and-one-sample-t-tests.html#cb317-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ch6-fig7-possible"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch6-fig7-possible"></span>
 <img src="06-s01-lab06c_files/figure-html/ch6-fig7-possible-1.png" alt="A possible alternative to Figure 7" width="100%" />
 <p class="caption">
 Figure 6.3: A possible alternative to Figure 7
@@ -1824,10 +1835,10 @@ Figure 6.3: A possible alternative to Figure 7
 </div>
 <div id="Ch6InClassQueT4" class="section level3" number="6.3.4">
 <h3><span class="header-section-number">6.3.4</span> Task 4: t-tests</h3>
-<p>Brilliant! So far we have checked the descriptives and the visualisations, and the last thing now is to check the inferential tests; the t-tests. You should still have <code>ratings2</code> stored from Task 2. From this tibble, let’s reproduce the <strong>t-test</strong> results from the article and at the same time show you how to run a t-test. You can refer back to the lectures to understand the maths a <strong>between-subjects t-test</strong> but essentially it is a measure between the difference in means over the variance about those means.</p>
-<p>Here is a paragraph from the paper describing the results (p. 887):</p>
-<p>“<strong>The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). In particular, the recruiters believed that the job candidates had greater intellect—were more competent, thoughtful, and intelligent—when they listened to pitches (M = 5.63, SD = 1.61) than when they read pitches (M = 3.65, SD = 1.91), t(37) = 3.53, p &lt; .01, 95% CI of the difference = [0.85, 3.13], d = 1.16. The recruiters also formed more positive impressions of the candidates—rated them as more likeable and had a more positive and less negative impression of them—when they listened to pitches (M = 5.97, SD = 1.92) than when they read pitches (M = 4.07, SD = 2.23), t(37) = 2.85, p &lt; .01, 95% CI of the difference = [0.55, 3.24], d = 0.94. Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = 4.71, SD = 2.26) than when they read the same pitches (M = 2.89, SD = 2.06), t(37) = 2.62, p &lt; .01, 95% CI of the difference = [0.41, 3.24], d = 0.86.</strong>”</p>
-<p>We are going to run the t-tests for Intellect, Hire and Impression; each time comparing evaluators overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who <strong>listened</strong> to pitches give a significant higher or lower rating than evaluators that <strong>read</strong> pitches.</p>
+<p>Brilliant! So far we have checked the descriptives and the visualisations, and the last thing now is to check the inferential tests; the t-tests. You should still have <code>ratings2</code> stored from Task 2. From this tibble, let's reproduce the <strong>t-test</strong> results from the article and at the same time show you how to run a t-test. You can refer back to the lectures to understand the maths a <strong>between-subjects t-test</strong> but essentially it is a measure between the difference in means over the variance about those means.</p>
+<p>Here is a paragraph from the paper describing the results (p. 887):</p>
+<p>"<strong>The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). In particular, the recruiters believed that the job candidates had greater intellect---were more competent, thoughtful, and intelligent---when they listened to pitches (M = 5.63, SD = 1.61) than when they read pitches (M = 3.65, SD = 1.91), t(37) = 3.53, p &lt; .01, 95% CI of the difference = [0.85, 3.13], d = 1.16. The recruiters also formed more positive impressions of the candidates---rated them as more likeable and had a more positive and less negative impression of them---when they listened to pitches (M = 5.97, SD = 1.92) than when they read pitches (M = 4.07, SD = 2.23), t(37) = 2.85, p &lt; .01, 95% CI of the difference = [0.55, 3.24], d = 0.94. Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = 4.71, SD = 2.26) than when they read the same pitches (M = 2.89, SD = 2.06), t(37) = 2.62, p &lt; .01, 95% CI of the difference = [0.41, 3.24], d = 0.86.</strong>"</p>
+<p>We are going to run the t-tests for Intellect, Hire and Impression; each time comparing evaluators overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who <strong>listened</strong> to pitches give a significant higher or lower rating than evaluators that <strong>read</strong> pitches.</p>
 <p>In terms of hypotheses, we could phrase the null hypothesis for this tests as there is no significant difference between overall ratings on the {insert trait} scale between evaluators who listened to resume pitches and evaluatoris who read the resume pitches (<span class="math inline">\(H_0: \mu_1 = \mu2\)</span>). Alternatively, we could state it as there will be a significant difference between overall ratings on the {insert trait} scale between evaluators who listened to resume pitches and evaluatoris who read the resume pitches (<span class="math inline">\(H_1: \mu_1 \ne \mu2\)</span>).</p>
 <div class="webex-solution">
 <button>
@@ -1967,7 +1978,7 @@ intellect
 <li>And then we run the actual t-test and tidy it into a table.
 <ul>
 <li><code>t.test()</code> requires two vectors as input</li>
-<li><code>pull()</code> will pull out a single column from a tibble, e.g. Rating from intellect</li>
+<li><code>pull()</code> will pull out a single column from a tibble, e.g. Rating from intellect</li>
 <li><code>tidy()</code> takes information from a test and turns it into a tibble. Try running the t.test with and without piping into <code>tidy()</code> to see what it does differently.</li>
 </ul></li>
 </ol>
@@ -2056,7 +2067,7 @@ two.sided
 </table>
 </div>
 <p><br></p>
-<p>From the resultant tibble, <code>intellect_t</code>, you can see that you ran a Two Sample t-test (meaning between-subjects) with a two-tailed hypothesis test (“two.sided”). The mean for the listened condition, <code>estimate1</code>, was 5.635, whilst the mean for the read condition, <code>estimate2</code> was 3.648 - compare these to the means in <code>group_means</code> as a sanity check. So an overall the was a difference between the two means of 1.987. The degrees of freedom for the test, <code>parameter</code>, was 37. The observed t-value, <code>statistic</code>, was 3.526, and it was significant as the p-value, <code>p.value</code>, was p = 0.0011, which is lower than the field standard Type 1 error rate of <span class="math inline">\(\alpha = .05\)</span>.</p>
+<p>From the resultant tibble, <code>intellect_t</code>, you can see that you ran a Two Sample t-test (meaning between-subjects) with a two-tailed hypothesis test ("two.sided"). The mean for the listened condition, <code>estimate1</code>, was 5.635, whilst the mean for the read condition, <code>estimate2</code> was 3.648 - compare these to the means in <code>group_means</code> as a sanity check. So an overall the was a difference between the two means of 1.987. The degrees of freedom for the test, <code>parameter</code>, was 37. The observed t-value, <code>statistic</code>, was 3.526, and it was significant as the p-value, <code>p.value</code>, was p = 0.0011, which is lower than the field standard Type 1 error rate of <span class="math inline">\(\alpha = .05\)</span>.</p>
 <p>As you will know from your lectures, a t-test is presented as t(df) = t-value, p = p-value. As such, this t-test would be written up as: t(37) = 3.526, p = 0.001.</p>
 <p>Thinking about interpretation of this finding, as the effect was significant, we can reject the null hypothesis that there is no significant difference between mean ratings of those who listened to resumes and those who read the resumes, for intellect ratings. We can go further than that and say that the overall intellect ratings for those that listened to the resume was significantly higher (mean diff = 1.987) than those who read the resumes, t(37) = 3.526, p = 0.001, and as such we accept the alternative hypothesis. This would suggest that hearing people speak leads evaluators to rate the candidates as more intellectual than when you merely read the words they have written.</p>
 <p><strong>Now Try:</strong></p>
@@ -2223,7 +2234,7 @@ two.sided
 <li><p>Mean <code>estimate1</code> (listened condition) = <input class='webex-solveme nospaces' size='4' data-answer='["4.71"]'/></p></li>
 <li><p>Mean <code>estimate2</code> (read condition) = <input class='webex-solveme nospaces' size='4' data-answer='["2.89"]'/></p></li>
 <li><p>t(<input class='webex-solveme nospaces' size='2' data-answer='["37"]'/>) = <input class='webex-solveme nospaces' size='4' data-answer='["2.62"]'/>, p = <input class='webex-solveme nospaces' size='5' data-answer='["0.013",".013"]'/></p></li>
-<li><p>Looking at this result, True or False, this result is significant at <span class="math inline">\(\alpha = .05\)</span>? <select class='webex-solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></p></li>
+<li><p>Looking at this result, True or False, this result is significant at <span class="math inline">\(\alpha = .05\)</span>? <select class='webex-select'><option value='blank'></option><option value='answer'>TRUE</option><option value=''>FALSE</option></select></p></li>
 </ul></li>
 <li><p>Check your results for <code>impression</code>. Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):</p>
 <ul>
@@ -2231,7 +2242,7 @@ two.sided
 <li><p>Mean <code>estimate2</code> (read condition) = <input class='webex-solveme nospaces' size='4' data-answer='["4.07"]'/><br />
 </p></li>
 <li><p>t(<input class='webex-solveme nospaces' size='2' data-answer='["37"]'/>) = <input class='webex-solveme nospaces' size='4' data-answer='["2.85"]'/>, p = <input class='webex-solveme nospaces' size='5' data-answer='["0.007",".007"]'/></p></li>
-<li><p>Looking at this result, True or False, this result is significant at <span class="math inline">\(\alpha = .05\)</span>? <select class='webex-solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select></p></li>
+<li><p>Looking at this result, True or False, this result is significant at <span class="math inline">\(\alpha = .05\)</span>? <select class='webex-select'><option value='blank'></option><option value='answer'>TRUE</option><option value=''>FALSE</option></select></p></li>
 </ul></li>
 </ul>
 <div class="webex-solution">
@@ -2260,7 +2271,7 @@ and p-value = <code>p.value</code>.
 </li>
 </ul>
 <p>
-Remember that if a result has a p-value lower (i.e. smaller) than or equal to the alpha level then it is said to be significant.
+Remember that if a result has a p-value lower (i.e. smaller) than or equal to the alpha level then it is said to be significant.
 </p>
 </div>
 </div>
@@ -2268,7 +2279,7 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <p>So to recap, we looked at the data from Schroeder and Epley (2015), both the descriptives and inferentials, we plotted a figure, and we confirmed that, as in the paper, there are significant differences in each of the three rating categories (hire, impression and intellect), with the listened condition receiving a higher rating than the read condition on each rating. All in, our interpretation would be that people rate you hire when they hear you speak your resume as opposed to them just reading your resume!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Well done for completing this inclass activity on independent samples t-tests! And now, combined with the information in the preclass activity, you are able to run a t-test on one sample data, comparing it to a standard/criterion values, and on two samples in a between-subjects design.</p>
-<p>Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! For instance, we haven’t really looked at the assumptions of a between-subjects t-test, just the analysis. You will have covered the assumptions in your lecture series so why not combine that information with the information you learnt here!</p>
+<p>Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! For instance, we haven't really looked at the assumptions of a between-subjects t-test, just the analysis. You will have covered the assumptions in your lecture series so why not combine that information with the information you learnt here!</p>
 <p>Also, if you have more time, you might want to visit this website that will give you a better understanding of the relationship between the <span class="math inline">\(t\)</span> distribution and the normal distribution: <a href="https://gallery.shinyapps.io/tdist/" target = "_blank">gallery.shinyapps.io/tdist</a></p>
 <p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module</strong>. However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the forums.</p>
 
@@ -2281,11 +2292,11 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <p>In order to complete this assignment, you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester1_Lab6.Rmd</code>. This can be downloaded within a zip file from the link below. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/06-s01/homework/ch6-assign-data.zip">Download the Assignment .zip file from here</a> or on Moodle.</p>
 <p><strong>Background</strong></p>
 <p>For this assignment we will be using real data from the following paper:</p>
-<p>Nave, G., Nadler, A., Zava, D., and Camerer, C. (2017). <a href="http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592" target = "_blank">Single-dose testosterone administration impairs cognitive reflection in men.</a> <em>Psychological Science</em>, <em>28</em>, 1398–1407.</p>
-<p>The full data for these exercises can be downloaded from the <a href="https://osf.io/kzxsh/" target = "_blank">Open Science Framework repository</a> but for this assignment we will just use the <code>.csv</code> file in the zipped folder: <strong>CRT_Data.csv</strong>. You may also want to read the paper, at least in part, to help fully understand this analysis if at times you are unsure. Here is the article’s abstract:</p>
-<p><strong>In nonhumans, the sex steroid testosterone regulates reproductive behaviors such as fighting between males and mating. In humans, correlational studies have linked testosterone with aggression and disorders associated with poor impulse control, but the neuropsychological processes at work are poorly understood. Building on a dual-process framework, we propose a mechanism underlying testosterone’s behavioral effects in humans: reduction in cognitive reflection. In the largest study of behavioral effects of testosterone administration to date, 243 men received either testosterone or placebo and took the Cognitive Reflection Test (CRT), which estimates the capacity to override incorrect intuitive judgments with deliberate correct responses. Testosterone administration reduced CRT scores. The effect remained after we controlled for age, mood, math skills, whether participants believed they had received the placebo or testosterone, and the effects of 14 additional hormones, and it held for each of the CRT questions in isolation. Our findings suggest a mechanism underlying testosterone’s diverse effects on humans’ judgments and decision making and provide novel, clear, and testable predictions.</strong></p>
-<p>The critical findings are presented on p. 1403 of the paper under the heading <strong>The influence of testosterone on CRT performance</strong>. Your task today is to attempt to try and reproduce some of the main results from the paper.</p>
-<p><strong>NOTE</strong>: Being unable to get the exact same results as the authors doesn’t necessarily mean you are wrong! The authors might be wrong, or might have left out important details. Present what you find.</p>
+<p>Nave, G., Nadler, A., Zava, D., and Camerer, C. (2017). <a href="http://journals.sagepub.com/doi/suppl/10.1177/0956797617709592" target = "_blank">Single-dose testosterone administration impairs cognitive reflection in men.</a> <em>Psychological Science</em>, <em>28</em>, 1398--1407.</p>
+<p>The full data for these exercises can be downloaded from the <a href="https://osf.io/kzxsh/" target = "_blank">Open Science Framework repository</a> but for this assignment we will just use the <code>.csv</code> file in the zipped folder: <strong>CRT_Data.csv</strong>. You may also want to read the paper, at least in part, to help fully understand this analysis if at times you are unsure. Here is the article's abstract:</p>
+<p><strong>In nonhumans, the sex steroid testosterone regulates reproductive behaviors such as fighting between males and mating. In humans, correlational studies have linked testosterone with aggression and disorders associated with poor impulse control, but the neuropsychological processes at work are poorly understood. Building on a dual-process framework, we propose a mechanism underlying testosterone's behavioral effects in humans: reduction in cognitive reflection. In the largest study of behavioral effects of testosterone administration to date, 243 men received either testosterone or placebo and took the Cognitive Reflection Test (CRT), which estimates the capacity to override incorrect intuitive judgments with deliberate correct responses. Testosterone administration reduced CRT scores. The effect remained after we controlled for age, mood, math skills, whether participants believed they had received the placebo or testosterone, and the effects of 14 additional hormones, and it held for each of the CRT questions in isolation. Our findings suggest a mechanism underlying testosterone's diverse effects on humans' judgments and decision making and provide novel, clear, and testable predictions.</strong></p>
+<p>The critical findings are presented on p. 1403 of the paper under the heading <strong>The influence of testosterone on CRT performance</strong>. Your task today is to attempt to try and reproduce some of the main results from the paper.</p>
+<p><strong>NOTE</strong>: Being unable to get the exact same results as the authors doesn't necessarily mean you are wrong! The authors might be wrong, or might have left out important details. Present what you find.</p>
 <p><strong>Before starting lets check:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>The <code>.csv</code> file is saved into a folder on your computer and you have manually set this folder as your working directory.</p></li>
@@ -2294,7 +2305,7 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <div id="Ch6AssignQueT1A" class="section level3" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Task 1A: Libraries</h3>
 <ul>
-<li>In today’s assignment you will need both the <code>tidyverse</code> and <code>broom</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
+<li>In today's assignment you will need both the <code>tidyverse</code> and <code>broom</code> packages. Enter code into the t1A code chunk below to load in both of these libraries.</li>
 </ul>
 <div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="nhst-and-one-sample-t-tests.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load in the tidyverse and broom packages</span></span></code></pre></div>
 </div>
@@ -2336,7 +2347,7 @@ Remember that if a result has a p-value lower (i.e. smaller) than or equal to t
 <div id="Ch6AssignQueT4" class="section level3" number="6.4.5">
 <h3><span class="header-section-number">6.4.5</span> Task 4: Reproduce Figure 2a</h3>
 <p>Here is Figure 2A from the original paper:</p>
-<div class="figure" style="text-align: center"><span id="fig:img-lab6-figure2a"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-lab6-figure2a"></span>
 <img src="images/s01-lab06/homework/figure_2a.png" alt="Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you should replicate" width="50%" />
 <p class="caption">
 Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you should replicate
@@ -2347,7 +2358,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <li>Use <code>crt_means</code> as the source data for the plot.</li>
 </ul>
 <p><strong>Hint:</strong> you will need to check out <code>recode()</code> to get the labels of treatments right. Again this webpage is highly recommended: <a href="https://debruine.github.io/posts/recode/" target = "_blank">https://debruine.github.io/posts/recode/</a></p>
-<p>Don’t worry about including the error bars (unless you want to) or the line indicating significance in the plot. Do however make sure to pay attention to the labels of treatments and of the y-axis scale and label. Reposition the x-axis label to below the Figure. You can use colour if you like.</p>
+<p>Don't worry about including the error bars (unless you want to) or the line indicating significance in the plot. Do however make sure to pay attention to the labels of treatments and of the y-axis scale and label. Reposition the x-axis label to below the Figure. You can use colour if you like.</p>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="nhst-and-one-sample-t-tests.html#cb327-1" aria-hidden="true" tabindex="-1"></a>crt_means <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
 <span id="cb327-2"><a href="nhst-and-one-sample-t-tests.html#cb327-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb327-3"><a href="nhst-and-one-sample-t-tests.html#cb327-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">TODO</span><span class="do">: add lines of code using ggplot</span></span></code></pre></div>
@@ -2459,7 +2470,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <span id="cb345-7"><a href="nhst-and-one-sample-t-tests.html#cb345-7" aria-hidden="true" tabindex="-1"></a>ns_data_sd <span class="ot">&lt;-</span> ns_data <span class="sc">%&gt;%</span></span>
 <span id="cb345-8"><a href="nhst-and-one-sample-t-tests.html#cb345-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sd =</span> <span class="fu">sd</span>(valid_rt)) <span class="sc">%&gt;%</span></span>
 <span id="cb345-9"><a href="nhst-and-one-sample-t-tests.html#cb345-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sd)</span></code></pre></div>
-<p><strong>NOTE:</strong> You could print them out on the screen if you wanted to “\n” is the end of line symbol so that they print on different lines</p>
+<p><strong>NOTE:</strong> You could print them out on the screen if you wanted to "\n" is the end of line symbol so that they print on different lines</p>
 <div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="nhst-and-one-sample-t-tests.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;The mean number of hours was&quot;</span>, ns_data_mean, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb346-2"><a href="nhst-and-one-sample-t-tests.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;The standard deviation was&quot;</span>, ns_data_sd, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## The mean number of hours was 625.4636 
@@ -2557,7 +2568,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <span id="cb356-2"><a href="nhst-and-one-sample-t-tests.html#cb356-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(eval_id) <span class="sc">%&gt;%</span></span>
 <span id="cb356-3"><a href="nhst-and-one-sample-t-tests.html#cb356-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Rating =</span> <span class="fu">mean</span>(Rating))</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li>Mutate on the Category variable. This way we can combine with ‘impression’ and ‘hire’ into a single table which will be very useful!</li>
+<li>Mutate on the Category variable. This way we can combine with 'impression' and 'hire' into a single table which will be very useful!</li>
 </ol>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="nhst-and-one-sample-t-tests.html#cb357-1" aria-hidden="true" tabindex="-1"></a>imeans2 <span class="ot">&lt;-</span> imeans <span class="sc">%&gt;%</span></span>
 <span id="cb357-2"><a href="nhst-and-one-sample-t-tests.html#cb357-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="st">&quot;intellect&quot;</span>)</span></code></pre></div>
@@ -2591,7 +2602,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 <li>And then we run the actual t-test and tidy it into a table.
 <ul>
 <li><code>t.test()</code> requires two vectors as input</li>
-<li><code>pull()</code> will pull out a single column from a tibble, e.g. Rating from intellect</li>
+<li><code>pull()</code> will pull out a single column from a tibble, e.g. Rating from intellect</li>
 <li><code>tidy()</code> takes information from a test and turns it into a table. Try running the t.test with and without piping into <code>tidy()</code> to see what it does differently.</li>
 </ul></li>
 </ol>
@@ -2627,7 +2638,7 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 </div>
 <div id="going-further-with-your-coding" class="section level4" number="6.5.2.4">
 <h4><span class="header-section-number">6.5.2.4</span> Going Further with your coding</h4>
-<p><strong>An alternative solution to Task 4:</strong> There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won’t really cover in this book. Do not worry if you can’t quite follow it though; the main thing is to understand what we covered in the main chapter activities - the outcome is the same.</p>
+<p><strong>An alternative solution to Task 4:</strong> There is actually a quicker way to do this analysis of three t-tests which you can have a look at below if you have the time. This uses very advanced coding with some functions we won't really cover in this book. Do not worry if you can't quite follow it though; the main thing is to understand what we covered in the main chapter activities - the outcome is the same.</p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="nhst-and-one-sample-t-tests.html#cb367-1" aria-hidden="true" tabindex="-1"></a>ratings2 <span class="sc">%&gt;%</span></span>
 <span id="cb367-2"><a href="nhst-and-one-sample-t-tests.html#cb367-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span></span>
 <span id="cb367-3"><a href="nhst-and-one-sample-t-tests.html#cb367-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span></span>
@@ -2856,7 +2867,7 @@ two.sided
 <span id="cb376-10"><a href="nhst-and-one-sample-t-tests.html#cb376-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
 <span id="cb376-11"><a href="nhst-and-one-sample-t-tests.html#cb376-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#EEEEEE&quot;</span>,<span class="st">&quot;#AAAAAA&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb376-12"><a href="nhst-and-one-sample-t-tests.html#cb376-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">1.4</span>,<span class="fl">2.4</span>), <span class="at">expand =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:t4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:t4"></span>
 <img src="06-s01-lab06e_files/figure-html/t4-1.png" alt="A representation of Figure 2A" width="100%" />
 <p class="caption">
 Figure 6.5: A representation of Figure 2A
@@ -2920,13 +2931,13 @@ Figure 6.5: A representation of Figure 2A
 <h2><span class="header-section-number">6.6</span> Additional Material</h2>
 <p>Below is some additional material that might help you understand the tests in this Chapter a bit more as well as some additional ideas.</p>
 <div id="more-on-t.test---vectors-vs.-formula" class="section level3 unnumbered">
-<h3>More on <code>t.test()</code> - vectors vs. formula</h3>
-<p>A quick note on running the t-test in two different ways. In the lab we showed you how to run a t-test on a between-subjects design. This is the Welch’s t-test version of the code from the lab:</p>
+<h3>More on <code>t.test()</code> - vectors vs. formula</h3>
+<p>A quick note on running the t-test in two different ways. In the lab we showed you how to run a t-test on a between-subjects design. This is the Welch's t-test version of the code from the lab:</p>
 <div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="nhst-and-one-sample-t-tests.html#cb386-1" aria-hidden="true" tabindex="-1"></a>t_table <span class="ot">&lt;-</span> <span class="fu">t.test</span>(crt2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Treatment <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(CorrectAnswers),</span>
 <span id="cb386-2"><a href="nhst-and-one-sample-t-tests.html#cb386-2" aria-hidden="true" tabindex="-1"></a>                  crt2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Treatment <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(CorrectAnswers),</span>
 <span id="cb386-3"><a href="nhst-and-one-sample-t-tests.html#cb386-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">var.equal =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb386-4"><a href="nhst-and-one-sample-t-tests.html#cb386-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<p>This is sometimes referred to as the vector approach, and what the code is doing is taking each groups’ data as a vector input. For example, if you were to just look at the data for the Treatment 0 group then that line of code:</p>
+<p>This is sometimes referred to as the vector approach, and what the code is doing is taking each groups' data as a vector input. For example, if you were to just look at the data for the Treatment 0 group then that line of code:</p>
 <div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="nhst-and-one-sample-t-tests.html#cb387-1" aria-hidden="true" tabindex="-1"></a>crt2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Treatment <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(CorrectAnswers)</span></code></pre></div>
 <p>shows just these values:</p>
 <pre><code>##   [1] 2 2 3 3 3 2 1 0 2 0 2 1 3 2 2 3 1 3 2 3 2 0 2 3 3 3 3 2 2 2 3 0 3 3 3 0 0
@@ -2938,7 +2949,7 @@ Figure 6.5: A representation of Figure 2A
 ##  [38] 2 3 2 2 2 3 3 1 0 3 0 1 1 1 0 0 1 2 3 3 0 2 2 3 3 2 3 3 3 3 3 3 1 2 3 1 1
 ##  [75] 2 3 3 0 2 2 1 1 2 3 0 0 3 0 1 2 0 0 0 0 3 1 3 2 2 2 1 2 3 3 0 3 1 0 1 2 0
 ## [112] 2 2 2 3 2 3 3 3 0 3 0 1 2 3</code></pre>
-<p>And the <code>t.test()</code> function is just saying this is group 1’s data, this is group 2’s data, and I am comparing them. However the eagle-eyed of you will have seen in the solution an alternative code, that looks like:</p>
+<p>And the <code>t.test()</code> function is just saying this is group 1's data, this is group 2's data, and I am comparing them. However the eagle-eyed of you will have seen in the solution an alternative code, that looks like:</p>
 <div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="nhst-and-one-sample-t-tests.html#cb390-1" aria-hidden="true" tabindex="-1"></a>t_table <span class="ot">&lt;-</span> <span class="fu">t.test</span>(CorrectAnswers <span class="sc">~</span> Treatment, <span class="at">data =</span> crt2, <span class="at">var.equal =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>()</span></code></pre></div>
 <p>This is the formula method and if you look at the structure of <code>crt2</code> (the first 6 rows are shown below) you get an idea of how the formula approach works:</p>
 <div class="kable-table">
@@ -3028,9 +3039,9 @@ CorrectAnswers
 </div>
 <p>The formula approach works as <code>t.test(DV ~ IV, data = my_data)</code> where:</p>
 <ul>
-<li>DV is the name of the column with your responses (e.g. mean reaction time)</li>
-<li>IV is the name of the column with your groups (in categorical form - e.g. 1 vs 0)</li>
-<li><code>~</code> means “by” or “based on” or “split up by.” So test the DV based on the IV grouping</li>
+<li>DV is the name of the column with your responses (e.g. mean reaction time)</li>
+<li>IV is the name of the column with your groups (in categorical form - e.g. 1 vs 0)</li>
+<li><code>~</code> means "by" or "based on" or "split up by". So test the DV based on the IV grouping</li>
 <li>and my_data is the name of your tibble.</li>
 </ul>
 <p>Whichever approach you use, the observed t-value, p-value, and df (parameter) should be the same! What might change is what the t-test considers as group 1 and what it considers group 2. And from your knowledge of the t-test formula, this will affect whether your t-test is positive or negative. For example:</p>
@@ -3052,7 +3063,7 @@ CorrectAnswers
 <h3>Misleading and Appropriate Barplots</h3>
 <p><strong>Misleading Barplots</strong></p>
 <p>The data used in the PreClass activities allows us to show you something that you might find interesting. As we mentioned back in Chapter 3 on visualisation, the barplot is becoming less frequently used, as summarised in this blog: <a href="https://garstats.wordpress.com/2016/03/09/one-simple-step-to-improve-statistical-inferences/" target = "_blank">One simple step to improve statistical inferences</a>. The data we have used today demonstrate the point that a simple barplot can actually be somewhat misleading about the data. Have a look at the figure below. Both bars represent the data from our 22 Normal Sleep participants. The column on the left, <code>hide_data</code>, is a standard representation (albeit without error bars) whereas the column on the right, <code>show_data</code>, demonstrates the issue. Looking at the column on the left, the assumption is that all the data is around the peak of the column. However, looking at the column on the right, we can see that this is not the case and there are participants both above and below the mean by approximately 100 ms. This misleading perception, when the data is hidden, was tested and shown to exist in participants viewing these figures by <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" target = "_blank">Newman and Scholl (2012)</a> which you can read up on if you like.</p>
-<div class="figure" style="text-align: center"><span id="fig:ch6-preclass-blog-figure"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ch6-preclass-blog-figure"></span>
 <img src="06-s01-lab06f_files/figure-html/ch6-preclass-blog-figure-1.png" alt="How representative are barplots of the actual spread of the data!" width="100%" />
 <p class="caption">
 Figure 6.6: How representative are barplots of the actual spread of the data!
@@ -3064,7 +3075,7 @@ Figure 6.6: How representative are barplots of the actual spread of the data!
 <span id="cb394-3"><a href="nhst-and-one-sample-t-tests.html#cb394-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> .<span class="dv">1</span>)</span></code></pre></div>
 <p>Look out for it in the coming chapters but the main thing to keep in mind is that barplots can be misleading and displaying the individual data may be more informative - particularly when the response measured creates a spread of data.</p>
 <p><strong>Appropriate Barplots</strong></p>
-<p>That said, barplots do have their place in data analysis and research methods. The best time to use a barplot is when the value is a count - i.e. when the value had no variability in it. A great example of this is in observational research using categorical data. Think about the table we simulated for the chi-squre data as part of the Additional Materials in Chapter 5. Here is that table again:</p>
+<p>That said, barplots do have their place in data analysis and research methods. The best time to use a barplot is when the value is a count - i.e. when the value had no variability in it. A great example of this is in observational research using categorical data. Think about the table we simulated for the chi-squre data as part of the Additional Materials in Chapter 5. Here is that table again:</p>
 <table>
 <caption>
 <span id="tab:lab6-additional-chi-table">Table 6.4: </span>Cross-Tabulation Table of Simulated Data from Chapter 5 Additional Materials
@@ -3126,7 +3137,7 @@ B
 </tbody>
 </table>
 <p>We have two groups with three possible responses and each participants can only give one response. What that means, for example, is that there is no variation in the number of people who in Group A said No - it is exactly 17 people. Likewise, exactly 14 people in Group B said unsure. So here a barplot actually makes sense to use as it accurately reflects the value in that group/condition and no data is hidden. The plot for the above table might look like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:lab6-additional-figure"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:lab6-additional-figure"></span>
 <img src="06-s01-lab06f_files/figure-html/lab6-additional-figure-1.png" alt="A barplot works well with categorical data" width="100%" />
 <p class="caption">
 Figure 6.7: A barplot works well with categorical data
@@ -3136,7 +3147,7 @@ Figure 6.7: A barplot works well with categorical data
 </div>
 <div id="analysing-chi-squares" class="section level3 unnumbered">
 <h3>Analysing chi-squares</h3>
-<p>Finally, to round of this additional material, we thought it might be handy to show how to run a chi-square analysis. We cover the chi-square more in lectures but adding it here might help some people. We won’t really look at the hand calculations, but you will know that the formula for the chi-square is:</p>
+<p>Finally, to round of this additional material, we thought it might be handy to show how to run a chi-square analysis. We cover the chi-square more in lectures but adding it here might help some people. We won't really look at the hand calculations, but you will know that the formula for the chi-square is:</p>
 <p><span class="math inline">\(x_c^2 = \sum\frac{(O_i - E_i)^2}{E_i}\)</span></p>
 <ul>
 <li>where <span class="math inline">\(x_c^2\)</span> is the chi-square symbol - often simplified to <span class="math inline">\(x_2\)</span></li>
@@ -3189,7 +3200,7 @@ Yes
 <p>Now to analyse the data we use the <code>chisq.test()</code> function. There are really only two arguments you need to think about:</p>
 <ul>
 <li>your data - for us stored in <code>chi_table</code></li>
-<li>and whether to set <code>correct</code> as <strong>TRUE</strong> or <strong>FALSE</strong>. This is Yates’ Continuity Correction. The default is set as TRUE but a lot of people set it as FALSE so we will select that today.</li>
+<li>and whether to set <code>correct</code> as <strong>TRUE</strong> or <strong>FALSE</strong>. This is Yates' Continuity Correction. The default is set as TRUE but a lot of people set it as FALSE so we will select that today.</li>
 </ul>
 <p>And we run the analysis as such:</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="nhst-and-one-sample-t-tests.html#cb395-1" aria-hidden="true" tabindex="-1"></a>chisq_result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(chi_table, <span class="at">correct =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>()</span></code></pre></div>
@@ -3226,7 +3237,7 @@ method
 2
 </td>
 <td style="text-align:center;">
-Pearson’s Chi-squared test
+Pearson's Chi-squared test
 </td>
 </tr>
 </tbody>
@@ -3363,7 +3374,7 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="permutation-tests-a-skill-set.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="permutation-tests---a-skill-set.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="within-subjects-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -3409,6 +3420,10 @@ gitbook.start({
 "text": null
 },
 "download": {},
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

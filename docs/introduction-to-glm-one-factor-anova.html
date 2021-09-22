@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 11 Introduction to GLM: One-factor ANOVA | Level 2 Research Methods and Statistics Practical Skills</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 11 Introduction to GLM: One-factor ANOVA | Level 2 Research Methods and Statistics Practical Skills" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,8 @@
   
 <link rel="prev" href="correlations.html"/>
 <link rel="next" href="continuing-the-glm-one-factor-anova.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10.6/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -61,6 +61,16 @@
 
 
 <link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6NP3MF25W3');
+</script>
 
 
 <style type="text/css">
@@ -167,6 +177,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li><a href="./">Level 2 Practical</a></li>
+<li><a href="https://psyteachr.github.io/analysis/" style="color: red;">Access the most up-to-date version</a></li>
 <li><a href="https://zenodo.org/badge/latestdoi/166541567"><img src="https://zenodo.org/badge/166541567.svg" alt="DOI"></a></li>
 
 <li class="divider"></li>
@@ -183,7 +194,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-rules-and-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Rules and Options</a></li>
@@ -246,7 +257,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#test-yourself"><i class="fa fa-check"></i><b>2.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -345,7 +356,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-1"><i class="fa fa-check"></i><b>4.7</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -365,37 +376,37 @@ div.csl-indent {
 <li class="chapter" data-level="4.8.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#test-yourself-activities-1"><i class="fa fa-check"></i><b>4.8.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
+<li class="chapter" data-level="5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
+<li class="chapter" data-level="5.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
-<li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
-<li class="chapter" data-level="5.2.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
-<li class="chapter" data-level="5.2.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-4-computing-differences-in-group-means"><i class="fa fa-check"></i><b>5.2.4</b> Skill 4: Computing Differences in Group Means</a></li>
-<li class="chapter" data-level="5.2.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
-<li class="chapter" data-level="5.2.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
+<li class="chapter" data-level="5.2.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
+<li class="chapter" data-level="5.2.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
+<li class="chapter" data-level="5.2.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-3-creating-tibbles"><i class="fa fa-check"></i><b>5.2.3</b> Skill 3: Creating Tibbles</a></li>
+<li class="chapter" data-level="5.2.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-4-computing-differences-in-group-means"><i class="fa fa-check"></i><b>5.2.4</b> Skill 4: Computing Differences in Group Means</a></li>
+<li class="chapter" data-level="5.2.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-5-creating-your-own-functions"><i class="fa fa-check"></i><b>5.2.5</b> Skill 5: Creating Your Own Functions</a></li>
+<li class="chapter" data-level="5.2.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#skill-6-replicating-operations"><i class="fa fa-check"></i><b>5.2.6</b> Skill 6: Replicating Operations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
+<li class="chapter" data-level="5.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#inclass-activity-2"><i class="fa fa-check"></i><b>5.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
-<li class="chapter" data-level="5.3.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
-<li class="chapter" data-level="5.3.3" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
-<li class="chapter" data-level="5.3.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT3"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
-<li class="chapter" data-level="5.3.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT4"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
-<li class="chapter" data-level="5.3.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
+<li class="chapter" data-level="5.3.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#permutation-tests-of-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Permutation Tests of Hypotheses</a></li>
+<li class="chapter" data-level="5.3.2" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT1"><i class="fa fa-check"></i><b>5.3.2</b> Step 1: Load in Add-on Packages and Data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT2"><i class="fa fa-check"></i><b>5.3.3</b> Step 2: Calculate the Original Mean Difference - <span class="math inline">\(D_{orig}\)</span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT3"><i class="fa fa-check"></i><b>5.3.4</b> Step 3: Permute the Group Labels</a></li>
+<li class="chapter" data-level="5.3.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT4"><i class="fa fa-check"></i><b>5.3.5</b> Step 4: Create the Null-Hypothesis Distribution (NHD) for the Difference</a></li>
+<li class="chapter" data-level="5.3.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#Ch5InClassQueT5"><i class="fa fa-check"></i><b>5.3.6</b> Step 5: Compare the Observed Mean Difference to the NHD</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
-<li class="chapter" data-level="5.5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="5.4" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#assignment-2"><i class="fa fa-check"></i><b>5.4</b> Assignment</a></li>
+<li class="chapter" data-level="5.5" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#solutions-to-questions-4"><i class="fa fa-check"></i><b>5.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
+<li class="chapter" data-level="5.5.1" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#inclass-activities-3"><i class="fa fa-check"></i><b>5.5.1</b> InClass Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
+<li class="chapter" data-level="5.6" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#additional-material-2"><i class="fa fa-check"></i><b>5.6</b> Additional Material</a>
 <ul>
-<li><a href="permutation-tests-a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
-<li class="chapter" data-level="" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
+<li><a href="permutation-tests---a-skill-set.html#more-on-pivot_wider">More on <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#more-on-simulating-your-own-data"><i class="fa fa-check"></i>More on simulating your own data</a></li>
+<li class="chapter" data-level="" data-path="permutation-tests---a-skill-set.html"><a href="permutation-tests---a-skill-set.html#more-on-permutations---a-blog"><i class="fa fa-check"></i>More on Permutations - a blog</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-sample t-tests</a>
@@ -440,7 +451,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#additional-material-3"><i class="fa fa-check"></i><b>6.6</b> Additional Material</a>
 <ul>
-<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
+<li><a href="nhst-and-one-sample-t-tests.html#more-on-t.test---vectors-vs.-formula">More on <code>t.test()</code> - vectors vs. formula</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#misleading-and-appropriate-barplots"><i class="fa fa-check"></i>Misleading and Appropriate Barplots</a></li>
 <li class="chapter" data-level="" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#analysing-chi-squares"><i class="fa fa-check"></i>Analysing chi-squares</a></li>
 </ul></li>
@@ -475,60 +486,60 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#non-parametric-tests"><i class="fa fa-check"></i>Non-Parametric tests</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
+<li class="chapter" data-level="8" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
-<li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
+<li class="chapter" data-level="8.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#preclass-activity-6"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
-<li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
-<li class="chapter" data-level="8.2.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
+<li class="chapter" data-level="8.2.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
+<li class="chapter" data-level="8.2.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
+<li class="chapter" data-level="8.2.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#optional"><i class="fa fa-check"></i><b>8.2.3</b> Optional</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
+<li class="chapter" data-level="8.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#inclass-activity-5"><i class="fa fa-check"></i><b>8.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
-<li class="chapter" data-level="8.3.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
-<li class="chapter" data-level="8.3.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
-<li class="chapter" data-level="8.3.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT4"><i class="fa fa-check"></i><b>8.3.4</b> Task 4: t-value and effect size for a between-subjects Experiment</a></li>
-<li class="chapter" data-level="8.3.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT5"><i class="fa fa-check"></i><b>8.3.5</b> Task 5: Sample size for standard power one-sample t-test</a></li>
-<li class="chapter" data-level="8.3.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
-<li class="chapter" data-level="8.3.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
+<li class="chapter" data-level="8.3.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1"><i class="fa fa-check"></i><b>8.3.1</b> Task 1: Effect size from a one-sample t-test</a></li>
+<li class="chapter" data-level="8.3.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2"><i class="fa fa-check"></i><b>8.3.2</b> Task 2: Effect size from between-subjects t-test</a></li>
+<li class="chapter" data-level="8.3.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT3"><i class="fa fa-check"></i><b>8.3.3</b> Task 3: Effect Size from matched-pairs t-test</a></li>
+<li class="chapter" data-level="8.3.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT4"><i class="fa fa-check"></i><b>8.3.4</b> Task 4: t-value and effect size for a between-subjects Experiment</a></li>
+<li class="chapter" data-level="8.3.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT5"><i class="fa fa-check"></i><b>8.3.5</b> Task 5: Sample size for standard power one-sample t-test</a></li>
+<li class="chapter" data-level="8.3.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT6"><i class="fa fa-check"></i><b>8.3.6</b> Task 6: Effect size from a high power between-subjects t-test</a></li>
+<li class="chapter" data-level="8.3.7" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT7"><i class="fa fa-check"></i><b>8.3.7</b> Task 7: Power of Published Research</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
+<li class="chapter" data-level="8.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#test-yourself-3"><i class="fa fa-check"></i><b>8.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
-<li class="chapter" data-level="8.4.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
-<li class="chapter" data-level="8.4.3" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
-<li class="chapter" data-level="8.4.4" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT4"><i class="fa fa-check"></i><b>8.4.4</b> Assignment Task 4</a></li>
-<li class="chapter" data-level="8.4.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT5"><i class="fa fa-check"></i><b>8.4.5</b> Assignment Task 5</a></li>
-<li class="chapter" data-level="8.4.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT6"><i class="fa fa-check"></i><b>8.4.6</b> Assignment Task 6</a></li>
-<li class="chapter" data-level="8.4.7" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT7"><i class="fa fa-check"></i><b>8.4.7</b> Assignment Task 7</a></li>
-<li class="chapter" data-level="8.4.8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT8"><i class="fa fa-check"></i><b>8.4.8</b> Assignment Task 8</a></li>
-<li class="chapter" data-level="8.4.9" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT9"><i class="fa fa-check"></i><b>8.4.9</b> Assignment Task 9</a></li>
-<li class="chapter" data-level="8.4.10" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT10"><i class="fa fa-check"></i><b>8.4.10</b> Assignment Task 10</a></li>
-<li class="chapter" data-level="8.4.11" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
-<li class="chapter" data-level="8.4.12" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
+<li class="chapter" data-level="8.4.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT1"><i class="fa fa-check"></i><b>8.4.1</b> Assignment Task 1</a></li>
+<li class="chapter" data-level="8.4.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT2"><i class="fa fa-check"></i><b>8.4.2</b> Assignment Task 2</a></li>
+<li class="chapter" data-level="8.4.3" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT3"><i class="fa fa-check"></i><b>8.4.3</b> Assignment Task 3</a></li>
+<li class="chapter" data-level="8.4.4" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT4"><i class="fa fa-check"></i><b>8.4.4</b> Assignment Task 4</a></li>
+<li class="chapter" data-level="8.4.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT5"><i class="fa fa-check"></i><b>8.4.5</b> Assignment Task 5</a></li>
+<li class="chapter" data-level="8.4.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT6"><i class="fa fa-check"></i><b>8.4.6</b> Assignment Task 6</a></li>
+<li class="chapter" data-level="8.4.7" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT7"><i class="fa fa-check"></i><b>8.4.7</b> Assignment Task 7</a></li>
+<li class="chapter" data-level="8.4.8" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT8"><i class="fa fa-check"></i><b>8.4.8</b> Assignment Task 8</a></li>
+<li class="chapter" data-level="8.4.9" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT9"><i class="fa fa-check"></i><b>8.4.9</b> Assignment Task 9</a></li>
+<li class="chapter" data-level="8.4.10" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT10"><i class="fa fa-check"></i><b>8.4.10</b> Assignment Task 10</a></li>
+<li class="chapter" data-level="8.4.11" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT11"><i class="fa fa-check"></i><b>8.4.11</b> Assignment Task 11</a></li>
+<li class="chapter" data-level="8.4.12" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#the-pwr-package"><i class="fa fa-check"></i><b>8.4.12</b> The <strong><code>pwr</code></strong> package</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="8.5" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#solutions-to-questions-7"><i class="fa fa-check"></i><b>8.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="8.5.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
-<li class="chapter" data-level="8.5.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
+<li class="chapter" data-level="8.5.1" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#inclass-activities-6"><i class="fa fa-check"></i><b>8.5.1</b> InClass Activities</a></li>
+<li class="chapter" data-level="8.5.2" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#test-yourself-activities-3"><i class="fa fa-check"></i><b>8.5.2</b> Test Yourself Activities</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
+<li class="chapter" data-level="8.6" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#additional-material-5"><i class="fa fa-check"></i><b>8.6</b> Additional Material</a>
 <ul>
-<li><a href="apes-alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen’s d to r</a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
-<li class="chapter" data-level="" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
+<li><a href="apes---alpha-power-effect-sizes-sample-size.html#a-different-power-function---power.t.test">A different power function - <code>power.t.test()</code></a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#cohens-d-to-r"><i class="fa fa-check"></i>Cohen's d to r</a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#how-to-choose-an-effect-size"><i class="fa fa-check"></i>How to choose an effect size</a></li>
+<li class="chapter" data-level="" data-path="apes---alpha-power-effect-sizes-sample-size.html"><a href="apes---alpha-power-effect-sizes-sample-size.html#interpreting-and-writing-up-power"><i class="fa fa-check"></i>Interpreting and writing up power</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
+<li class="chapter" data-level="9" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html"><i class="fa fa-check"></i><b>9</b> Reflection - Chpts 1-9</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
-<li class="chapter" data-level="9.2" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
-<li class="chapter" data-level="9.3" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
-<li class="chapter" data-level="9.4" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
-<li class="chapter" data-level="9.5" data-path="reflection-chpts-1-9.html"><a href="reflection-chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.2" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#preclass-activity-7"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
+<li class="chapter" data-level="9.3" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
+<li class="chapter" data-level="9.4" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#assignment-4"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
+<li class="chapter" data-level="9.5" data-path="reflection---chpts-1-9.html"><a href="reflection---chpts-1-9.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a>
 <ul>
@@ -621,7 +632,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#additional-material-7"><i class="fa fa-check"></i><b>12.6</b> Additional Material</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene’s Test of Homogeneity</a></li>
+<li class="chapter" data-level="12.6.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#levenes-test-of-homogeneity"><i class="fa fa-check"></i><b>12.6.1</b> Levene's Test of Homogeneity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a>
@@ -697,55 +708,55 @@ div.csl-indent {
 <li class="chapter" data-level="14.5.10" data-path="regression.html"><a href="regression.html#task-9"><i class="fa fa-check"></i><b>14.5.10</b> Task 9</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (e.g. ANCOVAs)</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#preclass-activity-13"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
-<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
-<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
-<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
-<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
-<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
+<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
+<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
+<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
+<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
+<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#inclass-activity-12"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a>
 <ul>
-<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
-<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
-<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
-<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
-<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
+<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
+<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
+<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
+<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
+<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#test-yourself-6"><i class="fa fa-check"></i><b>15.4</b> Test Yourself</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
-<li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
-<li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
-<li class="chapter" data-level="15.4.4" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT3"><i class="fa fa-check"></i><b>15.4.4</b> Task 3: Plotting the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT4"><i class="fa fa-check"></i><b>15.4.5</b> Task 4: Analysing the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.6" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT5"><i class="fa fa-check"></i><b>15.4.6</b> Task 5: Interpreting the general relationship of F0 and HGS</a></li>
-<li class="chapter" data-level="15.4.7" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT6"><i class="fa fa-check"></i><b>15.4.7</b> Task 6: Plotting the modulation of voice/strength relationship by sex</a></li>
-<li class="chapter" data-level="15.4.8" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT7"><i class="fa fa-check"></i><b>15.4.8</b> Task 7: Mean centering and Deviation coding the variables.</a></li>
-<li class="chapter" data-level="15.4.9" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT8"><i class="fa fa-check"></i><b>15.4.9</b> Task 8: Estimate the modulation of voice/strength relationship by sex</a></li>
-<li class="chapter" data-level="15.4.10" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT9"><i class="fa fa-check"></i><b>15.4.10</b> Task 9: Interpreting the output 1</a></li>
-<li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
-<li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
+<li class="chapter" data-level="15.4.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT1A"><i class="fa fa-check"></i><b>15.4.1</b> Task 1A: Load add-on packages</a></li>
+<li class="chapter" data-level="15.4.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT1B"><i class="fa fa-check"></i><b>15.4.2</b> Task 1B: Load the data</a></li>
+<li class="chapter" data-level="15.4.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT2"><i class="fa fa-check"></i><b>15.4.3</b> Task 2: Demographics</a></li>
+<li class="chapter" data-level="15.4.4" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT3"><i class="fa fa-check"></i><b>15.4.4</b> Task 3: Plotting the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT4"><i class="fa fa-check"></i><b>15.4.5</b> Task 4: Analysing the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.6" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT5"><i class="fa fa-check"></i><b>15.4.6</b> Task 5: Interpreting the general relationship of F0 and HGS</a></li>
+<li class="chapter" data-level="15.4.7" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT6"><i class="fa fa-check"></i><b>15.4.7</b> Task 6: Plotting the modulation of voice/strength relationship by sex</a></li>
+<li class="chapter" data-level="15.4.8" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT7"><i class="fa fa-check"></i><b>15.4.8</b> Task 7: Mean centering and Deviation coding the variables.</a></li>
+<li class="chapter" data-level="15.4.9" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT8"><i class="fa fa-check"></i><b>15.4.9</b> Task 8: Estimate the modulation of voice/strength relationship by sex</a></li>
+<li class="chapter" data-level="15.4.10" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT9"><i class="fa fa-check"></i><b>15.4.10</b> Task 9: Interpreting the output 1</a></li>
+<li class="chapter" data-level="15.4.11" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT10"><i class="fa fa-check"></i><b>15.4.11</b> Task 10: Interpreting the output 2</a></li>
+<li class="chapter" data-level="15.4.12" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#Ch15AssignQueT11"><i class="fa fa-check"></i><b>15.4.12</b> Task 11: Interpreting the output 3</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a>
 <ul>
-<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
-<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
-<li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e-g-ancovas.html"><a href="combining-anova-and-regression-e-g-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
+<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
+<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#inclass-activities-12"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
+<li class="chapter" data-level="15.5.3" data-path="combining-anova-and-regression-e.g.-ancovas.html"><a href="combining-anova-and-regression-e.g.-ancovas.html#test-yourself-activities-6"><i class="fa fa-check"></i><b>15.5.3</b> Test Yourself Activities</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
+<li class="chapter" data-level="16" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html"><i class="fa fa-check"></i><b>16</b> Reflection - Chpts 10-15</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
-<li class="chapter" data-level="16.2" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
-<li class="chapter" data-level="16.3" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
-<li class="chapter" data-level="16.4" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#update-your-notes"><i class="fa fa-check"></i><b>16.4</b> Update Your Notes</a></li>
-<li class="chapter" data-level="16.5" data-path="reflection-chpts-10-15.html"><a href="reflection-chpts-10-15.html#in-the-end"><i class="fa fa-check"></i><b>16.5</b> In The End!</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.2" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#preclass-activity-14"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
+<li class="chapter" data-level="16.3" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#inclass-activity-13"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
+<li class="chapter" data-level="16.4" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#update-your-notes"><i class="fa fa-check"></i><b>16.4</b> Update Your Notes</a></li>
+<li class="chapter" data-level="16.5" data-path="reflection---chpts-10-15.html"><a href="reflection---chpts-10-15.html#in-the-end"><i class="fa fa-check"></i><b>16.5</b> In The End!</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="chapter" data-level="" data-path="acknolwedgements.html"><a href="acknolwedgements.html"><i class="fa fa-check"></i>Acknolwedgements</a></li>
@@ -779,8 +790,8 @@ div.csl-indent {
 <h1><span class="header-section-number">Lab 11</span> Introduction to GLM: One-factor ANOVA</h1>
 <div id="overview-11" class="section level2" number="11.1">
 <h2><span class="header-section-number">11.1</span> Overview</h2>
-<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. You are actually already familiar with this approach but it just hasn’t been phrased as such - this is what t-test, correlations, etc, do. In this chapter we will formalise this approach and introduce you to the General Linear Model (GLM) which you will read about in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass.</p>
-<p>The GLM is a very common model in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this book as we will spend some of the next few lessons looking at the GLM and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to. Basically, the General Linear Model (GLM) is the foundation of a lot of that statistical tests we use. Over the next few chapters, and building for future years of study, we will introduce the GLM here, through working with the model “by hand” on a simulated dataset, as this one of the best ways to learn about linear models.</p>
+<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. You are actually already familiar with this approach but it just hasn't been phrased as such - this is what t-test, correlations, etc, do. In this chapter we will formalise this approach and introduce you to the General Linear Model (GLM) which you will read about in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass.</p>
+<p>The GLM is a very common model in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this book as we will spend some of the next few lessons looking at the GLM and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to. Basically, the General Linear Model (GLM) is the foundation of a lot of that statistical tests we use. Over the next few chapters, and building for future years of study, we will introduce the GLM here, through working with the model "by hand" on a simulated dataset, as this one of the best ways to learn about linear models.</p>
 <p>You will also notice a slight change in the assignments for the next few chapters in that you are required to do a little more computation than before. Keep in mind though that all the skills you need will of course be shown to you first or you have already learnt them. The previous chapters have been aimed at developing your general practical data skills and now we want to develop your understanding of the analysis and data you are working with.</p>
 <p>As such, the goals of this chapter are:</p>
 <ul>
@@ -793,7 +804,7 @@ div.csl-indent {
 </div>
 <div id="preclass-activity-9" class="section level2" number="11.2">
 <h2><span class="header-section-number">11.2</span> PreClass Activity</h2>
-<p>The PreClass Activity for this chapter is reading. It is quite a bit of reading but don’t worry if you don’t understand it all the first time round. The best way to deal with this is to read through the information as prep, get the gist, then use it to support the activities, and then re-read to consolidate knowledge for the assessment. And ask questions. This will seem difficult at first but by working with the ideas and examples, you can understand the concepts introduced here.</p>
+<p>The PreClass Activity for this chapter is reading. It is quite a bit of reading but don't worry if you don't understand it all the first time round. The best way to deal with this is to read through the information as prep, get the gist, then use it to support the activities, and then re-read to consolidate knowledge for the assessment. And ask questions. This will seem difficult at first but by working with the ideas and examples, you can understand the concepts introduced here.</p>
 <div id="read-1" class="section level3" number="11.2.1">
 <h3><span class="header-section-number">11.2.1</span> Read</h3>
 <p><strong>Chapters</strong></p>
@@ -806,7 +817,7 @@ div.csl-indent {
 <li><strong>Level</strong> is another name for <strong>Condition</strong></li>
 <li>E.g. a between-subjects experiment with one independent variable (sleep quality) and two conditions (Good vs Poor) can be said to have one factor with two levels.</li>
 </ul>
-<p>The key terms we want you to be becoming familiar with from these chapters, though perhaps you don’t quite fully understand them, are:</p>
+<p>The key terms we want you to be becoming familiar with from these chapters, though perhaps you don't quite fully understand them, are:</p>
 <ul>
 <li><strong>ANOVA</strong> - short for Analysis of Variance. A statistical test used to compare the spread of the variance across two or more conditions and/or two or more factors.</li>
 <li><strong>estimation equations</strong> - formulas (or equations) that we use to determine our best guess (estimates) at parameters (values) of a population of interest from our sample parameters (values)</li>
@@ -824,16 +835,16 @@ div.csl-indent {
 <h2><span class="header-section-number">11.3</span> InClass Activity</h2>
 <p>We are going to start with a step-by-step example of building a decomposition matrix for an ANOVA (Analysis of Variance) and then ask you to perform the steps yourself on a different dataset. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim worked example and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.</p>
 <p><strong>One-factor ANOVA: Worked example</strong></p>
-<p>An ANOVA is a method of analysis for analysing data where you have two or more conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally have two conditions (levels) with one independent variable (factor), right? Well an ANOVA is just an extension of that. For example, in the classic Professor Priming experiments you may have read about, instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA). Actually, an experiment that has one factor with two levels can be analysed with a t-test or an ANOVA as they are both based on the General Linear Model (GLM).</p>
-<p>So let’s assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions (Grp1, Grp2, Grp3)). To make this example concrete, let’s pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate conditions (four participants per group) (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you’d need <strong>far more</strong> than 12 participants to make this worthwhile). The three conditions are as follow:</p>
+<p>An ANOVA is a method of analysis for analysing data where you have two or more conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally have two conditions (levels) with one independent variable (factor), right? Well an ANOVA is just an extension of that. For example, in the classic Professor Priming experiments you may have read about, instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA). Actually, an experiment that has one factor with two levels can be analysed with a t-test or an ANOVA as they are both based on the General Linear Model (GLM).</p>
+<p>So let's assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions (Grp1, Grp2, Grp3)). To make this example concrete, let's pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate conditions (four participants per group) (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you'd need <strong>far more</strong> than 12 participants to make this worthwhile). The three conditions are as follow:</p>
 <ol style="list-style-type: decimal">
 <li>no food, glass of water only (Control)</li>
 <li>all-you-can-eat buffet (Buffet);</li>
 <li>side salad (Salad).</li>
 </ol>
-<p>Your dependent variable is operationalised as the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group). And just in case you aren’t sure, this would be a <strong>one-factor design</strong> because there is a single factor, which we might call “pre-exam consumption.” And this factor has three different levels: water, buffet, and salad. It is a <strong>between-subjects design</strong> because there are different people in each group (4 per group). In textbooks you might see this referred to as a one-way between-subjects ANOVA. Yes stats does have numerous names for the same thing - that is why making notes is really important. Depending on training someone might use a different word from you but mean the same thing. You can bridge that gap by knowing the alternative names.</p>
-<p>And finally, for our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won’t complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.</p>
-<p>Here’s how the exam performance looks like for each of the three groups with each value representing an individual participant’s score:</p>
+<p>Your dependent variable is operationalised as the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group). And just in case you aren't sure, this would be a <strong>one-factor design</strong> because there is a single factor, which we might call "pre-exam consumption". And this factor has three different levels: water, buffet, and salad. It is a <strong>between-subjects design</strong> because there are different people in each group (4 per group). In textbooks you might see this referred to as a one-way between-subjects ANOVA. Yes stats does have numerous names for the same thing - that is why making notes is really important. Depending on training someone might use a different word from you but mean the same thing. You can bridge that gap by knowing the alternative names.</p>
+<p>And finally, for our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won't complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.</p>
+<p>Here's how the exam performance looks like for each of the three groups with each value representing an individual participant's score:</p>
 <pre><code>## Warning in RNGkind(&quot;Mersenne-Twister&quot;, &quot;Inversion&quot;, &quot;Rounding&quot;): non-uniform
 ## &#39;Rounding&#39; sampler used</code></pre>
 <ul>
@@ -844,29 +855,29 @@ div.csl-indent {
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>To make sure you understand the design of this study try to answer the following questions. All the answers are in the information above:</p>
 <ol style="list-style-type: decimal">
-<li>Factor is another name for a <select class='webex-solveme' data-answer='["variable"]'> <option></option> <option>level</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
-<li>Level is another name for a <select class='webex-solveme' data-answer='["condition"]'> <option></option> <option>factor</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
-<li>In this experiment we have <select class='webex-solveme' data-answer='["1 factor with 3 levels"]'> <option></option> <option>1 factor with 3 levels</option> <option>1 level with 3 factors</option> <option>3 variables with 1 condition</option></select></li>
-<li>Because each group contains different participants then this is a <select class='webex-solveme' data-answer='["between-subjects design"]'> <option></option> <option>within-subjects design</option> <option>between-subjects design</option> <option>mixed design</option></select></li>
-<li>The fourth participant in the Control condition scored <select class='webex-solveme' data-answer='["51"]'> <option></option> <option>60</option> <option>41</option> <option>51</option> <option>64</option></select> on the exam</li>
+<li>Factor is another name for a <select class='webex-select'><option value='blank'></option><option value=''>level</option><option value=''>condition</option><option value=''>control</option><option value='answer'>variable</option></select> of the experiment</li>
+<li>Level is another name for a <select class='webex-select'><option value='blank'></option><option value=''>factor</option><option value='answer'>condition</option><option value=''>control</option><option value=''>variable</option></select> of the experiment</li>
+<li>In this experiment we have <select class='webex-select'><option value='blank'></option><option value='answer'>1 factor with 3 levels</option><option value=''>1 level with 3 factors</option><option value=''>3 variables with 1 condition</option></select></li>
+<li>Because each group contains different participants then this is a <select class='webex-select'><option value='blank'></option><option value=''>within-subjects design</option><option value='answer'>between-subjects design</option><option value=''>mixed design</option></select></li>
+<li>The fourth participant in the Control condition scored <select class='webex-select'><option value='blank'></option><option value=''>60</option><option value=''>41</option><option value='answer'>51</option><option value=''>64</option></select> on the exam</li>
 </ol>
 <p><strong>Estimating model components</strong></p>
 <p>Great so we understand our experiment! Now, and based on your reading, the General Linear Model (GLM) that we will fit to our data is:</p>
 <p><span class="math display">\[Y_{ij} = \mu + A_i + S(A)_{ij}\]</span></p>
 <p>Where:</p>
 <ul>
-<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant’s score (<span class="math inline">\(j\)</span>) in a given group (<span class="math inline">\(i\)</span>);</li>
-<li><span class="math inline">\(\mu\)</span> (pronounced “mu”) is the population grand mean (estimated by the sample grand mean) - grand just means overall;</li>
-<li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean - i.e. how different a group’s mean is from the overall population mean;</li>
+<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant's score (<span class="math inline">\(j\)</span>) in a given group (<span class="math inline">\(i\)</span>);</li>
+<li><span class="math inline">\(\mu\)</span> (pronounced "mu") is the population grand mean (estimated by the sample grand mean) - grand just means overall;</li>
+<li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean - i.e. how different a group's mean is from the overall population mean;</li>
 <li>Now before the last part of the formula, you need to know that the sum of <span class="math inline">\(\mu + A_i\)</span> is known as the <strong>fitted value</strong> or the <strong>typical value</strong> or the <strong>predicted value</strong> of a participant in a condition and is written as: <span class="math inline">\(\hat{Y}_{ij}\)</span>. So:</li>
 </ul>
 <p><span class="math display">\[\hat{Y}_{ij} = \mu + A_i\]</span></p>
 <ul>
-<li>The “party hat” that <span class="math inline">\({Y}_{ij}\)</span> is wearing in this part, i.e. <span class="math inline">\(\hat{Y}_{ij}\)</span>, is there to remind us that it is not the actual score of your participant (in a given condition), but an <strong>estimate</strong> of that value. So, when we are working in predicted values (values we haven’t actually collected, just predicted) then we stick the “party hat” on the symbol. If we are working in real values (that we have collected) then no party hat!</li>
+<li>The "party hat" that <span class="math inline">\({Y}_{ij}\)</span> is wearing in this part, i.e. <span class="math inline">\(\hat{Y}_{ij}\)</span>, is there to remind us that it is not the actual score of your participant (in a given condition), but an <strong>estimate</strong> of that value. So, when we are working in predicted values (values we haven't actually collected, just predicted) then we stick the "party hat" on the symbol. If we are working in real values (that we have collected) then no party hat!</li>
 <li>Finally, back to the GLM equation, <span class="math inline">\(S(A)_{ij}\)</span> is the error or residual, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value. This can be thought of as how different an indivual observation/participant is from their condition mean. So:</li>
 </ul>
 <p><span class="math display">\[S(A)_{ij} = \hat{Y}_{ij} - {Y}_{ij}\]</span></p>
-<p>Now the joy of an analysis such as this is that it can be hard to understand just from the words but makes much more sense when you start to run the numbers - which we will now do. We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span> (notice once again, the “party hat”).</p>
+<p>Now the joy of an analysis such as this is that it can be hard to understand just from the words but makes much more sense when you start to run the numbers - which we will now do. We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span> (notice once again, the "party hat").</p>
 <p>The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:</p>
 <ul>
 <li><p><span class="math inline">\(\hat{\mu} = Y_{..}\)</span></p></li>
@@ -1210,7 +1221,7 @@ In the above table:</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>To make sure you understand the above equations before going on to calculate your own, answer the following questions about the above table which expresses the GLM decomposition matrix, and then check your answers.</p>
 <ol style="list-style-type: decimal">
-<li>In which column of the table are the 12 observed values - i.e. the 12 original scores from the participants?
+<li>In which column of the table are the 12 observed values - i.e. the 12 original scores from the participants?
 <br></li>
 </ol>
 <div class="webex-solution">
@@ -1283,7 +1294,7 @@ This value appears in column <code>err</code>, where <code>i</code> equals 3 and
 </div>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
-<li>What is the model’s prediction for a ‘typical’ participant in the <strong>Salad</strong> group (<span class="math inline">\(\hat{A}_3\)</span>)? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)
+<li>What is the model's prediction for a 'typical' participant in the <strong>Salad</strong> group (<span class="math inline">\(\hat{A}_3\)</span>)? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)
 <br></li>
 </ol>
 <div class="webex-solution">
@@ -1294,17 +1305,17 @@ Answer
 <div class="info">
 <ul>
 <li>
-A ‘typical’ participant is one where the residual is 0.
+A 'typical' participant is one where the residual is 0.
 </li>
 <li>
-The model prediction is also known as the “fitted value” for this group.
+The model prediction is also known as the "fitted value" for this group.
 </li>
 </ul>
 </div>
 </div>
 <p><br></p>
 <ol start="7" style="list-style-type: decimal">
-<li>Where in the table are the differences found between this ‘typical’ participant prediction and the observed values in the salad group?
+<li>Where in the table are the differences found between this 'typical' participant prediction and the observed values in the salad group?
 <br></li>
 </ol>
 <div class="webex-solution">
@@ -1313,7 +1324,7 @@ Answer
 </button>
 <div class="info">
 <p>
-These are the called the “residuals” (<span class="math inline"><span class="math inline">\(\widehat{S(A)}_{ij}\)</span></span>) and are found in the <code>err</code> column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.
+These are the called the "residuals" (<span class="math inline"><span class="math inline">\(\widehat{S(A)}_{ij}\)</span></span>) and are found in the <code>err</code> column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.
 </p>
 </div>
 </div>
@@ -1637,7 +1648,7 @@ err
 <h3><span class="header-section-number">11.3.2</span> Step 1: Create the basic tibble</h3>
 <ul>
 <li>Create a tibble named <code>dmx</code> (short for decomposition matrix). It will eventually contain all of the columns in the one above, but for now, just create the columns <code>i</code>, <code>j</code>, and <code>Yij</code> as they appear above.</li>
-<li>You already know how to create a tibble (don’t forget to load the tidyverse package first). In case you need to refresh your memory, see <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf" target = "_blank">page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Chapter 5.</li>
+<li>You already know how to create a tibble (don't forget to load the tidyverse package first). In case you need to refresh your memory, see <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf" target = "_blank">page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Chapter 5.</li>
 <li>You should just type in the values for <code>Yij</code> but try to use the rep() function for columns <code>i</code> (the group) and <code>j</code> (the participant).</li>
 </ul>
 <div class="webex-solution">
@@ -1647,7 +1658,7 @@ Step 1 Hints
 <div class="info">
 <ul>
 <li>
-You will need some wrangling functions so don’t forget to load in tidyverse
+You will need some wrangling functions so don't forget to load in tidyverse
 </li>
 <li>
 Create a tibble as <code>dmx &lt;- tibble(i = NA, j = NA, Yij = NA)</code>
@@ -1691,7 +1702,7 @@ When calculating <code>mu</code> keep in mind that each value of <code>mu</code>
 <ul>
 <li>In a new tibble called <code>dmx3</code>, add a column to the tibble <code>dmx2</code> called <code>Ai</code>, with the three estimates for <span class="math inline">\(\hat{A}_i\)</span>. Store the resulting tibble in <code>dmx3</code>.</li>
 <li><span class="math inline">\(\hat{A}_i\)</span> is the difference between the grand mean <span class="math inline">\(\hat{\mu}\)</span> and the mean of individual groups. This means that you will need to group people by the group they belong to.</li>
-<li>Add the <code>ungroup()</code> function to the end of your pipeline as you won’t need this grouping after.</li>
+<li>Add the <code>ungroup()</code> function to the end of your pipeline as you won't need this grouping after.</li>
 </ul>
 <div class="webex-solution">
 <button>
@@ -1711,7 +1722,7 @@ dmx3 &lt;- dmx2 %&gt;% group_by(something) %&gt;% mutate(Ai = something - someth
 </div>
 <div id="Ch11InClassQueT4" class="section level3" number="11.3.5">
 <h3><span class="header-section-number">11.3.5</span> Step 4: Calculate Residuals <span class="math inline">\(\widehat{S(A)}_{ij}\)</span></h3>
-<p>Well done, you’re almost there! We just need to add on the final column, <code>err</code>, which is called the <strong>residuals</strong> or in other words, the difference between the score of a typical participant for that group (<code>mu</code> + <code>Ai</code>) and a given individual participant’ score (<code>Yij</code>).</p>
+<p>Well done, you're almost there! We just need to add on the final column, <code>err</code>, which is called the <strong>residuals</strong> or in other words, the difference between the score of a typical participant for that group (<code>mu</code> + <code>Ai</code>) and a given individual participant' score (<code>Yij</code>).</p>
 <ul>
 <li>In a new tibble called <code>dmx4</code> add a column to the <code>dmx3</code> tibble called <code>err</code> that contain the residuals - the difference between the observed (Yij) and fitted (typical) values.</li>
 </ul>
@@ -1746,7 +1757,7 @@ where:
 </ul>
 <p>The simplest way to square a column, for example called <code>x</code>, would be:</p>
 <p><code>mutate(squared_x = x^2)</code></p>
-<p>The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you’re unsure). It also works for columns! Give that a go. If you have done it correctly you should see the below table:</p>
+<p>The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you're unsure). It also works for columns! Give that a go. If you have done it correctly you should see the below table:</p>
 <div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="introduction-to-glm-one-factor-anova.html#cb516-1" aria-hidden="true" tabindex="-1"></a>.dmx <span class="sc">%&gt;%</span></span>
 <span id="cb516-2"><a href="introduction-to-glm-one-factor-anova.html#cb516-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Yij2 =</span> Yij<span class="sc">^</span><span class="dv">2</span>,</span>
 <span id="cb516-3"><a href="introduction-to-glm-one-factor-anova.html#cb516-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mu2 =</span> mu<span class="sc">^</span><span class="dv">2</span>,</span>
@@ -1816,7 +1827,7 @@ Mutate on the squared values:
 </li>
 </ul>
 <p>
-<code>dmx4 %&gt;% mutate(Yij2 = Yij^2, …)</code>
+<code>dmx4 %&gt;% mutate(Yij2 = Yij^2, ...)</code>
 </p>
 <ul>
 <li>
@@ -1824,7 +1835,7 @@ And sum up using:
 </li>
 </ul>
 <p>
-<code>summarise(ss_Y = sum(Yij2), ss_mu = …)</code>
+<code>summarise(ss_Y = sum(Yij2), ss_mu = ...)</code>
 </p>
 </div>
 </div>
@@ -1833,7 +1844,7 @@ And sum up using:
 <p>Well done! How did you do? If the values in your <code>dmx4</code> do not match the table above then you need to go back and look at where it has gone wrong. Alternatively you should look at the solutions at the end of the chapter.</p>
 <p>To recap, what we are doing here is setting up the ANOVA to compare the three groups to see if there is a significant difference between each group. Doing it this way allows us to get an understanding of where the numbers come from, and it highlights that the analysis is about comparing variance within groups and variance between groups. We will cover this in the next chapter but in short, <strong>if the variance between groups <span class="math inline">\(SS_{A}\)</span> is larger than the variance within groups <span class="math inline">\(SS_{error}\)</span> then it is likely that your experimental manipulation has had an effect. Conversely, if the variance within groups is larger than the variance between groups then there is likely to be no effect of your experimental manipulation.</strong></p>
 <p><strong>One last thing:</strong></p>
-<p>Before ending this section, if you have any questions, please post them on the available forums or speak to a member of the team. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. Remember the more you work with knowledge and skills the easier they become.</p>
+<p>Before ending this section, if you have any questions, please post them on the available forums or speak to a member of the team. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. Remember the more you work with knowledge and skills the easier they become.</p>
 
 </div>
 </div>
@@ -1844,16 +1855,16 @@ And sum up using:
 <p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester2_Lab2.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/11-s02/homework/ch11-assign-file.zip">Download the Assignment .zip file from here</a> or on Moodle.</p>
 <p><strong>Single Answer and Multiple Choice Questions</strong></p>
 <p>For this assignment you will answer a series of short single and Mulitple Choice Questions, followed by a calculation of a decomposition matrix in the final task. In order to complete this formative assignment you will need to have completed the inclass activity and have read Miller and Haden Chapter 3.</p>
-<p><strong>Before starting let’s check:</strong></p>
+<p><strong>Before starting let's check:</strong></p>
 <ol style="list-style-type: decimal">
 <li>The <code>.Rmd</code> file is saved in a folder and that you have set your working directory to that folder. For assessments we ask that you save it with the format <code>GUID_Level2_Semester2_Lab2.Rmd</code> where <code>GUID</code> is replaced with your <code>GUID</code>. Though this is a formative assessment, it may be good practice to do the same here.</li>
 </ol>
-<p><strong>Let’s Begin!</strong></p>
+<p><strong>Let's Begin!</strong></p>
 <div id="Ch11AssignQueT1" class="section level3" number="11.4.1">
 <h3><span class="header-section-number">11.4.1</span> Question 1</h3>
 <p>Consider the following description of a study.</p>
 <blockquote>
-<p>You are investigating whether there is seasonal variation in students’ bodyweight. In other words, is there any evidence that bodyweight differs across the four seasons (Winter, Spring, Summer, and Fall - #AllYouGotToDoIsCall)?</p>
+<p>You are investigating whether there is seasonal variation in students' bodyweight. In other words, is there any evidence that bodyweight differs across the four seasons (Winter, Spring, Summer, and Fall - #AllYouGotToDoIsCall)?</p>
 </blockquote>
 <p>Which of the models shown below would be the the general linear model corresponding to this study?</p>
 <ol style="list-style-type: decimal">
@@ -1862,7 +1873,7 @@ And sum up using:
 <li><span class="math inline">\(Y_{ij} = \beta_0 + \beta_1 X_1 + e_{ij}\)</span></li>
 <li><span class="math inline">\(Y_{ijkm} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + e_{ijkm}\)</span></li>
 </ol>
-<p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
 <div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="introduction-to-glm-one-factor-anova.html#cb517-1" aria-hidden="true" tabindex="-1"></a>mcq1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <hr />
 <p>For the next few questions consider the decomposition matrix for a one-factor design with three groups, shown below .</p>
@@ -1936,9 +1947,9 @@ And sum up using:
 <li>0</li>
 <li>6</li>
 <li>36</li>
-<li>can’t answer; not observed</li>
+<li>can't answer; not observed</li>
 </ol>
-<p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
 <div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="introduction-to-glm-one-factor-anova.html#cb518-1" aria-hidden="true" tabindex="-1"></a>mcq2 <span class="ot">&lt;-</span> <span class="cn">NULL</span> </span></code></pre></div>
 </div>
 <div id="Ch11AssignQueT3" class="section level3" number="11.4.3">
@@ -1948,15 +1959,15 @@ And sum up using:
 <li>6</li>
 <li>0</li>
 <li>1</li>
-<li>can’t answer; not observed</li>
+<li>can't answer; not observed</li>
 </ol>
-<p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
 <div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="introduction-to-glm-one-factor-anova.html#cb519-1" aria-hidden="true" tabindex="-1"></a>mcq3 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 </div>
 <div id="Ch11AssignQueT4" class="section level3" number="11.4.4">
 <h3><span class="header-section-number">11.4.4</span> Question 4</h3>
 <p>According to the above decomposition matrix, the predicted value for a participant in group 1 is what?</p>
-<p><strong>Hint</strong>: this is the “fitted” or “typical” for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
+<p><strong>Hint</strong>: this is the "fitted" or "typical" for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
 <p>Replace the NULL in the Q4 code chunk with the actual value of the correct answer (e.g a number).</p>
 <div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="introduction-to-glm-one-factor-anova.html#cb520-1" aria-hidden="true" tabindex="-1"></a>Q4 <span class="ot">&lt;-</span> <span class="cn">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></span></code></pre></div>
 </div>
@@ -1969,7 +1980,7 @@ And sum up using:
 <li><span class="math inline">\(Y_{31}\)</span></li>
 <li><span class="math inline">\(Y_{31}\)</span> and <span class="math inline">\(Y_{32}\)</span></li>
 </ol>
-<p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
+<p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
 <div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="introduction-to-glm-one-factor-anova.html#cb521-1" aria-hidden="true" tabindex="-1"></a>Q5 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 </div>
 <div id="Ch11AssignQueT6" class="section level3" number="11.4.6">
@@ -2812,8 +2823,8 @@ err
 <div id="inclass-step-5-version-2" class="section level4" number="11.5.1.6">
 <h4><span class="header-section-number">11.5.1.6</span> InClass Step 5 (version 2)</h4>
 <ul>
-<li><p>There is an alternative way to do the above in a supercool, superquick, two lines of code using dplyr’s “scoping” technique. Have a look at <code>?dplyr::scoped</code> and <code>?dplyr::summarise_all</code>.</p></li>
-<li><p>Don’t worry if you don’t understand this yet, as it is pretty advanced, but as you can see it gives the same output as we created in class.</p></li>
+<li><p>There is an alternative way to do the above in a supercool, superquick, two lines of code using dplyr's "scoping" technique. Have a look at <code>?dplyr::scoped</code> and <code>?dplyr::summarise_all</code>.</p></li>
+<li><p>Don't worry if you don't understand this yet, as it is pretty advanced, but as you can see it gives the same output as we created in class.</p></li>
 </ul>
 <div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="introduction-to-glm-one-factor-anova.html#cb532-1" aria-hidden="true" tabindex="-1"></a>sstbl <span class="ot">&lt;-</span> dmx4 <span class="sc">%&gt;%</span></span>
 <span id="cb532-2"><a href="introduction-to-glm-one-factor-anova.html#cb532-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Yij<span class="sc">:</span>err) <span class="sc">%&gt;%</span></span>
@@ -2857,7 +2868,7 @@ err
 </div>
 <div id="assignment-question-4" class="section level4" number="11.5.2.4">
 <h4><span class="header-section-number">11.5.2.4</span> Assignment Question 4</h4>
-<p>The “fitted” or “typical” value for a participant in Group 1 would be <span class="math inline">\(\hat{Y}_{ij}\)</span> = <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span></p>
+<p>The "fitted" or "typical" value for a participant in Group 1 would be <span class="math inline">\(\hat{Y}_{ij}\)</span> = <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span></p>
 <ul>
 <li>As such the correct answer is:</li>
 </ul>
@@ -3216,7 +3227,7 @@ err
 </table>
 </div>
 <p>If you have set-up <code>dmx</code> correctly then you will see the below message at the bottom of your knitted html file.</p>
-<p><strong>The tibble ‘dmx’ has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.</strong></p>
+<p><strong>The tibble 'dmx' has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.</strong></p>
 <div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="introduction-to-glm-one-factor-anova.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Don&#39;t change anything in this code chunk; it is just here to help you check  that you&#39;ve defined a table called `dmx` correctly. Pay attention to any warnings  that appear when you run this chunk. When the warning has gone away, that  means that the structure of `dmx` is correct (although it doesn&#39;t mean that the values are correct!)</span></span>
 <span id="cb542-2"><a href="introduction-to-glm-one-factor-anova.html#cb542-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb542-3"><a href="introduction-to-glm-one-factor-anova.html#cb542-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">identical</span>(<span class="fu">names</span>(dmx), <span class="fu">names</span>(dsetup)) <span class="sc">&amp;&amp;</span> </span>
@@ -3224,7 +3235,7 @@ err
 <span id="cb542-5"><a href="introduction-to-glm-one-factor-anova.html#cb542-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">warning</span>(<span class="st">&quot;The tibble &#39;dmx&#39; has been defined properly meaning that the column names (including capitalization), column data types, and tibble structure are as expected. However this does not guarantee that the values are correct and you should check these against the solution.&quot;</span>)</span>
 <span id="cb542-6"><a href="introduction-to-glm-one-factor-anova.html#cb542-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>If however you see the below, then you need to look again at the structure of <code>dmx</code></p>
-<p><strong>You have not yet defined the tibble ‘dmx’ properly, and in future assignments this may affect your overall grade. Check column names (including capitalization), column data types, and table structure.</strong></p>
+<p><strong>You have not yet defined the tibble 'dmx' properly, and in future assignments this may affect your overall grade. Check column names (including capitalization), column data types, and table structure.</strong></p>
 <p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT9">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
@@ -3388,6 +3399,10 @@ gitbook.start({
 "text": null
 },
 "download": {},
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
